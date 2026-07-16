@@ -17,7 +17,7 @@ background:#f1f8e9;
 }
 
 header{
-background:#0277bd;
+background:#2e7d32;
 color:white;
 text-align:center;
 padding:25px;
@@ -31,31 +31,27 @@ padding:20px;
 background:white;
 padding:20px;
 border-radius:15px;
-box-shadow:0 3px 10px #ccc;
 margin-bottom:20px;
+box-shadow:0 3px 10px #ccc;
 }
 
-h2{
-color:#0277bd;
-}
-
-.dashboard{
+.grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
 gap:15px;
 }
 
 .box{
-background:#e1f5fe;
+background:#e8f5e9;
 padding:20px;
-text-align:center;
 border-radius:15px;
+text-align:center;
 }
 
 .number{
 font-size:35px;
 font-weight:bold;
-color:#01579b;
+color:#1b5e20;
 }
 
 table{
@@ -65,7 +61,7 @@ margin-top:20px;
 }
 
 th{
-background:#0277bd;
+background:#388e3c;
 color:white;
 padding:12px;
 }
@@ -79,7 +75,7 @@ border-bottom:1px solid #ddd;
 .back{
 display:inline-block;
 margin-top:20px;
-background:#0277bd;
+background:#388e3c;
 color:white;
 padding:12px 20px;
 border-radius:10px;
@@ -99,8 +95,8 @@ text-decoration:none;
 <h1>🏞️ แหล่งท่องเที่ยวชุมชน</h1>
 
 <p>
-แหล่งซับน้ำจำ บ้านร่องเข็ม หมู่ที่ 6<br>
-ตำบลจำป่าหวาย จังหวัดพะเยา
+Rongkhem Smart Village<br>
+บ้านร่องเข็ม หมู่ที่ 6 ตำบลจำป่าหวาย จังหวัดพะเยา
 </p>
 
 </header>
@@ -115,34 +111,34 @@ text-decoration:none;
 <h2>📊 ข้อมูลแหล่งท่องเที่ยว</h2>
 
 
-<div class="dashboard">
+<div class="grid">
 
 
 <div class="box">
-🌱 แหล่งเรียนรู้
+🌳 แหล่งธรรมชาติ
 <div class="number">1</div>
 แห่ง
 </div>
 
 
 <div class="box">
-💧 แหล่งน้ำธรรมชาติ
+💧 แหล่งเรียนรู้
 <div class="number">1</div>
 แห่ง
 </div>
 
 
 <div class="box">
-🌳 พื้นที่อนุรักษ์
-<div class="number">1</div>
-แห่ง
-</div>
-
-
-<div class="box">
-👥 ผู้เข้าชมกิจกรรม
+👥 กิจกรรมชุมชน
 <div class="number">-</div>
-คน
+กิจกรรม
+</div>
+
+
+<div class="box">
+📸 จุดท่องเที่ยว
+<div class="number">-</div>
+จุด
 </div>
 
 
@@ -155,41 +151,73 @@ text-decoration:none;
 
 <div class="card">
 
-<h2>📍 รายละเอียดแหล่งท่องเที่ยว</h2>
+<h2>🌱 รายละเอียดแหล่งท่องเที่ยว</h2>
 
 
 <table>
 
 <tr>
+
 <th>ลำดับ</th>
-<th>ชื่อสถานที่</th>
-<th>ประเภท</th>
+<th>สถานที่</th>
 <th>รายละเอียด</th>
+<th>กิจกรรม</th>
+
 </tr>
 
 
 <tr>
+
 <td>1</td>
 <td>แหล่งซับน้ำจำ</td>
-<td>ธรรมชาติ</td>
 <td>
-พื้นที่ชุ่มน้ำ แหล่งเรียนรู้ระบบนิเวศ
-และความหลากหลายทางชีวภาพของชุมชน
+พื้นที่ธรรมชาติ แหล่งน้ำสำคัญของชุมชน
+เป็นแหล่งเรียนรู้ระบบนิเวศ
 </td>
+
+<td>
+ศึกษาธรรมชาติ<br>
+อนุรักษ์ทรัพยากร
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td>2</td>
+<td>วัดร่องเข็ม</td>
+<td>
+ศูนย์รวมจิตใจและวัฒนธรรมชุมชน
+</td>
+
+<td>
+ประเพณี<br>
+กิจกรรมบุญ
+</td>
+
 </tr>
 
 
 <tr>
-<td>2</td>
-<td>วิถีชีวิตบ้านร่องเข็ม</td>
-<td>ชุมชน</td>
+
+<td>3</td>
+<td>วิถีเกษตรบ้านร่องเข็ม</td>
 <td>
 เรียนรู้การเกษตรและภูมิปัญญาท้องถิ่น
 </td>
+
+<td>
+เกษตรอินทรีย์<br>
+การแปรรูป
+</td>
+
 </tr>
 
 
 </table>
+
 
 
 <a class="back" href="dashboard.html">
