@@ -4,16 +4,15 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>โครงสร้างชุมชน | Rongkhem Smart Village</title>
+<title>จัดการโครงสร้างชุมชน</title>
 
 <style>
 
 body{
-margin:0;
-font-family:Tahoma,Arial,sans-serif;
+font-family:Tahoma;
 background:#f1f8e9;
+margin:0;
 }
 
 header{
@@ -36,74 +35,29 @@ box-shadow:0 3px 10px #ccc;
 }
 
 
-.people{
+input,textarea{
 
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-
-}
-
-
-.person{
-
-background:#e8f5e9;
-padding:20px;
-border-radius:15px;
-text-align:center;
-
-}
-
-
-.person img{
-
-width:130px;
-height:130px;
-border-radius:50%;
-object-fit:cover;
-border:5px solid white;
-
-}
-
-
-.name{
-
-font-size:20px;
-font-weight:bold;
-color:#1b5e20;
-
-}
-
-
-.position{
-
-color:#555;
-margin:10px;
-
-}
-
-
-.phone{
-
-background:#388e3c;
-color:white;
-padding:8px;
+width:100%;
+padding:12px;
+margin:8px 0;
 border-radius:10px;
+border:1px solid #ccc;
 
 }
 
 
-.back{
+button{
 
-display:block;
-background:#388e3c;
+background:#2e7d32;
 color:white;
 padding:15px;
+border:0;
 border-radius:10px;
-text-align:center;
-text-decoration:none;
+width:100%;
+font-size:18px;
 
 }
+
 
 </style>
 
@@ -115,14 +69,9 @@ text-decoration:none;
 
 <header>
 
-<h1>🏛️ โครงสร้างชุมชน</h1>
+<h1>🏛️ จัดการโครงสร้างชุมชน</h1>
 
-<h2>Rongkhem Smart Village</h2>
-
-<p>
-บ้านร่องเข็ม หมู่ที่ 6<br>
-ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา
-</p>
+<p>Rongkhem Smart Village</p>
 
 </header>
 
@@ -131,12 +80,42 @@ text-decoration:none;
 <div class="container">
 
 
-<div id="content"></div>
+<div class="card">
 
 
-<a class="back" href="dashboard.html">
-⬅ กลับ Dashboard
-</a>
+<h2>👤 ผู้นำหมู่บ้าน</h2>
+
+
+<label>ชื่อ</label>
+
+<input id="leader">
+
+
+<label>ตำแหน่ง</label>
+
+<input id="position">
+
+
+<label>เบอร์โทร</label>
+
+<input id="phone">
+
+
+<label>หน้าที่</label>
+
+<textarea id="duty"></textarea>
+
+
+</div>
+
+
+
+<button onclick="save()">
+
+💾 บันทึกข้อมูล
+
+</button>
+
 
 
 </div>
@@ -146,140 +125,40 @@ text-decoration:none;
 <script>
 
 
-fetch("../data/organization.json")
-
-.then(res=>res.json())
-
-.then(data=>{
+function save(){
 
 
-let html="";
+let data={
+
+leader:
+leader.value,
+
+position:
+position.value,
+
+phone:
+phone.value,
+
+duty:
+duty.value
+
+};
 
 
-function createGroup(title,icon,persons){
+localStorage.setItem(
+"organization",
+JSON.stringify(data)
+);
 
 
-html+=`
+alert("บันทึกข้อมูลแล้ว");
 
-<div class="card">
-
-<h2>${icon} ${title}</h2>
-
-<div class="people">
-
-`;
-
-
-
-persons.forEach(p=>{
-
-
-html+=`
-
-<div class="person">
-
-
-<img src="${p.image}" 
-onerror="this.src='../images/default.png'">
-
-
-<div class="name">
-${p.name}
-</div>
-
-
-<div class="position">
-${p.position}
-</div>
-
-
-<div>
-📞 ${p.phone || "-"}
-</div>
-
-
-<p>
-${p.duty || ""}
-</p>
-
-
-</div>
-
-
-`;
-
-});
-
-
-html+=`
-
-</div>
-
-</div>
-
-`;
 
 }
 
 
-
-createGroup(
-"ผู้นำหมู่บ้าน",
-"👤",
-data.leader
-);
-
-
-createGroup(
-"คณะกรรมการหมู่บ้าน",
-"🏛️",
-data.committee
-);
-
-
-createGroup(
-"อสม.",
-"🩺",
-data.health
-);
-
-
-createGroup(
-"กลุ่มแม่บ้าน",
-"👩",
-data.women
-);
-
-
-createGroup(
-"ชมรมผู้สูงอายุ",
-"👴",
-data.elderly
-);
-
-
-createGroup(
-"ชรบ.",
-"🛡️",
-data.vrv
-);
-
-
-createGroup(
-"อปพร.",
-"🚒",
-data.oporor
-);
-
-
-
-document.getElementById("content").innerHTML=html;
-
-
-});
-
-
 </script>
+
 
 
 </body>
