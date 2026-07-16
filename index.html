@@ -1,29 +1,37 @@
 <!DOCTYPE html>
 <html lang="th">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Rongkhem Smart Village</title>
 
 <style>
+*{
+box-sizing:border-box;
+font-family:"Tahoma",sans-serif;
+}
 
 body{
 margin:0;
-font-family:Tahoma,Arial,sans-serif;
 background:#f1f8e9;
+color:#333;
 }
-
 
 header{
-background:linear-gradient(135deg,#2e7d32,#66bb6a);
+background:linear-gradient(135deg,#1b5e20,#66bb6a);
 color:white;
-text-align:center;
 padding:30px;
+text-align:center;
 }
 
+.logo{
+font-size:70px;
+}
+
+h1{
+margin:10px 0;
+}
 
 .container{
 padding:20px;
@@ -31,92 +39,73 @@ max-width:1200px;
 margin:auto;
 }
 
-
 .card{
 background:white;
+border-radius:20px;
 padding:20px;
-border-radius:18px;
 margin-bottom:20px;
-box-shadow:0 4px 15px #ccc;
+box-shadow:0 5px 15px #ccc;
 }
 
-
-.grid{
-
+.stats{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
 gap:15px;
-
 }
 
-
-.box{
-
+.stat{
 background:#e8f5e9;
 padding:20px;
 border-radius:15px;
 text-align:center;
-
 }
-
-
-.icon{
-font-size:35px;
-}
-
 
 .number{
-
 font-size:35px;
 font-weight:bold;
-color:#1b5e20;
-
+color:#2e7d32;
 }
-
 
 .menu{
-
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
 gap:15px;
-
 }
-
 
 .menu a{
-
-background:#388e3c;
-color:white;
-padding:18px;
+background:white;
+padding:20px;
 border-radius:15px;
 text-decoration:none;
+color:#1b5e20;
 text-align:center;
 font-size:18px;
-
+box-shadow:0 3px 10px #ccc;
 }
 
+.menu a:hover{
+background:#c8e6c9;
+}
 
 footer{
-
-background:#2e7d32;
+background:#1b5e20;
 color:white;
 text-align:center;
 padding:20px;
-
 }
 
 </style>
 
 </head>
 
-
-
 <body>
 
 
 <header>
 
-<h1>🏡 Rongkhem Smart Village</h1>
+<div class="logo">🏡</div>
+
+<h1>Rongkhem Smart Village</h1>
 
 <h2>ระบบบริหารจัดการหมู่บ้านอัจฉริยะ</h2>
 
@@ -132,79 +121,59 @@ padding:20px;
 <div class="container">
 
 
-
 <div class="card">
 
 <h2>📊 ข้อมูลภาพรวมหมู่บ้าน</h2>
 
 
-<div class="grid">
+<div class="stats">
 
 
-<div class="box">
-<div class="icon">👥</div>
+<div class="stat">
+👥
+<div class="number">1,021</div>
 ประชากร
-<div class="number">
-1,021
-</div>
-คน
 </div>
 
 
-<div class="box">
-<div class="icon">🏠</div>
+<div class="stat">
+🏠
+<div class="number">75</div>
 ครัวเรือน
-<div class="number">
-75
-</div>
-หลัง
 </div>
 
 
-<div class="box">
-<div class="icon">👴</div>
+<div class="stat">
+👴
+<div class="number">91</div>
 ผู้สูงอายุ
-<div class="number">
-91
-</div>
-คน
 </div>
 
 
-<div class="box">
-<div class="icon">❤️</div>
+<div class="stat">
+❤️
+<div class="number">3</div>
 ผู้พิการ
-<div class="number">
-3
-</div>
-คน
 </div>
 
 
-<div class="box">
-<div class="icon">🩺</div>
+<div class="stat">
+🩺
+<div class="number">20</div>
 อสม.
-<div class="number">
-20
-</div>
-คน
 </div>
 
 
-<div class="box">
-<div class="icon">🛡️</div>
+<div class="stat">
+🛡️
+<div class="number">15</div>
 ชรบ.
-<div class="number">
-15
-</div>
-คน
 </div>
 
 
 </div>
 
 </div>
-
 
 
 
@@ -217,6 +186,16 @@ padding:20px;
 <div class="menu">
 
 
+<a href="pages/dashboard.html">
+📊 Dashboard
+</a>
+
+
+<a href="pages/village.html">
+📖 ข้อมูลหมู่บ้าน
+</a>
+
+
 <a href="pages/citizen.html">
 👥 ทะเบียนประชาชน
 </a>
@@ -227,18 +206,18 @@ padding:20px;
 </a>
 
 
-<a href="pages/leader.html">
-👤 ทำเนียบผู้นำหมู่บ้าน
+<a href="pages/organization.html">
+👤 ทำเนียบผู้นำ
 </a>
 
 
-<a href="pages/organization.html">
-🏛️ โครงสร้างชุมชน
+<a href="pages/committee.html">
+🏛️ คณะกรรมการหมู่บ้าน
 </a>
 
 
 <a href="pages/health.html">
-🩺 ระบบสุขภาพ อสม.
+🩺 อสม.
 </a>
 
 
@@ -247,86 +226,72 @@ padding:20px;
 </a>
 
 
+<a href="pages/oporor.html">
+🚒 อปพร.
+</a>
+
+
+<a href="pages/elderly.html">
+👴 ผู้สูงอายุ
+</a>
+
+
 <a href="pages/vulnerable.html">
 ❤️ กลุ่มเปราะบาง
 </a>
 
 
-<a href="pages/tourism.html">
-🌱 แหล่งซับน้ำจำ
+<a href="pages/temple.html">
+🛕 วัดร่องเข็ม
 </a>
 
 
-<a href="pages/enterprise.html">
-💼 วิสาหกิจชุมชน
+<a href="pages/map.html">
+🗺️ แผนที่หมู่บ้าน
 </a>
 
 
-<a href="pages/report.html">
-📄 รายงานเอกสาร
+<a href="pages/reports.html">
+📄 รายงาน
 </a>
 
 
 </div>
 
 </div>
-
 
 
 
 
 <div class="card">
 
+<h2>🌳 การพัฒนาหมู่บ้าน</h2>
 
-<h2>🌳 แผนพัฒนาหมู่บ้าน</h2>
+<p>✅ แผนจัดการทรัพยากรธรรมชาติและสิ่งแวดล้อม</p>
 
+<p>✅ การลดการเผาและแก้ไขปัญหา PM2.5</p>
 
-<p>
-✅ แผนจัดการทรัพยากรธรรมชาติและสิ่งแวดล้อม
-</p>
+<p>✅ การพัฒนาแหล่งซับน้ำจำ</p>
 
+<p>✅ การส่งเสริมเศรษฐกิจชุมชน</p>
 
-<p>
-✅ การลดการเผาและแก้ไขปัญหา PM2.5
-</p>
-
-
-<p>
-✅ การพัฒนาแหล่งซับน้ำจำ
-</p>
-
-
-<p>
-✅ การส่งเสริมเศรษฐกิจชุมชน
-</p>
-
-
-<p>
-✅ การพัฒนาหมู่บ้านอัจฉริยะ
-</p>
-
+<p>✅ การสร้างหมู่บ้านอัจฉริยะ</p>
 
 </div>
 
 
-
 </div>
-
 
 
 
 <footer>
 
-© 2569 Rongkhem Smart Village
-
+Rongkhem Smart Village  
 <br>
-
-บ้านร่องเข็ม หมู่ที่ 6
+บ้านร่องเข็ม หมู่ที่ 6 จังหวัดพะเยา
 
 </footer>
 
 
-
 </body>
-
 </html>
