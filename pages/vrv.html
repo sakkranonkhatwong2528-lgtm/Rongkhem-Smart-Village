@@ -17,7 +17,7 @@ background:#f1f8e9;
 }
 
 header{
-background:#1b5e20;
+background:#2e7d32;
 color:white;
 text-align:center;
 padding:25px;
@@ -31,15 +31,11 @@ padding:20px;
 background:white;
 padding:20px;
 border-radius:15px;
-box-shadow:0 3px 10px #ccc;
 margin-bottom:20px;
+box-shadow:0 3px 10px #ccc;
 }
 
-h2{
-color:#1b5e20;
-}
-
-.dashboard{
+.grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
 gap:15px;
@@ -48,8 +44,8 @@ gap:15px;
 .box{
 background:#e8f5e9;
 padding:20px;
-text-align:center;
 border-radius:15px;
+text-align:center;
 }
 
 .number{
@@ -57,6 +53,7 @@ font-size:35px;
 font-weight:bold;
 color:#1b5e20;
 }
+
 
 table{
 width:100%;
@@ -75,6 +72,7 @@ padding:10px;
 text-align:center;
 border-bottom:1px solid #ddd;
 }
+
 
 .back{
 display:inline-block;
@@ -96,10 +94,10 @@ text-decoration:none;
 
 <header>
 
-<h1>🛡️ ระบบ ชรบ.</h1>
+<h1>🛡️ ชรบ. หมู่บ้าน</h1>
 
 <p>
-ชุดรักษาความปลอดภัยหมู่บ้าน<br>
+Rongkhem Smart Village<br>
 บ้านร่องเข็ม หมู่ที่ 6 ตำบลจำป่าหวาย จังหวัดพะเยา
 </p>
 
@@ -112,10 +110,10 @@ text-decoration:none;
 
 <div class="card">
 
-<h2>📊 ข้อมูล ชรบ.</h2>
+<h2>📊 ข้อมูลชุดรักษาความปลอดภัยหมู่บ้าน</h2>
 
 
-<div class="dashboard">
+<div class="grid">
 
 
 <div class="box">
@@ -126,23 +124,23 @@ text-decoration:none;
 
 
 <div class="box">
-👮 ปฏิบัติหน้าที่
-<div class="number">-</div>
-คน
-</div>
-
-
-<div class="box">
-🌙 เวรยามกลางคืน
-<div class="number">-</div>
-คน
-</div>
-
-
-<div class="box">
-🚨 เหตุการณ์แจ้งเตือน
+🚓 งานรักษาความสงบ
 <div class="number">-</div>
 ครั้ง
+</div>
+
+
+<div class="box">
+🌙 ตรวจเวรยาม
+<div class="number">-</div>
+ครั้ง
+</div>
+
+
+<div class="box">
+👥 สมาชิกปฏิบัติงาน
+<div class="number">15</div>
+คน
 </div>
 
 
@@ -155,44 +153,55 @@ text-decoration:none;
 
 <div class="card">
 
+
 <h2>📋 รายชื่อ ชรบ.</h2>
 
 
 <table>
 
+
 <tr>
+
 <th>ลำดับ</th>
 <th>ชื่อ-สกุล</th>
-<th>ตำแหน่ง</th>
 <th>หน้าที่</th>
+<th>สถานะ</th>
+
 </tr>
 
 
 <tr>
+
 <td>1</td>
 <td>นายตัวอย่าง ใจดี</td>
-<td>ชรบ.</td>
-<td>รักษาความสงบเรียบร้อย</td>
+<td>หัวหน้าชุด</td>
+<td>ปฏิบัติหน้าที่</td>
+
 </tr>
 
 
 <tr>
+
 <td>2</td>
-<td>นายสมชาย ตัวอย่าง</td>
-<td>ชรบ.</td>
-<td>ดูแลความปลอดภัยชุมชน</td>
+<td>นายตัวอย่าง ร่องเข็ม</td>
+<td>ชุดรักษาความปลอดภัย</td>
+<td>ปฏิบัติหน้าที่</td>
+
 </tr>
 
 
 <tr>
+
 <td>3</td>
 <td>นายตัวอย่าง พัฒนา</td>
-<td>หัวหน้าชุด</td>
-<td>ประสานงานเหตุฉุกเฉิน</td>
+<td>เวรยาม</td>
+<td>ปฏิบัติหน้าที่</td>
+
 </tr>
 
 
 </table>
+
 
 
 <a class="back" href="dashboard.html">
