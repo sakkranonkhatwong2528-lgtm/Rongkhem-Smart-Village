@@ -2,70 +2,127 @@
 <html lang="th">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Login | Rongkhem Smart Village</title>
 
+
 <style>
 
 body{
+
 margin:0;
-font-family:Tahoma,Arial;
+font-family:Tahoma,Arial,sans-serif;
 background:#f1f8e9;
+
 height:100vh;
 display:flex;
-align-items:center;
 justify-content:center;
+align-items:center;
+
 }
 
-.box{
+
+.login{
 
 background:white;
 width:350px;
 padding:30px;
 border-radius:20px;
-text-align:center;
+
 box-shadow:0 5px 15px #ccc;
 
+text-align:center;
+
 }
 
-h1{
-color:#2e7d32;
+
+.logo{
+
+font-size:60px;
+
 }
+
+
+h1{
+
+color:#2e7d32;
+margin:10px;
+
+}
+
 
 input{
 
 width:90%;
 padding:12px;
-margin:10px;
-border-radius:10px;
+margin:10px 0;
+
 border:1px solid #ccc;
 
+border-radius:10px;
+
+font-size:16px;
+
 }
+
 
 
 button{
 
 width:95%;
+
 padding:15px;
+
 background:#2e7d32;
+
 color:white;
+
 border:none;
+
 border-radius:10px;
+
 font-size:18px;
 
+cursor:pointer;
+
 }
+
+
+
+button:hover{
+
+background:#1b5e20;
+
+}
+
 
 
 #error{
 
 color:red;
+
 margin-top:15px;
 
 }
 
+
+
+.footer{
+
+margin-top:20px;
+
+font-size:14px;
+
+color:#777;
+
+}
+
+
 </style>
+
 
 </head>
 
@@ -73,58 +130,112 @@ margin-top:15px;
 <body>
 
 
-<div class="box">
+
+<div class="login">
 
 
-<h1>🏡 Rongkhem</h1>
+<div class="logo">
 
-<h2>🔐 ผู้ดูแลระบบ</h2>
+🏡
 
-
-<input id="user" placeholder="ชื่อผู้ใช้">
-
-
-<input id="pass" type="password" placeholder="รหัสผ่าน">
+</div>
 
 
-<button onclick="checkLogin()">
+<h1>
+
+Rongkhem
+
+</h1>
+
+
+<h2>
+
+🔐 ผู้ดูแลระบบ
+
+</h2>
+
+
+
+<input 
+id="username"
+placeholder="ชื่อผู้ใช้"
+>
+
+
+
+<input 
+id="password"
+type="password"
+placeholder="รหัสผ่าน"
+>
+
+
+
+<button onclick="login()">
 
 เข้าสู่ระบบ
 
 </button>
 
 
+
 <div id="error"></div>
+
+
+
+<div class="footer">
+
+Rongkhem Smart Village<br>
+
+บ้านร่องเข็ม หมู่ที่ 6
+
+</div>
 
 
 </div>
 
 
 
+
 <script>
 
 
-function checkLogin(){
+function login(){
 
 
-let user=document.getElementById("user").value;
+let username =
+document.getElementById("username").value.trim();
 
-let pass=document.getElementById("pass").value;
+
+let password =
+document.getElementById("password").value.trim();
 
 
 
 if(
-user=="sakkranon2528"
+username === "sakkranon2528"
 &&
-pass=="12345678"
+password === "12345678"
+
 ){
+
+
+localStorage.setItem(
+"adminLogin",
+"true"
+);
+
 
 
 alert("✅ เข้าสู่ระบบสำเร็จ");
 
 
-window.location.href=
-"https://sakkranonkhatwong2528-lgtm.github.io/Rongkhem-Smart-Village/admin.html";
+
+// ไปหน้า admin
+
+window.location.href =
+"../admin.html";
+
 
 
 }
@@ -132,17 +243,19 @@ window.location.href=
 else{
 
 
-document.getElementById("error").innerHTML=
-"❌ ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง";
+document.getElementById("error").innerHTML =
+"❌ ข้อมูลเข้าสู่ระบบไม่ถูกต้อง";
 
 
 }
+
 
 
 }
 
 
 </script>
+
 
 
 </body>
