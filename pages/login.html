@@ -2,50 +2,215 @@
 <html lang="th">
 
 <head>
+
 <meta charset="UTF-8">
-<title>Rongkhem Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login | Rongkhem Smart Village</title>
 
 <style>
 
-body{
-font-family:Tahoma;
-background:#e8f5e9;
-display:flex;
-height:100vh;
-align-items:center;
-justify-content:center;
+*{
+box-sizing:border-box;
 }
 
-.box{
-background:white;
-padding:30px;
-border-radius:20px;
-text-align:center;
-box-shadow:0 5px 15px #999;
-width:320px;
+body{
+
+margin:0;
+font-family:"Tahoma",Arial,sans-serif;
+
+height:100vh;
+
+background:
+linear-gradient(
+135deg,
+#2e7d32,
+#81c784
+);
+
+display:flex;
+justify-content:center;
+align-items:center;
+
 }
+
+
+
+.login-box{
+
+width:380px;
+
+background:white;
+
+border-radius:25px;
+
+padding:35px;
+
+box-shadow:
+0 10px 30px rgba(0,0,0,0.25);
+
+text-align:center;
+
+}
+
+
+
+.logo{
+
+font-size:70px;
+
+}
+
+
+
+h1{
+
+color:#2e7d32;
+
+margin:5px;
+
+font-size:32px;
+
+}
+
+
+
+h2{
+
+color:#555;
+
+font-weight:normal;
+
+margin-bottom:30px;
+
+}
+
+
+
+.input-box{
+
+text-align:left;
+
+margin-bottom:15px;
+
+}
+
+
+
+label{
+
+color:#2e7d32;
+
+font-weight:bold;
+
+}
+
+
 
 input{
-width:90%;
-padding:12px;
-margin:10px;
+
+width:100%;
+
+padding:15px;
+
+margin-top:5px;
+
+border-radius:12px;
+
+border:1px solid #ccc;
+
+font-size:16px;
+
 }
+
+
+
+input:focus{
+
+outline:none;
+
+border-color:#2e7d32;
+
+box-shadow:0 0 5px #81c784;
+
+}
+
+
 
 button{
-width:95%;
-padding:12px;
+
+width:100%;
+
+padding:15px;
+
+border:none;
+
+border-radius:15px;
+
 background:#2e7d32;
+
 color:white;
-border:0;
-border-radius:10px;
+
 font-size:18px;
+
+cursor:pointer;
+
+margin-top:15px;
+
 }
 
-#error{
-color:red;
+
+
+button:hover{
+
+background:#1b5e20;
+
 }
+
+
+
+.error{
+
+color:red;
+
+margin-top:15px;
+
+}
+
+
+
+.footer{
+
+margin-top:25px;
+
+font-size:14px;
+
+color:#777;
+
+}
+
+
+
+.badge{
+
+display:inline-block;
+
+background:#e8f5e9;
+
+color:#2e7d32;
+
+padding:8px 15px;
+
+border-radius:20px;
+
+margin-top:10px;
+
+}
+
+
 
 </style>
+
 
 </head>
 
@@ -53,56 +218,138 @@ color:red;
 <body>
 
 
-<div class="box">
 
-<h1>🏡 Rongkhem</h1>
-
-<h2>🔐 ผู้ดูแลระบบ</h2>
+<div class="login-box">
 
 
-<input id="user" placeholder="ชื่อผู้ใช้">
+<div class="logo">
+🏡
+</div>
 
 
-<input id="pass" type="password" placeholder="รหัสผ่าน">
+<h1>
+Rongkhem
+</h1>
 
 
-<button onclick="check()">
+<h2>
+Smart Village
+</h2>
+
+
+<div class="badge">
+🔐 ผู้ดูแลระบบ
+</div>
+
+
+
+<div class="input-box">
+
+<label>
+ชื่อผู้ใช้
+</label>
+
+<input 
+id="user"
+placeholder="กรอกชื่อผู้ใช้">
+
+</div>
+
+
+
+<div class="input-box">
+
+<label>
+รหัสผ่าน
+</label>
+
+<input 
+id="pass"
+type="password"
+placeholder="กรอกรหัสผ่าน">
+
+</div>
+
+
+
+
+<button onclick="login()">
+
 เข้าสู่ระบบ
+
 </button>
 
 
-<p id="error"></p>
+
+<div class="error" id="error"></div>
+
+
+
+
+<div class="footer">
+
+ระบบบริหารจัดการหมู่บ้านอัจฉริยะ<br>
+
+บ้านร่องเข็ม หมู่ที่ 6<br>
+
+ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา
+
+</div>
+
 
 
 </div>
 
 
 
+
 <script>
 
-function check(){
 
-let u=document.getElementById("user").value;
-let p=document.getElementById("pass").value;
+function login(){
 
 
-if(u=="admin" && p=="1234"){
+let user =
+document.getElementById("user").value;
 
-window.location="../admin.html";
+
+let pass =
+document.getElementById("pass").value;
+
+
+
+if(user=="admin" && pass=="1234"){
+
+
+localStorage.setItem(
+"login",
+"true"
+);
+
+
+window.location.href="../admin.html";
+
 
 }
 
 else{
 
+
 document.getElementById("error").innerHTML=
-"❌ ข้อมูลเข้าสู่ระบบไม่ถูกต้อง";
+"❌ ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง";
+
 
 }
 
+
+
 }
+
 
 </script>
 
 
+
 </body>
+
 </html>
