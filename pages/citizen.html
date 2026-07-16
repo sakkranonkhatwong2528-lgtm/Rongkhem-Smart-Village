@@ -2,6 +2,7 @@
 <html lang="th">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,98 +11,60 @@
 <style>
 
 body{
-    margin:0;
-    font-family:Tahoma,sans-serif;
-    background:#f1f8e9;
+margin:0;
+font-family:Tahoma,Arial,sans-serif;
+background:#f1f8e9;
 }
 
 header{
-    background:#2e7d32;
-    color:white;
-    text-align:center;
-    padding:25px;
+background:#2e7d32;
+color:white;
+text-align:center;
+padding:25px;
 }
 
 .container{
-    padding:20px;
+padding:20px;
 }
 
 .card{
-    background:white;
-    padding:20px;
-    border-radius:15px;
-    box-shadow:0 3px 10px #ccc;
-    margin-bottom:20px;
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 3px 10px #ccc;
 }
-
-h2{
-    color:#2e7d32;
-}
-
-
-.dashboard{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:15px;
-}
-
-
-.box{
-    background:#e8f5e9;
-    padding:20px;
-    text-align:center;
-    border-radius:15px;
-}
-
-
-.number{
-    font-size:35px;
-    font-weight:bold;
-    color:#1b5e20;
-}
-
-
-
-input{
-    width:90%;
-    padding:12px;
-    border-radius:10px;
-    border:1px solid #ccc;
-}
-
 
 
 table{
-    width:100%;
-    border-collapse:collapse;
-    margin-top:20px;
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
 }
 
 
 th{
-    background:#388e3c;
-    color:white;
-    padding:12px;
+background:#388e3c;
+color:white;
+padding:12px;
 }
 
 
 td{
-    padding:10px;
-    text-align:center;
-    border-bottom:1px solid #ddd;
+padding:10px;
+text-align:center;
+border-bottom:1px solid #ddd;
 }
-
 
 
 .back{
-    display:inline-block;
-    margin-top:20px;
-    background:#388e3c;
-    color:white;
-    padding:12px 20px;
-    border-radius:10px;
-    text-decoration:none;
+display:inline-block;
+background:#388e3c;
+color:white;
+padding:12px 20px;
+border-radius:10px;
+text-decoration:none;
 }
+
 
 </style>
 
@@ -117,7 +80,7 @@ td{
 
 <p>
 Rongkhem Smart Village<br>
-บ้านร่องเข็ม หมู่ที่ 6 ตำบลจำป่าหวาย จังหวัดพะเยา
+บ้านร่องเข็ม หมู่ที่ 6 จังหวัดพะเยา
 </p>
 
 </header>
@@ -127,58 +90,9 @@ Rongkhem Smart Village<br>
 <div class="container">
 
 
-
-<div class="card">
-
-<h2>📊 สรุปข้อมูลประชาชน</h2>
-
-
-<div class="dashboard">
-
-
-<div class="box">
-👥 ประชาชนทั้งหมด
-<div class="number">202</div>
-คน
-</div>
-
-
-<div class="box">
-👨 ชาย
-<div class="number">97</div>
-คน
-</div>
-
-
-<div class="box">
-👩 หญิง
-<div class="number">105</div>
-คน
-</div>
-
-
-<div class="box">
-👴 ผู้สูงอายุ
-<div class="number">91</div>
-คน
-</div>
-
-
-</div>
-
-</div>
-
-
-
-
-<div class="card">
-
-<h2>🔍 ค้นหารายชื่อประชาชน</h2>
-
-<input type="text" placeholder="พิมพ์ชื่อประชาชน...">
-
-</div>
-
+<a class="back" href="dashboard.html">
+⬅ กลับ Dashboard
+</a>
 
 
 
@@ -190,56 +104,88 @@ Rongkhem Smart Village<br>
 
 <table>
 
+
+<thead>
+
 <tr>
+
 <th>ลำดับ</th>
-<th>ชื่อ-สกุล</th>
+<th>ชื่อ-นามสกุล</th>
 <th>เพศ</th>
 <th>อายุ</th>
-<th>ประเภท</th>
+<th>อาชีพ</th>
+<th>บ้านเลขที่</th>
+
 </tr>
 
-
-<tr>
-<td>1</td>
-<td>นายตัวอย่าง ใจดี</td>
-<td>ชาย</td>
-<td>55</td>
-<td>ประชาชนทั่วไป</td>
-</tr>
+</thead>
 
 
-<tr>
-<td>2</td>
-<td>นางตัวอย่าง ใจดี</td>
-<td>หญิง</td>
-<td>65</td>
-<td>ผู้สูงอายุ</td>
-</tr>
+<tbody id="citizen">
 
-
-<tr>
-<td>3</td>
-<td>เด็กตัวอย่าง ร่องเข็ม</td>
-<td>ชาย</td>
-<td>12</td>
-<td>เยาวชน</td>
-</tr>
+</tbody>
 
 
 </table>
 
 
-
-<a class="back" href="dashboard.html">
-⬅ กลับ Dashboard
-</a>
+</div>
 
 
 </div>
 
 
 
-</div>
+
+<script>
+
+
+fetch("../data/citizen.json")
+
+
+.then(response=>response.json())
+
+
+.then(data=>{
+
+
+let table=document.getElementById("citizen");
+
+
+data.forEach((item,index)=>{
+
+
+table.innerHTML += `
+
+<tr>
+
+<td>${index+1}</td>
+
+<td>${item.name}</td>
+
+<td>${item.gender}</td>
+
+<td>${item.age}</td>
+
+<td>${item.career}</td>
+
+<td>${item.house_no}</td>
+
+</tr>
+
+`;
+
+
+});
+
+
+})
+
+
+.catch(error=>console.log(error));
+
+
+</script>
 
 
 
