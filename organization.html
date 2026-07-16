@@ -6,61 +6,42 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>โครงสร้างผู้นำ | Rongkhem Smart Village</title>
+<title>โครงสร้างผู้นำหมู่บ้าน | Rongkhem Smart Village</title>
 
 <style>
 
 body{
 margin:0;
-font-family:Tahoma,Arial;
+font-family:Tahoma,Arial,sans-serif;
 background:#f1f8e9;
 }
 
+
 header{
-background:#2e7d32;
+background:linear-gradient(135deg,#1b5e20,#66bb6a);
 color:white;
 text-align:center;
-padding:25px;
+padding:30px;
 }
+
 
 .container{
-padding:20px;
-max-width:1000px;
+max-width:1100px;
 margin:auto;
+padding:20px;
 }
+
 
 .card{
+
 background:white;
-padding:20px;
-border-radius:15px;
+padding:25px;
+border-radius:20px;
 margin-bottom:20px;
-box-shadow:0 3px 10px #ccc;
+box-shadow:0 4px 15px #ccc;
+
 }
 
-.profile{
-display:flex;
-align-items:center;
-gap:20px;
-flex-wrap:wrap;
-}
-
-.profile img{
-width:150px;
-height:150px;
-border-radius:50%;
-object-fit:cover;
-border:5px solid #2e7d32;
-}
-
-.name{
-font-size:25px;
-font-weight:bold;
-color:#1b5e20;
-}
-
-.position{
-font-size:18px;
-}
 
 input,select,textarea{
 
@@ -69,41 +50,104 @@ padding:12px;
 margin:8px 0;
 border-radius:10px;
 border:1px solid #ccc;
+font-size:16px;
 
 }
+
 
 button{
 
 background:#2e7d32;
 color:white;
-padding:15px;
 border:0;
+padding:12px;
 border-radius:10px;
+cursor:pointer;
+font-size:16px;
+
+}
+
+
+.save{
+
 width:100%;
 font-size:18px;
 
 }
 
-.member{
+
+.profile{
+
+display:flex;
+align-items:center;
+gap:20px;
+flex-wrap:wrap;
 
 background:#e8f5e9;
-padding:15px;
+padding:20px;
 border-radius:15px;
-margin-top:15px;
 
 }
+
+
+.profile img{
+
+width:150px;
+height:150px;
+border-radius:50%;
+object-fit:cover;
+border:5px solid white;
+
+}
+
+
+.name{
+
+font-size:25px;
+font-weight:bold;
+color:#1b5e20;
+
+}
+
+
+.group{
+
+color:#388e3c;
+font-size:18px;
+
+}
+
+
+.member{
+
+background:#fafafa;
+padding:15px;
+border-radius:15px;
+margin-bottom:15px;
+
+}
+
+
+.delete{
+
+background:#c62828;
+margin-top:10px;
+
+}
+
 
 .back{
 
 display:block;
+text-align:center;
 background:#388e3c;
 color:white;
-text-align:center;
-padding:12px;
+padding:15px;
 border-radius:10px;
 text-decoration:none;
 
 }
+
 
 </style>
 
@@ -119,7 +163,10 @@ text-decoration:none;
 
 <h2>Rongkhem Smart Village</h2>
 
-<p>บ้านร่องเข็ม หมู่ที่ 6 จังหวัดพะเยา</p>
+<p>
+บ้านร่องเข็ม หมู่ที่ 6<br>
+ตำบลจำป่าหวาย จังหวัดพะเยา
+</p>
 
 </header>
 
@@ -128,60 +175,94 @@ text-decoration:none;
 <div class="container">
 
 
+
 <div class="card">
 
-<h2>➕ เพิ่มบุคคล</h2>
+
+<h2>➕ เพิ่มข้อมูลบุคลากร</h2>
 
 
-<input id="name" placeholder="ชื่อ - นามสกุล">
+<input id="name"
+placeholder="ชื่อ - นามสกุล">
 
 
-<input id="position" placeholder="ตำแหน่ง">
+<input id="position"
+placeholder="ตำแหน่ง">
 
 
 <select id="group">
 
-<option>ผู้นำหมู่บ้าน</option>
+<option>ผู้ใหญ่บ้าน</option>
+
 <option>คณะกรรมการหมู่บ้าน</option>
+
 <option>อสม.</option>
+
 <option>ชรบ.</option>
+
 <option>อปพร.</option>
+
 <option>กลุ่มแม่บ้าน</option>
+
 <option>ผู้สูงอายุ</option>
 
 </select>
 
 
-<input id="image" placeholder="ที่อยู่รูปภาพ เช่น ../images/person.jpg">
-
 
 <textarea id="duty"
-placeholder="หน้าที่รับผิดชอบ"></textarea>
+placeholder="หน้าที่รับผิดชอบ">
+</textarea>
 
 
 
-<button onclick="addPerson()">
+<label>
+📷 เลือกรูปภาพ
+</label>
+
+
+<input type="file"
+id="photo"
+accept="image/*">
+
+
+
+<button class="save"
+onclick="addPerson()">
+
 💾 บันทึกข้อมูล
+
 </button>
 
 
+
 </div>
+
 
 
 
 <div class="card">
 
-<h2>👥 รายชื่อผู้นำและองค์กร</h2>
+
+<h2>
+👥 รายชื่อโครงสร้างหมู่บ้าน
+</h2>
+
 
 <div id="list"></div>
+
 
 </div>
 
 
 
-<a class="back" href="dashboard.html">
+<a class="back"
+href="dashboard.html">
+
 ⬅ กลับ Dashboard
+
 </a>
+
 
 
 </div>
@@ -193,11 +274,13 @@ placeholder="หน้าที่รับผิดชอบ"></textarea>
 
 
 let persons =
-JSON.parse(localStorage.getItem("persons")) || [];
+JSON.parse(localStorage.getItem("organization"))
+|| [];
 
 
 
-function show(){
+function showData(){
+
 
 let html="";
 
@@ -205,15 +288,15 @@ let html="";
 persons.forEach((p,index)=>{
 
 
-html += `
+html +=`
 
 <div class="member">
+
 
 <div class="profile">
 
 
-<img src="${p.image}"
-onerror="this.src='../images/default.png'">
+<img src="${p.image}">
 
 
 <div>
@@ -223,11 +306,19 @@ ${p.name}
 </div>
 
 
-<div class="position">
-🏛️ ${p.group}<br>
-📌 ${p.position}<br>
+<div class="group">
+🏛️ ${p.group}
+</div>
+
+
+<p>
+📌 ${p.position}
+</p>
+
+
+<p>
 📝 ${p.duty}
-</div>
+</p>
 
 
 </div>
@@ -236,12 +327,17 @@ ${p.name}
 </div>
 
 
-<button onclick="deletePerson(${index})">
-🗑️ ลบ
+
+<button class="delete"
+onclick="removeData(${index})">
+
+🗑️ ลบข้อมูล
+
 </button>
 
 
 </div>
+
 
 `;
 
@@ -255,38 +351,82 @@ document.getElementById("list").innerHTML=html;
 
 
 
+
+
 function addPerson(){
 
 
-let data={
+let file =
+document.getElementById("photo").files[0];
 
-name:name.value,
 
-position:position.value,
+if(!file){
 
-group:group.value,
+alert("กรุณาเลือกรูปภาพ");
 
-image:image.value,
+return;
 
-duty:duty.value
+}
+
+
+
+let reader=new FileReader();
+
+
+
+reader.onload=function(e){
+
+
+let person={
+
+
+name:
+document.getElementById("name").value,
+
+
+position:
+document.getElementById("position").value,
+
+
+group:
+document.getElementById("group").value,
+
+
+duty:
+document.getElementById("duty").value,
+
+
+image:
+e.target.result
+
 
 };
 
 
-persons.push(data);
+
+persons.push(person);
+
 
 
 localStorage.setItem(
-"persons",
+"organization",
 JSON.stringify(persons)
 );
 
 
 
-alert("เพิ่มข้อมูลเรียบร้อย");
+alert("✅ บันทึกเรียบร้อย");
 
 
-show();
+location.reload();
+
+
+};
+
+
+
+reader.readAsDataURL(file);
+
 
 
 }
@@ -294,21 +434,33 @@ show();
 
 
 
-function deletePerson(i){
 
-persons.splice(i,1);
+function removeData(index){
+
+
+if(confirm("ต้องการลบข้อมูลนี้หรือไม่?")){
+
+
+persons.splice(index,1);
+
 
 localStorage.setItem(
-"persons",
+"organization",
 JSON.stringify(persons)
 );
 
-show();
+
+showData();
+
 
 }
 
 
-show();
+}
+
+
+
+showData();
 
 
 </script>
