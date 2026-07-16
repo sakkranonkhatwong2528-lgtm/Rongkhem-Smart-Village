@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>แก้ไขข้อมูลหมู่บ้าน</title>
+
+
+<style>
+
+body{
+margin:0;
+font-family:Tahoma;
+background:#f1f8e9;
+}
+
+
+header{
+
+background:#2e7d32;
+color:white;
+padding:25px;
+text-align:center;
+
+}
+
+
+.container{
+
+padding:20px;
+
+}
+
+
+.card{
+
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 5px 15px #ccc;
+max-width:700px;
+margin:auto;
+
+}
+
+
+input{
+
+width:100%;
+padding:12px;
+margin:8px 0;
+border-radius:10px;
+border:1px solid #ccc;
+font-size:18px;
+
+}
+
+
+button{
+
+width:100%;
+padding:15px;
+background:#2e7d32;
+color:white;
+border:0;
+border-radius:12px;
+font-size:18px;
+
+}
+
+
+a{
+
+display:block;
+text-align:center;
+margin-top:15px;
+background:#388e3c;
+color:white;
+padding:12px;
+border-radius:10px;
+text-decoration:none;
+
+}
+
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>⚙️ แก้ไขข้อมูลหมู่บ้าน</h1>
+
+<p>
+Rongkhem Smart Village
+</p>
+
+</header>
+
+
+
+<div class="container">
+
+
+<div class="card">
+
+
+<h2>📊 ข้อมูลพื้นฐาน</h2>
+
+
+<label>ประชากร</label>
+
+<input id="population">
+
+
+
+<label>ครัวเรือน</label>
+
+<input id="households">
+
+
+
+<label>ผู้สูงอายุ</label>
+
+<input id="elderly">
+
+
+
+<label>ผู้พิการ</label>
+
+<input id="disabled">
+
+
+
+<label>อสม.</label>
+
+<input id="health">
+
+
+
+<label>ชรบ.</label>
+
+<input id="vrv">
+
+
+
+<button onclick="save()">
+
+💾 บันทึกข้อมูล
+
+</button>
+
+
+
+<a href="admin.html">
+
+⬅ กลับ Admin
+
+</a>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+<script>
+
+
+let data={};
+
+
+fetch("../data/village.json")
+
+.then(r=>r.json())
+
+.then(json=>{
+
+
+data=json;
+
+
+population.value=data.population;
+
+households.value=data.households;
+
+elderly.value=data.elderly;
+
+disabled.value=data.disabled;
+
+health.value=data.health;
+
+vrv.value=data.vrv;
+
+
+});
+
+
+
+
+
+function save(){
+
+
+let newData={
+
+
+...data,
+
+
+population:Number(population.value),
+
+households:Number(households.value),
+
+elderly:Number(elderly.value),
+
+disabled:Number(disabled.value),
+
+health:Number(health.value),
+
+vrv:Number(vrv.value)
+
+
+};
+
+
+
+localStorage.setItem(
+
+"village",
+
+JSON.stringify(newData)
+
+);
+
+
+
+alert("✅ แก้ไขข้อมูลเรียบร้อย");
+
+
+}
+
+
+</script>
+
+
+
+</body>
+
+</html>
