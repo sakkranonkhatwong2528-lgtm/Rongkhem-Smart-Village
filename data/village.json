@@ -1,13 +1,31 @@
-{
-  "village": "บ้านร่องเข็ม หมู่ที่ 6",
-  "tambon": "จำป่าหวาย",
-  "district": "เมือง",
-  "province": "พะเยา",
-  "population": 202,
-  "male": 97,
-  "female": 105,
-  "households": 75,
-  "elderly": 91,
-  "disabled": 3,
-  "vrv": 15
-}
+<script>
+
+fetch("../data/village.json")
+
+.then(response => response.json())
+
+.then(data => {
+
+document.getElementById("population").innerHTML =
+data.population;
+
+document.getElementById("households").innerHTML =
+data.households;
+
+document.getElementById("elderly").innerHTML =
+data.elderly;
+
+document.getElementById("disabled").innerHTML =
+data.disabled;
+
+document.getElementById("vrv").innerHTML =
+data.vrv;
+
+})
+
+.catch(error=>{
+console.log(error);
+});
+
+
+</script>
