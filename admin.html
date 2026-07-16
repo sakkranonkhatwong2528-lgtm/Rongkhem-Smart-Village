@@ -12,15 +12,11 @@
 
 <style>
 
-*{
-box-sizing:border-box;
-font-family:"Tahoma",sans-serif;
-}
-
-
 body{
 
 margin:0;
+
+font-family:"Tahoma",sans-serif;
 
 background:#f1f8e9;
 
@@ -30,11 +26,11 @@ background:#f1f8e9;
 
 .header{
 
-background:#1b5e20;
+background:linear-gradient(135deg,#1b5e20,#43a047);
 
 color:white;
 
-padding:25px;
+padding:30px;
 
 text-align:center;
 
@@ -44,22 +40,22 @@ text-align:center;
 
 .container{
 
-padding:20px;
-
 max-width:1200px;
 
 margin:auto;
+
+padding:20px;
 
 }
 
 
 
-.grid{
+.menu{
 
 display:grid;
 
 grid-template-columns:
-repeat(auto-fit,minmax(200px,1fr));
+repeat(auto-fit,minmax(220px,1fr));
 
 gap:20px;
 
@@ -67,7 +63,7 @@ gap:20px;
 
 
 
-.card{
+.box{
 
 background:white;
 
@@ -75,22 +71,29 @@ padding:25px;
 
 border-radius:20px;
 
-box-shadow:
-0 5px 15px #ccc;
-
 text-align:center;
 
-cursor:pointer;
-
-transition:.3s;
+box-shadow:0 5px 15px #ccc;
 
 }
 
 
 
-.card:hover{
+.box a{
 
-transform:translateY(-5px);
+text-decoration:none;
+
+color:#1b5e20;
+
+font-size:18px;
+
+font-weight:bold;
+
+}
+
+
+
+.box:hover{
 
 background:#e8f5e9;
 
@@ -106,31 +109,17 @@ font-size:45px;
 
 
 
-a{
+.info{
 
-text-decoration:none;
-
-color:#1b5e20;
-
-}
-
-
-
-.logout{
+background:white;
 
 margin-top:30px;
 
-background:#c62828;
+padding:25px;
 
-color:white;
+border-radius:20px;
 
-padding:15px;
-
-border-radius:12px;
-
-text-align:center;
-
-cursor:pointer;
+box-shadow:0 5px 15px #ccc;
 
 }
 
@@ -142,212 +131,238 @@ cursor:pointer;
 </head>
 
 
+
 <body>
+
 
 
 <div class="header">
 
-<h1>🔐 Admin Panel</h1>
 
-<h2>Rongkhem Smart Village</h2>
+<h1>🏡 Admin Center</h1>
 
-<p>ระบบจัดการข้อมูลหมู่บ้าน</p>
+<h2>
+Rongkhem Smart Village
+</h2>
+
+<p>
+ระบบบริหารจัดการข้อมูลบ้านร่องเข็ม หมู่ที่ 6
+</p>
+
 
 </div>
+
+
 
 
 
 <div class="container">
 
 
-<div class="grid">
+
+<h2>
+📊 ระบบจัดการข้อมูล
+</h2>
 
 
-<a href="pages/dashboard.html">
 
-<div class="card">
+
+<div class="menu">
+
+
+
+<div class="box">
 
 <div class="icon">📊</div>
 
-<h3>Dashboard</h3>
+<a href="pages/dashboard.html">
 
-</div>
-
-</a>
-
-
-
-<a href="pages/village.html">
-
-<div class="card">
-
-<div class="icon">📖</div>
-
-<h3>ข้อมูลหมู่บ้าน</h3>
-
-</div>
+Dashboard
 
 </a>
 
+</div>
 
 
-<a href="pages/citizen.html">
 
-<div class="card">
+
+<div class="box">
 
 <div class="icon">👥</div>
 
-<h3>ทะเบียนประชาชน</h3>
+<a href="pages/citizen.html">
 
-</div>
+ทะเบียนประชาชน
 
 </a>
 
+</div>
 
 
-<a href="pages/household.html">
 
-<div class="card">
+
+
+<div class="box">
 
 <div class="icon">🏠</div>
 
-<h3>ทะเบียนครัวเรือน</h3>
+<a href="pages/household.html">
 
-</div>
-
-</a>
-
-
-
-<a href="pages/organization.html">
-
-<div class="card">
-
-<div class="icon">👤</div>
-
-<h3>ทำเนียบผู้นำ</h3>
-
-</div>
+ทะเบียนครัวเรือน
 
 </a>
 
+</div>
 
 
-<a href="pages/committee.html">
 
-<div class="card">
+
+
+<div class="box">
 
 <div class="icon">🏛️</div>
 
-<h3>คณะกรรมการหมู่บ้าน</h3>
+<a href="pages/committee.html">
 
-</div>
+คณะกรรมการหมู่บ้าน
 
 </a>
 
+</div>
 
 
-<a href="pages/health.html">
 
-<div class="card">
+
+
+<div class="box">
+
+<div class="icon">👤</div>
+
+<a href="organization.html">
+
+ทำเนียบผู้นำ
+
+</a>
+
+</div>
+
+
+
+
+
+<div class="box">
 
 <div class="icon">🩺</div>
 
-<h3>อสม.</h3>
+<a href="pages/health.html">
 
-</div>
+อสม.
 
 </a>
 
+</div>
 
 
-<a href="pages/vrv.html">
 
-<div class="card">
+
+
+<div class="box">
 
 <div class="icon">🛡️</div>
 
-<h3>ชรบ.</h3>
+<a href="pages/vrv.html">
 
-</div>
+ชรบ.
 
 </a>
 
+</div>
 
 
-<a href="pages/oporor.html">
 
-<div class="card">
+
+
+<div class="box">
 
 <div class="icon">🚒</div>
 
-<h3>อปพร.</h3>
+<a href="pages/oporor.html">
 
-</div>
-
-</a>
-
-
-
-<a href="pages/reports.html">
-
-<div class="card">
-
-<div class="icon">📄</div>
-
-<h3>รายงาน</h3>
-
-</div>
+อปพร.
 
 </a>
 
-
-</div>
-
-
-
-<div class="logout" onclick="logout()">
-
-🚪 ออกจากระบบ
-
-</div>
-
-
-
 </div>
 
 
 
 
-<script>
 
+<div class="box">
 
-// ตรวจสอบ Login
+<div class="icon">🌱</div>
 
-if(
-localStorage.getItem("login")
-!=="true"
+<a href="pages/wetland.html">
 
-){
+แหล่งซับน้ำจำ
 
-window.location.href=
-"login.html";
+</a>
 
-}
+</div>
 
 
 
-function logout(){
-
-localStorage.removeItem("login");
-
-window.location.href=
-"login.html";
-
-}
 
 
-</script>
+<div class="box">
+
+<div class="icon">📋</div>
+
+<a href="pages/project.html">
+
+โครงการพัฒนา
+
+</a>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="info">
+
+
+<h2>
+🏡 ข้อมูลหมู่บ้าน
+</h2>
+
+
+<p>
+บ้านร่องเข็ม หมู่ที่ 6
+</p>
+
+<p>
+ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา
+</p>
+
+
+<p>
+ระบบ Smart Village เพื่อสนับสนุนการบริหารจัดการชุมชน
+</p>
+
+
+</div>
+
+
+
+</div>
 
 
 </body>
