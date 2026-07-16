@@ -16,6 +16,7 @@ font-family:Tahoma,Arial,sans-serif;
 background:#f1f8e9;
 }
 
+
 header{
 background:#2e7d32;
 color:white;
@@ -23,15 +24,46 @@ text-align:center;
 padding:25px;
 }
 
+
+header h1{
+margin:0;
+font-size:30px;
+}
+
+
 .container{
 padding:20px;
 }
+
 
 .card{
 background:white;
 padding:20px;
 border-radius:15px;
+margin-bottom:20px;
 box-shadow:0 3px 10px #ccc;
+}
+
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:15px;
+}
+
+
+.box{
+background:#e8f5e9;
+padding:20px;
+border-radius:15px;
+text-align:center;
+}
+
+
+.number{
+font-size:35px;
+font-weight:bold;
+color:#1b5e20;
 }
 
 
@@ -56,17 +88,34 @@ border-bottom:1px solid #ddd;
 }
 
 
+tr:hover{
+background:#f1f8e9;
+}
+
+
+.search{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid #ccc;
+font-size:16px;
+}
+
+
 .back{
+
 display:inline-block;
 background:#388e3c;
 color:white;
 padding:12px 20px;
 border-radius:10px;
 text-decoration:none;
+
 }
 
 
 </style>
+
 
 </head>
 
@@ -74,20 +123,25 @@ text-decoration:none;
 <body>
 
 
+
 <header>
 
 <h1>👥 ทะเบียนประชาชน</h1>
 
+<h2>Rongkhem Smart Village</h2>
+
 <p>
-Rongkhem Smart Village<br>
-บ้านร่องเข็ม หมู่ที่ 6 จังหวัดพะเยา
+บ้านร่องเข็ม หมู่ที่ 6<br>
+ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา
 </p>
 
 </header>
 
 
 
+
 <div class="container">
+
 
 
 <a class="back" href="dashboard.html">
@@ -96,10 +150,92 @@ Rongkhem Smart Village<br>
 
 
 
+
+<div class="card">
+
+
+<h2>📊 ข้อมูลประชาชน</h2>
+
+
+<div class="grid">
+
+
+<div class="box">
+
+👥 ประชากรทั้งหมด
+
+<div class="number" id="total">
+-
+</div>
+
+คน
+
+</div>
+
+
+
+<div class="box">
+
+👨 ชาย
+
+<div class="number" id="male">
+-
+</div>
+
+คน
+
+</div>
+
+
+
+<div class="box">
+
+👩 หญิง
+
+<div class="number" id="female">
+-
+</div>
+
+คน
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+
+<h2>🔎 ค้นหาประชาชน</h2>
+
+
+<input 
+class="search"
+id="search"
+placeholder="พิมพ์ชื่อเพื่อค้นหา..."
+>
+
+
+
+</div>
+
+
+
+
+
 <div class="card">
 
 
 <h2>📋 รายชื่อประชาชน</h2>
+
 
 
 <table>
@@ -118,7 +254,9 @@ Rongkhem Smart Village<br>
 
 </tr>
 
+
 </thead>
+
 
 
 <tbody id="citizen">
@@ -132,12 +270,19 @@ Rongkhem Smart Village<br>
 </div>
 
 
+
+
 </div>
 
 
 
 
+
 <script>
+
+
+let citizens=[];
+
 
 
 fetch("../data/citizen.json")
@@ -149,13 +294,56 @@ fetch("../data/citizen.json")
 .then(data=>{
 
 
+citizens=data;
+
+
+showData(citizens);
+
+
+
+document.getElementById("total").innerHTML=data.length;
+
+
+
+let male=data.filter(
+x=>x.gender=="ชาย"
+).length;
+
+
+let female=data.filter(
+x=>x.gender=="หญิง"
+).length;
+
+
+
+document.getElementById("male").innerHTML=male;
+
+
+document.getElementById("female").innerHTML=female;
+
+
+
+});
+
+
+
+
+
+function showData(data){
+
+
 let table=document.getElementById("citizen");
+
+
+table.innerHTML="";
+
 
 
 data.forEach((item,index)=>{
 
 
-table.innerHTML += `
+table.innerHTML +=`
+
 
 <tr>
 
@@ -171,7 +359,9 @@ table.innerHTML += `
 
 <td>${item.house_no}</td>
 
+
 </tr>
+
 
 `;
 
@@ -179,10 +369,33 @@ table.innerHTML += `
 });
 
 
-})
+}
 
 
-.catch(error=>console.log(error));
+
+
+
+document.getElementById("search")
+.addEventListener("keyup",function(){
+
+
+let text=this.value;
+
+
+let result=citizens.filter(item=>
+
+item.name.includes(text)
+
+);
+
+
+
+showData(result);
+
+
+
+});
+
 
 
 </script>
