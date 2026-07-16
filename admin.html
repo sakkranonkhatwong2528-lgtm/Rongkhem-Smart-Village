@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin | Rongkhem Smart Village</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Tahoma,Arial;
+background:#f1f8e9;
+}
+
+header{
+background:#2e7d32;
+color:white;
+text-align:center;
+padding:25px;
+}
+
+.container{
+padding:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:15px;
+margin-bottom:20px;
+box-shadow:0 3px 10px #ccc;
+}
+
+
+input{
+
+width:100%;
+padding:12px;
+margin:8px 0;
+border-radius:10px;
+border:1px solid #ccc;
+font-size:18px;
+
+}
+
+
+button{
+
+background:#2e7d32;
+color:white;
+padding:15px;
+border:none;
+border-radius:10px;
+width:100%;
+font-size:18px;
+
+}
+
+
+.box{
+
+background:#e8f5e9;
+padding:15px;
+border-radius:10px;
+margin-bottom:10px;
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>🔐 Admin Panel</h1>
+
+<h2>Rongkhem Smart Village</h2>
+
+<p>
+ระบบแก้ไขข้อมูลหมู่บ้าน
+</p>
+
+</header>
+
+
+<div class="container">
+
+
+<div class="card">
+
+
+<h2>📊 ข้อมูลภาพรวม</h2>
+
+
+<div class="box">
+
+👥 ประชากร
+
+<input id="population">
+
+</div>
+
+
+<div class="box">
+
+🏠 ครัวเรือน
+
+<input id="households">
+
+</div>
+
+
+<div class="box">
+
+👴 ผู้สูงอายุ
+
+<input id="elderly">
+
+</div>
+
+
+<div class="box">
+
+❤️ ผู้พิการ
+
+<input id="disabled">
+
+</div>
+
+
+<div class="box">
+
+🩺 อสม.
+
+<input id="health">
+
+</div>
+
+
+<div class="box">
+
+🛡️ ชรบ.
+
+<input id="vrv">
+
+</div>
+
+
+<button onclick="save()">
+
+💾 บันทึกข้อมูล
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+<script>
+
+
+fetch("../data/village.json")
+
+.then(r=>r.json())
+
+.then(data=>{
+
+
+population.value=data.population;
+
+households.value=data.households;
+
+elderly.value=data.elderly;
+
+disabled.value=data.disabled;
+
+health.value=data.health;
+
+vrv.value=data.vrv;
+
+
+});
+
+
+
+function save(){
+
+alert(
+"บันทึกข้อมูลเรียบร้อย\n\nหมายเหตุ: ขั้นตอนต่อไปจะเชื่อมฐานข้อมูลจริง"
+);
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
