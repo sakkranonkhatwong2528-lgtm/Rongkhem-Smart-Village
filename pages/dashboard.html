@@ -1,93 +1,105 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Dashboard บ้านร่องเข็ม</title>
+<title>Dashboard | Rongkhem Smart Village</title>
 
 <style>
 
 body{
-    margin:0;
-    font-family:Tahoma, Arial, sans-serif;
-    background:#f1f8e9;
+margin:0;
+font-family:Tahoma,Arial,sans-serif;
+background:#f1f8e9;
 }
 
 header{
-    background:#2e7d32;
-    color:white;
-    text-align:center;
-    padding:25px;
+background:#2e7d32;
+color:white;
+text-align:center;
+padding:25px;
 }
 
 header h1{
-    margin:0;
-    font-size:30px;
+margin:0;
+font-size:30px;
 }
 
 .container{
-    padding:20px;
+padding:20px;
 }
 
 .card{
-    background:white;
-    border-radius:15px;
-    padding:20px;
-    margin-bottom:20px;
-    box-shadow:0 3px 10px #ccc;
+background:white;
+padding:20px;
+border-radius:15px;
+margin-bottom:20px;
+box-shadow:0 3px 10px #ccc;
 }
+
 
 .grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:15px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:15px;
 }
+
 
 .box{
-    background:#e8f5e9;
-    border-radius:15px;
-    padding:20px;
-    text-align:center;
+background:#e8f5e9;
+padding:20px;
+border-radius:15px;
+text-align:center;
 }
+
 
 .icon{
-    font-size:35px;
+font-size:35px;
 }
+
 
 .number{
-    font-size:35px;
-    color:#1b5e20;
-    font-weight:bold;
+font-size:35px;
+font-weight:bold;
+color:#1b5e20;
 }
+
 
 .menu{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:15px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
 }
+
 
 .menu a{
-    background:#388e3c;
-    color:white;
-    padding:15px;
-    border-radius:12px;
-    text-decoration:none;
-    text-align:center;
+background:#388e3c;
+color:white;
+padding:15px;
+border-radius:12px;
+text-decoration:none;
+text-align:center;
 }
 
+
 footer{
-    text-align:center;
-    padding:20px;
-    background:#2e7d32;
-    color:white;
+background:#2e7d32;
+color:white;
+text-align:center;
+padding:20px;
 }
+
 
 </style>
 
 </head>
 
+
 <body>
+
 
 <header>
 
@@ -96,14 +108,16 @@ footer{
 <h2>ระบบบริหารจัดการหมู่บ้านอัจฉริยะ</h2>
 
 <p>
-บ้านร่องเข็ม หมู่ที่ 6  
+บ้านร่องเข็ม หมู่ที่ 6<br>
 ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา
 </p>
 
 </header>
 
 
+
 <div class="container">
+
 
 
 <div class="card">
@@ -122,12 +136,14 @@ footer{
 </div>
 
 
+
 <div class="box">
 <div class="icon">🏠</div>
 ครัวเรือน
 <div class="number" id="households">-</div>
 หลัง
 </div>
+
 
 
 <div class="box">
@@ -146,75 +162,6 @@ footer{
 คน
 </div>
 
-
-<div class="box">
-<div class="icon">🩺</div>
-อสม.
-<div class="number">-</div>
-คน
-</div>
-
-
-<div class="menu">
-
-<a href="citizen.html">
-👥 ทะเบียนประชาชน
-</a>
-
-...
- 
-<a href="report.html">
-📄 รายงานเอกสาร
-</a>
-
-</div>
-
-</div>
-
-
-<div class="card">
-
-<h2>🌳 การพัฒนาหมู่บ้าน</h2>
-
-
-</div>
-
-</div>
-
-
-
-<div class="grid">
-
-<div class="box">
-<div class="icon">👥</div>
-ประชากร
-<div class="number" id="population">-</div>
-คน
-</div>
-
-
-<div class="box">
-<div class="icon">🏠</div>
-ครัวเรือน
-<div class="number" id="households">-</div>
-หลัง
-</div>
-
-
-<div class="box">
-<div class="icon">👴</div>
-ผู้สูงอายุ
-<div class="number" id="elderly">-</div>
-คน
-</div>
-
-
-<div class="box">
-<div class="icon">❤️</div>
-ผู้พิการ
-<div class="number" id="disabled">-</div>
-คน
-</div>
 
 
 <div class="box">
@@ -225,6 +172,7 @@ footer{
 </div>
 
 
+
 <div class="box">
 <div class="icon">🛡️</div>
 ชรบ.
@@ -232,57 +180,81 @@ footer{
 คน
 </div>
 
+
 </div>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h2>📌 ระบบงานหมู่บ้าน</h2>
+
+
+<div class="menu">
+
+
+<a href="citizen.html">
+👥 ทะเบียนประชาชน
+</a>
+
+
 <a href="household.html">
 🏠 ทะเบียนครัวเรือน
 </a>
+
 
 <a href="elderly.html">
 👴 ผู้สูงอายุ
 </a>
 
+
 <a href="vulnerable.html">
 ❤️ กลุ่มเปราะบาง
 </a>
 
+
 <a href="health.html">
-🩺 อสม.
+🩺 ระบบสุขภาพ อสม.
 </a>
+
 
 <a href="vrv.html">
 🛡️ ชรบ.
 </a>
 
+
 <a href="committee.html">
 🏛️ คณะกรรมการหมู่บ้าน
 </a>
+
 
 <a href="temple.html">
 🛕 วัดร่องเข็ม
 </a>
 
+
 <a href="tourism.html">
 🌱 แหล่งซับน้ำจำ
 </a>
+
 
 <a href="enterprise.html">
 💼 วิสาหกิจชุมชน
 </a>
 
+
 <a href="report.html">
 📄 รายงานเอกสาร
 </a>
-</div>
-<div class="box">
-<div class="icon">🛡️</div>
-
-
-
 
 
 </div>
 
 </div>
+
 
 
 
@@ -298,36 +270,59 @@ footer{
 
 <p>✅ การสร้างหมู่บ้านอัจฉริยะ</p>
 
+
 </div>
 
 
 </div>
+
+
 
 
 <footer>
 
-© 2569 Rongkhem Smart Village  
+© 2569 Rongkhem Smart Village
+
 <br>
+
 บ้านร่องเข็ม หมู่ที่ 6
 
 </footer>
 
 
-</body>
-</html>
+
 <script>
 
 fetch("../data/village.json")
+
 .then(response => response.json())
+
 .then(data => {
 
+
 document.getElementById("population").innerHTML = data.population;
+
 document.getElementById("households").innerHTML = data.households;
+
 document.getElementById("elderly").innerHTML = data.elderly;
+
 document.getElementById("disabled").innerHTML = data.disabled;
+
+document.getElementById("health").innerHTML = data.health;
+
 document.getElementById("vrv").innerHTML = data.vrv;
 
+
 })
+
+
 .catch(error => console.log(error));
 
+
 </script>
+
+
+
+</body>
+
+</html>
