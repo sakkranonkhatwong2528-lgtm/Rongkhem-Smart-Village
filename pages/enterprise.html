@@ -13,14 +13,14 @@
 body{
 margin:0;
 font-family:Tahoma,sans-serif;
-background:#e8f5e9;
+background:#fff8e1;
 }
 
 header{
-background:#2e7d32;
+background:#ef6c00;
 color:white;
-padding:25px;
 text-align:center;
+padding:25px;
 }
 
 .container{
@@ -36,27 +36,28 @@ margin-bottom:20px;
 }
 
 h2{
-color:#2e7d32;
+color:#ef6c00;
 }
 
-.grid{
+.dashboard{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
 gap:15px;
 }
 
 .box{
-background:#c8e6c9;
+background:#fff3e0;
 padding:20px;
-border-radius:15px;
 text-align:center;
+border-radius:15px;
 }
 
 .number{
 font-size:35px;
 font-weight:bold;
-color:#1b5e20;
+color:#e65100;
 }
+
 
 table{
 width:100%;
@@ -65,29 +66,26 @@ margin-top:20px;
 }
 
 th{
-background:#2e7d32;
+background:#ef6c00;
 color:white;
 padding:12px;
 }
 
 td{
 padding:10px;
-border-bottom:1px solid #ddd;
 text-align:center;
+border-bottom:1px solid #ddd;
 }
+
 
 .back{
 display:inline-block;
 margin-top:20px;
-background:#2e7d32;
+background:#ef6c00;
 color:white;
 padding:12px 20px;
 border-radius:10px;
 text-decoration:none;
-}
-
-.info{
-line-height:1.8;
 }
 
 </style>
@@ -103,8 +101,8 @@ line-height:1.8;
 <h1>💼 วิสาหกิจชุมชน</h1>
 
 <p>
-Rongkhem Smart Village<br>
-บ้านร่องเข็ม หมู่ที่ 6 จังหวัดพะเยา
+ระบบเศรษฐกิจชุมชน บ้านร่องเข็ม หมู่ที่ 6<br>
+ตำบลจำป่าหวาย จังหวัดพะเยา
 </p>
 
 </header>
@@ -116,26 +114,17 @@ Rongkhem Smart Village<br>
 
 <div class="card">
 
-<h2>📌 ข้อมูลวิสาหกิจชุมชน</h2>
+<h2>📊 ข้อมูลวิสาหกิจชุมชน</h2>
 
-<div class="info">
 
-ชื่อกลุ่ม : วิสาหกิจชุมชนบ้านร่องเข็ม<br>
-ประเภท : ผลิตภัณฑ์ชุมชนและเศรษฐกิจฐานราก<br>
-ผลิตภัณฑ์ : น้ำดื่มชุมชน "ตราน้ำจำ"<br>
-เป้าหมาย : สร้างรายได้และความเข้มแข็งให้ชุมชน
+<div class="dashboard">
 
+
+<div class="box">
+🏢 กลุ่มวิสาหกิจ
+<div class="number">1</div>
+กลุ่ม
 </div>
-
-</div>
-
-
-
-<div class="card">
-
-<h2>📊 ภาพรวมกลุ่ม</h2>
-
-<div class="grid">
 
 
 <div class="box">
@@ -146,7 +135,7 @@ Rongkhem Smart Village<br>
 
 
 <div class="box">
-🏭 ผลิตภัณฑ์
+📦 ผลิตภัณฑ์ชุมชน
 <div class="number">-</div>
 รายการ
 </div>
@@ -159,48 +148,47 @@ Rongkhem Smart Village<br>
 </div>
 
 
-<div class="box">
-📦 ยอดผลิต
-<div class="number">-</div>
-หน่วย
-</div>
-
-
 </div>
 
 </div>
-
 
 
 
 <div class="card">
 
-<h2>📋 ผลิตภัณฑ์ชุมชน</h2>
+
+<h2>📋 รายการกลุ่มและผลิตภัณฑ์</h2>
 
 
 <table>
 
 <tr>
 <th>ลำดับ</th>
+<th>ชื่อกลุ่ม</th>
 <th>ผลิตภัณฑ์</th>
-<th>ผู้รับผิดชอบ</th>
-<th>สถานะ</th>
+<th>รายละเอียด</th>
 </tr>
 
 
 <tr>
 <td>1</td>
-<td>น้ำดื่มตราน้ำจำ</td>
-<td>กลุ่มวิสาหกิจชุมชน</td>
-<td>ดำเนินการ</td>
+<td>วิสาหกิจชุมชนบ้านร่องเข็ม</td>
+<td>น้ำดื่มชุมชน ตราน้ำจำ</td>
+<td>
+ผลิตภัณฑ์ชุมชนเพื่อสร้างรายได้
+และส่งเสริมเศรษฐกิจหมู่บ้าน
+</td>
 </tr>
 
 
 <tr>
 <td>2</td>
-<td>ผลิตภัณฑ์เกษตรชุมชน</td>
 <td>กลุ่มเกษตรกร</td>
-<td>พัฒนา</td>
+<td>ปุ๋ยหมัก / ผลผลิตเกษตร</td>
+<td>
+ส่งเสริมเกษตรอินทรีย์
+ลดต้นทุนการผลิต
+</td>
 </tr>
 
 
