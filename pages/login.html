@@ -6,7 +6,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Login | Rongkhem Smart Village</title>
+<title>Admin | Rongkhem Smart Village</title>
+
 
 <style>
 
@@ -14,114 +15,55 @@
 box-sizing:border-box;
 }
 
+
 body{
 
 margin:0;
-height:100vh;
-
-display:flex;
-justify-content:center;
-align-items:center;
 
 font-family:Tahoma,Arial,sans-serif;
 
-background:
-linear-gradient(
-135deg,
-#1b5e20,
-#66bb6a
-);
+background:#f1f8e9;
 
 }
 
 
 
-/* กล่องกลาง */
+/* หัวบน */
 
-.login{
+.header{
 
-width:360px;
+height:70px;
 
-background:white;
+background:#2e7d32;
 
-padding:35px;
-
-border-radius:25px;
-
-text-align:center;
-
-box-shadow:
-0 15px 40px rgba(0,0,0,.3);
-
-}
-
-
-
-/* โลโก้ */
-
-.logo{
-
-width:90px;
-height:90px;
-
-margin:auto;
-
-border-radius:50%;
-
-background:#e8f5e9;
+color:white;
 
 display:flex;
 
 align-items:center;
 
-justify-content:center;
+justify-content:space-between;
 
-font-size:55px;
+padding:0 25px;
 
-}
-
-
-
-/* หัวข้อ */
-
-h1{
-
-margin-top:20px;
-
-color:#2e7d32;
-
-font-size:30px;
+font-size:22px;
 
 }
 
 
 
-h2{
 
-font-size:20px;
+.logout{
 
-color:#555;
+background:#c62828;
 
-font-weight:normal;
+color:white;
 
-}
+padding:10px 18px;
 
+border-radius:10px;
 
-
-/* ช่องกรอก */
-
-
-input{
-
-width:100%;
-
-padding:14px;
-
-margin:10px 0;
-
-border-radius:12px;
-
-border:1px solid #ccc;
+text-decoration:none;
 
 font-size:16px;
 
@@ -129,76 +71,215 @@ font-size:16px;
 
 
 
-input:focus{
 
-border-color:#2e7d32;
+/* layout */
 
-outline:none;
+.main{
+
+display:flex;
+
+min-height:calc(100vh - 70px);
 
 }
 
 
 
-/* ปุ่ม */
+
+/* เมนู */
+
+.sidebar{
+
+width:260px;
+
+background:white;
+
+padding:20px;
+
+box-shadow:2px 0 10px #ccc;
+
+}
 
 
-button{
 
-width:100%;
+.logo{
 
-padding:15px;
+text-align:center;
 
-margin-top:15px;
+font-size:60px;
 
-border:none;
+}
 
-border-radius:15px;
+
+
+.sidebar h2{
+
+text-align:center;
+
+color:#2e7d32;
+
+}
+
+
+
+.menu a{
+
+display:block;
+
+padding:14px;
+
+margin:10px 0;
+
+background:#e8f5e9;
+
+color:#1b5e20;
+
+text-decoration:none;
+
+border-radius:12px;
+
+font-size:17px;
+
+}
+
+
+
+.menu a:hover{
 
 background:#2e7d32;
 
 color:white;
 
-font-size:18px;
+}
 
-cursor:pointer;
+
+
+
+
+/* เนื้อหา */
+
+.content{
+
+flex:1;
+
+padding:25px;
 
 }
 
 
 
-button:hover{
+.title{
 
-background:#1b5e20;
+font-size:28px;
 
-}
-
-
-
-#error{
-
-color:red;
-
-margin-top:15px;
+color:#1b5e20;
 
 }
 
 
 
-.footer{
+
+
+.cards{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(auto-fit,minmax(200px,1fr));
+
+gap:20px;
+
+}
+
+
+
+
+.card{
+
+background:white;
+
+padding:25px;
+
+border-radius:20px;
+
+box-shadow:0 5px 15px #ccc;
+
+text-align:center;
+
+}
+
+
+
+.icon{
+
+font-size:45px;
+
+}
+
+
+
+.number{
+
+font-size:38px;
+
+font-weight:bold;
+
+color:#2e7d32;
+
+}
+
+
+
+
+
+.development{
+
+background:white;
 
 margin-top:25px;
 
-font-size:13px;
+padding:25px;
 
-color:#777;
+border-radius:20px;
 
-line-height:1.6;
+box-shadow:0 5px 15px #ccc;
 
 }
 
 
 
+.development li{
+
+padding:8px;
+
+font-size:18px;
+
+}
+
+
+
+
+@media(max-width:800px){
+
+.main{
+
+flex-direction:column;
+
+}
+
+
+.sidebar{
+
+width:100%;
+
+}
+
+
+}
+
+
 </style>
+
 
 </head>
 
@@ -207,7 +288,27 @@ line-height:1.6;
 
 
 
-<div class="login">
+<div class="header">
+
+🏡 Rongkhem Smart Village
+
+<a class="logout" href="login.html">
+
+ออกจากระบบ
+
+</a>
+
+
+</div>
+
+
+
+
+<div class="main">
+
+
+
+<div class="sidebar">
 
 
 <div class="logo">
@@ -215,96 +316,236 @@ line-height:1.6;
 </div>
 
 
-<h1>
-Rongkhem
-</h1>
-
-
 <h2>
-Smart Village
+Admin
 </h2>
 
 
+<div class="menu">
+
+
+<a href="dashboard.html">
+📊 Dashboard
+</a>
+
+
+<a href="citizen.html">
+👥 ทะเบียนประชาชน
+</a>
+
+
+<a href="household.html">
+🏠 ครัวเรือน
+</a>
+
+
+<a href="elderly.html">
+👴 ผู้สูงอายุ
+</a>
+
+
+<a href="vulnerable.html">
+❤️ กลุ่มเปราะบาง
+</a>
+
+
+<a href="health.html">
+🩺 อสม.
+</a>
+
+
+<a href="vrv.html">
+🛡️ ชรบ.
+</a>
+
+
+<a href="committee.html">
+🏛️ คณะกรรมการหมู่บ้าน
+</a>
+
+
+<a href="tourism.html">
+🌱 แหล่งซับน้ำจำ
+</a>
+
+
+<a href="report.html">
+📄 รายงาน
+</a>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="content">
+
+
+<div class="title">
+
+📊 ระบบจัดการข้อมูลหมู่บ้าน
+
+</div>
+
+
 <p>
-🔐 ผู้ดูแลระบบ
+บ้านร่องเข็ม หมู่ที่ 6 ตำบลจำป่าหวาย จังหวัดพะเยา
 </p>
 
 
 
-<input 
-id="user"
-placeholder="ชื่อผู้ใช้">
+
+
+<div class="cards">
 
 
 
-<input 
-id="pass"
-type="password"
-placeholder="รหัสผ่าน">
+<div class="card">
 
+<div class="icon">👥</div>
 
+ประชากร
 
-<button onclick="login()">
-
-เข้าสู่ระบบ
-
-</button>
-
-
-
-<div id="error"></div>
-
-
-
-<div class="footer">
-
-ระบบบริหารจัดการหมู่บ้านอัจฉริยะ<br>
-
-บ้านร่องเข็ม หมู่ที่ 6<br>
-
-ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา
-
+<div class="number">
+1,021
 </div>
 
+คน
 
 </div>
 
 
 
-<script>
+
+<div class="card">
+
+<div class="icon">🏠</div>
+
+ครัวเรือน
+
+<div class="number">
+75
+</div>
+
+หลัง
+
+</div>
 
 
-function login(){
 
 
-let u=document.getElementById("user").value;
+<div class="card">
 
-let p=document.getElementById("pass").value;
+<div class="icon">👴</div>
 
+ผู้สูงอายุ
 
+<div class="number">
+91
+</div>
 
-if(u=="admin" && p=="1234"){
+คน
 
-
-window.location.href="../admin.html";
-
-
-}
-
-else{
+</div>
 
 
-document.getElementById("error").innerHTML=
-"❌ ข้อมูลเข้าสู่ระบบไม่ถูกต้อง";
 
 
-}
+<div class="card">
+
+<div class="icon">❤️</div>
+
+ผู้พิการ
+
+<div class="number">
+3
+</div>
+
+คน
+
+</div>
 
 
-}
 
 
-</script>
+<div class="card">
+
+<div class="icon">🩺</div>
+
+อสม.
+
+<div class="number">
+20
+</div>
+
+คน
+
+</div>
+
+
+
+
+<div class="card">
+
+<div class="icon">🛡️</div>
+
+ชรบ.
+
+<div class="number">
+15
+</div>
+
+คน
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<div class="development">
+
+
+<h2>
+🌳 แผนพัฒนาหมู่บ้าน
+</h2>
+
+
+<ul>
+
+<li>✅ แผนจัดการทรัพยากรธรรมชาติและสิ่งแวดล้อม</li>
+
+<li>✅ การลดการเผาและแก้ไขปัญหา PM2.5</li>
+
+<li>✅ การพัฒนาแหล่งซับน้ำจำ</li>
+
+<li>✅ การส่งเสริมเศรษฐกิจชุมชน</li>
+
+<li>✅ การพัฒนาหมู่บ้านอัจฉริยะ</li>
+
+
+</ul>
+
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
 
 
 </body>
