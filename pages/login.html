@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login | Rongkhem Smart Village</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Tahoma,Arial;
+background:#f1f8e9;
+}
+
+.login-box{
+width:90%;
+max-width:400px;
+margin:100px auto;
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 3px 10px #ccc;
+text-align:center;
+}
+
+h1{
+color:#2e7d32;
+}
+
+input{
+width:90%;
+padding:12px;
+margin:10px;
+border-radius:10px;
+border:1px solid #ccc;
+font-size:16px;
+}
+
+
+button{
+
+width:95%;
+padding:15px;
+background:#2e7d32;
+color:white;
+border:none;
+border-radius:10px;
+font-size:18px;
+
+}
+
+#msg{
+color:red;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="login-box">
+
+
+<h1>🏡 Rongkhem</h1>
+
+<h2>🔐 ผู้ดูแลระบบ</h2>
+
+
+<input id="username"
+placeholder="ชื่อผู้ใช้">
+
+
+<input id="password"
+type="password"
+placeholder="รหัสผ่าน">
+
+
+<button onclick="login()">
+เข้าสู่ระบบ
+</button>
+
+
+<p id="msg"></p>
+
+
+</div>
+
+
+
+<script>
+
+
+function login(){
+
+
+let user=
+document.getElementById("username").value;
+
+
+let pass=
+document.getElementById("password").value;
+
+
+
+if(user=="admin" && pass=="123456"){
+
+
+localStorage.setItem(
+"login",
+"true"
+);
+
+
+location.href="admin.html";
+
+
+}
+
+else{
+
+
+document.getElementById("msg").innerHTML=
+"❌ ข้อมูลเข้าสู่ระบบไม่ถูกต้อง";
+
+
+}
+
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
