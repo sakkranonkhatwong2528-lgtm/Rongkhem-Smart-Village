@@ -13,14 +13,14 @@
 body{
 margin:0;
 font-family:Tahoma,sans-serif;
-background:#e0f2f1;
+background:#f1f8e9;
 }
 
 header{
-background:#00695c;
+background:#0277bd;
 color:white;
-padding:25px;
 text-align:center;
+padding:25px;
 }
 
 .container{
@@ -36,32 +36,27 @@ margin-bottom:20px;
 }
 
 h2{
-color:#00695c;
+color:#0277bd;
 }
 
-.grid{
+.dashboard{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
 gap:15px;
 }
 
 .box{
-background:#b2dfdb;
+background:#e1f5fe;
 padding:20px;
-border-radius:15px;
 text-align:center;
+border-radius:15px;
 }
 
 .number{
 font-size:35px;
 font-weight:bold;
-color:#004d40;
+color:#01579b;
 }
-
-.info{
-line-height:1.8;
-}
-
 
 table{
 width:100%;
@@ -70,7 +65,7 @@ margin-top:20px;
 }
 
 th{
-background:#00695c;
+background:#0277bd;
 color:white;
 padding:12px;
 }
@@ -84,7 +79,7 @@ border-bottom:1px solid #ddd;
 .back{
 display:inline-block;
 margin-top:20px;
-background:#00695c;
+background:#0277bd;
 color:white;
 padding:12px 20px;
 border-radius:10px;
@@ -104,8 +99,8 @@ text-decoration:none;
 <h1>🏞️ แหล่งท่องเที่ยวชุมชน</h1>
 
 <p>
-Rongkhem Smart Village<br>
-บ้านร่องเข็ม หมู่ที่ 6 จังหวัดพะเยา
+แหล่งซับน้ำจำ บ้านร่องเข็ม หมู่ที่ 6<br>
+ตำบลจำป่าหวาย จังหวัดพะเยา
 </p>
 
 </header>
@@ -117,54 +112,37 @@ Rongkhem Smart Village<br>
 
 <div class="card">
 
-<h2>🌱 ข้อมูลแหล่งท่องเที่ยว</h2>
-
-<div class="info">
-
-ชื่อแหล่งท่องเที่ยว : แหล่งซับน้ำจำ บ้านร่องเข็ม<br>
-ประเภท : แหล่งธรรมชาติและระบบนิเวศชุมชน<br>
-จุดเด่น : พื้นที่ชุ่มน้ำ ความหลากหลายทางชีวภาพ<br>
-กิจกรรม : ศึกษาธรรมชาติ อนุรักษ์สิ่งแวดล้อม และเรียนรู้ชุมชน
-
-</div>
-
-</div>
+<h2>📊 ข้อมูลแหล่งท่องเที่ยว</h2>
 
 
-
-<div class="card">
-
-<h2>📊 ภาพรวมการท่องเที่ยว</h2>
-
-
-<div class="grid">
+<div class="dashboard">
 
 
 <div class="box">
-🏞️ แหล่งเรียนรู้
+🌱 แหล่งเรียนรู้
 <div class="number">1</div>
 แห่ง
 </div>
 
 
 <div class="box">
-🌱 พื้นที่อนุรักษ์
-<div class="number">-</div>
-ไร่
+💧 แหล่งน้ำธรรมชาติ
+<div class="number">1</div>
+แห่ง
 </div>
 
 
 <div class="box">
-👥 ผู้เข้าชม
+🌳 พื้นที่อนุรักษ์
+<div class="number">1</div>
+แห่ง
+</div>
+
+
+<div class="box">
+👥 ผู้เข้าชมกิจกรรม
 <div class="number">-</div>
 คน
-</div>
-
-
-<div class="box">
-📷 กิจกรรม
-<div class="number">-</div>
-ครั้ง
 </div>
 
 
@@ -177,33 +155,37 @@ Rongkhem Smart Village<br>
 
 <div class="card">
 
-
-<h2>📋 กิจกรรมชุมชน</h2>
+<h2>📍 รายละเอียดแหล่งท่องเที่ยว</h2>
 
 
 <table>
 
 <tr>
 <th>ลำดับ</th>
-<th>กิจกรรม</th>
-<th>สถานที่</th>
-<th>สถานะ</th>
+<th>ชื่อสถานที่</th>
+<th>ประเภท</th>
+<th>รายละเอียด</th>
 </tr>
 
 
 <tr>
 <td>1</td>
-<td>ศึกษาระบบนิเวศแหล่งซับน้ำจำ</td>
-<td>บ้านร่องเข็ม</td>
-<td>ดำเนินการ</td>
+<td>แหล่งซับน้ำจำ</td>
+<td>ธรรมชาติ</td>
+<td>
+พื้นที่ชุ่มน้ำ แหล่งเรียนรู้ระบบนิเวศ
+และความหลากหลายทางชีวภาพของชุมชน
+</td>
 </tr>
 
 
 <tr>
 <td>2</td>
-<td>กิจกรรมอนุรักษ์ธรรมชาติ</td>
+<td>วิถีชีวิตบ้านร่องเข็ม</td>
 <td>ชุมชน</td>
-<td>วางแผน</td>
+<td>
+เรียนรู้การเกษตรและภูมิปัญญาท้องถิ่น
+</td>
 </tr>
 
 
