@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,7 @@
 
 body{
     margin:0;
-    font-family:Tahoma, sans-serif;
+    font-family:Tahoma,sans-serif;
     background:#f1f8e9;
 }
 
@@ -27,21 +28,23 @@ header{
 
 .card{
     background:white;
-    border-radius:15px;
     padding:20px;
+    border-radius:15px;
     box-shadow:0 3px 10px #ccc;
+    margin-bottom:20px;
 }
 
 h2{
     color:#2e7d32;
 }
 
-.summary{
+
+.dashboard{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
     gap:15px;
-    margin-bottom:20px;
 }
+
 
 .box{
     background:#e8f5e9;
@@ -50,11 +53,22 @@ h2{
     border-radius:15px;
 }
 
+
 .number{
     font-size:35px;
     font-weight:bold;
     color:#1b5e20;
 }
+
+
+
+input{
+    width:90%;
+    padding:12px;
+    border-radius:10px;
+    border:1px solid #ccc;
+}
+
 
 
 table{
@@ -63,17 +77,20 @@ table{
     margin-top:20px;
 }
 
+
 th{
     background:#388e3c;
     color:white;
     padding:12px;
 }
 
+
 td{
     padding:10px;
-    border-bottom:1px solid #ddd;
     text-align:center;
+    border-bottom:1px solid #ddd;
 }
+
 
 
 .back{
@@ -106,41 +123,42 @@ Rongkhem Smart Village<br>
 </header>
 
 
+
 <div class="container">
+
 
 
 <div class="card">
 
-
 <h2>📊 สรุปข้อมูลประชาชน</h2>
 
 
-<div class="summary">
+<div class="dashboard">
 
 
 <div class="box">
-ประชากรทั้งหมด
+👥 ประชาชนทั้งหมด
 <div class="number">202</div>
 คน
 </div>
 
 
 <div class="box">
-ชาย
+👨 ชาย
 <div class="number">97</div>
 คน
 </div>
 
 
 <div class="box">
-หญิง
+👩 หญิง
 <div class="number">105</div>
 คน
 </div>
 
 
 <div class="box">
-ผู้สูงอายุ
+👴 ผู้สูงอายุ
 <div class="number">91</div>
 คน
 </div>
@@ -148,9 +166,26 @@ Rongkhem Smart Village<br>
 
 </div>
 
+</div>
 
 
-<h2>📋 รายชื่อประชาชนตัวอย่าง</h2>
+
+
+<div class="card">
+
+<h2>🔍 ค้นหารายชื่อประชาชน</h2>
+
+<input type="text" placeholder="พิมพ์ชื่อประชาชน...">
+
+</div>
+
+
+
+
+<div class="card">
+
+
+<h2>📋 รายชื่อประชาชน</h2>
 
 
 <table>
@@ -160,7 +195,7 @@ Rongkhem Smart Village<br>
 <th>ชื่อ-สกุล</th>
 <th>เพศ</th>
 <th>อายุ</th>
-<th>หมายเหตุ</th>
+<th>ประเภท</th>
 </tr>
 
 
@@ -182,7 +217,17 @@ Rongkhem Smart Village<br>
 </tr>
 
 
+<tr>
+<td>3</td>
+<td>เด็กตัวอย่าง ร่องเข็ม</td>
+<td>ชาย</td>
+<td>12</td>
+<td>เยาวชน</td>
+</tr>
+
+
 </table>
+
 
 
 <a class="back" href="dashboard.html">
@@ -192,8 +237,12 @@ Rongkhem Smart Village<br>
 
 </div>
 
+
+
 </div>
 
 
+
 </body>
+
 </html>
