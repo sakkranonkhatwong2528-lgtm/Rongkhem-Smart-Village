@@ -6,180 +6,303 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>บ้านร่องเข็ม Smart Village</title>
+<title>Rongkhem Smart Village</title>
 
 <style>
 
 body{
 margin:0;
-font-family:Tahoma,sans-serif;
+font-family:Tahoma,Arial,sans-serif;
 background:#f1f8e9;
 }
 
 
 header{
-
-background:linear-gradient(
-rgba(0,80,0,0.7),
-rgba(0,120,80,0.7)
-),
-url("images/village.jpg");
-
-background-size:cover;
-background-position:center;
-
+background:linear-gradient(135deg,#2e7d32,#66bb6a);
 color:white;
 text-align:center;
-padding:80px 20px;
-
+padding:30px;
 }
-
-
-
-.logo{
-
-width:120px;
-height:120px;
-border-radius:50%;
-background:white;
-padding:5px;
-
-}
-
-
-
-h1{
-
-font-size:40px;
-
-}
-
 
 
 .container{
-
 padding:20px;
-
+max-width:1200px;
+margin:auto;
 }
-
 
 
 .card{
-
 background:white;
-padding:25px;
+padding:20px;
+border-radius:18px;
 margin-bottom:20px;
-border-radius:20px;
-box-shadow:0 4px 12px #ccc;
-
+box-shadow:0 4px 15px #ccc;
 }
-
 
 
 .grid{
 
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
 gap:15px;
 
 }
-
 
 
 .box{
 
 background:#e8f5e9;
 padding:20px;
-text-align:center;
 border-radius:15px;
+text-align:center;
 
 }
-
 
 
 .icon{
+font-size:35px;
+}
 
-font-size:40px;
+
+.number{
+
+font-size:35px;
+font-weight:bold;
+color:#1b5e20;
 
 }
 
+
+.menu{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
+
+}
 
 
 .menu a{
 
-display:block;
-background:#2e7d32;
+background:#388e3c;
 color:white;
-padding:15px;
-margin:10px;
-border-radius:10px;
+padding:18px;
+border-radius:15px;
 text-decoration:none;
 text-align:center;
+font-size:18px;
 
 }
-
 
 
 footer{
 
+background:#2e7d32;
+color:white;
 text-align:center;
 padding:20px;
 
 }
-
 
 </style>
 
 </head>
 
 
-<body>
 
+<body>
 
 
 <header>
 
+<h1>🏡 Rongkhem Smart Village</h1>
 
-<img class="logo" src="images/logo.png">
-
-
-<h1>
-🏡 บ้านร่องเข็ม Smart Village
-</h1>
-
-
-<h2>
-หมู่ที่ 6 ตำบลจำป่าหวาย
-</h2>
-
+<h2>ระบบบริหารจัดการหมู่บ้านอัจฉริยะ</h2>
 
 <p>
-อำเภอเมือง จังหวัดพะเยา
+บ้านร่องเข็ม หมู่ที่ 6<br>
+ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา
 </p>
 
-
 </header>
-
 
 
 
 <div class="container">
 
 
+
+<div class="card">
+
+<h2>📊 ข้อมูลภาพรวมหมู่บ้าน</h2>
+
+
+<div class="grid">
+
+
+<div class="box">
+<div class="icon">👥</div>
+ประชากร
+<div class="number">
+1,021
+</div>
+คน
+</div>
+
+
+<div class="box">
+<div class="icon">🏠</div>
+ครัวเรือน
+<div class="number">
+75
+</div>
+หลัง
+</div>
+
+
+<div class="box">
+<div class="icon">👴</div>
+ผู้สูงอายุ
+<div class="number">
+91
+</div>
+คน
+</div>
+
+
+<div class="box">
+<div class="icon">❤️</div>
+ผู้พิการ
+<div class="number">
+3
+</div>
+คน
+</div>
+
+
+<div class="box">
+<div class="icon">🩺</div>
+อสม.
+<div class="number">
+20
+</div>
+คน
+</div>
+
+
+<div class="box">
+<div class="icon">🛡️</div>
+ชรบ.
+<div class="number">
+15
+</div>
+คน
+</div>
+
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h2>📌 ระบบงานหมู่บ้าน</h2>
+
+
+<div class="menu">
+
+
+<a href="pages/citizen.html">
+👥 ทะเบียนประชาชน
+</a>
+
+
+<a href="pages/household.html">
+🏠 ทะเบียนครัวเรือน
+</a>
+
+
+<a href="pages/leader.html">
+👤 ทำเนียบผู้นำหมู่บ้าน
+</a>
+
+
+<a href="pages/organization.html">
+🏛️ โครงสร้างชุมชน
+</a>
+
+
+<a href="pages/health.html">
+🩺 ระบบสุขภาพ อสม.
+</a>
+
+
+<a href="pages/vrv.html">
+🛡️ ชรบ.
+</a>
+
+
+<a href="pages/vulnerable.html">
+❤️ กลุ่มเปราะบาง
+</a>
+
+
+<a href="pages/tourism.html">
+🌱 แหล่งซับน้ำจำ
+</a>
+
+
+<a href="pages/enterprise.html">
+💼 วิสาหกิจชุมชน
+</a>
+
+
+<a href="pages/report.html">
+📄 รายงานเอกสาร
+</a>
+
+
+</div>
+
+</div>
+
+
+
+
+
 <div class="card">
 
 
-<h2>
-🌱 ยินดีต้อนรับสู่ระบบหมู่บ้านอัจฉริยะ
-</h2>
+<h2>🌳 แผนพัฒนาหมู่บ้าน</h2>
 
 
 <p>
+✅ แผนจัดการทรัพยากรธรรมชาติและสิ่งแวดล้อม
+</p>
 
-ระบบสารสนเทศเพื่อการบริหารจัดการหมู่บ้าน  
-<br>
-สนับสนุนการทำงานของผู้ใหญ่บ้าน คณะกรรมการหมู่บ้าน และประชาชน
 
+<p>
+✅ การลดการเผาและแก้ไขปัญหา PM2.5
+</p>
+
+
+<p>
+✅ การพัฒนาแหล่งซับน้ำจำ
+</p>
+
+
+<p>
+✅ การส่งเสริมเศรษฐกิจชุมชน
+</p>
+
+
+<p>
+✅ การพัฒนาหมู่บ้านอัจฉริยะ
 </p>
 
 
@@ -187,142 +310,21 @@ padding:20px;
 
 
 
-
-
-<div class="card">
-
-
-<h2>
-📊 ข้อมูลสำคัญ
-</h2>
-
-
-<div class="grid">
-
-
-<div class="box">
-
-<div class="icon">👥</div>
-
-ประชาชน
-
-<br>
-
-202 คน
-
 </div>
 
-
-
-<div class="box">
-
-<div class="icon">🏠</div>
-
-ครัวเรือน
-
-<br>
-
-75 หลัง
-
-</div>
-
-
-
-<div class="box">
-
-<div class="icon">🌳</div>
-
-แหล่งซับน้ำจำ
-
-<br>
-
-พื้นที่เรียนรู้ธรรมชาติ
-
-</div>
-
-
-
-<div class="box">
-
-<div class="icon">💧</div>
-
-ตราน้ำจำ
-
-<br>
-
-ผลิตภัณฑ์ชุมชน
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-<div class="card">
-
-
-<h2>
-🚀 เข้าสู่ระบบ
-</h2>
-
-
-<div class="menu">
-
-
-<a href="pages/dashboard.html">
-
-📊 Dashboard หมู่บ้าน
-
-</a>
-
-
-<a href="pages/citizen.html">
-
-👥 ทะเบียนประชาชน
-
-</a>
-
-
-<a href="pages/tourism.html">
-
-🏞️ ท่องเที่ยวชุมชน
-
-</a>
-
-
-<a href="pages/report.html">
-
-📄 เอกสารราชการ
-
-</a>
-
-
-</div>
-
-
-</div>
-
-
-
-
-</div>
 
 
 
 <footer>
 
 © 2569 Rongkhem Smart Village
+
 <br>
-"เทคโนโลยีเพื่อการพัฒนาชุมชนอย่างยั่งยืน"
+
+บ้านร่องเข็ม หมู่ที่ 6
 
 </footer>
+
 
 
 </body>
