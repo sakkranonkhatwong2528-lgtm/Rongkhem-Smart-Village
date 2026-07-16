@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="th">
-<head>
 
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -11,12 +11,12 @@
 
 body{
     margin:0;
-    font-family:Tahoma, sans-serif;
+    font-family:Tahoma,sans-serif;
     background:#f1f8e9;
 }
 
 header{
-    background:#1565c0;
+    background:#2e7d32;
     color:white;
     text-align:center;
     padding:25px;
@@ -35,17 +35,17 @@ header{
 }
 
 h2{
-    color:#1565c0;
+    color:#2e7d32;
 }
 
-.summary{
+.dashboard{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
     gap:15px;
 }
 
 .box{
-    background:#e3f2fd;
+    background:#e8f5e9;
     padding:20px;
     text-align:center;
     border-radius:15px;
@@ -54,8 +54,16 @@ h2{
 .number{
     font-size:35px;
     font-weight:bold;
-    color:#1565c0;
+    color:#1b5e20;
 }
+
+input{
+    width:90%;
+    padding:12px;
+    border-radius:10px;
+    border:1px solid #ccc;
+}
+
 
 table{
     width:100%;
@@ -64,7 +72,7 @@ table{
 }
 
 th{
-    background:#1565c0;
+    background:#388e3c;
     color:white;
     padding:12px;
 }
@@ -78,7 +86,7 @@ td{
 .back{
     display:inline-block;
     margin-top:20px;
-    background:#1565c0;
+    background:#388e3c;
     color:white;
     padding:12px 20px;
     border-radius:10px;
@@ -105,19 +113,20 @@ Rongkhem Smart Village<br>
 </header>
 
 
+
 <div class="container">
 
 
 <div class="card">
 
-<h2>📊 ข้อมูลภาพรวมครัวเรือน</h2>
+<h2>📊 สรุปข้อมูลครัวเรือน</h2>
 
 
-<div class="summary">
+<div class="dashboard">
 
 
 <div class="box">
-🏠 จำนวนครัวเรือน
+🏠 ครัวเรือนทั้งหมด
 <div class="number">-</div>
 หลัง
 </div>
@@ -133,34 +142,46 @@ Rongkhem Smart Village<br>
 <div class="box">
 👴 ครัวเรือนผู้สูงอายุ
 <div class="number">91</div>
-คน
+หลัง
 </div>
 
 
 <div class="box">
 ❤️ กลุ่มเปราะบาง
-<div class="number">-</div>
-ครัวเรือน
+<div class="number">3</div>
+หลัง
 </div>
 
 
 </div>
 
 </div>
+
 
 
 
 <div class="card">
 
+<h2>🔍 ค้นหาครัวเรือน</h2>
 
-<h2>📋 รายการครัวเรือน</h2>
+<input type="text" placeholder="ค้นหาบ้านเลขที่ หรือชื่อเจ้าบ้าน">
+
+</div>
+
+
+
+
+<div class="card">
+
+<h2>📋 รายละเอียดครัวเรือน</h2>
 
 
 <table>
 
+
 <tr>
 <th>ลำดับ</th>
-<th>เลขที่บ้าน</th>
+<th>บ้านเลขที่</th>
 <th>ชื่อเจ้าบ้าน</th>
 <th>สมาชิก</th>
 <th>หมายเหตุ</th>
@@ -168,20 +189,47 @@ Rongkhem Smart Village<br>
 
 
 <tr>
+
 <td>1</td>
-<td>6/1</td>
+
+<td>1/1</td>
+
 <td>นายตัวอย่าง ใจดี</td>
+
 <td>4 คน</td>
+
 <td>ทั่วไป</td>
+
 </tr>
 
 
 <tr>
+
 <td>2</td>
-<td>6/2</td>
+
+<td>2/1</td>
+
 <td>นางตัวอย่าง ใจดี</td>
-<td>3 คน</td>
+
+<td>2 คน</td>
+
 <td>ผู้สูงอายุ</td>
+
+</tr>
+
+
+<tr>
+
+<td>3</td>
+
+<td>3/1</td>
+
+<td>นายสมชาย ตัวอย่าง</td>
+
+<td>5 คน</td>
+
+<td>กลุ่มเปราะบาง</td>
+
 </tr>
 
 
@@ -200,4 +248,5 @@ Rongkhem Smart Village<br>
 
 
 </body>
+
 </html>
