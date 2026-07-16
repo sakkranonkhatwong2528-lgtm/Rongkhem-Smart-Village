@@ -13,11 +13,11 @@
 body{
 margin:0;
 font-family:Tahoma,sans-serif;
-background:#fff8e1;
+background:#f1f8e9;
 }
 
 header{
-background:#ef6c00;
+background:#2e7d32;
 color:white;
 text-align:center;
 padding:25px;
@@ -31,33 +31,28 @@ padding:20px;
 background:white;
 padding:20px;
 border-radius:15px;
-box-shadow:0 3px 10px #ccc;
 margin-bottom:20px;
+box-shadow:0 3px 10px #ccc;
 }
 
-h2{
-color:#ef6c00;
-}
-
-.dashboard{
+.grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
 gap:15px;
 }
 
 .box{
-background:#fff3e0;
+background:#e8f5e9;
 padding:20px;
-text-align:center;
 border-radius:15px;
+text-align:center;
 }
 
 .number{
 font-size:35px;
 font-weight:bold;
-color:#e65100;
+color:#1b5e20;
 }
-
 
 table{
 width:100%;
@@ -66,7 +61,7 @@ margin-top:20px;
 }
 
 th{
-background:#ef6c00;
+background:#388e3c;
 color:white;
 padding:12px;
 }
@@ -77,11 +72,10 @@ text-align:center;
 border-bottom:1px solid #ddd;
 }
 
-
 .back{
 display:inline-block;
 margin-top:20px;
-background:#ef6c00;
+background:#388e3c;
 color:white;
 padding:12px 20px;
 border-radius:10px;
@@ -101,8 +95,8 @@ text-decoration:none;
 <h1>💼 วิสาหกิจชุมชน</h1>
 
 <p>
-ระบบเศรษฐกิจชุมชน บ้านร่องเข็ม หมู่ที่ 6<br>
-ตำบลจำป่าหวาย จังหวัดพะเยา
+Rongkhem Smart Village<br>
+กลุ่มอาชีพและเศรษฐกิจชุมชน บ้านร่องเข็ม หมู่ที่ 6
 </p>
 
 </header>
@@ -117,12 +111,12 @@ text-decoration:none;
 <h2>📊 ข้อมูลวิสาหกิจชุมชน</h2>
 
 
-<div class="dashboard">
+<div class="grid">
 
 
 <div class="box">
-🏢 กลุ่มวิสาหกิจ
-<div class="number">1</div>
+💼 กลุ่มอาชีพ
+<div class="number">-</div>
 กลุ่ม
 </div>
 
@@ -135,16 +129,16 @@ text-decoration:none;
 
 
 <div class="box">
-📦 ผลิตภัณฑ์ชุมชน
-<div class="number">-</div>
-รายการ
+💧 ผลิตภัณฑ์น้ำดื่ม
+<div class="number">1</div>
+ผลิตภัณฑ์
 </div>
 
 
 <div class="box">
-💰 รายได้ชุมชน
+🌱 ผลิตภัณฑ์ชุมชน
 <div class="number">-</div>
-บาท
+รายการ
 </div>
 
 
@@ -157,42 +151,53 @@ text-decoration:none;
 <div class="card">
 
 
-<h2>📋 รายการกลุ่มและผลิตภัณฑ์</h2>
+<h2>📋 รายการผลิตภัณฑ์และกลุ่มอาชีพ</h2>
 
 
 <table>
 
 <tr>
+
 <th>ลำดับ</th>
-<th>ชื่อกลุ่ม</th>
-<th>ผลิตภัณฑ์</th>
+<th>ชื่อกลุ่ม/ผลิตภัณฑ์</th>
 <th>รายละเอียด</th>
+<th>สถานะ</th>
+
 </tr>
 
 
 <tr>
+
 <td>1</td>
-<td>วิสาหกิจชุมชนบ้านร่องเข็ม</td>
-<td>น้ำดื่มชุมชน ตราน้ำจำ</td>
-<td>
-ผลิตภัณฑ์ชุมชนเพื่อสร้างรายได้
-และส่งเสริมเศรษฐกิจหมู่บ้าน
-</td>
+<td>ตราน้ำจำ</td>
+<td>น้ำดื่มชุมชนบ้านร่องเข็ม</td>
+<td>ดำเนินงาน</td>
+
 </tr>
 
 
 <tr>
+
 <td>2</td>
-<td>กลุ่มเกษตรกร</td>
-<td>ปุ๋ยหมัก / ผลผลิตเกษตร</td>
-<td>
-ส่งเสริมเกษตรอินทรีย์
-ลดต้นทุนการผลิต
-</td>
+<td>กลุ่มเกษตรชุมชน</td>
+<td>ส่งเสริมการผลิตทางการเกษตร</td>
+<td>พัฒนา</td>
+
+</tr>
+
+
+<tr>
+
+<td>3</td>
+<td>ปุ๋ยอินทรีย์ชุมชน</td>
+<td>จัดการเศษวัสดุทางการเกษตร</td>
+<td>ส่งเสริม</td>
+
 </tr>
 
 
 </table>
+
 
 
 <a class="back" href="dashboard.html">
