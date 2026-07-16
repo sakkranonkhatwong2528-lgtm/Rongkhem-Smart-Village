@@ -2,7 +2,6 @@
 <html lang="th">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -11,88 +10,80 @@
 <style>
 
 body{
-    margin:0;
-    font-family:Tahoma, sans-serif;
-    background:#fff8e1;
+margin:0;
+font-family:Tahoma,sans-serif;
+background:#f1f8e9;
 }
 
 header{
-    background:#ef6c00;
-    color:white;
-    text-align:center;
-    padding:25px;
+background:#2e7d32;
+color:white;
+text-align:center;
+padding:25px;
 }
 
 .container{
-    padding:20px;
+padding:20px;
 }
 
 .card{
-    background:white;
-    padding:20px;
-    border-radius:15px;
-    box-shadow:0 3px 10px #ccc;
-    margin-bottom:20px;
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 3px 10px #ccc;
+margin-bottom:20px;
 }
 
 h2{
-    color:#ef6c00;
+color:#2e7d32;
 }
 
-
-.summary{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:15px;
+.dashboard{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:15px;
 }
-
 
 .box{
-    background:#fff3e0;
-    padding:20px;
-    border-radius:15px;
-    text-align:center;
+background:#e8f5e9;
+padding:20px;
+text-align:center;
+border-radius:15px;
 }
-
 
 .number{
-    font-size:35px;
-    font-weight:bold;
-    color:#e65100;
+font-size:35px;
+font-weight:bold;
+color:#1b5e20;
 }
-
 
 table{
-    width:100%;
-    border-collapse:collapse;
-    margin-top:20px;
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
 }
-
 
 th{
-    background:#ef6c00;
-    color:white;
-    padding:12px;
+background:#388e3c;
+color:white;
+padding:12px;
 }
-
 
 td{
-    padding:10px;
-    text-align:center;
-    border-bottom:1px solid #ddd;
+padding:10px;
+text-align:center;
+border-bottom:1px solid #ddd;
 }
-
 
 .back{
-    display:inline-block;
-    margin-top:20px;
-    background:#ef6c00;
-    color:white;
-    padding:12px 20px;
-    border-radius:10px;
-    text-decoration:none;
+display:inline-block;
+margin-top:20px;
+background:#388e3c;
+color:white;
+padding:12px 20px;
+border-radius:10px;
+text-decoration:none;
 }
-
 
 </style>
 
@@ -120,11 +111,10 @@ Rongkhem Smart Village<br>
 
 <div class="card">
 
-
 <h2>📊 สรุปข้อมูลผู้สูงอายุ</h2>
 
 
-<div class="summary">
+<div class="dashboard">
 
 
 <div class="box">
@@ -135,28 +125,27 @@ Rongkhem Smart Village<br>
 
 
 <div class="box">
-อายุ 60-69 ปี
-<div class="number">-</div>
+👨 ชาย
+<div class="number">40</div>
 คน
 </div>
 
 
 <div class="box">
-อายุ 70-79 ปี
-<div class="number">-</div>
+👩 หญิง
+<div class="number">51</div>
 คน
 </div>
 
 
 <div class="box">
-อายุ 80 ปีขึ้นไป
+🏥 ต้องดูแลพิเศษ
 <div class="number">-</div>
 คน
 </div>
 
 
 </div>
-
 
 </div>
 
@@ -164,19 +153,17 @@ Rongkhem Smart Village<br>
 
 <div class="card">
 
-
 <h2>📋 รายชื่อผู้สูงอายุ</h2>
 
 
 <table>
 
-
 <tr>
 <th>ลำดับ</th>
 <th>ชื่อ-สกุล</th>
 <th>อายุ</th>
+<th>บ้านเลขที่</th>
 <th>สถานะ</th>
-<th>การดูแล</th>
 </tr>
 
 
@@ -184,17 +171,26 @@ Rongkhem Smart Village<br>
 <td>1</td>
 <td>นายตัวอย่าง ใจดี</td>
 <td>72</td>
-<td>ผู้สูงอายุ</td>
-<td>ติดตามสุขภาพ</td>
+<td>1/1</td>
+<td>ช่วยเหลือตัวเองได้</td>
 </tr>
 
 
 <tr>
 <td>2</td>
 <td>นางตัวอย่าง ใจดี</td>
-<td>81</td>
-<td>ผู้สูงอายุ</td>
-<td>เยี่ยมบ้าน</td>
+<td>80</td>
+<td>2/1</td>
+<td>ติดตามสุขภาพ</td>
+</tr>
+
+
+<tr>
+<td>3</td>
+<td>นายสมชาย ตัวอย่าง</td>
+<td>65</td>
+<td>3/1</td>
+<td>ทั่วไป</td>
 </tr>
 
 
