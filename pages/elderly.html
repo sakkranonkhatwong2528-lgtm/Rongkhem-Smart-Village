@@ -2,10 +2,11 @@
 <html lang="th">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ผู้สูงอายุ | Rongkhem Smart Village</title>
+<title>ทะเบียนผู้สูงอายุ | Rongkhem Smart Village</title>
 
 <style>
 
@@ -30,15 +31,11 @@ padding:20px;
 background:white;
 padding:20px;
 border-radius:15px;
-box-shadow:0 3px 10px #ccc;
 margin-bottom:20px;
+box-shadow:0 3px 10px #ccc;
 }
 
-h2{
-color:#2e7d32;
-}
-
-.dashboard{
+.grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
 gap:15px;
@@ -57,6 +54,7 @@ font-weight:bold;
 color:#1b5e20;
 }
 
+
 table{
 width:100%;
 border-collapse:collapse;
@@ -74,6 +72,7 @@ padding:10px;
 text-align:center;
 border-bottom:1px solid #ddd;
 }
+
 
 .back{
 display:inline-block;
@@ -95,7 +94,7 @@ text-decoration:none;
 
 <header>
 
-<h1>👴 ระบบผู้สูงอายุ</h1>
+<h1>👴 ทะเบียนผู้สูงอายุ</h1>
 
 <p>
 Rongkhem Smart Village<br>
@@ -111,10 +110,10 @@ Rongkhem Smart Village<br>
 
 <div class="card">
 
-<h2>📊 สรุปข้อมูลผู้สูงอายุ</h2>
+<h2>📊 ข้อมูลผู้สูงอายุ</h2>
 
 
-<div class="dashboard">
+<div class="grid">
 
 
 <div class="box">
@@ -126,20 +125,20 @@ Rongkhem Smart Village<br>
 
 <div class="box">
 👨 ชาย
-<div class="number">40</div>
+<div class="number">42</div>
 คน
 </div>
 
 
 <div class="box">
 👩 หญิง
-<div class="number">51</div>
+<div class="number">49</div>
 คน
 </div>
 
 
 <div class="box">
-🏥 ต้องดูแลพิเศษ
+❤️ กลุ่มติดบ้าน/เปราะบาง
 <div class="number">-</div>
 คน
 </div>
@@ -153,44 +152,49 @@ Rongkhem Smart Village<br>
 
 <div class="card">
 
+
 <h2>📋 รายชื่อผู้สูงอายุ</h2>
 
 
 <table>
 
 <tr>
+
 <th>ลำดับ</th>
 <th>ชื่อ-สกุล</th>
 <th>อายุ</th>
-<th>บ้านเลขที่</th>
 <th>สถานะ</th>
+
 </tr>
 
 
 <tr>
+
 <td>1</td>
 <td>นายตัวอย่าง ใจดี</td>
 <td>72</td>
-<td>1/1</td>
 <td>ช่วยเหลือตัวเองได้</td>
+
 </tr>
 
 
 <tr>
+
 <td>2</td>
-<td>นางตัวอย่าง ใจดี</td>
+<td>นางตัวอย่าง ร่องเข็ม</td>
 <td>80</td>
-<td>2/1</td>
-<td>ติดตามสุขภาพ</td>
+<td>เยี่ยมบ้าน</td>
+
 </tr>
 
 
 <tr>
+
 <td>3</td>
-<td>นายสมชาย ตัวอย่าง</td>
+<td>นายตัวอย่าง พัฒนา</td>
 <td>65</td>
-<td>3/1</td>
 <td>ทั่วไป</td>
+
 </tr>
 
 
