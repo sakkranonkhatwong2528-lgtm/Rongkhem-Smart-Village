@@ -13,14 +13,14 @@
 body{
 margin:0;
 font-family:Tahoma,sans-serif;
-background:#fce4ec;
+background:#f1f8e9;
 }
 
 header{
-background:#c2185b;
+background:#2e7d32;
 color:white;
-padding:25px;
 text-align:center;
+padding:25px;
 }
 
 .container{
@@ -36,29 +36,26 @@ margin-bottom:20px;
 }
 
 h2{
-color:#c2185b;
+color:#2e7d32;
 }
 
-
-.grid{
+.dashboard{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
 gap:15px;
 }
 
-
 .box{
-background:#f8bbd0;
+background:#e8f5e9;
 padding:20px;
-border-radius:15px;
 text-align:center;
+border-radius:15px;
 }
-
 
 .number{
 font-size:35px;
 font-weight:bold;
-color:#880e4f;
+color:#1b5e20;
 }
 
 
@@ -70,7 +67,7 @@ margin-top:20px;
 
 
 th{
-background:#c2185b;
+background:#388e3c;
 color:white;
 padding:12px;
 }
@@ -78,19 +75,19 @@ padding:12px;
 
 td{
 padding:10px;
-border-bottom:1px solid #ddd;
 text-align:center;
+border-bottom:1px solid #ddd;
 }
 
 
 .back{
 display:inline-block;
-background:#c2185b;
+margin-top:20px;
+background:#388e3c;
 color:white;
 padding:12px 20px;
 border-radius:10px;
 text-decoration:none;
-margin-top:20px;
 }
 
 </style>
@@ -107,10 +104,11 @@ margin-top:20px;
 
 <p>
 Rongkhem Smart Village<br>
-บ้านร่องเข็ม หมู่ที่ 6 จังหวัดพะเยา
+บ้านร่องเข็ม หมู่ที่ 6 ตำบลจำป่าหวาย จังหวัดพะเยา
 </p>
 
 </header>
+
 
 
 <div class="container">
@@ -121,7 +119,7 @@ Rongkhem Smart Village<br>
 <h2>📊 สรุปข้อมูลกลุ่มเปราะบาง</h2>
 
 
-<div class="grid">
+<div class="dashboard">
 
 
 <div class="box">
@@ -139,16 +137,16 @@ Rongkhem Smart Village<br>
 
 
 <div class="box">
-❤️ ผู้ต้องการช่วยเหลือ
+🏥 ผู้ป่วยติดบ้าน
 <div class="number">-</div>
 คน
 </div>
 
 
 <div class="box">
-🏠 ครัวเรือนเปราะบาง
+🤝 ต้องได้รับการช่วยเหลือ
 <div class="number">-</div>
-หลัง
+คน
 </div>
 
 
@@ -170,27 +168,40 @@ Rongkhem Smart Village<br>
 <th>ลำดับ</th>
 <th>ชื่อ-สกุล</th>
 <th>ประเภท</th>
+<th>บ้านเลขที่</th>
 <th>การช่วยเหลือ</th>
 </tr>
 
 
 <tr>
 <td>1</td>
-<td>ตัวอย่าง นายใจดี</td>
+<td>นางตัวอย่าง ใจดี</td>
 <td>ผู้สูงอายุ</td>
-<td>ติดตามเยี่ยมบ้าน</td>
+<td>2/1</td>
+<td>ติดตามสุขภาพ</td>
 </tr>
 
 
 <tr>
 <td>2</td>
-<td>ตัวอย่าง นางใจดี</td>
+<td>นายสมชาย ตัวอย่าง</td>
 <td>ผู้พิการ</td>
-<td>ดูแลสวัสดิการ</td>
+<td>3/1</td>
+<td>ช่วยเหลือด้านสิ่งอำนวยความสะดวก</td>
+</tr>
+
+
+<tr>
+<td>3</td>
+<td>นางสาวตัวอย่าง ร่องเข็ม</td>
+<td>ผู้ต้องการความช่วยเหลือ</td>
+<td>4/1</td>
+<td>เยี่ยมบ้าน</td>
 </tr>
 
 
 </table>
+
 
 
 <a class="back" href="dashboard.html">
