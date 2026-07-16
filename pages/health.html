@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ระบบสุขภาพและ อสม. | Rongkhem Smart Village</title>
+<title>สุขภาพและ อสม. | Rongkhem Smart Village</title>
 
 <style>
 
@@ -31,26 +31,25 @@ padding:20px;
 background:white;
 padding:20px;
 border-radius:15px;
-box-shadow:0 3px 10px #ccc;
 margin-bottom:20px;
+box-shadow:0 3px 10px #ccc;
 }
 
-h2{
-color:#2e7d32;
-}
 
-.dashboard{
+.grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
 gap:15px;
 }
 
+
 .box{
 background:#e8f5e9;
 padding:20px;
-text-align:center;
 border-radius:15px;
+text-align:center;
 }
+
 
 .number{
 font-size:35px;
@@ -58,11 +57,14 @@ font-weight:bold;
 color:#1b5e20;
 }
 
+
+
 table{
 width:100%;
 border-collapse:collapse;
 margin-top:20px;
 }
+
 
 th{
 background:#388e3c;
@@ -70,11 +72,14 @@ color:white;
 padding:12px;
 }
 
+
 td{
 padding:10px;
 text-align:center;
 border-bottom:1px solid #ddd;
 }
+
+
 
 .back{
 display:inline-block;
@@ -115,72 +120,108 @@ Rongkhem Smart Village<br>
 <h2>📊 ข้อมูลสุขภาพชุมชน</h2>
 
 
-<div class="dashboard">
+<div class="grid">
 
 
 <div class="box">
+
 🩺 อสม.ทั้งหมด
+
 <div class="number">-</div>
+
 คน
+
 </div>
 
 
-<div class="box">
-👴 ผู้สูงอายุที่ติดตาม
-<div class="number">91</div>
-คน
-</div>
-
 
 <div class="box">
-❤️ กลุ่มเปราะบาง
-<div class="number">3</div>
-คน
-</div>
 
+🦟 ตรวจลูกน้ำยุงลาย
 
-<div class="box">
-🦟 เฝ้าระวังไข้เลือดออก
-<div class="number">6</div>
+<div class="number">-</div>
+
 หลังคาเรือน
-</div>
-
 
 </div>
 
+
+
+<div class="box">
+
+🔥 เฝ้าระวัง PM2.5
+
+<div class="number">-</div>
+
+จุด
+
 </div>
 
+
+
+<div class="box">
+
+🏥 เยี่ยมบ้าน
+
+<div class="number">-</div>
+
+ครั้ง
+
+</div>
+
+
+
+</div>
+
+</div>
 
 
 
 <div class="card">
 
-<h2>👥 รายชื่อ อสม.</h2>
+
+<h2>📋 งานด้านสุขภาพ</h2>
 
 
 <table>
 
 <tr>
+
 <th>ลำดับ</th>
-<th>ชื่อ-สกุล</th>
-<th>พื้นที่รับผิดชอบ</th>
-<th>หน้าที่</th>
+<th>กิจกรรม</th>
+<th>ผู้รับผิดชอบ</th>
+<th>สถานะ</th>
+
 </tr>
 
 
 <tr>
+
 <td>1</td>
-<td>อสม.ตัวอย่าง ใจดี</td>
-<td>บ้านร่องเข็ม หมู่ 6</td>
-<td>ดูแลสุขภาพประชาชน</td>
+<td>ตรวจลูกน้ำยุงลาย</td>
+<td>อสม.หมู่บ้าน</td>
+<td>ดำเนินการต่อเนื่อง</td>
+
 </tr>
 
 
 <tr>
+
 <td>2</td>
-<td>อสม.ตัวอย่าง พัฒนา</td>
-<td>บ้านร่องเข็ม หมู่ 6</td>
-<td>ตรวจลูกน้ำยุงลาย</td>
+<td>ติดตามผู้สูงอายุและกลุ่มเปราะบาง</td>
+<td>อสม.</td>
+<td>เยี่ยมบ้าน</td>
+
+</tr>
+
+
+<tr>
+
+<td>3</td>
+<td>เฝ้าระวังฝุ่น PM2.5</td>
+<td>คณะกรรมการหมู่บ้าน</td>
+<td>ติดตามสถานการณ์</td>
+
 </tr>
 
 
