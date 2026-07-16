@@ -1,0 +1,61 @@
+body{
+    margin:0;
+    font-family:"Tahoma",sans-serif;
+    background:#f5f5f5;
+}
+
+
+.header{
+    background:linear-gradient(135deg,#00695c,#26a69a);
+    color:white;
+    padding:40px;
+    text-align:center;
+}
+
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
+}
+
+
+.menu{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 4px 15px #ccc;
+}
+
+
+.card a{
+    text-decoration:none;
+    color:#00695c;
+    font-size:18px;
+    font-weight:bold;
+}
+
+
+.number{
+    font-size:40px;
+    font-weight:bold;
+    color:#00695c;
+}
+
+
+.footer{
+    margin-top:40px;
+    background:#004d40;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
