@@ -4,82 +4,126 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>คณะกรรมการหมู่บ้าน | Rongkhem Smart Village</title>
+
 
 <style>
 
 body{
 margin:0;
-font-family:Tahoma,sans-serif;
+font-family:"Tahoma",sans-serif;
 background:#f1f8e9;
 }
 
-header{
-background:#2e7d32;
+
+.header{
+
+background:linear-gradient(135deg,#1b5e20,#66bb6a);
+
 color:white;
+
+padding:30px;
+
 text-align:center;
-padding:25px;
+
 }
+
+
 
 .container{
+
+max-width:1200px;
+
+margin:auto;
+
 padding:20px;
+
 }
 
-.card{
-background:white;
-padding:20px;
-border-radius:15px;
-margin-bottom:20px;
-box-shadow:0 3px 10px #ccc;
-}
+
 
 .grid{
+
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:15px;
+
+grid-template-columns:
+repeat(auto-fit,minmax(260px,1fr));
+
+gap:20px;
+
 }
 
-.box{
-background:#e8f5e9;
+
+
+.card{
+
+background:white;
+
 padding:20px;
-border-radius:15px;
+
+border-radius:20px;
+
+box-shadow:0 5px 15px #ccc;
+
 text-align:center;
+
 }
 
-.number{
-font-size:35px;
+
+
+.card img{
+
+width:140px;
+
+height:140px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+}
+
+
+
+.position{
+
+font-size:20px;
+
 font-weight:bold;
-color:#1b5e20;
+
+color:#2e7d32;
+
 }
 
-table{
-width:100%;
-border-collapse:collapse;
-margin-top:20px;
-}
 
-th{
-background:#388e3c;
+
+.tag{
+
+background:#66bb6a;
+
 color:white;
-padding:12px;
-}
 
-td{
-padding:10px;
-text-align:center;
-border-bottom:1px solid #ddd;
-}
+padding:5px 15px;
 
-.back{
+border-radius:20px;
+
 display:inline-block;
-margin-top:20px;
-background:#388e3c;
-color:white;
-padding:12px 20px;
-border-radius:10px;
+
+}
+
+
+
+a{
+
 text-decoration:none;
+
+color:#1b5e20;
+
+font-weight:bold;
+
 }
 
 </style>
@@ -90,115 +134,201 @@ text-decoration:none;
 <body>
 
 
-<header>
+<div class="header">
 
 <h1>🏛️ คณะกรรมการหมู่บ้าน</h1>
 
+<h2>บ้านร่องเข็ม หมู่ที่ 6</h2>
+
 <p>
-Rongkhem Smart Village<br>
-บ้านร่องเข็ม หมู่ที่ 6 ตำบลจำป่าหวาย จังหวัดพะเยา
+ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา
 </p>
 
-</header>
+</div>
+
 
 
 
 <div class="container">
 
 
-<div class="card">
-
-<h2>📊 ข้อมูลคณะกรรมการ</h2>
-
-
 <div class="grid">
 
 
-<div class="box">
-🏛️ กรรมการหมู่บ้าน
-<div class="number">-</div>
-คน
+<div class="card">
+
+<img src="../assets/images/default-avatar.png">
+
+<div class="position">
+ประธานกรรมการหมู่บ้าน
+</div>
+
+<h3>
+รอกรอกข้อมูล
+</h3>
+
+<p>
+กำกับดูแลการบริหารงานหมู่บ้าน
+</p>
+
+<span class="tag">
+ฝ่ายบริหาร
+</span>
+
 </div>
 
 
-<div class="box">
-👨‍💼 ผู้ใหญ่บ้าน
-<div class="number">1</div>
-คน
-</div>
-
-
-<div class="box">
-🤝 ประชุมหมู่บ้าน
-<div class="number">12</div>
-ครั้ง/ปี
-</div>
-
-
-<div class="box">
-📋 แผนพัฒนาหมู่บ้าน
-<div class="number">1</div>
-แผน
-</div>
-
-
-</div>
-
-</div>
 
 
 
 <div class="card">
 
-<h2>📋 รายชื่อคณะกรรมการหมู่บ้าน</h2>
+<img src="../assets/images/default-avatar.png">
+
+<div class="position">
+ฝ่ายปกครอง
+</div>
+
+<h3>
+รอกรอกข้อมูล
+</h3>
+
+<p>
+งานทะเบียนและการปกครอง
+</p>
+
+<span class="tag">
+ฝ่ายปกครอง
+</span>
+
+</div>
 
 
-<table>
-
-<tr>
-<th>ลำดับ</th>
-<th>ชื่อ-สกุล</th>
-<th>ตำแหน่ง</th>
-<th>หน้าที่</th>
-</tr>
 
 
-<tr>
-<td>1</td>
-<td>นายศักรนนทน์ ขัติย์วงศ์</td>
-<td>ผู้ใหญ่บ้าน</td>
-<td>บริหารจัดการหมู่บ้าน</td>
-</tr>
+
+<div class="card">
+
+<img src="../assets/images/default-avatar.png">
+
+<div class="position">
+ฝ่ายพัฒนาและสิ่งแวดล้อม
+</div>
+
+<h3>
+รอกรอกข้อมูล
+</h3>
+
+<p>
+ดูแลแผนพัฒนาชุมชนและทรัพยากรธรรมชาติ
+</p>
+
+<span class="tag">
+สิ่งแวดล้อม
+</span>
+
+</div>
 
 
-<tr>
-<td>2</td>
-<td>ตัวแทนประชาชน</td>
-<td>กรรมการหมู่บ้าน</td>
-<td>ร่วมพัฒนาชุมชน</td>
-</tr>
 
 
-<tr>
-<td>3</td>
-<td>ตัวแทนกลุ่มองค์กร</td>
-<td>กรรมการ</td>
-<td>สนับสนุนกิจกรรมหมู่บ้าน</td>
-</tr>
+
+<div class="card">
+
+<img src="../assets/images/default-avatar.png">
+
+<div class="position">
+ฝ่ายเศรษฐกิจชุมชน
+</div>
+
+<h3>
+รอกรอกข้อมูล
+</h3>
+
+<p>
+ส่งเสริมอาชีพและวิสาหกิจชุมชน
+</p>
+
+<span class="tag">
+เศรษฐกิจ
+</span>
+
+</div>
 
 
-</table>
 
 
-<a class="back" href="dashboard.html">
-⬅ กลับ Dashboard
+
+<div class="card">
+
+<img src="../assets/images/default-avatar.png">
+
+<div class="position">
+ฝ่ายสาธารณสุข
+</div>
+
+<h3>
+รอกรอกข้อมูล
+</h3>
+
+<p>
+ประสานงาน อสม. และสุขภาพชุมชน
+</p>
+
+<span class="tag">
+สุขภาพ
+</span>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<img src="../assets/images/default-avatar.png">
+
+<div class="position">
+ฝ่ายรักษาความสงบ
+</div>
+
+<h3>
+รอกรอกข้อมูล
+</h3>
+
+<p>
+ประสานงาน ชรบ. และ อปพร.
+</p>
+
+<span class="tag">
+ความปลอดภัย
+</span>
+
+</div>
+
+
+</div>
+
+
+
+<br>
+
+
+<center>
+
+<a href="../admin.html">
+
+⬅ กลับ Admin
+
 </a>
 
+</center>
+
+
 
 </div>
 
-
-</div>
 
 
 </body>
