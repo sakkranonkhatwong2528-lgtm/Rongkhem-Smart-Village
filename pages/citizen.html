@@ -4,112 +4,152 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>ทะเบียนประชาชน | Rongkhem Smart Village</title>
 
+
 <style>
 
 body{
+
 margin:0;
-font-family:Tahoma,Arial,sans-serif;
+
+font-family:"Tahoma",sans-serif;
+
 background:#f1f8e9;
+
 }
 
 
-header{
-background:#2e7d32;
+
+.header{
+
+background:linear-gradient(135deg,#1b5e20,#66bb6a);
+
 color:white;
+
+padding:30px;
+
 text-align:center;
-padding:25px;
+
 }
 
-
-header h1{
-margin:0;
-font-size:30px;
-}
 
 
 .container{
+
+max-width:1200px;
+
+margin:auto;
+
 padding:20px;
+
 }
 
-
-.card{
-background:white;
-padding:20px;
-border-radius:15px;
-margin-bottom:20px;
-box-shadow:0 3px 10px #ccc;
-}
-
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:15px;
-}
-
-
-.box{
-background:#e8f5e9;
-padding:20px;
-border-radius:15px;
-text-align:center;
-}
-
-
-.number{
-font-size:35px;
-font-weight:bold;
-color:#1b5e20;
-}
-
-
-table{
-width:100%;
-border-collapse:collapse;
-margin-top:20px;
-}
-
-
-th{
-background:#388e3c;
-color:white;
-padding:12px;
-}
-
-
-td{
-padding:10px;
-text-align:center;
-border-bottom:1px solid #ddd;
-}
-
-
-tr:hover{
-background:#f1f8e9;
-}
 
 
 .search{
-width:100%;
-padding:12px;
-border-radius:10px;
-border:1px solid #ccc;
-font-size:16px;
+
+background:white;
+
+padding:20px;
+
+border-radius:20px;
+
+box-shadow:0 5px 15px #ccc;
+
+margin-bottom:20px;
+
 }
 
 
-.back{
+
+input{
+
+width:100%;
+
+padding:15px;
+
+border-radius:10px;
+
+border:1px solid #ccc;
+
+font-size:16px;
+
+}
+
+
+
+.grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(250px,1fr));
+
+gap:20px;
+
+}
+
+
+
+.person{
+
+background:white;
+
+padding:20px;
+
+border-radius:20px;
+
+text-align:center;
+
+box-shadow:0 5px 15px #ccc;
+
+}
+
+
+
+.person img{
+
+width:130px;
+
+height:130px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+}
+
+
+
+.tag{
 
 display:inline-block;
-background:#388e3c;
+
+background:#66bb6a;
+
 color:white;
-padding:12px 20px;
-border-radius:10px;
+
+padding:5px 15px;
+
+border-radius:20px;
+
+margin:5px;
+
+}
+
+
+
+a{
+
 text-decoration:none;
+
+color:#1b5e20;
+
+font-weight:bold;
 
 }
 
@@ -124,18 +164,17 @@ text-decoration:none;
 
 
 
-<header>
+<div class="header">
 
 <h1>👥 ทะเบียนประชาชน</h1>
 
-<h2>Rongkhem Smart Village</h2>
+<h2>บ้านร่องเข็ม หมู่ที่ 6</h2>
 
 <p>
-บ้านร่องเข็ม หมู่ที่ 6<br>
-ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา
+ระบบฐานข้อมูลประชาชนหมู่บ้านอัจฉริยะ
 </p>
 
-</header>
+</div>
 
 
 
@@ -144,85 +183,15 @@ text-decoration:none;
 
 
 
-<a class="back" href="dashboard.html">
-⬅ กลับ Dashboard
-</a>
-
-
-
-
-<div class="card">
-
-
-<h2>📊 ข้อมูลประชาชน</h2>
-
-
-<div class="grid">
-
-
-<div class="box">
-
-👥 ประชากรทั้งหมด
-
-<div class="number" id="total">
--
-</div>
-
-คน
-
-</div>
-
-
-
-<div class="box">
-
-👨 ชาย
-
-<div class="number" id="male">
--
-</div>
-
-คน
-
-</div>
-
-
-
-<div class="box">
-
-👩 หญิง
-
-<div class="number" id="female">
--
-</div>
-
-คน
-
-</div>
-
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="card">
+<div class="search">
 
 
 <h2>🔎 ค้นหาประชาชน</h2>
 
 
 <input 
-class="search"
-id="search"
-placeholder="พิมพ์ชื่อเพื่อค้นหา..."
->
-
+type="text"
+placeholder="ค้นหาชื่อ นามสกุล บ้านเลขที่">
 
 
 </div>
@@ -231,45 +200,42 @@ placeholder="พิมพ์ชื่อเพื่อค้นหา..."
 
 
 
-<div class="card">
 
-
-<h2>📋 รายชื่อประชาชน</h2>
-
-
-
-<table>
-
-
-<thead>
-
-<tr>
-
-<th>ลำดับ</th>
-<th>ชื่อ-นามสกุล</th>
-<th>เพศ</th>
-<th>อายุ</th>
-<th>อาชีพ</th>
-<th>บ้านเลขที่</th>
-
-</tr>
-
-
-</thead>
+<div class="grid">
 
 
 
-<tbody id="citizen">
-
-</tbody>
+<div class="person">
 
 
-</table>
+<img src="../assets/images/default-avatar.png">
 
 
-</div>
+<h2>
+ตัวอย่างประชาชน
+</h2>
 
 
+<p>
+🏠 บ้านเลขที่ : -
+</p>
+
+
+<p>
+👤 อายุ : -
+</p>
+
+
+<p>
+💼 อาชีพ : -
+</p>
+
+
+<span class="tag">
+
+ประชาชน
+
+</span>
 
 
 </div>
@@ -278,127 +244,87 @@ placeholder="พิมพ์ชื่อเพื่อค้นหา..."
 
 
 
-<script>
 
+<div class="person">
 
-let citizens=[];
 
+<img src="../assets/images/default-avatar.png">
 
 
-fetch("../data/citizen.json")
+<h2>
+ผู้สูงอายุ
+</h2>
 
 
-.then(response=>response.json())
+<p>
+👴 กลุ่มอายุ 60 ปีขึ้นไป
+</p>
 
 
-.then(data=>{
+<span class="tag">
 
+ผู้สูงอายุ
 
-citizens=data;
+</span>
 
 
-showData(citizens);
+</div>
 
 
 
-document.getElementById("total").innerHTML=data.length;
 
 
 
-let male=data.filter(
-x=>x.gender=="ชาย"
-).length;
+<div class="person">
 
 
-let female=data.filter(
-x=>x.gender=="หญิง"
-).length;
+<img src="../assets/images/default-avatar.png">
 
 
+<h2>
+กลุ่มเปราะบาง
 
-document.getElementById("male").innerHTML=male;
+</h2>
 
 
-document.getElementById("female").innerHTML=female;
+<p>
+❤️ ผู้พิการ / ผู้ต้องการช่วยเหลือ
 
+</p>
 
 
-});
+<span class="tag">
 
+ดูแลพิเศษ
 
+</span>
 
 
+</div>
 
-function showData(data){
 
 
-let table=document.getElementById("citizen");
+</div>
 
 
-table.innerHTML="";
 
 
+<br>
 
-data.forEach((item,index)=>{
 
+<center>
 
-table.innerHTML +=`
+<a href="../admin.html">
 
+⬅ กลับ Admin
 
-<tr>
+</a>
 
-<td>${index+1}</td>
+</center>
 
-<td>${item.name}</td>
 
-<td>${item.gender}</td>
 
-<td>${item.age}</td>
-
-<td>${item.career}</td>
-
-<td>${item.house_no}</td>
-
-
-</tr>
-
-
-`;
-
-
-});
-
-
-}
-
-
-
-
-
-document.getElementById("search")
-.addEventListener("keyup",function(){
-
-
-let text=this.value;
-
-
-let result=citizens.filter(item=>
-
-item.name.includes(text)
-
-);
-
-
-
-showData(result);
-
-
-
-});
-
-
-
-</script>
+</div>
 
 
 
