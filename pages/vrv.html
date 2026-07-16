@@ -4,84 +4,171 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ชรบ. | Rongkhem Smart Village</title>
+<title>ระบบ ชรบ. | Rongkhem Smart Village</title>
+
 
 <style>
 
 body{
+
 margin:0;
-font-family:Tahoma,sans-serif;
+
+font-family:"Tahoma",sans-serif;
+
 background:#f1f8e9;
+
 }
 
-header{
-background:#2e7d32;
+
+.header{
+
+background:linear-gradient(135deg,#263238,#607d8b);
+
 color:white;
+
+padding:30px;
+
 text-align:center;
-padding:25px;
+
 }
+
+
 
 .container{
+
+max-width:1200px;
+
+margin:auto;
+
 padding:20px;
+
 }
 
-.card{
-background:white;
-padding:20px;
-border-radius:15px;
-margin-bottom:20px;
-box-shadow:0 3px 10px #ccc;
-}
 
-.grid{
+
+.stats{
+
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:15px;
+
+grid-template-columns:
+repeat(auto-fit,minmax(200px,1fr));
+
+gap:20px;
+
 }
 
-.box{
-background:#e8f5e9;
-padding:20px;
-border-radius:15px;
+
+
+.stat{
+
+background:white;
+
+padding:25px;
+
+border-radius:20px;
+
 text-align:center;
+
+box-shadow:0 5px 15px #ccc;
+
 }
+
+
 
 .number{
-font-size:35px;
+
+font-size:40px;
+
 font-weight:bold;
-color:#1b5e20;
+
+color:#37474f;
+
 }
 
 
-table{
-width:100%;
-border-collapse:collapse;
+
+.grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(260px,1fr));
+
+gap:20px;
+
 margin-top:20px;
+
 }
 
-th{
-background:#388e3c;
-color:white;
-padding:12px;
-}
 
-td{
-padding:10px;
+
+.card{
+
+background:white;
+
+padding:20px;
+
+border-radius:20px;
+
 text-align:center;
-border-bottom:1px solid #ddd;
+
+box-shadow:0 5px 15px #ccc;
+
 }
 
 
-.back{
-display:inline-block;
-margin-top:20px;
-background:#388e3c;
+
+.card img{
+
+width:140px;
+
+height:140px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+}
+
+
+
+.position{
+
+font-size:20px;
+
+font-weight:bold;
+
+color:#37474f;
+
+}
+
+
+
+.tag{
+
+background:#607d8b;
+
 color:white;
-padding:12px 20px;
-border-radius:10px;
+
+padding:6px 15px;
+
+border-radius:20px;
+
+}
+
+
+
+a{
+
 text-decoration:none;
+
+color:#263238;
+
+font-weight:bold;
+
 }
 
 </style>
@@ -92,61 +179,119 @@ text-decoration:none;
 <body>
 
 
-<header>
 
-<h1>🛡️ ชรบ. หมู่บ้าน</h1>
+<div class="header">
+
+
+<h1>🛡️ ระบบ ชรบ.</h1>
+
+<h2>ชุดรักษาความปลอดภัยหมู่บ้าน</h2>
 
 <p>
-Rongkhem Smart Village<br>
-บ้านร่องเข็ม หมู่ที่ 6 ตำบลจำป่าหวาย จังหวัดพะเยา
+บ้านร่องเข็ม หมู่ที่ 6 จังหวัดพะเยา
 </p>
 
-</header>
+
+</div>
+
 
 
 
 <div class="container">
 
 
-<div class="card">
 
-<h2>📊 ข้อมูลชุดรักษาความปลอดภัยหมู่บ้าน</h2>
+<div class="stats">
+
+
+<div class="stat">
+
+<div class="number">
+
+15
+
+</div>
+
+ชรบ.ทั้งหมด
+
+</div>
+
+
+
+<div class="stat">
+
+<div class="number">
+
+24
+
+</div>
+
+ชั่วโมงดูแลความปลอดภัย
+
+</div>
+
+
+
+<div class="stat">
+
+<div class="number">
+
+7
+
+</div>
+
+วันปฏิบัติงาน
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<h2>👮 รายชื่อ ชรบ.</h2>
+
+
 
 
 <div class="grid">
 
 
-<div class="box">
-🛡️ ชรบ.ทั้งหมด
-<div class="number">15</div>
-คน
-</div>
+
+<div class="card">
 
 
-<div class="box">
-🚓 งานรักษาความสงบ
-<div class="number">-</div>
-ครั้ง
-</div>
+<img src="../assets/images/default-avatar.png">
 
 
-<div class="box">
-🌙 ตรวจเวรยาม
-<div class="number">-</div>
-ครั้ง
-</div>
+<div class="position">
 
-
-<div class="box">
-👥 สมาชิกปฏิบัติงาน
-<div class="number">15</div>
-คน
-</div>
-
+หัวหน้าชุด ชรบ.
 
 </div>
 
+
+<h3>
+รอกรอกข้อมูล
+</h3>
+
+
+<p>
+หน้าที่ : ควบคุมการปฏิบัติงาน
+</p>
+
+
+<span class="tag">
+หัวหน้าชุด
+</span>
+
+
 </div>
+
+
 
 
 
@@ -154,62 +299,93 @@ Rongkhem Smart Village<br>
 <div class="card">
 
 
-<h2>📋 รายชื่อ ชรบ.</h2>
+<img src="../assets/images/default-avatar.png">
 
 
-<table>
+<div class="position">
+
+ชรบ.
+
+</div>
 
 
-<tr>
-
-<th>ลำดับ</th>
-<th>ชื่อ-สกุล</th>
-<th>หน้าที่</th>
-<th>สถานะ</th>
-
-</tr>
+<h3>
+รอกรอกข้อมูล
+</h3>
 
 
-<tr>
-
-<td>1</td>
-<td>นายตัวอย่าง ใจดี</td>
-<td>หัวหน้าชุด</td>
-<td>ปฏิบัติหน้าที่</td>
-
-</tr>
+<p>
+หน้าที่ : ตรวจเวรและรักษาความสงบ
+</p>
 
 
-<tr>
-
-<td>2</td>
-<td>นายตัวอย่าง ร่องเข็ม</td>
-<td>ชุดรักษาความปลอดภัย</td>
-<td>ปฏิบัติหน้าที่</td>
-
-</tr>
-
-
-<tr>
-
-<td>3</td>
-<td>นายตัวอย่าง พัฒนา</td>
-<td>เวรยาม</td>
-<td>ปฏิบัติหน้าที่</td>
-
-</tr>
-
-
-</table>
-
-
-
-<a class="back" href="dashboard.html">
-⬅ กลับ Dashboard
-</a>
+<span class="tag">
+ชุดรักษาความปลอดภัย
+</span>
 
 
 </div>
+
+
+
+
+
+
+
+<div class="card">
+
+
+<img src="../assets/images/default-avatar.png">
+
+
+<div class="position">
+
+ชรบ.
+
+</div>
+
+
+<h3>
+รอกรอกข้อมูล
+</h3>
+
+
+<p>
+หน้าที่ : สนับสนุนงานชุมชน
+</p>
+
+
+<span class="tag">
+อาสาสมัคร
+</span>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<br>
+
+
+<center>
+
+
+<a href="../admin.html">
+
+⬅ กลับ Admin
+
+</a>
+
+
+</center>
+
+
 
 
 </div>
