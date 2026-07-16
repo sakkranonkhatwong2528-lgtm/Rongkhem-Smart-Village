@@ -4,119 +4,140 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Login | Rongkhem Smart Village</title>
+<title>Admin | Rongkhem Smart Village</title>
+
 
 <style>
 
 *{
 box-sizing:border-box;
+font-family:"Tahoma",sans-serif;
 }
+
 
 body{
 
 margin:0;
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-font-family:Tahoma,Arial,sans-serif;
-background:linear-gradient(135deg,#2e7d32,#81c784);
+
+background:#f1f8e9;
 
 }
 
 
-.login-box{
 
-width:380px;
-background:white;
-padding:35px;
-border-radius:25px;
-box-shadow:0 10px 30px rgba(0,0,0,0.3);
+.header{
+
+background:#1b5e20;
+
+color:white;
+
+padding:25px;
+
 text-align:center;
 
 }
 
 
-.logo{
 
-font-size:60px;
+.container{
 
-}
+padding:20px;
 
+max-width:1200px;
 
-h1{
-
-color:#2e7d32;
-margin:10px 0;
+margin:auto;
 
 }
 
 
-h2{
 
-font-size:20px;
-color:#555;
+.grid{
 
-}
+display:grid;
 
+grid-template-columns:
+repeat(auto-fit,minmax(200px,1fr));
 
-input{
-
-width:100%;
-padding:15px;
-margin:10px 0;
-border-radius:12px;
-border:1px solid #ccc;
-font-size:16px;
+gap:20px;
 
 }
 
 
-button{
 
-width:100%;
-padding:15px;
-margin-top:15px;
+.card{
 
-background:#2e7d32;
+background:white;
+
+padding:25px;
+
+border-radius:20px;
+
+box-shadow:
+0 5px 15px #ccc;
+
+text-align:center;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+
+
+.card:hover{
+
+transform:translateY(-5px);
+
+background:#e8f5e9;
+
+}
+
+
+
+.icon{
+
+font-size:45px;
+
+}
+
+
+
+a{
+
+text-decoration:none;
+
+color:#1b5e20;
+
+}
+
+
+
+.logout{
+
+margin-top:30px;
+
+background:#c62828;
+
 color:white;
 
-border:none;
+padding:15px;
+
 border-radius:12px;
 
-font-size:18px;
+text-align:center;
+
 cursor:pointer;
 
 }
 
 
-button:hover{
-
-background:#1b5e20;
-
-}
-
-
-.message{
-
-margin-top:15px;
-font-weight:bold;
-
-}
-
-
-.footer{
-
-margin-top:25px;
-font-size:14px;
-color:#777;
-
-}
-
 
 </style>
+
 
 </head>
 
@@ -124,104 +145,206 @@ color:#777;
 <body>
 
 
-<div class="login-box">
+<div class="header">
 
+<h1>🔐 Admin Panel</h1>
 
-<div class="logo">
-🏡
-</div>
+<h2>Rongkhem Smart Village</h2>
 
-
-<h1>Rongkhem</h1>
-
-<h2>
-🔐 ผู้ดูแลระบบ
-</h2>
-
-
-<input 
-id="username"
-placeholder="ชื่อผู้ใช้งาน"
->
-
-
-<input 
-id="password"
-type="password"
-placeholder="รหัสผ่าน"
->
-
-
-<button onclick="login()">
-
-เข้าสู่ระบบ
-
-</button>
-
-
-<div class="message" id="message"></div>
-
-
-<div class="footer">
-
-ระบบบริหารจัดการหมู่บ้านอัจฉริยะ<br>
-
-บ้านร่องเข็ม หมู่ที่ 6<br>
-
-จังหวัดพะเยา
+<p>ระบบจัดการข้อมูลหมู่บ้าน</p>
 
 </div>
 
 
+
+<div class="container">
+
+
+<div class="grid">
+
+
+<a href="pages/dashboard.html">
+
+<div class="card">
+
+<div class="icon">📊</div>
+
+<h3>Dashboard</h3>
+
 </div>
+
+</a>
+
+
+
+<a href="pages/village.html">
+
+<div class="card">
+
+<div class="icon">📖</div>
+
+<h3>ข้อมูลหมู่บ้าน</h3>
+
+</div>
+
+</a>
+
+
+
+<a href="pages/citizen.html">
+
+<div class="card">
+
+<div class="icon">👥</div>
+
+<h3>ทะเบียนประชาชน</h3>
+
+</div>
+
+</a>
+
+
+
+<a href="pages/household.html">
+
+<div class="card">
+
+<div class="icon">🏠</div>
+
+<h3>ทะเบียนครัวเรือน</h3>
+
+</div>
+
+</a>
+
+
+
+<a href="pages/organization.html">
+
+<div class="card">
+
+<div class="icon">👤</div>
+
+<h3>ทำเนียบผู้นำ</h3>
+
+</div>
+
+</a>
+
+
+
+<a href="pages/committee.html">
+
+<div class="card">
+
+<div class="icon">🏛️</div>
+
+<h3>คณะกรรมการหมู่บ้าน</h3>
+
+</div>
+
+</a>
+
+
+
+<a href="pages/health.html">
+
+<div class="card">
+
+<div class="icon">🩺</div>
+
+<h3>อสม.</h3>
+
+</div>
+
+</a>
+
+
+
+<a href="pages/vrv.html">
+
+<div class="card">
+
+<div class="icon">🛡️</div>
+
+<h3>ชรบ.</h3>
+
+</div>
+
+</a>
+
+
+
+<a href="pages/oporor.html">
+
+<div class="card">
+
+<div class="icon">🚒</div>
+
+<h3>อปพร.</h3>
+
+</div>
+
+</a>
+
+
+
+<a href="pages/reports.html">
+
+<div class="card">
+
+<div class="icon">📄</div>
+
+<h3>รายงาน</h3>
+
+</div>
+
+</a>
+
+
+</div>
+
+
+
+<div class="logout" onclick="logout()">
+
+🚪 ออกจากระบบ
+
+</div>
+
+
+
+</div>
+
 
 
 
 <script>
 
 
-function login(){
+// ตรวจสอบ Login
 
+if(
+localStorage.getItem("login")
+!=="true"
 
-let user =
-document.getElementById("username").value;
+){
 
-
-let pass =
-document.getElementById("password").value;
-
-
-
-if(user=="admin" && pass=="1234"){
-
-
-localStorage.setItem(
-"login",
-"true"
-);
-
-
-
-window.location.href="admin.html";
-
-
-}
-
-else{
-
-
-document.getElementById("message").innerHTML=
-"❌ ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง";
-
-
-document.getElementById("message").style.color="red";
-
+window.location.href=
+"login.html";
 
 }
 
 
-}
 
+function logout(){
+
+localStorage.removeItem("login");
+
+window.location.href=
+"login.html";
+
+}
 
 
 </script>
