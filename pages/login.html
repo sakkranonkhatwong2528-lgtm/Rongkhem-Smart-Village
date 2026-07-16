@@ -1,263 +1,58 @@
 <!DOCTYPE html>
 <html lang="th">
-
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Login | Rongkhem Smart Village</title>
-
-
-<style>
-
-body{
-
-margin:0;
-font-family:Tahoma,Arial,sans-serif;
-background:#f1f8e9;
-
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-
-}
-
-
-.login{
-
-background:white;
-width:350px;
-padding:30px;
-border-radius:20px;
-
-box-shadow:0 5px 15px #ccc;
-
-text-align:center;
-
-}
-
-
-.logo{
-
-font-size:60px;
-
-}
-
-
-h1{
-
-color:#2e7d32;
-margin:10px;
-
-}
-
-
-input{
-
-width:90%;
-padding:12px;
-margin:10px 0;
-
-border:1px solid #ccc;
-
-border-radius:10px;
-
-font-size:16px;
-
-}
-
-
-
-button{
-
-width:95%;
-
-padding:15px;
-
-background:#2e7d32;
-
-color:white;
-
-border:none;
-
-border-radius:10px;
-
-font-size:18px;
-
-cursor:pointer;
-
-}
-
-
-
-button:hover{
-
-background:#1b5e20;
-
-}
-
-
-
-#error{
-
-color:red;
-
-margin-top:15px;
-
-}
-
-
-
-.footer{
-
-margin-top:20px;
-
-font-size:14px;
-
-color:#777;
-
-}
-
-
-</style>
-
-
+<title>Login</title>
 </head>
-
 
 <body>
 
+<h1>🏡 Rongkhem Smart Village</h1>
 
+<input id="user" placeholder="username">
+<br><br>
 
-<div class="login">
-
-
-<div class="logo">
-
-🏡
-
-</div>
-
-
-<h1>
-
-Rongkhem
-
-</h1>
-
-
-<h2>
-
-🔐 ผู้ดูแลระบบ
-
-</h2>
-
-
-
-<input 
-id="username"
-placeholder="ชื่อผู้ใช้"
->
-
-
-
-<input 
-id="password"
-type="password"
-placeholder="รหัสผ่าน"
->
-
-
+<input id="pass" type="password" placeholder="password">
+<br><br>
 
 <button onclick="login()">
-
 เข้าสู่ระบบ
-
 </button>
 
-
-
-<div id="error"></div>
-
-
-
-<div class="footer">
-
-Rongkhem Smart Village<br>
-
-บ้านร่องเข็ม หมู่ที่ 6
-
-</div>
-
-
-</div>
-
-
+<p id="msg"></p>
 
 
 <script>
 
-
 function login(){
 
-
-let username =
-document.getElementById("username").value.trim();
-
-
-let password =
-document.getElementById("password").value.trim();
+let u=document.getElementById("user").value;
+let p=document.getElementById("pass").value;
 
 
+if(u=="admin" && p=="1234"){
 
-if(
-username === "sakkranon2528"
-&&
-password === "12345678"
-
-){
+document.getElementById("msg").innerHTML=
+"✅ สำเร็จ";
 
 
-localStorage.setItem(
-"adminLogin",
-"true"
-);
+window.location.href="../admin.html";
 
 
-
-alert("✅ เข้าสู่ระบบสำเร็จ");
-
+}else{
 
 
-// ไปหน้า admin
-
-window.location.href =
-"../admin.html";
-
-
-
-}
-
-else{
-
-
-document.getElementById("error").innerHTML =
-"❌ ข้อมูลเข้าสู่ระบบไม่ถูกต้อง";
+document.getElementById("msg").innerHTML=
+"❌ ไม่ถูกต้อง";
 
 
 }
 
 
-
 }
-
 
 </script>
 
 
-
 </body>
-
 </html>
