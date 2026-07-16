@@ -12,32 +12,50 @@
 
 body{
 margin:0;
-font-family:Tahoma,Arial;
+font-family:Tahoma,Arial,sans-serif;
 background:#f1f8e9;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
 }
+
 
 .login-box{
-width:90%;
-max-width:400px;
-margin:100px auto;
+
 background:white;
+width:350px;
 padding:30px;
 border-radius:20px;
-box-shadow:0 3px 10px #ccc;
+box-shadow:0 5px 15px #ccc;
 text-align:center;
+
 }
+
+
+.logo{
+
+font-size:50px;
+
+}
+
 
 h1{
+
 color:#2e7d32;
+
 }
 
+
 input{
+
 width:90%;
 padding:12px;
 margin:10px;
 border-radius:10px;
 border:1px solid #ccc;
 font-size:16px;
+
 }
 
 
@@ -50,11 +68,32 @@ color:white;
 border:none;
 border-radius:10px;
 font-size:18px;
+cursor:pointer;
 
 }
 
-#msg{
+
+button:hover{
+
+background:#1b5e20;
+
+}
+
+
+.error{
+
 color:red;
+margin-top:15px;
+
+}
+
+
+.footer{
+
+margin-top:20px;
+font-size:14px;
+color:#666;
+
 }
 
 </style>
@@ -68,29 +107,59 @@ color:red;
 <div class="login-box">
 
 
-<h1>🏡 Rongkhem</h1>
-
-<h2>🔐 ผู้ดูแลระบบ</h2>
-
-
-<input id="username"
-placeholder="ชื่อผู้ใช้">
+<div class="logo">
+🏡
+</div>
 
 
-<input id="password"
+<h1>
+Rongkhem
+</h1>
+
+
+<h2>
+🔐 ผู้ดูแลระบบ
+</h2>
+
+
+
+<input 
+id="username"
+placeholder="ชื่อผู้ใช้"
+>
+
+
+<input 
+id="password"
 type="password"
-placeholder="รหัสผ่าน">
+placeholder="รหัสผ่าน"
+>
+
 
 
 <button onclick="login()">
+
 เข้าสู่ระบบ
+
 </button>
 
 
-<p id="msg"></p>
+
+<div class="error" id="error"></div>
+
+
+
+<div class="footer">
+
+บ้านร่องเข็ม หมู่ที่ 6<br>
+Smart Village
+
+</div>
+
 
 
 </div>
+
 
 
 
@@ -100,25 +169,33 @@ placeholder="รหัสผ่าน">
 function login(){
 
 
-let user=
+let username =
 document.getElementById("username").value;
 
 
-let pass=
+let password =
 document.getElementById("password").value;
 
 
 
-if(user=="admin" && pass=="123456"){
+// ข้อมูลผู้ดูแลระบบ
+
+if(
+username==="sakkranon2528"
+&&
+password==="12345678"
+){
 
 
 localStorage.setItem(
 "login",
-"true"
+"success"
 );
 
 
-location.href="admin.html";
+// ไปหน้า Admin
+
+window.location.href="../admin.html";
 
 
 }
@@ -126,17 +203,19 @@ location.href="admin.html";
 else{
 
 
-document.getElementById("msg").innerHTML=
+document.getElementById("error").innerHTML=
 "❌ ข้อมูลเข้าสู่ระบบไม่ถูกต้อง";
 
 
 }
 
 
+
 }
 
 
 </script>
+
 
 
 </body>
