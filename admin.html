@@ -7,7 +7,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
 <title>
 Admin | Rongkhem Smart Village
 </title>
@@ -17,6 +16,7 @@ Admin | Rongkhem Smart Village
 
 
 <style>
+
 
 .dashboard{
 
@@ -46,6 +46,10 @@ box-shadow:
 
 transition:.3s;
 
+text-decoration:none;
+
+color:#333;
+
 }
 
 
@@ -65,6 +69,7 @@ color:#2e7d32;
 }
 
 
+
 .logout{
 
 background:#c62828;
@@ -79,7 +84,10 @@ border:none;
 
 cursor:pointer;
 
+font-size:16px;
+
 }
+
 
 
 </style>
@@ -88,7 +96,9 @@ cursor:pointer;
 </head>
 
 
+
 <body>
+
 
 
 <header>
@@ -114,7 +124,9 @@ Rongkhem Smart Village
 
 
 
+
 <nav>
+
 
 <a href="index.html">
 🏠 หน้าแรก
@@ -126,21 +138,24 @@ Rongkhem Smart Village
 </a>
 
 
-<a href="#">
-👥 ประชาชน
-</a>
-
-
 <a href="people.html">
 👥 ประชาชน
 </a>
 
-<a href="#">
-📰 ข่าวสาร
+
+<a href="household.html">
+🏠 ครัวเรือน
+</a>
+
+
+<a href="leader.html">
+👤 ผู้นำ
 </a>
 
 
 </nav>
+
+
 
 
 
@@ -154,11 +169,12 @@ Rongkhem Smart Village
 </h2>
 
 
+
 <div class="dashboard">
 
 
 
-<div class="menu-card">
+<a href="people.html" class="menu-card">
 
 <h3>
 👨‍👩‍👧‍👦 ประชาชน
@@ -168,27 +184,29 @@ Rongkhem Smart Village
 202 คน
 </p>
 
-</div>
+</a>
 
 
 
 
-<div class="menu-card">
+
+<a href="household.html" class="menu-card">
 
 <h3>
 🏠 ครัวเรือน
 </h3>
 
 <p>
-ข้อมูลกำลังปรับปรุง
+ทะเบียนครัวเรือน
 </p>
 
-</div>
+</a>
 
 
 
 
-<div class="menu-card">
+
+<a href="elderly.html" class="menu-card">
 
 <h3>
 👴 ผู้สูงอายุ
@@ -198,27 +216,29 @@ Rongkhem Smart Village
 91 คน
 </p>
 
-</div>
+</a>
 
 
 
 
-<div class="menu-card">
+
+<a href="vulnerable.html" class="menu-card">
 
 <h3>
 ❤️ กลุ่มเปราะบาง
 </h3>
 
 <p>
-ข้อมูลชุมชน
+ข้อมูลดูแลพิเศษ
 </p>
 
-</div>
+</a>
 
 
 
 
-<div class="menu-card">
+
+<a href="subnamjam.html" class="menu-card">
 
 <h3>
 💧 แหล่งซับน้ำจำ
@@ -228,22 +248,24 @@ Rongkhem Smart Village
 พื้นที่อนุรักษ์
 </p>
 
-</div>
+</a>
 
 
 
 
-<div class="menu-card">
+
+<a href="organization.html" class="menu-card">
 
 <h3>
 👥 คณะกรรมการหมู่บ้าน
 </h3>
 
 <p>
-ข้อมูลผู้นำ
+ข้อมูลผู้นำชุมชน
 </p>
 
-</div>
+</a>
+
 
 
 
@@ -251,6 +273,7 @@ Rongkhem Smart Village
 
 
 </section>
+
 
 
 
@@ -273,7 +296,7 @@ Rongkhem Smart Village
 class="logout"
 onclick="logout()">
 
-ออกจากระบบ
+🚪 ออกจากระบบ
 
 </button>
 
@@ -288,7 +311,35 @@ onclick="logout()">
 
 
 
+
+<footer>
+
+© 2026 Rongkhem Smart Village
+
+<br>
+
+บ้านร่องเข็ม หมู่ที่ 6 จังหวัดพะเยา
+
+</footer>
+
+
+
+
+
+
 <script>
+
+
+// ตรวจสอบการ Login
+
+if(localStorage.getItem("login")!="true"){
+
+window.location.href="login.html";
+
+}
+
+
+
 
 
 function logout(){
@@ -304,6 +355,7 @@ window.location.href="login.html";
 
 
 </script>
+
 
 
 
