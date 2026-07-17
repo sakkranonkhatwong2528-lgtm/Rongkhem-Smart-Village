@@ -7,12 +7,72 @@
 
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
+
 <title>
-Rongkhem Smart Village
+Communication Center
 </title>
 
 
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="../../assets/css/style.css">
+
+
+<style>
+
+.box{
+
+background:white;
+
+margin:20px;
+
+padding:25px;
+
+border-radius:20px;
+
+box-shadow:0 5px 15px #ccc;
+
+}
+
+
+.news{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:20px;
+
+}
+
+
+.card{
+
+background:#f8ffff;
+
+padding:20px;
+
+border-radius:15px;
+
+}
+
+
+
+button{
+
+padding:12px;
+
+background:#00695c;
+
+color:white;
+
+border:0;
+
+border-radius:10px;
+
+}
+
+</style>
+
 
 </head>
 
@@ -23,141 +83,168 @@ Rongkhem Smart Village
 <header>
 
 <h1>
-🏡 Rongkhem Smart Village
+📢 Communication Center
 </h1>
 
 <p>
-ศูนย์บัญชาการหมู่บ้านอัจฉริยะ
-บ้านร่องเข็ม หมู่ที่ 6
+ข่าวสารบ้านร่องเข็ม หมู่ที่ 6
 </p>
 
 </header>
 
 
 
-<main>
+
+<div class="box">
 
 
-<section class="dashboard">
+<h2>
+📣 ประกาศล่าสุด
+</h2>
 
 
-<a href="modules/health/">
+<div class="news">
 
-🩺
+
+<div class="card">
 
 <h3>
-Health
+📅 ประชุมหมู่บ้าน
 </h3>
 
 <p>
-ระบบสุขภาพชุมชน
+แจ้งประชุมประจำเดือน
+ศาลาประชาคม
 </p>
 
-</a>
+</div>
 
 
 
-<a href="modules/environment/">
-
-🌱
+<div class="card">
 
 <h3>
-Environment
+🌱 กิจกรรมสิ่งแวดล้อม
 </h3>
 
 <p>
-ทรัพยากรและสิ่งแวดล้อม
+ร่วมดูแลแหล่งซับน้ำจำ
 </p>
 
-</a>
+</div>
 
 
 
-
-<a href="modules/smart-map/">
-
-🗺️
+<div class="card">
 
 <h3>
-Smart Map
+🩺 งาน อสม.
 </h3>
 
 <p>
-แผนที่อัจฉริยะ
+ลงพื้นที่เยี่ยมผู้สูงอายุ
 </p>
 
-</a>
+</div>
+
+
+</div>
+
+
+</div>
 
 
 
 
-<a href="modules/emergency/">
 
-🚨
+<div class="box">
 
-<h3>
-Emergency
-</h3>
+
+<h2>
+📅 ปฏิทินกิจกรรม
+</h2>
+
+
+<ul>
+
+<li>
+ประชุมประจำเดือนหมู่บ้าน
+</li>
+
+<li>
+กิจกรรมอนุรักษ์แหล่งซับน้ำจำ
+</li>
+
+<li>
+กิจกรรมสุขภาพชุมชน
+</li>
+
+
+</ul>
+
+
+</div>
+
+
+
+
+
+<div class="box">
+
+
+<h2>
+📷 ห้องภาพชุมชน
+</h2>
+
 
 <p>
-ระบบแจ้งเหตุ
+ภาพกิจกรรมบ้านร่องเข็ม
 </p>
 
-</a>
+
+<button>
+เพิ่มรูปภาพ
+</button>
+
+
+</div>
 
 
 
 
-<a href="modules/communication/">
 
-📢
-
-<h3>
-Communication
-</h3>
-
-<p>
-ข่าวสารหมู่บ้าน
-</p>
-
-</a>
+<div class="box">
 
 
+<h2>
+💬 แจ้งปัญหา / ข้อเสนอแนะ
+</h2>
 
 
-<a href="modules/reports/">
-
-📑
-
-<h3>
-Reports
-</h3>
-
-<p>
-รายงาน
-</p>
-
-</a>
+<input 
+placeholder="หัวข้อปัญหา"
+style="width:90%;padding:12px">
 
 
-
-</section>
-
+<br><br>
 
 
-<section class="ai">
-
-🤖 AI Village Assistant
-
-<br>
-
-ถามข้อมูลหมู่บ้านได้ทันที
-
-</section>
+<textarea
+placeholder="รายละเอียด"
+style="width:90%;height:100px">
+</textarea>
 
 
+<br><br>
 
-</main>
+
+<button>
+ส่งข้อมูล
+</button>
+
+
+</div>
+
 
 
 </body>
