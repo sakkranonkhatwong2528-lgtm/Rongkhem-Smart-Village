@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>จัดการข่าวประชาสัมพันธ์ | Rongkhem Smart Village</title>
+
+<style>
+body{
+    font-family:"Sarabun",sans-serif;
+    background:#f2f7f2;
+    margin:0;
+}
+
+header{
+    background:#1976d2;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+.container{
+    padding:20px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:15px;
+    box-shadow:0 2px 8px #ccc;
+}
+
+input, textarea, select{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+button{
+    background:#2e7d32;
+    color:white;
+    padding:10px 20px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+button.delete{
+    background:#c62828;
+}
+
+.news-item{
+    border-bottom:1px solid #ddd;
+    padding:10px;
+}
+
+img{
+    width:150px;
+    border-radius:10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h2>📰 ระบบจัดการข่าวประชาสัมพันธ์</h2>
+<p>Rongkhem Smart Village</p>
+</header>
+
+
+<div class="container">
+
+
+<div class="card">
+
+<h3>➕ เพิ่มข่าวใหม่</h3>
+
+<input id="title" placeholder="หัวข้อข่าว">
+
+<select id="category">
+
+<option>ข่าวประชาสัมพันธ์</option>
+<option>ข่าวกิจกรรม</option>
+<option>ประกาศหมู่บ้าน</option>
+<option>แหล่งซับน้ำจำ</option>
+
+</select>
+
+
+<input id="date" type="date">
+
+
+<textarea id="detail" rows="5"
+placeholder="รายละเอียดข่าว"></textarea>
+
+
+<input id="image" placeholder="ชื่อไฟล์รูปภาพ">
+
+
+<button onclick="addNews()">
+💾 บันทึกข่าว
+</button>
+
+
+</div>
+
+
+
+<div class="card">
+
+<h3>📋 รายการข่าว</h3>
+
+<div id="newsList"></div>
+
+</div>
+
+
+</div>
+
+
+<script>
+
+let news =
+JSON.parse(localStorage.getItem("news")) || [];
+
+
+function addNews(){
+
+let item={
+
+id:Date.now(),
+
+title:
+document.getElementById("title").value,
+
+category:
+document.getElementById("category").value,
+
+date:
+document.getElementById("date").value,
+
+detail:
+document.getElementById("detail").value,
+
+image:
+document.getElementById("image").value
+
+};
+
+
+news.push(item);
+
+localStorage.setItem(
+"news",
+JSON.stringify(news)
+);
+
+
+showNews();
+
+
+alert("บันทึกข่าวเรียบร้อย");
+
+}
+
+
+
+function showNews(){
+
+let box=
+document.getElementById("newsList");
+
+box.innerHTML="";
+
+
+news.forEach(n=>{
+
+
+box.innerHTML +=`
+
+<div class="news-item">
+
+<h4>
+📌 ${n.title}
+</h4>
+
+<p>
+ประเภท : ${n.category}
+</p>
+
+<p>
+วันที่ : ${n.date}
+</p>
+
+<p>
+${n.detail}
+</p>
+
+
+<button class="delete"
+onclick="deleteNews(${n.id})">
+ลบ
+</button>
+
+</div>
+
+`;
+
+});
+
+}
+
+
+
+function deleteNews(id){
+
+news =
+news.filter(
+n=>n.id!=id
+);
+
+
+localStorage.setItem(
+"news",
+JSON.stringify(news)
+);
+
+
+showNews();
+
+}
+
+
+showNews();
+
+
+</script>
+
+
+</body>
+</html>
