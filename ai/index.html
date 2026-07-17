@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+
+<title>
+AI Village Assistant
+</title>
+
+
+<link rel="stylesheet" href="../../assets/css/style.css">
+
+
+<style>
+
+.ai-box{
+
+background:white;
+
+margin:30px;
+
+padding:30px;
+
+border-radius:20px;
+
+box-shadow:0 5px 15px #ccc;
+
+}
+
+
+input{
+
+width:80%;
+
+padding:15px;
+
+border-radius:10px;
+
+border:1px solid #ccc;
+
+}
+
+
+button{
+
+padding:15px;
+
+border:0;
+
+border-radius:10px;
+
+background:#00695c;
+
+color:white;
+
+}
+
+
+.answer{
+
+margin-top:20px;
+
+padding:20px;
+
+background:#eef7f5;
+
+border-radius:15px;
+
+}
+
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>
+🤖 AI Village Assistant
+</h1>
+
+<p>
+ผู้ช่วยข้อมูลบ้านร่องเข็ม
+</p>
+
+</header>
+
+
+
+
+<div class="ai-box">
+
+
+<h2>
+💬 ถามข้อมูลหมู่บ้าน
+</h2>
+
+
+<input 
+id="question"
+placeholder="เช่น ผู้สูงอายุมีจำนวนเท่าไหร่">
+
+
+<button onclick="askAI()">
+ถาม
+</button>
+
+
+
+<div id="answer" class="answer">
+
+รอคำถาม...
+
+</div>
+
+
+</div>
+
+
+
+
+<script>
+
+
+function askAI(){
+
+
+let q =
+document.getElementById("question").value;
+
+
+let result="";
+
+
+if(q.includes("ผู้สูงอายุ")){
+
+result=
+"👴 บ้านร่องเข็มมีผู้สูงอายุ 91 คน";
+
+}
+
+
+else if(q.includes("ผู้พิการ")){
+
+result=
+"♿ มีข้อมูลผู้พิการ 3 คน";
+
+}
+
+
+else if(q.includes("แหล่งซับน้ำจำ")){
+
+result=
+"💧 แหล่งซับน้ำจำ เป็นพื้นที่ทรัพยากรสำคัญของชุมชน";
+
+}
+
+
+else if(q.includes("ประชุม")){
+
+result=
+"📅 กรุณาตรวจสอบปฏิทินกิจกรรมหมู่บ้าน";
+
+}
+
+
+else{
+
+result=
+"🤖 กำลังเรียนรู้ข้อมูลเพิ่มเติมของหมู่บ้าน";
+
+}
+
+
+
+document.getElementById("answer").innerHTML=result;
+
+
+}
+
+
+</script>
+
+
+
+</body>
+
+</html>
