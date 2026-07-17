@@ -4,95 +4,15 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>
-Rongkhem Smart Village Command Center
+Rongkhem Smart Village
 </title>
 
 
-<style>
-
-body{
-font-family:sans-serif;
-margin:0;
-background:#eef7f5;
-}
-
-
-header{
-
-background:#00695c;
-color:white;
-padding:25px;
-text-align:center;
-
-}
-
-
-.container{
-
-padding:20px;
-
-}
-
-
-.grid{
-
-display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-
-}
-
-
-.card{
-
-background:white;
-padding:25px;
-border-radius:20px;
-box-shadow:0 5px 15px #ccc;
-text-align:center;
-
-}
-
-
-.icon{
-
-font-size:45px;
-
-}
-
-
-.number{
-
-font-size:35px;
-font-weight:bold;
-color:#00897b;
-
-}
-
-
-a{
-
-text-decoration:none;
-color:#333;
-
-}
-
-
-.news{
-
-background:white;
-padding:20px;
-border-radius:20px;
-margin-top:25px;
-
-}
-
-
-</style>
+<link rel="stylesheet" href="assets/css/style.css">
 
 </head>
 
@@ -106,88 +26,57 @@ margin-top:25px;
 🏡 Rongkhem Smart Village
 </h1>
 
-<h2>
-ศูนย์บัญชาการหมู่บ้านอัจฉริยะ
-</h2>
-
 <p>
+ศูนย์บัญชาการหมู่บ้านอัจฉริยะ
 บ้านร่องเข็ม หมู่ที่ 6
-ตำบลจำป่าหวาย จังหวัดพะเยา
 </p>
 
 </header>
 
 
 
-<div class="container">
+<main>
 
 
-<div class="grid">
+<section class="dashboard">
 
 
+<a href="modules/health/">
 
-<a href="health/index.html">
-
-<div class="card">
-
-<div class="icon">
 🩺
-</div>
 
 <h3>
-Health Center
+Health
 </h3>
 
-<div class="number">
-91
-</div>
-
 <p>
-ผู้สูงอายุ
+ระบบสุขภาพชุมชน
 </p>
-
-</div>
 
 </a>
 
 
 
+<a href="modules/environment/">
 
-<a href="modules/environment/index.html">
-
-<div class="card">
-
-<div class="icon">
 🌱
-</div>
 
 <h3>
 Environment
 </h3>
 
-<div class="number">
-1
-</div>
-
 <p>
-แหล่งทรัพยากรหลัก
+ทรัพยากรและสิ่งแวดล้อม
 </p>
-
-</div>
 
 </a>
 
 
 
 
+<a href="modules/smart-map/">
 
-<a href="modules/smart-map/index.html">
-
-<div class="card">
-
-<div class="icon">
 🗺️
-</div>
 
 <h3>
 Smart Map
@@ -197,21 +86,14 @@ Smart Map
 แผนที่อัจฉริยะ
 </p>
 
-</div>
-
 </a>
 
 
 
 
+<a href="modules/emergency/">
 
-<a href="modules/emergency/index.html">
-
-<div class="card">
-
-<div class="icon">
 🚨
-</div>
 
 <h3>
 Emergency
@@ -221,21 +103,14 @@ Emergency
 ระบบแจ้งเหตุ
 </p>
 
-</div>
-
 </a>
 
 
 
 
+<a href="modules/communication/">
 
-<a href="modules/communication/index.html">
-
-<div class="card">
-
-<div class="icon">
 📢
-</div>
 
 <h3>
 Communication
@@ -245,63 +120,44 @@ Communication
 ข่าวสารหมู่บ้าน
 </p>
 
-</div>
-
 </a>
 
 
 
 
-<a href="#">
+<a href="modules/reports/">
 
-<div class="card">
-
-<div class="icon">
-🤖
-</div>
+📑
 
 <h3>
-AI Assistant
+Reports
 </h3>
 
 <p>
-ผู้ช่วยหมู่บ้าน
+รายงาน
 </p>
-
-</div>
 
 </a>
 
 
 
-</div>
+</section>
 
 
 
-<div class="news">
+<section class="ai">
 
-<h2>
-📢 ข่าวล่าสุด
-</h2>
+🤖 AI Village Assistant
 
-<p>
-🌱 กิจกรรมอนุรักษ์แหล่งซับน้ำจำ
-</p>
+<br>
 
-<p>
-🩺 งานเยี่ยมบ้านผู้สูงอายุ
-</p>
+ถามข้อมูลหมู่บ้านได้ทันที
 
-<p>
-🏡 ประชุมประจำเดือนหมู่บ้าน
-</p>
-
-
-</div>
+</section>
 
 
 
-</div>
+</main>
 
 
 </body>
