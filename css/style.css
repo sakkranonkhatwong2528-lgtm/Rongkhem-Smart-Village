@@ -388,3 +388,30 @@ padding:25px 15px;
 
 
 }
+.system{
+
+background:#ffffff;
+
+border-radius:30px;
+
+margin-top:30px;
+
+}
+
+
+
+.system .card{
+
+text-decoration:none;
+
+color:#333;
+
+}
+
+
+
+.system .card:hover{
+
+background:#e8f5e9;
+
+}
