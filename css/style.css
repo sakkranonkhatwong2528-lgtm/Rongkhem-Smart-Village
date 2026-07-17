@@ -1,56 +1,66 @@
-/* =========================
-   Rongkhem Smart Village
-   Main Style
-========================= */
+/* ===============================
+Rongkhem Smart Village
+Main Style
+=============================== */
 
 
 *{
-    box-sizing:border-box;
+box-sizing:border-box;
 }
 
 
 body{
 
-    margin:0;
+margin:0;
 
-    font-family:
-    "Sarabun",
-    "Tahoma",
-    sans-serif;
+font-family:
+"Sarabun",
+"Tahoma",
+sans-serif;
 
-    background:#f4f8f2;
+background:#f1f8e9;
 
-    color:#333;
+color:#333;
 
-    line-height:1.8;
+line-height:1.8;
 
 }
 
 
 
-/* Header */
+/* HEADER */
 
 header{
 
-    background:#2e7d32;
+background:
+linear-gradient(
+135deg,
+#1b5e20,
+#66bb6a
+);
 
-    color:white;
+color:white;
 
-    text-align:center;
+text-align:center;
 
-    padding:30px 20px;
+padding:35px 20px;
 
 }
-
 
 
 .logo{
 
-    width:120px;
+width:130px;
 
-    height:120px;
+height:130px;
 
-    object-fit:contain;
+object-fit:contain;
+
+border-radius:50%;
+
+background:white;
+
+padding:10px;
 
 }
 
@@ -58,28 +68,43 @@ header{
 
 header h1{
 
-    margin:10px 0;
+font-size:36px;
 
-    font-size:32px;
+margin:15px 0 5px;
 
 }
 
 
 
-/* Menu */
+header p{
 
+font-size:18px;
+
+}
+
+
+
+
+
+/* MENU */
 
 nav{
 
-    background:#1b5e20;
+background:#2e7d32;
 
-    display:flex;
+display:flex;
 
-    justify-content:center;
+justify-content:center;
 
-    flex-wrap:wrap;
+flex-wrap:wrap;
 
-    padding:10px;
+padding:12px;
+
+position:sticky;
+
+top:0;
+
+z-index:10;
 
 }
 
@@ -87,17 +112,19 @@ nav{
 
 nav a{
 
-    color:white;
+color:white;
 
-    text-decoration:none;
+text-decoration:none;
 
-    padding:10px 18px;
+padding:10px 18px;
 
-    margin:5px;
+margin:5px;
 
-    border-radius:20px;
+border-radius:30px;
 
-    transition:0.3s;
+background:#388e3c;
+
+transition:.3s;
 
 }
 
@@ -105,22 +132,23 @@ nav a{
 
 nav a:hover{
 
-    background:#66bb6a;
+background:#81c784;
+
+transform:translateY(-3px);
 
 }
 
 
 
-/* Hero */
-
+/* HERO */
 
 .hero{
 
-    text-align:center;
+background:white;
 
-    background:white;
+text-align:center;
 
-    padding:40px 20px;
+padding:40px 20px;
 
 }
 
@@ -128,15 +156,18 @@ nav a:hover{
 
 .hero img{
 
-    width:100%;
+width:100%;
 
-    max-width:900px;
+max-width:1000px;
 
-    height:350px;
+height:380px;
 
-    object-fit:cover;
+object-fit:cover;
 
-    border-radius:20px;
+border-radius:25px;
+
+box-shadow:
+0 8px 20px rgba(0,0,0,.2);
 
 }
 
@@ -144,9 +175,9 @@ nav a:hover{
 
 .hero h2{
 
-    color:#2e7d32;
+color:#1b5e20;
 
-    font-size:30px;
+font-size:35px;
 
 }
 
@@ -154,16 +185,16 @@ nav a:hover{
 
 
 
-/* Section */
+/* SECTION */
 
 
 section{
 
-    padding:40px 20px;
+max-width:1200px;
 
-    max-width:1100px;
+margin:auto;
 
-    margin:auto;
+padding:40px 20px;
 
 }
 
@@ -171,49 +202,58 @@ section{
 
 section h2{
 
-    text-align:center;
+text-align:center;
 
-    color:#2e7d32;
+color:#1b5e20;
 
-    margin-bottom:25px;
+font-size:30px;
+
+margin-bottom:30px;
 
 }
 
 
 
-/* Grid */
+/* CARD GRID */
 
 
 .grid{
 
-    display:grid;
+display:grid;
 
-    grid-template-columns:
+grid-template-columns:
+repeat(auto-fit,minmax(250px,1fr));
 
-    repeat(auto-fit,minmax(250px,1fr));
-
-    gap:20px;
+gap:25px;
 
 }
 
 
 
 
-
-/* Card */
-
-
 .card{
 
-    background:white;
+background:white;
 
-    padding:25px;
+padding:25px;
 
-    border-radius:15px;
+border-radius:20px;
 
-    box-shadow:
+box-shadow:
 
-    0 4px 12px rgba(0,0,0,0.1);
+0 5px 15px rgba(0,0,0,.12);
+
+text-align:center;
+
+transition:.3s;
+
+}
+
+
+
+.card:hover{
+
+transform:translateY(-8px);
 
 }
 
@@ -221,20 +261,36 @@ section h2{
 
 .card h3{
 
-    color:#388e3c;
+color:#388e3c;
+
+font-size:22px;
 
 }
 
 
 
-/* Vision */
+
+
+/* VISION */
 
 
 .vision{
 
-    background:#e8f5e9;
+background:#e8f5e9;
 
-    border-radius:20px;
+border-radius:25px;
+
+}
+
+
+
+.vision h3{
+
+text-align:center;
+
+color:#2e7d32;
+
+font-size:25px;
 
 }
 
@@ -242,12 +298,14 @@ section h2{
 
 
 
-/* Stats */
+/* BUTTON LINK */
 
 
-.stats{
+a{
 
-    background:#ffffff;
+color:#1b5e20;
+
+font-weight:bold;
 
 }
 
@@ -255,18 +313,20 @@ section h2{
 
 
 
-/* Footer */
+/* FOOTER */
 
 
 footer{
 
-    background:#1b5e20;
+background:#1b5e20;
 
-    color:white;
+color:white;
 
-    text-align:center;
+text-align:center;
 
-    padding:30px;
+padding:30px;
+
+margin-top:40px;
 
 }
 
@@ -274,7 +334,7 @@ footer{
 
 
 
-/* Mobile */
+/* MOBILE */
 
 
 @media(max-width:600px){
@@ -282,60 +342,36 @@ footer{
 
 header h1{
 
-    font-size:24px;
+font-size:25px;
 
 }
 
 
 .hero img{
 
-    height:220px;
+height:220px;
 
 }
+
+
+
+.hero h2{
+
+font-size:25px;
+
+}
+
 
 
 nav{
 
-    flex-direction:column;
+flex-direction:column;
 
 }
+
 
 
 nav a{
-
-    text-align:center;
-
-}
-
-
-}
-table{
-
-width:100%;
-
-border-collapse:collapse;
-
-background:white;
-
-}
-
-
-table th{
-
-background:#2e7d32;
-
-color:white;
-
-padding:12px;
-
-}
-
-
-table td{
-
-padding:12px;
-
-border-bottom:1px solid #ddd;
 
 text-align:center;
 
@@ -343,12 +379,12 @@ text-align:center;
 
 
 
-@media(max-width:600px){
+section{
 
-table{
-
-font-size:14px;
+padding:25px 15px;
 
 }
+
+
 
 }
