@@ -9,7 +9,7 @@
 
 
 <title>
-Communication Center
+Report Center
 </title>
 
 
@@ -18,22 +18,7 @@ Communication Center
 
 <style>
 
-.box{
-
-background:white;
-
-margin:20px;
-
-padding:25px;
-
-border-radius:20px;
-
-box-shadow:0 5px 15px #ccc;
-
-}
-
-
-.news{
+.report-grid{
 
 display:grid;
 
@@ -42,24 +27,34 @@ repeat(auto-fit,minmax(220px,1fr));
 
 gap:20px;
 
+padding:30px;
+
 }
 
 
 .card{
 
-background:#f8ffff;
+background:white;
 
-padding:20px;
+padding:25px;
 
-border-radius:15px;
+border-radius:20px;
+
+text-align:center;
+
+box-shadow:0 5px 15px #ccc;
 
 }
 
 
+.icon{
+
+font-size:45px;
+
+}
+
 
 button{
-
-padding:12px;
 
 background:#00695c;
 
@@ -67,7 +62,24 @@ color:white;
 
 border:0;
 
+padding:12px 20px;
+
 border-radius:10px;
+
+margin-top:10px;
+
+}
+
+
+.summary{
+
+background:white;
+
+margin:20px;
+
+padding:25px;
+
+border-radius:20px;
 
 }
 
@@ -83,11 +95,11 @@ border-radius:10px;
 <header>
 
 <h1>
-📢 Communication Center
+📑 Report Center
 </h1>
 
 <p>
-ข่าวสารบ้านร่องเข็ม หมู่ที่ 6
+ระบบรายงานบ้านร่องเข็ม หมู่ที่ 6
 </p>
 
 </header>
@@ -95,151 +107,178 @@ border-radius:10px;
 
 
 
-<div class="box">
-
-
-<h2>
-📣 ประกาศล่าสุด
-</h2>
-
-
-<div class="news">
-
-
-<div class="card">
-
-<h3>
-📅 ประชุมหมู่บ้าน
-</h3>
-
-<p>
-แจ้งประชุมประจำเดือน
-ศาลาประชาคม
-</p>
-
-</div>
+<div class="report-grid">
 
 
 
 <div class="card">
 
-<h3>
-🌱 กิจกรรมสิ่งแวดล้อม
-</h3>
-
-<p>
-ร่วมดูแลแหล่งซับน้ำจำ
-</p>
-
+<div class="icon">
+🏡
 </div>
-
-
-
-<div class="card">
-
-<h3>
-🩺 งาน อสม.
-</h3>
-
-<p>
-ลงพื้นที่เยี่ยมผู้สูงอายุ
-</p>
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="box">
-
 
 <h2>
-📅 ปฏิทินกิจกรรม
+รายงานหมู่บ้าน
 </h2>
-
-
-<ul>
-
-<li>
-ประชุมประจำเดือนหมู่บ้าน
-</li>
-
-<li>
-กิจกรรมอนุรักษ์แหล่งซับน้ำจำ
-</li>
-
-<li>
-กิจกรรมสุขภาพชุมชน
-</li>
-
-
-</ul>
-
-
-</div>
-
-
-
-
-
-<div class="box">
-
-
-<h2>
-📷 ห้องภาพชุมชน
-</h2>
-
 
 <p>
-ภาพกิจกรรมบ้านร่องเข็ม
+ข้อมูลภาพรวมชุมชน
 </p>
-
 
 <button>
-เพิ่มรูปภาพ
+เปิดรายงาน
 </button>
 
+</div>
+
+
+
+
+<div class="card">
+
+<div class="icon">
+🩺
+</div>
+
+<h2>
+รายงานสุขภาพ
+</h2>
+
+<p>
+ผู้สูงอายุ อสม. กลุ่มเปราะบาง
+</p>
+
+<button>
+เปิดรายงาน
+</button>
 
 </div>
 
 
 
 
+<div class="card">
 
-<div class="box">
+<div class="icon">
+🌱
+</div>
+
+<h2>
+รายงานสิ่งแวดล้อม
+</h2>
+
+<p>
+แหล่งซับน้ำจำ ทรัพยากร
+</p>
+
+<button>
+เปิดรายงาน
+</button>
+
+</div>
+
+
+
+
+<div class="card">
+
+<div class="icon">
+🏆
+</div>
+
+<h2>
+รายงานโครงการ
+</h2>
+
+<p>
+ติดตามความก้าวหน้า
+</p>
+
+<button>
+เปิดรายงาน
+</button>
+
+</div>
+
+
+</div>
+
+
+
+
+<div class="summary">
 
 
 <h2>
-💬 แจ้งปัญหา / ข้อเสนอแนะ
+📊 สรุปข้อมูลปัจจุบัน
 </h2>
 
 
-<input 
-placeholder="หัวข้อปัญหา"
-style="width:90%;padding:12px">
+<table border="1" width="100%" cellpadding="10">
 
 
-<br><br>
+<tr>
+
+<td>
+👴 ผู้สูงอายุ
+</td>
+
+<td>
+91 คน
+</td>
+
+</tr>
 
 
-<textarea
-placeholder="รายละเอียด"
-style="width:90%;height:100px">
-</textarea>
+<tr>
+
+<td>
+♿ ผู้พิการ
+</td>
+
+<td>
+3 คน
+</td>
+
+</tr>
 
 
-<br><br>
+<tr>
+
+<td>
+💧 แหล่งซับน้ำจำ
+</td>
+
+<td>
+1 พื้นที่
+</td>
+
+</tr>
 
 
-<button>
-ส่งข้อมูล
+<tr>
+
+<td>
+🌱 โครงการสิ่งแวดล้อม
+</td>
+
+<td>
+กำลังดำเนินการ
+</td>
+
+</tr>
+
+
+</table>
+
+
+<br>
+
+
+<button onclick="window.print()">
+
+🖨 พิมพ์รายงาน
+
 </button>
 
 
