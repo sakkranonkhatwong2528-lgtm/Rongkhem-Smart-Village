@@ -11,85 +11,7 @@
 บ้านร่องเข็ม Smart Village
 </title>
 
-
-<style>
-
-body{
-font-family:"Sarabun",sans-serif;
-margin:0;
-background:#f1f8e9;
-}
-
-
-header{
-
-background:#2e7d32;
-color:white;
-padding:30px;
-text-align:center;
-
-}
-
-
-.hero{
-
-padding:30px;
-text-align:center;
-
-background:white;
-
-}
-
-
-.container{
-
-padding:20px;
-
-}
-
-
-.card{
-
-background:white;
-padding:20px;
-margin-bottom:20px;
-border-radius:15px;
-box-shadow:0 2px 8px #ccc;
-
-}
-
-
-.grid{
-
-display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(220px,1fr));
-gap:15px;
-
-}
-
-
-img{
-
-width:100%;
-border-radius:10px;
-
-}
-
-
-button{
-
-background:#1565c0;
-color:white;
-padding:10px 20px;
-border:0;
-border-radius:10px;
-
-}
-
-
-</style>
-
+<link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -97,218 +19,120 @@ border-radius:10px;
 <body>
 
 
-<header>
+<header class="top">
+
+
+<img src="images/logo.png"
+class="logo">
+
 
 <h1>
 🏡 บ้านร่องเข็ม Smart Village
 </h1>
 
-<h3>
+
+<p>
 หมู่ที่ 6 ตำบลจำป่าหวาย
 อำเภอเมือง จังหวัดพะเยา
-</h3>
+</p>
+
 
 <p>
 ชุมชนเข้มแข็ง บริหารจัดการด้วยเทคโนโลยี
 </p>
 
+
 </header>
 
 
 
-<div class="hero">
+<section class="hero">
+
+
+<img src="images/subnamjam-cover.jpg">
+
+
+<div class="hero-text">
+
 
 <h2>
 🌱 แหล่งซับน้ำจำ
 </h2>
 
-<p>
 
+<p>
 พื้นที่อนุรักษ์น้ำ
 ระบบนิเวศชุมชน
 และแหล่งเรียนรู้ธรรมชาติ
-
 </p>
 
-</div>
 
-
-
-
-<div class="container">
-
-
-<div class="card">
-
-<h2>
-📰 ข่าวประชาสัมพันธ์
-</h2>
-
-<div id="news">
-
-</div>
-
-</div>
-
-
-
-
-<div class="card">
-
-<h2>
-📸 กิจกรรมหมู่บ้าน
-</h2>
-
-<div class="grid" id="gallery">
-
-</div>
-
-</div>
-
-
-
-
-<div class="card">
-
-<h2>
-👤 ทำเนียบผู้นำ
-</h2>
-
-<div class="grid" id="leaders">
-
-</div>
-
-</div>
-
-
-
-
-<div class="card">
-
-<h2>
-🔐 ระบบผู้ดูแล
-</h2>
-
-<a href="login.html">
-
-<button>
-เข้าสู่ระบบ Admin
-</button>
-
+<a href="subnamjam.html">
+ดูข้อมูลเพิ่มเติม
 </a>
 
 
 </div>
 
 
-</div>
+</section>
 
 
 
+<section class="mobile-menu">
 
 
-<script>
+<a href="news.html">
+📰
+<br>
+ข่าวประชาสัมพันธ์
+</a>
 
 
-// ข่าว
-
-let news=
-
-JSON.parse(localStorage.getItem("news")||"[]");
-
-
-let newsBox=document.getElementById("news");
+<a href="activities.html">
+📸
+<br>
+กิจกรรมหมู่บ้าน
+</a>
 
 
-news.slice(-5).reverse().forEach(n=>{
+<a href="leader.html">
+👤
+<br>
+ทำเนียบผู้นำ
+</a>
 
 
-newsBox.innerHTML +=`
-
-<h3>
-📌 ${n.title}
-</h3>
-
-<p>
-${n.detail}
-</p>
-
-<hr>
-
-`;
-
-});
+<a href="dashboard.html">
+📊
+<br>
+Dashboard
+</a>
 
 
+<a href="login.html">
+🔐
+<br>
+Admin
+</a>
 
 
-// รูปภาพ
-
-let gallery=
-
-JSON.parse(localStorage.getItem("gallery")||"[]");
-
-
-let galleryBox=document.getElementById("gallery");
+<a href="contact.html">
+☎️
+<br>
+ติดต่อหมู่บ้าน
+</a>
 
 
-gallery.forEach(g=>{
-
-
-galleryBox.innerHTML +=`
-
-<div>
-
-<img src="images/activity/${g.image}">
-
-<p>
-${g.name}
-</p>
-
-</div>
-
-`;
-
-});
+</section>
 
 
 
+<footer>
 
-// ผู้นำ
+© บ้านร่องเข็ม Smart Village
 
-let leaders=
-
-JSON.parse(localStorage.getItem("leaders")||"[]");
-
-
-let leaderBox=document.getElementById("leaders");
-
-
-leaders.forEach(l=>{
-
-
-leaderBox.innerHTML +=`
-
-<div>
-
-<img src="images/leaders/${l.image}">
-
-<h3>
-${l.name}
-</h3>
-
-<p>
-${l.position}
-</p>
-
-</div>
-
-`;
-
-});
-
-
-</script>
+</footer>
 
 
 </body>
