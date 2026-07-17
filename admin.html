@@ -8,27 +8,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>
-Admin | Rongkhem Smart Village
+Dashboard | Rongkhem Smart Village
 </title>
-
 
 <link rel="stylesheet" href="css/style.css">
 
 
 <style>
 
-
 .dashboard{
 
 display:grid;
 
 grid-template-columns:
-repeat(auto-fit,minmax(220px,1fr));
+repeat(auto-fit,minmax(230px,1fr));
 
 gap:20px;
 
 }
-
 
 
 .menu-card{
@@ -41,30 +38,32 @@ border-radius:20px;
 
 text-align:center;
 
+text-decoration:none;
+
+color:#333;
+
 box-shadow:
 0 5px 15px rgba(0,0,0,.15);
 
 transition:.3s;
 
-text-decoration:none;
-
-color:#333;
-
 }
-
 
 
 .menu-card:hover{
 
-transform:translateY(-5px);
+transform:translateY(-8px);
+
+background:#e8f5e9;
 
 }
-
 
 
 .menu-card h3{
 
 color:#2e7d32;
+
+font-size:22px;
 
 }
 
@@ -76,33 +75,28 @@ background:#c62828;
 
 color:white;
 
+border:none;
+
 padding:12px 25px;
 
 border-radius:20px;
 
-border:none;
+font-size:16px;
 
 cursor:pointer;
-
-font-size:16px;
 
 }
 
 
-
 </style>
 
-
 </head>
-
 
 
 <body>
 
 
-
 <header>
-
 
 <div class="logo">
 🏡
@@ -110,12 +104,14 @@ font-size:16px;
 
 
 <h1>
-ระบบบริหารจัดการหมู่บ้านอัจฉริยะ
+📱 ระบบบริหารหมู่บ้านอัจฉริยะ
 </h1>
 
 
 <p>
 Rongkhem Smart Village
+<br>
+บ้านร่องเข็ม หมู่ที่ 6 จังหวัดพะเยา
 </p>
 
 
@@ -129,22 +125,12 @@ Rongkhem Smart Village
 
 
 <a href="index.html">
-🏠 หน้าแรก
+🏡 หน้าแรก
 </a>
 
 
 <a href="admin.html">
 📊 Dashboard
-</a>
-
-
-<a href="people.html">
-👥 ประชาชน
-</a>
-
-
-<a href="household.html">
-🏠 ครัวเรือน
 </a>
 
 
@@ -155,10 +141,6 @@ Rongkhem Smart Village
 
 </nav>
 
-<a href="shorbor.html">
-🛡️ ชรบ.
-</a>
-
 
 
 
@@ -167,9 +149,8 @@ Rongkhem Smart Village
 
 
 <h2>
-📊 Dashboard หมู่บ้าน
+📊 เมนูบริหารจัดการหมู่บ้าน
 </h2>
-
 
 
 <div class="dashboard">
@@ -179,11 +160,11 @@ Rongkhem Smart Village
 <a href="people.html" class="menu-card">
 
 <h3>
-👨‍👩‍👧‍👦 ประชาชน
+👥 ประชาชน
 </h3>
 
 <p>
-202 คน
+ทะเบียนประชาชน
 </p>
 
 </a>
@@ -199,7 +180,7 @@ Rongkhem Smart Village
 </h3>
 
 <p>
-ทะเบียนครัวเรือน
+ข้อมูลครัวเรือน
 </p>
 
 </a>
@@ -231,12 +212,74 @@ Rongkhem Smart Village
 </h3>
 
 <p>
-ข้อมูลดูแลพิเศษ
+ข้อมูลการดูแล
 </p>
 
 </a>
 
 
+
+
+
+<a href="osm.html" class="menu-card">
+
+<h3>
+🩺 อสม.
+</h3>
+
+<p>
+งานสาธารณสุข
+</p>
+
+</a>
+
+
+
+
+
+<a href="shorbor.html" class="menu-card">
+
+<h3>
+🛡️ ชรบ.
+</h3>
+
+<p>
+ชุดรักษาความปลอดภัย
+</p>
+
+</a>
+
+
+
+
+
+<a href="oppor.html" class="menu-card">
+
+<h3>
+🚒 อปพร.
+</h3>
+
+<p>
+ป้องกันภัยฝ่ายพลเรือน
+</p>
+
+</a>
+
+
+
+
+
+<a href="organization.html" class="menu-card">
+
+<h3>
+👥 คณะกรรมการ
+</h3>
+
+<p>
+คณะทำงานหมู่บ้าน
+</p>
+
+</a>
 
 
 
@@ -254,28 +297,10 @@ Rongkhem Smart Village
 
 
 
-
-
-<a href="organization.html" class="menu-card">
-
-<h3>
-👥 คณะกรรมการหมู่บ้าน
-</h3>
-
-<p>
-ข้อมูลผู้นำชุมชน
-</p>
-
-</a>
-
-
-
-
 </div>
 
 
 </section>
-
 
 
 
@@ -286,17 +311,10 @@ Rongkhem Smart Village
 <section>
 
 
-<h2>
-⚙️ จัดการระบบ
-</h2>
-
-
 <div style="text-align:center;">
 
 
-<button 
-class="logout"
-onclick="logout()">
+<button class="logout" onclick="logout()">
 
 🚪 ออกจากระบบ
 
@@ -307,7 +325,6 @@ onclick="logout()">
 
 
 </section>
-
 
 
 
@@ -328,11 +345,8 @@ onclick="logout()">
 
 
 
-
 <script>
 
-
-// ตรวจสอบการ Login
 
 if(localStorage.getItem("login")!="true"){
 
@@ -342,23 +356,16 @@ window.location.href="login.html";
 
 
 
-
-
 function logout(){
-
 
 localStorage.removeItem("login");
 
-
 window.location.href="login.html";
-
 
 }
 
 
 </script>
-
-
 
 
 </body>
