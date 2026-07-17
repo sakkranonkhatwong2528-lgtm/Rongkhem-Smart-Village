@@ -8,11 +8,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>
-ข่าวสารประชาสัมพันธ์ บ้านร่องเข็ม
+ข่าวสารประชาสัมพันธ์ | Rongkhem Smart Village
 </title>
 
+<link rel="stylesheet" href="css/style.css">
 
-<link rel="stylesheet" href="style.css">
+
+<style>
+
+.news-card img{
+
+width:100%;
+
+height:220px;
+
+object-fit:cover;
+
+border-radius:15px;
+
+}
+
+
+.date{
+
+color:#777;
+
+font-size:14px;
+
+}
+
+
+</style>
 
 </head>
 
@@ -20,10 +46,11 @@
 <body>
 
 
+
 <header>
 
 
-<img src="images/logo.svg" class="logo">
+<img src="images/logo.png" class="logo">
 
 
 <h1>
@@ -32,8 +59,10 @@
 
 
 <p>
-บ้านร่องเข็ม หมู่ที่ 6
-ตำบลจำป่าหวาย จังหวัดพะเยา
+
+บ้านร่องเข็ม หมู่ที่ 6<br>
+ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา
+
 </p>
 
 
@@ -42,25 +71,31 @@
 
 
 
+
 <nav>
 
 <a href="index.html">
-หน้าแรก
+🏡 หน้าแรก
+</a>
+
+
+<a href="leader.html">
+👥 ทำเนียบผู้นำ
 </a>
 
 
 <a href="news.html">
-ข่าวสาร
+📰 ข่าวสาร
 </a>
 
 
-<a href="#">
-กิจกรรม
+<a href="activities.html">
+📸 กิจกรรม
 </a>
 
 
-<a href="#">
-ติดต่อ
+<a href="admin.html">
+📊 ระบบบริหาร
 </a>
 
 
@@ -76,36 +111,37 @@
 
 
 <h2>
-📢 ข่าวล่าสุด
+📢 ข่าวประชาสัมพันธ์ล่าสุด
 </h2>
 
 
 
-<div class="card">
+<div class="grid">
 
 
-<img src="images/news1.jpg"
-width="100%">
+
+<div class="card news-card">
+
+
+<img src="images/news/news1.jpg">
 
 
 <h3>
-ประชุมประจำเดือนหมู่บ้าน
+ประชุมประชาคมหมู่บ้าน
 </h3>
 
 
-<p>
+<p class="date">
 
-วันที่ : 7 มิถุนายน 2569
+วันที่ ..........
 
 </p>
 
 
 <p>
 
-ประชาสัมพันธ์การประชุมหมู่บ้าน
-เพื่อแจ้งข่าวสาร
-ติดตามปัญหา
-และร่วมกันพัฒนาบ้านร่องเข็ม
+การประชุมร่วมกันของประชาชน
+เพื่อวางแผนพัฒนาหมู่บ้าน
 
 </p>
 
@@ -116,18 +152,29 @@ width="100%">
 
 
 
-<div class="card">
+
+
+<div class="card news-card">
+
+
+<img src="images/news/news2.jpg">
 
 
 <h3>
-🌱 กิจกรรมอนุรักษ์แหล่งซับน้ำจำ
+กิจกรรมอนุรักษ์แหล่งซับน้ำจำ
 </h3>
+
+
+<p class="date">
+
+วันที่ ..........
+
+</p>
 
 
 <p>
 
-ชุมชนร่วมกันดูแลพื้นที่ธรรมชาติ
-ส่งเสริมการอนุรักษ์ทรัพยากรน้ำ
+ชุมชนร่วมกันดูแลทรัพยากรธรรมชาติ
 และสิ่งแวดล้อม
 
 </p>
@@ -140,24 +187,38 @@ width="100%">
 
 
 
-<div class="card">
+
+<div class="card news-card">
+
+
+<img src="images/news/news3.jpg">
 
 
 <h3>
-📣 ประกาศจากผู้ใหญ่บ้าน
+ประกาศจากผู้ใหญ่บ้าน
 </h3>
+
+
+<p class="date">
+
+วันที่ ..........
+
+</p>
 
 
 <p>
 
-ติดตามประกาศและข่าวสารสำคัญ
-จากผู้ใหญ่บ้านบ้านร่องเข็ม
+ข่าวสารและข้อมูลสำคัญ
+สำหรับประชาชนบ้านร่องเข็ม
 
 </p>
 
 
 </div>
 
+
+
+</div>
 
 
 </section>
@@ -167,11 +228,62 @@ width="100%">
 
 
 
+
+<section>
+
+
+<h2>
+📌 ประกาศหมู่บ้าน
+</h2>
+
+
+<div class="card">
+
+
+<p>
+
+📢 แจ้งข่าวสารจากฝ่ายปกครองหมู่บ้าน
+
+<br><br>
+
+📢 กำหนดการประชุมหมู่บ้าน
+
+<br><br>
+
+📢 กิจกรรมจิตอาสา
+
+<br><br>
+
+📢 ข้อมูลบริการประชาชน
+
+
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
 <footer>
+
 
 © 2026 Rongkhem Smart Village
 
+<br>
+
+บ้านร่องเข็ม หมู่ที่ 6 จังหวัดพะเยา
+
+
 </footer>
+
+
 
 
 </body>
