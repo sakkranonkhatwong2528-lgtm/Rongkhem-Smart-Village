@@ -309,3 +309,46 @@ nav a{
 
 
 }
+table{
+
+width:100%;
+
+border-collapse:collapse;
+
+background:white;
+
+}
+
+
+table th{
+
+background:#2e7d32;
+
+color:white;
+
+padding:12px;
+
+}
+
+
+table td{
+
+padding:12px;
+
+border-bottom:1px solid #ddd;
+
+text-align:center;
+
+}
+
+
+
+@media(max-width:600px){
+
+table{
+
+font-size:14px;
+
+}
+
+}
