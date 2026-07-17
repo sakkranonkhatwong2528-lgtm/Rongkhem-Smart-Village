@@ -281,7 +281,14 @@ JSON.parse(localStorage.getItem("news") || "[]").length;
 document.getElementById("gallery").innerHTML =
 
 JSON.parse(localStorage.getItem("gallery") || "[]").length;
+id="zwx4r7"
+function logout(){
 
+localStorage.removeItem("login");
+
+window.location.href="login.html";
+
+}
 
 
 </script>
@@ -291,3 +298,7 @@ JSON.parse(localStorage.getItem("gallery") || "[]").length;
 </body>
 
 </html>
+id="7m31kn"
+<button onclick="logout()">
+ออกจากระบบ
+</button>
