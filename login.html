@@ -7,147 +7,69 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Login | Rongkhem Smart Village</title>
+<title>
+เข้าสู่ระบบผู้ดูแล
+</title>
 
 
 <style>
 
-*{
-box-sizing:border-box;
-font-family:"Tahoma",sans-serif;
-}
-
-
 body{
 
+font-family:"Sarabun",sans-serif;
+background:#e3f2fd;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
 margin:0;
 
-height:100vh;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-background:
-linear-gradient(
-135deg,
-#1b5e20,
-#81c784
-);
-
 }
-
 
 
 .login-box{
 
 background:white;
-
-width:360px;
-
-padding:35px;
-
-border-radius:25px;
-
-box-shadow:
-0 10px 30px rgba(0,0,0,.3);
-
+width:350px;
+padding:30px;
+border-radius:20px;
+box-shadow:0 3px 10px #aaa;
 text-align:center;
 
 }
 
 
-
-.logo{
-
-font-size:70px;
-
-}
-
-
-
-h1{
-
-color:#1b5e20;
-
-margin-bottom:5px;
-
-}
-
-
-
 input{
 
-width:100%;
-
-padding:15px;
-
-margin:10px 0;
-
-border-radius:12px;
-
+width:90%;
+padding:12px;
+margin:10px;
+border-radius:10px;
 border:1px solid #ccc;
 
-font-size:16px;
-
 }
-
 
 
 button{
 
-width:100%;
-
-padding:15px;
-
-background:#2e7d32;
-
+width:95%;
+padding:12px;
+background:#1565c0;
 color:white;
-
-border:none;
-
-border-radius:12px;
-
+border:0;
+border-radius:10px;
 font-size:18px;
 
-cursor:pointer;
-
 }
 
 
+h2{
 
-button:hover{
-
-background:#1b5e20;
-
-}
-
-
-
-#error{
-
-color:red;
-
-margin-top:15px;
+color:#1565c0;
 
 }
-
-
-.footer{
-
-margin-top:20px;
-
-font-size:13px;
-
-color:#777;
-
-}
-
 
 </style>
-
 
 </head>
 
@@ -155,36 +77,26 @@ color:#777;
 <body>
 
 
+
 <div class="login-box">
 
 
-<div class="logo">
-🏡
-</div>
+<h2>
+🔐 Admin Login
+</h2>
 
 
-<h1>
+<p>
 Rongkhem Smart Village
-</h1>
-
-
-<p>
-🔐 ระบบบริหารจัดการหมู่บ้านอัจฉริยะ
-</p>
-
-<p>
-ผู้ดูแลระบบ : ผู้ใหญ่บ้าน
 </p>
 
 
-<input 
-id="username"
-placeholder="ชื่อผู้ใช้งาน">
+
+<input id="username"
+placeholder="ชื่อผู้ใช้">
 
 
-
-<input 
-id="password"
+<input id="password"
 type="password"
 placeholder="รหัสผ่าน">
 
@@ -198,18 +110,11 @@ placeholder="รหัสผ่าน">
 
 
 
-<div id="error"></div>
-
-
-<div class="footer">
-
-บ้านร่องเข็ม หมู่ที่ 6<br>
-ตำบลจำป่าหวาย จังหวัดพะเยา
-
-</div>
+<p id="message"></p>
 
 
 </div>
+
 
 
 
@@ -221,46 +126,53 @@ function login(){
 
 
 let user =
+
 document.getElementById("username").value;
 
 
+
 let pass =
+
 document.getElementById("password").value;
 
 
 
-// บัญชีเริ่มต้น
+// ตัวอย่างผู้ดูแลระบบ
 
 if(
-user==="admin"
+user=="admin"
 &&
-pass==="123456"
-
+pass=="123456"
 ){
 
 
 localStorage.setItem(
+
 "login",
+
 "true"
+
 );
 
 
+
 window.location.href=
-"admin.html";
+"dashboard.html";
+
 
 
 }
-
 
 else{
 
 
-document.getElementById("error").innerHTML=
+document.getElementById("message").innerHTML=
 
-"❌ ข้อมูลเข้าสู่ระบบไม่ถูกต้อง";
+"❌ ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง";
 
 
 }
+
 
 
 }
