@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ทำเนียบผู้นำ | Rongkhem Smart Village</title>
+
+
+<style>
+
+body{
+font-family:"Sarabun",sans-serif;
+background:#eef7ff;
+margin:0;
+}
+
+
+header{
+
+background:#1565c0;
+color:white;
+padding:20px;
+text-align:center;
+
+}
+
+
+.container{
+
+padding:20px;
+
+}
+
+
+.card{
+
+background:white;
+padding:20px;
+border-radius:15px;
+margin-bottom:20px;
+box-shadow:0 2px 8px #ccc;
+
+}
+
+
+input,textarea,select{
+
+width:100%;
+padding:10px;
+margin:8px 0;
+border-radius:8px;
+border:1px solid #ccc;
+
+}
+
+
+button{
+
+background:#2e7d32;
+color:white;
+border:none;
+padding:10px 20px;
+border-radius:8px;
+cursor:pointer;
+
+}
+
+
+.delete{
+
+background:#c62828;
+
+}
+
+
+.people{
+
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
+
+}
+
+
+.person{
+
+background:white;
+padding:15px;
+border-radius:12px;
+box-shadow:0 2px 5px #ccc;
+text-align:center;
+
+}
+
+
+.person img{
+
+width:140px;
+height:140px;
+border-radius:50%;
+object-fit:cover;
+
+}
+
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h2>
+👤 ทำเนียบผู้นำบ้านร่องเข็ม
+</h2>
+
+<p>
+หมู่ที่ 6 ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา
+</p>
+
+</header>
+
+
+
+<div class="container">
+
+
+<div class="card">
+
+
+<h3>
+➕ เพิ่มข้อมูลผู้นำ
+</h3>
+
+
+<input id="name"
+placeholder="ชื่อ - นามสกุล">
+
+
+<select id="position">
+
+
+<option>
+ผู้ใหญ่บ้าน
+</option>
+
+
+<option>
+ผู้ช่วยผู้ใหญ่บ้าน
+</option>
+
+
+<option>
+สมาชิกสภา อบต.
+</option>
+
+
+<option>
+ประธาน อสม.
+</option>
+
+
+<option>
+ประธานผู้สูงอายุ
+</option>
+
+
+<option>
+ที่ปรึกษาผู้ทรงคุณวุฒิ
+</option>
+
+
+</select>
+
+
+<input id="image"
+placeholder="ชื่อไฟล์รูป เช่น leader01.jpg">
+
+
+<textarea id="detail"
+placeholder="ประวัติ / หน้าที่รับผิดชอบ">
+
+</textarea>
+
+
+<button onclick="addLeader()">
+
+💾 บันทึกข้อมูล
+
+</button>
+
+
+</div>
+
+
+
+
+<div class="card">
+
+
+<h3>
+📋 รายชื่อผู้นำ
+</h3>
+
+
+<div id="people"
+class="people">
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+<script>
+
+
+let leaders =
+
+JSON.parse(localStorage.getItem("leaders"))
+
+|| [];
+
+
+
+
+function addLeader(){
+
+
+let data={
+
+
+id:Date.now(),
+
+name:
+document.getElementById("name").value,
+
+
+position:
+document.getElementById("position").value,
+
+
+image:
+document.getElementById("image").value,
+
+
+detail:
+document.getElementById("detail").value
+
+
+};
+
+
+leaders.push(data);
+
+
+localStorage.setItem(
+
+"leaders",
+
+JSON.stringify(leaders)
+
+);
+
+
+showLeader();
+
+
+alert("บันทึกข้อมูลแล้ว");
+
+
+}
+
+
+
+
+function showLeader(){
+
+
+let box=document.getElementById("people");
+
+
+box.innerHTML="";
+
+
+leaders.forEach(l=>{
+
+
+box.innerHTML +=`
+
+
+<div class="person">
+
+
+<img src="../images/leaders/${l.image}">
+
+
+<h3>
+${l.name}
+</h3>
+
+
+<p>
+${l.position}
+</p>
+
+
+<p>
+${l.detail}
+</p>
+
+
+<button class="delete"
+
+onclick="deleteLeader(${l.id})">
+
+ลบ
+
+</button>
+
+
+</div>
+
+
+`;
+
+});
+
+
+}
+
+
+
+function deleteLeader(id){
+
+
+leaders=
+
+leaders.filter(
+
+l=>l.id!=id
+
+);
+
+
+localStorage.setItem(
+
+"leaders",
+
+JSON.stringify(leaders)
+
+);
+
+
+showLeader();
+
+}
+
+
+
+showLeader();
+
+
+</script>
+
+
+
+</body>
+
+</html>
