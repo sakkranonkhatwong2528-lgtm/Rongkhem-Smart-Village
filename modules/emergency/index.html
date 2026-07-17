@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+
+<title>
+Emergency Center
+</title>
+
+
+<link rel="stylesheet" href="../../assets/css/style.css">
+
+
+<style>
+
+.grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:20px;
+
+padding:30px;
+
+}
+
+
+.card{
+
+background:white;
+
+padding:25px;
+
+border-radius:20px;
+
+text-align:center;
+
+box-shadow:0 5px 15px #ccc;
+
+}
+
+
+.icon{
+
+font-size:45px;
+
+}
+
+
+button{
+
+width:90%;
+
+padding:15px;
+
+margin:10px;
+
+border:0;
+
+border-radius:15px;
+
+background:#c62828;
+
+color:white;
+
+font-size:18px;
+
+}
+
+
+.status{
+
+background:white;
+
+margin:20px;
+
+padding:20px;
+
+border-radius:20px;
+
+}
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>
+🚨 Emergency Center
+</h1>
+
+<p>
+ระบบความปลอดภัยบ้านร่องเข็ม
+</p>
+
+</header>
+
+
+
+
+<div class="grid">
+
+
+
+<div class="card">
+
+<div class="icon">
+🔥
+</div>
+
+<h2>
+ไฟไหม้
+</h2>
+
+<button>
+แจ้งเหตุ
+</button>
+
+</div>
+
+
+
+
+<div class="card">
+
+<div class="icon">
+🚑
+</div>
+
+<h2>
+เหตุสุขภาพ
+</h2>
+
+<button>
+แจ้ง อสม.
+</button>
+
+</div>
+
+
+
+
+<div class="card">
+
+<div class="icon">
+🌳
+</div>
+
+<h2>
+ไฟป่า / จุดเผา
+</h2>
+
+<button>
+แจ้งจุดเสี่ยง
+</button>
+
+</div>
+
+
+
+
+<div class="card">
+
+<div class="icon">
+🛡
+</div>
+
+<h2>
+ชรบ. / อปพร.
+</h2>
+
+<button>
+ติดต่อทีม
+</button>
+
+</div>
+
+
+</div>
+
+
+
+
+<div class="status">
+
+
+<h2>
+📊 สถานการณ์ปัจจุบัน
+</h2>
+
+
+<p>
+🔥 ไฟไหม้ : 🟢 ปกติ
+</p>
+
+
+<p>
+🌫 PM2.5 : 🟡 เฝ้าระวัง
+</p>
+
+
+<p>
+🚑 เหตุสุขภาพ : 🟢 ไม่มีรายงาน
+</p>
+
+
+</div>
+
+
+
+<div class="status">
+
+
+<h2>
+📍 ระบบบันทึกเหตุการณ์
+</h2>
+
+
+<form>
+
+
+<input placeholder="ชื่อผู้แจ้ง">
+
+<br><br>
+
+
+<textarea 
+placeholder="รายละเอียดเหตุ"
+style="width:90%;height:100px">
+</textarea>
+
+
+<br><br>
+
+
+<button type="button">
+ส่งแจ้งเหตุ
+</button>
+
+
+</form>
+
+
+</div>
+
+
+
+</body>
+
+</html>
