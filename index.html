@@ -9,7 +9,7 @@
 
 
 <title>
-Report Center
+Project Management Center
 </title>
 
 
@@ -18,12 +18,12 @@ Report Center
 
 <style>
 
-.report-grid{
+.project-grid{
 
 display:grid;
 
 grid-template-columns:
-repeat(auto-fit,minmax(220px,1fr));
+repeat(auto-fit,minmax(240px,1fr));
 
 gap:20px;
 
@@ -40,48 +40,45 @@ padding:25px;
 
 border-radius:20px;
 
-text-align:center;
-
 box-shadow:0 5px 15px #ccc;
 
 }
 
 
-.icon{
+.status{
 
-font-size:45px;
-
-}
-
-
-button{
-
-background:#00695c;
-
-color:white;
-
-border:0;
-
-padding:12px 20px;
+padding:8px;
 
 border-radius:10px;
 
-margin-top:10px;
+background:#e8f5e9;
+
+display:inline-block;
 
 }
 
 
-.summary{
+.progress{
 
-background:white;
+background:#ddd;
 
-margin:20px;
+height:15px;
 
-padding:25px;
-
-border-radius:20px;
+border-radius:10px;
 
 }
+
+
+.bar{
+
+background:#00897b;
+
+height:15px;
+
+border-radius:10px;
+
+}
+
 
 </style>
 
@@ -95,11 +92,11 @@ border-radius:20px;
 <header>
 
 <h1>
-📑 Report Center
+🏆 Project Center
 </h1>
 
 <p>
-ระบบรายงานบ้านร่องเข็ม หมู่ที่ 6
+ระบบบริหารโครงการบ้านร่องเข็ม
 </p>
 
 </header>
@@ -107,179 +104,164 @@ border-radius:20px;
 
 
 
-<div class="report-grid">
+<div class="project-grid">
 
 
 
 <div class="card">
 
-<div class="icon">
-🏡
-</div>
-
 <h2>
-รายงานหมู่บ้าน
-</h2>
-
-<p>
-ข้อมูลภาพรวมชุมชน
-</p>
-
-<button>
-เปิดรายงาน
-</button>
-
-</div>
-
-
-
-
-<div class="card">
-
-<div class="icon">
-🩺
-</div>
-
-<h2>
-รายงานสุขภาพ
-</h2>
-
-<p>
-ผู้สูงอายุ อสม. กลุ่มเปราะบาง
-</p>
-
-<button>
-เปิดรายงาน
-</button>
-
-</div>
-
-
-
-
-<div class="card">
-
-<div class="icon">
-🌱
-</div>
-
-<h2>
-รายงานสิ่งแวดล้อม
-</h2>
-
-<p>
-แหล่งซับน้ำจำ ทรัพยากร
-</p>
-
-<button>
-เปิดรายงาน
-</button>
-
-</div>
-
-
-
-
-<div class="card">
-
-<div class="icon">
-🏆
-</div>
-
-<h2>
-รายงานโครงการ
-</h2>
-
-<p>
-ติดตามความก้าวหน้า
-</p>
-
-<button>
-เปิดรายงาน
-</button>
-
-</div>
-
-
-</div>
-
-
-
-
-<div class="summary">
-
-
-<h2>
-📊 สรุปข้อมูลปัจจุบัน
-</h2>
-
-
-<table border="1" width="100%" cellpadding="10">
-
-
-<tr>
-
-<td>
-👴 ผู้สูงอายุ
-</td>
-
-<td>
-91 คน
-</td>
-
-</tr>
-
-
-<tr>
-
-<td>
-♿ ผู้พิการ
-</td>
-
-<td>
-3 คน
-</td>
-
-</tr>
-
-
-<tr>
-
-<td>
 💧 แหล่งซับน้ำจำ
-</td>
-
-<td>
-1 พื้นที่
-</td>
-
-</tr>
+</h2>
 
 
-<tr>
+<p>
+ประเภท:
+🌱 สิ่งแวดล้อม
+</p>
 
-<td>
-🌱 โครงการสิ่งแวดล้อม
-</td>
 
-<td>
+<p class="status">
 กำลังดำเนินการ
-</td>
-
-</tr>
+</p>
 
 
-</table>
+<h3>
+ความคืบหน้า
+</h3>
 
 
-<br>
+<div class="progress">
+
+<div class="bar" style="width:70%">
+
+</div>
+
+</div>
 
 
-<button onclick="window.print()">
+<p>
+70%
+</p>
 
-🖨 พิมพ์รายงาน
 
-</button>
+</div>
+
+
+
+
+
+<div class="card">
+
+<h2>
+🩺 สุขภาพชุมชน
+</h2>
+
+
+<p>
+ประเภท:
+สุขภาพ
+</p>
+
+
+<p class="status">
+ดำเนินการต่อเนื่อง
+</p>
+
+
+<div class="progress">
+
+<div class="bar" style="width:80%">
+
+</div>
+
+</div>
+
+
+<p>
+80%
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h2>
+🌱 ลดการเผา PM2.5
+</h2>
+
+
+<p>
+ประเภท:
+สิ่งแวดล้อม
+</p>
+
+
+<p class="status">
+ติดตาม
+</p>
+
+
+<div class="progress">
+
+<div class="bar" style="width:50%">
+
+</div>
+
+</div>
+
+
+<p>
+50%
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<div class="card" style="margin:20px;">
+
+
+<h2>
+📋 ข้อมูลโครงการ
+</h2>
+
+
+<ul>
+
+<li>
+ชื่อโครงการ
+</li>
+
+<li>
+งบประมาณ
+</li>
+
+<li>
+ผู้รับผิดชอบ
+</li>
+
+<li>
+ระยะเวลา
+</li>
+
+<li>
+ผลลัพธ์
+</li>
+
+</ul>
 
 
 </div>
