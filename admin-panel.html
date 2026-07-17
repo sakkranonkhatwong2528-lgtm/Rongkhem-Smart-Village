@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+Admin Center | Rongkhem Smart Village
+</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+
+<style>
+
+.panel{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:20px;
+
+}
+
+
+
+.panel-card{
+
+background:white;
+
+padding:25px;
+
+border-radius:20px;
+
+text-align:center;
+
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+
+text-decoration:none;
+
+color:#333;
+
+}
+
+
+
+.panel-card:hover{
+
+background:#e8f5e9;
+
+}
+
+
+
+.panel-card h3{
+
+color:#2e7d32;
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+
+<header>
+
+
+<div class="logo">
+🏡
+</div>
+
+
+<h1>
+⚙️ ศูนย์จัดการระบบหมู่บ้าน
+</h1>
+
+
+<p>
+Rongkhem Smart Village
+<br>
+ผู้ดูแลระบบ : ผู้ใหญ่บ้าน
+</p>
+
+
+</header>
+
+
+
+
+
+<nav>
+
+
+<a href="admin.html">
+📊 Dashboard
+</a>
+
+
+<a href="index.html">
+🏡 หน้าแรก
+</a>
+
+
+</nav>
+
+
+
+
+
+
+
+<section>
+
+
+<h2>
+📱 จัดการข้อมูล
+</h2>
+
+
+<div class="panel">
+
+
+
+<a href="manage-news.html" class="panel-card">
+
+<h3>
+📰 ข่าวสาร
+</h3>
+
+<p>
+เพิ่ม / แก้ไขข่าว
+</p>
+
+</a>
+
+
+
+
+
+<a href="manage-activity.html" class="panel-card">
+
+<h3>
+📸 กิจกรรม
+</h3>
+
+<p>
+เพิ่มรูปกิจกรรม
+</p>
+
+</a>
+
+
+
+
+
+<a href="people.html" class="panel-card">
+
+<h3>
+👥 ประชาชน
+</h3>
+
+<p>
+ทะเบียนประชาชน
+</p>
+
+</a>
+
+
+
+
+
+<a href="organization.html" class="panel-card">
+
+<h3>
+👥 คณะทำงาน
+</h3>
+
+<p>
+ข้อมูลผู้นำ
+</p>
+
+</a>
+
+
+
+
+<a href="subnamjam.html" class="panel-card">
+
+<h3>
+💧 แหล่งซับน้ำจำ
+</h3>
+
+<p>
+ข้อมูลพื้นที่อนุรักษ์
+</p>
+
+</a>
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<footer>
+
+© 2026 Rongkhem Smart Village
+
+</footer>
+
+
+
+
+<script>
+
+if(localStorage.getItem("login")!="true"){
+
+window.location.href="login.html";
+
+}
+
+</script>
+
+
+
+</body>
+
+</html>
