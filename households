@@ -1,0 +1,9 @@
+id
+house_no
+village_no
+owner_name
+family_count
+latitude
+longitude
+status
+created_at
