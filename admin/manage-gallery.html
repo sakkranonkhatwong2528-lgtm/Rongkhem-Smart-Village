@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>จัดการรูปภาพกิจกรรม | Rongkhem Smart Village</title>
+
+<style>
+
+body{
+font-family:"Sarabun",sans-serif;
+background:#f1f8e9;
+margin:0;
+}
+
+header{
+background:#2e7d32;
+color:white;
+padding:20px;
+text-align:center;
+}
+
+.container{
+padding:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+margin-bottom:20px;
+border-radius:15px;
+box-shadow:0 2px 8px #ccc;
+}
+
+input,select{
+width:100%;
+padding:10px;
+margin:8px 0;
+border-radius:8px;
+border:1px solid #ccc;
+}
+
+
+button{
+background:#1976d2;
+color:white;
+border:0;
+padding:10px 20px;
+border-radius:8px;
+cursor:pointer;
+}
+
+.delete{
+background:#c62828;
+}
+
+
+.gallery{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
+
+}
+
+
+.photo{
+
+background:white;
+padding:10px;
+border-radius:12px;
+box-shadow:0 2px 5px #ccc;
+
+}
+
+
+.photo img{
+
+width:100%;
+height:160px;
+object-fit:cover;
+border-radius:10px;
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h2>📸 ระบบจัดการคลังรูปภาพ</h2>
+
+<p>Rongkhem Smart Village</p>
+
+</header>
+
+
+
+<div class="container">
+
+
+<div class="card">
+
+
+<h3>
+➕ เพิ่มรูปกิจกรรม
+</h3>
+
+
+<input id="name"
+placeholder="ชื่อกิจกรรม">
+
+
+<select id="type">
+
+<option>
+🌱 แหล่งซับน้ำจำ
+</option>
+
+<option>
+🏡 กิจกรรมหมู่บ้าน
+</option>
+
+<option>
+👮 อปพร./ชรบ.
+</option>
+
+<option>
+🩺 อสม.
+</option>
+
+<option>
+🙏 วัดร่องเข็ม
+</option>
+
+<option>
+👥 คณะผู้นำ
+</option>
+
+</select>
+
+
+<input id="image"
+placeholder="ชื่อไฟล์รูป เช่น activity01.jpg">
+
+
+<button onclick="addPhoto()">
+
+💾 เพิ่มรูปภาพ
+
+</button>
+
+
+</div>
+
+
+
+<div class="card">
+
+<h3>
+🖼️ คลังรูปภาพ
+</h3>
+
+
+<div id="gallery"
+class="gallery">
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+<script>
+
+
+let gallery =
+
+JSON.parse(localStorage.getItem("gallery"))
+
+|| [];
+
+
+
+
+function addPhoto(){
+
+
+let data={
+
+
+id:Date.now(),
+
+name:
+document.getElementById("name").value,
+
+
+type:
+document.getElementById("type").value,
+
+
+image:
+document.getElementById("image").value
+
+
+};
+
+
+
+gallery.push(data);
+
+
+localStorage.setItem(
+
+"gallery",
+
+JSON.stringify(gallery)
+
+);
+
+
+
+showGallery();
+
+
+alert("เพิ่มรูปภาพแล้ว");
+
+
+}
+
+
+
+
+function showGallery(){
+
+
+let box=
+document.getElementById("gallery");
+
+
+box.innerHTML="";
+
+
+
+gallery.forEach(p=>{
+
+
+box.innerHTML += `
+
+
+<div class="photo">
+
+
+<img src="../images/activity/${p.image}">
+
+
+<h4>
+${p.name}
+</h4>
+
+
+<p>
+หมวด:
+${p.type}
+</p>
+
+
+<button class="delete"
+
+onclick="deletePhoto(${p.id})">
+
+ลบ
+
+</button>
+
+
+</div>
+
+
+`;
+
+
+});
+
+
+}
+
+
+
+
+function deletePhoto(id){
+
+
+gallery = gallery.filter(
+
+p=>p.id!=id
+
+);
+
+
+
+localStorage.setItem(
+
+"gallery",
+
+JSON.stringify(gallery)
+
+);
+
+
+
+showGallery();
+
+
+}
+
+
+
+showGallery();
+
+
+</script>
+
+
+</body>
+
+</html>
