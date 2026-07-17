@@ -4,11 +4,10 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>
-Dashboard Rongkhem Smart Village
+Dashboard | Rongkhem Smart Village
 </title>
 
 
@@ -17,7 +16,7 @@ Dashboard Rongkhem Smart Village
 body{
 
 font-family:"Sarabun",sans-serif;
-background:#eef7ff;
+background:#eef5f4;
 margin:0;
 
 }
@@ -25,7 +24,7 @@ margin:0;
 
 header{
 
-background:#1565c0;
+background:#00695c;
 color:white;
 padding:25px;
 text-align:center;
@@ -43,25 +42,19 @@ padding:20px;
 .grid{
 
 display:grid;
-
 grid-template-columns:
-repeat(auto-fit,minmax(220px,1fr));
-
+repeat(auto-fit,minmax(200px,1fr));
 gap:20px;
 
 }
 
 
-.box{
+.card{
 
 background:white;
-
-padding:25px;
-
-border-radius:20px;
-
+padding:20px;
+border-radius:18px;
 box-shadow:0 3px 10px #ccc;
-
 text-align:center;
 
 }
@@ -70,34 +63,26 @@ text-align:center;
 .number{
 
 font-size:40px;
-
 font-weight:bold;
-
-color:#1565c0;
+color:#00695c;
 
 }
 
 
-
-.project{
+.news{
 
 background:white;
-
-margin-top:20px;
-
 padding:20px;
-
+margin-top:20px;
 border-radius:15px;
-
-box-shadow:0 2px 8px #ccc;
 
 }
 
 
 </style>
 
-
 </head>
+
 
 
 <body>
@@ -128,18 +113,36 @@ Rongkhem Smart Village
 <div class="grid">
 
 
-<div class="box">
 
-<h2>👤</h2>
+<div class="card">
+
+<h2>🏠</h2>
 
 <h3>
-ผู้นำชุมชน
+ครัวเรือน
 </h3>
 
-<div class="number" id="leader">
-
+<div class="number" id="household">
 0
+</div>
 
+หลังคาเรือน
+
+</div>
+
+
+
+
+<div class="card">
+
+<h2>👥</h2>
+
+<h3>
+ประชากร
+</h3>
+
+<div class="number" id="people">
+0
 </div>
 
 คน
@@ -148,7 +151,84 @@ Rongkhem Smart Village
 
 
 
-<div class="box">
+
+<div class="card">
+
+<h2>👵</h2>
+
+<h3>
+ผู้สูงอายุ
+</h3>
+
+<div class="number" id="elderly">
+0
+</div>
+
+คน
+
+</div>
+
+
+
+
+<div class="card">
+
+<h2>❤️</h2>
+
+<h3>
+กลุ่มเปราะบาง
+</h3>
+
+<div class="number" id="vulnerable">
+0
+</div>
+
+คน
+
+</div>
+
+
+
+
+<div class="card">
+
+<h2>👤</h2>
+
+<h3>
+ผู้นำ
+</h3>
+
+<div class="number" id="leader">
+0
+</div>
+
+คน
+
+</div>
+
+
+
+
+<div class="card">
+
+<h2>🩺</h2>
+
+<h3>
+อสม.
+</h3>
+
+<div class="number" id="osm">
+0
+</div>
+
+คน
+
+</div>
+
+
+
+
+<div class="card">
 
 <h2>🚨</h2>
 
@@ -156,10 +236,8 @@ Rongkhem Smart Village
 อปพร.
 </h3>
 
-<div class="number" id="opp">
-
+<div class="number" id="oppor">
 0
-
 </div>
 
 คน
@@ -168,81 +246,59 @@ Rongkhem Smart Village
 
 
 
-<div class="box">
 
-<h2>📰</h2>
+<div class="card">
 
-<h3>
-ข่าวประชาสัมพันธ์
-</h3>
-
-<div class="number" id="news">
-
-0
-
-</div>
-
-ข่าว
-
-</div>
-
-
-
-<div class="box">
-
-<h2>📸</h2>
+<h2>👮</h2>
 
 <h3>
-รูปกิจกรรม
+ชรบ.
 </h3>
 
-<div class="number" id="gallery">
-
+<div class="number" id="shorbor">
 0
-
 </div>
 
-รูป
-
-</div>
-
-
+คน
 
 </div>
 
 
+</div>
 
-<div class="project">
+
+
+<div class="news">
+
+<h2>
+📰 ข่าวล่าสุด
+</h2>
+
+<div id="newsList">
+
+</div>
+
+</div>
+
+
+
+<div class="news">
 
 <h2>
 🌱 โครงการสำคัญ
 </h2>
 
-
 <h3>
 แหล่งซับน้ำจำ บ้านร่องเข็ม
 </h3>
 
-
 <p>
 
-สถานะ:
-<span style="color:green">
-กำลังดำเนินการ
-</span>
-
-</p>
-
-
-<p>
-
-ข้อมูล:
 พื้นที่อนุรักษ์น้ำ
 ระบบนิเวศชุมชน
-แหล่งเรียนรู้ธรรมชาติ
+และแหล่งเรียนรู้ธรรมชาติ
 
 </p>
-
 
 </div>
 
@@ -253,52 +309,102 @@ Rongkhem Smart Village
 
 
 <script>
-id="hnh5i3"
-if(localStorage.getItem("login")!="true"){
-
-window.location.href="login.html";
-
-}
-
-document.getElementById("leader").innerHTML =
-
-JSON.parse(localStorage.getItem("leaders") || "[]").length;
 
 
+function count(id,data){
 
-document.getElementById("opp").innerHTML =
+document.getElementById(id).innerHTML=
 
-JSON.parse(localStorage.getItem("opp") || "[]").length;
+JSON.parse(
 
+localStorage.getItem(data)||"[]"
 
-
-document.getElementById("news").innerHTML =
-
-JSON.parse(localStorage.getItem("news") || "[]").length;
-
-
-
-document.getElementById("gallery").innerHTML =
-
-JSON.parse(localStorage.getItem("gallery") || "[]").length;
-id="zwx4r7"
-function logout(){
-
-localStorage.removeItem("login");
-
-window.location.href="login.html";
+).length;
 
 }
+
+
+
+count(
+"household",
+"household"
+);
+
+
+count(
+"people",
+"people"
+);
+
+
+count(
+"elderly",
+"elderly"
+);
+
+
+count(
+"vulnerable",
+"vulnerable"
+);
+
+
+count(
+"leader",
+"leaders"
+);
+
+
+count(
+"osm",
+"osm"
+);
+
+
+count(
+"oppor",
+"opp"
+);
+
+
+count(
+"shorbor",
+"shorbor"
+);
+
+
+
+// ข่าวล่าสุด
+
+let news=
+
+JSON.parse(
+localStorage.getItem("news")||"[]"
+);
+
+
+let box=
+
+document.getElementById("newsList");
+
+
+news.slice(-5).reverse().forEach(n=>{
+
+
+box.innerHTML +=`
+
+<p>
+📌 ${n.title}
+</p>
+
+`;
+
+});
 
 
 </script>
 
 
-
 </body>
 
 </html>
-id="7m31kn"
-<button onclick="logout()">
-ออกจากระบบ
-</button>
