@@ -1,0 +1,7 @@
+id
+citizen_id
+health_type
+risk_level
+care_status
+note
+updated_at
