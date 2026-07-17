@@ -5,6 +5,9 @@
 
 <meta charset="UTF-8">
 
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+
 <title>
 Smart Map บ้านร่องเข็ม
 </title>
@@ -17,17 +20,24 @@ href="https://unpkg.com/leaflet/dist/leaflet.css">
 <style>
 
 body{
+
 margin:0;
+
 font-family:sans-serif;
-background:#f2f8f6;
+
+background:#eef7f5;
+
 }
 
 
 header{
 
 background:#00695c;
+
 color:white;
+
 padding:20px;
+
 text-align:center;
 
 }
@@ -35,15 +45,20 @@ text-align:center;
 
 #map{
 
-height:80vh;
+height:70vh;
 
 }
 
 
-.info{
+.panel{
 
-padding:15px;
 background:white;
+
+padding:20px;
+
+margin:15px;
+
+border-radius:15px;
 
 }
 
@@ -51,10 +66,16 @@ background:white;
 button{
 
 padding:10px;
+
 border:0;
+
 border-radius:10px;
+
 background:#00897b;
+
 color:white;
+
+margin:5px;
 
 }
 
@@ -74,7 +95,7 @@ color:white;
 </h1>
 
 <p>
-ระบบแผนที่อัจฉริยะบ้านร่องเข็ม หมู่ที่ 6
+แผนที่อัจฉริยะบ้านร่องเข็ม หมู่ที่ 6
 </p>
 
 </header>
@@ -84,26 +105,31 @@ color:white;
 <div id="map"></div>
 
 
-<div class="info">
 
-<h3>
+<div class="panel">
+
+<h2>
 📍 ชั้นข้อมูล
-</h3>
+</h2>
+
 
 <button>
 💧 แหล่งน้ำ
 </button>
 
+
 <button>
 👴 ผู้สูงอายุ
 </button>
 
-<button>
-🩺 อสม.
-</button>
 
 <button>
-🔥 จุดเสี่ยงไฟ
+🌳 ทรัพยากร
+</button>
+
+
+<button>
+🚨 จุดเหตุ
 </button>
 
 
@@ -114,36 +140,29 @@ color:white;
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
 
+
 <script>
 
 
-// จุดเริ่มต้น พะเยา
+// ตั้งค่าพิกัดเริ่มต้น (ปรับภายหลังด้วย GPS จริง)
 
-var map =
-L.map('map')
+var map = L.map('map')
 .setView(
 [19.1667,99.9000],
-14
+15
 );
 
 
 
 L.tileLayer(
 
-'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-
-{
-
-maxZoom:19
-
-}
+'https://tile.openstreetmap.org/{z}/{x}/{y}.png'
 
 ).addTo(map);
 
 
 
-
-// แหล่งซับน้ำจำ
+// จุดแหล่งซับน้ำจำ
 
 var water =
 L.marker(
@@ -153,48 +172,54 @@ L.marker(
 
 
 water.bindPopup(
+
 `
 💧 แหล่งซับน้ำจำ<br>
 🌱 พื้นที่อนุรักษ์<br>
-🐟 ความหลากหลายทางชีวภาพ
+🐟 ความหลากหลายชีวภาพ
 `
+
 );
 
 
 
+// จุดสุขภาพ
 
-// จุดผู้สูงอายุ
-
-var elderly =
+var health =
 L.marker(
 [19.1680,99.9020]
 )
 .addTo(map);
 
 
-elderly.bindPopup(
+health.bindPopup(
+
 `
+🩺 จุดสุขภาพชุมชน<br>
 👴 ผู้สูงอายุ<br>
-สถานะ: ติดตาม
+อสม.รับผิดชอบ
 `
+
 );
 
 
 
-// จุด อสม.
+// จุดสิ่งแวดล้อม
 
-var volunteer =
+var env =
 L.marker(
 [19.1700,99.9050]
 )
 .addTo(map);
 
 
-volunteer.bindPopup(
+env.bindPopup(
+
 `
-🩺 อสม.<br>
-พื้นที่รับผิดชอบ หมู่ 6
+🌳 จุดเรียนรู้ธรรมชาติ<br>
+บ้านร่องเข็ม
 `
+
 );
 
 
