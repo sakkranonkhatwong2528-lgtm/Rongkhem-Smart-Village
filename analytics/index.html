@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+Rongkhem Analytics Dashboard
+</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<style>
+
+body{
+font-family:sans-serif;
+margin:0;
+background:#eef7f5;
+}
+
+
+header{
+background:#00695c;
+color:white;
+padding:20px;
+text-align:center;
+}
+
+
+.container{
+padding:20px;
+}
+
+
+.cards{
+
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(180px,1fr));
+
+gap:15px;
+
+}
+
+
+.card{
+
+background:white;
+padding:20px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 3px 10px #ccc;
+
+}
+
+
+.number{
+
+font-size:35px;
+color:#00897b;
+font-weight:bold;
+
+}
+
+
+.chart{
+
+background:white;
+padding:20px;
+margin-top:20px;
+border-radius:15px;
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>
+📊 Analytics Dashboard
+</h1>
+
+<p>
+Rongkhem Smart Village
+</p>
+
+</header>
+
+
+
+<div class="container">
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<h3>👥 ประชากร</h3>
+
+<div class="number">
+XXX
+</div>
+
+คน
+
+</div>
+
+
+
+<div class="card">
+
+<h3>👴 ผู้สูงอายุ</h3>
+
+<div class="number">
+91
+</div>
+
+คน
+
+</div>
+
+
+
+<div class="card">
+
+<h3>♿ ผู้พิการ</h3>
+
+<div class="number">
+3
+</div>
+
+คน
+
+</div>
+
+
+
+<div class="card">
+
+<h3>🩺 อสม.</h3>
+
+<div class="number">
+XX
+</div>
+
+คน
+
+</div>
+
+
+</div>
+
+
+
+<div class="chart">
+
+<h2>
+📈 สถิติกลุ่มประชากร
+</h2>
+
+
+<canvas id="populationChart"></canvas>
+
+
+</div>
+
+
+
+<div class="chart">
+
+<h2>
+🌱 สถิติทรัพยากร
+</h2>
+
+
+<canvas id="environmentChart"></canvas>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+<script>
+
+
+new Chart(
+
+document.getElementById(
+'populationChart'
+),
+
+{
+
+type:'bar',
+
+data:{
+
+labels:[
+'ทั่วไป',
+'ผู้สูงอายุ',
+'ผู้พิการ',
+'กลุ่มเปราะบาง'
+],
+
+datasets:[{
+
+label:'จำนวนคน',
+
+data:[
+300,
+91,
+3,
+30
+]
+
+}]
+
+}
+
+}
+
+);
+
+
+
+new Chart(
+
+document.getElementById(
+'environmentChart'
+),
+
+{
+
+type:'line',
+
+data:{
+
+labels:[
+'ม.ค.',
+'ก.พ.',
+'มี.ค.',
+'เม.ย.',
+'พ.ค.'
+],
+
+datasets:[{
+
+label:'กิจกรรมสิ่งแวดล้อม',
+
+data:[
+2,
+5,
+3,
+7,
+6
+]
+
+}]
+
+}
+
+}
+
+);
+
+
+</script>
+
+
+
+</body>
+
+</html>
