@@ -6,289 +6,179 @@
 
 <title>Rongkhem Smart Village</title>
 
-<style>
-*{
-box-sizing:border-box;
-font-family:"Tahoma",sans-serif;
-}
-
-body{
-margin:0;
-background:#f1f8e9;
-color:#333;
-}
-
-header{
-background:linear-gradient(135deg,#1b5e20,#66bb6a);
-color:white;
-padding:30px;
-text-align:center;
-}
-
-.logo{
-font-size:70px;
-}
-
-h1{
-margin:10px 0;
-}
-
-.container{
-padding:20px;
-max-width:1200px;
-margin:auto;
-}
-
-.card{
-background:white;
-border-radius:20px;
-padding:20px;
-margin-bottom:20px;
-box-shadow:0 5px 15px #ccc;
-}
-
-.stats{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-gap:15px;
-}
-
-.stat{
-background:#e8f5e9;
-padding:20px;
-border-radius:15px;
-text-align:center;
-}
-
-.number{
-font-size:35px;
-font-weight:bold;
-color:#2e7d32;
-}
-
-.menu{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:15px;
-}
-
-.menu a{
-background:white;
-padding:20px;
-border-radius:15px;
-text-decoration:none;
-color:#1b5e20;
-text-align:center;
-font-size:18px;
-box-shadow:0 3px 10px #ccc;
-}
-
-.menu a:hover{
-background:#c8e6c9;
-}
-
-footer{
-background:#1b5e20;
-color:white;
-text-align:center;
-padding:20px;
-}
-
-</style>
+<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-
 <header>
-
-<div class="logo">🏡</div>
-
-<h1>Rongkhem Smart Village</h1>
-
-<h2>ระบบบริหารจัดการหมู่บ้านอัจฉริยะ</h2>
-
+<h1>🏡 หมู่บ้านอัจฉริยะร่องเข็ม</h1>
 <p>
 บ้านร่องเข็ม หมู่ที่ 6<br>
 ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา
 </p>
-
 </header>
 
 
+<nav>
+<a href="#news">ข่าวสาร</a>
+<a href="#activity">กิจกรรม</a>
+<a href="#leader">ผู้นำหมู่บ้าน</a>
+<a href="#subnam">แหล่งซับน้ำจำ</a>
+<a href="#contact">ติดต่อ</a>
+</nav>
 
-<div class="container">
+
+<section class="hero">
+<h2>ยินดีต้อนรับสู่ชุมชนร่องเข็ม</h2>
+
+<p>
+ชุมชนแห่งการอนุรักษ์ทรัพยากรธรรมชาติ
+พัฒนาเศรษฐกิจฐานราก และสร้างสังคมแห่งความร่วมมือ
+</p>
+
+</section>
+
+
+
+<section id="news">
+
+<h2>📢 ข่าวสารประชาสัมพันธ์หมู่บ้าน</h2>
+
+<div class="card">
+
+<h3>ข่าวล่าสุด</h3>
+
+<p>
+- แจ้งข่าวสารจากผู้ใหญ่บ้าน<br>
+- ประชาสัมพันธ์กิจกรรมหมู่บ้าน<br>
+- แจ้งประชุมประจำเดือน<br>
+- ข่าวสารด้านสุขภาพและสิ่งแวดล้อม
+</p>
+
+</div>
+
+</section>
+
+
+
+
+<section id="activity">
+
+<h2>🌱 กิจกรรมหมู่บ้าน</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>💧 แหล่งซับน้ำจำ</h3>
+<p>
+อนุรักษ์พื้นที่ชุ่มน้ำ
+ฟื้นฟูระบบนิเวศ และสร้างแหล่งเรียนรู้ชุมชน
+</p>
+</div>
+
+
+<div class="card">
+<h3>🌳 จิตอาสาพัฒนาหมู่บ้าน</h3>
+<p>
+ร่วมกันดูแลความสะอาด
+ปรับภูมิทัศน์ และพัฒนาหมู่บ้าน
+</p>
+</div>
+
+
+<div class="card">
+<h3>❤️ งาน อสม.</h3>
+<p>
+ส่งเสริมสุขภาพ ป้องกันโรค
+และดูแลกลุ่มเปราะบาง
+</p>
+</div>
+
+
+</div>
+
+</section>
+
+
+
+
+<section id="leader">
+
+<h2>👥 ทำเนียบผู้นำหมู่บ้าน</h2>
 
 
 <div class="card">
 
-<h2>📊 ข้อมูลภาพรวมหมู่บ้าน</h2>
+<p>
+<strong>ผู้ใหญ่บ้าน</strong><br>
+บ้านร่องเข็ม หมู่ที่ 6
 
+<br><br>
 
-<div class="stats">
+<strong>คณะกรรมการหมู่บ้าน</strong><br>
+ผู้ช่วยผู้ใหญ่บ้าน<br>
+สมาชิกสภา อบต.<br>
+ประธาน อสม.<br>
+ประธานผู้สูงอายุ<br>
+ที่ปรึกษาผู้ทรงคุณวุฒิ 5 คน
 
-
-<div class="stat">
-👥
-<div class="number">1,021</div>
-ประชากร
-</div>
-
-
-<div class="stat">
-🏠
-<div class="number">75</div>
-ครัวเรือน
-</div>
-
-
-<div class="stat">
-👴
-<div class="number">91</div>
-ผู้สูงอายุ
-</div>
-
-
-<div class="stat">
-❤️
-<div class="number">3</div>
-ผู้พิการ
-</div>
-
-
-<div class="stat">
-🩺
-<div class="number">20</div>
-อสม.
-</div>
-
-
-<div class="stat">
-🛡️
-<div class="number">15</div>
-ชรบ.
-</div>
-
-
-</div>
+</p>
 
 </div>
 
 
+</section>
 
+
+
+
+
+<section id="subnam">
+
+<h2>💧 แหล่งซับน้ำจำ</h2>
 
 <div class="card">
 
-<h2>📌 ระบบงานหมู่บ้าน</h2>
+<p>
+พื้นที่ธรรมชาติสำคัญของบ้านร่องเข็ม
+เป็นแหล่งน้ำ ระบบนิเวศ และพื้นที่เรียนรู้
+ด้านทรัพยากรธรรมชาติของชุมชน
 
-
-<div class="menu">
-
-
-<a href="pages/dashboard.html">
-📊 Dashboard
-</a>
-
-
-<a href="pages/village.html">
-📖 ข้อมูลหมู่บ้าน
-</a>
-
-
-<a href="pages/citizen.html">
-👥 ทะเบียนประชาชน
-</a>
-
-
-<a href="pages/household.html">
-🏠 ทะเบียนครัวเรือน
-</a>
-
-
-<a href="pages/organization.html">
-👤 ทำเนียบผู้นำ
-</a>
-
-
-<a href="pages/committee.html">
-🏛️ คณะกรรมการหมู่บ้าน
-</a>
-
-
-<a href="pages/health.html">
-🩺 อสม.
-</a>
-
-
-<a href="pages/vrv.html">
-🛡️ ชรบ.
-</a>
-
-
-<a href="pages/oporor.html">
-🚒 อปพร.
-</a>
-
-
-<a href="pages/elderly.html">
-👴 ผู้สูงอายุ
-</a>
-
-
-<a href="pages/vulnerable.html">
-❤️ กลุ่มเปราะบาง
-</a>
-
-
-<a href="pages/temple.html">
-🛕 วัดร่องเข็ม
-</a>
-
-
-<a href="pages/map.html">
-🗺️ แผนที่หมู่บ้าน
-</a>
-
-
-<a href="pages/reports.html">
-📄 รายงาน
-</a>
-
+</p>
 
 </div>
 
-</div>
+</section>
 
 
 
+
+<section id="contact">
+
+<h2>📞 ติดต่อหมู่บ้าน</h2>
 
 <div class="card">
 
-<h2>🌳 การพัฒนาหมู่บ้าน</h2>
+<p>
+บ้านร่องเข็ม หมู่ที่ 6<br>
+ตำบลจำป่าหวาย<br>
+อำเภอเมือง จังหวัดพะเยา
 
-<p>✅ แผนจัดการทรัพยากรธรรมชาติและสิ่งแวดล้อม</p>
-
-<p>✅ การลดการเผาและแก้ไขปัญหา PM2.5</p>
-
-<p>✅ การพัฒนาแหล่งซับน้ำจำ</p>
-
-<p>✅ การส่งเสริมเศรษฐกิจชุมชน</p>
-
-<p>✅ การสร้างหมู่บ้านอัจฉริยะ</p>
+</p>
 
 </div>
 
-
-</div>
+</section>
 
 
 
 <footer>
 
-Rongkhem Smart Village  
-<br>
-บ้านร่องเข็ม หมู่ที่ 6 จังหวัดพะเยา
+<p>
+© 2026 Rongkhem Smart Village
+</p>
 
 </footer>
 
