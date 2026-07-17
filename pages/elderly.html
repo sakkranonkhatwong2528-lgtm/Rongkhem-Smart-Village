@@ -4,85 +4,46 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ทะเบียนผู้สูงอายุ | Rongkhem Smart Village</title>
+<title>
+ผู้สูงอายุ บ้านร่องเข็ม
+</title>
+
+<link rel="stylesheet" href="../assets/css/style.css">
+
 
 <style>
 
-body{
-margin:0;
-font-family:Tahoma,sans-serif;
-background:#f1f8e9;
-}
-
-header{
-background:#2e7d32;
-color:white;
-text-align:center;
-padding:25px;
-}
-
-.container{
-padding:20px;
-}
-
-.card{
-background:white;
-padding:20px;
-border-radius:15px;
-margin-bottom:20px;
-box-shadow:0 3px 10px #ccc;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:15px;
-}
-
-.box{
-background:#e8f5e9;
-padding:20px;
-text-align:center;
-border-radius:15px;
-}
-
-.number{
-font-size:35px;
-font-weight:bold;
-color:#1b5e20;
-}
-
-
 table{
+
 width:100%;
+
+background:white;
+
 border-collapse:collapse;
-margin-top:20px;
+
 }
+
 
 th{
-background:#388e3c;
+
+background:#8e24aa;
+
 color:white;
+
 padding:12px;
+
 }
+
 
 td{
-padding:10px;
-text-align:center;
+
+padding:12px;
+
 border-bottom:1px solid #ddd;
+
 }
 
-
-.back{
-display:inline-block;
-margin-top:20px;
-background:#388e3c;
-color:white;
-padding:12px 20px;
-border-radius:10px;
-text-decoration:none;
-}
 
 </style>
 
@@ -92,17 +53,17 @@ text-decoration:none;
 <body>
 
 
-<header>
+<div class="header">
 
-<h1>👴 ทะเบียนผู้สูงอายุ</h1>
+<h1>
+👴 ผู้สูงอายุ
+</h1>
 
-<p>
-Rongkhem Smart Village<br>
-บ้านร่องเข็ม หมู่ที่ 6 ตำบลจำป่าหวาย จังหวัดพะเยา
-</p>
+<h2>
+บ้านร่องเข็ม หมู่ที่ 6
+</h2>
 
-</header>
-
+</div>
 
 
 <div class="container">
@@ -110,106 +71,117 @@ Rongkhem Smart Village<br>
 
 <div class="card">
 
-<h2>📊 ข้อมูลผู้สูงอายุ</h2>
+<h2>
+จำนวนผู้สูงอายุ
+</h2>
 
+<div class="number">
+91
+</div>
 
-<div class="grid">
-
-
-<div class="box">
-👴 ผู้สูงอายุทั้งหมด
-<div class="number">91</div>
 คน
-</div>
-
-
-<div class="box">
-👨 ชาย
-<div class="number">42</div>
-คน
-</div>
-
-
-<div class="box">
-👩 หญิง
-<div class="number">49</div>
-คน
-</div>
-
-
-<div class="box">
-❤️ กลุ่มติดบ้าน/เปราะบาง
-<div class="number">-</div>
-คน
-</div>
-
 
 </div>
 
-</div>
-
-
-
-<div class="card">
-
-
-<h2>📋 รายชื่อผู้สูงอายุ</h2>
 
 
 <table>
 
+
+<thead>
+
 <tr>
 
-<th>ลำดับ</th>
-<th>ชื่อ-สกุล</th>
+<th>ชื่อ</th>
+
+<th>เพศ</th>
+
 <th>อายุ</th>
-<th>สถานะ</th>
+
+<th>บ้าน</th>
 
 </tr>
 
-
-<tr>
-
-<td>1</td>
-<td>นายตัวอย่าง ใจดี</td>
-<td>72</td>
-<td>ช่วยเหลือตัวเองได้</td>
-
-</tr>
+</thead>
 
 
-<tr>
+<tbody id="elder-list">
 
-<td>2</td>
-<td>นางตัวอย่าง ร่องเข็ม</td>
-<td>80</td>
-<td>เยี่ยมบ้าน</td>
-
-</tr>
-
-
-<tr>
-
-<td>3</td>
-<td>นายตัวอย่าง พัฒนา</td>
-<td>65</td>
-<td>ทั่วไป</td>
-
-</tr>
+</tbody>
 
 
 </table>
 
 
-<a class="back" href="dashboard.html">
-⬅ กลับ Dashboard
+<br>
+
+<a href="../index.html">
+
+⬅ กลับหน้าหลัก
+
 </a>
 
 
 </div>
 
 
-</div>
+
+
+<script>
+
+
+fetch("../data/citizen.json")
+
+.then(res=>res.json())
+
+.then(data=>{
+
+
+let html="";
+
+
+let elderly=
+data.citizens.filter(
+c=>c.status=="ผู้สูงอายุ"
+);
+
+
+
+elderly.forEach(c=>{
+
+
+html+=`
+
+<tr>
+
+<td>${c.name}</td>
+
+<td>${c.gender}</td>
+
+<td>${c.age}</td>
+
+<td>${c.house}</td>
+
+</tr>
+
+
+`;
+
+
+});
+
+
+
+document.getElementById(
+"elder-list"
+).innerHTML=html;
+
+
+});
+
+
+
+</script>
 
 
 </body>
