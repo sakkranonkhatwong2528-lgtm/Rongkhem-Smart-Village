@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>
+Smart Map บ้านร่องเข็ม
+</title>
+
+
+<link rel="stylesheet"
+href="https://unpkg.com/leaflet/dist/leaflet.css">
+
+
+<style>
+
+body{
+margin:0;
+font-family:sans-serif;
+background:#f2f8f6;
+}
+
+
+header{
+
+background:#00695c;
+color:white;
+padding:20px;
+text-align:center;
+
+}
+
+
+#map{
+
+height:80vh;
+
+}
+
+
+.info{
+
+padding:15px;
+background:white;
+
+}
+
+
+button{
+
+padding:10px;
+border:0;
+border-radius:10px;
+background:#00897b;
+color:white;
+
+}
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>
+🗺 Smart Map
+</h1>
+
+<p>
+ระบบแผนที่อัจฉริยะบ้านร่องเข็ม หมู่ที่ 6
+</p>
+
+</header>
+
+
+
+<div id="map"></div>
+
+
+<div class="info">
+
+<h3>
+📍 ชั้นข้อมูล
+</h3>
+
+<button>
+💧 แหล่งน้ำ
+</button>
+
+<button>
+👴 ผู้สูงอายุ
+</button>
+
+<button>
+🩺 อสม.
+</button>
+
+<button>
+🔥 จุดเสี่ยงไฟ
+</button>
+
+
+</div>
+
+
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+
+<script>
+
+
+// จุดเริ่มต้น พะเยา
+
+var map =
+L.map('map')
+.setView(
+[19.1667,99.9000],
+14
+);
+
+
+
+L.tileLayer(
+
+'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+
+{
+
+maxZoom:19
+
+}
+
+).addTo(map);
+
+
+
+
+// แหล่งซับน้ำจำ
+
+var water =
+L.marker(
+[19.1667,99.9000]
+)
+.addTo(map);
+
+
+water.bindPopup(
+`
+💧 แหล่งซับน้ำจำ<br>
+🌱 พื้นที่อนุรักษ์<br>
+🐟 ความหลากหลายทางชีวภาพ
+`
+);
+
+
+
+
+// จุดผู้สูงอายุ
+
+var elderly =
+L.marker(
+[19.1680,99.9020]
+)
+.addTo(map);
+
+
+elderly.bindPopup(
+`
+👴 ผู้สูงอายุ<br>
+สถานะ: ติดตาม
+`
+);
+
+
+
+// จุด อสม.
+
+var volunteer =
+L.marker(
+[19.1700,99.9050]
+)
+.addTo(map);
+
+
+volunteer.bindPopup(
+`
+🩺 อสม.<br>
+พื้นที่รับผิดชอบ หมู่ 6
+`
+);
+
+
+
+</script>
+
+
+
+</body>
+
+</html>
