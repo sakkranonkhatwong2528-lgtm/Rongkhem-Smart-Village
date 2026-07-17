@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+Dashboard Rongkhem Smart Village
+</title>
+
+
+<style>
+
+body{
+
+font-family:"Sarabun",sans-serif;
+background:#eef7ff;
+margin:0;
+
+}
+
+
+header{
+
+background:#1565c0;
+color:white;
+padding:25px;
+text-align:center;
+
+}
+
+
+.container{
+
+padding:20px;
+
+}
+
+
+.grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:20px;
+
+}
+
+
+.box{
+
+background:white;
+
+padding:25px;
+
+border-radius:20px;
+
+box-shadow:0 3px 10px #ccc;
+
+text-align:center;
+
+}
+
+
+.number{
+
+font-size:40px;
+
+font-weight:bold;
+
+color:#1565c0;
+
+}
+
+
+
+.project{
+
+background:white;
+
+margin-top:20px;
+
+padding:20px;
+
+border-radius:15px;
+
+box-shadow:0 2px 8px #ccc;
+
+}
+
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>
+📊 Dashboard
+</h1>
+
+<h3>
+Rongkhem Smart Village
+</h3>
+
+<p>
+บ้านร่องเข็ม หมู่ที่ 6
+ตำบลจำป่าหวาย จังหวัดพะเยา
+</p>
+
+</header>
+
+
+
+<div class="container">
+
+
+<div class="grid">
+
+
+<div class="box">
+
+<h2>👤</h2>
+
+<h3>
+ผู้นำชุมชน
+</h3>
+
+<div class="number" id="leader">
+
+0
+
+</div>
+
+คน
+
+</div>
+
+
+
+<div class="box">
+
+<h2>🚨</h2>
+
+<h3>
+อปพร.
+</h3>
+
+<div class="number" id="opp">
+
+0
+
+</div>
+
+คน
+
+</div>
+
+
+
+<div class="box">
+
+<h2>📰</h2>
+
+<h3>
+ข่าวประชาสัมพันธ์
+</h3>
+
+<div class="number" id="news">
+
+0
+
+</div>
+
+ข่าว
+
+</div>
+
+
+
+<div class="box">
+
+<h2>📸</h2>
+
+<h3>
+รูปกิจกรรม
+</h3>
+
+<div class="number" id="gallery">
+
+0
+
+</div>
+
+รูป
+
+</div>
+
+
+
+</div>
+
+
+
+<div class="project">
+
+<h2>
+🌱 โครงการสำคัญ
+</h2>
+
+
+<h3>
+แหล่งซับน้ำจำ บ้านร่องเข็ม
+</h3>
+
+
+<p>
+
+สถานะ:
+<span style="color:green">
+กำลังดำเนินการ
+</span>
+
+</p>
+
+
+<p>
+
+ข้อมูล:
+พื้นที่อนุรักษ์น้ำ
+ระบบนิเวศชุมชน
+แหล่งเรียนรู้ธรรมชาติ
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+<script>
+
+
+document.getElementById("leader").innerHTML =
+
+JSON.parse(localStorage.getItem("leaders") || "[]").length;
+
+
+
+document.getElementById("opp").innerHTML =
+
+JSON.parse(localStorage.getItem("opp") || "[]").length;
+
+
+
+document.getElementById("news").innerHTML =
+
+JSON.parse(localStorage.getItem("news") || "[]").length;
+
+
+
+document.getElementById("gallery").innerHTML =
+
+JSON.parse(localStorage.getItem("gallery") || "[]").length;
+
+
+
+</script>
+
+
+
+</body>
+
+</html>
