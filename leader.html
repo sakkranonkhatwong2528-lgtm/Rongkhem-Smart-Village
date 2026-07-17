@@ -4,137 +4,12 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ทำเนียบผู้นำหมู่บ้าน | Rongkhem Smart Village</title>
+<title>ทำเนียบผู้นำ | Rongkhem Smart Village</title>
 
-<style>
-
-body{
-margin:0;
-font-family:Tahoma,Arial,sans-serif;
-background:#f1f8e9;
-}
-
-
-header{
-background:#2e7d32;
-color:white;
-text-align:center;
-padding:25px;
-}
-
-
-.container{
-padding:20px;
-}
-
-
-.card{
-
-background:white;
-padding:20px;
-border-radius:15px;
-margin-bottom:20px;
-box-shadow:0 3px 10px #ccc;
-
-}
-
-
-.leader{
-
-display:flex;
-flex-wrap:wrap;
-align-items:center;
-gap:25px;
-
-background:#e8f5e9;
-padding:20px;
-border-radius:15px;
-
-}
-
-
-.leader img{
-
-width:180px;
-height:180px;
-border-radius:50%;
-object-fit:cover;
-border:5px solid white;
-
-}
-
-
-.name{
-
-font-size:28px;
-font-weight:bold;
-color:#1b5e20;
-
-}
-
-
-.position{
-
-font-size:20px;
-margin:10px 0;
-
-}
-
-
-.info{
-
-font-size:18px;
-line-height:1.8;
-
-}
-
-
-.history{
-
-display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(220px,1fr));
-
-gap:15px;
-
-}
-
-
-.person{
-
-background:#f9fbe7;
-padding:15px;
-border-radius:15px;
-text-align:center;
-
-}
-
-
-.person img{
-
-width:100px;
-height:100px;
-border-radius:50%;
-object-fit:cover;
-
-}
-
-
-.back{
-
-display:block;
-background:#388e3c;
-color:white;
-padding:15px;
-text-align:center;
-border-radius:10px;
-text-decoration:none;
-
-}
-
-</style>
+<link rel="stylesheet" href="css/style.css">
 
 </head>
 
@@ -144,11 +19,16 @@ text-decoration:none;
 
 <header>
 
-<h1>👤 ทำเนียบผู้นำหมู่บ้าน</h1>
+<div class="logo">
+🏡
+</div>
 
-<h2>Rongkhem Smart Village</h2>
+<h1>
+👤 ทำเนียบผู้นำหมู่บ้าน
+</h1>
 
 <p>
+Rongkhem Smart Village<br>
 บ้านร่องเข็ม หมู่ที่ 6<br>
 ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา
 </p>
@@ -157,105 +37,291 @@ text-decoration:none;
 
 
 
-<div class="container">
+<nav>
+
+<a href="index.html">🏡 หน้าแรก</a>
+
+<a href="about.html">📖 รู้จักหมู่บ้าน</a>
+
+<a href="news.html">📰 ข่าวสาร</a>
+
+<a href="activities.html">📸 กิจกรรม</a>
+
+<a href="leader.html">👤 ทำเนียบผู้นำ</a>
+
+<a href="subnamjam.html">💧 แหล่งซับน้ำจำ</a>
+
+<a href="contact.html">📞 ติดต่อ</a>
+
+</nav>
+
+
+
+
+<section>
+
+
+<h2>
+⭐ ฝ่ายปกครองหมู่บ้าน
+</h2>
+
+
+<div class="grid">
 
 
 
 <div class="card">
 
-<h2>⭐ ผู้ใหญ่บ้านปัจจุบัน</h2>
+<h3>⭐ ผู้ใหญ่บ้าน</h3>
 
+<p>
+<b>นายศักรนนทน์ ขัติย์วงศ์</b><br><br>
 
-<div class="leader">
-
-
-<img src="../images/leader/leader.jpg"
-onerror="this.src='../images/default.png'">
-
-
-<div>
-
-
-<div class="name">
-นายศักรนนทน์ ขัติย์วงศ์
-</div>
-
-
-<div class="position">
-ผู้ใหญ่บ้าน หมู่ที่ 6
-</div>
-
-
-<div class="info">
-
-📞 โทรศัพท์ : -<br>
-
-📌 หน้าที่:<br>
-บริหารงานปกครองหมู่บ้าน<br>
-ประสานงานหน่วยงานราชการ<br>
-พัฒนาคุณภาพชีวิตประชาชน
+ผู้ใหญ่บ้าน หมู่ที่ 6<br>
+บ้านร่องเข็ม
+</p>
 
 </div>
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
 
 
 
 
 <div class="card">
 
+<h3>👥 ผู้ช่วยผู้ใหญ่บ้าน</h3>
 
-<h2>📜 อดีตผู้นำหมู่บ้าน</h2>
+<p>
+
+<b>นายจักร์กวัส ประพลรัตนัง</b><br>
+ผู้ช่วยผู้ใหญ่บ้าน
+
+<br><br>
+
+<b>น.ส.สุภาพร วังมูล</b><br>
+ผู้ช่วยผู้ใหญ่บ้าน
+
+</p>
+
+</div>
 
 
-<div class="history">
+
+
+<div class="card">
+
+<h3>🏛️ สมาชิกสภา อบต.</h3>
+
+<p>
+
+<b>นายธวัชชัย บุญเก่ง</b><br>
+
+สมาชิกสภาองค์การบริหารส่วนตำบลจำป่าหวาย
+
+</p>
+
+</div>
+
+
+</div>
+
+</section>
 
 
 
-<div class="person">
 
-<img src="../images/default.png">
+
+
+<section>
+
+
+<h2>
+🎓 ที่ปรึกษาและคณะทำงาน
+</h2>
+
+
+
+<div class="grid">
+
+
+
+<div class="card">
+
+<h3>🎓 ที่ปรึกษาผู้ทรงคุณวุฒิ</h3>
+
+<p>
+
+จำนวน 5 คน
+
+<br><br>
+
+1. ................................<br>
+2. ................................<br>
+3. ................................<br>
+4. ................................<br>
+5. ................................
+
+</p>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h3>👥 คณะกรรมการหมู่บ้าน</h3>
+
+<p>
+
+คณะกรรมการขับเคลื่อนการพัฒนาหมู่บ้าน
+
+<br><br>
+
+- งานพัฒนาชุมชน<br>
+- งานสิ่งแวดล้อม<br>
+- งานเศรษฐกิจฐานราก<br>
+- งานสังคมและวัฒนธรรม
+
+</p>
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section>
+
+
+<h2>
+❤️ ผู้นำกลุ่มองค์กรชุมชน
+</h2>
+
+
+
+<div class="grid">
+
+
+
+<div class="card">
+
+<h3>🩺 ประธาน อสม.</h3>
+
+<p>
+
+<b>น.ส.ศศิธร เข็มแก้ว</b>
+
+<br><br>
+
+ประธานอาสาสมัครสาธารณสุขประจำหมู่บ้าน
+
+</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>👩 ประธานกลุ่มแม่บ้าน</h3>
+
+<p>
+
+<b>นางบัวจิ๋น ปันใจ</b>
+
+<br><br>
+
+ประธานกลุ่มแม่บ้านบ้านร่องเข็ม
+
+</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>👴 ประธานผู้สูงอายุ</h3>
+
+<p>
+
+รายชื่ออยู่ระหว่างเพิ่มเติม
+
+</p>
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<section>
+
+
+<h2>
+🛡️ ฝ่ายรักษาความปลอดภัยและบรรเทาสาธารณภัย
+</h2>
+
+
+
+<div class="grid">
+
+
+<div class="card">
 
 <h3>
-ชื่อ - นามสกุล
+🛡️ ชรบ.
 </h3>
 
 <p>
-อดีตผู้ใหญ่บ้าน
-</p>
 
-<p>
-ปีที่ดำรงตำแหน่ง
+หัวหน้า ชรบ.<br>
+
+รายชื่ออยู่ระหว่างเพิ่มเติม
+
 </p>
 
 </div>
 
 
 
-<div class="person">
 
-<img src="../images/default.png">
+<div class="card">
 
 <h3>
-ชื่อ - นามสกุล
+🚒 อปพร.
 </h3>
 
 <p>
-อดีตผู้ใหญ่บ้าน
+
+ประธาน/หัวหน้า อปพร.<br>
+
+รายชื่ออยู่ระหว่างเพิ่มเติม
+
 </p>
 
-<p>
-ปีที่ดำรงตำแหน่ง
-</p>
-
 </div>
 
 
@@ -263,20 +329,24 @@ onerror="this.src='../images/default.png'">
 </div>
 
 
-</div>
+</section>
 
 
 
 
-<a class="back" href="dashboard.html">
-
-⬅ กลับ Dashboard
-
-</a>
 
 
 
-</div>
+<footer>
+
+© 2026 Rongkhem Smart Village
+
+<br>
+
+บ้านร่องเข็ม หมู่ที่ 6 จังหวัดพะเยา
+
+</footer>
+
 
 
 </body>
