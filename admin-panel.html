@@ -4,62 +4,84 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>
-Admin Center | Rongkhem Smart Village
+Admin Panel | Rongkhem Smart Village
 </title>
 
-<link rel="stylesheet" href="css/style.css">
-
+<link rel="stylesheet" href="style.css">
 
 <style>
 
-.panel{
+body{
+font-family:"Sarabun",sans-serif;
+background:#f4f7f6;
+margin:0;
+}
+
+
+header{
+background:#00695c;
+color:white;
+padding:25px;
+text-align:center;
+}
+
+
+.container{
+padding:25px;
+}
+
+
+.menu{
 
 display:grid;
-
 grid-template-columns:
 repeat(auto-fit,minmax(220px,1fr));
-
 gap:20px;
 
 }
 
 
-
-.panel-card{
+.card{
 
 background:white;
-
 padding:25px;
-
-border-radius:20px;
-
+border-radius:18px;
 text-align:center;
+box-shadow:0 3px 10px #ccc;
+transition:.3s;
 
-box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+
+.card:hover{
+
+transform:translateY(-5px);
+
+}
+
+
+.icon{
+
+font-size:45px;
+
+}
+
+
+a{
 
 text-decoration:none;
-
 color:#333;
 
 }
 
 
+.logout{
 
-.panel-card:hover{
-
-background:#e8f5e9;
-
-}
-
-
-
-.panel-card h3{
-
-color:#2e7d32;
+background:#c62828;
+color:white;
 
 }
 
@@ -72,75 +94,71 @@ color:#2e7d32;
 <body>
 
 
-
 <header>
 
-
-<div class="logo">
-🏡
-</div>
-
-
 <h1>
-⚙️ ศูนย์จัดการระบบหมู่บ้าน
+⚙️ Admin Center
 </h1>
 
+<h3>
+Rongkhem Smart Village
+</h3>
 
 <p>
-Rongkhem Smart Village
-<br>
-ผู้ดูแลระบบ : ผู้ใหญ่บ้าน
+ระบบบริหารจัดการบ้านร่องเข็ม หมู่ที่ 6
 </p>
-
 
 </header>
 
 
 
+<div class="container">
 
 
-<nav>
-
-
-<a href="admin.html">
-📊 Dashboard
-</a>
-
-
-<a href="index.html">
-🏡 หน้าแรก
-</a>
-
-
-</nav>
+<div class="menu">
 
 
 
+<a href="dashboard.html">
 
+<div class="card">
 
-
-
-<section>
-
+<div class="icon">
+📊
+</div>
 
 <h2>
-📱 จัดการข้อมูล
+Dashboard
 </h2>
 
+<p>
+ภาพรวมข้อมูลหมู่บ้าน
+</p>
 
-<div class="panel">
+</div>
+
+</a>
 
 
 
-<a href="manage-news.html" class="panel-card">
 
-<h3>
-📰 ข่าวสาร
-</h3>
+<a href="news.html">
+
+<div class="card">
+
+<div class="icon">
+📰
+</div>
+
+<h2>
+ข่าวประชาสัมพันธ์
+</h2>
 
 <p>
-เพิ่ม / แก้ไขข่าว
+จัดการข่าวสาร
 </p>
+
+</div>
 
 </a>
 
@@ -148,15 +166,23 @@ Rongkhem Smart Village
 
 
 
-<a href="manage-activity.html" class="panel-card">
+<a href="activities.html">
 
-<h3>
-📸 กิจกรรม
-</h3>
+<div class="card">
+
+<div class="icon">
+📸
+</div>
+
+<h2>
+กิจกรรมหมู่บ้าน
+</h2>
 
 <p>
-เพิ่มรูปกิจกรรม
+คลังรูปภาพกิจกรรม
 </p>
+
+</div>
 
 </a>
 
@@ -164,15 +190,23 @@ Rongkhem Smart Village
 
 
 
-<a href="people.html" class="panel-card">
+<a href="leader.html">
 
-<h3>
-👥 ประชาชน
-</h3>
+<div class="card">
+
+<div class="icon">
+👤
+</div>
+
+<h2>
+ทำเนียบผู้นำ
+</h2>
 
 <p>
-ทะเบียนประชาชน
+คณะผู้นำชุมชน
 </p>
+
+</div>
 
 </a>
 
@@ -180,58 +214,225 @@ Rongkhem Smart Village
 
 
 
-<a href="organization.html" class="panel-card">
+<a href="oppor.html">
 
-<h3>
-👥 คณะทำงาน
-</h3>
+<div class="card">
+
+<div class="icon">
+🚨
+</div>
+
+<h2>
+อปพร.
+</h2>
 
 <p>
-ข้อมูลผู้นำ
+ฐานข้อมูล อปพร.
 </p>
+
+</div>
 
 </a>
 
 
 
 
-<a href="subnamjam.html" class="panel-card">
 
-<h3>
-💧 แหล่งซับน้ำจำ
-</h3>
+<a href="shorbor.html">
+
+<div class="card">
+
+<div class="icon">
+👮
+</div>
+
+<h2>
+ชรบ.
+</h2>
 
 <p>
-ข้อมูลพื้นที่อนุรักษ์
+ชุดรักษาความปลอดภัยหมู่บ้าน
 </p>
+
+</div>
 
 </a>
 
+
+
+
+
+<a href="osm.html">
+
+<div class="card">
+
+<div class="icon">
+🩺
+</div>
+
+<h2>
+อสม.
+</h2>
+
+<p>
+ข้อมูลอาสาสมัครสาธารณสุข
+</p>
+
+</div>
+
+</a>
+
+
+
+
+
+<a href="household.html">
+
+<div class="card">
+
+<div class="icon">
+🏠
+</div>
+
+<h2>
+ครัวเรือน
+</h2>
+
+<p>
+ข้อมูลประชากร
+</p>
+
+</div>
+
+</a>
+
+
+
+
+
+<a href="elderly.html">
+
+<div class="card">
+
+<div class="icon">
+👵
+</div>
+
+<h2>
+ผู้สูงอายุ
+</h2>
+
+<p>
+ฐานข้อมูลผู้สูงอายุ
+</p>
+
+</div>
+
+</a>
+
+
+
+
+
+<a href="vulnerable.html">
+
+<div class="card">
+
+<div class="icon">
+❤️
+</div>
+
+<h2>
+กลุ่มเปราะบาง
+</h2>
+
+<p>
+ข้อมูลช่วยเหลือ
+</p>
+
+</div>
+
+</a>
+
+
+
+
+
+<a href="subnamjam.html">
+
+<div class="card">
+
+<div class="icon">
+🌱
+</div>
+
+<h2>
+แหล่งซับน้ำจำ
+</h2>
+
+<p>
+ทรัพยากรธรรมชาติ
+</p>
+
+</div>
+
+</a>
+
+
+
+
+
+<a href="village-info.html">
+
+<div class="card">
+
+<div class="icon">
+🏡
+</div>
+
+<h2>
+ข้อมูลหมู่บ้าน
+</h2>
+
+<p>
+ประวัติและข้อมูลพื้นฐาน
+</p>
+
+</div>
+
+</a>
+
+
+
+
+
+<div class="card logout"
+onclick="logout()">
+
+<div class="icon">
+🔓
+</div>
+
+<h2>
+ออกจากระบบ
+</h2>
+
+</div>
 
 
 
 </div>
 
 
-</section>
-
-
-
-
-
-
-
-
-<footer>
-
-© 2026 Rongkhem Smart Village
-
-</footer>
+</div>
 
 
 
 
 <script>
+
+
+// ตรวจสอบการเข้าสู่ระบบ
 
 if(localStorage.getItem("login")!="true"){
 
@@ -239,8 +440,18 @@ window.location.href="login.html";
 
 }
 
-</script>
 
+
+function logout(){
+
+localStorage.removeItem("login");
+
+window.location.href="login.html";
+
+}
+
+
+</script>
 
 
 </body>
