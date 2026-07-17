@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+Admin Center | Rongkhem Smart Village
+</title>
+
+
+<style>
+
+body{
+
+font-family:"Sarabun",sans-serif;
+background:#f5f5f5;
+margin:0;
+
+}
+
+
+header{
+
+background:#263238;
+color:white;
+padding:25px;
+text-align:center;
+
+}
+
+
+.container{
+
+padding:20px;
+
+}
+
+
+.menu{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:20px;
+
+}
+
+
+
+.card{
+
+background:white;
+padding:25px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 3px 10px #ccc;
+cursor:pointer;
+
+}
+
+
+
+.card:hover{
+
+transform:translateY(-5px);
+
+}
+
+
+
+.icon{
+
+font-size:45px;
+
+}
+
+
+a{
+
+text-decoration:none;
+color:#263238;
+
+}
+
+
+.logout{
+
+background:#c62828;
+color:white;
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>
+⚙️ Admin Center
+</h1>
+
+<p>
+Rongkhem Smart Village
+</p>
+
+<p>
+ระบบบริหารจัดการบ้านร่องเข็ม หมู่ที่ 6
+</p>
+
+</header>
+
+
+
+<div class="container">
+
+
+<div class="menu">
+
+
+<a href="../dashboard.html">
+
+<div class="card">
+
+<div class="icon">
+📊
+</div>
+
+<h2>
+Dashboard
+</h2>
+
+<p>
+ภาพรวมข้อมูลหมู่บ้าน
+</p>
+
+</div>
+
+</a>
+
+
+
+<a href="manage-news.html">
+
+<div class="card">
+
+<div class="icon">
+📰
+</div>
+
+<h2>
+ข่าวประชาสัมพันธ์
+</h2>
+
+<p>
+เพิ่ม แก้ไข ลบข่าว
+</p>
+
+</div>
+
+</a>
+
+
+
+
+<a href="manage-gallery.html">
+
+<div class="card">
+
+<div class="icon">
+📸
+</div>
+
+<h2>
+คลังรูปภาพ
+</h2>
+
+<p>
+จัดการรูปกิจกรรม
+</p>
+
+</div>
+
+</a>
+
+
+
+
+<a href="manage-leaders.html">
+
+<div class="card">
+
+<div class="icon">
+👤
+</div>
+
+<h2>
+ทำเนียบผู้นำ
+</h2>
+
+<p>
+ข้อมูลคณะทำงาน
+</p>
+
+</div>
+
+</a>
+
+
+
+
+<a href="manage-opp.html">
+
+<div class="card">
+
+<div class="icon">
+🚨
+</div>
+
+<h2>
+อปพร.
+</h2>
+
+<p>
+ฐานข้อมูล อปพร.
+</p>
+
+</div>
+
+</a>
+
+
+
+<div class="card">
+
+<div class="icon">
+🏡
+</div>
+
+<h2>
+ข้อมูลหมู่บ้าน
+</h2>
+
+<p>
+บ้านร่องเข็ม หมู่ที่ 6
+</p>
+
+</div>
+
+
+
+
+<div class="card logout"
+onclick="logout()">
+
+<div class="icon">
+🔓
+</div>
+
+<h2>
+ออกจากระบบ
+</h2>
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+<script>
+
+
+// ตรวจสอบ Login
+
+if(localStorage.getItem("login")!="true"){
+
+window.location.href="../login.html";
+
+}
+
+
+
+function logout(){
+
+localStorage.removeItem("login");
+
+window.location.href="../login.html";
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
