@@ -1,324 +1,18 @@
-/* ===============================
-Rongkhem Smart Village
-Main Style
-=============================== */
-
-
-*{
-box-sizing:border-box;
-}
-
-
 body{
+
+font-family:sans-serif;
 
 margin:0;
 
-font-family:
-"Sarabun",
-"Tahoma",
-sans-serif;
-
-background:#f1f8e9;
-
-color:#333;
-
-line-height:1.8;
+background:#eef7f5;
 
 }
 
 
-
-/* HEADER */
 
 header{
 
-background:
-linear-gradient(
-135deg,
-#1b5e20,
-#66bb6a
-);
-
-color:white;
-
-text-align:center;
-
-padding:35px 20px;
-
-}
-
-
-.logo{
-
-width:130px;
-
-height:130px;
-
-object-fit:contain;
-
-border-radius:50%;
-
-background:white;
-
-padding:10px;
-
-}
-
-
-
-header h1{
-
-font-size:36px;
-
-margin:15px 0 5px;
-
-}
-
-
-
-header p{
-
-font-size:18px;
-
-}
-
-
-
-
-
-/* MENU */
-
-nav{
-
-background:#2e7d32;
-
-display:flex;
-
-justify-content:center;
-
-flex-wrap:wrap;
-
-padding:12px;
-
-position:sticky;
-
-top:0;
-
-z-index:10;
-
-}
-
-
-
-nav a{
-
-color:white;
-
-text-decoration:none;
-
-padding:10px 18px;
-
-margin:5px;
-
-border-radius:30px;
-
-background:#388e3c;
-
-transition:.3s;
-
-}
-
-
-
-nav a:hover{
-
-background:#81c784;
-
-transform:translateY(-3px);
-
-}
-
-
-
-/* HERO */
-
-.hero{
-
-background:white;
-
-text-align:center;
-
-padding:40px 20px;
-
-}
-
-
-
-.hero img{
-
-width:100%;
-
-max-width:1000px;
-
-height:380px;
-
-object-fit:cover;
-
-border-radius:25px;
-
-box-shadow:
-0 8px 20px rgba(0,0,0,.2);
-
-}
-
-
-
-.hero h2{
-
-color:#1b5e20;
-
-font-size:35px;
-
-}
-
-
-
-
-
-/* SECTION */
-
-
-section{
-
-max-width:1200px;
-
-margin:auto;
-
-padding:40px 20px;
-
-}
-
-
-
-section h2{
-
-text-align:center;
-
-color:#1b5e20;
-
-font-size:30px;
-
-margin-bottom:30px;
-
-}
-
-
-
-/* CARD GRID */
-
-
-.grid{
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(250px,1fr));
-
-gap:25px;
-
-}
-
-
-
-
-.card{
-
-background:white;
-
-padding:25px;
-
-border-radius:20px;
-
-box-shadow:
-
-0 5px 15px rgba(0,0,0,.12);
-
-text-align:center;
-
-transition:.3s;
-
-}
-
-
-
-.card:hover{
-
-transform:translateY(-8px);
-
-}
-
-
-
-.card h3{
-
-color:#388e3c;
-
-font-size:22px;
-
-}
-
-
-
-
-
-/* VISION */
-
-
-.vision{
-
-background:#e8f5e9;
-
-border-radius:25px;
-
-}
-
-
-
-.vision h3{
-
-text-align:center;
-
-color:#2e7d32;
-
-font-size:25px;
-
-}
-
-
-
-
-
-/* BUTTON LINK */
-
-
-a{
-
-color:#1b5e20;
-
-font-weight:bold;
-
-}
-
-
-
-
-
-/* FOOTER */
-
-
-footer{
-
-background:#1b5e20;
+background:#00695c;
 
 color:white;
 
@@ -326,129 +20,68 @@ text-align:center;
 
 padding:30px;
 
-margin-top:40px;
+}
+
+
+
+.dashboard{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:20px;
+
+padding:30px;
 
 }
 
 
 
+.dashboard a{
 
+background:white;
 
-/* MOBILE */
+padding:25px;
 
-
-@media(max-width:600px){
-
-
-header h1{
-
-font-size:25px;
-
-}
-
-
-.hero img{
-
-height:220px;
-
-}
-
-
-
-.hero h2{
-
-font-size:25px;
-
-}
-
-
-
-nav{
-
-flex-direction:column;
-
-}
-
-
-
-nav a{
+border-radius:20px;
 
 text-align:center;
-
-}
-
-
-
-section{
-
-padding:25px 15px;
-
-}
-
-
-
-}
-.system{
-
-background:#ffffff;
-
-border-radius:30px;
-
-margin-top:30px;
-
-}
-
-
-
-.system .card{
 
 text-decoration:none;
 
 color:#333;
 
-}
+box-shadow:0 5px 15px #ccc;
 
-
-
-.system .card:hover{
-  .village-stats{
-
-display:grid;
-
-grid-template-columns:
-repeat(2,1fr);
-
-gap:15px;
-
-padding:20px;
+font-size:20px;
 
 }
 
 
-.stat-box{
 
-background:white;
+.dashboard a:hover{
+
+transform:scale(1.03);
+
+}
+
+
+
+.ai{
+
+margin:30px;
+
+padding:30px;
+
+background:#fff;
 
 border-radius:20px;
 
-padding:20px;
-
 text-align:center;
 
-box-shadow:
-0 4px 12px rgba(0,0,0,.1);
-
-}
-
-
-.stat-box h2{
-
-font-size:40px;
-
-margin:0;
-
-}
-
-background:#e8f5e9;
+font-size:24px;
 
 }
