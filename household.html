@@ -8,14 +8,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>
-ทะเบียนครัวเรือน | Rongkhem Smart Village
+ครัวเรือน | Rongkhem Smart Village
 </title>
-
 
 <link rel="stylesheet" href="css/style.css">
 
 
 <style>
+
+.house-table{
+
+overflow-x:auto;
+
+}
+
 
 table{
 
@@ -25,12 +31,7 @@ border-collapse:collapse;
 
 background:white;
 
-border-radius:15px;
-
-overflow:hidden;
-
 }
-
 
 
 th{
@@ -42,7 +43,6 @@ color:white;
 padding:12px;
 
 }
-
 
 
 td{
@@ -63,17 +63,14 @@ background:#2e7d32;
 
 color:white;
 
-padding:12px 20px;
-
-border:none;
+padding:12px 25px;
 
 border-radius:20px;
 
-cursor:pointer;
-
-margin-bottom:20px;
+text-decoration:none;
 
 }
+
 
 
 </style>
@@ -86,8 +83,13 @@ margin-bottom:20px;
 <body>
 
 
-
 <header>
+
+
+<div class="logo">
+🏡
+</div>
+
 
 <h1>
 🏠 ทะเบียนครัวเรือน
@@ -95,11 +97,13 @@ margin-bottom:20px;
 
 
 <p>
-Rongkhem Smart Village
+บ้านร่องเข็ม หมู่ที่ 6<br>
+ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา
 </p>
 
 
 </header>
+
 
 
 
@@ -134,29 +138,110 @@ Rongkhem Smart Village
 
 
 
+<section>
+
+
+<h2>
+📊 สรุปข้อมูลครัวเรือน
+</h2>
+
+
+
+<div class="grid">
+
+
+
+<div class="card">
+
+<h3>
+🏠 จำนวนครัวเรือน
+</h3>
+
+
+<p>
+ข้อมูลกำลังปรับปรุง
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h3>
+👨‍👩‍👧 สมาชิกเฉลี่ยต่อหลังคาเรือน
+</h3>
+
+
+<p>
+-
+</p>
+
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>
+🌱 ครัวเรือนต้นแบบ
+</h3>
+
+
+<p>
+-
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
 
 <section>
 
 
 <h2>
-🏠 ข้อมูลครัวเรือนบ้านร่องเข็ม
+📋 รายละเอียดครัวเรือน
 </h2>
 
 
+<a class="add-btn">
 
-<button class="add-btn">
+➕ เพิ่มครัวเรือน
 
-+ เพิ่มข้อมูลครัวเรือน
-
-</button>
+</a>
 
 
+<br><br>
+
+
+
+
+<div class="house-table">
 
 
 <table>
 
 
 <tr>
+
 
 <th>
 ลำดับ
@@ -179,16 +264,19 @@ Rongkhem Smart Village
 
 
 <th>
-กลุ่มเปราะบาง
+ประเภทครัวเรือน
 </th>
 
 
 <th>
-หมายเหตุ
+รูปบ้าน
 </th>
 
 
 </tr>
+
+
+
 
 
 
@@ -199,26 +287,28 @@ Rongkhem Smart Village
 </td>
 
 <td>
-123/1
-</td>
-
-<td>
-นายสมชาย ใจดี
-</td>
-
-<td>
-4 คน
-</td>
-
-<td>
-ผู้สูงอายุ
+-
 </td>
 
 <td>
 -
 </td>
 
+<td>
+-
+</td>
+
+<td>
+ทั่วไป
+</td>
+
+<td>
+📷
+</td>
+
 </tr>
+
+
 
 
 
@@ -230,15 +320,7 @@ Rongkhem Smart Village
 </td>
 
 <td>
-125/2
-</td>
-
-<td>
-นางสมหญิง ดีงาม
-</td>
-
-<td>
-3 คน
+-
 </td>
 
 <td>
@@ -247,14 +329,25 @@ Rongkhem Smart Village
 
 <td>
 -
+</td>
+
+<td>
+ผู้สูงอายุ
+</td>
+
+<td>
+📷
 </td>
 
 </tr>
 
 
 
+
 </table>
 
+
+</div>
 
 
 </section>
@@ -265,13 +358,57 @@ Rongkhem Smart Village
 
 
 
+<section>
+
+
+<h2>
+📌 ข้อมูลการดูแลครัวเรือน
+</h2>
+
+
+<div class="card">
+
+
+<p>
+
+✅ ครัวเรือนทั่วไป
+
+<br>
+
+✅ ครัวเรือนผู้สูงอายุ
+
+<br>
+
+✅ ครัวเรือนกลุ่มเปราะบาง
+
+<br>
+
+✅ ครัวเรือนที่ต้องได้รับการช่วยเหลือ
+
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
 <footer>
+
 
 © 2026 Rongkhem Smart Village
 
 <br>
 
 บ้านร่องเข็ม หมู่ที่ 6 จังหวัดพะเยา
+
 
 </footer>
 
