@@ -4,16 +4,118 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-<title>
-ทำเนียบผู้นำ | Rongkhem Smart Village
-</title>
-
+<title>โครงสร้างผู้นำหมู่บ้าน | Rongkhem Smart Village</title>
 
 <link rel="stylesheet" href="css/style.css">
+
+<style>
+
+.org-container{
+
+max-width:1100px;
+margin:auto;
+padding:30px 20px;
+
+}
+
+
+.org-title{
+
+background:#e8f5e9;
+padding:30px;
+border-radius:25px;
+text-align:center;
+
+}
+
+
+.org-title h1{
+
+color:#1b5e20;
+
+}
+
+
+
+.structure{
+
+display:flex;
+flex-direction:column;
+align-items:center;
+margin-top:30px;
+
+}
+
+
+
+.org-card{
+
+width:90%;
+max-width:450px;
+
+background:white;
+
+padding:25px;
+
+margin:10px;
+
+border-radius:20px;
+
+text-align:center;
+
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+
+border-left:8px solid #2e7d32;
+
+}
+
+
+
+.org-card h2{
+
+color:#2e7d32;
+
+}
+
+
+
+.icon{
+
+font-size:45px;
+
+}
+
+
+
+.arrow{
+
+font-size:35px;
+color:#2e7d32;
+
+}
+
+
+
+.sub-card{
+
+border-left-color:#66bb6a;
+
+}
+
+
+
+.network{
+
+border-left-color:#ffb300;
+
+background:#fffde7;
+
+}
+
+
+</style>
 
 
 </head>
@@ -22,24 +124,21 @@
 <body>
 
 
-
 <header>
 
 <div class="logo">
 🏡
 </div>
 
-
 <h1>
-👥 ทำเนียบผู้นำและคณะกรรมการหมู่บ้าน
+👥 โครงสร้างผู้นำหมู่บ้าน
 </h1>
 
-
 <p>
-บ้านร่องเข็ม หมู่ที่ 6
-ตำบลจำป่าหวาย จังหวัดพะเยา
+Rongkhem Smart Village<br>
+บ้านร่องเข็ม หมู่ที่ 6<br>
+ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา
 </p>
-
 
 </header>
 
@@ -49,26 +148,13 @@
 
 <nav>
 
+<a href="index.html">🏡 หน้าแรก</a>
 
-<a href="index.html">
-🏠 หน้าแรก
-</a>
+<a href="leader.html">👤 ทำเนียบผู้นำ</a>
 
+<a href="organization.html">👥 คณะกรรมการ</a>
 
-<a href="admin.html">
-📊 Dashboard
-</a>
-
-
-<a href="organization.html">
-👥 คณะกรรมการ
-</a>
-
-
-<a href="subnamjam.html">
-💧 แหล่งซับน้ำจำ
-</a>
-
+<a href="admin.html">📊 ระบบบริหาร</a>
 
 </nav>
 
@@ -76,36 +162,97 @@
 
 
 
+<div class="org-container">
 
 
+<div class="org-title">
 
-<section>
-
-
-<h2>
-🏡 ฝ่ายปกครองหมู่บ้าน
-</h2>
-
-
-
-<div class="grid">
-
-
-
-<div class="card">
-
-<h3>
-👤 ผู้ใหญ่บ้าน
-</h3>
+<h1>
+🏛️ ระบบบริหารจัดการหมู่บ้าน
+</h1>
 
 <p>
+โครงสร้างผู้นำและภาคีเครือข่ายบ้านร่องเข็ม หมู่ที่ 6
+</p>
 
+</div>
+
+
+
+
+<div class="structure">
+
+
+
+<div class="org-card">
+
+<div class="icon">
+⭐
+</div>
+
+<h2>
+ผู้ใหญ่บ้าน
+</h2>
+
+<p>
 นายศักรนนทน์ ขัติย์วงศ์
+<br>
+ประธานคณะกรรมการหมู่บ้าน
+</p>
+
+</div>
+
+
+
+<div class="arrow">
+⬇️
+</div>
+
+
+
+
+<div class="org-card">
+
+<div class="icon">
+👮
+</div>
+
+<h2>
+ผู้ช่วยผู้ใหญ่บ้าน
+</h2>
+
+<p>
+ช่วยเหลือภารกิจด้านการปกครอง
+และพัฒนาหมู่บ้าน
+</p>
+
+</div>
+
+
+
+
+<div class="arrow">
+⬇️
+</div>
+
+
+
+
+<div class="org-card">
+
+<div class="icon">
+🎓
+</div>
+
+<h2>
+ที่ปรึกษาผู้ทรงคุณวุฒิ
+</h2>
+
+<p>
+จำนวน 5 คน
 
 <br>
-
-ตำแหน่ง ผู้ใหญ่บ้านหมู่ที่ 6
-
+ให้คำปรึกษาและสนับสนุนการพัฒนาหมู่บ้าน
 </p>
 
 </div>
@@ -113,76 +260,27 @@
 
 
 
-
-<div class="card">
-
-<h3>
-👤 ผู้ช่วยผู้ใหญ่บ้าน
-</h3>
-
-<p>
-
-ข้อมูลกำลังปรับปรุง
-
-</p>
-
+<div class="arrow">
+⬇️
 </div>
 
 
 
 
-<div class="card">
+<div class="org-card sub-card">
 
-<h3>
-🏛️ สมาชิกสภา อบต.
-</h3>
-
-<p>
-
-ข้อมูลกำลังปรับปรุง
-
-</p>
-
+<div class="icon">
+👥
 </div>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-
-<section>
-
 
 <h2>
-❤️ ผู้นำด้านสังคมและสุขภาพ
+คณะกรรมการหมู่บ้าน
 </h2>
 
-
-
-<div class="grid">
-
-
-
-<div class="card">
-
-<h3>
-🩺 ประธาน อสม.
-</h3>
-
-
 <p>
-
-ข้อมูลกำลังปรับปรุง
-
+ร่วมวางแผน
+บริหารจัดการ
+และแก้ไขปัญหาชุมชน
 </p>
 
 </div>
@@ -190,168 +288,131 @@
 
 
 
-
-<div class="card">
-
-<h3>
-👴 ประธานผู้สูงอายุ
-</h3>
-
-
-<p>
-
-ข้อมูลกำลังปรับปรุง
-
-</p>
-
+<div class="arrow">
+⬇️
 </div>
 
 
 
 
-<div class="card">
+<div class="org-card network">
 
-<h3>
-🛡️ ประธาน ชรบ.
-</h3>
-
-
-<p>
-
-ข้อมูลกำลังปรับปรุง
-
-</p>
-
+<div class="icon">
+🏥
 </div>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<section>
-
 
 <h2>
-🤝 คณะกรรมการหมู่บ้าน
+ประธาน อสม.
 </h2>
 
-
-
-<div class="card">
-
-
 <p>
-
-
-1. ฝ่ายปกครองและรักษาความสงบ
-
-<br><br>
-
-2. ฝ่ายพัฒนาสังคมและคุณภาพชีวิต
-
-<br><br>
-
-3. ฝ่ายเศรษฐกิจและอาชีพ
-
-<br><br>
-
-4. ฝ่ายทรัพยากรธรรมชาติและสิ่งแวดล้อม
-
-<br><br>
-
-5. ฝ่ายประชาสัมพันธ์และเทคโนโลยี
-
-
+เครือข่ายสุขภาพชุมชน
 </p>
-
 
 </div>
 
 
-</section>
+
+
+<div class="arrow">
+⬇️
+</div>
 
 
 
 
+<div class="org-card network">
 
-
-
-
-
-<section>
-
+<div class="icon">
+👴
+</div>
 
 <h2>
-⭐ ที่ปรึกษาผู้ทรงคุณวุฒิ
+ประธานผู้สูงอายุ
 </h2>
 
-
-
-<div class="grid">
-
-
-
-<div class="card">
-<h3>
-ที่ปรึกษา 1
-</h3>
 <p>
-ข้อมูลกำลังปรับปรุง
+ส่งเสริมคุณภาพชีวิตผู้สูงอายุ
 </p>
+
 </div>
 
 
-<div class="card">
-<h3>
-ที่ปรึกษา 2
-</h3>
+
+
+<div class="arrow">
+⬇️
+</div>
+
+
+
+
+<div class="org-card network">
+
+<div class="icon">
+👩
+</div>
+
+<h2>
+ประธานกลุ่มแม่บ้าน
+</h2>
+
 <p>
-ข้อมูลกำลังปรับปรุง
+ส่งเสริมอาชีพและบทบาทสตรี
 </p>
+
 </div>
 
 
 
-<div class="card">
-<h3>
-ที่ปรึกษา 3
-</h3>
+
+<div class="arrow">
+⬇️
+</div>
+
+
+
+
+<div class="org-card">
+
+<div class="icon">
+🛡️
+</div>
+
+<h2>
+ชรบ.
+</h2>
+
 <p>
-ข้อมูลกำลังปรับปรุง
+ชุดรักษาความปลอดภัยหมู่บ้าน
 </p>
+
 </div>
 
 
 
-<div class="card">
-<h3>
-ที่ปรึกษา 4
-</h3>
+
+<div class="arrow">
+⬇️
+</div>
+
+
+
+
+<div class="org-card">
+
+<div class="icon">
+🚑
+</div>
+
+<h2>
+อปพร.
+</h2>
+
 <p>
-ข้อมูลกำลังปรับปรุง
+อาสาป้องกันภัยฝ่ายพลเรือน
 </p>
-</div>
 
-
-
-<div class="card">
-<h3>
-ที่ปรึกษา 5
-</h3>
-<p>
-ข้อมูลกำลังปรับปรุง
-</p>
 </div>
 
 
@@ -359,10 +420,7 @@
 </div>
 
 
-</section>
-
-
-
+</div>
 
 
 
@@ -373,11 +431,9 @@
 © 2026 Rongkhem Smart Village
 
 <br>
-
 บ้านร่องเข็ม หมู่ที่ 6 จังหวัดพะเยา
 
 </footer>
-
 
 
 </body>
