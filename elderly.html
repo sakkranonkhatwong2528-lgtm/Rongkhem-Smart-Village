@@ -7,17 +7,20 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
 <title>
-ทะเบียนผู้สูงอายุ | Rongkhem Smart Village
+ผู้สูงอายุ | Rongkhem Smart Village
 </title>
-
 
 <link rel="stylesheet" href="css/style.css">
 
 
-
 <style>
+
+.table-box{
+
+overflow-x:auto;
+
+}
 
 
 table{
@@ -28,12 +31,7 @@ border-collapse:collapse;
 
 background:white;
 
-border-radius:15px;
-
-overflow:hidden;
-
 }
-
 
 
 th{
@@ -45,7 +43,6 @@ color:white;
 padding:12px;
 
 }
-
 
 
 td{
@@ -60,36 +57,13 @@ text-align:center;
 
 
 
-.add-btn{
-
-background:#2e7d32;
-
-color:white;
-
-border:none;
-
-padding:12px 20px;
-
-border-radius:20px;
-
-cursor:pointer;
-
-margin-bottom:20px;
-
-}
-
-
-
 </style>
-
 
 </head>
 
 
 
-
 <body>
-
 
 
 
@@ -102,17 +76,17 @@ margin-bottom:20px;
 
 
 <h1>
-👴 ทะเบียนผู้สูงอายุ
+👴 ระบบดูแลผู้สูงอายุ
 </h1>
 
 
 <p>
-Rongkhem Smart Village
+บ้านร่องเข็ม หมู่ที่ 6<br>
+ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา
 </p>
 
 
 </header>
-
 
 
 
@@ -126,18 +100,13 @@ Rongkhem Smart Village
 </a>
 
 
-<a href="people.html">
-👥 ประชาชน
-</a>
-
-
-<a href="household.html">
-🏠 ครัวเรือน
-</a>
-
-
 <a href="elderly.html">
 👴 ผู้สูงอายุ
+</a>
+
+
+<a href="vulnerable.html">
+❤️ กลุ่มเปราะบาง
 </a>
 
 
@@ -154,24 +123,90 @@ Rongkhem Smart Village
 
 
 
+<section>
+
+
+<h2>
+📊 สรุปข้อมูลผู้สูงอายุ
+</h2>
+
+
+
+<div class="grid">
+
+
+
+<div class="card">
+
+<h3>
+👴 อายุ 60 ปีขึ้นไป
+</h3>
+
+
+<p class="stat-number">
+91 คน
+</p>
+
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>
+👨 ชาย
+</h3>
+
+
+<p>
+-
+</p>
+
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>
+👩 หญิง
+</h3>
+
+
+<p>
+-
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
 
 <section>
 
 
 <h2>
-👴 ข้อมูลผู้สูงอายุบ้านร่องเข็ม
+📋 รายชื่อผู้สูงอายุ
 </h2>
 
 
 
-<button class="add-btn">
-
-+ เพิ่มข้อมูลผู้สูงอายุ
-
-</button>
-
-
-
+<div class="table-box">
 
 
 <table>
@@ -179,13 +214,14 @@ Rongkhem Smart Village
 
 <tr>
 
+
 <th>
 ลำดับ
 </th>
 
 
 <th>
-ชื่อ-สกุล
+ชื่อ - นามสกุล
 </th>
 
 
@@ -195,12 +231,12 @@ Rongkhem Smart Village
 
 
 <th>
-บ้านเลขที่
+เพศ
 </th>
 
 
 <th>
-สุขภาพ
+บ้านเลขที่
 </th>
 
 
@@ -210,11 +246,12 @@ Rongkhem Smart Village
 
 
 <th>
-หมายเหตุ
+รูปภาพ
 </th>
 
 
 </tr>
+
 
 
 
@@ -228,27 +265,7 @@ Rongkhem Smart Village
 
 
 <td>
-นายตัวอย่าง ใจดี
-</td>
-
-
-<td>
-72 ปี
-</td>
-
-
-<td>
-123/1
-</td>
-
-
-<td>
-ช่วยเหลือตนเองได้
-</td>
-
-
-<td>
-บุตรหลาน
+-
 </td>
 
 
@@ -257,7 +274,28 @@ Rongkhem Smart Village
 </td>
 
 
+<td>
+-
+</td>
+
+
+<td>
+-
+</td>
+
+
+<td>
+-
+</td>
+
+
+<td>
+📷
+</td>
+
+
 </tr>
+
 
 
 
@@ -272,32 +310,32 @@ Rongkhem Smart Village
 
 
 <td>
-นางตัวอย่าง รักดี
+-
 </td>
 
 
 <td>
-68 ปี
+-
 </td>
 
 
 <td>
-125/2
+-
 </td>
 
 
 <td>
-ต้องติดตามสุขภาพ
+-
 </td>
 
 
 <td>
-อสม.
+-
 </td>
 
 
 <td>
-เยี่ยมบ้านประจำ
+📷
 </td>
 
 
@@ -305,9 +343,52 @@ Rongkhem Smart Village
 
 
 
+
 </table>
 
 
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section>
+
+
+<h2>
+❤️ แนวทางดูแลผู้สูงอายุ
+</h2>
+
+
+<div class="card">
+
+
+<p>
+
+🩺 ส่งเสริมสุขภาพผู้สูงอายุ
+
+<br><br>
+
+👩‍⚕️ การเยี่ยมบ้านโดย อสม.
+
+<br><br>
+
+🤝 ดูแลร่วมกันระหว่างครอบครัว ชุมชน และหน่วยงาน
+
+<br><br>
+
+🌱 ส่งเสริมผู้สูงอายุให้มีคุณภาพชีวิตที่ดี
+
+</p>
+
+
+</div>
 
 
 </section>
@@ -329,8 +410,6 @@ Rongkhem Smart Village
 
 
 </footer>
-
-
 
 
 
