@@ -1,29 +1,114 @@
-async function loadDashboard(){
+// =====================================
+// Rongkhem Smart Village
+// Dashboard Pro v1.0
+// =====================================
 
-    const people =
+
+class DashboardManager {
+
+
+    async loadData(){
+
+
+        const citizen =
         await API.load("citizen.json");
 
-    const household =
+
+        const household =
         await API.load("household.json");
 
-    const elderly =
-        await API.load("elderly.json");
 
-    const news =
-        await API.load("news.json");
+        const health =
+        await API.load("health.json");
 
-    document.getElementById("people").textContent =
-        people.length;
 
-    document.getElementById("household").textContent =
-        household.length;
+        const vulnerable =
+        await API.load("vulnerable.json");
 
-    document.getElementById("elderly").textContent =
-        elderly.length;
 
-    document.getElementById("news").textContent =
-        news.length;
+        const osm =
+        await API.load("osm.json");
+
+
+        const oppor =
+        await API.load("oporor.json");
+
+
+        const shorbor =
+        await API.load("vrv.json");
+
+
+        const subnamjam =
+        await API.load("subnamjam.json");
+
+
+
+        this.render({
+
+            citizen: citizen.length,
+
+            household: household.length,
+
+            health: health.length,
+
+            vulnerable: vulnerable.length,
+
+            osm: osm.length,
+
+            oppor: oppor.length,
+
+            shorbor: shorbor.length,
+
+            subnamjam: subnamjam.length
+
+        });
+
+
+    }
+
+
+
+    render(data){
+
+
+        document.getElementById("citizenCount")
+        .innerHTML=data.citizen;
+
+
+        document.getElementById("householdCount")
+        .innerHTML=data.household;
+
+
+        document.getElementById("healthCount")
+        .innerHTML=data.health;
+
+
+        document.getElementById("vulnerableCount")
+        .innerHTML=data.vulnerable;
+
+
+        document.getElementById("osmCount")
+        .innerHTML=data.osm;
+
+
+        document.getElementById("opporCount")
+        .innerHTML=data.oppor;
+
+
+        document.getElementById("shorborCount")
+        .innerHTML=data.shorbor;
+
+
+        document.getElementById("subnamjamCount")
+        .innerHTML=data.subnamjam;
+
+
+    }
+
 
 }
 
-loadDashboard();
+
+
+const DASHBOARD =
+new DashboardManager();
