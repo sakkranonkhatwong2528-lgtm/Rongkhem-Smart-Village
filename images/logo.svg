@@ -1,0 +1,60 @@
+<svg width="500" height="500" xmlns="http://www.w3.org/2000/svg">
+
+<rect width="500" height="500" rx="80" fill="#e8f5e9"/>
+
+
+<!-- ภูเขา -->
+<path d="M50 250 L170 100 L300 250 Z"
+fill="#4caf50"/>
+
+<path d="M180 250 L330 80 L470 250 Z"
+fill="#2e7d32"/>
+
+
+<!-- น้ำ -->
+<path d="M80 300
+C180 260 300 360 420 300
+C330 430 160 430 80 300Z"
+fill="#2196f3"/>
+
+
+<!-- ต้นไม้ -->
+<rect x="230" y="180" width="25" height="90"
+fill="#795548"/>
+
+<circle cx="240" cy="150" r="60"
+fill="#66bb6a"/>
+
+
+<!-- ศาล/วัฒนธรรม -->
+<path d="M170 270 L250 220 L330 270"
+fill="#ffb300"/>
+
+<rect x="200" y="270" width="100" height="70"
+fill="#ffcc80"/>
+
+
+<!-- ข้อความ -->
+<text x="250" y="390"
+text-anchor="middle"
+font-size="32"
+font-family="Tahoma"
+fill="#1b5e20">
+
+บ้านร่องเข็ม
+
+</text>
+
+
+<text x="250" y="430"
+text-anchor="middle"
+font-size="24"
+font-family="Tahoma"
+fill="#2e7d32">
+
+Smart Village
+
+</text>
+
+
+</svg>
