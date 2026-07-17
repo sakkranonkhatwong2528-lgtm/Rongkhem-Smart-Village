@@ -4,14 +4,95 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>
-บ้านร่องเข็ม Smart Village
+Rongkhem Smart Village Command Center
 </title>
 
-<link rel="stylesheet" href="style.css">
+
+<style>
+
+body{
+font-family:sans-serif;
+margin:0;
+background:#eef7f5;
+}
+
+
+header{
+
+background:#00695c;
+color:white;
+padding:25px;
+text-align:center;
+
+}
+
+
+.container{
+
+padding:20px;
+
+}
+
+
+.grid{
+
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+
+}
+
+
+.card{
+
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 5px 15px #ccc;
+text-align:center;
+
+}
+
+
+.icon{
+
+font-size:45px;
+
+}
+
+
+.number{
+
+font-size:35px;
+font-weight:bold;
+color:#00897b;
+
+}
+
+
+a{
+
+text-decoration:none;
+color:#333;
+
+}
+
+
+.news{
+
+background:white;
+padding:20px;
+border-radius:20px;
+margin-top:25px;
+
+}
+
+
+</style>
 
 </head>
 
@@ -19,148 +100,208 @@
 <body>
 
 
-<header class="top">
-
-
-<img src="images/logo.svg" class="logo">
-<img src="images/subnamjam-cover.jpg">
+<header>
 
 <h1>
-🏡 บ้านร่องเข็ม Smart Village
+🏡 Rongkhem Smart Village
 </h1>
 
+<h2>
+ศูนย์บัญชาการหมู่บ้านอัจฉริยะ
+</h2>
 
 <p>
-หมู่ที่ 6 ตำบลจำป่าหวาย
-อำเภอเมือง จังหวัดพะเยา
+บ้านร่องเข็ม หมู่ที่ 6
+ตำบลจำป่าหวาย จังหวัดพะเยา
 </p>
-
-
-<p>
-ชุมชนเข้มแข็ง บริหารจัดการด้วยเทคโนโลยี
-</p>
-
 
 </header>
 
 
 
-<section class="hero">
+<div class="container">
 
 
-<img src="images/subnamjam-cover.jpg">
+<div class="grid">
 
 
-<div class="hero-text">
 
+<a href="health/index.html">
 
-<h2>
-🌱 แหล่งซับน้ำจำ
-</h2>
+<div class="card">
 
+<div class="icon">
+🩺
+</div>
+
+<h3>
+Health Center
+</h3>
+
+<div class="number">
+91
+</div>
 
 <p>
-พื้นที่อนุรักษ์น้ำ
-ระบบนิเวศชุมชน
-และแหล่งเรียนรู้ธรรมชาติ
+ผู้สูงอายุ
+</p>
+
+</div>
+
+</a>
+
+
+
+
+<a href="modules/environment/index.html">
+
+<div class="card">
+
+<div class="icon">
+🌱
+</div>
+
+<h3>
+Environment
+</h3>
+
+<div class="number">
+1
+</div>
+
+<p>
+แหล่งทรัพยากรหลัก
+</p>
+
+</div>
+
+</a>
+
+
+
+
+
+<a href="modules/smart-map/index.html">
+
+<div class="card">
+
+<div class="icon">
+🗺️
+</div>
+
+<h3>
+Smart Map
+</h3>
+
+<p>
+แผนที่อัจฉริยะ
+</p>
+
+</div>
+
+</a>
+
+
+
+
+
+<a href="modules/emergency/index.html">
+
+<div class="card">
+
+<div class="icon">
+🚨
+</div>
+
+<h3>
+Emergency
+</h3>
+
+<p>
+ระบบแจ้งเหตุ
+</p>
+
+</div>
+
+</a>
+
+
+
+
+
+<a href="modules/communication/index.html">
+
+<div class="card">
+
+<div class="icon">
+📢
+</div>
+
+<h3>
+Communication
+</h3>
+
+<p>
+ข่าวสารหมู่บ้าน
+</p>
+
+</div>
+
+</a>
+
+
+
+
+<a href="#">
+
+<div class="card">
+
+<div class="icon">
+🤖
+</div>
+
+<h3>
+AI Assistant
+</h3>
+
+<p>
+ผู้ช่วยหมู่บ้าน
+</p>
+
+</div>
+
+</a>
+
+
+
+</div>
+
+
+
+<div class="news">
+
+<h2>
+📢 ข่าวล่าสุด
+</h2>
+
+<p>
+🌱 กิจกรรมอนุรักษ์แหล่งซับน้ำจำ
+</p>
+
+<p>
+🩺 งานเยี่ยมบ้านผู้สูงอายุ
+</p>
+
+<p>
+🏡 ประชุมประจำเดือนหมู่บ้าน
 </p>
 
 
-<a href="subnamjam.html">
-ดูข้อมูลเพิ่มเติม
-</a>
-
-
 </div>
 
 
-</section>
 
-
-<section class="village-stats">
-
-<div class="stat-box">
-<h2>🏠</h2>
-<h3>ครัวเรือน</h3>
-<p>ข้อมูลกำลังปรับปรุง</p>
 </div>
-
-
-<div class="stat-box">
-<h2>👥</h2>
-<h3>ประชาชน</h3>
-<p>ข้อมูลกำลังปรับปรุง</p>
-</div>
-
-
-<div class="stat-box">
-<h2>👵</h2>
-<h3>ผู้สูงอายุ</h3>
-<p>ข้อมูลกำลังปรับปรุง</p>
-</div>
-
-
-<div class="stat-box">
-<h2>❤️</h2>
-<h3>กลุ่มเปราะบาง</h3>
-<p>ข้อมูลกำลังปรับปรุง</p>
-</div>
-
-</section>
-<section class="mobile-menu">
-
-
-<a href="news.html">
-📰
-<br>
-ข่าวประชาสัมพันธ์
-</a>
-
-
-<a href="activities.html">
-📸
-<br>
-กิจกรรมหมู่บ้าน
-</a>
-
-
-<a href="leader.html">
-👤
-<br>
-ทำเนียบผู้นำ
-</a>
-
-
-<a href="dashboard.html">
-📊
-<br>
-Dashboard
-</a>
-
-
-<a href="login.html">
-🔐
-<br>
-Admin
-</a>
-
-
-<a href="contact.html">
-☎️
-<br>
-ติดต่อหมู่บ้าน
-</a>
-
-
-</section>
-
-
-
-<footer>
-
-© บ้านร่องเข็ม Smart Village
-
-</footer>
 
 
 </body>
