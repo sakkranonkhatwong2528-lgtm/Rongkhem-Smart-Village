@@ -7,11 +7,83 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
 <title>
-Rongkhem Smart Village Admin
+Admin | Rongkhem Smart Village
 </title>
 
-<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet" href="css/style.css">
+
+
+<style>
+
+.dashboard{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:20px;
+
+}
+
+
+
+.menu-card{
+
+background:white;
+
+padding:25px;
+
+border-radius:20px;
+
+text-align:center;
+
+box-shadow:
+0 5px 15px rgba(0,0,0,.15);
+
+transition:.3s;
+
+}
+
+
+
+.menu-card:hover{
+
+transform:translateY(-5px);
+
+}
+
+
+
+.menu-card h3{
+
+color:#2e7d32;
+
+}
+
+
+.logout{
+
+background:#c62828;
+
+color:white;
+
+padding:12px 25px;
+
+border-radius:20px;
+
+border:none;
+
+cursor:pointer;
+
+}
+
+
+</style>
+
 
 </head>
 
@@ -21,71 +93,189 @@ Rongkhem Smart Village Admin
 
 <header>
 
+
+<div class="logo">
+🏡
+</div>
+
+
 <h1>
-🔐 ระบบจัดการหมู่บ้าน
+ระบบบริหารจัดการหมู่บ้านอัจฉริยะ
 </h1>
+
 
 <p>
 Rongkhem Smart Village
 </p>
 
+
 </header>
+
+
+
+
+<nav>
+
+<a href="index.html">
+🏠 หน้าแรก
+</a>
+
+
+<a href="admin.html">
+📊 Dashboard
+</a>
+
+
+<a href="#">
+👥 ประชาชน
+</a>
+
+
+<a href="#">
+🏡 ครัวเรือน
+</a>
+
+
+<a href="#">
+📰 ข่าวสาร
+</a>
+
+
+</nav>
+
+
 
 
 
 <section>
 
 
-<div class="card">
-
-
 <h2>
-📢 เพิ่มข่าวประชาสัมพันธ์
+📊 Dashboard หมู่บ้าน
 </h2>
 
 
-<input 
-id="title"
-placeholder="หัวข้อข่าว">
+<div class="dashboard">
 
 
-<textarea
-id="detail"
-placeholder="รายละเอียดข่าว">
-</textarea>
 
+<div class="menu-card">
 
-<button onclick="addNews()">
-บันทึกข่าว
-</button>
+<h3>
+👨‍👩‍👧‍👦 ประชาชน
+</h3>
 
+<p>
+202 คน
+</p>
 
 </div>
 
 
 
 
-<div class="card">
+<div class="menu-card">
+
+<h3>
+🏠 ครัวเรือน
+</h3>
+
+<p>
+ข้อมูลกำลังปรับปรุง
+</p>
+
+</div>
+
+
+
+
+<div class="menu-card">
+
+<h3>
+👴 ผู้สูงอายุ
+</h3>
+
+<p>
+91 คน
+</p>
+
+</div>
+
+
+
+
+<div class="menu-card">
+
+<h3>
+❤️ กลุ่มเปราะบาง
+</h3>
+
+<p>
+ข้อมูลชุมชน
+</p>
+
+</div>
+
+
+
+
+<div class="menu-card">
+
+<h3>
+💧 แหล่งซับน้ำจำ
+</h3>
+
+<p>
+พื้นที่อนุรักษ์
+</p>
+
+</div>
+
+
+
+
+<div class="menu-card">
+
+<h3>
+👥 คณะกรรมการหมู่บ้าน
+</h3>
+
+<p>
+ข้อมูลผู้นำ
+</p>
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section>
 
 
 <h2>
-🌱 เพิ่มกิจกรรมหมู่บ้าน
+⚙️ จัดการระบบ
 </h2>
 
 
-<input 
-id="activityTitle"
-placeholder="ชื่อกิจกรรม">
+<div style="text-align:center;">
 
 
-<textarea
-id="activityDetail"
-placeholder="รายละเอียดกิจกรรม">
-</textarea>
+<button 
+class="logout"
+onclick="logout()">
 
+ออกจากระบบ
 
-<button onclick="addActivity()">
-บันทึกกิจกรรม
 </button>
 
 
@@ -97,7 +287,25 @@ placeholder="รายละเอียดกิจกรรม">
 
 
 
-<script src="admin.js"></script>
+
+
+<script>
+
+
+function logout(){
+
+
+localStorage.removeItem("login");
+
+
+window.location.href="login.html";
+
+
+}
+
+
+</script>
+
 
 
 </body>
