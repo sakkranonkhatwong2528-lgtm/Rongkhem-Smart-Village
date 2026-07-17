@@ -7,325 +7,57 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Admin | Rongkhem Smart Village</title>
-
-
-<style>
-
-body{
-
-margin:0;
-
-font-family:"Tahoma",sans-serif;
-
-background:#f1f8e9;
-
-}
-
-
-
-.header{
-
-background:linear-gradient(135deg,#1b5e20,#43a047);
-
-color:white;
-
-padding:30px;
-
-text-align:center;
-
-}
-
-
-
-.container{
-
-max-width:1200px;
-
-margin:auto;
-
-padding:20px;
-
-}
-
-
-
-.menu{
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(220px,1fr));
-
-gap:20px;
-
-}
-
-
-
-.box{
-
-background:white;
-
-padding:25px;
-
-border-radius:20px;
-
-text-align:center;
-
-box-shadow:0 5px 15px #ccc;
-
-}
-
-
-
-.box a{
-
-text-decoration:none;
-
-color:#1b5e20;
-
-font-size:18px;
-
-font-weight:bold;
-
-}
-
-
-
-.box:hover{
-
-background:#e8f5e9;
-
-}
-
-
-
-.icon{
-
-font-size:45px;
-
-}
-
-
-
-.info{
-
-background:white;
-
-margin-top:30px;
-
-padding:25px;
-
-border-radius:20px;
-
-box-shadow:0 5px 15px #ccc;
-
-}
-
-
-
-</style>
-
+<title>
+Rongkhem Smart Village Admin
+</title>
+
+<link rel="stylesheet" href="style.css">
 
 </head>
-
 
 
 <body>
 
 
+<header>
 
-<div class="header">
+<h1>
+🔐 ระบบจัดการหมู่บ้าน
+</h1>
 
-
-<h1>🏡 Admin Center</h1>
-
-<h2>
+<p>
 Rongkhem Smart Village
-</h2>
-
-<p>
-ระบบบริหารจัดการข้อมูลบ้านร่องเข็ม หมู่ที่ 6
 </p>
 
-
-</div>
-
+</header>
 
 
 
+<section>
 
-<div class="container">
 
+<div class="card">
 
 
 <h2>
-📊 ระบบจัดการข้อมูล
+📢 เพิ่มข่าวประชาสัมพันธ์
 </h2>
 
 
+<input 
+id="title"
+placeholder="หัวข้อข่าว">
 
 
-<div class="menu">
+<textarea
+id="detail"
+placeholder="รายละเอียดข่าว">
+</textarea>
 
 
-
-<div class="box">
-
-<div class="icon">📊</div>
-
-<a href="pages/dashboard.html">
-
-Dashboard
-
-</a>
-
-</div>
-
-
-
-
-<div class="box">
-
-<div class="icon">👥</div>
-
-<a href="pages/citizen.html">
-
-ทะเบียนประชาชน
-
-</a>
-
-</div>
-
-
-
-
-
-<div class="box">
-
-<div class="icon">🏠</div>
-
-<a href="pages/household.html">
-
-ทะเบียนครัวเรือน
-
-</a>
-
-</div>
-
-
-
-
-
-<div class="box">
-
-<div class="icon">🏛️</div>
-
-<a href="pages/committee.html">
-
-คณะกรรมการหมู่บ้าน
-
-</a>
-
-</div>
-
-
-
-
-
-<div class="box">
-
-<div class="icon">👤</div>
-
-<a href="organization.html">
-
-ทำเนียบผู้นำ
-
-</a>
-
-</div>
-
-
-
-
-
-<div class="box">
-
-<div class="icon">🩺</div>
-
-<a href="pages/health.html">
-
-อสม.
-
-</a>
-
-</div>
-
-
-
-
-
-<div class="box">
-
-<div class="icon">🛡️</div>
-
-<a href="pages/vrv.html">
-
-ชรบ.
-
-</a>
-
-</div>
-
-
-
-
-
-<div class="box">
-
-<div class="icon">🚒</div>
-
-<a href="pages/oporor.html">
-
-อปพร.
-
-</a>
-
-</div>
-
-
-
-
-
-<div class="box">
-
-<div class="icon">🌱</div>
-
-<a href="pages/wetland.html">
-
-แหล่งซับน้ำจำ
-
-</a>
-
-</div>
-
-
-
-
-
-<div class="box">
-
-<div class="icon">📋</div>
-
-<a href="pages/project.html">
-
-โครงการพัฒนา
-
-</a>
-
-</div>
-
+<button onclick="addNews()">
+บันทึกข่าว
+</button>
 
 
 </div>
@@ -333,36 +65,39 @@ Dashboard
 
 
 
-
-
-
-<div class="info">
+<div class="card">
 
 
 <h2>
-🏡 ข้อมูลหมู่บ้าน
+🌱 เพิ่มกิจกรรมหมู่บ้าน
 </h2>
 
 
-<p>
-บ้านร่องเข็ม หมู่ที่ 6
-</p>
-
-<p>
-ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา
-</p>
+<input 
+id="activityTitle"
+placeholder="ชื่อกิจกรรม">
 
 
-<p>
-ระบบ Smart Village เพื่อสนับสนุนการบริหารจัดการชุมชน
-</p>
+<textarea
+id="activityDetail"
+placeholder="รายละเอียดกิจกรรม">
+</textarea>
 
 
-</div>
-
+<button onclick="addActivity()">
+บันทึกกิจกรรม
+</button>
 
 
 </div>
+
+
+</section>
+
+
+
+
+<script src="admin.js"></script>
 
 
 </body>
