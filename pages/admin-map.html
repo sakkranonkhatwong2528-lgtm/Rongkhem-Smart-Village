@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Smart Village GIS | Rongkhem Smart Village</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+
+<style>
+
+.container{
+padding:20px;
+}
+
+
+.header{
+
+background:#198754;
+color:white;
+padding:25px;
+border-radius:15px;
+
+}
+
+
+.card{
+
+background:white;
+padding:20px;
+margin-top:20px;
+border-radius:15px;
+box-shadow:0 3px 10px #ddd;
+
+}
+
+
+.map{
+
+height:450px;
+background:#e9ecef;
+border-radius:15px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:22px;
+
+}
+
+
+.grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
+
+}
+
+
+.box{
+
+background:#f8f9fa;
+padding:20px;
+border-radius:15px;
+text-align:center;
+
+}
+
+
+.icon{
+
+font-size:40px;
+
+}
+
+
+button{
+
+background:#198754;
+color:white;
+border:none;
+padding:12px 20px;
+border-radius:10px;
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+
+<div class="header">
+
+<h1>
+🗺️ Smart Village GIS
+</h1>
+
+<p>
+🏡 Rongkhem Smart Village
+<br>
+บ้านร่องเข็ม หมู่ที่ 6 จังหวัดพะเยา
+</p>
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+📍 แผนที่หมู่บ้าน
+</h2>
+
+
+<div class="map">
+
+แผนที่ Google Map / GIS หมู่บ้าน
+
+<br>
+
+📍 พิกัดหมู่บ้าน
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+📌 จุดข้อมูลสำคัญ
+</h2>
+
+
+<div class="grid">
+
+
+
+<div class="box">
+
+<div class="icon">
+🏠
+</div>
+
+<h3>
+ครัวเรือน
+</h3>
+
+<p>
+แสดงตำแหน่งบ้าน
+</p>
+
+</div>
+
+
+
+
+<div class="box">
+
+<div class="icon">
+💧
+</div>
+
+<h3>
+แหล่งซับน้ำจำ
+</h3>
+
+<p>
+พื้นที่อนุรักษ์น้ำ
+</p>
+
+</div>
+
+
+
+
+<div class="box">
+
+<div class="icon">
+🏥
+</div>
+
+<h3>
+สุขภาพ
+</h3>
+
+<p>
+อสม. / จุดบริการ
+</p>
+
+</div>
+
+
+
+
+<div class="box">
+
+<div class="icon">
+⚠️
+</div>
+
+<h3>
+พื้นที่เสี่ยง
+</h3>
+
+<p>
+ไฟป่า / จุดเสี่ยงภัย
+</p>
+
+</div>
+
+
+
+
+<div class="box">
+
+<div class="icon">
+🏗️
+</div>
+
+<h3>
+โครงการพัฒนา
+</h3>
+
+<p>
+ตำแหน่งโครงการ
+</p>
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+📡 ข้อมูลพิกัด GPS
+</h2>
+
+
+<table width="100%" border="1">
+
+
+<tr>
+
+<th>
+รายการ
+</th>
+
+<th>
+Latitude
+</th>
+
+<th>
+Longitude
+</th>
+
+</tr>
+
+
+<tr>
+
+<td>
+บ้านร่องเข็ม
+</td>
+
+<td>
+-
+</td>
+
+<td>
+-
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+แหล่งซับน้ำจำ
+</td>
+
+<td>
+-
+</td>
+
+<td>
+-
+</td>
+
+</tr>
+
+
+</table>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+➕ เพิ่มจุดบนแผนที่
+</h2>
+
+
+<button>
+
+เพิ่มตำแหน่งใหม่
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+🚨 ใช้ประโยชน์ด้านการบริหาร
+</h2>
+
+
+<ul>
+
+<li>
+วางแผนพัฒนาหมู่บ้าน
+</li>
+
+<li>
+จัดการภัยพิบัติ
+</li>
+
+<li>
+ติดตามพื้นที่เสี่ยง
+</li>
+
+<li>
+วางแผนช่วยเหลือประชาชน
+</li>
+
+<li>
+บริหารทรัพยากรชุมชน
+</li>
+
+</ul>
+
+
+</div>
+
+
+
+
+</div>
+
+
+</body>
+
+</html>
