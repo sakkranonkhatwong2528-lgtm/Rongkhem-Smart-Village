@@ -4,6 +4,7 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
@@ -18,20 +19,19 @@ body{
 
 margin:0;
 font-family:Tahoma,sans-serif;
-background:#fffde7;
+background:#ffebee;
 
 }
 
 
 header{
 
-background:#f57f17;
+background:#c62828;
 color:white;
 padding:35px;
 text-align:center;
 
 }
-
 
 
 .container{
@@ -41,19 +41,19 @@ padding:20px;
 }
 
 
-
 .card{
 
 background:white;
 padding:25px;
 border-radius:25px;
 box-shadow:0 4px 12px #ccc;
+margin-bottom:20px;
 
 }
 
 
 
-input,textarea,select{
+input,select,textarea{
 
 width:100%;
 padding:12px;
@@ -68,7 +68,7 @@ box-sizing:border-box;
 
 button{
 
-background:#f57f17;
+background:#c62828;
 color:white;
 padding:12px 30px;
 border:none;
@@ -78,12 +78,11 @@ border-radius:20px;
 
 
 
-.result{
+.item{
 
-background:#fff8e1;
-padding:20px;
-margin-top:20px;
-border-radius:20px;
+background:#ffebee;
+padding:15px;
+border-radius:15px;
 
 }
 
@@ -97,10 +96,9 @@ margin:30px;
 }
 
 
-
 .back a{
 
-background:#f57f17;
+background:#c62828;
 color:white;
 padding:12px 25px;
 border-radius:20px;
@@ -108,12 +106,9 @@ text-decoration:none;
 
 }
 
-
 </style>
 
-
 </head>
-
 
 
 <body>
@@ -144,11 +139,9 @@ text-decoration:none;
 <div class="card">
 
 
-
 <h2>
-📢 ส่งเรื่องร้องเรียน
+📢 ส่งเรื่องแจ้งปัญหา
 </h2>
-
 
 
 <label>
@@ -175,16 +168,19 @@ text-decoration:none;
 </option>
 
 <option>
+ฝุ่น PM2.5
+</option>
+
+<option>
 สิ่งแวดล้อม
 </option>
 
 <option>
-อื่น ๆ
+อื่นๆ
 </option>
 
 
 </select>
-
 
 
 
@@ -207,7 +203,6 @@ placeholder="อธิบายปัญหา">
 
 
 
-
 <label>
 สถานที่เกิดเหตุ
 </label>
@@ -217,32 +212,74 @@ placeholder="อธิบายปัญหา">
 
 id="location"
 
-placeholder="เช่น บ้านเลขที่ / จุดเกิดเหตุ">
+placeholder="เช่น หมู่ 6 บ้านร่องเข็ม">
 
 
 
 
-<button onclick="sendComplaint()">
 
-📨 ส่งเรื่อง
+<label>
+ชื่อผู้แจ้ง
+</label>
+
+
+<input
+
+id="name"
+
+placeholder="ชื่อ">
+
+
+
+
+<label>
+เบอร์ติดต่อ
+</label>
+
+
+<input
+
+id="phone"
+
+placeholder="เบอร์โทร">
+
+
+
+
+<button onclick="saveComplaint()">
+
+📨 ส่งเรื่องแจ้ง
 
 </button>
 
 
 
+</div>
 
 
-<div class="result" id="show">
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+📋 รายการแจ้งของคุณ
+</h2>
+
+
+<div id="list">
+
+</div>
+
 
 </div>
 
 
 
 </div>
-
-
-</div>
-
 
 
 
@@ -252,16 +289,13 @@ placeholder="เช่น บ้านเลขที่ / จุดเกิด
 
 <div class="back">
 
-
 <a href="index.html">
 
 🏠 กลับหน้าแรก
 
 </a>
 
-
 </div>
-
 
 
 
@@ -272,12 +306,11 @@ placeholder="เช่น บ้านเลขที่ / จุดเกิด
 <script>
 
 
-
-let complaints =
+let complaint =
 
 JSON.parse(
 
-localStorage.getItem("complaints")
+localStorage.getItem("complaint")
 
 )||[];
 
@@ -285,8 +318,7 @@ localStorage.getItem("complaints")
 
 
 
-function sendComplaint(){
-
+function saveComplaint(){
 
 
 let data={
@@ -307,9 +339,17 @@ location:
 document.getElementById("location").value,
 
 
-status:
+name:
 
-"รับเรื่องแล้ว"
+document.getElementById("name").value,
+
+
+phone:
+
+document.getElementById("phone").value,
+
+
+status:"รอดำเนินการ"
 
 
 };
@@ -317,18 +357,17 @@ status:
 
 
 
-complaints.push(data);
+complaint.push(data);
 
 
 
 localStorage.setItem(
 
-"complaints",
+"complaint",
 
-JSON.stringify(complaints)
+JSON.stringify(complaint)
 
 );
-
 
 
 
@@ -346,45 +385,43 @@ show();
 
 
 
+
 function show(){
-
-
-
-let data=
-
-JSON.parse(
-
-localStorage.getItem("complaints")
-
-)||[];
-
 
 
 let html="";
 
 
+complaint.forEach(function(item){
 
-data.forEach(function(item){
 
 
-html +=`
+html+=`
+
+<div class="item">
+
+<b>
+⚠️ ${item.type}
+</b>
+
 
 <p>
-
-📌 ${item.type}
-
-<br>
-
 ${item.detail}
-
-<br>
-
-สถานะ :
-${item.status}
-
 </p>
 
-<hr>
+
+<p>
+📍 ${item.location}
+</p>
+
+
+<p>
+สถานะ :
+${item.status}
+</p>
+
+
+</div>
 
 `;
 
@@ -394,9 +431,8 @@ ${item.status}
 
 
 
-document.getElementById("show")
+document.getElementById("list")
 .innerHTML=html;
-
 
 
 }
@@ -408,9 +444,6 @@ show();
 
 
 </script>
-
-
-
 
 
 
