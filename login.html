@@ -14,66 +14,145 @@
 
 <style>
 
+*{
+box-sizing:border-box;
+}
+
+
 body{
 
+margin:0;
 font-family:Tahoma,sans-serif;
-background:#e8f5e9;
+background:
+linear-gradient(
+135deg,
+#2e7d32,
+#81c784
+);
+
+height:100vh;
+
 display:flex;
 justify-content:center;
 align-items:center;
-height:100vh;
-margin:0;
 
 }
+
 
 
 .login-box{
 
 background:white;
-padding:30px;
+
+width:350px;
+
+padding:35px;
+
 border-radius:25px;
-width:320px;
-box-shadow:0 5px 20px #ccc;
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.25);
+
 text-align:center;
 
 }
 
-
-input{
-
-width:90%;
-padding:12px;
-margin:10px;
-border-radius:15px;
-border:1px solid #ccc;
-
-}
-
-
-button{
-
-background:#2e7d32;
-color:white;
-border:none;
-padding:12px 30px;
-border-radius:20px;
-cursor:pointer;
-
-}
 
 
 .logo{
 
 width:100px;
 
+margin-bottom:10px;
+
 }
+
+
+
+h1{
+
+color:#2e7d32;
+
+font-size:24px;
+
+}
+
+
+
+input{
+
+width:100%;
+
+padding:14px;
+
+margin:10px 0;
+
+border-radius:15px;
+
+border:1px solid #ccc;
+
+font-size:16px;
+
+}
+
+
+
+button{
+
+width:100%;
+
+padding:14px;
+
+border:none;
+
+border-radius:20px;
+
+background:#2e7d32;
+
+color:white;
+
+font-size:17px;
+
+cursor:pointer;
+
+}
+
+
+
+button:hover{
+
+background:#1b5e20;
+
+}
+
 
 
 #error{
 
 color:red;
 
+margin-top:15px;
+
 }
+
+
+
+.back{
+
+margin-top:20px;
+
+}
+
+
+
+.back a{
+
+text-decoration:none;
+
+color:#2e7d32;
+
+}
+
 
 
 </style>
@@ -94,9 +173,11 @@ src="images/logo.svg"
 class="logo">
 
 
-<h2>
+
+<h1>
 ⚙️ ผู้ดูแลระบบ
-</h2>
+</h1>
+
 
 
 <p>
@@ -105,12 +186,12 @@ class="logo">
 
 
 
+
 <input
 
 id="username"
 
 placeholder="ชื่อผู้ใช้"
-
 
 >
 
@@ -124,15 +205,13 @@ type="password"
 
 placeholder="รหัสผ่าน"
 
-
 >
-
 
 
 
 <button onclick="login()">
 
-เข้าสู่ระบบ
+🔐 เข้าสู่ระบบ
 
 </button>
 
@@ -142,7 +221,21 @@ placeholder="รหัสผ่าน"
 
 
 
+
+<div class="back">
+
+<a href="index.html">
+
+🏠 กลับหน้าแรก
+
+</a>
+
 </div>
+
+
+
+</div>
+
 
 
 
@@ -157,12 +250,27 @@ let users=[];
 
 
 
-// โหลด user.json
+// โหลดผู้ใช้งาน
 
 fetch("data/user.json")
 
 
-.then(res=>res.json())
+.then(response=>{
+
+
+if(!response.ok){
+
+throw new Error(
+"ไม่พบ user.json"
+);
+
+}
+
+
+return response.json();
+
+
+})
 
 
 .then(data=>{
@@ -171,16 +279,28 @@ fetch("data/user.json")
 users=data;
 
 
+console.log(
+"โหลดผู้ใช้สำเร็จ",
+users
+);
+
+
 })
 
-.catch(err=>{
+
+.catch(error=>{
 
 
-console.error(err);
+console.error(error);
+
+
+document
+.getElementById("error")
+.innerHTML=
+"ไม่สามารถโหลดข้อมูลผู้ใช้";
 
 
 });
-
 
 
 
@@ -196,7 +316,8 @@ let username=
 
 document
 .getElementById("username")
-.value;
+.value
+.trim();
 
 
 
@@ -204,7 +325,28 @@ let password=
 
 document
 .getElementById("password")
-.value;
+.value
+.trim();
+
+
+
+
+
+if(
+username===""
+||
+password===""
+){
+
+document
+.getElementById("error")
+.innerHTML=
+"กรุณากรอกข้อมูลให้ครบ";
+
+return;
+
+}
+
 
 
 
@@ -212,13 +354,15 @@ document
 
 let user=
 
-users.find(u=>
+users.find(item=>
 
-u.username===username
+
+item.username===username
 
 &&
 
-u.password===password
+item.password===password
+
 
 );
 
@@ -231,17 +375,28 @@ if(user){
 
 
 localStorage.setItem(
+
 "loginUser",
-JSON.stringify(user)
+
+JSON.stringify({
+
+name:user.name,
+
+role:user.role
+
+})
+
 );
 
 
 
-window.location.href="admin.html";
+window.location.href=
+"admin.html";
 
 
 
 }else{
+
 
 
 document
