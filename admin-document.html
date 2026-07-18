@@ -4,32 +4,38 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 
 <title>
 จัดการเอกสาร | บ้านร่องเข็ม Smart Village
 </title>
 
 
+
 <style>
+
 
 body{
 
 margin:0;
 font-family:Tahoma,sans-serif;
-background:#eceff1;
+background:#fce4ec;
 
 }
 
 
+
 header{
 
-background:#37474f;
+background:#6a1b9a;
 color:white;
 padding:30px;
 text-align:center;
 
 }
+
 
 
 .container{
@@ -39,25 +45,19 @@ padding:20px;
 }
 
 
+
 .card{
 
 background:white;
 padding:25px;
-border-radius:20px;
+border-radius:25px;
 box-shadow:0 4px 12px #ccc;
-margin-bottom:20px;
 
 }
 
 
-h2{
 
-color:#37474f;
-
-}
-
-
-input,select{
+input,textarea,select{
 
 width:100%;
 padding:12px;
@@ -69,9 +69,10 @@ box-sizing:border-box;
 }
 
 
+
 button{
 
-background:#37474f;
+background:#6a1b9a;
 color:white;
 padding:12px 30px;
 border:none;
@@ -80,14 +81,28 @@ border-radius:20px;
 }
 
 
-.document{
 
-background:#eceff1;
+.item{
+
+background:#f3e5f5;
 padding:15px;
-border-radius:15px;
 margin-top:15px;
+border-radius:15px;
 
 }
+
+
+
+.delete{
+
+background:#c62828;
+color:white;
+border:none;
+padding:8px 15px;
+border-radius:15px;
+
+}
+
 
 
 .back{
@@ -98,15 +113,18 @@ margin:30px;
 }
 
 
+
 .back a{
 
-background:#37474f;
+background:#6a1b9a;
 color:white;
 padding:12px 25px;
 border-radius:20px;
 text-decoration:none;
 
 }
+
+
 
 </style>
 
@@ -119,18 +137,21 @@ text-decoration:none;
 
 
 
-
 <header>
+
 
 <h1>
 📂 จัดการเอกสารหมู่บ้าน
 </h1>
 
+
 <p>
-Admin : บ้านร่องเข็ม Smart Village
+Admin บ้านร่องเข็ม Smart Village
 </p>
 
+
 </header>
+
 
 
 
@@ -148,17 +169,14 @@ Admin : บ้านร่องเข็ม Smart Village
 </h2>
 
 
-<input 
-id="name"
-placeholder="ชื่อเอกสาร">
+
+
+<label>
+ประเภทเอกสาร
+</label>
 
 
 <select id="type">
-
-
-<option>
-เลือกประเภทเอกสาร
-</option>
 
 
 <option>
@@ -167,7 +185,7 @@ placeholder="ชื่อเอกสาร">
 
 
 <option>
-ประกาศ
+ประกาศหมู่บ้าน
 </option>
 
 
@@ -182,7 +200,7 @@ placeholder="ชื่อเอกสาร">
 
 
 <option>
-ข้อมูลสำรวจชุมชน
+รายงานโครงการ
 </option>
 
 
@@ -190,9 +208,52 @@ placeholder="ชื่อเอกสาร">
 
 
 
-<input 
+
+
+
+<label>
+ชื่อเอกสาร
+</label>
+
+
+<input
+id="title"
+placeholder="เช่น คำสั่งแต่งตั้งคณะกรรมการ">
+
+
+
+
+
+<label>
+รายละเอียด
+</label>
+
+
+<textarea
+
+id="detail"
+
+rows="4"
+
+placeholder="รายละเอียดเอกสาร">
+
+</textarea>
+
+
+
+
+
+<label>
+ชื่อไฟล์ PDF
+</label>
+
+
+<input
+
 id="file"
-placeholder="ชื่อไฟล์ เช่น report.pdf">
+
+placeholder="เช่น order.pdf">
+
 
 
 
@@ -203,7 +264,10 @@ placeholder="ชื่อไฟล์ เช่น report.pdf">
 </button>
 
 
+
 </div>
+
+
 
 
 
@@ -218,7 +282,7 @@ placeholder="ชื่อไฟล์ เช่น report.pdf">
 </h2>
 
 
-<div id="documentList">
+<div id="list">
 
 </div>
 
@@ -227,7 +291,10 @@ placeholder="ชื่อไฟล์ เช่น report.pdf">
 
 
 
+
+
 </div>
+
 
 
 
@@ -252,11 +319,25 @@ placeholder="ชื่อไฟล์ เช่น report.pdf">
 
 
 
+
+
 <script>
 
 
 
-showDocument();
+let docs =
+
+JSON.parse(
+
+localStorage.getItem("documents")
+
+)||[];
+
+
+
+
+showList();
+
 
 
 
@@ -265,18 +346,26 @@ function saveDocument(){
 
 
 
-let doc={
-
-
-name:
-document.getElementById("name").value,
+let data={
 
 
 type:
+
 document.getElementById("type").value,
 
 
+title:
+
+document.getElementById("title").value,
+
+
+detail:
+
+document.getElementById("detail").value,
+
+
 file:
+
 document.getElementById("file").value
 
 
@@ -284,33 +373,18 @@ document.getElementById("file").value
 
 
 
-if(doc.name==""){
 
+docs.push(data);
 
-alert("กรุณาใส่ชื่อเอกสาร");
-
-
-return;
-
-}
-
-
-
-let data =
-
-JSON.parse(
-localStorage.getItem("document")
-) || [];
-
-
-
-data.push(doc);
 
 
 
 localStorage.setItem(
-"document",
-JSON.stringify(data)
+
+"documents",
+
+JSON.stringify(docs)
+
 );
 
 
@@ -318,7 +392,7 @@ JSON.stringify(data)
 alert("เพิ่มเอกสารเรียบร้อย");
 
 
-location.reload();
+showList();
 
 
 
@@ -329,15 +403,8 @@ location.reload();
 
 
 
-function showDocument(){
 
-
-
-let data =
-
-JSON.parse(
-localStorage.getItem("document")
-) || [];
+function showList(){
 
 
 
@@ -345,31 +412,46 @@ let html="";
 
 
 
-data.forEach(function(item){
+
+docs.forEach(function(item,index){
 
 
 
-html += `
+html+=`
+
+<div class="item">
 
 
-<div class="document">
+<b>
+${item.title}
+</b>
 
 
-<h3>
-📄 ${item.name}
-</h3>
+<br>
 
 
-<p>
 ประเภท :
 ${item.type}
-</p>
 
 
-<p>
+<br>
+
+
 ไฟล์ :
 ${item.file}
-</p>
+
+
+<br><br>
+
+
+<button class="delete"
+
+onclick="deleteDoc(${index})">
+
+ลบ
+
+</button>
+
 
 
 </div>
@@ -383,9 +465,35 @@ ${item.file}
 
 
 
-document.getElementById("documentList")
+document.getElementById("list")
 .innerHTML=html;
 
+
+}
+
+
+
+
+
+function deleteDoc(index){
+
+
+
+docs.splice(index,1);
+
+
+
+localStorage.setItem(
+
+"documents",
+
+JSON.stringify(docs)
+
+);
+
+
+
+showList();
 
 
 }
@@ -393,6 +501,8 @@ document.getElementById("documentList")
 
 
 </script>
+
+
 
 
 
