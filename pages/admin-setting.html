@@ -1,18 +1,74 @@
 <!DOCTYPE html>
-
 <html lang="th">
 
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>
-Admin Setting
-</title>
-
+<title>ตั้งค่าระบบ | Rongkhem Smart Village</title>
 
 <link rel="stylesheet" href="../css/style.css">
 
+
+<style>
+
+.container{
+padding:20px;
+}
+
+.header{
+
+background:#198754;
+color:white;
+padding:25px;
+border-radius:15px;
+
+}
+
+
+.card{
+
+background:white;
+padding:20px;
+margin-top:20px;
+border-radius:15px;
+box-shadow:0 3px 10px #ddd;
+
+}
+
+
+input,textarea{
+
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:10px;
+border:1px solid #ccc;
+
+}
+
+
+button{
+
+background:#198754;
+color:white;
+padding:12px 20px;
+border:none;
+border-radius:10px;
+
+}
+
+
+.logo{
+
+width:120px;
+border-radius:20px;
+
+}
+
+
+</style>
 
 </head>
 
@@ -20,25 +76,25 @@ Admin Setting
 <body>
 
 
+<div class="container">
 
-<header class="hero">
 
+
+<div class="header">
 
 <h1>
-⚙ ตั้งค่าระบบ
+⚙️ ตั้งค่าระบบหมู่บ้าน
 </h1>
 
-
 <p>
-บ้านร่องเข็ม Smart Village
+🏡 Rongkhem Smart Village
 </p>
 
-
-</header>
-
+</div>
 
 
-<section class="dashboard">
+
+
 
 
 
@@ -50,14 +106,46 @@ Admin Setting
 </h2>
 
 
-<div id="village-setting">
+<label>
+ชื่อหมู่บ้าน
+</label>
 
-กำลังโหลด...
+<input value="บ้านร่องเข็ม">
+
+
+<label>
+หมู่ที่
+</label>
+
+<input value="6">
+
+
+<label>
+ตำบล
+</label>
+
+<input value="จำป่าหวาย">
+
+
+<label>
+อำเภอ
+</label>
+
+<input value="เมือง">
+
+
+<label>
+จังหวัด
+</label>
+
+<input value="พะเยา">
+
 
 </div>
 
 
-</div>
+
+
 
 
 
@@ -66,16 +154,28 @@ Admin Setting
 
 
 <h2>
-👤 ผู้ดูแลระบบ
+🖼️ โลโก้หมู่บ้าน
 </h2>
 
 
-<div id="admin-setting">
+<img class="logo" src="../images/logo.svg">
+
+
+<br><br>
+
+
+<button>
+
+เปลี่ยนโลโก้
+
+</button>
+
 
 </div>
 
 
-</div>
+
+
 
 
 
@@ -84,26 +184,200 @@ Admin Setting
 
 
 <h2>
-🔐 สิทธิ์ผู้ใช้งาน
+📍 ตำแหน่งหมู่บ้าน
 </h2>
 
 
-<div id="user-role">
+<textarea rows="4">
+
+บ้านร่องเข็ม หมู่ที่ 6
+ตำบลจำป่าหวาย
+อำเภอเมือง จังหวัดพะเยา
+
+</textarea>
+
+
+<br>
+
+
+<button>
+
+บันทึกตำแหน่ง
+
+</button>
+
 
 </div>
 
 
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+☎️ ช่องทางติดต่อ
+</h2>
+
+
+<label>
+โทรศัพท์หมู่บ้าน
+</label>
+
+
+<input placeholder="กรอกเบอร์โทรศัพท์">
+
+
+<label>
+Facebook Page
+</label>
+
+
+<input placeholder="ลิงก์ Facebook">
+
+
+<label>
+Line Official
+</label>
+
+
+<input placeholder="Line OA">
+
+
 </div>
 
 
 
-</section>
 
 
 
 
-<script src="../js/setting-admin.js"></script>
 
+<div class="card">
+
+
+<h2>
+🔔 ตั้งค่าการแจ้งเตือน
+</h2>
+
+
+<label>
+
+<input type="checkbox" checked>
+
+แจ้งเตือนข่าวประชาสัมพันธ์
+
+</label>
+
+<br>
+
+
+<label>
+
+<input type="checkbox" checked>
+
+แจ้งเตือนกิจกรรมหมู่บ้าน
+
+</label>
+
+
+<br>
+
+
+<label>
+
+<input type="checkbox" checked>
+
+แจ้งเตือนเรื่องร้องเรียน
+
+</label>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+💾 สำรองข้อมูลระบบ
+</h2>
+
+
+<p>
+
+สำรองข้อมูล:
+
+</p>
+
+
+<ul>
+
+<li>👥 ข้อมูลประชาชน</li>
+
+<li>🏠 ข้อมูลครัวเรือน</li>
+
+<li>📋 โครงการ</li>
+
+<li>💰 งบประมาณ</li>
+
+<li>📄 เอกสาร</li>
+
+</ul>
+
+
+<button>
+
+สำรองข้อมูล
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+🔒 ความปลอดภัย
+</h2>
+
+
+<ul>
+
+<li>เปลี่ยนรหัสผ่านผู้ดูแลระบบ</li>
+
+<li>จัดการสิทธิ์ผู้ใช้งาน</li>
+
+<li>บันทึกประวัติการใช้งาน</li>
+
+</ul>
+
+
+</div>
+
+
+
+
+
+</div>
 
 
 </body>
