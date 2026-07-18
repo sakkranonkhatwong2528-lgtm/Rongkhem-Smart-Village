@@ -1,18 +1,100 @@
 <!DOCTYPE html>
-
 <html lang="th">
 
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>
-Admin Household
-</title>
-
+<title>ทะเบียนครัวเรือน | Rongkhem Smart Village</title>
 
 <link rel="stylesheet" href="../css/style.css">
 
+
+<style>
+
+.container{
+padding:20px;
+}
+
+
+.header{
+
+background:linear-gradient(135deg,#198754,#0d6efd);
+color:white;
+padding:25px;
+border-radius:15px;
+
+}
+
+
+.card{
+
+background:white;
+padding:20px;
+margin-top:20px;
+border-radius:15px;
+box-shadow:0 3px 10px #ddd;
+
+}
+
+
+.grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
+
+}
+
+
+.box{
+
+background:#f8f9fa;
+padding:20px;
+border-radius:15px;
+text-align:center;
+
+}
+
+
+.number{
+
+font-size:35px;
+font-weight:bold;
+color:#198754;
+
+}
+
+
+table{
+
+width:100%;
+border-collapse:collapse;
+
+}
+
+
+th,td{
+
+border:1px solid #ddd;
+padding:10px;
+
+}
+
+
+button{
+
+background:#198754;
+color:white;
+border:none;
+padding:10px 20px;
+border-radius:10px;
+
+}
+
+
+</style>
 
 </head>
 
@@ -20,7 +102,11 @@ Admin Household
 <body>
 
 
-<header class="hero">
+<div class="container">
+
+
+<div class="header">
+
 
 <h1>
 🏠 ระบบทะเบียนครัวเรือน
@@ -28,33 +114,18 @@ Admin Household
 
 
 <p>
-บ้านร่องเข็ม Smart Village
+🏡 Rongkhem Smart Village
+<br>
+ฐานข้อมูลครอบครัวบ้านร่องเข็ม
+
 </p>
 
 
-</header>
-
-
-
-<section class="dashboard">
-
-
-
-<div class="card">
-
-<h2>
-📊 สรุปครัวเรือน
-</h2>
-
-
-<div id="house-summary">
-
-กำลังโหลด...
-
 </div>
 
 
-</div>
+
+
 
 
 
@@ -63,56 +134,170 @@ Admin Household
 
 
 <h2>
-🏠 รายละเอียดครัวเรือน
+📊 ภาพรวมครัวเรือน
 </h2>
 
 
+<div class="grid">
 
-<table width="100%" border="1">
+
+<div class="box">
+
+🏠
+
+<h3>
+จำนวนบ้าน
+
+</h3>
+
+<div class="number">
+-
+
+</div>
+
+หลัง
 
 
-<thead>
+</div>
+
+
+
+
+<div class="box">
+
+👥
+
+<h3>
+สมาชิกทั้งหมด
+
+</h3>
+
+<div class="number">
+202
+
+</div>
+
+คน
+
+
+</div>
+
+
+
+
+<div class="box">
+
+🤝
+
+<h3>
+ครัวเรือนเปราะบาง
+
+</h3>
+
+<div class="number">
+-
+
+</div>
+
+หลัง
+
+
+</div>
+
+
+
+
+<div class="box">
+
+📍
+
+<h3>
+มีพิกัด GPS
+
+</h3>
+
+<div class="number">
+-
+
+</div>
+
+หลัง
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+🏘️ รายการครัวเรือน
+</h2>
+
+
+<table>
+
 
 <tr>
 
 <th>
 บ้านเลขที่
+
 </th>
 
 <th>
 เจ้าบ้าน
+
 </th>
 
 <th>
 สมาชิก
-</th>
 
-<th>
-ผู้สูงอายุ
-</th>
-
-<th>
-เปราะบาง
-</th>
-
-<th>
-น้ำประปา
 </th>
 
 <th>
 สถานะ
-</th>
 
+</th>
 
 </tr>
 
 
-</thead>
+<tr>
 
+<td>
+ข้อมูลจาก household.json
 
-<tbody id="house-table">
+</td>
 
-</tbody>
+<td>
+-
+
+</td>
+
+<td>
+-
+
+</td>
+
+<td>
+ปกติ
+
+</td>
+
+</tr>
 
 
 </table>
@@ -121,11 +306,129 @@ Admin Household
 </div>
 
 
-</section>
 
 
 
-<script src="../js/household-admin.js"></script>
+
+
+
+<div class="card">
+
+
+<h2>
+👨‍👩‍👧 สมาชิกในบ้าน
+</h2>
+
+
+<ul>
+
+<li>
+แสดงรายชื่อสมาชิก
+</li>
+
+<li>
+อายุ
+</li>
+
+<li>
+อาชีพ
+</li>
+
+<li>
+สถานะสุขภาพ
+
+</li>
+
+
+</ul>
+
+
+<button>
+
+ดูสมาชิก
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+💧⚡ ระบบสาธารณูปโภค
+</h2>
+
+
+<ul>
+
+<li>
+ข้อมูลน้ำประปาหมู่บ้าน
+
+</li>
+
+<li>
+ข้อมูลมิเตอร์น้ำ
+
+</li>
+
+<li>
+ข้อมูลไฟฟ้า
+
+</li>
+
+<li>
+ปัญหาสาธารณูปโภค
+
+</li>
+
+
+</ul>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+📄 รายงานครัวเรือน
+</h2>
+
+
+<button>
+
+Export PDF
+
+</button>
+
+
+<button>
+
+Export Excel
+
+</button>
+
+
+</div>
+
+
+
+</div>
 
 
 </body>
