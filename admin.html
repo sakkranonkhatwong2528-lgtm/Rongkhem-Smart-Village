@@ -4,10 +4,11 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>
-เข้าสู่ระบบผู้ดูแล | บ้านร่องเข็ม Smart Village
+Admin Center | บ้านร่องเข็ม Smart Village
 </title>
 
 
@@ -17,82 +18,108 @@ body{
 
 margin:0;
 font-family:Tahoma,sans-serif;
-background:#e3f2fd;
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
+background:#f1f8e9;
 
 }
 
 
-.login{
+header{
 
-background:white;
-width:350px;
-padding:30px;
-border-radius:25px;
-box-shadow:0 5px 15px #aaa;
+background:#2e7d32;
+color:white;
+padding:25px;
 text-align:center;
 
 }
 
 
-.logo{
+.container{
 
-width:100px;
-
-}
-
-
-h1{
-
-color:#1565c0;
+padding:20px;
 
 }
 
 
-input{
+.user-box{
 
-width:100%;
-padding:12px;
-margin:10px 0;
-border-radius:10px;
-border:1px solid #ccc;
-box-sizing:border-box;
+background:white;
+padding:20px;
+border-radius:20px;
+margin-bottom:20px;
+box-shadow:0 3px 10px #ccc;
 
 }
+
+
+
+.menu-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:20px;
+
+}
+
+
+
+.card{
+
+background:white;
+
+padding:25px;
+
+border-radius:20px;
+
+text-align:center;
+
+text-decoration:none;
+
+color:#333;
+
+box-shadow:0 4px 10px #ccc;
+
+}
+
+
+
+.card:hover{
+
+transform:translateY(-5px);
+
+}
+
+
+
+.icon{
+
+font-size:45px;
+
+}
+
 
 
 button{
 
-background:#1565c0;
+background:#c62828;
+
 color:white;
-padding:12px 30px;
+
 border:none;
+
+padding:12px 25px;
+
 border-radius:20px;
-font-size:16px;
+
+cursor:pointer;
 
 }
 
-
-.back{
-
-margin-top:20px;
-
-}
-
-
-.back a{
-
-color:#1565c0;
-text-decoration:none;
-
-}
 
 
 </style>
-
 
 </head>
 
@@ -100,91 +127,256 @@ text-decoration:none;
 <body>
 
 
-<div class="login">
 
-
-<img src="logo.svg" class="logo">
+<header>
 
 
 <h1>
-🔐 ผู้ดูแลหมู่บ้าน
+⚙️ Admin Center
 </h1>
 
 
 <p>
-บ้านร่องเข็ม Smart Village
+ระบบบริหารจัดการหมู่บ้านอัจฉริยะ
 </p>
 
 
-
-<input type="text"
-id="username"
-placeholder="ชื่อผู้ใช้งาน">
+</header>
 
 
-<input type="password"
-id="password"
-placeholder="รหัสผ่าน">
 
 
-<button onclick="login()">
+<div class="container">
 
-เข้าสู่ระบบ
+
+
+<div class="user-box">
+
+
+<h2 id="welcome">
+
+กำลังตรวจสอบ...
+
+</h2>
+
+
+
+<button onclick="logout()">
+
+🚪 ออกจากระบบ
 
 </button>
 
 
 
-<div class="back">
+</div>
 
-<a href="index.html">
-🏠 กลับหน้าแรก
+
+
+
+
+
+<div class="menu-grid">
+
+
+
+<a href="admin/manage-leaders.html"
+class="card">
+
+<div class="icon">
+👥
+</div>
+
+<h3>
+จัดการผู้นำ
+</h3>
+
 </a>
 
+
+
+
+
+<a href="admin-news.html"
+class="card">
+
+<div class="icon">
+📰
+</div>
+
+<h3>
+จัดการข่าว
+</h3>
+
+</a>
+
+
+
+
+
+<a href="admin-activities.html"
+class="card">
+
+<div class="icon">
+📅
+</div>
+
+<h3>
+จัดการกิจกรรม
+</h3>
+
+</a>
+
+
+
+
+
+<a href="admin-health.html"
+class="card">
+
+<div class="icon">
+🩺
+</div>
+
+<h3>
+ระบบสุขภาพ
+</h3>
+
+</a>
+
+
+
+
+
+<a href="admin-complaint.html"
+class="card">
+
+<div class="icon">
+📝
+</div>
+
+<h3>
+ร้องเรียนชุมชน
+</h3>
+
+</a>
+
+
+
+
+
+<a href="admin-security.html"
+class="card">
+
+<div class="icon">
+🛡
+</div>
+
+<h3>
+ความปลอดภัย
+</h3>
+
+</a>
+
+
+
+</div>
+
+
 </div>
 
 
 
-</div>
+
 
 
 
 <script>
-function login(){
-
-let username =
-document.getElementById("username").value;
 
 
-let password =
-document.getElementById("password").value;
+// ตรวจสอบ Login
+
+
+let loginUser =
+
+localStorage.getItem(
+"loginUser"
+);
 
 
 
-if(username=="admin" && password=="123456"){
+
+if(!loginUser){
 
 
-localStorage.setItem(
-"login",
-"true"
+alert(
+"กรุณาเข้าสู่ระบบก่อน"
 );
 
 
 window.location.href=
-"admin-dashboard.html";
+"login.html";
 
 
 }
+
+
+
 
 else{
 
 
-alert(
-"ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง"
+let user=
+
+JSON.parse(loginUser);
+
+
+
+document
+.getElementById("welcome")
+.innerHTML=
+
+`
+👋 ยินดีต้อนรับ
+<br>
+${user.name}
+<br>
+สิทธิ์ : ${user.role}
+`;
+
+
+
+}
+
+
+
+
+
+
+
+function logout(){
+
+
+
+localStorage.removeItem(
+"loginUser"
 );
 
 
+
+window.location.href=
+"login.html";
+
+
+
 }
 
 
-}
+
+</script>
+
+
+
+</body>
+
+</html>
