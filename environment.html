@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>
-ระบบสิ่งแวดล้อม | บ้านร่องเข็ม Smart Village
+สิ่งแวดล้อมชุมชน | บ้านร่องเข็ม Smart Village
 </title>
 
 
@@ -17,17 +17,17 @@ body{
 
 margin:0;
 font-family:Tahoma,sans-serif;
-background:#e0f2f1;
+background:#e8f5e9;
 
 }
 
 
 header{
 
-background:#00695c;
+background:#33691e;
 color:white;
+padding:35px;
 text-align:center;
-padding:30px;
 
 }
 
@@ -39,40 +39,29 @@ padding:20px;
 }
 
 
-.card{
-
-background:white;
-padding:20px;
-margin-bottom:20px;
-border-radius:20px;
-box-shadow:0 4px 12px #bbb;
-
-}
-
-
-.card h2{
-
-color:#00695c;
-
-}
-
-
-.stat{
+.dashboard{
 
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:20px;
 
 }
 
 
-.box{
+.card{
 
 background:white;
-padding:20px;
-border-radius:20px;
+padding:25px;
+border-radius:25px;
+box-shadow:0 4px 12px #ccc;
 text-align:center;
-box-shadow:0 4px 10px #ccc;
+
+}
+
+
+.icon{
+
+font-size:45px;
 
 }
 
@@ -81,7 +70,18 @@ box-shadow:0 4px 10px #ccc;
 
 font-size:35px;
 font-weight:bold;
-color:#00695c;
+color:#33691e;
+
+}
+
+
+.section{
+
+background:white;
+padding:25px;
+margin-top:25px;
+border-radius:25px;
+box-shadow:0 4px 12px #ccc;
 
 }
 
@@ -96,7 +96,7 @@ margin:30px;
 
 .back a{
 
-background:#00695c;
+background:#33691e;
 color:white;
 padding:12px 25px;
 border-radius:20px;
@@ -109,14 +109,14 @@ text-decoration:none;
 </head>
 
 
-
 <body>
+
 
 
 <header>
 
 <h1>
-🌳 ระบบสิ่งแวดล้อมชุมชน
+🌱 สิ่งแวดล้อมชุมชน
 </h1>
 
 <p>
@@ -128,20 +128,28 @@ text-decoration:none;
 
 
 
+
+
 <div class="container">
+
+
+
+<div class="dashboard">
 
 
 
 <div class="card">
 
-<h2>
-🌱 แผนจัดการทรัพยากรธรรมชาติบ้านร่องเข็ม
-</h2>
+<div class="icon">
+🌫
+</div>
+
+<div class="number" id="pm">
+-
+</div>
 
 <p>
-ชุมชนร่วมกันอนุรักษ์ทรัพยากรธรรมชาติ
-ดูแลป่า แหล่งน้ำ และระบบนิเวศ
-เพื่อสร้างความสมดุลระหว่างคนกับธรรมชาติ
+สถานการณ์ PM2.5
 </p>
 
 </div>
@@ -151,16 +159,82 @@ text-decoration:none;
 
 
 <div class="card">
+
+<div class="icon">
+🔥
+</div>
+
+<div class="number" id="burn">
+-
+</div>
+
+<p>
+การเผาในพื้นที่
+</p>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<div class="icon">
+🌳
+</div>
+
+<div class="number" id="green">
+-
+</div>
+
+<p>
+พื้นที่สีเขียว
+</p>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<div class="icon">
+♻️
+</div>
+
+<div class="number" id="waste">
+-
+</div>
+
+<p>
+การจัดการขยะ
+</p>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+<div class="section">
 
 <h2>
 💧 แหล่งซับน้ำจำ
 </h2>
 
 <p>
-แหล่งน้ำธรรมชาติสำคัญของชุมชน
-เป็นพื้นที่อนุรักษ์ความหลากหลายทางชีวภาพ
-เป็นแหล่งเรียนรู้ด้านสิ่งแวดล้อม
-และช่วยรักษาระบบน้ำในพื้นที่
+
+ชุมชนร่วมกันอนุรักษ์แหล่งน้ำ
+ฟื้นฟูระบบนิเวศ
+และใช้เป็นแหล่งเรียนรู้ธรรมชาติ
+
 </p>
 
 </div>
@@ -169,114 +243,20 @@ text-decoration:none;
 
 
 
-<div class="stat">
 
-
-<div class="box">
-
-<div class="number">
-45.5%
-</div>
-
-<p>
-มีการเผาในช่วงห้ามเผา
-</p>
-
-</div>
-
-
-
-<div class="box">
-
-<div class="number">
-68.3%
-</div>
-
-<p>
-พร้อมเปลี่ยนหากมีทางเลือก
-</p>
-
-</div>
-
-
-
-<div class="box">
-
-<div class="number">
-202
-</div>
-
-<p>
-จำนวนผู้ตอบแบบสำรวจ
-</p>
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-<div class="card">
+<div class="section">
 
 <h2>
-🔥 โครงการลดการเผา ลด PM2.5
-</h2>
-
-<ul>
-
-<li>ประชาสัมพันธ์ช่วงห้ามเผา</li>
-
-<li>ส่งเสริมการทำเกษตรปลอดการเผา</li>
-
-<li>จัดทำแนวกันไฟชุมชน</li>
-
-<li>สร้างความรู้เรื่องผลกระทบฝุ่น PM2.5</li>
-
-</ul>
-
-</div>
-
-
-
-
-
-<div class="card">
-
-<h2>
-♻️ การจัดการขยะชุมชน
+🌱 แนวทางสิ่งแวดล้อมชุมชน
 </h2>
 
 <p>
 
-ส่งเสริมการคัดแยกขยะ
-ลดขยะเปียก
-ทำปุ๋ยหมัก
-และสร้างจิตสำนึกด้านสิ่งแวดล้อม
-
-</p>
-
-</div>
-
-
-
-
-
-<div class="card">
-
-<h2>
-🌿 เป้าหมาย Smart Environment
-</h2>
-
-<p>
-
-บ้านร่องเข็มมุ่งสู่ชุมชนสีเขียว
-มีสิ่งแวดล้อมที่ดี
-ประชาชนมีสุขภาพแข็งแรง
-และใช้ทรัพยากรอย่างยั่งยืน
+- ลดการเผาในที่โล่ง<br>
+- ส่งเสริมการทำปุ๋ยหมัก<br>
+- เพิ่มพื้นที่สีเขียว<br>
+- รักษาคุณภาพน้ำ<br>
+- เฝ้าระวัง PM2.5
 
 </p>
 
@@ -285,6 +265,8 @@ text-decoration:none;
 
 
 </div>
+
+
 
 
 
@@ -292,10 +274,57 @@ text-decoration:none;
 <div class="back">
 
 <a href="index.html">
+
 🏠 กลับหน้าแรก
+
 </a>
 
 </div>
+
+
+
+
+
+
+
+
+<script>
+
+
+let env =
+
+JSON.parse(
+
+localStorage.getItem("environment")
+
+);
+
+
+
+if(env){
+
+
+document.getElementById("pm").innerHTML =
+env.pm;
+
+
+document.getElementById("burn").innerHTML =
+env.burn;
+
+
+document.getElementById("green").innerHTML =
+env.green;
+
+
+document.getElementById("waste").innerHTML =
+env.waste;
+
+
+}
+
+
+
+</script>
 
 
 
