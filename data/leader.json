@@ -1,50 +1,56 @@
 [
-  {
-    "id": 1,
-    "position": "ผู้ใหญ่บ้าน",
-    "name": "นายศักรนนท์ ขัติย์วงศ์",
-    "image": "images/leaders/leader.jpg",
-    "phone": "",
-    "status": "active"
-  },
-  {
-    "id": 2,
-    "position": "ผู้ช่วยผู้ใหญ่บ้าน",
-    "name": "",
-    "image": "images/leaders/default.png",
-    "phone": "",
-    "status": "active"
-  },
-  {
-    "id": 3,
-    "position": "ผู้ช่วยผู้ใหญ่บ้าน",
-    "name": "",
-    "image": "images/leaders/default.png",
-    "phone": "",
-    "status": "active"
-  },
-  {
-    "id": 4,
-    "position": "สมาชิกสภา อบต.",
-    "name": "",
-    "image": "images/leaders/default.png",
-    "phone": "",
-    "status": "active"
-  },
-  {
-    "id": 5,
-    "position": "ประธาน อสม.",
-    "name": "",
-    "image": "images/leaders/default.png",
-    "phone": "",
-    "status": "active"
-  },
-  {
-    "id": 6,
-    "position": "ประธานผู้สูงอายุ",
-    "name": "",
-    "image": "images/leaders/default.png",
-    "phone": "",
-    "status": "active"
-  }
+ {
+  "id":1,
+  "position":"ผู้ใหญ่บ้าน",
+  "name":"นายศักรนนท์ ขัติย์วงศ์",
+  "duty":"ผู้นำหมู่บ้าน",
+  "image":"images/leaders/leader.jpg",
+  "phone":"",
+  "status":"active"
+ },
+ {
+  "id":2,
+  "position":"ผู้ช่วยผู้ใหญ่บ้าน",
+  "name":"อยู่ระหว่างปรับปรุงข้อมูล",
+  "duty":"ฝ่ายปกครอง",
+  "image":"images/leaders/default.png",
+  "phone":"",
+  "status":"active"
+ },
+ {
+  "id":3,
+  "position":"ผู้ช่วยผู้ใหญ่บ้าน",
+  "name":"อยู่ระหว่างปรับปรุงข้อมูล",
+  "duty":"ฝ่ายรักษาความสงบ",
+  "image":"images/leaders/default.png",
+  "phone":"",
+  "status":"active"
+ },
+ {
+  "id":4,
+  "position":"สมาชิกสภา อบต.",
+  "name":"อยู่ระหว่างปรับปรุงข้อมูล",
+  "duty":"ตัวแทนท้องถิ่น",
+  "image":"images/leaders/default.png",
+  "phone":"",
+  "status":"active"
+ },
+ {
+  "id":5,
+  "position":"ประธาน อสม.",
+  "name":"อยู่ระหว่างปรับปรุงข้อมูล",
+  "duty":"ดูแลสุขภาพชุมชน",
+  "image":"images/leaders/default.png",
+  "phone":"",
+  "status":"active"
+ },
+ {
+  "id":6,
+  "position":"ประธานผู้สูงอายุ",
+  "name":"อยู่ระหว่างปรับปรุงข้อมูล",
+  "duty":"ดูแลกลุ่มผู้สูงอายุ",
+  "image":"images/leaders/default.png",
+  "phone":"",
+  "status":"active"
+ }
 ]
