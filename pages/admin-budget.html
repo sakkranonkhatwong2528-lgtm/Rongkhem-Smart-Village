@@ -6,10 +6,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>บริหารงบประมาณหมู่บ้าน | Rongkhem Smart Village</title>
+<title>ระบบงบประมาณ | Rongkhem Smart Village</title>
 
 <link rel="stylesheet" href="../css/style.css">
-
 
 <style>
 
@@ -17,16 +16,14 @@
 padding:20px;
 }
 
-
 .header{
 
-background:#198754;
+background:linear-gradient(135deg,#198754,#ffc107);
 color:white;
 padding:25px;
 border-radius:15px;
 
 }
-
 
 .card{
 
@@ -38,82 +35,48 @@ box-shadow:0 3px 10px #ddd;
 
 }
 
-
-.summary{
+.grid{
 
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:15px;
 
 }
 
-
 .box{
 
+background:#f8f9fa;
 padding:20px;
 border-radius:15px;
-background:#f8f9fa;
 text-align:center;
 
 }
 
+.icon{
 
-.money{
-
-font-size:28px;
-font-weight:bold;
-color:#198754;
+font-size:45px;
 
 }
 
-
-table{
-
-width:100%;
-border-collapse:collapse;
-
-}
-
-
-th{
+button{
 
 background:#198754;
 color:white;
-
-}
-
-
-td,th{
-
-padding:10px;
-border:1px solid #ddd;
-
-}
-
-
-.btn{
-
-background:#198754;
-color:white;
-padding:10px 15px;
+border:none;
+padding:12px 20px;
 border-radius:10px;
-text-decoration:none;
 
 }
-
 
 </style>
 
-
 </head>
-
 
 
 <body>
 
 
 <div class="container">
-
 
 
 <div class="header">
@@ -123,9 +86,10 @@ text-decoration:none;
 </h1>
 
 <p>
-🏡 บ้านร่องเข็ม Smart Village
+🏡 Rongkhem Smart Village
 <br>
-หมู่ที่ 6 ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา
+Smart Budget Management
+
 </p>
 
 </div>
@@ -134,311 +98,147 @@ text-decoration:none;
 
 
 
+
+
+
 <div class="card">
 
-
 <h2>
-📊 สรุปงบประมาณภาพรวม
+📊 ภาพรวมการเงินหมู่บ้าน
 </h2>
 
 
-<div class="summary">
+<div class="grid">
 
 
 <div class="box">
 
-<p>งบประมาณทั้งหมด</p>
-
-<div class="money">
-1,500,000
+<div class="icon">
+💵
 </div>
 
-บาท
+<h3>
+งบประมาณ
 
-</div>
-
-
-
-<div class="box">
-
-<p>ใช้ไปแล้ว</p>
-
-<div class="money">
-650,000
-</div>
-
-บาท
-
-</div>
-
-
-
-<div class="box">
-
-<p>คงเหลือ</p>
-
-<div class="money">
-850,000
-</div>
-
-บาท
-
-</div>
-
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="card">
-
-
-<h2>
-📥 รายการเงินเข้า
-</h2>
-
-
-<a href="#" class="btn">
-
-➕ เพิ่มรายการเงินเข้า
-
-</a>
-
-
-<br><br>
-
-
-<table>
-
-
-<tr>
-
-<th>
-วันที่
-</th>
-
-<th>
-รายการ
-</th>
-
-<th>
-จำนวนเงิน
-</th>
-
-<th>
-แหล่งงบประมาณ
-</th>
-
-</tr>
-
-
-
-<tr>
-
-<td>
-01/01/2569
-</td>
-
-<td>
-งบพัฒนาหมู่บ้าน
-</td>
-
-<td>
-500,000 บาท
-</td>
-
-<td>
-หน่วยงานภาครัฐ
-</td>
-
-</tr>
-
-
-
-<tr>
-
-<td>
-15/02/2569
-</td>
-
-<td>
-กองทุนชุมชน
-</td>
-
-<td>
-100,000 บาท
-</td>
-
-<td>
-หมู่บ้าน
-</td>
-
-</tr>
-
-
-</table>
-
-
-</div>
-
-
-
-
-
-
-
-
-<div class="card">
-
-
-<h2>
-📤 รายการรายจ่าย
-</h2>
-
-
-<table>
-
-
-<tr>
-
-<th>
-วันที่
-</th>
-
-<th>
-รายการ
-</th>
-
-<th>
-จำนวนเงิน
-</th>
-
-<th>
-โครงการ
-</th>
-
-</tr>
-
-
-
-<tr>
-
-<td>
-10/03/2569
-</td>
-
-<td>
-ปรับปรุงแหล่งซับน้ำจำ
-</td>
-
-<td>
-250,000 บาท
-</td>
-
-<td>
-โครงการสิ่งแวดล้อม
-</td>
-
-</tr>
-
-
-
-<tr>
-
-<td>
-20/04/2569
-</td>
-
-<td>
-จัดซื้อวัสดุชุมชน
-</td>
-
-<td>
-50,000 บาท
-</td>
-
-<td>
-พัฒนาหมู่บ้าน
-</td>
-
-</tr>
-
-
-</table>
-
-
-</div>
-
-
-
-
-
-
-
-
-<div class="card">
-
-
-<h2>
-📄 เอกสารหลักฐาน
-</h2>
-
-
-<ul>
-
-<li>📄 ใบเสร็จรับเงิน</li>
-
-<li>📄 ใบสำคัญจ่าย</li>
-
-<li>📄 สัญญาจ้าง</li>
-
-<li>📄 รายงานผลโครงการ</li>
-
-</ul>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="card">
-
-
-<h2>
-🔍 ตรวจสอบย้อนหลัง
-</h2>
-
+</h3>
 
 <p>
-
-สามารถค้นหาตาม:
+รายปี
 
 </p>
+
+</div>
+
+
+
+<div class="box">
+
+<div class="icon">
+📥
+</div>
+
+<h3>
+รายรับ
+
+</h3>
+
+<p>
+เงินเข้าระบบ
+
+</p>
+
+</div>
+
+
+
+<div class="box">
+
+<div class="icon">
+📤
+</div>
+
+<h3>
+รายจ่าย
+
+</h3>
+
+<p>
+ค่าใช้จ่าย
+
+</p>
+
+</div>
+
+
+
+<div class="box">
+
+<div class="icon">
+📈
+</div>
+
+<h3>
+Dashboard
+
+</h3>
+
+<p>
+วิเคราะห์ข้อมูล
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+<h2>
+💵 งบประมาณประจำปี
+
+</h2>
 
 
 <ul>
 
-<li>ปีงบประมาณ</li>
+<li>
+ปีงบประมาณ
 
-<li>ชื่อโครงการ</li>
+</li>
 
-<li>ประเภทเงิน</li>
+<li>
+วงเงินจัดสรร
 
-<li>ผู้รับผิดชอบ</li>
+</li>
+
+<li>
+หน่วยงานสนับสนุน
+
+</li>
+
+<li>
+แผนการใช้จ่าย
+
+</li>
 
 </ul>
+
+
+<button>
+
+เพิ่มงบประมาณ
+
+</button>
 
 
 </div>
@@ -446,6 +246,219 @@ text-decoration:none;
 
 
 
+
+
+
+
+<div class="card">
+
+<h2>
+🏗️ งบประมาณโครงการ
+
+</h2>
+
+
+<ul>
+
+<li>
+ชื่อโครงการ
+
+</li>
+
+<li>
+งบประมาณ
+
+</li>
+
+<li>
+ผู้รับผิดชอบ
+
+</li>
+
+<li>
+สถานะเบิกจ่าย
+
+</li>
+
+</ul>
+
+
+<button>
+
+จัดการโครงการ
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+<h2>
+📥 รายรับหมู่บ้าน
+
+</h2>
+
+
+<ul>
+
+<li>
+เงินสนับสนุน
+
+</li>
+
+<li>
+เงินกองทุน
+
+</li>
+
+<li>
+รายได้กิจกรรมชุมชน
+
+</li>
+
+</ul>
+
+
+<button>
+
+เพิ่มรายรับ
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+<h2>
+📤 รายจ่ายหมู่บ้าน
+
+</h2>
+
+
+<ul>
+
+<li>
+ค่าใช้จ่ายโครงการ
+
+</li>
+
+<li>
+ค่าวัสดุอุปกรณ์
+
+</li>
+
+<li>
+ค่าดำเนินงาน
+
+</li>
+
+<li>
+หลักฐานใบเสร็จ
+
+</li>
+
+</ul>
+
+
+<button>
+
+บันทึกรายจ่าย
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+<h2>
+🔎 ตรวจสอบย้อนหลัง
+
+</h2>
+
+
+<ul>
+
+<li>
+ประวัติการเบิกจ่าย
+
+</li>
+
+<li>
+เอกสารประกอบ
+
+</li>
+
+<li>
+ผู้อนุมัติ
+
+</li>
+
+</ul>
+
+
+<button>
+
+ค้นหาข้อมูล
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+<h2>
+📊 รายงานงบประมาณ
+
+</h2>
+
+
+<button>
+
+สร้างรายงาน
+
+</button>
+
+
+<button>
+
+Export Excel
+
+</button>
+
+
+</div>
 
 
 
