@@ -1,18 +1,100 @@
 <!DOCTYPE html>
-
 <html lang="th">
 
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>
-AI Village Assistant
-</title>
-
+<title>AI ผู้ช่วยหมู่บ้าน | Rongkhem Smart Village</title>
 
 <link rel="stylesheet" href="../css/style.css">
 
+
+<style>
+
+.container{
+padding:20px;
+}
+
+
+.header{
+
+background:linear-gradient(135deg,#198754,#20c997);
+color:white;
+padding:30px;
+border-radius:20px;
+
+}
+
+
+.card{
+
+background:white;
+padding:20px;
+margin-top:20px;
+border-radius:15px;
+box-shadow:0 3px 10px #ddd;
+
+}
+
+
+.grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
+
+}
+
+
+.ai-box{
+
+background:#f8f9fa;
+padding:20px;
+border-radius:15px;
+text-align:center;
+
+}
+
+
+.ai-icon{
+
+font-size:45px;
+
+}
+
+
+button{
+
+background:#198754;
+color:white;
+border:none;
+padding:12px 20px;
+border-radius:10px;
+
+}
+
+
+textarea{
+
+width:100%;
+padding:15px;
+border-radius:10px;
+border:1px solid #ccc;
+
+}
+
+
+.result{
+
+background:#e9f7ef;
+padding:15px;
+border-radius:10px;
+
+}
+
+</style>
 
 </head>
 
@@ -20,26 +102,138 @@ AI Village Assistant
 <body>
 
 
+<div class="container">
 
-<header class="hero">
 
+<div class="header">
 
 <h1>
-🤖 AI ผู้ช่วยหมู่บ้าน
+🤖 AI ผู้ช่วยผู้ใหญ่บ้าน
 </h1>
 
-
 <p>
-บ้านร่องเข็ม Smart Village
+Rongkhem Smart Village
+<br>
+ระบบช่วยบริหารจัดการหมู่บ้านอัจฉริยะ
 </p>
 
-
-</header>
-
+</div>
 
 
 
-<section class="dashboard">
+
+
+
+
+<div class="card">
+
+<h2>
+🧠 เมนู AI อัจฉริยะ
+</h2>
+
+
+<div class="grid">
+
+
+<div class="ai-box">
+
+<div class="ai-icon">
+📊
+</div>
+
+<h3>
+วิเคราะห์ข้อมูลหมู่บ้าน
+</h3>
+
+<p>
+สรุปประชากร สุขภาพ โครงการ
+</p>
+
+<button>
+วิเคราะห์
+</button>
+
+</div>
+
+
+
+
+<div class="ai-box">
+
+<div class="ai-icon">
+📝
+</div>
+
+<h3>
+ช่วยเขียนหนังสือราชการ
+</h3>
+
+<p>
+สร้างหนังสือ คำสั่ง รายงาน
+</p>
+
+<button>
+สร้างเอกสาร
+</button>
+
+</div>
+
+
+
+
+<div class="ai-box">
+
+<div class="ai-icon">
+📋
+</div>
+
+<h3>
+วิเคราะห์ร้องเรียน
+</h3>
+
+<p>
+จัดกลุ่มปัญหาชุมชน
+</p>
+
+<button>
+วิเคราะห์
+</button>
+
+</div>
+
+
+
+
+<div class="ai-box">
+
+<div class="ai-icon">
+🌱
+</div>
+
+<h3>
+แผนพัฒนาหมู่บ้าน
+</h3>
+
+<p>
+ช่วยเสนอแนวทางพัฒนา
+</p>
+
+<button>
+วางแผน
+</button>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
 
 
 
@@ -47,32 +241,30 @@ AI Village Assistant
 
 
 <h2>
-ถามข้อมูลหมู่บ้าน
+💬 ถาม AI ผู้ช่วยหมู่บ้าน
 </h2>
 
 
+<textarea rows="5"
+placeholder="เช่น วิเคราะห์ปัญหาหมู่บ้านจากข้อมูลปัจจุบัน">
 
-<input 
-
-id="question"
-
-placeholder="เช่น ผู้สูงอายุมีกี่คน">
+</textarea>
 
 
-<button onclick="askAI()">
+<br><br>
 
-ค้นหา
+
+<button>
+
+ส่งคำถาม
 
 </button>
 
 
-
-<div id="answer">
-
 </div>
 
 
-</div>
+
 
 
 
@@ -82,32 +274,80 @@ placeholder="เช่น ผู้สูงอายุมีกี่คน">
 
 
 <h2>
-📊 ผู้ช่วยวิเคราะห์ข้อมูล
+📊 ตัวอย่างผลวิเคราะห์ AI
+</h2>
+
+
+<div class="result">
+
+
+<b>
+สรุปสถานการณ์บ้านร่องเข็ม
+</b>
+
+
+<ul>
+
+<li>
+👵 ผู้สูงอายุเป็นกลุ่มหลักของชุมชน
+</li>
+
+<li>
+🌿 แหล่งซับน้ำจำเป็นพื้นที่สำคัญด้านสิ่งแวดล้อม
+</li>
+
+<li>
+🔥 ควรเน้นลดการเผาและ PM2.5
+</li>
+
+<li>
+💧 ควรพัฒนาระบบน้ำและการจัดการทรัพยากร
+</li>
+
+</ul>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+📌 งานที่ AI ช่วยได้
 </h2>
 
 
 <ul>
 
-
 <li>
-สรุปรายงานประชุม
+สรุปรายงานประชุมหมู่บ้าน
 </li>
 
-
 <li>
-วิเคราะห์ปัญหาชุมชน
+จัดทำแผนพัฒนาหมู่บ้าน
 </li>
 
-
 <li>
-จัดทำรายงานผู้ใหญ่บ้าน
+วิเคราะห์แบบสำรวจประชาชน
 </li>
 
-
 <li>
-ช่วยเขียนหนังสือราชการ
+จัดทำข่าวประชาสัมพันธ์
 </li>
 
+<li>
+ช่วยตอบคำถามประชาชน
+</li>
 
 </ul>
 
@@ -116,12 +356,10 @@ placeholder="เช่น ผู้สูงอายุมีกี่คน">
 
 
 
-</section>
 
 
 
-
-<script src="../js/ai-admin.js"></script>
+</div>
 
 
 </body>
