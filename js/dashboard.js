@@ -180,7 +180,25 @@ fetch("data/household.json")
 document.getElementById(
 "household-total"
 ).innerHTML=
+fetch("data/location.json")
 
+.then(res=>res.json())
+
+.then(data=>{
+
+
+document.getElementById(
+"location-count"
+).innerHTML=
+
+`
+
+${data.length}
+จุด
+
+`;
+
+});
 `
 
 ${data.length}
