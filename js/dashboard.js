@@ -221,7 +221,25 @@ x=>x.group=="ผู้สูงอายุ"
 document.getElementById(
 "health-count"
 ).innerHTML=
+fetch("data/vulnerable.json")
 
+.then(res=>res.json())
+
+.then(data=>{
+
+
+document.getElementById(
+"vulnerable-total"
+).innerHTML=
+
+`
+
+${data.length}
+รายการ
+
+`;
+
+});
 `
 
 👴 ผู้สูงอายุ
