@@ -4,7 +4,9 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 
 <title>
 สุขภาพชุมชน | บ้านร่องเข็ม Smart Village
@@ -17,14 +19,14 @@ body{
 
 margin:0;
 font-family:Tahoma,sans-serif;
-background:#e8f5e9;
+background:#e0f2f1;
 
 }
 
 
 header{
 
-background:#2e7d32;
+background:#00796b;
 color:white;
 padding:35px;
 text-align:center;
@@ -39,7 +41,7 @@ padding:20px;
 }
 
 
-.dashboard{
+.grid{
 
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -68,20 +70,20 @@ font-size:45px;
 
 .number{
 
-font-size:40px;
+font-size:35px;
+color:#00796b;
 font-weight:bold;
-color:#2e7d32;
 
 }
+
 
 
 .section{
 
 background:white;
 padding:25px;
-margin-top:25px;
 border-radius:25px;
-box-shadow:0 4px 12px #ccc;
+margin-top:20px;
 
 }
 
@@ -96,7 +98,7 @@ margin:30px;
 
 .back a{
 
-background:#2e7d32;
+background:#00796b;
 color:white;
 padding:12px 25px;
 border-radius:20px;
@@ -105,7 +107,6 @@ text-decoration:none;
 }
 
 </style>
-
 
 </head>
 
@@ -117,14 +118,13 @@ text-decoration:none;
 
 <header>
 
-
 <h1>
 🩺 สุขภาพชุมชน
 </h1>
 
 
 <p>
-บ้านร่องเข็ม Smart Village
+Smart Health Village บ้านร่องเข็ม
 </p>
 
 
@@ -139,28 +139,7 @@ text-decoration:none;
 <div class="container">
 
 
-
-<div class="dashboard">
-
-
-
-<div class="card">
-
-<div class="icon">
-🩺
-</div>
-
-<div class="number" id="osm">
--
-</div>
-
-<p>
-อสม.
-</p>
-
-</div>
-
-
+<div class="grid">
 
 
 
@@ -207,47 +186,44 @@ text-decoration:none;
 <div class="card">
 
 <div class="icon">
-🛏
+👩‍⚕️
 </div>
 
-<div class="number" id="bed">
+<div class="number" id="volunteer">
 -
 </div>
 
 <p>
-ผู้ป่วยติดบ้านติดเตียง
+อสม.
 </p>
 
 </div>
 
 
 
+
+
+<div class="card">
+
+<div class="icon">
+🏠
 </div>
 
-
-
-
-
-
-<div class="section">
-
-
-<h2>
-🏥 การดูแลสุขภาพประชาชน
-</h2>
-
+<div class="number" id="visit">
+-
+</div>
 
 <p>
-
-- อสม. ลงพื้นที่เยี่ยมบ้าน<br>
-- ดูแลผู้สูงอายุ<br>
-- ดูแลกลุ่มเปราะบาง<br>
-- เฝ้าระวังโรคในชุมชน
-
+เยี่ยมบ้าน
 </p>
+
+</div>
+
 
 
 </div>
+
+
 
 
 
@@ -264,18 +240,29 @@ text-decoration:none;
 
 <p>
 
-🩸 ตรวจสุขภาพประชาชน<br>
+✅ อสม. ดูแลสุขภาพประชาชน
 
-🦟 ป้องกันไข้เลือดออก<br>
+<br>
 
-🌫 เฝ้าระวัง PM2.5<br>
+✅ สำรวจกลุ่มผู้สูงอายุและผู้เปราะบาง
 
-💊 ส่งเสริมสุขภาพ
+<br>
+
+✅ เยี่ยมบ้านผู้ป่วยติดบ้านติดเตียง
+
+<br>
+
+✅ เฝ้าระวังโรคในชุมชน
 
 </p>
 
 
+
 </div>
+
+
+
+
 
 
 
@@ -290,14 +277,15 @@ text-decoration:none;
 
 <div class="back">
 
+
 <a href="index.html">
 
 🏠 กลับหน้าแรก
 
 </a>
 
-</div>
 
+</div>
 
 
 
@@ -321,26 +309,28 @@ localStorage.getItem("health")
 if(health){
 
 
-document.getElementById("osm").innerHTML =
-health.osm+" คน";
-
-
-document.getElementById("elder").innerHTML =
+elder.innerHTML =
 health.elder+" คน";
 
 
-document.getElementById("disabled").innerHTML =
+disabled.innerHTML =
 health.disabled+" คน";
 
 
-document.getElementById("bed").innerHTML =
-health.bed+" คน";
+volunteer.innerHTML =
+health.volunteer+" คน";
+
+
+visit.innerHTML =
+health.visit+" หลัง";
 
 
 }
 
 
 </script>
+
+
 
 
 
