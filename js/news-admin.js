@@ -7,11 +7,14 @@ fetch("../data/news.json")
 
 .then(data=>{
 
+
 news=data;
+
 
 showNews();
 
 summary();
+
 
 });
 
@@ -30,95 +33,68 @@ news.forEach(n=>{
 
 html+=`
 
-<tr>
+<div class="card">
 
 
-<td>
+<img
+
+src="../images/news/${n.image}"
+
+width="200">
+
+
+<h3>
+
 ${n.title}
-</td>
+
+</h3>
 
 
-<td>
+<p>
+
+ประเภท:
+
 ${n.category}
-</td>
+
+</p>
 
 
-<td>
-${n.detail}
-</td>
+<p>
 
+วันที่:
 
-<td>
 ${n.date}
-</td>
+
+</p>
 
 
-<td>
+<p>
 
-<select onchange="changeStatus(${n.id},this.value)">
+${n.detail}
 
-
-<option ${n.status=="เผยแพร่"?"selected":""}>
-เผยแพร่
-</option>
+</p>
 
 
-<option ${n.status=="ซ่อน"?"selected":""}>
-ซ่อน
-</option>
+<p>
+
+👁 ${n.views} ครั้ง
+
+</p>
 
 
-</select>
+</div>
 
-
-</td>
-
-
-
-<td>
-
-<button onclick="viewNews(${n.id})">
-
-ดู
-
-</button>
-
-
-</td>
-
-
-
-</tr>
 
 `;
+
+
 
 });
 
 
 document.getElementById(
-"news-table"
+"news-list"
 ).innerHTML=html;
-
-
-}
-
-
-
-
-
-function changeStatus(id,status){
-
-
-let item =
-news.find(
-x=>x.id==id
-);
-
-
-item.status=status;
-
-
-summary();
 
 
 }
@@ -130,13 +106,15 @@ summary();
 function summary(){
 
 
-let total=news.length;
+let total =
+news.length;
 
 
-let publish =
-news.filter(
-x=>x.status=="เผยแพร่"
-).length;
+let views =
+news.reduce(
+(a,b)=>a+b.views,
+0
+);
 
 
 
@@ -147,47 +125,24 @@ document.getElementById(
 `
 
 📰 ข่าวทั้งหมด :
+
 ${total}
+
+ข่าว
+
 
 <br>
 
-🟢 เผยแพร่ :
-${publish}
+
+👁 ผู้เข้าชมรวม :
+
+${views}
+
+ครั้ง
+
 
 `;
 
-
-
-}
-
-
-
-
-
-function viewNews(id){
-
-
-let n =
-news.find(
-x=>x.id==id
-);
-
-
-alert(
-
-`
-หัวข้อ:
-${n.title}
-
-รายละเอียด:
-${n.detail}
-
-วันที่:
-${n.date}
-
-`
-
-);
 
 
 }
