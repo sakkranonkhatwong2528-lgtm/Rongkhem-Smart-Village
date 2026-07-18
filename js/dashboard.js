@@ -160,7 +160,25 @@ x=>x.type=="รายจ่าย"
 document.getElementById(
 "budget-total"
 ).innerHTML=
+fetch("data/elderly.json")
 
+.then(res=>res.json())
+
+.then(data=>{
+
+
+document.getElementById(
+"elderly-total"
+).innerHTML=
+
+`
+
+${data.length}
+คน
+
+`;
+
+});
 `
 
 💰 เงินคงเหลือ
