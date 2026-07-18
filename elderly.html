@@ -4,63 +4,117 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>
-ผู้สูงอายุ | Rongkhem Smart Village
-</title>
 
-<link rel="stylesheet" href="css/style.css">
+<title>
+ผู้สูงอายุและกลุ่มเปราะบาง | บ้านร่องเข็ม Smart Village
+</title>
 
 
 <style>
 
-.table-box{
 
-overflow-x:auto;
+body{
 
-}
-
-
-table{
-
-width:100%;
-
-border-collapse:collapse;
-
-background:white;
+margin:0;
+font-family:Tahoma,sans-serif;
+background:#fff3e0;
 
 }
 
 
-th{
+header{
 
-background:#2e7d32;
-
+background:#ef6c00;
 color:white;
-
-padding:12px;
-
-}
-
-
-td{
-
-padding:12px;
-
-border-bottom:1px solid #ddd;
-
+padding:35px;
 text-align:center;
 
 }
 
 
 
+.container{
+
+padding:20px;
+
+}
+
+
+
+.grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+
+}
+
+
+
+.card{
+
+background:white;
+padding:25px;
+border-radius:25px;
+box-shadow:0 4px 12px #ccc;
+
+}
+
+
+
+.icon{
+
+font-size:45px;
+
+}
+
+
+
+.name{
+
+font-size:22px;
+font-weight:bold;
+color:#ef6c00;
+
+}
+
+
+
+.tag{
+
+background:#fff3e0;
+padding:10px;
+border-radius:15px;
+
+}
+
+
+
+.back{
+
+text-align:center;
+margin:30px;
+
+}
+
+
+.back a{
+
+background:#ef6c00;
+color:white;
+padding:12px 25px;
+border-radius:20px;
+text-decoration:none;
+
+}
+
+
 </style>
 
-</head>
 
+</head>
 
 
 <body>
@@ -70,19 +124,13 @@ text-align:center;
 <header>
 
 
-<div class="logo">
-🏡
-</div>
-
-
 <h1>
-👴 ระบบดูแลผู้สูงอายุ
+👴 กลุ่มผู้สูงอายุและเปราะบาง
 </h1>
 
 
 <p>
-บ้านร่องเข็ม หมู่ที่ 6<br>
-ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา
+ระบบดูแลช่วยเหลือประชาชน บ้านร่องเข็ม
 </p>
 
 
@@ -92,325 +140,166 @@ text-align:center;
 
 
 
-<nav>
 
 
-<a href="admin.html">
-📊 Dashboard
-</a>
+<div class="container">
 
 
-<a href="elderly.html">
-👴 ผู้สูงอายุ
-</a>
+<div class="grid" id="list">
 
 
-<a href="vulnerable.html">
-❤️ กลุ่มเปราะบาง
-</a>
+</div>
 
+
+</div>
+
+
+
+
+
+
+
+
+<div class="back">
 
 <a href="index.html">
-🏡 หน้าแรก
+
+🏠 กลับหน้าแรก
+
 </a>
 
-
-</nav>
-
-
-
-
-
-
-
-<section>
-
-
-<h2>
-📊 สรุปข้อมูลผู้สูงอายุ
-</h2>
-
-
-
-<div class="grid">
-
-
-
-<div class="card">
-
-<h3>
-👴 อายุ 60 ปีขึ้นไป
-</h3>
-
-
-<p class="stat-number">
-91 คน
-</p>
-
-
 </div>
 
 
 
 
+
+
+<script>
+
+
+let data =
+
+JSON.parse(
+
+localStorage.getItem("elderly")
+
+)||[];
+
+
+
+
+
+function show(){
+
+
+let html="";
+
+
+
+if(data.length==0){
+
+
+html=`
+
 <div class="card">
 
-<h3>
-👨 ชาย
-</h3>
-
+<h2>
+ยังไม่มีข้อมูล
+</h2>
 
 <p>
--
-</p>
+กำลังจัดเตรียมข้อมูล
 
+</p>
 
 </div>
 
+`;
+
+}
 
 
+
+data.forEach(function(item){
+
+
+
+html+=`
 
 <div class="card">
 
-<h3>
-👩 หญิง
-</h3>
 
+<div class="icon">
 
-<p>
--
-</p>
-
+${item.type}
 
 </div>
 
 
+<div class="name">
+
+${item.name}
 
 </div>
-
-
-</section>
-
-
-
-
-
-
-
-<section>
-
-
-<h2>
-📋 รายชื่อผู้สูงอายุ
-</h2>
-
-
-
-<div class="table-box">
-
-
-<table>
-
-
-<tr>
-
-
-<th>
-ลำดับ
-</th>
-
-
-<th>
-ชื่อ - นามสกุล
-</th>
-
-
-<th>
-อายุ
-</th>
-
-
-<th>
-เพศ
-</th>
-
-
-<th>
-บ้านเลขที่
-</th>
-
-
-<th>
-ผู้ดูแล
-</th>
-
-
-<th>
-รูปภาพ
-</th>
-
-
-</tr>
-
-
-
-
-
-<tr>
-
-
-<td>
-1
-</td>
-
-
-<td>
--
-</td>
-
-
-<td>
--
-</td>
-
-
-<td>
--
-</td>
-
-
-<td>
--
-</td>
-
-
-<td>
--
-</td>
-
-
-<td>
-📷
-</td>
-
-
-</tr>
-
-
-
-
-
-
-<tr>
-
-
-<td>
-2
-</td>
-
-
-<td>
--
-</td>
-
-
-<td>
--
-</td>
-
-
-<td>
--
-</td>
-
-
-<td>
--
-</td>
-
-
-<td>
--
-</td>
-
-
-<td>
-📷
-</td>
-
-
-</tr>
-
-
-
-
-</table>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-<section>
-
-
-<h2>
-❤️ แนวทางดูแลผู้สูงอายุ
-</h2>
-
-
-<div class="card">
 
 
 <p>
 
-🩺 ส่งเสริมสุขภาพผู้สูงอายุ
-
-<br><br>
-
-👩‍⚕️ การเยี่ยมบ้านโดย อสม.
-
-<br><br>
-
-🤝 ดูแลร่วมกันระหว่างครอบครัว ชุมชน และหน่วยงาน
-
-<br><br>
-
-🌱 ส่งเสริมผู้สูงอายุให้มีคุณภาพชีวิตที่ดี
+🏠 บ้านเลขที่ :
+${item.house}
 
 </p>
 
 
+<p>
+
+ประเภท :
+${item.group}
+
+</p>
+
+
+<p>
+
+การดูแล :
+${item.care}
+
+</p>
+
+
+
+<div class="tag">
+
+🩺 ผู้ดูแล :
+${item.helper}
+
 </div>
 
 
-</section>
+
+</div>
+
+`;
 
 
 
+});
 
 
 
-
-<footer>
-
-
-© 2026 Rongkhem Smart Village
-
-<br>
-
-บ้านร่องเข็ม หมู่ที่ 6 จังหวัดพะเยา
+document.getElementById("list")
+.innerHTML=html;
 
 
-</footer>
+}
 
+
+
+show();
+
+
+</script>
 
 
 </body>
