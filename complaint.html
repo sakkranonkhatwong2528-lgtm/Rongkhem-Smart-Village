@@ -17,17 +17,17 @@ body{
 
 margin:0;
 font-family:Tahoma,sans-serif;
-background:#f3e5f5;
+background:#fff3e0;
 
 }
 
 
 header{
 
-background:#6a1b9a;
+background:#e65100;
 color:white;
-text-align:center;
 padding:30px;
+text-align:center;
 
 }
 
@@ -43,34 +43,17 @@ padding:20px;
 
 background:white;
 padding:25px;
-margin-bottom:20px;
 border-radius:20px;
 box-shadow:0 4px 12px #ccc;
 
 }
 
 
-.card h2{
-
-color:#6a1b9a;
-
-}
-
-
-label{
-
-display:block;
-margin-top:15px;
-font-weight:bold;
-
-}
-
-
-input,select,textarea{
+input,textarea,select{
 
 width:100%;
 padding:12px;
-margin-top:5px;
+margin:10px 0;
 border-radius:10px;
 border:1px solid #ccc;
 box-sizing:border-box;
@@ -80,32 +63,11 @@ box-sizing:border-box;
 
 button{
 
-background:#6a1b9a;
+background:#e65100;
 color:white;
-padding:12px 30px;
 border:none;
+padding:12px 30px;
 border-radius:20px;
-margin-top:20px;
-font-size:16px;
-
-}
-
-
-.issue{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-gap:15px;
-
-}
-
-
-.issue div{
-
-background:#f3e5f5;
-padding:15px;
-border-radius:15px;
-text-align:center;
 
 }
 
@@ -120,7 +82,7 @@ margin:30px;
 
 .back a{
 
-background:#6a1b9a;
+background:#e65100;
 color:white;
 padding:12px 25px;
 border-radius:20px;
@@ -134,6 +96,7 @@ text-decoration:none;
 </head>
 
 
+
 <body>
 
 
@@ -141,7 +104,7 @@ text-decoration:none;
 <header>
 
 <h1>
-📝 ระบบแจ้งปัญหาชุมชน
+📝 แจ้งปัญหาชุมชน
 </h1>
 
 <p>
@@ -153,198 +116,84 @@ text-decoration:none;
 
 
 
+
 <div class="container">
 
 
-
-<div class="card">
-
-<h2>
-📌 แจ้งปัญหาถึงผู้นำชุมชน
-</h2>
-
-<p>
-ประชาชนสามารถแจ้งปัญหา ข้อเสนอแนะ
-หรือเรื่องที่ต้องการให้หมู่บ้านช่วยเหลือ
-เพื่อเข้าสู่ระบบการแก้ไขปัญหา
-</p>
-
-</div>
-
-
-
-
-<div class="card">
-
-<h2>
-ประเภทปัญหา
-</h2>
-
-
-<div class="issue">
-
-<div>
-🚮<br>
-ขยะ
-</div>
-
-
-<div>
-🔥<br>
-การเผา
-</div>
-
-
-<div>
-💡<br>
-ไฟฟ้า
-</div>
-
-
-<div>
-🚧<br>
-ถนน
-</div>
-
-
-<div>
-💧<br>
-น้ำประปา
-</div>
-
-
-<div>
-⚠️<br>
-อื่น ๆ
-</div>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
 <div class="card">
 
 
 <h2>
-📋 แบบฟอร์มแจ้งปัญหา
+📢 ส่งเรื่องแจ้งปัญหา
 </h2>
 
 
-<form>
+
+<input
+id="name"
+placeholder="ชื่อผู้แจ้ง">
 
 
-<label>
-ชื่อผู้แจ้ง
-</label>
 
-<input type="text"
-placeholder="กรอกชื่อ">
+<select id="type">
 
-
-<label>
-เบอร์โทรศัพท์
-</label>
-
-<input type="text"
-placeholder="กรอกเบอร์โทร">
-
-
-<label>
-ประเภทปัญหา
-</label>
-
-<select>
 
 <option>
 เลือกประเภทปัญหา
 </option>
 
-<option>
-ขยะ
-</option>
 
 <option>
-การเผา / PM2.5
+🛣 ถนน
 </option>
 
-<option>
-ไฟฟ้า
-</option>
 
 <option>
-ถนน
+💡 ไฟฟ้า
 </option>
 
+
 <option>
-น้ำประปา
+🚰 น้ำประปา
 </option>
+
+
+<option>
+🗑 ขยะ
+</option>
+
+
+<option>
+🔥 ไฟป่า PM2.5
+</option>
+
 
 <option>
 อื่น ๆ
 </option>
 
+
 </select>
 
 
 
-<label>
-รายละเอียดปัญหา
-</label>
 
-<textarea rows="5"
+<textarea
+id="detail"
+rows="6"
 placeholder="รายละเอียดปัญหา">
 </textarea>
 
 
 
-<label>
-สถานที่เกิดเหตุ
-</label>
+<button onclick="sendComplaint()">
 
-<input type="text"
-placeholder="ระบุสถานที่">
+📨 ส่งเรื่อง
 
-
-<button type="button">
-📨 ส่งเรื่องแจ้ง
 </button>
 
 
-</form>
-
-
 </div>
-
-
-
-
-
-<div class="card">
-
-<h2>
-🔎 ขั้นตอนดำเนินการ
-</h2>
-
-
-<p>
-
-1. ประชาชนแจ้งปัญหา<br>
-2. ผู้นำชุมชนรับเรื่อง<br>
-3. ตรวจสอบพื้นที่<br>
-4. ประสานหน่วยงานที่เกี่ยวข้อง<br>
-5. แจ้งผลการดำเนินงาน
-
-</p>
-
-
-</div>
-
 
 
 </div>
@@ -355,10 +204,90 @@ placeholder="ระบุสถานที่">
 <div class="back">
 
 <a href="index.html">
+
 🏠 กลับหน้าแรก
+
 </a>
 
 </div>
+
+
+
+
+
+
+<script>
+
+
+function sendComplaint(){
+
+
+
+let data={
+
+
+name:
+document.getElementById("name").value,
+
+
+type:
+document.getElementById("type").value,
+
+
+detail:
+document.getElementById("detail").value,
+
+
+status:
+"รับเรื่องแล้ว"
+
+
+};
+
+
+
+if(data.detail==""){
+
+
+alert("กรุณาระบุปัญหา");
+
+
+return;
+
+}
+
+
+
+let complaint=
+
+JSON.parse(
+localStorage.getItem("complaint")
+) || [];
+
+
+
+complaint.push(data);
+
+
+
+localStorage.setItem(
+"complaint",
+JSON.stringify(complaint)
+);
+
+
+
+alert("ส่งเรื่องเรียบร้อย");
+
+
+location.reload();
+
+
+
+}
+
+
+</script>
 
 
 
