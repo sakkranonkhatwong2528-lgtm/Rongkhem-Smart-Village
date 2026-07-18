@@ -4,32 +4,37 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
 <title>
-จัดการผู้นำและคณะทำงาน | บ้านร่องเข็ม Smart Village
+จัดการทำเนียบผู้นำ | บ้านร่องเข็ม Smart Village
 </title>
 
 
 <style>
 
+
 body{
 
 margin:0;
 font-family:Tahoma,sans-serif;
-background:#e8eaf6;
+background:#fff3e0;
 
 }
 
 
+
 header{
 
-background:#283593;
+background:#e65100;
 color:white;
 padding:30px;
 text-align:center;
 
 }
+
 
 
 .container{
@@ -39,25 +44,19 @@ padding:20px;
 }
 
 
+
 .card{
 
 background:white;
 padding:25px;
-border-radius:20px;
+border-radius:25px;
 box-shadow:0 4px 12px #ccc;
-margin-bottom:20px;
 
 }
 
 
-h2{
 
-color:#283593;
-
-}
-
-
-input,select{
+input,textarea,select{
 
 width:100%;
 padding:12px;
@@ -69,25 +68,40 @@ box-sizing:border-box;
 }
 
 
+
 button{
 
-background:#283593;
+background:#e65100;
 color:white;
-border:none;
 padding:12px 30px;
+border:none;
 border-radius:20px;
 
 }
 
 
-.person{
 
-background:#e8eaf6;
+.item{
+
+background:#fff3e0;
 padding:15px;
-border-radius:15px;
 margin-top:15px;
+border-radius:15px;
 
 }
+
+
+
+.delete{
+
+background:#c62828;
+color:white;
+padding:8px 15px;
+border-radius:15px;
+border:none;
+
+}
+
 
 
 .back{
@@ -98,9 +112,10 @@ margin:30px;
 }
 
 
+
 .back a{
 
-background:#283593;
+background:#e65100;
 color:white;
 padding:12px 25px;
 border-radius:20px;
@@ -111,7 +126,10 @@ text-decoration:none;
 
 </style>
 
+
 </head>
+
+
 
 
 <body>
@@ -120,15 +138,19 @@ text-decoration:none;
 
 <header>
 
+
 <h1>
 👥 จัดการทำเนียบผู้นำ
 </h1>
 
+
 <p>
-บ้านร่องเข็ม Smart Village
+Admin บ้านร่องเข็ม Smart Village
 </p>
 
+
 </header>
+
 
 
 
@@ -141,73 +163,122 @@ text-decoration:none;
 <div class="card">
 
 
+
 <h2>
-➕ เพิ่มรายชื่อบุคลากร
+➕ เพิ่มข้อมูลบุคลากร
 </h2>
 
 
 
-<input 
-id="name"
-placeholder="ชื่อ - นามสกุล">
 
+<label>
+ชื่อ - นามสกุล
+</label>
+
+
+<input id="name"
+placeholder="เช่น นายสมชาย ใจดี">
+
+
+
+
+
+<label>
+ตำแหน่ง
+</label>
 
 
 <select id="position">
 
-<option>
-เลือกตำแหน่ง
-</option>
 
 <option>
 ผู้ใหญ่บ้าน
 </option>
 
+
 <option>
 ผู้ช่วยผู้ใหญ่บ้าน
 </option>
 
+
 <option>
-สมาชิก อบต.
+สมาชิกสภา อบต.
 </option>
+
 
 <option>
 ประธาน อสม.
 </option>
 
+
 <option>
 ประธานผู้สูงอายุ
 </option>
+
 
 <option>
 ชรบ.
 </option>
 
+
 <option>
 อปพร.
 </option>
+
 
 <option>
 คณะกรรมการหมู่บ้าน
 </option>
 
+
 <option>
 ที่ปรึกษาผู้ทรงคุณวุฒิ
 </option>
+
 
 </select>
 
 
 
-<input
-id="phone"
-placeholder="เบอร์ติดต่อ">
+
+
+<label>
+หน้าที่รับผิดชอบ
+</label>
+
+
+<textarea
+id="duty"
+rows="4"
+placeholder="รายละเอียดหน้าที่">
+</textarea>
 
 
 
-<input
-id="image"
-placeholder="ชื่อไฟล์รูป เช่น leader1.jpg">
+
+
+<label>
+เบอร์โทรศัพท์
+</label>
+
+
+<input id="phone"
+placeholder="08xxxxxxxx">
+
+
+
+
+
+<label>
+ชื่อไฟล์รูปภาพ
+</label>
+
+
+<input id="image"
+placeholder="เช่น leader1.jpg">
+
+
+
 
 
 
@@ -219,7 +290,11 @@ placeholder="ชื่อไฟล์รูป เช่น leader1.jpg">
 
 
 
+
 </div>
+
+
+
 
 
 
@@ -227,12 +302,13 @@ placeholder="ชื่อไฟล์รูป เช่น leader1.jpg">
 
 <div class="card">
 
+
 <h2>
-📋 รายชื่อคณะทำงาน
+📋 รายชื่อปัจจุบัน
 </h2>
 
 
-<div id="leaderList">
+<div id="list">
 
 </div>
 
@@ -241,7 +317,11 @@ placeholder="ชื่อไฟล์รูป เช่น leader1.jpg">
 
 
 
+
+
 </div>
+
+
 
 
 
@@ -262,10 +342,27 @@ placeholder="ชื่อไฟล์รูป เช่น leader1.jpg">
 
 
 
+
+
+
 <script>
 
 
-showLeader();
+let leaders =
+
+JSON.parse(
+
+localStorage.getItem("leaders")
+
+)||[];
+
+
+
+
+
+showList();
+
+
 
 
 
@@ -273,22 +370,31 @@ function saveLeader(){
 
 
 
-let leader={
+let data={
 
 
 name:
+
 document.getElementById("name").value,
 
 
 position:
+
 document.getElementById("position").value,
 
 
+duty:
+
+document.getElementById("duty").value,
+
+
 phone:
+
 document.getElementById("phone").value,
 
 
 image:
+
 document.getElementById("image").value
 
 
@@ -296,39 +402,27 @@ document.getElementById("image").value
 
 
 
-if(leader.name==""){
 
-alert("กรุณาใส่ชื่อ");
-
-return;
-
-}
-
-
-
-let data=
-
-JSON.parse(
-localStorage.getItem("leader")
-) || [];
-
-
-
-data.push(leader);
+leaders.push(data);
 
 
 
 localStorage.setItem(
-"leader",
-JSON.stringify(data)
+
+"leaders",
+
+JSON.stringify(leaders)
+
 );
+
 
 
 
 alert("เพิ่มข้อมูลเรียบร้อย");
 
 
-location.reload();
+
+showList();
 
 
 
@@ -337,15 +431,8 @@ location.reload();
 
 
 
-function showLeader(){
 
-
-
-let data=
-
-JSON.parse(
-localStorage.getItem("leader")
-) || [];
+function showList(){
 
 
 
@@ -353,37 +440,45 @@ let html="";
 
 
 
-data.forEach(function(item){
+leaders.forEach(function(item,index){
 
 
 
-html += `
+html +=`
 
 
-<div class="person">
+<div class="item">
 
 
-<h3>
-👤 ${item.name}
-</h3>
+<b>
+${item.name}
+</b>
 
 
-<p>
+<br>
+
+
 ตำแหน่ง :
 ${item.position}
-</p>
 
 
-<p>
+<br>
+
+
 โทร :
 ${item.phone}
-</p>
 
 
-<p>
-รูป :
-${item.image}
-</p>
+<br><br>
+
+
+<button class="delete"
+
+onclick="deleteLeader(${index})">
+
+ลบ
+
+</button>
 
 
 
@@ -398,7 +493,7 @@ ${item.image}
 
 
 
-document.getElementById("leaderList")
+document.getElementById("list")
 .innerHTML=html;
 
 
@@ -407,7 +502,36 @@ document.getElementById("leaderList")
 
 
 
+
+
+
+
+function deleteLeader(index){
+
+
+leaders.splice(index,1);
+
+
+localStorage.setItem(
+
+"leaders",
+
+JSON.stringify(leaders)
+
+);
+
+
+showList();
+
+
+}
+
+
+
 </script>
+
+
+
 
 
 
