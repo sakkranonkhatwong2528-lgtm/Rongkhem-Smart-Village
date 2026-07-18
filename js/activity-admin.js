@@ -1,20 +1,14 @@
-let activities=[];
+let aiData=[];
 
 
-fetch("../data/activity.json")
+
+fetch("../data/ai-command.json")
 
 .then(res=>res.json())
 
 .then(data=>{
 
-
-activities=data;
-
-
-showActivity();
-
-summary();
-
+aiData=data;
 
 });
 
@@ -22,101 +16,50 @@ summary();
 
 
 
-function showActivity(){
+function askAI(){
 
 
-let html="";
-
-
-activities.forEach(a=>{
-
-
-html+=`
-
-<tr>
-
-
-<td>
-${a.title}
-</td>
-
-
-<td>
-${a.type}
-</td>
-
-
-<td>
-${a.date}
-</td>
-
-
-<td>
-${a.place}
-</td>
-
-
-<td>
-${a.people}
-คน
-</td>
-
-
-<td>
-${a.result}
-</td>
-
-
-</tr>
-
-
-`;
-
-
-});
-
-
+let q =
 document.getElementById(
-"activity-table"
-).innerHTML=html;
+"question"
+).value;
 
+
+
+let result =
+"ไม่พบข้อมูล";
+
+
+
+aiData.forEach(a=>{
+
+
+if(
+q.includes(
+a.question.substring(0,5)
+)
+){
+
+result=a.answer;
 
 }
 
 
-
-
-
-function summary(){
-
-
-let total =
-activities.length;
-
-
-let people =
-activities.reduce(
-(a,b)=>a+b.people,0
-);
+});
 
 
 
 document.getElementById(
-"activity-summary"
+"answer"
 ).innerHTML=
 
 `
 
-📅 จำนวนกิจกรรม :
-${total}
-กิจกรรม
+🤖 AI:
 
 <br>
 
-👥 ผู้เข้าร่วมรวม :
-${people}
-คน
-
+${result}
 
 `;
 
