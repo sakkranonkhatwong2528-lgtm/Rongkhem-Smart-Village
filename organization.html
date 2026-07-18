@@ -4,45 +4,102 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>
-คณะกรรมการหมู่บ้าน | Rongkhem Smart Village
-</title>
 
-<link rel="stylesheet" href="css/style.css">
+<title>
+องค์กรชุมชน | บ้านร่องเข็ม Smart Village
+</title>
 
 
 <style>
 
-.person{
+body{
+
+margin:0;
+font-family:Tahoma,sans-serif;
+background:#fff8e1;
+
+}
+
+
+header{
+
+background:#795548;
+color:white;
+padding:35px;
 text-align:center;
-}
-
-.person img{
-
-width:150px;
-height:150px;
-
-border-radius:50%;
-
-object-fit:cover;
-
-border:5px solid #81c784;
 
 }
 
 
-.position{
+.container{
 
-color:#2e7d32;
+padding:20px;
 
+}
+
+
+.grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+
+}
+
+
+
+.card{
+
+background:white;
+padding:25px;
+border-radius:25px;
+box-shadow:0 4px 12px #ccc;
+
+}
+
+
+
+.icon{
+
+font-size:45px;
+
+}
+
+
+
+.title{
+
+color:#795548;
+font-size:22px;
 font-weight:bold;
 
 }
 
+
+
+.back{
+
+text-align:center;
+margin:30px;
+
+}
+
+
+
+.back a{
+
+background:#795548;
+color:white;
+padding:12px 25px;
+border-radius:20px;
+text-decoration:none;
+
+}
+
 </style>
+
 
 </head>
 
@@ -50,19 +107,16 @@ font-weight:bold;
 <body>
 
 
+
 <header>
 
-<div class="logo">
-🏡
-</div>
-
 <h1>
-👥 คณะกรรมการหมู่บ้าน
+👥 องค์กรและคณะทำงานหมู่บ้าน
 </h1>
 
+
 <p>
-บ้านร่องเข็ม หมู่ที่ 6<br>
-ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา
+บ้านร่องเข็ม Smart Village
 </p>
 
 
@@ -70,210 +124,156 @@ font-weight:bold;
 
 
 
-<nav>
+
+
+
+
+<div class="container">
+
+
+<div class="grid" id="orgList">
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="back">
 
 <a href="index.html">
-🏡 หน้าแรก
+
+🏠 กลับหน้าแรก
+
 </a>
 
-<a href="leader.html">
-👤 ทำเนียบผู้นำ
-</a>
-
-<a href="organization.html">
-👥 คณะกรรมการ
-</a>
-
-<a href="admin.html">
-📊 ระบบบริหาร
-</a>
-
-</nav>
+</div>
 
 
 
 
 
-<section>
 
+
+<script>
+
+
+let org =
+
+JSON.parse(
+
+localStorage.getItem("organization")
+
+)||[];
+
+
+
+
+
+function showOrg(){
+
+
+let html="";
+
+
+
+if(org.length==0){
+
+
+html=`
+
+<div class="card">
 
 <h2>
-⭐ ที่ปรึกษาผู้ทรงคุณวุฒิ
+ยังไม่มีข้อมูล
 </h2>
 
+<p>
+กำลังจัดเตรียมข้อมูลคณะทำงาน
 
-
-<div class="grid">
-
-
-<div class="card person">
-
-<img src="images/leader/no-image.png">
-
-<h3>
-ชื่อ - นามสกุล
-</h3>
-
-<p class="position">
-ที่ปรึกษาผู้ทรงคุณวุฒิ คนที่ 1
 </p>
 
 </div>
 
+`;
 
 
-<div class="card person">
 
-<img src="images/leader/no-image.png">
+}
 
-<h3>
-ชื่อ - นามสกุล
-</h3>
 
-<p class="position">
-ที่ปรึกษาผู้ทรงคุณวุฒิ คนที่ 2
+
+org.forEach(function(item){
+
+
+
+html +=`
+
+<div class="card">
+
+
+<div class="icon">
+
+${item.icon}
+
+</div>
+
+
+<div class="title">
+
+${item.name}
+
+</div>
+
+
+
+<p>
+
+ตำแหน่ง :
+${item.position}
+
 </p>
 
-</div>
 
 
+<p>
 
-<div class="card person">
+หน้าที่ :
+${item.duty}
 
-<img src="images/leader/no-image.png">
-
-<h3>
-ชื่อ - นามสกุล
-</h3>
-
-<p class="position">
-ที่ปรึกษาผู้ทรงคุณวุฒิ คนที่ 3
 </p>
 
-</div>
-
-
-
-<div class="card person">
-
-<img src="images/leader/no-image.png">
-
-<h3>
-ชื่อ - นามสกุล
-</h3>
-
-<p class="position">
-ที่ปรึกษาผู้ทรงคุณวุฒิ คนที่ 4
-</p>
 
 </div>
 
-
-
-<div class="card person">
-
-<img src="images/leader/no-image.png">
-
-<h3>
-ชื่อ - นามสกุล
-</h3>
-
-<p class="position">
-ที่ปรึกษาผู้ทรงคุณวุฒิ คนที่ 5
-</p>
-
-</div>
-
-
-</div>
-
-
-</section>
+`;
 
 
 
+});
 
 
 
-
-<section>
-
-
-<h2>
-👥 คณะกรรมการหมู่บ้าน
-</h2>
-
-
-<div class="grid">
+document.getElementById("orgList")
+.innerHTML=html;
 
 
 
-<div class="card person">
-
-<img src="images/leader/no-image.png">
-
-<h3>
-ชื่อ - นามสกุล
-</h3>
-
-<p class="position">
-กรรมการหมู่บ้าน
-</p>
-
-</div>
+}
 
 
 
-<div class="card person">
-
-<img src="images/leader/no-image.png">
-
-<h3>
-ชื่อ - นามสกุล
-</h3>
-
-<p class="position">
-กรรมการหมู่บ้าน
-</p>
-
-</div>
+showOrg();
 
 
 
-<div class="card person">
+</script>
 
-<img src="images/leader/no-image.png">
-
-<h3>
-ชื่อ - นามสกุล
-</h3>
-
-<p class="position">
-กรรมการหมู่บ้าน
-</p>
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-<footer>
-
-© 2026 Rongkhem Smart Village
-
-<br>
-
-บ้านร่องเข็ม หมู่ที่ 6 จังหวัดพะเยา
-
-</footer>
 
 
 
