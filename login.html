@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>
-เข้าสู่ระบบผู้ดูแล
+เข้าสู่ระบบ | บ้านร่องเข็ม Smart Village
 </title>
 
 
@@ -16,8 +16,8 @@
 
 body{
 
-font-family:"Sarabun",sans-serif;
-background:#e3f2fd;
+font-family:Tahoma,sans-serif;
+background:#e8f5e9;
 display:flex;
 justify-content:center;
 align-items:center;
@@ -30,10 +30,10 @@ margin:0;
 .login-box{
 
 background:white;
-width:350px;
 padding:30px;
-border-radius:20px;
-box-shadow:0 3px 10px #aaa;
+border-radius:25px;
+width:320px;
+box-shadow:0 5px 20px #ccc;
 text-align:center;
 
 }
@@ -44,7 +44,7 @@ input{
 width:90%;
 padding:12px;
 margin:10px;
-border-radius:10px;
+border-radius:15px;
 border:1px solid #ccc;
 
 }
@@ -52,24 +52,32 @@ border:1px solid #ccc;
 
 button{
 
-width:95%;
-padding:12px;
-background:#1565c0;
+background:#2e7d32;
 color:white;
-border:0;
-border-radius:10px;
-font-size:18px;
+border:none;
+padding:12px 30px;
+border-radius:20px;
+cursor:pointer;
 
 }
 
 
-h2{
+.logo{
 
-color:#1565c0;
+width:100px;
 
 }
+
+
+#error{
+
+color:red;
+
+}
+
 
 </style>
+
 
 </head>
 
@@ -81,24 +89,44 @@ color:#1565c0;
 <div class="login-box">
 
 
+<img 
+src="images/logo.svg"
+class="logo">
+
+
 <h2>
-🔐 Admin Login
+⚙️ ผู้ดูแลระบบ
 </h2>
 
 
 <p>
-Rongkhem Smart Village
+บ้านร่องเข็ม Smart Village
 </p>
 
 
 
-<input id="username"
-placeholder="ชื่อผู้ใช้">
+<input
+
+id="username"
+
+placeholder="ชื่อผู้ใช้"
 
 
-<input id="password"
+>
+
+
+
+<input
+
+id="password"
+
 type="password"
-placeholder="รหัสผ่าน">
+
+placeholder="รหัสผ่าน"
+
+
+>
+
 
 
 
@@ -110,7 +138,8 @@ placeholder="รหัสผ่าน">
 
 
 
-<p id="message"></p>
+<p id="error"></p>
+
 
 
 </div>
@@ -119,54 +148,105 @@ placeholder="รหัสผ่าน">
 
 
 
+
+
 <script>
+
+
+let users=[];
+
+
+
+// โหลด user.json
+
+fetch("data/user.json")
+
+
+.then(res=>res.json())
+
+
+.then(data=>{
+
+
+users=data;
+
+
+})
+
+.catch(err=>{
+
+
+console.error(err);
+
+
+});
+
+
+
+
+
+
 
 
 function login(){
 
 
-let user =
 
-document.getElementById("username").value;
+let username=
 
-
-
-let pass =
-
-document.getElementById("password").value;
+document
+.getElementById("username")
+.value;
 
 
 
-// ตัวอย่างผู้ดูแลระบบ
+let password=
 
-if(
-user=="admin"
+document
+.getElementById("password")
+.value;
+
+
+
+
+
+let user=
+
+users.find(u=>
+
+u.username===username
+
 &&
-pass=="123456"
-){
 
-
-localStorage.setItem(
-
-"login",
-
-"true"
+u.password===password
 
 );
 
 
 
-window.location.href=
-"dashboard.html";
+
+
+if(user){
 
 
 
-}
+localStorage.setItem(
+"loginUser",
+JSON.stringify(user)
+);
 
-else{
 
 
-document.getElementById("message").innerHTML=
+window.location.href="admin.html";
+
+
+
+}else{
+
+
+document
+.getElementById("error")
+.innerHTML=
 
 "❌ ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง";
 
@@ -180,6 +260,7 @@ document.getElementById("message").innerHTML=
 
 
 </script>
+
 
 
 </body>
