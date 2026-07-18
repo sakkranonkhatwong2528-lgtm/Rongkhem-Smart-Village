@@ -280,7 +280,26 @@ fetch("data/vulnerable.json")
 .then(res=>res.json())
 
 .then(data=>{
+fetch("data/notification.json")
 
+.then(res=>res.json())
+
+.then(data=>{
+
+
+document.getElementById(
+"notification-count"
+).innerHTML=
+
+`
+
+${data.length}
+
+รายการ
+
+`;
+
+});
 
 document.getElementById(
 "vulnerable-total"
