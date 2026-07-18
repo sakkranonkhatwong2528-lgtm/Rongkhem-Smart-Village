@@ -131,3 +131,65 @@ loadNews();
 loadActivity();
 
 loadDashboard();
+// ===============================
+// Dashboard หน้าแรก
+// ===============================
+
+
+async function showDashboard(){
+
+
+try{
+
+
+let household =
+await fetch("data/household.json")
+.then(r=>r.json());
+
+
+let citizen =
+await fetch("data/citizen.json")
+.then(r=>r.json());
+
+
+let elderly =
+await fetch("data/elderly.json")
+.then(r=>r.json());
+
+
+let vulnerable =
+await fetch("data/vulnerable.json")
+.then(r=>r.json());
+
+
+
+document.getElementById("household-count").innerHTML =
+household.length;
+
+
+document.getElementById("people-count").innerHTML =
+citizen.length;
+
+
+document.getElementById("elderly-count").innerHTML =
+elderly.length;
+
+
+document.getElementById("vulnerable-count").innerHTML =
+vulnerable.length;
+
+
+
+}
+
+catch(error){
+
+console.log("Dashboard error",error);
+
+}
+
+
+}
+
+
+showDashboard();
