@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+จัดการเรื่องร้องเรียน | บ้านร่องเข็ม Smart Village
+</title>
+
+
+<style>
+
+body{
+
+margin:0;
+font-family:Tahoma,sans-serif;
+background:#fbe9e7;
+
+}
+
+
+header{
+
+background:#c62828;
+color:white;
+padding:30px;
+text-align:center;
+
+}
+
+
+.container{
+
+padding:20px;
+
+}
+
+
+.item{
+
+background:white;
+padding:20px;
+margin-bottom:20px;
+border-radius:20px;
+box-shadow:0 4px 12px #ccc;
+
+}
+
+
+button{
+
+background:#c62828;
+color:white;
+border:none;
+padding:10px 20px;
+border-radius:20px;
+
+}
+
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+
+<header>
+
+<h1>
+🚨 ระบบรับแจ้งปัญหา
+</h1>
+
+<p>
+Admin Center
+</p>
+
+</header>
+
+
+
+<div class="container">
+
+<div id="list">
+
+</div>
+
+
+</div>
+
+
+
+
+
+<script>
+
+
+
+loadComplaint();
+
+
+
+function loadComplaint(){
+
+
+
+let data=
+
+JSON.parse(
+localStorage.getItem("complaint")
+) || [];
+
+
+
+let html="";
+
+
+
+data.forEach(function(item,index){
+
+
+
+html += `
+
+
+<div class="item">
+
+
+<h2>
+
+${item.type}
+
+</h2>
+
+
+<p>
+ผู้แจ้ง :
+${item.name}
+</p>
+
+
+<p>
+
+${item.detail}
+
+</p>
+
+
+<p>
+สถานะ :
+${item.status}
+
+</p>
+
+
+<button onclick="finish(${index})">
+
+✅ ดำเนินการแล้ว
+
+</button>
+
+
+
+</div>
+
+
+`;
+
+
+
+});
+
+
+
+document.getElementById("list")
+.innerHTML=html;
+
+
+
+}
+
+
+
+
+
+function finish(index){
+
+
+let data=
+
+JSON.parse(
+localStorage.getItem("complaint")
+);
+
+
+
+data[index].status=
+"ดำเนินการแล้ว";
+
+
+localStorage.setItem(
+"complaint",
+JSON.stringify(data)
+);
+
+
+
+location.reload();
+
+
+}
+
+
+
+</script>
+
+
+
+</body>
+
+</html>
