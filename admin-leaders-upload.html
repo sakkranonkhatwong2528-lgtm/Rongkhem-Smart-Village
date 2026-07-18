@@ -1,0 +1,109 @@
+let leaders = JSON.parse(
+localStorage.getItem("leaders")
+) || [];
+
+
+function previewImage(event){
+
+let img=document.getElementById("preview");
+
+img.src =
+URL.createObjectURL(
+event.target.files[0]
+);
+
+}
+
+
+
+function saveLeader(){
+
+let data={
+
+id: Date.now(),
+
+name:
+document.getElementById("name").value,
+
+position:
+document.getElementById("position").value,
+
+duty:
+document.getElementById("duty").value,
+
+phone:
+document.getElementById("phone").value,
+
+image:
+document.getElementById("preview").src
+
+};
+
+
+leaders.push(data);
+
+
+localStorage.setItem(
+"leaders",
+JSON.stringify(leaders)
+);
+
+
+show();
+
+
+alert("บันทึกข้อมูลเรียบร้อย");
+
+}
+
+
+
+function show(){
+
+let html="";
+
+
+leaders.forEach(l=>{
+
+
+html+=`
+
+<div class="leader">
+
+<img 
+src="${l.image}"
+class="preview">
+
+<h3>
+${l.position}
+</h3>
+
+<p>
+${l.name}
+</p>
+
+<p>
+${l.duty}
+</p>
+
+<p>
+☎️ ${l.phone}
+</p>
+
+
+</div>
+
+`;
+
+
+});
+
+
+document.getElementById("list").innerHTML=html;
+
+
+}
+
+
+
+show();
