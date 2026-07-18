@@ -15,23 +15,25 @@
 
 <style>
 
+
 body{
 
 margin:0;
 font-family:Tahoma,sans-serif;
-background:#fce4ec;
+background:#f3e5f5;
 
 }
 
 
 header{
 
-background:#ad1457;
+background:#4a148c;
 color:white;
 padding:30px;
 text-align:center;
 
 }
+
 
 
 .container{
@@ -41,31 +43,35 @@ padding:20px;
 }
 
 
+
 .card{
 
 background:white;
 padding:25px;
-border-radius:20px;
+border-radius:25px;
 box-shadow:0 4px 12px #ccc;
 margin-bottom:20px;
 
 }
 
 
-input,select{
+
+input,textarea,select{
 
 width:100%;
 padding:12px;
 margin:10px 0;
 border-radius:10px;
 border:1px solid #ccc;
+box-sizing:border-box;
 
 }
 
 
+
 button{
 
-background:#ad1457;
+background:#4a148c;
 color:white;
 padding:12px 30px;
 border:none;
@@ -74,14 +80,28 @@ border-radius:20px;
 }
 
 
-.image-item{
 
-background:#fce4ec;
+.item{
+
+background:#f3e5f5;
 padding:15px;
 border-radius:15px;
 margin-top:15px;
 
 }
+
+
+
+.delete{
+
+background:#c62828;
+color:white;
+border:none;
+padding:8px 15px;
+border-radius:15px;
+
+}
+
 
 
 .back{
@@ -92,9 +112,10 @@ margin:30px;
 }
 
 
+
 .back a{
 
-background:#ad1457;
+background:#4a148c;
 color:white;
 padding:12px 25px;
 border-radius:20px;
@@ -116,16 +137,20 @@ text-decoration:none;
 
 <header>
 
+
 <h1>
 📸 จัดการคลังภาพ
 </h1>
 
 
 <p>
-บ้านร่องเข็ม Smart Village
+Admin บ้านร่องเข็ม Smart Village
 </p>
 
+
 </header>
+
+
 
 
 
@@ -139,22 +164,32 @@ text-decoration:none;
 
 
 <h2>
-➕ เพิ่มรูปภาพ
+➕ เพิ่มรูปภาพกิจกรรม
 </h2>
 
 
 
+
+<label>
+ชื่อภาพ
+</label>
+
+
 <input
+
 id="title"
-placeholder="ชื่อภาพ">
+
+placeholder="เช่น อนุรักษ์แหล่งซับน้ำจำ">
+
+
+
+
+<label>
+หมวดหมู่
+</label>
 
 
 <select id="category">
-
-
-<option>
-เลือกหมวดภาพ
-</option>
 
 
 <option>
@@ -173,12 +208,7 @@ placeholder="ชื่อภาพ">
 
 
 <option>
-อสม.
-</option>
-
-
-<option>
-ชรบ. / อปพร.
+สุขภาพชุมชน
 </option>
 
 
@@ -187,26 +217,62 @@ placeholder="ชื่อภาพ">
 </option>
 
 
+<option>
+ชรบ. / อปพร.
+</option>
+
+
 </select>
 
 
+
+
+
+<label>
+รายละเอียด
+</label>
+
+
+<textarea
+
+id="detail"
+
+rows="4"
+
+placeholder="รายละเอียดภาพ">
+
+</textarea>
+
+
+
+
+
+<label>
+ชื่อไฟล์รูปภาพ
+</label>
 
 
 <input
 
 id="image"
 
-placeholder="ชื่อไฟล์ภาพ เช่น photo1.jpg">
+placeholder="เช่น subnamjam1.jpg">
 
 
-<button onclick="saveImage()">
 
-💾 บันทึกภาพ
+
+
+<button onclick="saveGallery()">
+
+💾 บันทึกรูปภาพ
 
 </button>
 
 
+
 </div>
+
+
 
 
 
@@ -217,7 +283,7 @@ placeholder="ชื่อไฟล์ภาพ เช่น photo1.jpg">
 
 
 <h2>
-📋 รายการภาพ
+📋 รูปภาพที่มีอยู่
 </h2>
 
 
@@ -231,7 +297,9 @@ placeholder="ชื่อไฟล์ภาพ เช่น photo1.jpg">
 
 
 
+
 </div>
+
 
 
 
@@ -257,26 +325,50 @@ placeholder="ชื่อไฟล์ภาพ เช่น photo1.jpg">
 <script>
 
 
-showImage();
+
+let gallery =
+
+JSON.parse(
+
+localStorage.getItem("gallery")
+
+)||[];
 
 
 
-function saveImage(){
+
+showList();
 
 
 
-let item={
+
+
+
+
+function saveGallery(){
+
+
+
+let data={
 
 
 title:
+
 document.getElementById("title").value,
 
 
 category:
+
 document.getElementById("category").value,
 
 
+detail:
+
+document.getElementById("detail").value,
+
+
 image:
+
 document.getElementById("image").value
 
 
@@ -284,29 +376,26 @@ document.getElementById("image").value
 
 
 
-let data=
 
-JSON.parse(
-localStorage.getItem("gallery")
-)||[];
+gallery.push(data);
 
-
-
-data.push(item);
 
 
 
 localStorage.setItem(
+
 "gallery",
-JSON.stringify(data)
+
+JSON.stringify(gallery)
+
 );
 
 
 
-alert("เพิ่มรูปภาพแล้ว");
+alert("เพิ่มรูปภาพเรียบร้อย");
 
 
-location.reload();
+showList();
 
 
 
@@ -316,14 +405,10 @@ location.reload();
 
 
 
-function showImage(){
 
 
-let data=
 
-JSON.parse(
-localStorage.getItem("gallery")
-)||[];
+function showList(){
 
 
 
@@ -331,36 +416,52 @@ let html="";
 
 
 
-data.forEach(function(item){
+gallery.forEach(function(item,index){
 
 
-html += `
+
+html +=`
+
+<div class="item">
 
 
-<div class="image-item">
+<b>
+${item.title}
+</b>
 
 
-<h3>
-📷 ${item.title}
-</h3>
+<br>
 
 
-<p>
-หมวด:
+หมวดหมู่ :
 ${item.category}
-</p>
 
 
-<p>
-ไฟล์:
+<br>
+
+
+ไฟล์ :
 ${item.image}
-</p>
+
+
+<br><br>
+
+
+
+<button class="delete"
+
+onclick="deleteGallery(${index})">
+
+ลบ
+
+</button>
 
 
 </div>
 
 
 `;
+
 
 
 });
@@ -371,11 +472,45 @@ document.getElementById("list")
 .innerHTML=html;
 
 
+
+}
+
+
+
+
+
+
+
+function deleteGallery(index){
+
+
+
+gallery.splice(index,1);
+
+
+
+localStorage.setItem(
+
+"gallery",
+
+JSON.stringify(gallery)
+
+);
+
+
+
+showList();
+
+
+
 }
 
 
 
 </script>
+
+
+
 
 
 
