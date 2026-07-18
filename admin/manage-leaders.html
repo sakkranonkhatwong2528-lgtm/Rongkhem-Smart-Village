@@ -4,26 +4,29 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ทำเนียบผู้นำ | Rongkhem Smart Village</title>
+<title>
+จัดการผู้นำและคณะทำงาน | บ้านร่องเข็ม Smart Village
+</title>
 
 
 <style>
 
 body{
-font-family:"Sarabun",sans-serif;
-background:#eef7ff;
+
 margin:0;
+font-family:Tahoma,sans-serif;
+background:#e8eaf6;
+
 }
 
 
 header{
 
-background:#1565c0;
+background:#283593;
 color:white;
-padding:20px;
+padding:30px;
 text-align:center;
 
 }
@@ -39,77 +42,74 @@ padding:20px;
 .card{
 
 background:white;
-padding:20px;
-border-radius:15px;
+padding:25px;
+border-radius:20px;
+box-shadow:0 4px 12px #ccc;
 margin-bottom:20px;
-box-shadow:0 2px 8px #ccc;
 
 }
 
 
-input,textarea,select{
+h2{
+
+color:#283593;
+
+}
+
+
+input,select{
 
 width:100%;
-padding:10px;
-margin:8px 0;
-border-radius:8px;
+padding:12px;
+margin:10px 0;
+border-radius:10px;
 border:1px solid #ccc;
+box-sizing:border-box;
 
 }
 
 
 button{
 
-background:#2e7d32;
+background:#283593;
 color:white;
 border:none;
-padding:10px 20px;
-border-radius:8px;
-cursor:pointer;
-
-}
-
-
-.delete{
-
-background:#c62828;
-
-}
-
-
-.people{
-
-display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(220px,1fr));
-gap:15px;
+padding:12px 30px;
+border-radius:20px;
 
 }
 
 
 .person{
 
-background:white;
+background:#e8eaf6;
 padding:15px;
-border-radius:12px;
-box-shadow:0 2px 5px #ccc;
-text-align:center;
+border-radius:15px;
+margin-top:15px;
 
 }
 
 
-.person img{
+.back{
 
-width:140px;
-height:140px;
-border-radius:50%;
-object-fit:cover;
+text-align:center;
+margin:30px;
+
+}
+
+
+.back a{
+
+background:#283593;
+color:white;
+padding:12px 25px;
+border-radius:20px;
+text-decoration:none;
 
 }
 
 
 </style>
-
 
 </head>
 
@@ -117,103 +117,122 @@ object-fit:cover;
 <body>
 
 
+
 <header>
 
-<h2>
-👤 ทำเนียบผู้นำบ้านร่องเข็ม
-</h2>
+<h1>
+👥 จัดการทำเนียบผู้นำ
+</h1>
 
 <p>
-หมู่ที่ 6 ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา
+บ้านร่องเข็ม Smart Village
 </p>
 
 </header>
 
 
 
+
+
 <div class="container">
+
 
 
 <div class="card">
 
 
-<h3>
-➕ เพิ่มข้อมูลผู้นำ
-</h3>
+<h2>
+➕ เพิ่มรายชื่อบุคลากร
+</h2>
 
 
-<input id="name"
+
+<input 
+id="name"
 placeholder="ชื่อ - นามสกุล">
+
 
 
 <select id="position">
 
+<option>
+เลือกตำแหน่ง
+</option>
 
 <option>
 ผู้ใหญ่บ้าน
 </option>
 
-
 <option>
 ผู้ช่วยผู้ใหญ่บ้าน
 </option>
 
-
 <option>
-สมาชิกสภา อบต.
+สมาชิก อบต.
 </option>
-
 
 <option>
 ประธาน อสม.
 </option>
 
-
 <option>
 ประธานผู้สูงอายุ
 </option>
 
+<option>
+ชรบ.
+</option>
+
+<option>
+อปพร.
+</option>
+
+<option>
+คณะกรรมการหมู่บ้าน
+</option>
 
 <option>
 ที่ปรึกษาผู้ทรงคุณวุฒิ
 </option>
 
-
 </select>
 
 
-<input id="image"
-placeholder="ชื่อไฟล์รูป เช่น leader01.jpg">
+
+<input
+id="phone"
+placeholder="เบอร์ติดต่อ">
 
 
-<textarea id="detail"
-placeholder="ประวัติ / หน้าที่รับผิดชอบ">
 
-</textarea>
+<input
+id="image"
+placeholder="ชื่อไฟล์รูป เช่น leader1.jpg">
 
 
-<button onclick="addLeader()">
+
+<button onclick="saveLeader()">
 
 💾 บันทึกข้อมูล
 
 </button>
 
 
+
 </div>
+
 
 
 
 
 <div class="card">
 
+<h2>
+📋 รายชื่อคณะทำงาน
+</h2>
 
-<h3>
-📋 รายชื่อผู้นำ
-</h3>
 
-
-<div id="people"
-class="people">
+<div id="leaderList">
 
 </div>
 
@@ -221,7 +240,24 @@ class="people">
 </div>
 
 
+
 </div>
+
+
+
+
+
+<div class="back">
+
+<a href="admin-dashboard.html">
+
+⚙️ กลับ Dashboard
+
+</a>
+
+</div>
+
+
 
 
 
@@ -229,22 +265,16 @@ class="people">
 <script>
 
 
-let leaders =
-
-JSON.parse(localStorage.getItem("leaders"))
-
-|| [];
+showLeader();
 
 
 
-
-function addLeader(){
-
-
-let data={
+function saveLeader(){
 
 
-id:Date.now(),
+
+let leader={
+
 
 name:
 document.getElementById("name").value,
@@ -254,33 +284,52 @@ position:
 document.getElementById("position").value,
 
 
+phone:
+document.getElementById("phone").value,
+
+
 image:
-document.getElementById("image").value,
-
-
-detail:
-document.getElementById("detail").value
+document.getElementById("image").value
 
 
 };
 
 
-leaders.push(data);
+
+if(leader.name==""){
+
+alert("กรุณาใส่ชื่อ");
+
+return;
+
+}
+
+
+
+let data=
+
+JSON.parse(
+localStorage.getItem("leader")
+) || [];
+
+
+
+data.push(leader);
+
 
 
 localStorage.setItem(
-
-"leaders",
-
-JSON.stringify(leaders)
-
+"leader",
+JSON.stringify(data)
 );
 
 
-showLeader();
+
+alert("เพิ่มข้อมูลเรียบร้อย");
 
 
-alert("บันทึกข้อมูลแล้ว");
+location.reload();
+
 
 
 }
@@ -291,46 +340,51 @@ alert("บันทึกข้อมูลแล้ว");
 function showLeader(){
 
 
-let box=document.getElementById("people");
+
+let data=
+
+JSON.parse(
+localStorage.getItem("leader")
+) || [];
 
 
-box.innerHTML="";
+
+let html="";
 
 
-leaders.forEach(l=>{
+
+data.forEach(function(item){
 
 
-box.innerHTML +=`
+
+html += `
 
 
 <div class="person">
 
 
-<img src="../images/leaders/${l.image}">
-
-
 <h3>
-${l.name}
+👤 ${item.name}
 </h3>
 
 
 <p>
-${l.position}
+ตำแหน่ง :
+${item.position}
 </p>
 
 
 <p>
-${l.detail}
+โทร :
+${item.phone}
 </p>
 
 
-<button class="delete"
+<p>
+รูป :
+${item.image}
+</p>
 
-onclick="deleteLeader(${l.id})">
-
-ลบ
-
-</button>
 
 
 </div>
@@ -338,41 +392,19 @@ onclick="deleteLeader(${l.id})">
 
 `;
 
+
+
 });
 
 
-}
+
+document.getElementById("leaderList")
+.innerHTML=html;
 
 
-
-function deleteLeader(id){
-
-
-leaders=
-
-leaders.filter(
-
-l=>l.id!=id
-
-);
-
-
-localStorage.setItem(
-
-"leaders",
-
-JSON.stringify(leaders)
-
-);
-
-
-showLeader();
 
 }
 
-
-
-showLeader();
 
 
 </script>
