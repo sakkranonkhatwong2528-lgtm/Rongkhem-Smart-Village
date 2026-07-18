@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>
-ระบบสุขภาพชุมชน | บ้านร่องเข็ม Smart Village
+สุขภาพชุมชน | บ้านร่องเข็ม Smart Village
 </title>
 
 
@@ -17,17 +17,17 @@ body{
 
 margin:0;
 font-family:Tahoma,sans-serif;
-background:#fce4ec;
+background:#e8f5e9;
 
 }
 
 
 header{
 
-background:#c2185b;
+background:#2e7d32;
 color:white;
+padding:35px;
 text-align:center;
-padding:30px;
 
 }
 
@@ -39,50 +39,49 @@ padding:20px;
 }
 
 
-.card{
+.dashboard{
 
-background:white;
-padding:20px;
-margin-bottom:20px;
-border-radius:20px;
-box-shadow:0 4px 12px #ccc;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
 
 }
 
 
-.card h2{
+.card{
 
-color:#c2185b;
+background:white;
+padding:25px;
+border-radius:25px;
+box-shadow:0 4px 12px #ccc;
+text-align:center;
+
+}
+
+
+.icon{
+
+font-size:45px;
 
 }
 
 
 .number{
 
-font-size:35px;
+font-size:40px;
 font-weight:bold;
-color:#c2185b;
-text-align:center;
+color:#2e7d32;
 
 }
 
 
-.grid{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
-
-}
-
-
-.item{
+.section{
 
 background:white;
-padding:20px;
-border-radius:20px;
-text-align:center;
-box-shadow:0 4px 10px #ddd;
+padding:25px;
+margin-top:25px;
+border-radius:25px;
+box-shadow:0 4px 12px #ccc;
 
 }
 
@@ -97,7 +96,7 @@ margin:30px;
 
 .back a{
 
-background:#c2185b;
+background:#2e7d32;
 color:white;
 padding:12px 25px;
 border-radius:20px;
@@ -111,21 +110,28 @@ text-decoration:none;
 </head>
 
 
+
 <body>
 
 
 
 <header>
 
+
 <h1>
-🩺 ระบบสุขภาพชุมชน
+🩺 สุขภาพชุมชน
 </h1>
+
 
 <p>
 บ้านร่องเข็ม Smart Village
 </p>
 
+
 </header>
+
+
+
 
 
 
@@ -134,16 +140,22 @@ text-decoration:none;
 
 
 
+<div class="dashboard">
+
+
+
 <div class="card">
 
-<h2>
-👩‍⚕️ อาสาสมัครสาธารณสุขประจำหมู่บ้าน (อสม.)
-</h2>
+<div class="icon">
+🩺
+</div>
+
+<div class="number" id="osm">
+-
+</div>
 
 <p>
-อสม. บ้านร่องเข็ม ทำหน้าที่ดูแลสุขภาพประชาชน
-ลงพื้นที่ติดตามผู้สูงอายุ ผู้ป่วยติดบ้านติดเตียง
-เฝ้าระวังโรค และส่งเสริมสุขภาพชุมชน
+อสม.
 </p>
 
 </div>
@@ -151,41 +163,35 @@ text-decoration:none;
 
 
 
-<div class="grid">
 
+<div class="card">
 
-<div class="item">
+<div class="icon">
+👴
+</div>
 
-<div class="number">
-202
+<div class="number" id="elder">
+-
 </div>
 
 <p>
-จำนวนผู้ตอบแบบสำรวจชุมชน
+ผู้สูงอายุ
 </p>
 
 </div>
 
 
 
-<div class="item">
 
-<div class="number">
-91
+
+<div class="card">
+
+<div class="icon">
+♿
 </div>
 
-<p>
-ผู้สูงอายุ 60 ปีขึ้นไป
-</p>
-
-</div>
-
-
-
-<div class="item">
-
-<div class="number">
-3
+<div class="number" id="disabled">
+-
 </div>
 
 <p>
@@ -196,14 +202,20 @@ text-decoration:none;
 
 
 
-<div class="item">
 
-<div class="number">
-22
+
+<div class="card">
+
+<div class="icon">
+🛏
+</div>
+
+<div class="number" id="bed">
+-
 </div>
 
 <p>
-ผู้สูบบุหรี่
+ผู้ป่วยติดบ้านติดเตียง
 </p>
 
 </div>
@@ -216,70 +228,62 @@ text-decoration:none;
 
 
 
-<div class="card">
+
+<div class="section">
+
 
 <h2>
-👴 กลุ่มเปราะบางในชุมชน
+🏥 การดูแลสุขภาพประชาชน
 </h2>
 
-<ul>
-
-<li>ผู้สูงอายุ 60 ปีขึ้นไป</li>
-
-<li>ผู้พิการ</li>
-
-<li>ผู้ป่วยและผู้ที่ต้องการการดูแล</li>
-
-<li>ครัวเรือนที่ต้องได้รับการช่วยเหลือ</li>
-
-</ul>
-
-</div>
-
-
-
-
-
-<div class="card">
-
-<h2>
-🚑 ระบบช่วยเหลือประชาชน
-</h2>
-
-<p>
-ประสานงานร่วมกันระหว่าง
-ผู้ใหญ่บ้าน อสม. ชรบ. อปพร.
-และหน่วยงานท้องถิ่น
-เพื่อช่วยเหลือประชาชนในกรณีฉุกเฉิน
-</p>
-
-</div>
-
-
-
-
-
-<div class="card">
-
-<h2>
-📊 การส่งเสริมสุขภาพ
-</h2>
 
 <p>
 
-- ตรวจสุขภาพประชาชน<br>
-- เฝ้าระวังโรคไข้เลือดออก<br>
+- อสม. ลงพื้นที่เยี่ยมบ้าน<br>
 - ดูแลผู้สูงอายุ<br>
-- ส่งเสริมการออกกำลังกาย<br>
-- ลดความเสี่ยงจาก PM2.5
+- ดูแลกลุ่มเปราะบาง<br>
+- เฝ้าระวังโรคในชุมชน
 
 </p>
 
+
+</div>
+
+
+
+
+
+
+<div class="section">
+
+
+<h2>
+📋 งานสุขภาพชุมชน
+</h2>
+
+
+<p>
+
+🩸 ตรวจสุขภาพประชาชน<br>
+
+🦟 ป้องกันไข้เลือดออก<br>
+
+🌫 เฝ้าระวัง PM2.5<br>
+
+💊 ส่งเสริมสุขภาพ
+
+</p>
+
+
 </div>
 
 
 
 </div>
+
+
+
+
 
 
 
@@ -287,10 +291,56 @@ text-decoration:none;
 <div class="back">
 
 <a href="index.html">
+
 🏠 กลับหน้าแรก
+
 </a>
 
 </div>
+
+
+
+
+
+
+
+
+<script>
+
+
+let health =
+
+JSON.parse(
+
+localStorage.getItem("health")
+
+);
+
+
+
+if(health){
+
+
+document.getElementById("osm").innerHTML =
+health.osm+" คน";
+
+
+document.getElementById("elder").innerHTML =
+health.elder+" คน";
+
+
+document.getElementById("disabled").innerHTML =
+health.disabled+" คน";
+
+
+document.getElementById("bed").innerHTML =
+health.bed+" คน";
+
+
+}
+
+
+</script>
 
 
 
