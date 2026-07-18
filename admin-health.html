@@ -4,27 +4,31 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
 <title>
-จัดการข้อมูลสุขภาพ | บ้านร่องเข็ม Smart Village
+จัดการสุขภาพชุมชน | บ้านร่องเข็ม Smart Village
 </title>
 
 
 <style>
 
+
 body{
 
 margin:0;
 font-family:Tahoma,sans-serif;
-background:#e8f5e9;
+background:#e0f2f1;
 
 }
 
 
+
 header{
 
-background:#1b5e20;
+background:#00695c;
 color:white;
 padding:30px;
 text-align:center;
@@ -32,11 +36,13 @@ text-align:center;
 }
 
 
+
 .container{
 
 padding:20px;
 
 }
+
 
 
 .card{
@@ -65,7 +71,7 @@ box-sizing:border-box;
 
 button{
 
-background:#1b5e20;
+background:#00695c;
 color:white;
 padding:12px 30px;
 border:none;
@@ -77,7 +83,7 @@ border-radius:20px;
 
 .result{
 
-background:#e8f5e9;
+background:#e0f2f1;
 padding:20px;
 margin-top:20px;
 border-radius:20px;
@@ -97,13 +103,14 @@ margin:30px;
 
 .back a{
 
-background:#1b5e20;
+background:#00695c;
 color:white;
 padding:12px 25px;
 border-radius:20px;
 text-decoration:none;
 
 }
+
 
 
 </style>
@@ -126,7 +133,7 @@ text-decoration:none;
 
 
 <p>
-Admin บ้านร่องเข็ม Smart Village
+Admin Smart Health Village
 </p>
 
 
@@ -152,13 +159,14 @@ Admin บ้านร่องเข็ม Smart Village
 
 
 <label>
-🩺 จำนวน อสม.
+👩‍⚕️ จำนวน อสม.
 </label>
 
-<input 
-id="osm"
+
+<input
+id="volunteer"
 type="number"
-placeholder="เช่น 15">
+placeholder="จำนวน อสม.">
 
 
 
@@ -167,6 +175,7 @@ placeholder="เช่น 15">
 <label>
 👴 จำนวนผู้สูงอายุ
 </label>
+
 
 <input
 id="elder"
@@ -181,6 +190,7 @@ placeholder="จำนวนผู้สูงอายุ">
 ♿ จำนวนผู้พิการ
 </label>
 
+
 <input
 id="disabled"
 type="number"
@@ -191,26 +201,55 @@ placeholder="จำนวนผู้พิการ">
 
 
 <label>
-🛏 ผู้ป่วยติดบ้านติดเตียง
+🏠 จำนวนการเยี่ยมบ้าน
 </label>
 
+
 <input
-id="bed"
+id="visit"
 type="number"
-placeholder="จำนวน">
+placeholder="จำนวนหลังคาเรือน">
 
 
 
 
 
 <label>
-📝 หมายเหตุ / กิจกรรมสุขภาพ
+👥 กลุ่มเปราะบาง
 </label>
 
+
 <textarea
-id="note"
+
+id="vulnerable"
+
 rows="5"
-placeholder="เช่น การเยี่ยมบ้าน การคัดกรองสุขภาพ">
+
+placeholder="
+เช่น ผู้สูงอายุ ผู้ป่วยติดบ้าน เด็กเล็ก
+">
+
+</textarea>
+
+
+
+
+
+<label>
+📝 รายละเอียดงานสุขภาพ
+</label>
+
+
+<textarea
+
+id="detail"
+
+rows="5"
+
+placeholder="
+กิจกรรม อสม. การคัดกรอง การเยี่ยมบ้าน
+">
+
 </textarea>
 
 
@@ -243,6 +282,7 @@ placeholder="เช่น การเยี่ยมบ้าน การค�
 
 
 
+
 <div class="back">
 
 <a href="admin-dashboard.html">
@@ -258,11 +298,15 @@ placeholder="เช่น การเยี่ยมบ้าน การค�
 
 
 
+
+
 <script>
 
 
 
 loadHealth();
+
+
 
 
 
@@ -273,9 +317,9 @@ function saveHealth(){
 let data={
 
 
-osm:
+volunteer:
 
-document.getElementById("osm").value,
+document.getElementById("volunteer").value,
 
 
 elder:
@@ -288,14 +332,19 @@ disabled:
 document.getElementById("disabled").value,
 
 
-bed:
+visit:
 
-document.getElementById("bed").value,
+document.getElementById("visit").value,
 
 
-note:
+vulnerable:
 
-document.getElementById("note").value
+document.getElementById("vulnerable").value,
+
+
+detail:
+
+document.getElementById("detail").value
 
 
 };
@@ -322,7 +371,10 @@ alert("บันทึกข้อมูลสุขภาพเรียบร�
 showHealth();
 
 
+
 }
+
+
 
 
 
@@ -344,15 +396,17 @@ localStorage.getItem("health")
 if(data){
 
 
-document.getElementById("osm").value=data.osm;
+volunteer.value=data.volunteer;
 
-document.getElementById("elder").value=data.elder;
+elder.value=data.elder;
 
-document.getElementById("disabled").value=data.disabled;
+disabled.value=data.disabled;
 
-document.getElementById("bed").value=data.bed;
+visit.value=data.visit;
 
-document.getElementById("note").value=data.note;
+vulnerable.value=data.vulnerable;
+
+detail.value=data.detail;
 
 
 }
@@ -363,6 +417,8 @@ showHealth();
 
 
 }
+
+
 
 
 
@@ -389,29 +445,33 @@ if(!data)return;
 document.getElementById("show").innerHTML=`
 
 <h3>
-ข้อมูลปัจจุบัน
+ข้อมูลสุขภาพปัจจุบัน
 </h3>
 
-<p>
-🩺 อสม. : ${data.osm} คน
-</p>
 
 <p>
-👴 ผู้สูงอายุ : ${data.elder} คน
+👩‍⚕️ อสม. :
+${data.volunteer} คน
 </p>
 
-<p>
-♿ ผู้พิการ : ${data.disabled} คน
-</p>
 
 <p>
-🛏 ผู้ป่วยติดบ้านติดเตียง : ${data.bed} คน
+👴 ผู้สูงอายุ :
+${data.elder} คน
 </p>
 
+
 <p>
-📝 หมายเหตุ :
-${data.note}
+♿ ผู้พิการ :
+${data.disabled} คน
 </p>
+
+
+<p>
+🏠 เยี่ยมบ้าน :
+${data.visit} หลัง
+</p>
+
 
 `;
 
@@ -422,6 +482,9 @@ ${data.note}
 
 
 </script>
+
+
+
 
 
 
