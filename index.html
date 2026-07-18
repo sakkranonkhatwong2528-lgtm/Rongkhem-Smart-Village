@@ -1,16 +1,167 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>บ้านร่องเข็ม Smart Village</title>
 
-<link rel="stylesheet" href="style.css">
+<style>
+
+*{
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+font-family:Tahoma,sans-serif;
+background:#f1f8f5;
+color:#333;
+}
+
+
+/* หัวเว็บ */
+
+.hero{
+
+background:#00695c;
+color:white;
+text-align:center;
+padding:30px 20px;
+
+}
+
+.logo{
+
+width:130px;
+height:130px;
+object-fit:contain;
+
+}
+
+
+/* ภาพหน้าปก */
+
+.cover{
+
+margin:20px;
+background:white;
+padding:20px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 4px 12px #ccc;
+
+}
+
+
+.cover img{
+
+width:100%;
+max-height:400px;
+object-fit:cover;
+border-radius:15px;
+
+}
+
+
+/* เมนู */
+
+.menu{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+gap:15px;
+padding:20px;
+
+}
+
+
+.menu a{
+
+background:white;
+padding:20px;
+border-radius:18px;
+text-align:center;
+text-decoration:none;
+color:#00695c;
+font-size:18px;
+box-shadow:0 4px 10px #ddd;
+
+}
+
+
+/* dashboard */
+
+.info{
+
+padding:20px;
+text-align:center;
+
+}
+
+
+.cards{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:15px;
+
+}
+
+
+.cards div{
+
+background:white;
+padding:20px;
+border-radius:18px;
+box-shadow:0 4px 10px #ddd;
+font-size:18px;
+
+}
+
+
+.cards h3{
+
+font-size:32px;
+color:#00695c;
+margin:10px;
+
+}
+
+
+/* ติดต่อ */
+
+.contact{
+
+margin:20px;
+padding:20px;
+background:white;
+border-radius:20px;
+text-align:center;
+
+}
+
+
+/* footer */
+
+footer{
+
+background:#00695c;
+color:white;
+text-align:center;
+padding:20px;
+
+}
+
+
+</style>
 
 </head>
 
+
 <body>
+
 
 <header class="hero">
 
@@ -31,6 +182,7 @@
 </header>
 
 
+
 <section class="cover">
 
 <img src="images/subnamjam-cover.jpg">
@@ -46,85 +198,94 @@
 </section>
 
 
+
 <section class="menu">
 
+
 <a href="dashboard.html">
-📊
-<br>
+📊<br>
 Dashboard
 </a>
 
+
 <a href="news.html">
-📰
-<br>
+📰<br>
 ข่าวประชาสัมพันธ์
 </a>
 
+
 <a href="activities.html">
-📸
-<br>
+📸<br>
 กิจกรรมหมู่บ้าน
 </a>
 
+
 <a href="leader.html">
-👤
-<br>
+👤<br>
 ทำเนียบผู้นำ
 </a>
 
+
 <a href="subnamjam.html">
-🌱
-<br>
+🌱<br>
 แหล่งซับน้ำจำ
 </a>
 
+
 <a href="ai.html">
-🤖
-<br>
-AI ผู้ช่วยชาวบ้าน
+🤖<br>
+AI ผู้ช่วยหมู่บ้าน
 </a>
+
 
 </section>
 
 
+
 <section class="info">
+
 
 <h2>
 📊 ข้อมูลหมู่บ้าน
 </h2>
 
+
 <div class="cards">
+
 
 <div>
 🏠
-<h3 id="household-count">0</h3>
+<h3>0</h3>
 ครัวเรือน
 </div>
 
 
 <div>
 👥
-<h3 id="people-count">0</h3>
+<h3>0</h3>
 ประชากร
 </div>
 
 
 <div>
 👵
-<h3 id="elderly-count">0</h3>
+<h3>0</h3>
 ผู้สูงอายุ
 </div>
 
 
 <div>
 ❤️
-<h3 id="vulnerable-count">0</h3>
+<h3>0</h3>
 กลุ่มเปราะบาง
 </div>
 
+
 </div>
 
+
 </section>
+
 
 
 <section class="contact">
@@ -134,11 +295,12 @@ AI ผู้ช่วยชาวบ้าน
 </h2>
 
 <p>
-บ้านร่องเข็ม หมู่ที่ 6
-ตำบลจำป่าหวาย จังหวัดพะเยา
+บ้านร่องเข็ม หมู่ที่ 6<br>
+ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา
 </p>
 
 </section>
+
 
 
 <footer>
@@ -146,6 +308,7 @@ AI ผู้ช่วยชาวบ้าน
 © บ้านร่องเข็ม Smart Village
 
 </footer>
+
 
 
 </body>
