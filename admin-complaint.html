@@ -7,6 +7,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
 <title>
 จัดการเรื่องร้องเรียน | บ้านร่องเข็ม Smart Village
 </title>
@@ -14,23 +15,26 @@
 
 <style>
 
+
 body{
 
 margin:0;
 font-family:Tahoma,sans-serif;
-background:#fbe9e7;
+background:#fffde7;
 
 }
 
 
+
 header{
 
-background:#c62828;
+background:#ef6c00;
 color:white;
 padding:30px;
 text-align:center;
 
 }
+
 
 
 .container{
@@ -40,30 +44,84 @@ padding:20px;
 }
 
 
-.item{
+
+.card{
 
 background:white;
-padding:20px;
-margin-bottom:20px;
-border-radius:20px;
+padding:25px;
+border-radius:25px;
 box-shadow:0 4px 12px #ccc;
+margin-bottom:20px;
 
 }
 
 
+
+.item{
+
+background:#fff8e1;
+padding:20px;
+border-radius:20px;
+margin-top:15px;
+
+}
+
+
+
+select,textarea{
+
+width:100%;
+padding:10px;
+margin-top:10px;
+border-radius:10px;
+border:1px solid #ccc;
+
+}
+
+
+
 button{
 
-background:#c62828;
+background:#ef6c00;
 color:white;
 border:none;
-padding:10px 20px;
+padding:10px 25px;
 border-radius:20px;
+margin-top:10px;
+
+}
+
+
+
+.delete{
+
+background:#c62828;
+
+}
+
+
+
+.back{
+
+text-align:center;
+margin:30px;
+
+}
+
+
+
+.back a{
+
+background:#ef6c00;
+color:white;
+padding:12px 25px;
+border-radius:20px;
+text-decoration:none;
 
 }
 
 
 </style>
-
 
 </head>
 
@@ -74,19 +132,35 @@ border-radius:20px;
 
 <header>
 
+
 <h1>
-🚨 ระบบรับแจ้งปัญหา
+📝 จัดการเรื่องร้องเรียน
 </h1>
 
+
 <p>
-Admin Center
+Admin บ้านร่องเข็ม Smart Village
 </p>
+
 
 </header>
 
 
 
+
+
+
+
 <div class="container">
+
+
+<div class="card">
+
+
+<h2>
+📋 รายการแจ้งปัญหา
+</h2>
+
 
 <div id="list">
 
@@ -97,25 +171,56 @@ Admin Center
 
 
 
+</div>
+
+
+
+
+
+
+
+
+<div class="back">
+
+
+<a href="admin-dashboard.html">
+
+⚙️ กลับ Dashboard
+
+</a>
+
+
+</div>
+
+
+
+
+
+
 
 
 <script>
 
 
-
-loadComplaint();
-
-
-
-function loadComplaint(){
-
-
-
-let data=
+let complaints =
 
 JSON.parse(
-localStorage.getItem("complaint")
-) || [];
+
+localStorage.getItem("complaints")
+
+)||[];
+
+
+
+
+showComplaint();
+
+
+
+
+
+
+function showComplaint(){
 
 
 
@@ -123,7 +228,24 @@ let html="";
 
 
 
-data.forEach(function(item,index){
+if(complaints.length==0){
+
+
+html=`
+
+<p>
+ยังไม่มีรายการแจ้งปัญหา
+</p>
+
+`;
+
+
+
+}
+
+
+
+complaints.forEach(function(item,index){
 
 
 
@@ -133,17 +255,10 @@ html += `
 <div class="item">
 
 
-<h2>
+<h3>
+📌 ${item.type}
+</h3>
 
-${item.type}
-
-</h2>
-
-
-<p>
-ผู้แจ้ง :
-${item.name}
-</p>
 
 
 <p>
@@ -153,18 +268,79 @@ ${item.detail}
 </p>
 
 
+
 <p>
-สถานะ :
-${item.status}
+
+📍 สถานที่ :
+${item.location}
 
 </p>
 
 
-<button onclick="finish(${index})">
 
-✅ ดำเนินการแล้ว
+
+
+<label>
+สถานะ
+</label>
+
+
+
+<select onchange="changeStatus(${index},this.value)">
+
+
+<option ${item.status=="รับเรื่องแล้ว"?"selected":""}>
+รับเรื่องแล้ว
+</option>
+
+
+<option ${item.status=="กำลังดำเนินการ"?"selected":""}>
+กำลังดำเนินการ
+</option>
+
+
+<option ${item.status=="เสร็จสิ้น"?"selected":""}>
+เสร็จสิ้น
+</option>
+
+
+
+</select>
+
+
+
+
+
+<label>
+
+ผลการดำเนินงาน
+
+</label>
+
+
+
+<textarea
+
+onchange="saveResult(${index},this.value)"
+
+rows="3">
+
+${item.result||""}
+
+</textarea>
+
+
+
+
+
+<button class="delete"
+
+onclick="deleteComplaint(${index})">
+
+ลบรายการ
 
 </button>
+
 
 
 
@@ -190,29 +366,74 @@ document.getElementById("list")
 
 
 
-function finish(index){
-
-
-let data=
-
-JSON.parse(
-localStorage.getItem("complaint")
-);
 
 
 
-data[index].status=
-"ดำเนินการแล้ว";
+function changeStatus(index,value){
+
+
+
+complaints[index].status=value;
+
+
+
+save();
+
+
+
+}
+
+
+
+
+
+function saveResult(index,value){
+
+
+complaints[index].result=value;
+
+
+save();
+
+
+
+}
+
+
+
+
+
+function deleteComplaint(index){
+
+
+complaints.splice(index,1);
+
+
+save();
+
+
+
+}
+
+
+
+
+
+
+function save(){
 
 
 localStorage.setItem(
-"complaint",
-JSON.stringify(data)
+
+"complaints",
+
+JSON.stringify(complaints)
+
 );
 
 
 
-location.reload();
+showComplaint();
 
 
 }
@@ -220,6 +441,9 @@ location.reload();
 
 
 </script>
+
+
+
 
 
 
