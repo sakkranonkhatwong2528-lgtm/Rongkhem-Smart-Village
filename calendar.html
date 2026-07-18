@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>
-ปฏิทินกิจกรรมหมู่บ้าน | บ้านร่องเข็ม Smart Village
+ปฏิทินกิจกรรม | บ้านร่องเข็ม Smart Village
 </title>
 
 
@@ -24,7 +24,7 @@ background:#fffde7;
 
 header{
 
-background:#f9a825;
+background:#f57f17;
 color:white;
 text-align:center;
 padding:30px;
@@ -61,18 +61,18 @@ color:#f57f17;
 
 background:#f57f17;
 color:white;
-display:inline-block;
 padding:8px 15px;
 border-radius:20px;
+display:inline-block;
 
 }
 
 
-.add{
+.default{
 
 background:#fff3cd;
-padding:20px;
-border-radius:20px;
+padding:15px;
+border-radius:15px;
 
 }
 
@@ -95,11 +95,10 @@ text-decoration:none;
 
 }
 
-
 </style>
 
-
 </head>
+
 
 
 <body>
@@ -121,155 +120,18 @@ text-decoration:none;
 
 
 
+
 <div class="container">
 
 
-
-<div class="event">
-
-<span class="date">
-ทุกเดือน
-</span>
-
-<h2>
-🏡 ประชุมประจำเดือนหมู่บ้าน
-</h2>
-
-<p>
-ประชุมชี้แจงข่าวสาร
-รับฟังความคิดเห็นประชาชน
-และร่วมวางแผนพัฒนาบ้านร่องเข็ม
-</p>
-
-</div>
-
-
-
-
-<div class="event">
-
-<span class="date">
-ตลอดปี
-</span>
-
-<h2>
-🌱 ดูแลแหล่งซับน้ำจำ
-</h2>
-
-<p>
-กิจกรรมอนุรักษ์ทรัพยากรธรรมชาติ
-ฟื้นฟูระบบนิเวศ
-และสร้างพื้นที่เรียนรู้ของชุมชน
-</p>
-
-</div>
-
-
-
-
-<div class="event">
-
-<span class="date">
-ตามประกาศ
-</span>
-
-<h2>
-🩺 กิจกรรม อสม.
-</h2>
-
-<p>
-ตรวจสุขภาพประชาชน
-ดูแลผู้สูงอายุ
-เฝ้าระวังโรคและส่งเสริมสุขภาพ
-</p>
-
-</div>
-
-
-
-
-<div class="event">
-
-<span class="date">
-ตามเทศกาล
-</span>
-
-<h2>
-🛕 กิจกรรมวัดร่องเข็ม
-</h2>
-
-<p>
-กิจกรรมทางพระพุทธศาสนา
-ประเพณีท้องถิ่น
-และกิจกรรมสร้างความสามัคคีในชุมชน
-</p>
-
-</div>
-
-
-
-
-<div class="event">
-
-<span class="date">
-ช่วงฤดูเสี่ยง
-</span>
-
-<h2>
-🔥 กิจกรรมป้องกันไฟป่าและ PM2.5
-</h2>
-
-<p>
-รณรงค์ลดการเผา
-จัดเวรเฝ้าระวัง
-และสร้างความปลอดภัยด้านสิ่งแวดล้อม
-</p>
-
-</div>
-
-
-
-
-<div class="event">
-
-<span class="date">
-เพิ่มภายหลัง
-</span>
-
-<h2>
-📌 กิจกรรมอื่น ๆ
-</h2>
-
-<p>
-พื้นที่สำหรับเพิ่มกิจกรรมสำคัญของหมู่บ้าน
-เช่น งานพัฒนา งานจิตอาสา
-และโครงการต่าง ๆ
-</p>
-
-</div>
-
-
-
-
-<div class="add">
-
-<h2>
-➕ ระบบเพิ่มกิจกรรมในอนาคต
-</h2>
-
-<p>
-
-สามารถต่อยอดเชื่อมกับฐานข้อมูล
-Google Sheet หรือระบบหลังบ้าน
-เพื่อให้ประชาชนติดตามกิจกรรมได้แบบออนไลน์
-
-</p>
-
-</div>
-
+<div id="eventList">
 
 
 </div>
+
+
+</div>
+
 
 
 
@@ -277,10 +139,176 @@ Google Sheet หรือระบบหลังบ้าน
 <div class="back">
 
 <a href="index.html">
+
 🏠 กลับหน้าแรก
+
 </a>
 
 </div>
+
+
+
+
+
+
+
+<script>
+
+
+function loadActivity(){
+
+
+let activity =
+
+JSON.parse(
+localStorage.getItem("activity")
+) || [];
+
+
+
+let html="";
+
+
+
+// กรณียังไม่มีกิจกรรม
+
+if(activity.length==0){
+
+
+html += `
+
+
+<div class="event">
+
+
+<span class="date">
+ทุกเดือน
+</span>
+
+
+<h2>
+🏡 ประชุมประจำเดือนหมู่บ้าน
+</h2>
+
+
+<p>
+ประชุมชี้แจงข่าวสาร
+รับฟังความคิดเห็นประชาชน
+</p>
+
+
+</div>
+
+
+
+<div class="event">
+
+
+<span class="date">
+ตลอดปี
+</span>
+
+
+<h2>
+🌱 ดูแลแหล่งซับน้ำจำ
+</h2>
+
+
+<p>
+กิจกรรมอนุรักษ์ทรัพยากรธรรมชาติ
+และระบบนิเวศชุมชน
+</p>
+
+
+</div>
+
+
+
+`;
+
+
+
+}
+
+
+
+
+// แสดงกิจกรรมจาก Admin
+
+
+activity.reverse();
+
+
+
+activity.forEach(function(item){
+
+
+
+html += `
+
+
+<div class="event">
+
+
+<span class="date">
+
+${item.date}
+
+</span>
+
+
+
+<h2>
+
+📌 ${item.title}
+
+</h2>
+
+
+
+<p>
+
+📍 สถานที่ :
+${item.place}
+
+</p>
+
+
+
+<p>
+
+${item.detail}
+
+</p>
+
+
+
+</div>
+
+
+
+`;
+
+
+
+});
+
+
+
+document.getElementById("eventList")
+.innerHTML=html;
+
+
+
+}
+
+
+
+loadActivity();
+
+
+
+</script>
 
 
 
