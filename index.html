@@ -5,29 +5,40 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>
-Project Management Center
+โครงการพัฒนาหมู่บ้าน | บ้านร่องเข็ม Smart Village
 </title>
-
 
 <link rel="stylesheet" href="../../assets/css/style.css">
 
-
 <style>
+
+body{
+font-family:Tahoma,sans-serif;
+background:#f4f8f6;
+margin:0;
+}
+
+header{
+
+background:#00695c;
+color:white;
+text-align:center;
+padding:30px;
+
+}
 
 .project-grid{
 
 display:grid;
-
 grid-template-columns:
-repeat(auto-fit,minmax(240px,1fr));
+repeat(auto-fit,minmax(260px,1fr));
 
 gap:20px;
 
-padding:30px;
+padding:25px;
 
 }
 
@@ -36,52 +47,92 @@ padding:30px;
 
 background:white;
 
-padding:25px;
-
 border-radius:20px;
 
-box-shadow:0 5px 15px #ccc;
+padding:25px;
+
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+
+}
+
+
+.card h2{
+
+color:#00695c;
 
 }
 
 
 .status{
 
-padding:8px;
-
-border-radius:10px;
+display:inline-block;
 
 background:#e8f5e9;
 
-display:inline-block;
+color:#2e7d32;
+
+padding:8px 15px;
+
+border-radius:20px;
 
 }
 
 
 .progress{
 
+height:18px;
+
 background:#ddd;
 
-height:15px;
+border-radius:20px;
 
-border-radius:10px;
+overflow:hidden;
 
 }
 
 
 .bar{
 
+height:100%;
+
 background:#00897b;
 
-height:15px;
+}
 
-border-radius:10px;
+
+.info{
+
+margin:25px;
+
+}
+
+
+.back{
+
+display:block;
+
+text-align:center;
+
+margin:20px;
+
+}
+
+.back a{
+
+background:#00695c;
+
+color:white;
+
+padding:12px 25px;
+
+border-radius:20px;
+
+text-decoration:none;
 
 }
 
 
 </style>
-
 
 </head>
 
@@ -96,173 +147,134 @@ border-radius:10px;
 </h1>
 
 <p>
-ระบบบริหารโครงการบ้านร่องเข็ม
+ระบบติดตามโครงการบ้านร่องเข็ม Smart Village
 </p>
 
 </header>
 
 
 
-
-<div class="project-grid">
-
+<section class="project-grid">
 
 
 <div class="card">
 
-<h2>
-💧 แหล่งซับน้ำจำ
-</h2>
-
+<h2>💧 แหล่งซับน้ำจำ</h2>
 
 <p>
-ประเภท:
-🌱 สิ่งแวดล้อม
+ประเภท : สิ่งแวดล้อมและทรัพยากรธรรมชาติ
 </p>
-
 
 <p class="status">
 กำลังดำเนินการ
 </p>
 
-
-<h3>
-ความคืบหน้า
-</h3>
-
+<h3>ความคืบหน้า 70%</h3>
 
 <div class="progress">
 
-<div class="bar" style="width:70%">
+<div class="bar" style="width:70%"></div>
 
 </div>
-
-</div>
-
 
 <p>
-70%
+พัฒนาเป็นแหล่งเรียนรู้ ระบบนิเวศ และพื้นที่อนุรักษ์น้ำชุมชน
 </p>
 
-
 </div>
-
 
 
 
 
 <div class="card">
 
-<h2>
-🩺 สุขภาพชุมชน
-</h2>
-
+<h2>🩺 สุขภาพชุมชน</h2>
 
 <p>
-ประเภท:
-สุขภาพ
+ประเภท : สุขภาพประชาชน
 </p>
-
 
 <p class="status">
 ดำเนินการต่อเนื่อง
 </p>
 
+<h3>ความคืบหน้า 80%</h3>
 
 <div class="progress">
 
-<div class="bar" style="width:80%">
+<div class="bar" style="width:80%"></div>
 
 </div>
-
-</div>
-
 
 <p>
-80%
+ระบบข้อมูลสุขภาพ อสม. ผู้สูงอายุ และกลุ่มเปราะบาง
 </p>
 
-
 </div>
-
 
 
 
 
 <div class="card">
 
-<h2>
-🌱 ลดการเผา PM2.5
-</h2>
-
+<h2>🌱 ลดการเผา PM2.5</h2>
 
 <p>
-ประเภท:
-สิ่งแวดล้อม
+ประเภท : สิ่งแวดล้อม
 </p>
-
 
 <p class="status">
 ติดตาม
 </p>
 
+<h3>ความคืบหน้า 50%</h3>
 
 <div class="progress">
 
-<div class="bar" style="width:50%">
+<div class="bar" style="width:50%"></div>
 
 </div>
-
-</div>
-
 
 <p>
-50%
+สร้างความร่วมมือชุมชน ลดการเผา และดูแลคุณภาพอากาศ
 </p>
 
-
 </div>
 
 
-
-</div>
-
+</section>
 
 
 
-
-<div class="card" style="margin:20px;">
-
+<div class="card info">
 
 <h2>
 📋 ข้อมูลโครงการ
 </h2>
 
-
 <ul>
 
-<li>
-ชื่อโครงการ
-</li>
+<li>ชื่อโครงการ</li>
 
-<li>
-งบประมาณ
-</li>
+<li>งบประมาณ</li>
 
-<li>
-ผู้รับผิดชอบ
-</li>
+<li>ผู้รับผิดชอบ</li>
 
-<li>
-ระยะเวลา
-</li>
+<li>ระยะเวลาดำเนินการ</li>
 
-<li>
-ผลลัพธ์
-</li>
+<li>ผลลัพธ์ของโครงการ</li>
 
 </ul>
 
+</div>
+
+
+
+<div class="back">
+
+<a href="../../index.html">
+🏠 กลับหน้าหลัก
+</a>
 
 </div>
 
