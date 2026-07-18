@@ -1,192 +1,87 @@
 <!DOCTYPE html>
 <html lang="th">
-
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>
-เข้าสู่ระบบ | บ้านร่องเข็ม Smart Village
-</title>
-
+<title>เข้าสู่ระบบ | บ้านร่องเข็ม Smart Village</title>
 
 <style>
 
-*{
-box-sizing:border-box;
-}
-
-
 body{
-
 margin:0;
-
 font-family:Tahoma,sans-serif;
-
 background:#e8f5e9;
-
 height:100vh;
-
 display:flex;
-
 justify-content:center;
-
 align-items:center;
-
 }
 
-
-
-.login-box{
-
-width:360px;
-
+.box{
 background:white;
-
-padding:35px;
-
+width:350px;
+padding:30px;
 border-radius:25px;
-
-box-shadow:0 5px 20px rgba(0,0,0,.25);
-
+box-shadow:0 5px 20px #aaa;
 text-align:center;
-
 }
-
-
 
 .logo{
-
 width:100px;
-
-height:100px;
-
 }
-
-
-
-h2{
-
-color:#2e7d32;
-
-}
-
-
 
 input{
-
-width:100%;
-
-padding:14px;
-
-margin:10px 0;
-
+width:90%;
+padding:12px;
+margin:10px;
 border-radius:15px;
-
 border:1px solid #ccc;
-
-font-size:16px;
-
 }
-
-
 
 button{
-
-width:100%;
-
-padding:14px;
-
+width:95%;
+padding:12px;
 border:0;
-
 border-radius:20px;
-
 background:#2e7d32;
-
 color:white;
-
-font-size:17px;
-
-cursor:pointer;
-
+font-size:16px;
 }
-
-
-
-button:hover{
-
-background:#1b5e20;
-
-}
-
-
 
 #error{
-
 color:red;
-
-margin-top:15px;
-
 }
-
-
 
 </style>
 
-
 </head>
-
 
 <body>
 
 
-<div class="login-box">
-
+<div class="box">
 
 <img src="images/logo.svg" class="logo">
 
+<h2>⚙️ ผู้ดูแลระบบ</h2>
 
-<h2>
-⚙️ ผู้ดูแลระบบ
-</h2>
-
-
-<p>
-บ้านร่องเข็ม Smart Village
-</p>
+<p>บ้านร่องเข็ม Smart Village</p>
 
 
-
-<input 
-id="username"
-placeholder="ชื่อผู้ใช้">
+<input id="username" placeholder="ชื่อผู้ใช้">
 
 
-
-<input 
-id="password"
-type="password"
-placeholder="รหัสผ่าน">
-
+<input id="password" type="password" placeholder="รหัสผ่าน">
 
 
 <button onclick="login()">
-
 🔐 เข้าสู่ระบบ
-
 </button>
 
 
-
 <p id="error"></p>
-
-
-<a href="index.html">
-
-🏠 กลับหน้าแรก
-
-</a>
 
 
 </div>
@@ -194,110 +89,52 @@ placeholder="รหัสผ่าน">
 
 
 
-
 <script>
-
 
 let users=[];
 
 
-// โหลดฐานข้อมูลผู้ใช้
+// โหลด user.json
 
-async function loadUsers(){
+fetch("data/user.json")
+.then(res=>res.json())
+.then(data=>{
 
+users=data;
 
-try{
+console.log("USERS =",users);
 
+})
+.catch(err=>{
 
-let response = await fetch(
-"./data/user.json?v="+new Date().getTime()
-);
+console.error(err);
 
-
-
-users = await response.json();
-
-
-
-console.log(
-"USER DATABASE",
-users
-);
-
-
-
-}
-
-catch(error){
-
-
-console.error(error);
-
-
-document.getElementById("error").innerHTML =
-"❌ ไม่สามารถโหลดฐานข้อมูลผู้ใช้";
-
-
-}
-
-
-
-}
-
-
-
-loadUsers();
+});
 
 
 
 
 
-
-
-async function login(){
-
+function login(){
 
 
 let username =
-document.getElementById("username")
-.value
-.trim();
-
+document.getElementById("username").value.trim();
 
 
 let password =
-document.getElementById("password")
-.value
-.trim();
+document.getElementById("password").value.trim();
 
 
 
 
 
-if(users.length===0){
+let user = users.find(function(u){
 
 
-await loadUsers();
-
-
-}
-
-
-
-
-
-let user = users.find(function(item){
-
-
-return (
-
-item.username === username
-
+return u.username === username
 &&
-
-item.password === password
-
-);
+u.password === password;
 
 
 });
@@ -309,19 +146,14 @@ item.password === password
 if(user){
 
 
-
 localStorage.setItem(
-
 "loginUser",
-
 JSON.stringify(user)
-
 );
 
 
 
-window.location.href =
-"admin.html";
+window.location.href="admin.html";
 
 
 }
@@ -330,21 +162,17 @@ else{
 
 
 document.getElementById("error").innerHTML =
-
 "❌ ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง";
 
 
 }
 
 
-
 }
-
 
 
 </script>
 
 
 </body>
-
 </html>
