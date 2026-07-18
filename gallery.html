@@ -4,32 +4,37 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
 <title>
-แกลเลอรี่ | บ้านร่องเข็ม Smart Village
+คลังภาพกิจกรรม | บ้านร่องเข็ม Smart Village
 </title>
 
 
 <style>
 
+
 body{
 
 margin:0;
 font-family:Tahoma,sans-serif;
-background:#e8f5e9;
+background:#fce4ec;
 
 }
+
 
 
 header{
 
-background:#1b5e20;
+background:#ad1457;
 color:white;
+padding:35px;
 text-align:center;
-padding:30px;
 
 }
+
 
 
 .container{
@@ -37,6 +42,7 @@ padding:30px;
 padding:20px;
 
 }
+
 
 
 .gallery{
@@ -48,32 +54,58 @@ gap:20px;
 }
 
 
-.photo{
+
+.card{
 
 background:white;
-padding:15px;
+padding:20px;
 border-radius:20px;
 box-shadow:0 4px 12px #ccc;
+text-align:center;
 
 }
 
 
-.photo img{
+
+.card img{
 
 width:100%;
-height:220px;
+height:200px;
 object-fit:cover;
 border-radius:15px;
 
 }
 
 
-.photo h2{
 
-color:#1b5e20;
-font-size:20px;
+.card h2{
+
+color:#ad1457;
 
 }
+
+
+
+.category{
+
+background:#ad1457;
+color:white;
+padding:6px 15px;
+border-radius:20px;
+display:inline-block;
+
+}
+
+
+
+.default{
+
+background:white;
+padding:25px;
+border-radius:20px;
+
+}
+
 
 
 .back{
@@ -84,9 +116,10 @@ margin:30px;
 }
 
 
+
 .back a{
 
-background:#1b5e20;
+background:#ad1457;
 color:white;
 padding:12px 25px;
 border-radius:20px;
@@ -94,26 +127,37 @@ text-decoration:none;
 
 }
 
+
+
 </style>
 
+
 </head>
+
 
 
 <body>
 
 
 
+
 <header>
 
+
 <h1>
-📸 แกลเลอรี่หมู่บ้าน
+📸 คลังภาพกิจกรรม
 </h1>
+
 
 <p>
 บ้านร่องเข็ม Smart Village
 </p>
 
+
 </header>
+
+
+
 
 
 
@@ -121,120 +165,16 @@ text-decoration:none;
 <div class="container">
 
 
-<div class="gallery">
-
-
-
-<div class="photo">
-
-<img src="images/subnamjam-cover.jpg">
-
-<h2>
-🌱 แหล่งซับน้ำจำ
-</h2>
-
-<p>
-แหล่งเรียนรู้ธรรมชาติ
-และทรัพยากรของชุมชน
-</p>
-
-</div>
-
-
-
-
-<div class="photo">
-
-<img src="images/watrongkhem.jpg">
-
-<h2>
-🛕 วัดร่องเข็ม
-</h2>
-
-<p>
-ศูนย์รวมจิตใจ
-และวัฒนธรรมของชุมชน
-</p>
-
-</div>
-
-
-
-
-<div class="photo">
-
-<img src="images/activity1.jpg">
-
-<h2>
-👥 กิจกรรมหมู่บ้าน
-</h2>
-
-<p>
-กิจกรรมพัฒนาชุมชน
-และจิตอาสา
-</p>
-
-</div>
-
-
-
-
-<div class="photo">
-
-<img src="images/health-activity.jpg">
-
-<h2>
-🩺 งานสุขภาพชุมชน
-</h2>
-
-<p>
-กิจกรรม อสม.
-ดูแลประชาชน
-</p>
-
-</div>
-
-
-
-
-<div class="photo">
-
-<img src="images/environment.jpg">
-
-<h2>
-🌳 งานสิ่งแวดล้อม
-</h2>
-
-<p>
-ลดการเผา
-อนุรักษ์ธรรมชาติ
-</p>
-
-</div>
-
-
-
-
-<div class="photo">
-
-<img src="images/team.jpg">
-
-<h2>
-👥 ผู้นำและคณะทำงาน
-</h2>
-
-<p>
-การทำงานร่วมกันของชุมชน
-</p>
-
-</div>
-
+<div class="gallery" id="galleryList">
 
 
 </div>
 
 
 </div>
+
+
+
 
 
 
@@ -242,10 +182,159 @@ text-decoration:none;
 <div class="back">
 
 <a href="index.html">
+
 🏠 กลับหน้าแรก
+
 </a>
 
 </div>
+
+
+
+
+
+
+
+<script>
+
+
+function loadGallery(){
+
+
+let data=
+
+JSON.parse(
+localStorage.getItem("gallery")
+)||[];
+
+
+
+let html="";
+
+
+
+
+
+if(data.length==0){
+
+
+html += `
+
+
+<div class="default">
+
+
+<h2>
+📷 คลังภาพหมู่บ้าน
+</h2>
+
+
+<p>
+
+กำลังจัดเตรียมภาพกิจกรรม
+บ้านร่องเข็ม Smart Village
+
+</p>
+
+
+<p>
+
+สามารถเพิ่มภาพผ่านระบบผู้ดูแลได้
+
+</p>
+
+
+</div>
+
+
+`;
+
+
+
+}
+
+
+
+
+data.reverse();
+
+
+
+data.forEach(function(item){
+
+
+
+let image =
+item.image;
+
+
+
+if(image==""){
+
+image="logo.svg";
+
+}
+
+
+
+
+html += `
+
+
+<div class="card">
+
+
+
+<img src="images/${image}">
+
+
+
+<span class="category">
+
+${item.category}
+
+</span>
+
+
+
+<h2>
+
+${item.title}
+
+</h2>
+
+
+
+</div>
+
+
+
+`;
+
+
+
+});
+
+
+
+
+document.getElementById("galleryList")
+.innerHTML=html;
+
+
+
+}
+
+
+
+
+loadGallery();
+
+
+
+</script>
+
+
 
 
 
