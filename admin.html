@@ -4,91 +4,95 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>
-Dashboard | Rongkhem Smart Village
+เข้าสู่ระบบผู้ดูแล | บ้านร่องเข็ม Smart Village
 </title>
-
-<link rel="stylesheet" href="css/style.css">
 
 
 <style>
 
-.dashboard{
+body{
 
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(230px,1fr));
-
-gap:20px;
+margin:0;
+font-family:Tahoma,sans-serif;
+background:#e3f2fd;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
 
 }
 
 
-.menu-card{
+.login{
 
 background:white;
-
-padding:25px;
-
-border-radius:20px;
-
+width:350px;
+padding:30px;
+border-radius:25px;
+box-shadow:0 5px 15px #aaa;
 text-align:center;
 
-text-decoration:none;
+}
 
-color:#333;
 
-box-shadow:
-0 5px 15px rgba(0,0,0,.15);
+.logo{
 
-transition:.3s;
+width:100px;
 
 }
 
 
-.menu-card:hover{
+h1{
 
-transform:translateY(-8px);
-
-background:#e8f5e9;
+color:#1565c0;
 
 }
 
 
-.menu-card h3{
+input{
 
-color:#2e7d32;
-
-font-size:22px;
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:10px;
+border:1px solid #ccc;
+box-sizing:border-box;
 
 }
 
 
+button{
 
-.logout{
-
-background:#c62828;
-
+background:#1565c0;
 color:white;
-
+padding:12px 30px;
 border:none;
-
-padding:12px 25px;
-
 border-radius:20px;
-
 font-size:16px;
 
-cursor:pointer;
+}
+
+
+.back{
+
+margin-top:20px;
+
+}
+
+
+.back a{
+
+color:#1565c0;
+text-decoration:none;
 
 }
 
 
 </style>
+
 
 </head>
 
@@ -96,276 +100,65 @@ cursor:pointer;
 <body>
 
 
-<header>
+<div class="login">
 
-<div class="logo">
-🏡
-</div>
+
+<img src="logo.svg" class="logo">
 
 
 <h1>
-📱 ระบบบริหารหมู่บ้านอัจฉริยะ
+🔐 ผู้ดูแลหมู่บ้าน
 </h1>
 
 
 <p>
-Rongkhem Smart Village
-<br>
-บ้านร่องเข็ม หมู่ที่ 6 จังหวัดพะเยา
+บ้านร่องเข็ม Smart Village
 </p>
 
 
-</header>
 
+<input type="text"
+placeholder="ชื่อผู้ใช้งาน">
 
 
 
+<input type="password"
+placeholder="รหัสผ่าน">
 
-<nav>
 
 
-<a href="index.html">
-🏡 หน้าแรก
-</a>
+<button onclick="login()">
 
-
-<a href="admin.html">
-📊 Dashboard
-</a>
-
-
-<a href="leader.html">
-👤 ผู้นำ
-</a>
-
-
-</nav>
-
-
-
-
-
-<section>
-
-
-<h2>
-📊 เมนูบริหารจัดการหมู่บ้าน
-</h2>
-
-
-<div class="dashboard">
-
-
-
-<a href="people.html" class="menu-card">
-
-<h3>
-👥 ประชาชน
-</h3>
-
-<p>
-ทะเบียนประชาชน
-</p>
-
-</a>
-
-
-
-
-
-<a href="household.html" class="menu-card">
-
-<h3>
-🏠 ครัวเรือน
-</h3>
-
-<p>
-ข้อมูลครัวเรือน
-</p>
-
-</a>
-
-
-
-
-
-<a href="elderly.html" class="menu-card">
-
-<h3>
-👴 ผู้สูงอายุ
-</h3>
-
-<p>
-91 คน
-</p>
-
-</a>
-
-
-
-
-
-<a href="vulnerable.html" class="menu-card">
-
-<h3>
-❤️ กลุ่มเปราะบาง
-</h3>
-
-<p>
-ข้อมูลการดูแล
-</p>
-
-</a>
-
-
-
-
-
-<a href="osm.html" class="menu-card">
-
-<h3>
-🩺 อสม.
-</h3>
-
-<p>
-งานสาธารณสุข
-</p>
-
-</a>
-
-
-
-
-
-<a href="shorbor.html" class="menu-card">
-
-<h3>
-🛡️ ชรบ.
-</h3>
-
-<p>
-ชุดรักษาความปลอดภัย
-</p>
-
-</a>
-
-
-
-
-
-<a href="oppor.html" class="menu-card">
-
-<h3>
-🚒 อปพร.
-</h3>
-
-<p>
-ป้องกันภัยฝ่ายพลเรือน
-</p>
-
-</a>
-
-
-
-
-
-<a href="organization.html" class="menu-card">
-
-<h3>
-👥 คณะกรรมการ
-</h3>
-
-<p>
-คณะทำงานหมู่บ้าน
-</p>
-
-</a>
-
-
-
-<a href="subnamjam.html" class="menu-card">
-
-<h3>
-💧 แหล่งซับน้ำจำ
-</h3>
-
-<p>
-พื้นที่อนุรักษ์
-</p>
-
-</a>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-<section>
-
-
-<div style="text-align:center;">
-
-
-<button class="logout" onclick="logout()">
-
-🚪 ออกจากระบบ
+เข้าสู่ระบบ
 
 </button>
 
 
+
+<div class="back">
+
+<a href="index.html">
+🏠 กลับหน้าแรก
+</a>
+
 </div>
 
 
-</section>
 
-
-
-
-
-
-<footer>
-
-© 2026 Rongkhem Smart Village
-
-<br>
-
-บ้านร่องเข็ม หมู่ที่ 6 จังหวัดพะเยา
-
-</footer>
-
-
+</div>
 
 
 
 <script>
 
+function login(){
 
-if(localStorage.getItem("login")!="true"){
-
-window.location.href="login.html";
-
-}
-
-
-
-function logout(){
-
-localStorage.removeItem("login");
-
-window.location.href="login.html";
+alert("ระบบกำลังพัฒนา สำหรับผู้ดูแลหมู่บ้าน");
 
 }
-
 
 </script>
+
 
 
 </body>
