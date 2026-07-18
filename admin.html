@@ -150,17 +150,41 @@ placeholder="รหัสผ่าน">
 
 
 <script>
-
 function login(){
 
-alert("ระบบกำลังพัฒนา สำหรับผู้ดูแลหมู่บ้าน");
+let username =
+document.getElementById("username").value;
+
+
+let password =
+document.getElementById("password").value;
+
+
+
+if(username=="admin" && password=="123456"){
+
+
+localStorage.setItem(
+"login",
+"true"
+);
+
+
+window.location.href=
+"admin-dashboard.html";
+
 
 }
 
-</script>
+else{
 
 
+alert(
+"ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง"
+);
 
-</body>
 
-</html>
+}
+
+
+}
