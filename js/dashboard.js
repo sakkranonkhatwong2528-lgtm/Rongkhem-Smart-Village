@@ -277,7 +277,25 @@ fetch("data/citizen.json")
 document.getElementById(
 "citizen-total"
 ).innerHTML=
+fetch("data/activity.json")
 
+.then(res=>res.json())
+
+.then(data=>{
+
+
+document.getElementById(
+"activity-total"
+).innerHTML=
+
+`
+
+${data.length}
+กิจกรรม
+
+`;
+
+});
 `
 
 ${data.length}
