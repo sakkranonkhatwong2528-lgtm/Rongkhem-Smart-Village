@@ -1,72 +1,98 @@
 <!DOCTYPE html>
-
 <html lang="th">
 
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 
 <title>
-ทะเบียนประชาชน
+ฐานข้อมูลประชาชน | บ้านร่องเข็ม Smart Village
 </title>
-
-
-<link rel="stylesheet" href="../assets/css/style.css">
 
 
 <style>
 
+body{
 
-table{
+margin:0;
+font-family:Tahoma,sans-serif;
+background:#e3f2fd;
 
-width:100%;
+}
+
+
+header{
+
+background:#1565c0;
+color:white;
+padding:35px;
+text-align:center;
+
+}
+
+
+.container{
+
+padding:20px;
+
+}
+
+
+.grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+
+}
+
+
+.card{
 
 background:white;
-
-border-collapse:collapse;
-
-border-radius:15px;
-
-overflow:hidden;
+padding:25px;
+border-radius:25px;
+box-shadow:0 4px 12px #ccc;
 
 }
 
 
-th{
+.icon{
 
-background:#00695c;
+font-size:45px;
 
+}
+
+
+.name{
+
+font-size:22px;
+color:#1565c0;
+font-weight:bold;
+
+}
+
+
+
+.back{
+
+text-align:center;
+margin:30px;
+
+}
+
+
+.back a{
+
+background:#1565c0;
 color:white;
-
-padding:12px;
-
-}
-
-
-td{
-
-padding:12px;
-
-border-bottom:1px solid #ddd;
+padding:12px 25px;
+border-radius:20px;
+text-decoration:none;
 
 }
-
-
-input{
-
-width:100%;
-
-padding:12px;
-
-border-radius:10px;
-
-border:1px solid #ccc;
-
-margin-bottom:20px;
-
-}
-
-
 
 </style>
 
@@ -74,138 +100,172 @@ margin-bottom:20px;
 </head>
 
 
-
 <body>
 
 
-<div class="header">
+<header>
+
 
 <h1>
-👥 ทะเบียนประชาชน
+👥 ฐานข้อมูลประชาชน
 </h1>
 
 
-<h2>
-บ้านร่องเข็ม หมู่ที่ 6
-</h2>
+<p>
+บ้านร่องเข็ม Smart Village
+</p>
 
-</div>
+
+</header>
+
+
+
+
 
 
 
 <div class="container">
 
 
-
-<input id="search"
-placeholder="🔍 ค้นหารายชื่อ..."
-onkeyup="searchCitizen()">
+<div class="grid" id="citizenList">
 
 
-
-<table>
-
-
-<thead>
-
-<tr>
-
-<th>ชื่อ</th>
-
-<th>เพศ</th>
-
-<th>อายุ</th>
-
-<th>สถานะ</th>
-
-<th>บ้าน</th>
-
-</tr>
-
-</thead>
-
-
-<tbody id="citizen-list">
-
-</tbody>
-
-
-</table>
-
-
-<br>
-
-
-<a href="../index.html">
-⬅ กลับหน้าหลัก
-</a>
-
+</div>
 
 
 </div>
 
 
 
+
+
+
+
+<div class="back">
+
+
+<a href="index.html">
+
+🏠 กลับหน้าแรก
+
+</a>
+
+
+</div>
+
+
+
+
+
+
+
 <script>
 
 
-let citizens=[];
+let citizen =
 
+JSON.parse(
 
+localStorage.getItem("citizen")
 
-fetch("../data/citizen.json")
-
-
-.then(res=>res.json())
-
-
-.then(data=>{
-
-
-citizens=data.citizens;
-
-
-showCitizen(citizens);
-
-
-});
+)||[];
 
 
 
 
 
-function showCitizen(data){
+function showCitizen(){
 
 
 let html="";
 
 
-data.forEach(c=>{
+
+if(citizen.length==0){
 
 
-html += `
+html=`
+
+<div class="card">
+
+<h2>
+ยังไม่มีข้อมูลประชาชน
+</h2>
+
+<p>
+รอการบันทึกข้อมูล
+
+</p>
+
+</div>
+
+`;
 
 
-<tr>
+
+}
 
 
-<td>${c.name}</td>
+
+citizen.forEach(function(item){
 
 
-<td>${c.gender}</td>
+html+=`
+
+<div class="card">
 
 
-<td>${c.age}</td>
+<div class="icon">
+👤
+</div>
 
 
-<td>${c.status}</td>
+<div class="name">
+
+${item.name}
+
+</div>
 
 
-<td>${c.house}</td>
+
+<p>
+
+🏠 บ้านเลขที่ :
+${item.house}
+
+</p>
 
 
-</tr>
 
+<p>
+
+เพศ :
+${item.gender}
+
+</p>
+
+
+
+<p>
+
+อายุ :
+${item.age}
+ปี
+
+</p>
+
+
+
+<p>
+
+กลุ่ม :
+${item.group}
+
+</p>
+
+
+
+</div>
 
 `;
 
@@ -213,44 +273,21 @@ html += `
 });
 
 
-document.getElementById(
-"citizen-list"
-).innerHTML=html;
+
+document.getElementById("citizenList")
+.innerHTML=html;
+
 
 
 }
 
 
 
+showCitizen();
 
-
-function searchCitizen(){
-
-
-let text=
-document.getElementById(
-"search"
-).value;
-
-
-
-let result=
-citizens.filter(c=>
-
-c.name.includes(text)
-
-);
-
-
-
-showCitizen(result);
-
-
-}
 
 
 </script>
-
 
 
 </body>
