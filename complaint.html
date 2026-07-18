@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
 <title>
 แจ้งปัญหาชุมชน | บ้านร่องเข็ม Smart Village
 </title>
@@ -17,19 +18,20 @@ body{
 
 margin:0;
 font-family:Tahoma,sans-serif;
-background:#fff3e0;
+background:#fffde7;
 
 }
 
 
 header{
 
-background:#e65100;
+background:#f57f17;
 color:white;
-padding:30px;
+padding:35px;
 text-align:center;
 
 }
+
 
 
 .container{
@@ -39,14 +41,16 @@ padding:20px;
 }
 
 
+
 .card{
 
 background:white;
 padding:25px;
-border-radius:20px;
+border-radius:25px;
 box-shadow:0 4px 12px #ccc;
 
 }
+
 
 
 input,textarea,select{
@@ -61,15 +65,28 @@ box-sizing:border-box;
 }
 
 
+
 button{
 
-background:#e65100;
+background:#f57f17;
 color:white;
-border:none;
 padding:12px 30px;
+border:none;
 border-radius:20px;
 
 }
+
+
+
+.result{
+
+background:#fff8e1;
+padding:20px;
+margin-top:20px;
+border-radius:20px;
+
+}
+
 
 
 .back{
@@ -80,15 +97,17 @@ margin:30px;
 }
 
 
+
 .back a{
 
-background:#e65100;
+background:#f57f17;
 color:white;
 padding:12px 25px;
 border-radius:20px;
 text-decoration:none;
 
 }
+
 
 </style>
 
@@ -117,56 +136,47 @@ text-decoration:none;
 
 
 
+
+
 <div class="container">
 
 
 <div class="card">
 
 
+
 <h2>
-📢 ส่งเรื่องแจ้งปัญหา
+📢 ส่งเรื่องร้องเรียน
 </h2>
 
 
 
-<input
-id="name"
-placeholder="ชื่อผู้แจ้ง">
-
+<label>
+ประเภทปัญหา
+</label>
 
 
 <select id="type">
 
-
 <option>
-เลือกประเภทปัญหา
+ถนน
 </option>
 
-
 <option>
-🛣 ถนน
+ไฟฟ้า
 </option>
 
-
 <option>
-💡 ไฟฟ้า
+น้ำประปา
 </option>
 
-
 <option>
-🚰 น้ำประปา
+ขยะ
 </option>
 
-
 <option>
-🗑 ขยะ
+สิ่งแวดล้อม
 </option>
-
-
-<option>
-🔥 ไฟป่า PM2.5
-</option>
-
 
 <option>
 อื่น ๆ
@@ -178,11 +188,37 @@ placeholder="ชื่อผู้แจ้ง">
 
 
 
+
+<label>
+รายละเอียดปัญหา
+</label>
+
+
 <textarea
+
 id="detail"
-rows="6"
-placeholder="รายละเอียดปัญหา">
+
+rows="5"
+
+placeholder="อธิบายปัญหา">
+
 </textarea>
+
+
+
+
+
+<label>
+สถานที่เกิดเหตุ
+</label>
+
+
+<input
+
+id="location"
+
+placeholder="เช่น บ้านเลขที่ / จุดเกิดเหตุ">
+
 
 
 
@@ -193,15 +229,29 @@ placeholder="รายละเอียดปัญหา">
 </button>
 
 
+
+
+
+<div class="result" id="show">
+
+</div>
+
+
+
 </div>
 
 
 </div>
+
+
+
+
 
 
 
 
 <div class="back">
+
 
 <a href="index.html">
 
@@ -209,7 +259,10 @@ placeholder="รายละเอียดปัญหา">
 
 </a>
 
+
 </div>
+
+
 
 
 
@@ -219,6 +272,19 @@ placeholder="รายละเอียดปัญหา">
 <script>
 
 
+
+let complaints =
+
+JSON.parse(
+
+localStorage.getItem("complaints")
+
+)||[];
+
+
+
+
+
 function sendComplaint(){
 
 
@@ -226,19 +292,23 @@ function sendComplaint(){
 let data={
 
 
-name:
-document.getElementById("name").value,
-
-
 type:
+
 document.getElementById("type").value,
 
 
 detail:
+
 document.getElementById("detail").value,
 
 
+location:
+
+document.getElementById("location").value,
+
+
 status:
+
 "รับเรื่องแล้ว"
 
 
@@ -246,48 +316,101 @@ status:
 
 
 
-if(data.detail==""){
 
-
-alert("กรุณาระบุปัญหา");
-
-
-return;
-
-}
-
-
-
-let complaint=
-
-JSON.parse(
-localStorage.getItem("complaint")
-) || [];
-
-
-
-complaint.push(data);
+complaints.push(data);
 
 
 
 localStorage.setItem(
-"complaint",
-JSON.stringify(complaint)
+
+"complaints",
+
+JSON.stringify(complaints)
+
 );
+
 
 
 
 alert("ส่งเรื่องเรียบร้อย");
 
 
-location.reload();
+
+show();
+
+
+}
+
+
+
+
+
+
+function show(){
+
+
+
+let data=
+
+JSON.parse(
+
+localStorage.getItem("complaints")
+
+)||[];
+
+
+
+let html="";
+
+
+
+data.forEach(function(item){
+
+
+html +=`
+
+<p>
+
+📌 ${item.type}
+
+<br>
+
+${item.detail}
+
+<br>
+
+สถานะ :
+${item.status}
+
+</p>
+
+<hr>
+
+`;
+
+
+
+});
+
+
+
+document.getElementById("show")
+.innerHTML=html;
 
 
 
 }
 
 
+
+show();
+
+
+
 </script>
+
+
+
 
 
 
