@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+จัดการเอกสาร | บ้านร่องเข็ม Smart Village
+</title>
+
+
+<style>
+
+body{
+
+margin:0;
+font-family:Tahoma,sans-serif;
+background:#eceff1;
+
+}
+
+
+header{
+
+background:#37474f;
+color:white;
+padding:30px;
+text-align:center;
+
+}
+
+
+.container{
+
+padding:20px;
+
+}
+
+
+.card{
+
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 4px 12px #ccc;
+margin-bottom:20px;
+
+}
+
+
+h2{
+
+color:#37474f;
+
+}
+
+
+input,select{
+
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:10px;
+border:1px solid #ccc;
+box-sizing:border-box;
+
+}
+
+
+button{
+
+background:#37474f;
+color:white;
+padding:12px 30px;
+border:none;
+border-radius:20px;
+
+}
+
+
+.document{
+
+background:#eceff1;
+padding:15px;
+border-radius:15px;
+margin-top:15px;
+
+}
+
+
+.back{
+
+text-align:center;
+margin:30px;
+
+}
+
+
+.back a{
+
+background:#37474f;
+color:white;
+padding:12px 25px;
+border-radius:20px;
+text-decoration:none;
+
+}
+
+</style>
+
+
+</head>
+
+
+
+<body>
+
+
+
+
+<header>
+
+<h1>
+📂 จัดการเอกสารหมู่บ้าน
+</h1>
+
+<p>
+Admin : บ้านร่องเข็ม Smart Village
+</p>
+
+</header>
+
+
+
+
+
+<div class="container">
+
+
+
+<div class="card">
+
+
+<h2>
+➕ เพิ่มเอกสาร
+</h2>
+
+
+<input 
+id="name"
+placeholder="ชื่อเอกสาร">
+
+
+<select id="type">
+
+
+<option>
+เลือกประเภทเอกสาร
+</option>
+
+
+<option>
+คำสั่งหมู่บ้าน
+</option>
+
+
+<option>
+ประกาศ
+</option>
+
+
+<option>
+รายงานประชุม
+</option>
+
+
+<option>
+แบบฟอร์ม
+</option>
+
+
+<option>
+ข้อมูลสำรวจชุมชน
+</option>
+
+
+</select>
+
+
+
+<input 
+id="file"
+placeholder="ชื่อไฟล์ เช่น report.pdf">
+
+
+
+<button onclick="saveDocument()">
+
+💾 บันทึกเอกสาร
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+📋 รายการเอกสาร
+</h2>
+
+
+<div id="documentList">
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+<div class="back">
+
+
+<a href="admin-dashboard.html">
+
+⚙️ กลับ Dashboard
+
+</a>
+
+
+</div>
+
+
+
+
+
+
+
+<script>
+
+
+
+showDocument();
+
+
+
+
+function saveDocument(){
+
+
+
+let doc={
+
+
+name:
+document.getElementById("name").value,
+
+
+type:
+document.getElementById("type").value,
+
+
+file:
+document.getElementById("file").value
+
+
+};
+
+
+
+if(doc.name==""){
+
+
+alert("กรุณาใส่ชื่อเอกสาร");
+
+
+return;
+
+}
+
+
+
+let data =
+
+JSON.parse(
+localStorage.getItem("document")
+) || [];
+
+
+
+data.push(doc);
+
+
+
+localStorage.setItem(
+"document",
+JSON.stringify(data)
+);
+
+
+
+alert("เพิ่มเอกสารเรียบร้อย");
+
+
+location.reload();
+
+
+
+}
+
+
+
+
+
+
+function showDocument(){
+
+
+
+let data =
+
+JSON.parse(
+localStorage.getItem("document")
+) || [];
+
+
+
+let html="";
+
+
+
+data.forEach(function(item){
+
+
+
+html += `
+
+
+<div class="document">
+
+
+<h3>
+📄 ${item.name}
+</h3>
+
+
+<p>
+ประเภท :
+${item.type}
+</p>
+
+
+<p>
+ไฟล์ :
+${item.file}
+</p>
+
+
+</div>
+
+
+`;
+
+
+
+});
+
+
+
+document.getElementById("documentList")
+.innerHTML=html;
+
+
+
+}
+
+
+
+</script>
+
+
+
+
+</body>
+
+</html>
