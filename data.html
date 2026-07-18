@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>
-คลังข้อมูลหมู่บ้าน | บ้านร่องเข็ม Smart Village
+ข้อมูลชุมชน | บ้านร่องเข็ม Smart Village
 </title>
 
 
@@ -17,17 +17,17 @@ body{
 
 margin:0;
 font-family:Tahoma,sans-serif;
-background:#e8eaf6;
+background:#f3e5f5;
 
 }
 
 
 header{
 
-background:#283593;
+background:#6a1b9a;
 color:white;
+padding:35px;
 text-align:center;
-padding:30px;
 
 }
 
@@ -42,28 +42,8 @@ padding:20px;
 .dashboard{
 
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:20px;
-
-}
-
-
-.box{
-
-background:white;
-padding:25px;
-border-radius:20px;
-box-shadow:0 4px 12px #bbb;
-text-align:center;
-
-}
-
-
-.number{
-
-font-size:40px;
-font-weight:bold;
-color:#283593;
 
 }
 
@@ -72,16 +52,43 @@ color:#283593;
 
 background:white;
 padding:25px;
-margin-top:25px;
-border-radius:20px;
+border-radius:25px;
 box-shadow:0 4px 12px #ccc;
+text-align:center;
+
+}
+
+
+.icon{
+
+font-size:45px;
+
+}
+
+
+.number{
+
+font-size:40px;
+font-weight:bold;
+color:#6a1b9a;
 
 }
 
 
 .card h2{
 
-color:#283593;
+color:#6a1b9a;
+
+}
+
+
+.section{
+
+background:white;
+padding:25px;
+margin-top:25px;
+border-radius:25px;
+box-shadow:0 4px 12px #ccc;
 
 }
 
@@ -96,7 +103,7 @@ margin:30px;
 
 .back a{
 
-background:#283593;
+background:#6a1b9a;
 color:white;
 padding:12px 25px;
 border-radius:20px;
@@ -107,7 +114,9 @@ text-decoration:none;
 
 </style>
 
+
 </head>
+
 
 
 <body>
@@ -116,18 +125,21 @@ text-decoration:none;
 
 <header>
 
+
 <h1>
-📊 คลังข้อมูลหมู่บ้าน
+📊 ข้อมูลชุมชน
 </h1>
 
+
 <p>
-Village Data Center
-<br>
 บ้านร่องเข็ม หมู่ที่ 6
 ตำบลจำป่าหวาย จังหวัดพะเยา
 </p>
 
+
 </header>
+
+
 
 
 
@@ -140,92 +152,79 @@ Village Data Center
 
 
 
-<div class="box">
+<div class="card">
+
+<div class="icon">
+🏠
+</div>
 
 <div class="number">
-202
+-
 </div>
 
-<p>
-ผู้ตอบแบบสำรวจชุมชน
-</p>
+<h2>
+ครัวเรือน
+</h2>
 
 </div>
 
 
 
 
-<div class="box">
+<div class="card">
+
+<div class="icon">
+👨‍👩‍👧‍👦
+</div>
 
 <div class="number">
-97
+-
 </div>
 
-<p>
-ประชาชนเพศชาย
-</p>
+<h2>
+ประชากร
+</h2>
 
 </div>
 
 
 
 
-<div class="box">
+<div class="card">
+
+<div class="icon">
+👴
+</div>
 
 <div class="number">
-105
+-
 </div>
 
-<p>
-ประชาชนเพศหญิง
-</p>
+<h2>
+ผู้สูงอายุ
+</h2>
 
 </div>
 
 
 
 
-<div class="box">
+<div class="card">
+
+<div class="icon">
+♿
+</div>
 
 <div class="number">
-91
+-
 </div>
 
-<p>
-ผู้สูงอายุ 60 ปีขึ้นไป
-</p>
-
-</div>
-
-
-
-
-<div class="box">
-
-<div class="number">
-3
-</div>
-
-<p>
+<h2>
 ผู้พิการ
-</p>
+</h2>
 
 </div>
 
-
-
-
-<div class="box">
-
-<div class="number">
-22
-</div>
-
-<p>
-ผู้สูบบุหรี่
-</p>
-
-</div>
 
 
 </div>
@@ -234,20 +233,24 @@ Village Data Center
 
 
 
-<div class="card">
+
+<div class="section">
+
 
 <h2>
-👨‍👩‍👧‍👦 ข้อมูลประชากร
+🩺 สุขภาพและกลุ่มเปราะบาง
 </h2>
+
 
 <p>
 
-บ้านร่องเข็ม หมู่ที่ 6
-มีการจัดเก็บข้อมูลประชาชน
-เพื่อใช้ในการวางแผนพัฒนาหมู่บ้าน
-และจัดบริการประชาชนอย่างเหมาะสม
+- ผู้สูงอายุ 60 ปีขึ้นไป<br>
+- ผู้พิการ<br>
+- ผู้ป่วยติดบ้าน/ติดเตียง<br>
+- กลุ่มที่ต้องได้รับการดูแลเป็นพิเศษ
 
 </p>
+
 
 </div>
 
@@ -255,22 +258,28 @@ Village Data Center
 
 
 
-<div class="card">
+
+
+<div class="section">
+
 
 <h2>
-🌾 ข้อมูลอาชีพชุมชน
+👥 กลุ่มและองค์กรชุมชน
 </h2>
+
 
 <p>
 
-- เกษตรกรรม<br>
-- ทำนา<br>
-- ยางพารา<br>
-- สวนลำไย<br>
-- อาชีพรับจ้าง<br>
-- วิสาหกิจชุมชน
+🩺 อสม. ดูแลสุขภาพประชาชน<br>
+
+🛡 ชรบ. ดูแลความปลอดภัย<br>
+
+🚒 อปพร. ช่วยเหลืองานป้องกันภัย<br>
+
+🏡 คณะกรรมการหมู่บ้าน
 
 </p>
+
 
 </div>
 
@@ -278,47 +287,40 @@ Village Data Center
 
 
 
-<div class="card">
+
+
+<div class="section">
+
 
 <h2>
-🌱 ฐานทรัพยากรชุมชน
+🌱 ทรัพยากรธรรมชาติ
 </h2>
+
 
 <p>
 
 💧 แหล่งซับน้ำจำ<br>
+
 🌳 พื้นที่ธรรมชาติ<br>
-🐟 ระบบนิเวศท้องถิ่น<br>
-🌾 ภูมิปัญญาเกษตร
+
+🐟 ระบบนิเวศชุมชน<br>
+
+🌱 แหล่งเรียนรู้ด้านสิ่งแวดล้อม
 
 </p>
 
-</div>
-
-
-
-
-
-<div class="card">
-
-<h2>
-📈 เป้าหมายการใช้ข้อมูล
-</h2>
-
-<p>
-
-นำข้อมูลมาใช้ในการบริหารจัดการหมู่บ้าน
-วางแผนพัฒนา
-ติดตามปัญหา
-และสร้างหมู่บ้านอัจฉริยะอย่างยั่งยืน
-
-</p>
 
 </div>
 
 
 
+
+
+
+
 </div>
+
+
 
 
 
@@ -326,10 +328,14 @@ Village Data Center
 <div class="back">
 
 <a href="index.html">
+
 🏠 กลับหน้าแรก
+
 </a>
 
 </div>
+
+
 
 
 
