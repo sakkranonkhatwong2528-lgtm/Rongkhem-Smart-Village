@@ -170,7 +170,25 @@ fetch("data/elderly.json")
 document.getElementById(
 "elderly-total"
 ).innerHTML=
+fetch("data/household.json")
 
+.then(res=>res.json())
+
+.then(data=>{
+
+
+document.getElementById(
+"household-total"
+).innerHTML=
+
+`
+
+${data.length}
+หลัง
+
+`;
+
+});
 `
 
 ${data.length}
