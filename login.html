@@ -235,3 +235,85 @@ document.getElementById("error").innerHTML=
 </body>
 
 </html>
+let users = [];
+
+
+fetch("./data/user.json?v=" + Date.now())
+
+.then(function(response){
+
+    return response.json();
+
+})
+
+.then(function(data){
+
+    users = data;
+
+    console.log("USER DATA:", users);
+
+})
+
+.catch(function(error){
+
+    console.error(error);
+
+});
+
+
+
+
+
+function login(){
+
+
+let username =
+document.getElementById("username").value.trim();
+
+
+let password =
+document.getElementById("password").value.trim();
+
+
+
+
+let user = users.find(function(item){
+
+
+    return (
+        item.username == username &&
+        item.password == password
+    );
+
+
+});
+
+
+
+
+
+if(user){
+
+
+    localStorage.setItem(
+        "loginUser",
+        JSON.stringify(user)
+    );
+
+
+    window.location.href="admin.html";
+
+
+}
+
+else{
+
+
+    document.getElementById("error").innerHTML =
+    "❌ ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง";
+
+
+}
+
+
+}
