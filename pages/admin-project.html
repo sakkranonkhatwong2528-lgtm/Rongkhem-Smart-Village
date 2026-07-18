@@ -1,18 +1,84 @@
 <!DOCTYPE html>
-
 <html lang="th">
-
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>
-Admin Project
-</title>
-
+<title>บริหารโครงการพัฒนาหมู่บ้าน | Rongkhem Smart Village</title>
 
 <link rel="stylesheet" href="../css/style.css">
 
+<style>
+
+.project-container{
+    padding:20px;
+}
+
+.project-header{
+    background:#198754;
+    color:white;
+    padding:20px;
+    border-radius:15px;
+    margin-bottom:20px;
+}
+
+.card{
+    background:white;
+    border-radius:15px;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 3px 10px #ddd;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:#198754;
+    color:white;
+    padding:10px;
+}
+
+td{
+    padding:10px;
+    border-bottom:1px solid #ddd;
+}
+
+.status{
+    padding:5px 10px;
+    border-radius:20px;
+    color:white;
+}
+
+.done{
+    background:#28a745;
+}
+
+.process{
+    background:#ffc107;
+    color:#333;
+}
+
+.wait{
+    background:#6c757d;
+}
+
+img{
+    width:100px;
+    border-radius:10px;
+}
+
+.btn{
+    background:#198754;
+    color:white;
+    padding:10px 15px;
+    border-radius:10px;
+    text-decoration:none;
+}
+
+</style>
 
 </head>
 
@@ -20,116 +86,225 @@ Admin Project
 <body>
 
 
-<header class="hero">
+<div class="project-container">
 
-<h1>
-📌 ระบบบริหารโครงการหมู่บ้าน
-</h1>
+
+<div class="project-header">
+
+<h1>📌 ระบบบริหารโครงการพัฒนาหมู่บ้าน</h1>
 
 <p>
-บ้านร่องเข็ม Smart Village
+🏡 บ้านร่องเข็ม Smart Village  
+หมู่ที่ 6 ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา
 </p>
 
-</header>
-
-
-
-<section class="dashboard">
+</div>
 
 
 
 <div class="card">
 
-
-<h2>
-📊 สรุปโครงการ
-</h2>
+<h2>📋 รายชื่อโครงการ</h2>
 
 
-<div id="project-summary">
-
-กำลังโหลด...
-
-</div>
+<a href="#" class="btn">
+➕ เพิ่มโครงการใหม่
+</a>
 
 
-</div>
+<br><br>
 
 
-
-
-<div class="card">
-
-
-<h2>
-📋 รายการโครงการ
-</h2>
-
-
-<table width="100%" border="1">
-
-
-<thead>
+<table>
 
 <tr>
 
-<th>
-โครงการ
-</th>
+<th>โครงการ</th>
+<th>งบประมาณ</th>
+<th>ระยะเวลา</th>
+<th>ผู้รับผิดชอบ</th>
+<th>สถานะ</th>
+<th>รูปภาพ</th>
+
+</tr>
 
 
-<th>
-ประเภท
-</th>
+<tr>
 
+<td>
+🌿 พัฒนาแหล่งซับน้ำจำ
+</td>
 
-<th>
-งบประมาณ
-</th>
+<td>
+500,000 บาท
+</td>
 
+<td>
+ม.ค. - ธ.ค. 2569
+</td>
 
-<th>
-ผู้รับผิดชอบ
-</th>
+<td>
+ผู้ใหญ่บ้าน / คณะกรรมการหมู่บ้าน
+</td>
 
+<td>
 
-<th>
-ความก้าวหน้า
-</th>
+<span class="status process">
+กำลังดำเนินการ
+</span>
 
+</td>
 
-<th>
-สถานะ
-</th>
+<td>
+
+<img src="../images/subnamjam-cover.jpg">
+
+</td>
 
 
 </tr>
 
 
-</thead>
+
+<tr>
+
+<td>
+💧 พัฒนาระบบน้ำชุมชน
+</td>
+
+<td>
+200,000 บาท
+</td>
+
+<td>
+ก.พ. - มิ.ย. 2569
+</td>
+
+<td>
+กลุ่มน้ำตราน้ำจำ
+</td>
+
+<td>
+
+<span class="status done">
+เสร็จแล้ว
+</span>
+
+</td>
+
+
+<td>
+
+<img src="../images/logo.svg">
+
+</td>
+
+
+</tr>
 
 
 
-<tbody id="project-table">
+<tr>
 
-</tbody>
+<td>
+🛣️ ปรับปรุงถนนภายในหมู่บ้าน
+</td>
+
+<td>
+800,000 บาท
+</td>
+
+<td>
+2569
+</td>
+
+<td>
+อบต. / หมู่บ้าน
+</td>
+
+
+<td>
+
+<span class="status wait">
+รอดำเนินการ
+</span>
+
+</td>
+
+
+<td>
+
+<img src="../images/logo.svg">
+
+</td>
+
+
+</tr>
+
 
 
 </table>
-
 
 
 </div>
 
 
 
-</section>
+<div class="card">
+
+
+<h2>
+📊 สรุปภาพรวมโครงการ
+</h2>
+
+
+<ul>
+
+<li>📌 โครงการทั้งหมด : 3 โครงการ</li>
+
+<li>🟡 กำลังดำเนินการ : 1 โครงการ</li>
+
+<li>🟢 เสร็จแล้ว : 1 โครงการ</li>
+
+<li>⚪ รอดำเนินการ : 1 โครงการ</li>
+
+<li>💰 งบประมาณรวม : 1,500,000 บาท</li>
+
+</ul>
+
+
+</div>
 
 
 
-<script src="../js/project-admin.js"></script>
+<div class="card">
+
+<h2>
+📸 รูปภาพความก้าวหน้า
+</h2>
+
+
+<p>
+ระบบสามารถเพิ่มรูปภาพก่อนดำเนินงาน
+ระหว่างดำเนินงาน และหลังดำเนินงาน
+</p>
+
+
+<div>
+
+<img src="../images/subnamjam-cover.jpg">
+
+<img src="../images/logo.svg">
+
+</div>
+
+
+</div>
+
+
+
+</div>
 
 
 </body>
-
 </html>
