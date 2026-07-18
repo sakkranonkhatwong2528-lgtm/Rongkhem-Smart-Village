@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="th">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -11,66 +9,99 @@
 <style>
 
 body{
-font-family:Tahoma,sans-serif;
-margin:0;
-background:#f1f8e9;
+    font-family:"Tahoma",sans-serif;
+    background:#f1f8e9;
+    margin:0;
 }
 
 header{
-background:#2e7d32;
-color:white;
-padding:20px;
-text-align:center;
+    background:#2e7d32;
+    color:white;
+    padding:20px;
+    text-align:center;
 }
 
 .container{
-padding:20px;
+    max-width:900px;
+    margin:auto;
+    padding:20px;
 }
+
 
 .card{
-background:white;
-padding:20px;
-border-radius:20px;
-margin-bottom:20px;
-box-shadow:0 3px 10px #ccc;
+    background:white;
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:15px;
+    box-shadow:0 3px 10px #ccc;
 }
 
-input,select,textarea{
 
-width:95%;
-padding:12px;
-margin:8px 0;
-border-radius:10px;
-border:1px solid #ccc;
+input,textarea{
+
+    width:100%;
+    padding:12px;
+    margin:8px 0;
+    border-radius:8px;
+    border:1px solid #ccc;
+    box-sizing:border-box;
 
 }
+
+
+textarea{
+    height:100px;
+}
+
 
 button{
 
-background:#2e7d32;
-color:white;
-border:0;
-padding:12px 20px;
-border-radius:20px;
+    background:#2e7d32;
+    color:white;
+    border:0;
+    padding:12px 25px;
+    border-radius:10px;
+    cursor:pointer;
 
 }
 
-.preview{
 
-width:150px;
-height:150px;
-border-radius:50%;
-object-fit:cover;
-border:3px solid #2e7d32;
-
+button:hover{
+    opacity:.8;
 }
+
 
 .leader{
 
-background:#fafafa;
-padding:15px;
-border-radius:15px;
-margin-top:15px;
+    display:flex;
+    gap:20px;
+    padding:15px;
+    border-bottom:1px solid #ddd;
+    align-items:center;
+
+}
+
+
+.leader img{
+
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    object-fit:cover;
+
+}
+
+
+.delete{
+
+background:#c62828;
+
+}
+
+
+.back{
+
+background:#1565c0;
 
 }
 
@@ -85,13 +116,9 @@ margin-top:15px;
 
 <header>
 
-<h1>
-👥 จัดการทำเนียบผู้นำ
-</h1>
+<h2>👥 จัดการทำเนียบผู้นำ</h2>
 
-<p>
-บ้านร่องเข็ม Smart Village
-</p>
+<p>🏡 บ้านร่องเข็ม Smart Village</p>
 
 </header>
 
@@ -102,58 +129,67 @@ margin-top:15px;
 
 <div class="card">
 
-
-<h2>
-➕ เพิ่มข้อมูลผู้นำ
-</h2>
+<h3>➕ เพิ่มข้อมูลผู้นำ</h3>
 
 
-<input id="name"
-placeholder="ชื่อ - นามสกุล">
+<label>ชื่อ - นามสกุล</label>
+
+<input id="name">
 
 
-<input id="position"
-placeholder="ตำแหน่ง">
+<label>ตำแหน่ง</label>
+
+<input id="position">
 
 
-<input id="duty"
-placeholder="หน้าที่รับผิดชอบ">
+<label>หน้าที่รับผิดชอบ</label>
+
+<textarea id="duty"></textarea>
 
 
-<input id="phone"
-placeholder="เบอร์โทร">
+<label>เบอร์โทร</label>
+
+<input id="phone">
 
 
-
-<label>
-📷 เลือกรูปภาพ
-</label>
-
+<label>📷 รูปภาพ</label>
 
 <input 
 type="file"
-accept="image/*"
-onchange="previewImage(event)"
->
-
-
-<br>
-
-
-<img 
-id="preview"
-class="preview"
-src="images/leader.jpg"
->
-
+id="photo"
+accept="image/*">
 
 
 <br><br>
 
 
-<button onclick="saveLeader()">
+<button onclick="saveData()">
 
 💾 บันทึก
+
+</button>
+
+
+</div>
+
+
+
+<div class="card">
+
+<h3>📋 รายชื่อผู้นำ</h3>
+
+
+<div id="result"></div>
+
+
+</div>
+
+
+
+<button class="back"
+onclick="location.href='../index.html'">
+
+🏠 กลับหน้าแรก
 
 </button>
 
@@ -163,89 +199,141 @@ src="images/leader.jpg"
 
 
 
-<div class="card">
-
-
-<h2>
-📋 รายชื่อผู้นำ
-</h2>
-
-
-<div id="list">
-
-</div>
-
-
-</div>
-
-
-
-</div>
-
-
-
-
 <script>
 
 
-let leaders=[];
+let leaders = JSON.parse(
+localStorage.getItem("leaders")
+) || [];
 
 
 
-function previewImage(event){
-
-let img=document.getElementById("preview");
+function saveData(){
 
 
-img.src =
-URL.createObjectURL(
-event.target.files[0]
-);
+let name =
+document.getElementById("name").value.trim();
+
+
+let position =
+document.getElementById("position").value.trim();
+
+
+let duty =
+document.getElementById("duty").value.trim();
+
+
+let phone =
+document.getElementById("phone").value.trim();
+
+
+let photo =
+document.getElementById("photo").files[0];
+
+
+
+if(name=="" || position==""){
+
+alert("กรุณากรอกชื่อและตำแหน่ง");
+
+return;
 
 }
 
 
 
+if(photo){
 
 
-function saveLeader(){
+let reader=new FileReader();
 
 
-let data={
-
-name:
-document.getElementById("name").value,
+reader.onload=function(e){
 
 
-position:
-document.getElementById("position").value,
+addLeader(
+e.target.result
+);
 
-
-duty:
-document.getElementById("duty").value,
-
-
-phone:
-document.getElementById("phone").value,
-
-
-image:
-document.getElementById("preview").src
 
 };
 
 
-leaders.push(data);
+reader.readAsDataURL(photo);
+
+
+
+}else{
+
+
+addLeader("");
+
+}
+
+
+
+function addLeader(image){
+
+
+leaders.push({
+
+id:Date.now(),
+
+name:name,
+
+position:position,
+
+duty:duty,
+
+phone:phone,
+
+image:image
+
+});
+
+
+localStorage.setItem(
+
+"leaders",
+
+JSON.stringify(leaders)
+
+);
+
+
+
+alert("✅ บันทึกข้อมูลเรียบร้อย");
+
+
+clearForm();
 
 
 show();
 
 
-alert("บันทึกข้อมูลแล้ว");
+
+}
+
 
 
 }
 
+
+
+
+function clearForm(){
+
+document.getElementById("name").value="";
+
+document.getElementById("position").value="";
+
+document.getElementById("duty").value="";
+
+document.getElementById("phone").value="";
+
+document.getElementById("photo").value="";
+
+}
 
 
 
@@ -256,38 +344,55 @@ function show(){
 let html="";
 
 
-leaders.forEach(l=>{
+leaders.forEach(function(item){
 
 
-html+=`
+
+html += `
 
 <div class="leader">
 
 
-<img 
-src="${l.image}"
-class="preview"
->
+${
+item.image 
+?
+`<img src="${item.image}">`
+:
+"📷"
+}
 
 
-<h3>
-${l.position}
-</h3>
+
+<div>
+
+
+<h3>${item.name}</h3>
+
+
+<b>🏛️ ${item.position}</b>
 
 
 <p>
-${l.name}
+📋 ${item.duty}
 </p>
 
 
 <p>
-${l.duty}
+☎️ ${item.phone}
 </p>
 
 
-<p>
-☎️ ${l.phone}
-</p>
+
+<button 
+class="delete"
+onclick="deleteData(${item.id})">
+
+🗑️ ลบ
+
+</button>
+
+
+</div>
 
 
 </div>
@@ -296,19 +401,60 @@ ${l.duty}
 `;
 
 
+
 });
 
 
-document.getElementById("list").innerHTML=html;
+
+document.getElementById("result").innerHTML=html;
+
 
 
 }
 
 
+
+
+function deleteData(id){
+
+
+if(confirm("ต้องการลบข้อมูลนี้หรือไม่?")){
+
+
+leaders =
+leaders.filter(
+x=>x.id!==id
+);
+
+
+
+localStorage.setItem(
+
+"leaders",
+
+JSON.stringify(leaders)
+
+);
+
+
+
+show();
+
+
+
+}
+
+
+
+}
+
+
+
+show();
+
+
 </script>
 
 
-
 </body>
-
 </html>
