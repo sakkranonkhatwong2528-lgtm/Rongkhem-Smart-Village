@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ข่าวสาร | บ้านร่องเข็ม Smart Village</title>
+
+
+<style>
+
+body{
+font-family:Tahoma,sans-serif;
+margin:0;
+background:#f1f8e9;
+}
+
+
+header{
+background:#2e7d32;
+color:white;
+padding:20px;
+text-align:center;
+}
+
+
+.container{
+padding:20px;
+}
+
+
+.card{
+
+background:white;
+padding:20px;
+border-radius:20px;
+box-shadow:0 3px 10px #ccc;
+margin-bottom:20px;
+
+}
+
+
+.news{
+
+border-left:5px solid #2e7d32;
+padding:15px;
+margin:10px 0;
+background:#f9fff9;
+border-radius:10px;
+
+}
+
+
+input,textarea{
+
+width:90%;
+padding:12px;
+margin:8px;
+border-radius:10px;
+border:1px solid #ccc;
+
+}
+
+
+button{
+
+background:#2e7d32;
+color:white;
+border:0;
+padding:12px 25px;
+border-radius:20px;
+
+}
+
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>
+📢 ระบบข่าวสารประชาสัมพันธ์
+</h1>
+
+<p>
+บ้านร่องเข็ม Smart Village
+</p>
+
+</header>
+
+
+
+<div class="container">
+
+
+
+<div class="card">
+
+<h2>
+➕ เพิ่มข่าวใหม่
+</h2>
+
+
+<input id="title" placeholder="หัวข้อข่าว">
+
+
+<textarea id="detail"
+placeholder="รายละเอียดข่าว"></textarea>
+
+
+<button onclick="addNews()">
+
+บันทึกข่าว
+
+</button>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+📰 ข่าวประชาสัมพันธ์
+</h2>
+
+
+<div id="newsList">
+
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<script>
+
+
+let news=[];
+
+
+
+fetch("data/news.json")
+
+.then(res=>res.json())
+
+.then(data=>{
+
+
+news=data;
+
+showNews();
+
+
+});
+
+
+
+
+function showNews(){
+
+
+let html="";
+
+
+news.forEach(n=>{
+
+
+html+=`
+
+<div class="news">
+
+<h3>
+${n.title}
+</h3>
+
+<p>
+${n.detail}
+</p>
+
+<small>
+วันที่ ${n.date}
+</small>
+
+
+</div>
+
+
+`;
+
+
+});
+
+
+document.getElementById("newsList").innerHTML=html;
+
+
+}
+
+
+
+
+
+function addNews(){
+
+
+let item={
+
+id:news.length+1,
+
+title:
+document.getElementById("title").value,
+
+
+detail:
+document.getElementById("detail").value,
+
+
+date:
+new Date().toLocaleDateString("th-TH")
+
+};
+
+
+news.push(item);
+
+
+showNews();
+
+
+alert("เพิ่มข่าวแล้ว");
+
+
+}
+
+
+
+</script>
+
+
+</body>
+
+</html>
