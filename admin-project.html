@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ระบบโครงการ | บ้านร่องเข็ม Smart Village</title>
+
+<style>
+
+body{
+font-family:Tahoma,sans-serif;
+margin:0;
+background:#f1f8e9;
+}
+
+header{
+background:#2e7d32;
+color:white;
+padding:20px;
+text-align:center;
+}
+
+.container{
+padding:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:20px;
+margin-bottom:20px;
+box-shadow:0 3px 10px #ccc;
+}
+
+.stat{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.box{
+flex:1;
+min-width:180px;
+background:#e8f5e9;
+padding:20px;
+border-radius:15px;
+text-align:center;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+background:white;
+}
+
+th{
+background:#388e3c;
+color:white;
+}
+
+td,th{
+padding:12px;
+border:1px solid #ddd;
+text-align:center;
+}
+
+.status{
+padding:5px 10px;
+border-radius:15px;
+background:#c8e6c9;
+}
+
+button{
+
+background:#2e7d32;
+color:white;
+border:0;
+padding:10px 20px;
+border-radius:20px;
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>📁 ระบบบริหารโครงการ</h1>
+
+<p>
+บ้านร่องเข็ม Smart Village
+</p>
+
+</header>
+
+
+
+<div class="container">
+
+
+<div class="stat">
+
+
+<div class="box">
+
+<h2 id="total">0</h2>
+
+<p>โครงการทั้งหมด</p>
+
+</div>
+
+
+
+<div class="box">
+
+<h2 id="doing">0</h2>
+
+<p>กำลังดำเนินการ</p>
+
+</div>
+
+
+
+<div class="box">
+
+<h2 id="done">0</h2>
+
+<p>เสร็จแล้ว</p>
+
+</div>
+
+
+
+</div>
+
+
+
+
+<div class="card">
+
+
+<h2>
+📋 รายการโครงการ
+</h2>
+
+
+
+<table>
+
+
+<thead>
+
+<tr>
+
+<th>ชื่อโครงการ</th>
+
+<th>ปี</th>
+
+<th>งบประมาณ</th>
+
+<th>สถานะ</th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="projectList">
+
+
+</tbody>
+
+
+</table>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<script>
+
+
+fetch("data/project.json")
+
+.then(res=>res.json())
+
+.then(data=>{
+
+
+document.getElementById("total").innerHTML=data.length;
+
+
+
+let doing =
+data.filter(
+p=>p.status=="กำลังดำเนินการ"
+).length;
+
+
+let done =
+data.filter(
+p=>p.status=="เสร็จแล้ว"
+).length;
+
+
+
+document.getElementById("doing").innerHTML=doing;
+
+document.getElementById("done").innerHTML=done;
+
+
+
+
+let html="";
+
+
+data.forEach(p=>{
+
+
+html+=`
+
+<tr>
+
+<td>${p.name}</td>
+
+<td>${p.year}</td>
+
+<td>${Number(p.budget).toLocaleString()} บาท</td>
+
+<td>
+
+<span class="status">
+${p.status}
+</span>
+
+</td>
+
+
+</tr>
+
+
+`;
+
+
+});
+
+
+
+document.getElementById("projectList").innerHTML=html;
+
+
+
+})
+
+
+.catch(err=>{
+
+
+console.log(err);
+
+
+});
+
+
+
+</script>
+
+
+</body>
+
+</html>
