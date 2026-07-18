@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>
-จัดการข้อมูลชุมชน | บ้านร่องเข็ม Smart Village
+ข้อมูลชุมชน | บ้านร่องเข็ม Smart Village
 </title>
 
 
@@ -17,16 +17,16 @@ body{
 
 margin:0;
 font-family:Tahoma,sans-serif;
-background:#ede7f6;
+background:#f3e5f5;
 
 }
 
 
 header{
 
-background:#4527a0;
+background:#6a1b9a;
 color:white;
-padding:30px;
+padding:35px;
 text-align:center;
 
 }
@@ -39,47 +39,67 @@ padding:20px;
 }
 
 
+.dashboard{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+
+}
+
+
 .card{
 
 background:white;
 padding:25px;
 border-radius:25px;
 box-shadow:0 4px 12px #ccc;
+text-align:center;
 
 }
 
 
-input{
+.icon{
 
-width:100%;
-padding:12px;
-margin:10px 0;
-border-radius:10px;
-border:1px solid #ccc;
-box-sizing:border-box;
+font-size:45px;
 
 }
 
 
-button{
+.number{
 
-background:#4527a0;
-color:white;
-padding:12px 30px;
-border:none;
-border-radius:20px;
+font-size:38px;
+font-weight:bold;
+color:#6a1b9a;
 
 }
 
 
-.result{
+.card h2{
 
-background:#f3e5f5;
-margin-top:20px;
-padding:20px;
-border-radius:20px;
+color:#6a1b9a;
 
 }
+
+
+
+.section{
+
+background:white;
+padding:25px;
+margin-top:25px;
+border-radius:25px;
+box-shadow:0 4px 12px #ccc;
+
+}
+
+
+.section h2{
+
+color:#6a1b9a;
+
+}
+
 
 
 .back{
@@ -92,13 +112,14 @@ margin:30px;
 
 .back a{
 
-background:#4527a0;
+background:#6a1b9a;
 color:white;
 padding:12px 25px;
 border-radius:20px;
 text-decoration:none;
 
 }
+
 
 
 </style>
@@ -112,17 +133,29 @@ text-decoration:none;
 
 
 
-
 <header>
 
 
 <h1>
-⚙️ จัดการข้อมูลชุมชน
+📊 ข้อมูลชุมชน
 </h1>
 
 
 <p>
-Admin บ้านร่องเข็ม Smart Village
+
+บ้านร่องเข็ม หมู่ที่ 6
+
+ตำบลจำป่าหวาย
+
+อำเภอเมือง จังหวัดพะเยา
+
+</p>
+
+
+<p>
+
+Community Smart Dashboard
+
 </p>
 
 
@@ -133,112 +166,300 @@ Admin บ้านร่องเข็ม Smart Village
 
 
 
+
 <div class="container">
+
+
+
+<div class="dashboard">
+
+
 
 
 
 <div class="card">
 
 
+<div class="icon">
+🏠
+</div>
+
+
+<div class="number" id="house">
+
+-
+
+</div>
+
+
 <h2>
-📊 กรอกข้อมูลพื้นฐาน
+ครัวเรือน
 </h2>
 
 
-
-
-<label>
-🏠 จำนวนครัวเรือน
-</label>
-
-<input id="house"
-type="number"
-placeholder="เช่น 120">
-
-
-
-
-
-<label>
-👨‍👩‍👧‍👦 จำนวนประชากร
-</label>
-
-<input id="people"
-type="number"
-placeholder="เช่น 350">
+</div>
 
 
 
 
 
 
-<label>
-👨 จำนวนเพศชาย
-</label>
 
-<input id="male"
-type="number"
-placeholder="จำนวนชาย">
+<div class="card">
 
 
+<div class="icon">
+👨‍👩‍👧‍👦
+</div>
+
+
+<div class="number" id="people">
+
+-
+
+</div>
+
+
+<h2>
+ประชากร
+</h2>
+
+
+</div>
 
 
 
-<label>
-👩 จำนวนเพศหญิง
-</label>
-
-<input id="female"
-type="number"
-placeholder="จำนวนหญิง">
 
 
 
 
+<div class="card">
 
-<label>
+
+<div class="icon">
+👨
+</div>
+
+
+<div class="number" id="male">
+
+-
+
+</div>
+
+
+<h2>
+เพศชาย
+</h2>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+
+<div class="icon">
+👩
+</div>
+
+
+<div class="number" id="female">
+
+-
+
+</div>
+
+
+<h2>
+เพศหญิง
+</h2>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+
+<div class="icon">
+👴
+</div>
+
+
+<div class="number" id="elder">
+
+-
+
+</div>
+
+
+<h2>
+ผู้สูงอายุ
+</h2>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+
+<div class="icon">
+♿
+</div>
+
+
+<div class="number" id="disabled">
+
+-
+
+</div>
+
+
+<h2>
+ผู้พิการ
+</h2>
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="section">
+
+
+<h2>
+🩺 สุขภาพและกลุ่มเปราะบาง
+</h2>
+
+
+<p>
+
 👴 ผู้สูงอายุ 60 ปีขึ้นไป
-</label>
 
-<input id="elder"
-type="number"
-placeholder="จำนวนผู้สูงอายุ">
+<br>
 
-
-
-
-
-<label>
 ♿ ผู้พิการ
-</label>
 
-<input id="disabled"
-type="number"
-placeholder="จำนวนผู้พิการ">
+<br>
 
+🛏 ผู้ป่วยติดบ้านติดเตียง
 
+<br>
 
+🩺 กลุ่มที่ต้องได้รับการดูแล
 
-
-<button onclick="saveData()">
-
-💾 บันทึกข้อมูล
-
-</button>
-
-
-
-<div class="result" id="show">
-
-</div>
-
+</p>
 
 
 </div>
 
 
 
+
+
+
+
+<div class="section">
+
+
+<h2>
+👥 องค์กรและกลุ่มทำงานชุมชน
+</h2>
+
+
+<p>
+
+
+🩺 อสม. ดูแลสุขภาพประชาชน
+
+<br>
+
+🛡 ชรบ. ดูแลความปลอดภัย
+
+<br>
+
+🚒 อปพร. ช่วยเหลือภัยพิบัติ
+
+<br>
+
+🏡 คณะกรรมการหมู่บ้าน
+
+
+</p>
+
+
 </div>
+
+
+
+
+
+
+
+<div class="section">
+
+
+<h2>
+🌱 ทรัพยากรธรรมชาติ
+</h2>
+
+
+<p>
+
+
+💧 แหล่งซับน้ำจำ
+
+<br>
+
+🌳 พื้นที่ธรรมชาติ
+
+<br>
+
+🐟 ระบบนิเวศชุมชน
+
+<br>
+
+🌱 แหล่งเรียนรู้ท้องถิ่น
+
+
+</p>
+
+
+</div>
+
+
+
+
+
+</div>
+
 
 
 
@@ -247,9 +468,9 @@ placeholder="จำนวนผู้พิการ">
 
 <div class="back">
 
-<a href="admin-dashboard.html">
+<a href="index.html">
 
-⚙️ กลับ Dashboard
+🏠 กลับหน้าแรก
 
 </a>
 
@@ -261,162 +482,60 @@ placeholder="จำนวนผู้พิการ">
 
 
 
+
+
 <script>
 
 
-
-loadData();
-
+// ดึงข้อมูลจาก admin-data.html
 
 
-function saveData(){
-
-
-
-let data={
-
-
-house:
-document.getElementById("house").value,
-
-
-people:
-document.getElementById("people").value,
-
-
-male:
-document.getElementById("male").value,
-
-
-female:
-document.getElementById("female").value,
-
-
-elder:
-document.getElementById("elder").value,
-
-
-disabled:
-document.getElementById("disabled").value
-
-
-};
-
-
-
-
-localStorage.setItem(
-
-"community",
-
-JSON.stringify(data)
-
-);
-
-
-
-alert("บันทึกข้อมูลเรียบร้อย");
-
-
-
-showData();
-
-
-}
-
-
-
-
-function loadData(){
-
-
-
-let data=
-
-JSON.parse(
+let data = JSON.parse(
 
 localStorage.getItem("community")
 
 );
+
 
 
 
 if(data){
 
-document.getElementById("house").value=data.house;
-
-document.getElementById("people").value=data.people;
-
-document.getElementById("male").value=data.male;
-
-document.getElementById("female").value=data.female;
-
-document.getElementById("elder").value=data.elder;
-
-document.getElementById("disabled").value=data.disabled;
 
 
-}
+document.getElementById("house").innerHTML =
+
+data.house + " หลัง";
 
 
 
-showData();
+document.getElementById("people").innerHTML =
 
-
-}
-
-
+data.people + " คน";
 
 
 
-function showData(){
+document.getElementById("male").innerHTML =
 
-
-let data=
-
-JSON.parse(
-
-localStorage.getItem("community")
-
-);
+data.male + " คน";
 
 
 
-if(!data)return;
+document.getElementById("female").innerHTML =
+
+data.female + " คน";
 
 
 
-document.getElementById("show").innerHTML=`
+document.getElementById("elder").innerHTML =
 
-<h3>
-ข้อมูลปัจจุบัน
-</h3>
+data.elder + " คน";
 
-<p>
-🏠 ครัวเรือน : ${data.house} หลัง
-</p>
 
-<p>
-👨‍👩‍👧‍👦 ประชากร : ${data.people} คน
-</p>
 
-<p>
-👨 ชาย : ${data.male} คน
-</p>
+document.getElementById("disabled").innerHTML =
 
-<p>
-👩 หญิง : ${data.female} คน
-</p>
-
-<p>
-👴 ผู้สูงอายุ : ${data.elder} คน
-</p>
-
-<p>
-♿ ผู้พิการ : ${data.disabled} คน
-</p>
-
-`;
+data.disabled + " คน";
 
 
 
@@ -425,6 +544,9 @@ document.getElementById("show").innerHTML=`
 
 
 </script>
+
+
+
 
 
 
