@@ -1,47 +1,77 @@
+*{
+box-sizing:border-box;
+}
+
 body{
 
 margin:0;
-
-font-family:sans-serif;
-
-background:#eef7f5;
+font-family:Tahoma, sans-serif;
+background:#f4f8f6;
+color:#333;
 
 }
 
 
-header{
+.hero{
 
 background:#00695c;
-
 color:white;
+text-align:center;
+padding:30px 20px;
+
+}
+
+
+.logo{
+
+width:130px;
+height:130px;
+object-fit:contain;
+
+}
+
+
+.hero h1{
+
+font-size:32px;
+margin:15px 0;
+
+}
+
+
+.hero p{
+
+font-size:18px;
+
+}
+
+
+
+.cover{
 
 text-align:center;
-
-padding:20px;
-
-}
-
-
-
-.container{
-
-padding:20px;
-
-}
-
-
-
-.ai{
-
 background:white;
-
-padding:25px;
-
+margin:20px;
+padding:20px;
 border-radius:20px;
+box-shadow:0 5px 15px #ccc;
 
-text-align:center;
+}
 
-font-size:20px;
+
+.cover img{
+
+width:100%;
+max-height:400px;
+object-fit:cover;
+border-radius:15px;
+
+}
+
+
+.cover h2{
+
+color:#00695c;
 
 }
 
@@ -52,12 +82,11 @@ font-size:20px;
 display:grid;
 
 grid-template-columns:
-
-repeat(2,1fr);
+repeat(auto-fit,minmax(140px,1fr));
 
 gap:15px;
 
-margin-top:20px;
+padding:20px;
 
 }
 
@@ -66,91 +95,132 @@ margin-top:20px;
 .menu a{
 
 background:white;
+text-decoration:none;
+color:#00695c;
+text-align:center;
+
+padding:25px 10px;
+
+border-radius:20px;
+
+font-size:18px;
+
+box-shadow:0 5px 12px #ddd;
+
+transition:.3s;
+
+}
+
+
+
+.menu a:hover{
+
+transform:translateY(-5px);
+
+background:#e8f5e9;
+
+}
+
+
+
+.info{
+
+padding:20px;
+text-align:center;
+
+}
+
+
+.cards{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(150px,1fr));
+
+gap:15px;
+
+}
+
+
+.cards div{
+
+background:white;
 
 padding:25px;
 
 border-radius:20px;
 
-text-align:center;
+font-size:20px;
 
-font-size:35px;
-
-text-decoration:none;
-
-color:#333;
+box-shadow:0 5px 12px #ddd;
 
 }
 
 
 
-.menu span{
-
-display:block;
-
-font-size:18px;
-
-}
-
-
-
-.alert{
+.contact{
 
 background:white;
+
+margin:20px;
 
 padding:20px;
 
 border-radius:20px;
 
-margin-top:20px;
-
 text-align:center;
 
 }
 
 
 
-button{
+footer{
 
-background:#c62828;
+background:#00695c;
 
 color:white;
 
-padding:15px;
-
-border:0;
-
-border-radius:15px;
-
-width:90%;
-
-}
-
-
-
-nav{
-
-position:fixed;
-
-bottom:0;
-
-width:100%;
-
-background:white;
-
-display:flex;
-
-justify-content:space-around;
-
-padding:10px 0;
-
-}
-
-
-
-nav a{
-
 text-align:center;
 
-font-size:14px;
+padding:20px;
+
+margin-top:30px;
+
+}
+
+
+
+@media(max-width:600px){
+
+
+.hero h1{
+
+font-size:24px;
+
+}
+
+
+.hero p{
+
+font-size:15px;
+
+}
+
+
+.logo{
+
+width:100px;
+height:100px;
+
+}
+
+
+.menu a{
+
+font-size:16px;
+
+}
+
 
 }
