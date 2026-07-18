@@ -54,7 +54,49 @@ error
 
 }
 
+fetch("data/news.json")
 
+.then(res=>res.json())
+
+.then(data=>{
+
+
+let html="";
+
+
+data
+.filter(x=>x.status=="เผยแพร่")
+.slice(0,5)
+.forEach(n=>{
+
+
+html+=`
+
+<div>
+
+📌 ${n.title}
+
+<br>
+
+<small>
+${n.date}
+</small>
+
+</div>
+
+<hr>
+
+`;
+
+});
+
+
+document.getElementById(
+"home-news"
+).innerHTML=html;
+
+
+});
 
 // ระบบเมนูมือถือ
 
