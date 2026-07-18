@@ -4,32 +4,38 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 
 <title>
 กิจกรรมหมู่บ้าน | บ้านร่องเข็ม Smart Village
 </title>
 
 
+
 <style>
+
 
 body{
 
 margin:0;
 font-family:Tahoma,sans-serif;
-background:#fff8e1;
+background:#e0f7fa;
 
 }
+
 
 
 header{
 
-background:#ef6c00;
+background:#00838f;
 color:white;
+padding:35px;
 text-align:center;
-padding:30px;
 
 }
+
 
 
 .container{
@@ -39,30 +45,49 @@ padding:20px;
 }
 
 
-.activity{
+
+.grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+
+}
+
+
+
+.card{
 
 background:white;
-padding:20px;
-margin-bottom:20px;
-border-radius:20px;
+padding:25px;
+border-radius:25px;
 box-shadow:0 4px 12px #ccc;
 
 }
 
 
-.activity h2{
 
-color:#ef6c00;
+.card img{
+
+width:100%;
+height:180px;
+object-fit:cover;
+border-radius:15px;
+
+}
+
+
+
+.date{
+
+background:#00838f;
+color:white;
+padding:8px 15px;
+border-radius:20px;
+display:inline-block;
 
 }
 
-
-.info{
-
-color:#666;
-font-size:14px;
-
-}
 
 
 .back{
@@ -73,21 +98,14 @@ margin:30px;
 }
 
 
+
 .back a{
 
-background:#ef6c00;
+background:#00838f;
 color:white;
 padding:12px 25px;
 border-radius:20px;
 text-decoration:none;
-
-}
-
-
-img{
-
-width:100%;
-border-radius:15px;
 
 }
 
@@ -98,22 +116,27 @@ border-radius:15px;
 </head>
 
 
+
 <body>
 
 
 
 <header>
 
+
 <h1>
-🏡 กิจกรรมหมู่บ้าน
+📅 กิจกรรมหมู่บ้าน
 </h1>
 
+
 <p>
-บ้านร่องเข็ม หมู่ที่ 6
-ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา
+บ้านร่องเข็ม Smart Village
 </p>
 
+
 </header>
+
+
 
 
 
@@ -121,112 +144,17 @@ border-radius:15px;
 <div class="container">
 
 
+<div class="grid" id="activityList">
 
-<div class="activity">
 
-<h2>
-🌱 พัฒนาแหล่งซับน้ำจำ
-</h2>
+</div>
 
-<p class="info">
-กิจกรรมอนุรักษ์ทรัพยากรธรรมชาติ
-</p>
-
-<p>
-ชุมชนร่วมกันดูแลแหล่งซับน้ำจำ
-เพื่อรักษาระบบนิเวศ เป็นแหล่งเรียนรู้
-และส่งเสริมความหลากหลายทางชีวภาพ
-</p>
 
 </div>
 
 
 
 
-<div class="activity">
-
-<h2>
-🩺 กิจกรรมสุขภาพชุมชน
-</h2>
-
-<p class="info">
-อสม. บ้านร่องเข็ม
-</p>
-
-<p>
-ลงพื้นที่ตรวจสุขภาพประชาชน
-ดูแลผู้สูงอายุ กลุ่มเปราะบาง
-และส่งเสริมสุขภาพของคนในชุมชน
-</p>
-
-</div>
-
-
-
-
-<div class="activity">
-
-<h2>
-🔥 ลดการเผา ลด PM2.5
-</h2>
-
-<p class="info">
-โครงการชุมชนปลอดการเผา
-</p>
-
-<p>
-สร้างความร่วมมือในการป้องกันไฟป่า
-ลดการเผาในพื้นที่เกษตร
-และดูแลสุขภาพประชาชนจากฝุ่น PM2.5
-</p>
-
-</div>
-
-
-
-
-<div class="activity">
-
-<h2>
-🛕 กิจกรรมวัดร่องเข็ม
-</h2>
-
-<p class="info">
-ศาสนาและวัฒนธรรมชุมชน
-</p>
-
-<p>
-ส่งเสริมกิจกรรมทางศาสนา
-ประเพณีท้องถิ่น
-และการมีส่วนร่วมของประชาชน
-</p>
-
-</div>
-
-
-
-
-<div class="activity">
-
-<h2>
-👥 กิจกรรมจิตอาสา ชรบ. อปพร.
-</h2>
-
-<p class="info">
-ความปลอดภัยในชุมชน
-</p>
-
-<p>
-ส่งเสริมการมีส่วนร่วมของประชาชน
-ในการดูแลความปลอดภัย
-ช่วยเหลือประชาชน และงานสาธารณะ
-</p>
-
-</div>
-
-
-
-</div>
 
 
 
@@ -234,11 +162,168 @@ border-radius:15px;
 <div class="back">
 
 <a href="index.html">
+
 🏠 กลับหน้าแรก
+
 </a>
 
 </div>
 
+
+
+
+
+
+
+<script>
+
+
+let activities =
+
+JSON.parse(
+
+localStorage.getItem("activities")
+
+)||[];
+
+
+
+
+
+function showActivity(){
+
+
+
+let html="";
+
+
+
+
+if(activities.length==0){
+
+
+
+html=`
+
+<div class="card">
+
+
+<h2>
+📅 ยังไม่มีกิจกรรม
+</h2>
+
+
+<p>
+กำลังจัดเตรียมข้อมูลกิจกรรม
+
+</p>
+
+
+</div>
+
+
+`;
+
+
+
+}
+
+
+
+
+activities.reverse();
+
+
+
+activities.forEach(function(item){
+
+
+
+html +=`
+
+
+<div class="card">
+
+
+
+<img src="images/${item.image}">
+
+
+
+<span class="date">
+
+📅 ${item.date}
+
+</span>
+
+
+
+<h2>
+
+${item.title}
+
+</h2>
+
+
+<p>
+
+⏰ เวลา :
+${item.time}
+
+</p>
+
+
+<p>
+
+📍 สถานที่ :
+${item.place}
+
+</p>
+
+
+<p>
+
+👥 ผู้รับผิดชอบ :
+${item.owner}
+
+</p>
+
+
+
+<p>
+
+${item.detail}
+
+</p>
+
+
+
+</div>
+
+
+
+`;
+
+
+
+});
+
+
+
+document.getElementById("activityList")
+.innerHTML=html;
+
+
+
+}
+
+
+
+showActivity();
+
+
+
+</script>
 
 
 
