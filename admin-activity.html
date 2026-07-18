@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+จัดการกิจกรรม | บ้านร่องเข็ม Smart Village
+</title>
+
+
+<style>
+
+body{
+
+margin:0;
+font-family:Tahoma,sans-serif;
+background:#fff8e1;
+
+}
+
+
+header{
+
+background:#f57f17;
+color:white;
+text-align:center;
+padding:30px;
+
+}
+
+
+.container{
+
+padding:20px;
+
+}
+
+
+.card{
+
+background:white;
+padding:25px;
+margin-bottom:20px;
+border-radius:20px;
+box-shadow:0 4px 12px #ccc;
+
+}
+
+
+h2{
+
+color:#f57f17;
+
+}
+
+
+input,textarea{
+
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:10px;
+border:1px solid #ccc;
+box-sizing:border-box;
+
+}
+
+
+button{
+
+background:#f57f17;
+color:white;
+border:none;
+padding:12px 30px;
+border-radius:20px;
+font-size:16px;
+
+}
+
+
+.event{
+
+background:#fff3e0;
+padding:15px;
+border-radius:15px;
+margin-top:15px;
+
+}
+
+
+.back{
+
+text-align:center;
+margin:30px;
+
+}
+
+
+.back a{
+
+background:#f57f17;
+color:white;
+padding:12px 25px;
+border-radius:20px;
+text-decoration:none;
+
+}
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+
+<header>
+
+<h1>
+📅 จัดการกิจกรรมหมู่บ้าน
+</h1>
+
+<p>
+Admin : บ้านร่องเข็ม Smart Village
+</p>
+
+</header>
+
+
+
+
+
+<div class="container">
+
+
+
+<div class="card">
+
+
+<h2>
+➕ เพิ่มกิจกรรมใหม่
+</h2>
+
+
+<input 
+id="title"
+placeholder="ชื่อกิจกรรม">
+
+
+<input 
+id="date"
+placeholder="วันที่ เช่น 25 กรกฎาคม 2569">
+
+
+<input 
+id="place"
+placeholder="สถานที่จัดกิจกรรม">
+
+
+<textarea
+id="detail"
+rows="5"
+placeholder="รายละเอียดกิจกรรม">
+</textarea>
+
+
+<button onclick="saveActivity()">
+
+💾 บันทึกกิจกรรม
+
+</button>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+📋 รายการกิจกรรม
+</h2>
+
+
+<div id="activityList">
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<div class="back">
+
+<a href="admin-dashboard.html">
+
+⚙️ กลับ Dashboard
+
+</a>
+
+</div>
+
+
+
+
+
+
+<script>
+
+
+showActivity();
+
+
+
+function saveActivity(){
+
+
+
+let data = {
+
+
+title:
+document.getElementById("title").value,
+
+
+date:
+document.getElementById("date").value,
+
+
+place:
+document.getElementById("place").value,
+
+
+detail:
+document.getElementById("detail").value
+
+
+};
+
+
+
+if(data.title==""){
+
+alert("กรุณาใส่ชื่อกิจกรรม");
+
+return;
+
+}
+
+
+
+let activity =
+
+JSON.parse(
+localStorage.getItem("activity")
+) || [];
+
+
+
+activity.push(data);
+
+
+
+localStorage.setItem(
+"activity",
+JSON.stringify(activity)
+);
+
+
+
+alert("บันทึกกิจกรรมแล้ว");
+
+
+
+location.reload();
+
+
+
+}
+
+
+
+
+
+function showActivity(){
+
+
+
+let activity =
+
+JSON.parse(
+localStorage.getItem("activity")
+) || [];
+
+
+
+let html="";
+
+
+
+activity.reverse();
+
+
+
+activity.forEach(function(item){
+
+
+
+html += `
+
+
+<div class="event">
+
+<h3>
+${item.title}
+</h3>
+
+<p>
+📅 ${item.date}
+</p>
+
+<p>
+📍 ${item.place}
+</p>
+
+<p>
+${item.detail}
+</p>
+
+
+</div>
+
+
+`;
+
+
+
+});
+
+
+
+document.getElementById("activityList")
+.innerHTML=html;
+
+
+
+}
+
+
+
+</script>
+
+
+
+</body>
+
+</html>
