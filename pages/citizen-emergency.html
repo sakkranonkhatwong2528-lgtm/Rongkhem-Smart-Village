@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>แจ้งเหตุฉุกเฉิน | Rongkhem Smart Village</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+
+<style>
+
+.container{
+padding:20px;
+}
+
+
+.header{
+
+background:#dc3545;
+color:white;
+padding:25px;
+border-radius:15px;
+
+}
+
+
+.card{
+
+background:white;
+padding:20px;
+margin-top:20px;
+border-radius:15px;
+box-shadow:0 3px 10px #ddd;
+
+}
+
+
+.grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
+
+}
+
+
+.emergency{
+
+background:#f8f9fa;
+padding:20px;
+border-radius:15px;
+text-align:center;
+
+}
+
+
+.icon{
+
+font-size:45px;
+
+}
+
+
+button{
+
+background:#dc3545;
+color:white;
+border:none;
+padding:12px 20px;
+border-radius:10px;
+
+}
+
+
+input,select,textarea{
+
+width:100%;
+padding:12px;
+margin-top:10px;
+border-radius:10px;
+border:1px solid #ccc;
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<div class="header">
+
+<h1>
+🚨 ระบบแจ้งเหตุฉุกเฉิน
+</h1>
+
+<p>
+🏡 Rongkhem Smart Village
+<br>
+Smart Emergency Response
+</p>
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+<h2>
+⚡ เลือกประเภทเหตุ
+</h2>
+
+
+<div class="grid">
+
+
+<div class="emergency">
+
+<div class="icon">
+🔥
+</div>
+
+<h3>
+ไฟไหม้ / ไฟป่า
+</h3>
+
+<button>
+แจ้งเหตุ
+</button>
+
+</div>
+
+
+
+<div class="emergency">
+
+<div class="icon">
+🚑
+</div>
+
+<h3>
+เหตุสุขภาพ
+</h3>
+
+<button>
+แจ้งเหตุ
+</button>
+
+</div>
+
+
+
+<div class="emergency">
+
+<div class="icon">
+⚡
+</div>
+
+<h3>
+ไฟฟ้าขัดข้อง
+</h3>
+
+<button>
+แจ้งเหตุ
+</button>
+
+</div>
+
+
+
+<div class="emergency">
+
+<div class="icon">
+🌧️
+</div>
+
+<h3>
+ภัยพิบัติ
+</h3>
+
+<button>
+แจ้งเหตุ
+</button>
+
+</div>
+
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+📝 รายละเอียดเหตุการณ์
+</h2>
+
+
+<label>
+ประเภทเหตุ
+</label>
+
+
+<select>
+
+<option>
+เลือกประเภท
+</option>
+
+<option>
+ไฟไหม้
+</option>
+
+<option>
+อุบัติเหตุ
+</option>
+
+<option>
+สุขภาพ
+</option>
+
+<option>
+ภัยธรรมชาติ
+</option>
+
+</select>
+
+
+
+<label>
+รายละเอียด
+</label>
+
+
+<textarea rows="5"
+placeholder="อธิบายเหตุการณ์">
+
+</textarea>
+
+
+
+
+<label>
+ตำแหน่งเกิดเหตุ
+</label>
+
+
+<input placeholder="บ้านเลขที่ / จุดเกิดเหตุ">
+
+
+
+<button>
+
+📤 ส่งแจ้งเหตุ
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+📍 ทีมช่วยเหลือ
+</h2>
+
+
+<ul>
+
+<li>
+🛡️ ชรบ. หมู่บ้าน
+</li>
+
+<li>
+🩺 อสม.
+</li>
+
+<li>
+👤 ผู้ใหญ่บ้าน
+</li>
+
+<li>
+🚒 หน่วยงานท้องถิ่น
+</li>
+
+</ul>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+📋 ประวัติการแจ้งเหตุ
+</h2>
+
+
+<ul>
+
+<li>
+ไฟฟ้าสาธารณะเสีย  
+- ดำเนินการแล้ว
+</li>
+
+
+<li>
+แจ้งปัญหากลิ่นควัน  
+- ตรวจสอบแล้ว
+</li>
+
+
+</ul>
+
+
+</div>
+
+
+
+
+</div>
+
+
+</body>
+
+</html>
