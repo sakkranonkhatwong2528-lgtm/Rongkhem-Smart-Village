@@ -1,0 +1,37 @@
+[
+ {
+  "id":1,
+  "name":"นายศักรนนทน์ ขัติย์วงศ์",
+  "username":"admin",
+  "role":"Administrator",
+  "department":"ฝ่ายปกครอง",
+  "status":"ใช้งาน"
+ },
+
+ {
+  "id":2,
+  "name":"ผู้ช่วยผู้ใหญ่บ้าน",
+  "username":"assistant",
+  "role":"Editor",
+  "department":"ฝ่ายปกครอง",
+  "status":"ใช้งาน"
+ },
+
+ {
+  "id":3,
+  "name":"ประธาน อสม.",
+  "username":"health",
+  "role":"Health Officer",
+  "department":"ฝ่ายสุขภาพ",
+  "status":"ใช้งาน"
+ },
+
+ {
+  "id":4,
+  "name":"ประชาชนทั่วไป",
+  "username":"viewer",
+  "role":"Viewer",
+  "department":"ประชาชน",
+  "status":"จำกัดสิทธิ์"
+ }
+]
