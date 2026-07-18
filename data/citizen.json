@@ -1,32 +1,31 @@
-{
-  "summary":{
-    "total":1021,
-    "male":0,
-    "female":0,
-    "elderly":91,
-    "disabled":3
-  },
+[
+ {
+  "id":1,
+  "name":"นายสมชาย ใจดี",
+  "gender":"ชาย",
+  "age":72,
+  "house":"15",
+  "elderly":true,
+  "vulnerable":false
+ },
 
-  "citizens":[
+ {
+  "id":2,
+  "name":"นางมาลี แก้วดี",
+  "gender":"หญิง",
+  "age":65,
+  "house":"28",
+  "elderly":true,
+  "vulnerable":false
+ },
 
-    {
-      "id":1,
-      "name":"รอกรอกข้อมูล",
-      "gender":"ชาย",
-      "age":65,
-      "status":"ผู้สูงอายุ",
-      "house":"หมู่ที่ 6 บ้านร่องเข็ม"
-    },
-
-    {
-      "id":2,
-      "name":"รอกรอกข้อมูล",
-      "gender":"หญิง",
-      "age":70,
-      "status":"ผู้สูงอายุ",
-      "house":"หมู่ที่ 6 บ้านร่องเข็ม"
-    }
-
-  ]
-
-}
+ {
+  "id":3,
+  "name":"นายประเสริฐ ใจคำ",
+  "gender":"ชาย",
+  "age":45,
+  "house":"55",
+  "elderly":false,
+  "vulnerable":true
+ }
+]
