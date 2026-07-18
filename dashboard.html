@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>
-Dashboard | Rongkhem Smart Village
+Dashboard | บ้านร่องเข็ม Smart Village
 </title>
 
 
@@ -15,9 +15,9 @@ Dashboard | Rongkhem Smart Village
 
 body{
 
-font-family:"Sarabun",sans-serif;
-background:#eef5f4;
 margin:0;
+font-family:Tahoma,sans-serif;
+background:#f1f8f5;
 
 }
 
@@ -26,8 +26,8 @@ header{
 
 background:#00695c;
 color:white;
-padding:25px;
 text-align:center;
+padding:30px;
 
 }
 
@@ -42,8 +42,7 @@ padding:20px;
 .grid{
 
 display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(200px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
 gap:20px;
 
 }
@@ -52,10 +51,10 @@ gap:20px;
 .card{
 
 background:white;
-padding:20px;
-border-radius:18px;
-box-shadow:0 3px 10px #ccc;
+padding:25px;
+border-radius:20px;
 text-align:center;
+box-shadow:0 4px 12px #ccc;
 
 }
 
@@ -69,12 +68,28 @@ color:#00695c;
 }
 
 
-.news{
+.title{
 
-background:white;
-padding:20px;
-margin-top:20px;
-border-radius:15px;
+font-size:18px;
+
+}
+
+
+.back{
+
+text-align:center;
+margin:30px;
+
+}
+
+
+.back a{
+
+background:#00695c;
+color:white;
+padding:12px 25px;
+border-radius:20px;
+text-decoration:none;
 
 }
 
@@ -82,7 +97,6 @@ border-radius:15px;
 </style>
 
 </head>
-
 
 
 <body>
@@ -94,13 +108,12 @@ border-radius:15px;
 📊 Dashboard
 </h1>
 
-<h3>
+<p>
 Rongkhem Smart Village
-</h3>
+</p>
 
 <p>
-บ้านร่องเข็ม หมู่ที่ 6
-ตำบลจำป่าหวาย จังหวัดพะเยา
+บ้านร่องเข็ม หมู่ที่ 6 ตำบลจำป่าหวาย จังหวัดพะเยา
 </p>
 
 </header>
@@ -116,150 +129,115 @@ Rongkhem Smart Village
 
 <div class="card">
 
-<h2>🏠</h2>
-
-<h3>
-ครัวเรือน
-</h3>
-
-<div class="number" id="household">
+<div class="number">
 0
 </div>
 
-หลังคาเรือน
-
+<div class="title">
+🏠 ครัวเรือน
 </div>
 
+</div>
 
 
 
 <div class="card">
 
-<h2>👥</h2>
-
-<h3>
-ประชากร
-</h3>
-
-<div class="number" id="people">
+<div class="number">
 0
 </div>
 
-คน
-
+<div class="title">
+👥 ประชากร
 </div>
 
+</div>
 
 
 
 <div class="card">
 
-<h2>👵</h2>
-
-<h3>
-ผู้สูงอายุ
-</h3>
-
-<div class="number" id="elderly">
+<div class="number">
 0
 </div>
 
-คน
-
+<div class="title">
+👵 ผู้สูงอายุ
 </div>
 
+</div>
 
 
 
 <div class="card">
 
-<h2>❤️</h2>
-
-<h3>
-กลุ่มเปราะบาง
-</h3>
-
-<div class="number" id="vulnerable">
+<div class="number">
 0
 </div>
 
-คน
-
+<div class="title">
+❤️ กลุ่มเปราะบาง
 </div>
 
+</div>
 
 
 
 <div class="card">
 
-<h2>👤</h2>
-
-<h3>
-ผู้นำ
-</h3>
-
-<div class="number" id="leader">
+<div class="number">
 0
 </div>
 
-คน
-
+<div class="title">
+🩺 อสม.
 </div>
 
+</div>
 
 
 
 <div class="card">
 
-<h2>🩺</h2>
-
-<h3>
-อสม.
-</h3>
-
-<div class="number" id="osm">
+<div class="number">
 0
 </div>
 
-คน
-
+<div class="title">
+🚨 อปพร.
 </div>
 
+</div>
 
 
 
 <div class="card">
 
-<h2>🚨</h2>
-
-<h3>
-อปพร.
-</h3>
-
-<div class="number" id="oppor">
+<div class="number">
 0
 </div>
 
-คน
-
+<div class="title">
+👮 ชรบ.
 </div>
 
+</div>
 
 
 
 <div class="card">
 
-<h2>👮</h2>
-
-<h3>
-ชรบ.
-</h3>
-
-<div class="number" id="shorbor">
+<div class="number">
 0
 </div>
 
-คน
+<div class="title">
+👤 ผู้นำ
+</div>
+
+</div>
+
+
 
 </div>
 
@@ -268,141 +246,14 @@ Rongkhem Smart Village
 
 
 
-<div class="news">
+<div class="back">
 
-<h2>
-📰 ข่าวล่าสุด
-</h2>
-
-<div id="newsList">
+<a href="index.html">
+🏠 กลับหน้าแรก
+</a>
 
 </div>
 
-</div>
-
-
-
-<div class="news">
-
-<h2>
-🌱 โครงการสำคัญ
-</h2>
-
-<h3>
-แหล่งซับน้ำจำ บ้านร่องเข็ม
-</h3>
-
-<p>
-
-พื้นที่อนุรักษ์น้ำ
-ระบบนิเวศชุมชน
-และแหล่งเรียนรู้ธรรมชาติ
-
-</p>
-
-</div>
-
-
-</div>
-
-
-
-
-<script>
-
-
-function count(id,data){
-
-document.getElementById(id).innerHTML=
-
-JSON.parse(
-
-localStorage.getItem(data)||"[]"
-
-).length;
-
-}
-
-
-
-count(
-"household",
-"household"
-);
-
-
-count(
-"people",
-"people"
-);
-
-
-count(
-"elderly",
-"elderly"
-);
-
-
-count(
-"vulnerable",
-"vulnerable"
-);
-
-
-count(
-"leader",
-"leaders"
-);
-
-
-count(
-"osm",
-"osm"
-);
-
-
-count(
-"oppor",
-"opp"
-);
-
-
-count(
-"shorbor",
-"shorbor"
-);
-
-
-
-// ข่าวล่าสุด
-
-let news=
-
-JSON.parse(
-localStorage.getItem("news")||"[]"
-);
-
-
-let box=
-
-document.getElementById("newsList");
-
-
-news.slice(-5).reverse().forEach(n=>{
-
-
-box.innerHTML +=`
-
-<p>
-📌 ${n.title}
-</p>
-
-`;
-
-});
-
-
-</script>
 
 
 </body>
