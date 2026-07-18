@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
 
 <meta charset="UTF-8">
@@ -19,28 +20,40 @@ justify-content:center;
 align-items:center;
 }
 
+
 .box{
+
 background:white;
 width:350px;
 padding:30px;
 border-radius:25px;
 box-shadow:0 5px 20px #aaa;
 text-align:center;
+
 }
+
 
 .logo{
+
 width:100px;
+
 }
 
+
 input{
+
 width:90%;
 padding:12px;
 margin:10px;
 border-radius:15px;
 border:1px solid #ccc;
+font-size:16px;
+
 }
 
+
 button{
+
 width:95%;
 padding:12px;
 border:0;
@@ -48,40 +61,88 @@ border-radius:20px;
 background:#2e7d32;
 color:white;
 font-size:16px;
+cursor:pointer;
+
 }
 
+
+button:hover{
+
+background:#1b5e20;
+
+}
+
+
 #error{
+
 color:red;
+margin-top:15px;
+
+}
+
+
+#status{
+
+color:#666;
+font-size:14px;
+
 }
 
 </style>
 
+
 </head>
+
 
 <body>
 
 
 <div class="box">
 
+
 <img src="images/logo.svg" class="logo">
 
-<h2>⚙️ ผู้ดูแลระบบ</h2>
 
-<p>บ้านร่องเข็ม Smart Village</p>
-
-
-<input id="username" placeholder="ชื่อผู้ใช้">
+<h2>
+⚙️ ผู้ดูแลระบบ
+</h2>
 
 
-<input id="password" type="password" placeholder="รหัสผ่าน">
+<p>
+บ้านร่องเข็ม Smart Village
+</p>
+
+
+
+<input 
+id="username"
+placeholder="ชื่อผู้ใช้">
+
+
+
+<input 
+id="password"
+type="password"
+placeholder="รหัสผ่าน">
+
 
 
 <button onclick="login()">
+
 🔐 เข้าสู่ระบบ
+
 </button>
 
 
+
+<p id="status">
+กำลังโหลดข้อมูลผู้ใช้...
+</p>
+
+
+
 <p id="error"></p>
+
 
 
 </div>
@@ -89,25 +150,60 @@ color:red;
 
 
 
+
 <script>
+
 
 let users=[];
 
 
-// โหลด user.json
 
-fetch("data/user.json")
-.then(res=>res.json())
+// โหลดข้อมูลผู้ใช้
+
+fetch("users.json")
+
+
+.then(response=>{
+
+
+if(!response.ok){
+
+throw new Error("ไม่พบไฟล์ users.json");
+
+}
+
+
+return response.json();
+
+
+})
+
+
 .then(data=>{
+
 
 users=data;
 
+
+document.getElementById("status").innerHTML=
+"พร้อมเข้าสู่ระบบ";
+
+
 console.log("USERS =",users);
 
-})
-.catch(err=>{
 
-console.error(err);
+})
+
+
+.catch(error=>{
+
+
+document.getElementById("status").innerHTML=
+"โหลดข้อมูลผู้ใช้ไม่ได้";
+
+
+console.error(error);
+
 
 });
 
@@ -118,32 +214,40 @@ console.error(err);
 function login(){
 
 
+
 let username =
-document.getElementById("username").value.trim();
+document.getElementById("username")
+.value
+.trim();
+
 
 
 let password =
-document.getElementById("password").value.trim();
+document.getElementById("password")
+.value
+.trim();
 
 
 
 
 
-let user = users.find(function(u){
+let user =
+users.find(u=>
 
 
-return u.username === username
+u.username === username
 &&
-u.password === password;
+u.password === password
 
 
-});
+);
 
 
 
 
 
 if(user){
+
 
 
 localStorage.setItem(
@@ -153,7 +257,9 @@ JSON.stringify(user)
 
 
 
-window.location.href="admin.html";
+window.location.href=
+"admin-panel.html";
+
 
 
 }
@@ -161,18 +267,22 @@ window.location.href="admin.html";
 else{
 
 
-document.getElementById("error").innerHTML =
+document.getElementById("error").innerHTML=
+
 "❌ ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง";
 
 
 }
 
 
+
 }
+
 
 
 </script>
 
 
 </body>
+
 </html>
