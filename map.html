@@ -7,6 +7,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
 <title>
 แผนที่หมู่บ้าน | บ้านร่องเข็ม Smart Village
 </title>
@@ -14,18 +15,19 @@
 
 <style>
 
+
 body{
 
 margin:0;
 font-family:Tahoma,sans-serif;
-background:#e3f2fd;
+background:#e8f5e9;
 
 }
 
 
 header{
 
-background:#1565c0;
+background:#2e7d32;
 color:white;
 padding:35px;
 text-align:center;
@@ -40,10 +42,10 @@ padding:20px;
 }
 
 
-.map-box{
+.card{
 
 background:white;
-padding:20px;
+padding:25px;
 border-radius:25px;
 box-shadow:0 4px 12px #ccc;
 margin-bottom:20px;
@@ -51,10 +53,10 @@ margin-bottom:20px;
 }
 
 
-iframe{
+.map{
 
 width:100%;
-height:400px;
+height:450px;
 border:0;
 border-radius:20px;
 
@@ -63,19 +65,13 @@ border-radius:20px;
 
 .place{
 
-background:#e3f2fd;
-padding:20px;
-border-radius:20px;
-margin-bottom:15px;
+padding:15px;
+background:#e8f5e9;
+border-radius:15px;
+margin-top:15px;
 
 }
 
-
-.place h2{
-
-color:#1565c0;
-
-}
 
 
 .back{
@@ -88,7 +84,7 @@ margin:30px;
 
 .back a{
 
-background:#1565c0;
+background:#2e7d32;
 color:white;
 padding:12px 25px;
 border-radius:20px;
@@ -112,12 +108,13 @@ text-decoration:none;
 
 
 <h1>
-📍 Smart Map
+📍 Smart Village Map
 </h1>
 
 
 <p>
-แผนที่บ้านร่องเข็ม Smart Village
+บ้านร่องเข็ม หมู่ที่ 6
+ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา
 </p>
 
 
@@ -132,22 +129,21 @@ text-decoration:none;
 
 
 
-
-
-<div class="map-box">
+<div class="card">
 
 
 <h2>
-🗺 แผนที่ตำแหน่งหมู่บ้าน
+🗺 แผนที่หมู่บ้าน
 </h2>
 
 
-<!-- เปลี่ยนลิงก์ Google Map ภายหลัง -->
-
+<!-- เปลี่ยนพิกัด Google Map ได้ -->
 
 <iframe
 
-src="https://www.google.com/maps?q=จำป่าหวาย+พะเยา&output=embed">
+class="map"
+
+src="https://maps.google.com/maps?q=จำป่าหวาย%20พะเยา&t=&z=14&ie=UTF8&iwloc=&output=embed">
 
 </iframe>
 
@@ -161,7 +157,8 @@ src="https://www.google.com/maps?q=จำป่าหวาย+พะเยา&o
 
 
 
-<div class="map-box">
+
+<div class="card">
 
 
 <h2>
@@ -170,92 +167,66 @@ src="https://www.google.com/maps?q=จำป่าหวาย+พะเยา&o
 
 
 
-
 <div class="place">
 
+💧
+<b>
+แหล่งซับน้ำจำ
+</b>
 
-<h2>
-💧 แหล่งซับน้ำจำ
-</h2>
+<br>
 
-
-<p>
-
-พื้นที่ธรรมชาติสำคัญ
-ระบบนิเวศและแหล่งเรียนรู้ชุมชน
-
-</p>
-
+ฐานทรัพยากรธรรมชาติและระบบนิเวศชุมชน
 
 </div>
-
 
 
 
 
 <div class="place">
 
+🛕
+<b>
+วัดร่องเข็ม
+</b>
 
-<h2>
-🛕 วัดร่องเข็ม
-</h2>
+<br>
 
-
-<p>
-
-ศูนย์รวมจิตใจ
-และกิจกรรมของชุมชน
-
-</p>
-
+ศูนย์รวมจิตใจและกิจกรรมชุมชน
 
 </div>
-
 
 
 
 
 <div class="place">
 
+🏛
+<b>
+ศาลาประชาคมหมู่บ้าน
+</b>
 
-<h2>
-🏡 ศูนย์กลางหมู่บ้าน
-</h2>
+<br>
 
-
-<p>
-
-พื้นที่ประชุม
-และบริหารจัดการชุมชน
-
-</p>
-
+สถานที่ประชุมและกิจกรรมหมู่บ้าน
 
 </div>
-
 
 
 
 
 <div class="place">
 
+🚑
+<b>
+จุดบริการประชาชน
+</b>
 
-<h2>
-🩺 จุดบริการสุขภาพ
-</h2>
+<br>
 
-
-<p>
-
-อสม. ดูแลสุขภาพประชาชน
-และกลุ่มเปราะบาง
-
-</p>
-
+อสม. ชรบ. และคณะทำงานชุมชน
 
 </div>
-
-
 
 
 
@@ -263,10 +234,9 @@ src="https://www.google.com/maps?q=จำป่าหวาย+พะเยา&o
 
 
 
-
-
-
 </div>
+
+
 
 
 
@@ -275,13 +245,11 @@ src="https://www.google.com/maps?q=จำป่าหวาย+พะเยา&o
 
 <div class="back">
 
-
 <a href="index.html">
 
 🏠 กลับหน้าแรก
 
 </a>
-
 
 </div>
 
