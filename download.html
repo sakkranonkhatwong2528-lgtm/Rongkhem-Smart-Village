@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>
-เอกสารและดาวน์โหลด | บ้านร่องเข็ม Smart Village
+ศูนย์เอกสารดาวน์โหลด | บ้านร่องเข็ม Smart Village
 </title>
 
 
@@ -17,7 +17,7 @@ body{
 
 margin:0;
 font-family:Tahoma,sans-serif;
-background:#f5f5f5;
+background:#eceff1;
 
 }
 
@@ -57,24 +57,34 @@ color:#37474f;
 }
 
 
-.btn{
+.type{
 
-display:inline-block;
 background:#37474f;
 color:white;
-padding:10px 20px;
+padding:6px 15px;
 border-radius:20px;
-text-decoration:none;
-margin-top:10px;
+display:inline-block;
 
 }
 
 
-.category{
+.download{
 
-background:#eceff1;
-padding:15px;
-border-radius:15px;
+display:inline-block;
+background:#00897b;
+color:white;
+padding:10px 20px;
+border-radius:20px;
+text-decoration:none;
+
+}
+
+
+.default{
+
+background:white;
+padding:20px;
+border-radius:20px;
 
 }
 
@@ -102,6 +112,7 @@ text-decoration:none;
 </head>
 
 
+
 <body>
 
 
@@ -121,149 +132,18 @@ text-decoration:none;
 
 
 
+
 <div class="container">
 
 
-
-<div class="document">
-
-<h2>
-📜 คำสั่งและประกาศหมู่บ้าน
-</h2>
-
-<div class="category">
-
-<p>
-- คำสั่งแต่งตั้งคณะทำงาน<br>
-- ประกาศประชาสัมพันธ์<br>
-- ระเบียบหมู่บ้าน<br>
-- หนังสือแจ้งประชาชน
-
-</p>
-
-</div>
-
-</div>
-
-
-
-
-<div class="document">
-
-<h2>
-📝 รายงานการประชุม
-</h2>
-
-<div class="category">
-
-<p>
-จัดเก็บรายงานประชุมประจำเดือน
-มติที่ประชุม
-และแผนการดำเนินงานของหมู่บ้าน
-
-</p>
-
-</div>
-
-</div>
-
-
-
-
-<div class="document">
-
-<h2>
-📊 ข้อมูลและแบบสำรวจชุมชน
-</h2>
-
-<div class="category">
-
-<p>
-- แบบสำรวจชุมชนร่องเข็ม<br>
-- ข้อมูลประชากร<br>
-- ข้อมูลกลุ่มเปราะบาง<br>
-- ข้อมูลสิ่งแวดล้อม PM2.5
-
-</p>
-
-
-<a class="btn" href="#">
-⬇ ดาวน์โหลด Excel
-</a>
-
-</div>
-
-</div>
-
-
-
-
-<div class="document">
-
-<h2>
-📄 แบบฟอร์มประชาชน
-</h2>
-
-
-<div class="category">
-
-<p>
-- แบบแจ้งปัญหาชุมชน<br>
-- แบบขอความช่วยเหลือ<br>
-- แบบสมัครเข้าร่วมกิจกรรม
-
-</p>
-
-</div>
-
-</div>
-
-
-
-
-<div class="document">
-
-<h2>
-📷 คลังภาพกิจกรรม
-</h2>
-
-<div class="category">
-
-<p>
-
-รวมภาพกิจกรรมหมู่บ้าน
-กิจกรรมพัฒนาแหล่งซับน้ำจำ
-กิจกรรมวัดร่องเข็ม
-และกิจกรรมจิตอาสา
-
-</p>
-
-</div>
-
-</div>
-
-
-
-
-<div class="document">
-
-<h2>
-🔐 การพัฒนาระบบในอนาคต
-</h2>
-
-<p>
-
-สามารถเชื่อมต่อ Google Drive,
-Google Sheet หรือฐานข้อมูลออนไลน์
-เพื่อให้คณะทำงานบริหารเอกสารได้ง่ายขึ้น
-
-</p>
-
-</div>
-
+<div id="documentList">
 
 
 </div>
+
+
+</div>
+
 
 
 
@@ -271,10 +151,155 @@ Google Sheet หรือฐานข้อมูลออนไลน์
 <div class="back">
 
 <a href="index.html">
+
 🏠 กลับหน้าแรก
+
 </a>
 
 </div>
+
+
+
+
+
+
+<script>
+
+
+function loadDocument(){
+
+
+
+let data =
+
+JSON.parse(
+localStorage.getItem("document")
+) || [];
+
+
+
+let html="";
+
+
+
+
+// เอกสารตัวอย่าง
+
+if(data.length==0){
+
+
+html += `
+
+
+<div class="document">
+
+
+<h2>
+📜 เอกสารหมู่บ้าน
+</h2>
+
+
+<p>
+ระบบกำลังเตรียมข้อมูลเอกสาร
+</p>
+
+
+<p>
+สามารถดาวน์โหลดคำสั่ง
+ประกาศ และรายงานประชุมได้ที่นี่
+</p>
+
+
+</div>
+
+
+`;
+
+
+
+}
+
+
+
+
+
+// แสดงเอกสารจาก Admin
+
+
+data.reverse();
+
+
+
+data.forEach(function(item){
+
+
+
+html += `
+
+
+<div class="document">
+
+
+<span class="type">
+
+${item.type}
+
+</span>
+
+
+
+<h2>
+
+📄 ${item.name}
+
+</h2>
+
+
+
+<p>
+
+ไฟล์ :
+${item.file}
+
+</p>
+
+
+
+<a class="download"
+href="documents/${item.file}"
+download>
+
+⬇ ดาวน์โหลด
+
+</a>
+
+
+
+</div>
+
+
+`;
+
+
+
+});
+
+
+
+document.getElementById("documentList")
+.innerHTML=html;
+
+
+
+}
+
+
+
+loadDocument();
+
+
+
+</script>
 
 
 
