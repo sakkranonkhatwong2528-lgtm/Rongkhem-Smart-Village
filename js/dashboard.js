@@ -186,7 +186,33 @@ fetch("data/project.json")
 document.getElementById(
 "project-count"
 ).innerHTML=
+fetch("data/health.json")
 
+.then(res=>res.json())
+
+.then(data=>{
+
+
+let elderly =
+data.filter(
+x=>x.group=="ผู้สูงอายุ"
+).length;
+
+
+
+document.getElementById(
+"health-count"
+).innerHTML=
+
+`
+
+👴 ผู้สูงอายุ
+${elderly}
+คน
+
+`;
+
+});
 `
 📌 โครงการทั้งหมด
 <br>
