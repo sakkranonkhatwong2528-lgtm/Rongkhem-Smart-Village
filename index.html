@@ -27,7 +27,7 @@ background:#f1f8e9;
 background:#00695c;
 color:white;
 text-align:center;
-padding:40px;
+padding:40px 20px;
 
 }
 
@@ -39,12 +39,25 @@ width:120px;
 }
 
 
+h1{
+
+font-size:32px;
+
+}
+
+
+.container{
+
+padding:20px;
+
+}
+
+
 .menu{
 
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:20px;
-padding:25px;
 
 }
 
@@ -53,25 +66,24 @@ padding:25px;
 
 background:white;
 padding:25px;
-text-align:center;
 border-radius:25px;
 box-shadow:0 4px 12px #ccc;
-text-decoration:none;
-color:#333;
+text-align:center;
+transition:0.3s;
 
 }
 
 
 .card:hover{
 
-transform:scale(1.03);
+transform:translateY(-5px);
 
 }
 
 
 .icon{
 
-font-size:45px;
+font-size:50px;
 
 }
 
@@ -79,6 +91,14 @@ font-size:45px;
 .card h2{
 
 color:#00695c;
+
+}
+
+
+a{
+
+text-decoration:none;
+color:#333;
 
 }
 
@@ -93,9 +113,12 @@ margin-top:30px;
 
 }
 
+
 </style>
 
+
 </head>
+
 
 
 <body>
@@ -103,7 +126,7 @@ margin-top:30px;
 
 
 
-<div class="hero">
+<header class="hero">
 
 
 <img src="logo.svg" class="logo">
@@ -121,38 +144,23 @@ margin-top:30px;
 
 
 <p>
-"ชุมชนเข้มแข็ง ข้อมูลทันสมัย
-พัฒนายั่งยืน"
+ระบบบริหารจัดการหมู่บ้านอัจฉริยะ
 </p>
 
 
-</div>
+</header>
 
 
+
+
+
+
+
+<div class="container">
 
 
 
 <div class="menu">
-
-
-
-<a class="card" href="dashboard.html">
-
-<div class="icon">
-📊
-</div>
-
-<h2>
-Dashboard
-</h2>
-
-<p>
-ระบบบริหารหมู่บ้าน
-</p>
-
-</a>
-
-
 
 
 
@@ -167,7 +175,7 @@ Dashboard
 </h2>
 
 <p>
-ข่าวสารและประกาศ
+ข่าวสารและประกาศหมู่บ้าน
 </p>
 
 </a>
@@ -176,10 +184,12 @@ Dashboard
 
 
 
-<a class="card" href="activities.html">
+
+
+<a class="card" href="calendar.html">
 
 <div class="icon">
-🏡
+📅
 </div>
 
 <h2>
@@ -187,10 +197,12 @@ Dashboard
 </h2>
 
 <p>
-กิจกรรมชุมชน
+ปฏิทินกิจกรรมชุมชน
 </p>
 
 </a>
+
+
 
 
 
@@ -207,170 +219,12 @@ Dashboard
 </h2>
 
 <p>
-คณะทำงานหมู่บ้าน
+ผู้นำและคณะทำงาน
 </p>
 
 </a>
 
 
-
-
-
-<a class="card" href="places.html">
-
-<div class="icon">
-📍
-</div>
-
-<h2>
-สถานที่สำคัญ
-</h2>
-
-<p>
-แหล่งเรียนรู้
-</p>
-
-</a>
-
-
-
-
-
-<a class="card" href="health.html">
-
-<div class="icon">
-🩺
-</div>
-
-<h2>
-สุขภาพชุมชน
-</h2>
-
-<p>
-ระบบดูแลประชาชน
-</p>
-
-</a>
-
-
-
-
-
-<a class="card" href="environment.html">
-
-<div class="icon">
-🌳
-</div>
-
-<h2>
-สิ่งแวดล้อม
-</h2>
-
-<p>
-PM2.5 และทรัพยากร
-</p>
-
-</a>
-
-
-
-
-
-<a class="card" href="economy.html">
-
-<div class="icon">
-💰
-</div>
-
-<h2>
-เศรษฐกิจชุมชน
-</h2>
-
-<p>
-สินค้าและอาชีพ
-</p>
-
-</a>
-
-
-
-
-
-<a class="card" href="security.html">
-
-<div class="icon">
-🛡
-</div>
-
-<h2>
-ความปลอดภัย
-</h2>
-
-<p>
-ชรบ. อปพร.
-</p>
-
-</a>
-
-
-
-
-
-<a class="card" href="complaint.html">
-
-<div class="icon">
-📝
-</div>
-
-<h2>
-แจ้งปัญหา
-</h2>
-
-<p>
-ร้องเรียนออนไลน์
-</p>
-
-</a>
-
-
-
-
-
-<a class="card" href="data.html">
-
-<div class="icon">
-📈
-</div>
-
-<h2>
-ข้อมูลหมู่บ้าน
-</h2>
-
-<p>
-Village Data Center
-</p>
-
-</a>
-
-
-
-
-
-<a class="card" href="calendar.html">
-
-<div class="icon">
-📅
-</div>
-
-<h2>
-ปฏิทินกิจกรรม
-</h2>
-
-<p>
-กำหนดการชุมชน
-</p>
-
-</a>
 
 
 
@@ -383,14 +237,38 @@ Village Data Center
 </div>
 
 <h2>
-เอกสารดาวน์โหลด
+เอกสารหมู่บ้าน
 </h2>
 
 <p>
-ศูนย์ข้อมูลเอกสาร
+คำสั่ง ประกาศ รายงาน
 </p>
 
 </a>
+
+
+
+
+
+
+
+<a class="card" href="data.html">
+
+<div class="icon">
+📊
+</div>
+
+<h2>
+ข้อมูลชุมชน
+</h2>
+
+<p>
+สถิติและข้อมูลหมู่บ้าน
+</p>
+
+</a>
+
+
 
 
 
@@ -403,7 +281,7 @@ Village Data Center
 </div>
 
 <h2>
-แกลเลอรี่
+คลังภาพกิจกรรม
 </h2>
 
 <p>
@@ -414,23 +292,120 @@ Village Data Center
 
 
 
+
+
+
+
+<a class="card" href="complaint.html">
+
+<div class="icon">
+📝
+</div>
+
+<h2>
+แจ้งปัญหาชุมชน
+</h2>
+
+<p>
+ส่งเรื่องร้องเรียนออนไลน์
+</p>
+
+</a>
+
+
+
+
+
+
+
+<a class="card" href="subnamjam.html">
+
+<div class="icon">
+💧
+</div>
+
+<h2>
+แหล่งซับน้ำจำ
+</h2>
+
+<p>
+ฐานทรัพยากรธรรมชาติ
+</p>
+
+</a>
+
+
+
+
+
+
+
+<a class="card" href="map.html">
+
+<div class="icon">
+📍
+</div>
+
+<h2>
+แผนที่หมู่บ้าน
+</h2>
+
+<p>
+Smart Village Map
+</p>
+
+</a>
+
+
+
+
+
+
+
+<a class="card" href="admin.html">
+
+<div class="icon">
+⚙️
+</div>
+
+<h2>
+ผู้ดูแลระบบ
+</h2>
+
+<p>
+ระบบบริหารจัดการ
+</p>
+
+</a>
+
+
+
+
+
+
+</div>
+
+
 </div>
 
 
 
 
 
-<div class="footer">
+
+
+<footer class="footer">
 
 <p>
 © บ้านร่องเข็ม Smart Village
 </p>
 
 <p>
-พัฒนาโดยชุมชนบ้านร่องเข็ม หมู่ที่ 6
+หมู่ที่ 6 ตำบลจำป่าหวาย จังหวัดพะเยา
 </p>
 
-</div>
+
+</footer>
 
 
 
