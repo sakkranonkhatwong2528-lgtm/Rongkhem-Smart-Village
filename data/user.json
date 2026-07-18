@@ -1,8 +1,9 @@
 [
  {
   "id":1,
-  "name":"นายศักรนนทน์ ขัติย์วงศ์",
+  "name":"นายศักรนนท์ ขัติย์วงศ์",
   "username":"admin",
+  "password":"1234",
   "role":"Administrator",
   "department":"ฝ่ายปกครอง",
   "status":"ใช้งาน"
@@ -12,6 +13,7 @@
   "id":2,
   "name":"ผู้ช่วยผู้ใหญ่บ้าน",
   "username":"assistant",
+  "password":"1234",
   "role":"Editor",
   "department":"ฝ่ายปกครอง",
   "status":"ใช้งาน"
@@ -21,6 +23,7 @@
   "id":3,
   "name":"ประธาน อสม.",
   "username":"health",
+  "password":"1234",
   "role":"Health Officer",
   "department":"ฝ่ายสุขภาพ",
   "status":"ใช้งาน"
@@ -30,6 +33,7 @@
   "id":4,
   "name":"ประชาชนทั่วไป",
   "username":"viewer",
+  "password":"1234",
   "role":"Viewer",
   "department":"ประชาชน",
   "status":"จำกัดสิทธิ์"
