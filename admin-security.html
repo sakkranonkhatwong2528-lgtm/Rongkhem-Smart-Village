@@ -6,35 +6,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>
-จัดการความปลอดภัยชุมชน | บ้านร่องเข็ม Smart Village
-</title>
+<title>ระบบรักษาความปลอดภัย | Rongkhem Smart Village</title>
 
+<link rel="stylesheet" href="../css/style.css">
 
 <style>
 
-body{
-
-margin:0;
-font-family:Tahoma,sans-serif;
-background:#e3f2fd;
-
-}
-
-
-header{
-
-background:#1565c0;
-color:white;
-padding:30px;
-text-align:center;
-
-}
-
-
 .container{
-
 padding:20px;
+}
+
+.header{
+
+background:linear-gradient(135deg,#212529,#dc3545);
+color:white;
+padding:25px;
+border-radius:15px;
 
 }
 
@@ -42,197 +29,225 @@ padding:20px;
 .card{
 
 background:white;
-padding:25px;
-border-radius:25px;
-box-shadow:0 4px 12px #ccc;
+padding:20px;
+margin-top:20px;
+border-radius:15px;
+box-shadow:0 3px 10px #ddd;
 
 }
 
 
+.grid{
 
-input,textarea{
-
-width:100%;
-padding:12px;
-margin:10px 0;
-border-radius:10px;
-border:1px solid #ccc;
-box-sizing:border-box;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
 
 }
 
+
+.box{
+
+background:#f8f9fa;
+padding:20px;
+border-radius:15px;
+text-align:center;
+
+}
+
+
+.icon{
+
+font-size:45px;
+
+}
 
 
 button{
 
-background:#1565c0;
+background:#dc3545;
 color:white;
-padding:12px 30px;
 border:none;
-border-radius:20px;
-
-}
-
-
-
-.result{
-
-background:#e3f2fd;
-padding:20px;
-margin-top:20px;
-border-radius:20px;
-
-}
-
-
-
-.back{
-
-text-align:center;
-margin:30px;
-
-}
-
-
-
-.back a{
-
-background:#1565c0;
-color:white;
-padding:12px 25px;
-border-radius:20px;
-text-decoration:none;
+padding:12px 20px;
+border-radius:10px;
 
 }
 
 </style>
 
-
 </head>
-
 
 
 <body>
 
 
+<div class="container">
 
-<header>
+
+<div class="header">
 
 <h1>
-🛡 จัดการความปลอดภัยชุมชน
+🛡️ ระบบรักษาความปลอดภัยชุมชน
 </h1>
 
 <p>
-Admin บ้านร่องเข็ม Smart Village
+🏡 Rongkhem Smart Village
+<br>
+Smart Security Village
+
 </p>
 
-</header>
+</div>
 
 
 
 
 
 
-<div class="container">
 
 
 <div class="card">
 
-
-
 <h2>
-📋 ข้อมูลความปลอดภัย
+📊 ภาพรวมความปลอดภัย
+
 </h2>
 
 
-
-<label>
-🛡 จำนวน ชรบ.
-</label>
-
-<input 
-id="shorbor"
-type="number"
-placeholder="เช่น 15">
+<div class="grid">
 
 
+<div class="box">
 
+<div class="icon">
+👮
+</div>
 
+<h3>
+ชรบ.
 
-<label>
-🚒 จำนวน อปพร.
-</label>
+</h3>
 
-<input 
-id="orporn"
-type="number"
-placeholder="จำนวน อปพร.">
+<p>
+ชุดรักษาความปลอดภัย
+
+</p>
+
+</div>
 
 
 
+<div class="box">
 
+<div class="icon">
+📍
+</div>
 
-<label>
-🚨 จำนวนเหตุการณ์แจ้งเตือน
-</label>
+<h3>
+จุดตรวจ
 
-<input
-id="incident"
-type="number"
-placeholder="จำนวนเหตุ">
+</h3>
 
+<p>
+พื้นที่เฝ้าระวัง
 
+</p>
 
-
-
-<label>
-👥 รายชื่อชุดปฏิบัติงาน
-</label>
-
-<textarea
-id="team"
-rows="5"
-placeholder="รายชื่อ ชรบ. / อปพร.">
-</textarea>
+</div>
 
 
 
+<div class="box">
+
+<div class="icon">
+🚨
+</div>
+
+<h3>
+เหตุการณ์
+
+</h3>
+
+<p>
+บันทึกเหตุ
+
+</p>
+
+</div>
 
 
-<label>
-📅 ตารางเวรตรวจหมู่บ้าน
-</label>
 
-<textarea
-id="schedule"
-rows="5"
-placeholder="เช่น เวรกลางคืน วันจันทร์-อาทิตย์">
-</textarea>
+<div class="box">
+
+<div class="icon">
+📢
+</div>
+
+<h3>
+แจ้งเหตุ
+
+</h3>
+
+<p>
+เตือนภัย
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
 
 
 
 
 
 
-<button onclick="saveSecurity()">
 
-💾 บันทึกข้อมูล
+
+<div class="card">
+
+<h2>
+👮 ระบบข้อมูล ชรบ.
+
+</h2>
+
+
+<ul>
+
+<li>
+รายชื่อ ชรบ.
+
+</li>
+
+<li>
+เบอร์ติดต่อ
+
+</li>
+
+<li>
+พื้นที่รับผิดชอบ
+
+</li>
+
+<li>
+ประวัติการปฏิบัติงาน
+
+</li>
+
+
+</ul>
+
+
+<button>
+
+จัดการข้อมูล ชรบ.
 
 </button>
 
 
-
-
-
-<div class="result" id="show">
-
-</div>
-
-
-
-</div>
-
-
 </div>
 
 
@@ -241,13 +256,47 @@ placeholder="เช่น เวรกลางคืน วันจันท�
 
 
 
-<div class="back">
 
-<a href="admin-dashboard.html">
+<div class="card">
 
-⚙️ กลับ Dashboard
+<h2>
+🕒 ระบบเวรยาม
 
-</a>
+</h2>
+
+
+<ul>
+
+<li>
+ตารางเวรประจำวัน
+
+</li>
+
+<li>
+ผู้ปฏิบัติหน้าที่
+
+</li>
+
+<li>
+จุดตรวจ
+
+</li>
+
+<li>
+บันทึกการตรวจ
+
+</li>
+
+
+</ul>
+
+
+<button>
+
+จัดตารางเวร
+
+</button>
+
 
 </div>
 
@@ -257,187 +306,133 @@ placeholder="เช่น เวรกลางคืน วันจันท�
 
 
 
-<script>
 
+<div class="card">
 
+<h2>
+📍 จุดเสี่ยงความปลอดภัย
 
-loadSecurity();
+</h2>
 
 
+<ul>
 
+<li>
+จุดเสี่ยงยาเสพติด
 
-function saveSecurity(){
+</li>
 
+<li>
+จุดเสี่ยงอุบัติเหตุ
 
+</li>
 
-let data={
+<li>
+พื้นที่เปลี่ยว
 
+</li>
 
-shorbor:
+<li>
+จุดเกิดเหตุซ้ำ
 
-document.getElementById("shorbor").value,
+</li>
 
 
-orporn:
+</ul>
 
-document.getElementById("orporn").value,
 
+<button>
 
-incident:
+เปิดแผนที่
 
-document.getElementById("incident").value,
+</button>
 
 
-team:
+</div>
 
-document.getElementById("team").value,
 
 
-schedule:
 
-document.getElementById("schedule").value
 
 
-};
 
 
+<div class="card">
 
+<h2>
+🚨 ระบบแจ้งเหตุ
 
-localStorage.setItem(
+</h2>
 
-"security",
 
-JSON.stringify(data)
+<ul>
 
-);
+<li>
+เหตุลักทรัพย์
 
+</li>
 
+<li>
+เหตุทะเลาะวิวาท
 
+</li>
 
-alert("บันทึกข้อมูลความปลอดภัยแล้ว");
+<li>
+เหตุฉุกเฉิน
 
+</li>
 
+<li>
+ประสานหน่วยงาน
 
-showSecurity();
+</li>
 
 
+</ul>
 
-}
 
+<button>
 
+รับแจ้งเหตุ
 
+</button>
 
 
-function loadSecurity(){
+</div>
 
 
-let data=
 
-JSON.parse(
 
-localStorage.getItem("security")
 
-);
 
 
 
-if(data){
+<div class="card">
 
+<h2>
+📊 รายงานความปลอดภัย
 
-document.getElementById("shorbor").value=data.shorbor;
+</h2>
 
 
-document.getElementById("orporn").value=data.orporn;
+<button>
 
+สร้างรายงาน
 
-document.getElementById("incident").value=data.incident;
+</button>
 
 
-document.getElementById("team").value=data.team;
+<button>
 
+Export ข้อมูล
 
-document.getElementById("schedule").value=data.schedule;
+</button>
 
 
-}
+</div>
 
 
-
-showSecurity();
-
-
-}
-
-
-
-
-
-
-
-function showSecurity(){
-
-
-
-let data=
-
-JSON.parse(
-
-localStorage.getItem("security")
-
-);
-
-
-
-if(!data)return;
-
-
-
-document.getElementById("show").innerHTML=`
-
-<h3>
-ข้อมูลปัจจุบัน
-</h3>
-
-
-<p>
-🛡 ชรบ. : ${data.shorbor} คน
-</p>
-
-
-<p>
-🚒 อปพร. : ${data.orporn} คน
-</p>
-
-
-<p>
-🚨 เหตุการณ์ : ${data.incident} ครั้ง
-</p>
-
-
-<p>
-👥 ทีมปฏิบัติงาน :
-<br>
-${data.team}
-</p>
-
-
-<p>
-📅 ตารางเวร :
-<br>
-${data.schedule}
-</p>
-
-
-`;
-
-
-
-}
-
-
-
-</script>
-
+</div>
 
 
 </body>
