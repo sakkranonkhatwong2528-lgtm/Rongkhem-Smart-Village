@@ -1,6 +1,4 @@
-
 let notifications=[];
-
 
 
 fetch("../data/notification.json")
@@ -9,11 +7,14 @@ fetch("../data/notification.json")
 
 .then(data=>{
 
+
 notifications=data;
+
 
 showNotification();
 
 summary();
+
 
 });
 
@@ -46,7 +47,7 @@ ${n.type}
 
 
 <td>
-${n.detail}
+${n.date}
 </td>
 
 
@@ -56,29 +57,7 @@ ${n.level}
 
 
 <td>
-${n.date}
-</td>
-
-
-<td>
-
-
-<select onchange="changeStatus(${n.id},this.value)">
-
-
-<option ${n.status=="เผยแพร่"?"selected":""}>
-เผยแพร่
-</option>
-
-
-<option ${n.status=="ซ่อน"?"selected":""}>
-ซ่อน
-</option>
-
-
-</select>
-
-
+${n.detail}
 </td>
 
 
@@ -86,7 +65,6 @@ ${n.date}
 
 
 `;
-
 
 });
 
@@ -102,33 +80,11 @@ document.getElementById(
 
 
 
-function changeStatus(id,status){
-
-
-let n =
-notifications.find(
-x=>x.id==id
-);
-
-
-n.status=status;
-
-
-summary();
-
-
-}
-
-
-
-
-
 function summary(){
 
 
 let total =
 notifications.length;
-
 
 
 let urgent =
@@ -152,17 +108,31 @@ document.getElementById(
 `
 
 🔔 ทั้งหมด :
+
 ${total}
 
+รายการ
+
+
 <br>
+
 
 🚨 ด่วน :
+
 ${urgent}
+
+รายการ
+
 
 <br>
 
+
 ⚠️ สำคัญ :
+
 ${important}
+
+รายการ
+
 
 `;
 
