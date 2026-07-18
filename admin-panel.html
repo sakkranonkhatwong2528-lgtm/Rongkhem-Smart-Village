@@ -6,68 +6,87 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>
-Admin Panel | Rongkhem Smart Village
-</title>
-
-<link rel="stylesheet" href="style.css">
+<title>Admin Panel | บ้านร่องเข็ม Smart Village</title>
 
 <style>
 
 body{
-font-family:"Sarabun",sans-serif;
-background:#f4f7f6;
+font-family:Tahoma,sans-serif;
 margin:0;
+background:#f1f8e9;
 }
 
 
 header{
-background:#00695c;
+
+background:#2e7d32;
 color:white;
-padding:25px;
+padding:20px;
 text-align:center;
+
 }
 
 
 .container{
-padding:25px;
+
+padding:20px;
+
 }
 
 
-.menu{
+.user{
+
+background:white;
+padding:20px;
+border-radius:20px;
+margin-bottom:20px;
+
+box-shadow:0 3px 10px #ccc;
+
+}
+
+
+.grid{
 
 display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(220px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
 gap:20px;
 
 }
+
 
 
 .card{
 
 background:white;
 padding:25px;
-border-radius:18px;
+
+border-radius:20px;
+
 text-align:center;
+
 box-shadow:0 3px 10px #ccc;
-transition:.3s;
+
+cursor:pointer;
 
 }
+
 
 
 .card:hover{
 
-transform:translateY(-5px);
+transform:scale(1.03);
 
 }
+
 
 
 .icon{
 
-font-size:45px;
+font-size:40px;
 
 }
+
 
 
 a{
@@ -78,12 +97,13 @@ color:#333;
 }
 
 
-.logout{
+.number{
 
-background:#c62828;
-color:white;
+font-size:30px;
+color:#2e7d32;
 
 }
+
 
 
 </style>
@@ -94,32 +114,51 @@ color:white;
 <body>
 
 
+
 <header>
 
 <h1>
-⚙️ Admin Center
+⚙️ ศูนย์ควบคุมผู้ดูแลระบบ
 </h1>
 
-<h3>
-Rongkhem Smart Village
-</h3>
 
 <p>
-ระบบบริหารจัดการบ้านร่องเข็ม หมู่ที่ 6
+บ้านร่องเข็ม Smart Village
 </p>
 
+
 </header>
+
 
 
 
 <div class="container">
 
 
-<div class="menu">
+
+<div class="user">
+
+
+<h2>
+👤 ผู้ใช้งาน
+</h2>
+
+
+<p id="username">
+กำลังโหลด...
+</p>
+
+
+</div>
 
 
 
-<a href="dashboard.html">
+
+<div class="grid">
+
+
+
+<a href="admin-dashboard.html">
 
 <div class="card">
 
@@ -127,13 +166,9 @@ Rongkhem Smart Village
 📊
 </div>
 
-<h2>
+<h3>
 Dashboard
-</h2>
-
-<p>
-ภาพรวมข้อมูลหมู่บ้าน
-</p>
+</h3>
 
 </div>
 
@@ -142,21 +177,17 @@ Dashboard
 
 
 
-<a href="news.html">
+<a href="admin-citizen.html">
 
 <div class="card">
 
 <div class="icon">
-📰
+👥
 </div>
 
-<h2>
-ข่าวประชาสัมพันธ์
-</h2>
-
-<p>
-จัดการข่าวสาร
-</p>
+<h3>
+ทะเบียนประชาชน
+</h3>
 
 </div>
 
@@ -166,175 +197,7 @@ Dashboard
 
 
 
-<a href="activities.html">
-
-<div class="card">
-
-<div class="icon">
-📸
-</div>
-
-<h2>
-กิจกรรมหมู่บ้าน
-</h2>
-
-<p>
-คลังรูปภาพกิจกรรม
-</p>
-
-</div>
-
-</a>
-
-
-
-
-
-<a href="leader.html">
-
-<div class="card">
-
-<div class="icon">
-👤
-</div>
-
-<h2>
-ทำเนียบผู้นำ
-</h2>
-
-<p>
-คณะผู้นำชุมชน
-</p>
-
-</div>
-
-</a>
-
-
-
-
-
-<a href="oppor.html">
-
-<div class="card">
-
-<div class="icon">
-🚨
-</div>
-
-<h2>
-อปพร.
-</h2>
-
-<p>
-ฐานข้อมูล อปพร.
-</p>
-
-</div>
-
-</a>
-
-
-
-
-
-<a href="shorbor.html">
-
-<div class="card">
-
-<div class="icon">
-👮
-</div>
-
-<h2>
-ชรบ.
-</h2>
-
-<p>
-ชุดรักษาความปลอดภัยหมู่บ้าน
-</p>
-
-</div>
-
-</a>
-
-
-
-
-
-<a href="osm.html">
-
-<div class="card">
-
-<div class="icon">
-🩺
-</div>
-
-<h2>
-อสม.
-</h2>
-
-<p>
-ข้อมูลอาสาสมัครสาธารณสุข
-</p>
-
-</div>
-
-</a>
-
-
-
-
-
-<a href="household.html">
-
-<div class="card">
-
-<div class="icon">
-🏠
-</div>
-
-<h2>
-ครัวเรือน
-</h2>
-
-<p>
-ข้อมูลประชากร
-</p>
-
-</div>
-
-</a>
-
-
-
-
-
-<a href="elderly.html">
-
-<div class="card">
-
-<div class="icon">
-👵
-</div>
-
-<h2>
-ผู้สูงอายุ
-</h2>
-
-<p>
-ฐานข้อมูลผู้สูงอายุ
-</p>
-
-</div>
-
-</a>
-
-
-
-
-
-<a href="vulnerable.html">
+<a href="admin-health.html">
 
 <div class="card">
 
@@ -342,13 +205,9 @@ Dashboard
 ❤️
 </div>
 
-<h2>
-กลุ่มเปราะบาง
-</h2>
-
-<p>
-ข้อมูลช่วยเหลือ
-</p>
+<h3>
+ระบบสุขภาพ
+</h3>
 
 </div>
 
@@ -358,21 +217,97 @@ Dashboard
 
 
 
-<a href="subnamjam.html">
+<a href="admin-project.html">
 
 <div class="card">
 
 <div class="icon">
-🌱
+📁
 </div>
 
-<h2>
+<h3>
+โครงการหมู่บ้าน
+</h3>
+
+</div>
+
+</a>
+
+
+
+
+
+<a href="admin-news.html">
+
+<div class="card">
+
+<div class="icon">
+📢
+</div>
+
+<h3>
+ข่าวสาร
+</h3>
+
+</div>
+
+</a>
+
+
+
+
+
+<a href="admin-complaint.html">
+
+<div class="card">
+
+<div class="icon">
+📋
+</div>
+
+<h3>
+ร้องเรียน
+</h3>
+
+</div>
+
+</a>
+
+
+
+
+
+<a href="admin-organization.html">
+
+<div class="card">
+
+<div class="icon">
+🏛️
+</div>
+
+<h3>
+องค์กรชุมชน
+</h3>
+
+</div>
+
+</a>
+
+
+
+
+
+<a href="admin-subnamjam.html">
+
+<div class="card">
+
+<div class="icon">
+🏞️
+</div>
+
+<h3>
 แหล่งซับน้ำจำ
-</h2>
-
-<p>
-ทรัพยากรธรรมชาติ
-</p>
+</h3>
 
 </div>
 
@@ -382,21 +317,17 @@ Dashboard
 
 
 
-<a href="village-info.html">
+<a href="admin-security.html">
 
 <div class="card">
 
 <div class="icon">
-🏡
+🛡️
 </div>
 
-<h2>
-ข้อมูลหมู่บ้าน
-</h2>
-
-<p>
-ประวัติและข้อมูลพื้นฐาน
-</p>
+<h3>
+ชรบ. / อปพร.
+</h3>
 
 </div>
 
@@ -404,27 +335,11 @@ Dashboard
 
 
 
-
-
-<div class="card logout"
-onclick="logout()">
-
-<div class="icon">
-🔓
-</div>
-
-<h2>
-ออกจากระบบ
-</h2>
-
-</div>
-
-
-
 </div>
 
 
 </div>
+
 
 
 
@@ -432,26 +347,38 @@ onclick="logout()">
 <script>
 
 
-// ตรวจสอบการเข้าสู่ระบบ
+let user =
+JSON.parse(
+localStorage.getItem("loginUser")
+);
 
-if(localStorage.getItem("login")!="true"){
 
-window.location.href="login.html";
+
+if(user){
+
+
+document.getElementById("username").innerHTML=
+
+user.name+
+"<br>ตำแหน่ง : "+
+user.role;
+
 
 }
 
+else{
 
 
-function logout(){
+document.getElementById("username").innerHTML=
 
-localStorage.removeItem("login");
+"ไม่ได้เข้าสู่ระบบ";
 
-window.location.href="login.html";
 
 }
 
 
 </script>
+
 
 
 </body>
