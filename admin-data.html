@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+จัดการข้อมูลชุมชน | บ้านร่องเข็ม Smart Village
+</title>
+
+
+<style>
+
+body{
+
+margin:0;
+font-family:Tahoma,sans-serif;
+background:#ede7f6;
+
+}
+
+
+header{
+
+background:#4527a0;
+color:white;
+padding:30px;
+text-align:center;
+
+}
+
+
+.container{
+
+padding:20px;
+
+}
+
+
+.card{
+
+background:white;
+padding:25px;
+border-radius:25px;
+box-shadow:0 4px 12px #ccc;
+
+}
+
+
+input{
+
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:10px;
+border:1px solid #ccc;
+box-sizing:border-box;
+
+}
+
+
+button{
+
+background:#4527a0;
+color:white;
+padding:12px 30px;
+border:none;
+border-radius:20px;
+
+}
+
+
+.result{
+
+background:#f3e5f5;
+margin-top:20px;
+padding:20px;
+border-radius:20px;
+
+}
+
+
+.back{
+
+text-align:center;
+margin:30px;
+
+}
+
+
+.back a{
+
+background:#4527a0;
+color:white;
+padding:12px 25px;
+border-radius:20px;
+text-decoration:none;
+
+}
+
+
+</style>
+
+
+</head>
+
+
+
+<body>
+
+
+
+
+<header>
+
+
+<h1>
+⚙️ จัดการข้อมูลชุมชน
+</h1>
+
+
+<p>
+Admin บ้านร่องเข็ม Smart Village
+</p>
+
+
+</header>
+
+
+
+
+
+
+<div class="container">
+
+
+
+<div class="card">
+
+
+<h2>
+📊 กรอกข้อมูลพื้นฐาน
+</h2>
+
+
+
+
+<label>
+🏠 จำนวนครัวเรือน
+</label>
+
+<input id="house"
+type="number"
+placeholder="เช่น 120">
+
+
+
+
+
+<label>
+👨‍👩‍👧‍👦 จำนวนประชากร
+</label>
+
+<input id="people"
+type="number"
+placeholder="เช่น 350">
+
+
+
+
+
+
+<label>
+👨 จำนวนเพศชาย
+</label>
+
+<input id="male"
+type="number"
+placeholder="จำนวนชาย">
+
+
+
+
+
+<label>
+👩 จำนวนเพศหญิง
+</label>
+
+<input id="female"
+type="number"
+placeholder="จำนวนหญิง">
+
+
+
+
+
+<label>
+👴 ผู้สูงอายุ 60 ปีขึ้นไป
+</label>
+
+<input id="elder"
+type="number"
+placeholder="จำนวนผู้สูงอายุ">
+
+
+
+
+
+<label>
+♿ ผู้พิการ
+</label>
+
+<input id="disabled"
+type="number"
+placeholder="จำนวนผู้พิการ">
+
+
+
+
+
+<button onclick="saveData()">
+
+💾 บันทึกข้อมูล
+
+</button>
+
+
+
+<div class="result" id="show">
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+<div class="back">
+
+<a href="admin-dashboard.html">
+
+⚙️ กลับ Dashboard
+
+</a>
+
+</div>
+
+
+
+
+
+
+
+<script>
+
+
+
+loadData();
+
+
+
+function saveData(){
+
+
+
+let data={
+
+
+house:
+document.getElementById("house").value,
+
+
+people:
+document.getElementById("people").value,
+
+
+male:
+document.getElementById("male").value,
+
+
+female:
+document.getElementById("female").value,
+
+
+elder:
+document.getElementById("elder").value,
+
+
+disabled:
+document.getElementById("disabled").value
+
+
+};
+
+
+
+
+localStorage.setItem(
+
+"community",
+
+JSON.stringify(data)
+
+);
+
+
+
+alert("บันทึกข้อมูลเรียบร้อย");
+
+
+
+showData();
+
+
+}
+
+
+
+
+function loadData(){
+
+
+
+let data=
+
+JSON.parse(
+
+localStorage.getItem("community")
+
+);
+
+
+
+if(data){
+
+document.getElementById("house").value=data.house;
+
+document.getElementById("people").value=data.people;
+
+document.getElementById("male").value=data.male;
+
+document.getElementById("female").value=data.female;
+
+document.getElementById("elder").value=data.elder;
+
+document.getElementById("disabled").value=data.disabled;
+
+
+}
+
+
+
+showData();
+
+
+}
+
+
+
+
+
+function showData(){
+
+
+let data=
+
+JSON.parse(
+
+localStorage.getItem("community")
+
+);
+
+
+
+if(!data)return;
+
+
+
+document.getElementById("show").innerHTML=`
+
+<h3>
+ข้อมูลปัจจุบัน
+</h3>
+
+<p>
+🏠 ครัวเรือน : ${data.house} หลัง
+</p>
+
+<p>
+👨‍👩‍👧‍👦 ประชากร : ${data.people} คน
+</p>
+
+<p>
+👨 ชาย : ${data.male} คน
+</p>
+
+<p>
+👩 หญิง : ${data.female} คน
+</p>
+
+<p>
+👴 ผู้สูงอายุ : ${data.elder} คน
+</p>
+
+<p>
+♿ ผู้พิการ : ${data.disabled} คน
+</p>
+
+`;
+
+
+
+}
+
+
+
+</script>
+
+
+
+
+</body>
+
+</html>
