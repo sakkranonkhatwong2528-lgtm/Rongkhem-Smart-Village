@@ -2,23 +2,214 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>AI ผู้ช่วยชาวบ้าน</title>
-<link rel="stylesheet" href="style.css">
+
+<style>
+
+body{
+margin:0;
+font-family:Tahoma,sans-serif;
+background:#f4f7f6;
+}
+
+header{
+background:#0b7a4b;
+color:#fff;
+padding:20px;
+text-align:center;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:20px;
+}
+
+.chatbox{
+background:#fff;
+border-radius:15px;
+padding:20px;
+box-shadow:0 5px 20px rgba(0,0,0,.15);
+}
+
+#messages{
+height:500px;
+overflow:auto;
+border:1px solid #ddd;
+border-radius:10px;
+padding:15px;
+margin-bottom:15px;
+background:#fafafa;
+}
+
+.user{
+background:#d9fdd3;
+padding:10px;
+border-radius:10px;
+margin:10px 0;
+}
+
+.bot{
+background:#eeeeee;
+padding:10px;
+border-radius:10px;
+margin:10px 0;
+}
+
+textarea{
+width:100%;
+height:80px;
+padding:10px;
+font-size:16px;
+}
+
+button{
+
+margin-top:10px;
+
+width:100%;
+
+padding:15px;
+
+background:#0b7a4b;
+
+color:white;
+
+border:none;
+
+border-radius:10px;
+
+font-size:18px;
+
+cursor:pointer;
+
+}
+
+button:hover{
+
+background:#06663d;
+
+}
+
+</style>
+
 </head>
 
 <body>
 
+<header>
+
 <h1>🤖 AI ผู้ช่วยชาวบ้าน</h1>
 
-<p>สอบถามข้อมูลเกี่ยวกับบ้านร่องเข็มได้ตลอด 24 ชั่วโมง</p>
+<p>บ้านร่องเข็ม Smart Village</p>
 
-<iframe
-src="https://chatgpt.com"
-width="100%"
-height="700"
-style="border:none;border-radius:15px;">
-</iframe>
+</header>
+
+<div class="container">
+
+<div class="chatbox">
+
+<div id="messages">
+
+<div class="bot">
+
+สวัสดีครับ 👋
+
+ผมคือ AI ผู้ช่วยชาวบ้าน
+
+ถามได้ เช่น
+
+• ข่าวล่าสุด
+
+• ผู้ใหญ่บ้านคือใคร
+
+• แหล่งซับน้ำจำ
+
+• อสม.
+
+• อปพร.
+
+• ชรบ.
+
+• ติดต่อหมู่บ้าน
+
+</div>
+
+</div>
+
+<textarea
+id="question"
+placeholder="พิมพ์คำถาม..."></textarea>
+
+<button onclick="askAI()">
+
+ส่งคำถาม
+
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+function askAI(){
+
+const q=document.getElementById("question").value;
+
+if(q=="") return;
+
+const messages=document.getElementById("messages");
+
+messages.innerHTML+=`
+<div class="user">${q}</div>
+`;
+
+let answer="ขออภัย ยังไม่มีข้อมูล";
+
+if(q.includes("ผู้ใหญ่บ้าน")){
+
+answer="ผู้ใหญ่บ้าน บ้านร่องเข็ม หมู่ที่ 6 คือ นายศักรนนท์ ขัติย์วงศ์";
+
+}
+
+else if(q.includes("อสม")){
+
+answer="ข้อมูล อสม. อยู่ในเมนู ระบบสุขภาพ";
+
+}
+
+else if(q.includes("แหล่งซับน้ำ")){
+
+answer="แหล่งซับน้ำจำ เป็นแหล่งเรียนรู้ธรรมชาติของชุมชน บ้านร่องเข็ม";
+
+}
+
+else if(q.includes("ข่าว")){
+
+answer="สามารถดูข่าวล่าสุดได้ที่เมนู ข่าวประชาสัมพันธ์";
+
+}
+
+else if(q.includes("ติดต่อ")){
+
+answer="ติดต่อผู้ใหญ่บ้านผ่านเมนู ติดต่อหมู่บ้าน";
+
+}
+
+messages.innerHTML+=`
+<div class="bot">${answer}</div>
+`;
+
+document.getElementById("question").value="";
+
+messages.scrollTop=messages.scrollHeight;
+
+}
+
+</script>
 
 </body>
+
 </html>
