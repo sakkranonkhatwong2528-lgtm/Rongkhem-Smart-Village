@@ -233,7 +233,25 @@ let elderly =
 data.filter(
 x=>x.group=="ผู้สูงอายุ"
 ).length;
+fetch("data/oporor.json")
 
+.then(res=>res.json())
+
+.then(data=>{
+
+
+document.getElementById(
+"security-total"
+).innerHTML=
+
+`
+
+${data.length}
+คน
+
+`;
+
+});
 
 
 document.getElementById(
