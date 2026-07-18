@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>
+Admin Backup
+</title>
+
+
+<link rel="stylesheet" href="../css/style.css">
+
+
+</head>
+
+
+<body>
+
+
+<header class="hero">
+
+
+<h1>
+💾 ระบบสำรองข้อมูล
+</h1>
+
+
+<p>
+บ้านร่องเข็ม Smart Village
+</p>
+
+
+</header>
+
+
+
+<section class="dashboard">
+
+
+
+<div class="card">
+
+
+<h2>
+📊 ข้อมูลระบบ
+</h2>
+
+
+<div id="backup-summary">
+
+กำลังโหลด...
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+💾 สำรองข้อมูล
+</h2>
+
+
+<button onclick="backupData()">
+
+📥 ดาวน์โหลด Backup
+
+</button>
+
+
+<button onclick="location.reload()">
+
+🔄 รีเฟรชข้อมูล
+
+</button>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+📂 ไฟล์ข้อมูลหลัก
+</h2>
+
+
+<ul>
+
+
+<li>
+👥 citizen.json
+</li>
+
+
+<li>
+🏠 household.json
+</li>
+
+
+<li>
+❤️ health.json
+</li>
+
+
+<li>
+👴 elderly.json
+</li>
+
+
+<li>
+♿ vulnerable.json
+</li>
+
+
+<li>
+📋 complaint.json
+</li>
+
+
+<li>
+📌 project.json
+</li>
+
+
+<li>
+💧 wetland.json
+</li>
+
+
+</ul>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+<script src="../js/backup-admin.js"></script>
+
+
+
+</body>
+
+</html>
