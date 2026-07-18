@@ -4,7 +4,6 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
@@ -20,7 +19,7 @@ body{
 
 margin:0;
 font-family:Tahoma,sans-serif;
-background:#fce4ec;
+background:#f3e5f5;
 
 }
 
@@ -28,7 +27,7 @@ background:#fce4ec;
 
 header{
 
-background:#ad1457;
+background:#6a1b9a;
 color:white;
 padding:35px;
 text-align:center;
@@ -45,7 +44,7 @@ padding:20px;
 
 
 
-.gallery{
+.grid{
 
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -59,9 +58,8 @@ gap:20px;
 
 background:white;
 padding:20px;
-border-radius:20px;
+border-radius:25px;
 box-shadow:0 4px 12px #ccc;
-text-align:center;
 
 }
 
@@ -72,37 +70,17 @@ text-align:center;
 width:100%;
 height:200px;
 object-fit:cover;
-border-radius:15px;
-
-}
-
-
-
-.card h2{
-
-color:#ad1457;
-
-}
-
-
-
-.category{
-
-background:#ad1457;
-color:white;
-padding:6px 15px;
 border-radius:20px;
-display:inline-block;
 
 }
 
 
 
-.default{
+.title{
 
-background:white;
-padding:25px;
-border-radius:20px;
+font-size:20px;
+font-weight:bold;
+color:#6a1b9a;
 
 }
 
@@ -119,7 +97,7 @@ margin:30px;
 
 .back a{
 
-background:#ad1457;
+background:#6a1b9a;
 color:white;
 padding:12px 25px;
 border-radius:20px;
@@ -128,16 +106,13 @@ text-decoration:none;
 }
 
 
-
 </style>
 
 
 </head>
 
 
-
 <body>
-
 
 
 
@@ -165,7 +140,7 @@ text-decoration:none;
 <div class="container">
 
 
-<div class="gallery" id="galleryList">
+<div class="grid" id="gallery">
 
 
 </div>
@@ -198,54 +173,42 @@ text-decoration:none;
 <script>
 
 
-function loadGallery(){
-
-
-let data=
+let gallery =
 
 JSON.parse(
+
 localStorage.getItem("gallery")
+
 )||[];
 
+
+
+
+
+function showGallery(){
 
 
 let html="";
 
 
 
+if(gallery.length==0){
 
 
-if(data.length==0){
+html=`
 
-
-html += `
-
-
-<div class="default">
-
+<div class="card">
 
 <h2>
-📷 คลังภาพหมู่บ้าน
+📸 ยังไม่มีรูปภาพ
 </h2>
 
-
 <p>
-
-กำลังจัดเตรียมภาพกิจกรรม
-บ้านร่องเข็ม Smart Village
+กำลังจัดเตรียมคลังภาพ
 
 </p>
-
-
-<p>
-
-สามารถเพิ่มภาพผ่านระบบผู้ดูแลได้
-
-</p>
-
 
 </div>
-
 
 `;
 
@@ -256,25 +219,7 @@ html += `
 
 
 
-data.reverse();
-
-
-
-data.forEach(function(item){
-
-
-
-let image =
-item.image;
-
-
-
-if(image==""){
-
-image="logo.svg";
-
-}
-
+gallery.forEach(function(item){
 
 
 
@@ -284,29 +229,26 @@ html += `
 <div class="card">
 
 
-
-<img src="images/${image}">
-
+<img src="images/${item.image}">
 
 
-<span class="category">
-
-${item.category}
-
-</span>
-
-
-
-<h2>
+<div class="title">
 
 ${item.title}
 
-</h2>
+</div>
+
+
+
+<p>
+
+${item.detail}
+
+</p>
 
 
 
 </div>
-
 
 
 `;
@@ -318,23 +260,19 @@ ${item.title}
 
 
 
-document.getElementById("galleryList")
+document.getElementById("gallery")
 .innerHTML=html;
-
 
 
 }
 
 
 
-
-loadGallery();
+showGallery();
 
 
 
 </script>
-
-
 
 
 
