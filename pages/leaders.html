@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ทำเนียบผู้นำ | บ้านร่องเข็ม Smart Village</title>
+
+
+<style>
+
+body{
+
+font-family:Tahoma,sans-serif;
+background:#f1f8e9;
+margin:0;
+
+}
+
+
+header{
+
+background:#2e7d32;
+color:white;
+padding:20px;
+text-align:center;
+
+}
+
+
+.container{
+
+max-width:1000px;
+margin:auto;
+padding:20px;
+
+}
+
+
+.search{
+
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid #ccc;
+
+}
+
+
+.grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+
+}
+
+
+.card{
+
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 3px 10px #ccc;
+text-align:center;
+
+}
+
+
+.card img{
+
+width:150px;
+height:150px;
+object-fit:cover;
+border-radius:50%;
+
+}
+
+
+
+button{
+
+background:#1565c0;
+color:white;
+border:0;
+padding:12px 20px;
+border-radius:10px;
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+
+<header>
+
+<h2>
+👥 ทำเนียบผู้นำและคณะทำงาน
+</h2>
+
+<p>
+บ้านร่องเข็ม หมู่ที่ 6
+<br>
+ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา
+</p>
+
+
+</header>
+
+
+
+<div class="container">
+
+
+<input 
+class="search"
+id="search"
+placeholder="🔎 ค้นหาชื่อ หรือตำแหน่ง..."
+onkeyup="searchLeader()"
+>
+
+
+<br><br>
+
+
+<div id="leaders"
+class="grid">
+
+กำลังโหลดข้อมูล...
+
+</div>
+
+
+<br>
+
+
+<button onclick="location.href='../index.html'">
+
+🏠 กลับหน้าแรก
+
+</button>
+
+
+</div>
+
+
+
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+
+<script src="../js/firebase-config.js"></script>
+
+
+
+<script>
+
+
+let allLeaders=[];
+
+
+
+async function loadLeader(){
+
+
+let snap =
+await db.collection("leaders").get();
+
+
+
+allLeaders=[];
+
+
+snap.forEach(doc=>{
+
+
+allLeaders.push(doc.data());
+
+
+});
+
+
+showLeader(allLeaders);
+
+
+}
+
+
+
+
+function showLeader(data){
+
+
+let html="";
+
+
+data.forEach(l=>{
+
+
+html+=`
+
+<div class="card">
+
+
+${l.image ?
+
+`<img src="${l.image}">`
+
+:
+
+"📷 ไม่มีรูป"
+
+}
+
+
+
+<h3>
+
+${l.name}
+
+</h3>
+
+
+<h4>
+
+🏛️ ${l.position}
+
+</h4>
+
+
+<p>
+
+📋 ${l.duty}
+
+</p>
+
+
+<p>
+
+☎️ ${l.phone}
+
+</p>
+
+
+
+</div>
+
+
+`;
+
+
+
+});
+
+
+
+document.getElementById("leaders")
+.innerHTML=html;
+
+
+}
+
+
+
+
+
+function searchLeader(){
+
+
+let key =
+document.getElementById("search")
+.value
+.toLowerCase();
+
+
+
+let result =
+allLeaders.filter(l=>
+
+
+l.name.toLowerCase().includes(key)
+||
+l.position.toLowerCase().includes(key)
+
+
+);
+
+
+
+showLeader(result);
+
+
+}
+
+
+
+loadLeader();
+
+
+</script>
+
+
+
+</body>
+
+</html>
