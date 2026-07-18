@@ -1,285 +1,149 @@
 <!DOCTYPE html>
 <html lang="th">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>
-โครงการพัฒนาหมู่บ้าน | บ้านร่องเข็ม Smart Village
-</title>
+<title>บ้านร่องเข็ม Smart Village</title>
 
-<link rel="stylesheet" href="../../assets/css/style.css">
-
-<style>
-
-body{
-font-family:Tahoma,sans-serif;
-background:#f4f8f6;
-margin:0;
-}
-
-header{
-
-background:#00695c;
-color:white;
-text-align:center;
-padding:30px;
-
-}
-
-.project-grid{
-
-display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(260px,1fr));
-
-gap:20px;
-
-padding:25px;
-
-}
-
-
-.card{
-
-background:white;
-
-border-radius:20px;
-
-padding:25px;
-
-box-shadow:0 5px 15px rgba(0,0,0,.15);
-
-}
-
-
-.card h2{
-
-color:#00695c;
-
-}
-
-
-.status{
-
-display:inline-block;
-
-background:#e8f5e9;
-
-color:#2e7d32;
-
-padding:8px 15px;
-
-border-radius:20px;
-
-}
-
-
-.progress{
-
-height:18px;
-
-background:#ddd;
-
-border-radius:20px;
-
-overflow:hidden;
-
-}
-
-
-.bar{
-
-height:100%;
-
-background:#00897b;
-
-}
-
-
-.info{
-
-margin:25px;
-
-}
-
-
-.back{
-
-display:block;
-
-text-align:center;
-
-margin:20px;
-
-}
-
-.back a{
-
-background:#00695c;
-
-color:white;
-
-padding:12px 25px;
-
-border-radius:20px;
-
-text-decoration:none;
-
-}
-
-
-</style>
+<link rel="stylesheet" href="style.css">
 
 </head>
 
-
 <body>
 
+<header class="hero">
 
-<header>
+<img src="images/logo.svg" class="logo">
 
 <h1>
-🏆 Project Center
+🏡 บ้านร่องเข็ม Smart Village
 </h1>
 
 <p>
-ระบบติดตามโครงการบ้านร่องเข็ม Smart Village
+หมู่ที่ 6 ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา
+</p>
+
+<p>
+ชุมชนเข้มแข็ง บริหารจัดการด้วยเทคโนโลยี
 </p>
 
 </header>
 
 
+<section class="cover">
 
-<section class="project-grid">
+<img src="images/subnamjam-cover.jpg">
 
-
-<div class="card">
-
-<h2>💧 แหล่งซับน้ำจำ</h2>
-
-<p>
-ประเภท : สิ่งแวดล้อมและทรัพยากรธรรมชาติ
-</p>
-
-<p class="status">
-กำลังดำเนินการ
-</p>
-
-<h3>ความคืบหน้า 70%</h3>
-
-<div class="progress">
-
-<div class="bar" style="width:70%"></div>
-
-</div>
+<h2>
+🌱 แหล่งซับน้ำจำ
+</h2>
 
 <p>
-พัฒนาเป็นแหล่งเรียนรู้ ระบบนิเวศ และพื้นที่อนุรักษ์น้ำชุมชน
+พื้นที่อนุรักษ์น้ำ ระบบนิเวศชุมชน และแหล่งเรียนรู้ธรรมชาติ
 </p>
-
-</div>
-
-
-
-
-<div class="card">
-
-<h2>🩺 สุขภาพชุมชน</h2>
-
-<p>
-ประเภท : สุขภาพประชาชน
-</p>
-
-<p class="status">
-ดำเนินการต่อเนื่อง
-</p>
-
-<h3>ความคืบหน้า 80%</h3>
-
-<div class="progress">
-
-<div class="bar" style="width:80%"></div>
-
-</div>
-
-<p>
-ระบบข้อมูลสุขภาพ อสม. ผู้สูงอายุ และกลุ่มเปราะบาง
-</p>
-
-</div>
-
-
-
-
-<div class="card">
-
-<h2>🌱 ลดการเผา PM2.5</h2>
-
-<p>
-ประเภท : สิ่งแวดล้อม
-</p>
-
-<p class="status">
-ติดตาม
-</p>
-
-<h3>ความคืบหน้า 50%</h3>
-
-<div class="progress">
-
-<div class="bar" style="width:50%"></div>
-
-</div>
-
-<p>
-สร้างความร่วมมือชุมชน ลดการเผา และดูแลคุณภาพอากาศ
-</p>
-
-</div>
-
 
 </section>
 
 
+<section class="menu">
 
-<div class="card info">
-
-<h2>
-📋 ข้อมูลโครงการ
-</h2>
-
-<ul>
-
-<li>ชื่อโครงการ</li>
-
-<li>งบประมาณ</li>
-
-<li>ผู้รับผิดชอบ</li>
-
-<li>ระยะเวลาดำเนินการ</li>
-
-<li>ผลลัพธ์ของโครงการ</li>
-
-</ul>
-
-</div>
-
-
-
-<div class="back">
-
-<a href="../../index.html">
-🏠 กลับหน้าหลัก
+<a href="dashboard.html">
+📊
+<br>
+Dashboard
 </a>
 
+<a href="news.html">
+📰
+<br>
+ข่าวประชาสัมพันธ์
+</a>
+
+<a href="activities.html">
+📸
+<br>
+กิจกรรมหมู่บ้าน
+</a>
+
+<a href="leader.html">
+👤
+<br>
+ทำเนียบผู้นำ
+</a>
+
+<a href="subnamjam.html">
+🌱
+<br>
+แหล่งซับน้ำจำ
+</a>
+
+<a href="ai.html">
+🤖
+<br>
+AI ผู้ช่วยชาวบ้าน
+</a>
+
+</section>
+
+
+<section class="info">
+
+<h2>
+📊 ข้อมูลหมู่บ้าน
+</h2>
+
+<div class="cards">
+
+<div>
+🏠
+<br>
+ครัวเรือน
 </div>
 
+<div>
+👥
+<br>
+ประชากร
+</div>
+
+<div>
+👵
+<br>
+ผู้สูงอายุ
+</div>
+
+<div>
+❤️
+<br>
+กลุ่มเปราะบาง
+</div>
+
+</div>
+
+</section>
+
+
+<section class="contact">
+
+<h2>
+☎ ติดต่อหมู่บ้าน
+</h2>
+
+<p>
+บ้านร่องเข็ม หมู่ที่ 6
+ตำบลจำป่าหวาย จังหวัดพะเยา
+</p>
+
+</section>
+
+
+<footer>
+
+© บ้านร่องเข็ม Smart Village
+
+</footer>
 
 
 </body>
-
 </html>
