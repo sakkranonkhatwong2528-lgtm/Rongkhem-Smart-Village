@@ -249,7 +249,25 @@ fetch("data/vulnerable.json")
 document.getElementById(
 "vulnerable-total"
 ).innerHTML=
+fetch("data/citizen.json")
 
+.then(res=>res.json())
+
+.then(data=>{
+
+
+document.getElementById(
+"citizen-total"
+).innerHTML=
+
+`
+
+${data.length}
+คน
+
+`;
+
+});
 `
 
 ${data.length}
