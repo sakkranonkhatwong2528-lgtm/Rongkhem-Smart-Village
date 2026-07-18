@@ -1,221 +1,29 @@
-<!DOCTYPE html>
-<html lang="th">
-
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>
-ทำเนียบผู้นำ | บ้านร่องเข็ม Smart Village
-</title>
-
-
-<style>
-
-body{
-
-margin:0;
-font-family:Tahoma,sans-serif;
-background:#fff8e1;
-
-}
-
-
-header{
-
-background:#ef6c00;
-color:white;
-padding:35px;
-text-align:center;
-
-}
-
-
-.container{
-
-padding:20px;
-
-}
-
-
-.search{
-
-width:100%;
-padding:12px;
-border-radius:20px;
-border:1px solid #ccc;
-margin-bottom:20px;
-
-}
-
-
-
-.grid{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-
-}
-
-
-
-.card{
-
-background:white;
-padding:20px;
-border-radius:25px;
-box-shadow:0 4px 12px #ccc;
-text-align:center;
-
-}
-
-
-
-.card img{
-
-width:120px;
-height:120px;
-border-radius:50%;
-object-fit:cover;
-
-}
-
-
-
-.name{
-
-font-size:22px;
-font-weight:bold;
-color:#ef6c00;
-
-}
-
-
-
-.position{
-
-background:#ef6c00;
-color:white;
-padding:6px 15px;
-border-radius:20px;
-display:inline-block;
-
-}
-
-
-
-.back{
-
-text-align:center;
-margin:30px;
-
-}
-
-
-
-.back a{
-
-background:#ef6c00;
-color:white;
-padding:12px 25px;
-border-radius:20px;
-text-decoration:none;
-
-}
-
-
-</style>
-
-
-</head>
-
-
-
-<body>
-
-
-
-<header>
-
-<h1>
-👥 ทำเนียบผู้นำและคณะทำงาน
-</h1>
-
-
-<p>
-บ้านร่องเข็ม หมู่ที่ 6
-</p>
-
-
-</header>
-
-
-
-
-
-
-<div class="container">
-
-
-
-<input
-
-class="search"
-
-id="search"
-
-placeholder="🔎 ค้นหารายชื่อ..."
-
-onkeyup="searchLeader()"
-
->
-
-
-
-
-<div class="grid" id="leaders">
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-<div class="back">
-
-<a href="index.html">
-
-🏠 กลับหน้าแรก
-
-</a>
-
-</div>
-
-
-
-
-
-
-
 <script>
 
+let leaders=[];
 
-let leaders =
 
-JSON.parse(
+// โหลดข้อมูลจาก JSON
 
-localStorage.getItem("leaders")
+fetch("data/leader.json")
 
-)||[];
+.then(response => response.json())
+
+.then(data=>{
+
+leaders=data;
+
+showLeader(leaders);
+
+})
+
+.catch(error=>{
+
+console.error("โหลดข้อมูลผู้นำผิดพลาด",error);
+
+showLeader([]);
+
+});
 
 
 
@@ -225,7 +33,6 @@ function showLeader(data){
 
 
 let html="";
-
 
 
 if(data.length==0){
@@ -240,7 +47,7 @@ html=`
 </h2>
 
 <p>
-กรุณาเพิ่มข้อมูลผู้ดูแลระบบ
+ไม่พบข้อมูลผู้นำ
 </p>
 
 </div>
@@ -248,10 +55,7 @@ html=`
 `;
 
 
-
-}
-
-
+}else{
 
 
 data.forEach(function(item){
@@ -264,14 +68,12 @@ html += `
 <div class="card">
 
 
-
-<img src="images/${item.image}">
-
+<img src="${item.image || 'images/default.png'}">
 
 
 <div class="position">
 
-${item.position}
+${item.position || ''}
 
 </div>
 
@@ -281,21 +83,21 @@ ${item.position}
 
 <div class="name">
 
-${item.name}
+${item.name || ''}
 
 </div>
 
 
 <p>
 
-${item.duty}
+${item.duty || ''}
 
 </p>
 
 
 <p>
 
-☎️ ${item.phone}
+☎️ ${item.phone || '-'}
 
 </p>
 
@@ -310,9 +112,11 @@ ${item.duty}
 });
 
 
+}
 
-document.getElementById("leaders")
-.innerHTML=html;
+
+
+document.getElementById("leaders").innerHTML=html;
 
 
 }
@@ -324,23 +128,32 @@ document.getElementById("leaders")
 function searchLeader(){
 
 
-let key=
-
-document.getElementById("search").value;
-
-
-
-let result=
-
-leaders.filter(function(item){
+let key=document
+.getElementById("search")
+.value
+.toLowerCase();
 
 
-return item.name.includes(key);
 
+let result=leaders.filter(function(item){
+
+
+return (
+
+(item.name||"")
+.toLowerCase()
+.includes(key)
+
+||
+
+(item.position||"")
+.toLowerCase()
+.includes(key)
+
+);
 
 
 });
-
 
 
 showLeader(result);
@@ -350,16 +163,4 @@ showLeader(result);
 
 
 
-showLeader(leaders);
-
-
-
 </script>
-
-
-
-
-
-</body>
-
-</html>
