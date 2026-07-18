@@ -7,116 +7,72 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>
-เข้าสู่ระบบ | บ้านร่องเข็ม Smart Village
-</title>
+<title>เข้าสู่ระบบ | บ้านร่องเข็ม Smart Village</title>
 
 
 <style>
 
-*{
-box-sizing:border-box;
-}
-
-
 body{
-
 margin:0;
 font-family:Tahoma,sans-serif;
-background:
-linear-gradient(
-135deg,
-#2e7d32,
-#81c784
-);
-
+background:#e8f5e9;
 height:100vh;
-
 display:flex;
 justify-content:center;
 align-items:center;
-
 }
-
 
 
 .login-box{
 
 background:white;
-
 width:350px;
-
-padding:35px;
-
+padding:30px;
 border-radius:25px;
-
-box-shadow:
-0 10px 30px rgba(0,0,0,.25);
-
+box-shadow:0 5px 20px #aaa;
 text-align:center;
 
 }
-
 
 
 .logo{
 
 width:100px;
 
-margin-bottom:10px;
-
 }
 
 
-
-h1{
+h2{
 
 color:#2e7d32;
 
-font-size:24px;
-
 }
-
 
 
 input{
 
-width:100%;
-
-padding:14px;
-
-margin:10px 0;
-
+width:90%;
+padding:12px;
+margin:10px;
 border-radius:15px;
-
 border:1px solid #ccc;
-
 font-size:16px;
 
 }
 
 
-
 button{
 
-width:100%;
-
-padding:14px;
-
+width:95%;
+padding:12px;
 border:none;
-
 border-radius:20px;
-
 background:#2e7d32;
-
 color:white;
-
 font-size:17px;
-
 cursor:pointer;
 
 }
-
 
 
 button:hover{
@@ -126,33 +82,12 @@ background:#1b5e20;
 }
 
 
-
 #error{
 
 color:red;
-
 margin-top:15px;
 
 }
-
-
-
-.back{
-
-margin-top:20px;
-
-}
-
-
-
-.back a{
-
-text-decoration:none;
-
-color:#2e7d32;
-
-}
-
 
 
 </style>
@@ -168,16 +103,12 @@ color:#2e7d32;
 <div class="login-box">
 
 
-<img 
-src="images/logo.svg"
-class="logo">
+<img src="images/logo.svg" class="logo">
 
 
-
-<h1>
+<h2>
 ⚙️ ผู้ดูแลระบบ
-</h1>
-
+</h2>
 
 
 <p>
@@ -186,26 +117,16 @@ class="logo">
 
 
 
-
-<input
-
+<input 
 id="username"
-
-placeholder="ชื่อผู้ใช้"
-
->
+placeholder="ชื่อผู้ใช้">
 
 
 
-<input
-
+<input 
 id="password"
-
 type="password"
-
-placeholder="รหัสผ่าน"
-
->
+placeholder="รหัสผ่าน">
 
 
 
@@ -220,22 +141,14 @@ placeholder="รหัสผ่าน"
 <p id="error"></p>
 
 
-
-
-<div class="back">
-
 <a href="index.html">
 
 🏠 กลับหน้าแรก
 
 </a>
 
-</div>
-
-
 
 </div>
-
 
 
 
@@ -246,62 +159,49 @@ placeholder="รหัสผ่าน"
 <script>
 
 
+// โหลดข้อมูลผู้ใช้
+
 let users=[];
 
 
 
-// โหลดผู้ใช้งาน
-
-fetch("data/user.json")
+async function loadUsers(){
 
 
-.then(response=>{
+try{
 
 
-if(!response.ok){
+let res =
+await fetch("data/user.json");
 
-throw new Error(
-"ไม่พบ user.json"
-);
+
+
+users =
+await res.json();
+
+
+
+console.log(users);
+
+
+
+}
+
+catch(e){
+
+
+document.getElementById("error").innerHTML =
+"โหลดข้อมูลผู้ใช้ไม่ได้";
+
 
 }
 
 
-return response.json();
+}
 
 
-})
 
-
-.then(data=>{
-
-
-users=data;
-
-
-console.log(
-"โหลดผู้ใช้สำเร็จ",
-users
-);
-
-
-})
-
-
-.catch(error=>{
-
-
-console.error(error);
-
-
-document
-.getElementById("error")
-.innerHTML=
-"ไม่สามารถโหลดข้อมูลผู้ใช้";
-
-
-});
-
+loadUsers();
 
 
 
@@ -312,19 +212,15 @@ function login(){
 
 
 
-let username=
-
-document
-.getElementById("username")
+let username =
+document.getElementById("username")
 .value
 .trim();
 
 
 
-let password=
-
-document
-.getElementById("password")
+let password =
+document.getElementById("password")
 .value
 .trim();
 
@@ -332,39 +228,23 @@ document
 
 
 
-if(
-username===""
-||
-password===""
-){
-
-document
-.getElementById("error")
-.innerHTML=
-"กรุณากรอกข้อมูลให้ครบ";
-
-return;
-
-}
+let user =
+users.find(function(u){
 
 
+return (
 
-
-
-
-let user=
-
-users.find(item=>
-
-
-item.username===username
+u.username === username
 
 &&
 
-item.password===password
+u.password === password
 
 
 );
+
+
+});
 
 
 
@@ -375,33 +255,23 @@ if(user){
 
 
 localStorage.setItem(
-
 "loginUser",
-
-JSON.stringify({
-
-name:user.name,
-
-role:user.role
-
-})
-
+JSON.stringify(user)
 );
 
 
 
-window.location.href=
+window.location.href =
 "admin.html";
 
 
 
-}else{
+}
+
+else{
 
 
-
-document
-.getElementById("error")
-.innerHTML=
+document.getElementById("error").innerHTML =
 
 "❌ ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง";
 
