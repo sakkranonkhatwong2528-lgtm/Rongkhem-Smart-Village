@@ -108,7 +108,47 @@ class DashboardManager {
 
 }
 
+fetch("data/budget.json")
 
+.then(res=>res.json())
+
+.then(data=>{
+
+
+let income =
+data.filter(
+x=>x.type=="รายรับ"
+)
+.reduce(
+(a,b)=>a+b.amount,0
+);
+
+
+let expense =
+data.filter(
+x=>x.type=="รายจ่าย"
+)
+.reduce(
+(a,b)=>a+b.amount,0
+);
+
+
+document.getElementById(
+"budget-total"
+).innerHTML=
+
+`
+
+💰 เงินคงเหลือ
+
+<br>
+
+${(income-expense).toLocaleString()}
+บาท
+
+`;
+
+});
 
 const DASHBOARD =
 new DashboardManager();
