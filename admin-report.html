@@ -6,54 +6,53 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>
-รายงานผลการดำเนินงาน | บ้านร่องเข็ม Smart Village
-</title>
+<title>รายงานผู้บริหาร | Rongkhem Smart Village</title>
+
+<link rel="stylesheet" href="../css/style.css">
 
 
 <style>
 
-body{
-
-margin:0;
-font-family:Tahoma,sans-serif;
-background:#e8f5e9;
-
-}
-
-
-header{
-
-background:#2e7d32;
-color:white;
-padding:30px;
-text-align:center;
-
-}
-
-
 .container{
-
 padding:20px;
+}
+
+
+.header{
+
+background:linear-gradient(135deg,#0d6efd,#198754);
+color:white;
+padding:25px;
+border-radius:15px;
 
 }
 
 
-.dashboard{
+.card{
+
+background:white;
+padding:20px;
+margin-top:20px;
+border-radius:15px;
+box-shadow:0 3px 10px #ddd;
+
+}
+
+
+.grid{
 
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
 
 }
 
 
 .box{
 
-background:white;
-padding:25px;
-border-radius:20px;
-box-shadow:0 4px 12px #ccc;
+background:#f8f9fa;
+padding:20px;
+border-radius:15px;
 text-align:center;
 
 }
@@ -61,39 +60,20 @@ text-align:center;
 
 .number{
 
-font-size:45px;
+font-size:35px;
 font-weight:bold;
-color:#2e7d32;
+color:#198754;
 
 }
 
 
-.report{
+button{
 
-background:white;
-padding:25px;
-margin-top:25px;
-border-radius:20px;
-box-shadow:0 4px 12px #ccc;
-
-}
-
-
-.back{
-
-text-align:center;
-margin:30px;
-
-}
-
-
-.back a{
-
-background:#2e7d32;
+background:#198754;
 color:white;
-padding:12px 25px;
-border-radius:20px;
-text-decoration:none;
+border:none;
+padding:12px 20px;
+border-radius:10px;
 
 }
 
@@ -103,45 +83,22 @@ text-decoration:none;
 </head>
 
 
-
 <body>
-
-
-
-<header>
-
-<h1>
-📑 รายงานผลการดำเนินงานหมู่บ้าน
-</h1>
-
-<p>
-บ้านร่องเข็ม Smart Village
-</p>
-
-</header>
-
-
-
 
 
 <div class="container">
 
 
+<div class="header">
 
-<div class="dashboard">
-
-
-
-<div class="box">
-
-<div class="number" id="news">
-
-0
-
-</div>
+<h1>
+📊 รายงานผู้บริหารหมู่บ้าน
+</h1>
 
 <p>
-📰 ข่าวประชาสัมพันธ์
+🏡 Rongkhem Smart Village
+<br>
+ระบบสรุปข้อมูลเพื่อการพัฒนาบ้านร่องเข็ม
 </p>
 
 </div>
@@ -150,101 +107,243 @@ text-decoration:none;
 
 
 
-<div class="box">
-
-<div class="number" id="activity">
-
-0
-
-</div>
-
-<p>
-📅 กิจกรรมหมู่บ้าน
-</p>
-
-</div>
 
 
-
-
-
-<div class="box">
-
-<div class="number" id="leader">
-
-0
-
-</div>
-
-<p>
-👥 ผู้นำและคณะทำงาน
-</p>
-
-</div>
-
-
-
-
-
-<div class="box">
-
-<div class="number" id="complaint">
-
-0
-
-</div>
-
-<p>
-📝 เรื่องร้องเรียน
-</p>
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-
-<div class="report">
-
+<div class="card">
 
 <h2>
-📊 สรุปผลการดำเนินงาน
+👥 รายงานประชากร
 </h2>
 
 
-<p>
-
-บ้านร่องเข็ม หมู่ที่ 6
-มีการพัฒนาระบบ Smart Village
-เพื่อเพิ่มประสิทธิภาพการบริหารจัดการชุมชน
-
-</p>
+<div class="grid">
 
 
-<p>
+<div class="box">
 
-ระบบประกอบด้วย
+ประชากรทั้งหมด
 
-</p>
+<div class="number">
+202
+</div>
+
+คน
+
+</div>
+
+
+
+<div class="box">
+
+ผู้สูงอายุ
+
+<div class="number">
+91
+</div>
+
+คน
+
+</div>
+
+
+
+<div class="box">
+
+ผู้พิการ
+
+<div class="number">
+3
+</div>
+
+คน
+
+</div>
+
+
+
+<div class="box">
+
+ครัวเรือน
+
+<div class="number">
+-
+</div>
+
+หลัง
+
+</div>
+
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+<h2>
+🩺 รายงานสุขภาพชุมชน
+</h2>
 
 
 <ul>
 
-<li>ระบบประชาสัมพันธ์ข่าวสาร</li>
+<li>
+ข้อมูล อสม.
+</li>
 
-<li>ระบบจัดการกิจกรรม</li>
+<li>
+กลุ่มผู้สูงอายุ
+</li>
 
-<li>ระบบฐานข้อมูลชุมชน</li>
+<li>
+กลุ่มเปราะบาง
+</li>
 
-<li>ระบบรับฟังปัญหาประชาชน</li>
+<li>
+การติดตามสุขภาพประชาชน
+</li>
 
-<li>ระบบจัดเก็บเอกสารออนไลน์</li>
+
+</ul>
+
+
+<button>
+
+ดูรายงานสุขภาพ
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+<h2>
+📌 รายงานโครงการพัฒนาหมู่บ้าน
+</h2>
+
+
+<ul>
+
+<li>
+แหล่งซับน้ำจำ
+</li>
+
+<li>
+พัฒนาวัดร่องเข็ม
+</li>
+
+<li>
+ระบบน้ำชุมชน
+</li>
+
+<li>
+ไฟฟ้าส่องสว่าง
+</li>
+
+
+</ul>
+
+
+<button>
+
+ดูโครงการทั้งหมด
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+📋 รายงานปัญหาและร้องเรียน
+</h2>
+
+
+<ul>
+
+<li>
+รอดำเนินการ : -
+</li>
+
+<li>
+กำลังแก้ไข : -
+</li>
+
+<li>
+เสร็จแล้ว : -
+</li>
+
+
+</ul>
+
+
+<button>
+
+ดูรายการร้องเรียน
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+🌿 รายงานสิ่งแวดล้อม
+</h2>
+
+
+<ul>
+
+<li>
+แหล่งซับน้ำจำ
+</li>
+
+<li>
+สถานการณ์ PM2.5
+</li>
+
+<li>
+การเผาในพื้นที่
+</li>
+
+<li>
+กิจกรรมอนุรักษ์ธรรมชาติ
+</li>
+
 
 </ul>
 
@@ -253,89 +352,40 @@ text-decoration:none;
 
 
 
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+📄 ส่งออกรายงาน
+</h2>
+
+
+<button>
+
+📥 Export PDF
+
+</button>
+
+
+<button>
+
+📊 Export Excel
+
+</button>
+
+
 </div>
 
 
 
 
 
-
-<div class="back">
-
-<a href="admin-dashboard.html">
-
-⚙️ กลับ Dashboard
-
-</a>
-
 </div>
-
-
-
-
-
-
-<script>
-
-
-// นับข้อมูลจากระบบต่าง ๆ
-
-
-let news =
-
-JSON.parse(
-localStorage.getItem("news")
-) || [];
-
-
-
-let activity =
-
-JSON.parse(
-localStorage.getItem("activity")
-) || [];
-
-
-
-let leader =
-
-JSON.parse(
-localStorage.getItem("leader")
-) || [];
-
-
-
-let complaint =
-
-JSON.parse(
-localStorage.getItem("complaint")
-) || [];
-
-
-
-
-document.getElementById("news").innerHTML =
-news.length;
-
-
-
-document.getElementById("activity").innerHTML =
-activity.length;
-
-
-
-document.getElementById("leader").innerHTML =
-leader.length;
-
-
-
-document.getElementById("complaint").innerHTML =
-complaint.length;
-
-
-
-</script>
-
 
 
 </body>
