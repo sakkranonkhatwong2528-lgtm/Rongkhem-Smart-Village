@@ -1,0 +1,13 @@
+[
+  {
+    "id": 1,
+    "title": "ประชุมหมู่บ้าน",
+    "message": "ประชุมประจำเดือน",
+    "type": "activity",
+    "priority": "normal",
+    "target": "all",
+    "status": "sent",
+    "date": "2026-07-18",
+    "time": "18:00"
+  }
+]
