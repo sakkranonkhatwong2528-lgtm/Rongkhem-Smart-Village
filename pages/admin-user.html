@@ -1,19 +1,132 @@
 <!DOCTYPE html>
-
 <html lang="th">
 
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-<title>
-Admin User
-</title>
-
+<title>จัดการผู้ใช้งาน | Rongkhem Smart Village</title>
 
 <link rel="stylesheet" href="../css/style.css">
 
+
+<style>
+
+.container{
+padding:20px;
+}
+
+
+.header{
+
+background:#198754;
+color:white;
+padding:25px;
+border-radius:15px;
+
+}
+
+
+.card{
+
+background:white;
+padding:20px;
+margin-top:20px;
+border-radius:15px;
+box-shadow:0 3px 10px #ddd;
+
+}
+
+
+.summary{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:15px;
+
+}
+
+
+.box{
+
+background:#f8f9fa;
+padding:20px;
+border-radius:15px;
+text-align:center;
+
+}
+
+
+.number{
+
+font-size:30px;
+font-weight:bold;
+color:#198754;
+
+}
+
+
+table{
+
+width:100%;
+border-collapse:collapse;
+
+}
+
+
+th{
+
+background:#198754;
+color:white;
+
+}
+
+
+td,th{
+
+padding:10px;
+border:1px solid #ddd;
+
+}
+
+
+.status{
+
+padding:5px 10px;
+border-radius:20px;
+
+}
+
+
+.active{
+
+background:#198754;
+color:white;
+
+}
+
+
+.off{
+
+background:#dc3545;
+color:white;
+
+}
+
+
+.btn{
+
+background:#198754;
+color:white;
+padding:10px 15px;
+border-radius:10px;
+text-decoration:none;
+
+}
+
+
+</style>
 
 </head>
 
@@ -21,25 +134,27 @@ Admin User
 <body>
 
 
-<header class="hero">
+<div class="container">
 
+
+
+<div class="header">
 
 <h1>
-👤 จัดการผู้ใช้งานระบบ
+👤 ระบบจัดการผู้ใช้งานหมู่บ้าน
 </h1>
 
-
 <p>
-Rongkhem Smart Village
+🏡 Rongkhem Smart Village
+<br>
+บ้านร่องเข็ม หมู่ที่ 6
 </p>
 
-
-</header>
-
+</div>
 
 
 
-<section class="dashboard">
+
 
 
 <div class="card">
@@ -50,14 +165,97 @@ Rongkhem Smart Village
 </h2>
 
 
-<div id="user-summary">
+<div class="summary">
 
-กำลังโหลด...
+
+<div class="box">
+
+ผู้ดูแลระบบ
+
+<div class="number">
+2
+</div>
+
+คน
+
+</div>
+
+
+
+<div class="box">
+
+คณะกรรมการ
+
+<div class="number">
+15
+</div>
+
+คน
+
+</div>
+
+
+
+<div class="box">
+
+อสม.
+
+<div class="number">
+20
+</div>
+
+คน
+
+</div>
+
+
+
+<div class="box">
+
+ประชาชน
+
+<div class="number">
+202
+</div>
+
+คน
+
+</div>
+
+
 
 </div>
 
 
 </div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+➕ เพิ่มผู้ใช้งาน
+</h2>
+
+
+<a href="#" class="btn">
+
+เพิ่มสมาชิกใหม่
+
+</a>
+
+
+</div>
+
+
+
+
 
 
 
@@ -71,19 +269,17 @@ Rongkhem Smart Village
 
 
 
-<table width="100%" border="1">
+<table>
 
-
-<thead>
 
 <tr>
 
 <th>
-ชื่อ
+ชื่อ-สกุล
 </th>
 
 <th>
-Username
+ตำแหน่ง
 </th>
 
 <th>
@@ -91,22 +287,141 @@ Username
 </th>
 
 <th>
-หน่วยงาน
+สถานะ
 </th>
 
 <th>
-สถานะ
+จัดการ
 </th>
 
 
 </tr>
 
-</thead>
 
 
-<tbody id="user-table">
 
-</tbody>
+<tr>
+
+<td>
+นายศักรนนทน์ ขัติย์วงศ์
+</td>
+
+<td>
+ผู้ใหญ่บ้าน
+</td>
+
+<td>
+Administrator
+</td>
+
+<td>
+
+<span class="status active">
+ใช้งาน
+</span>
+
+</td>
+
+<td>
+แก้ไข
+</td>
+
+
+</tr>
+
+
+
+
+<tr>
+
+<td>
+คณะกรรมการหมู่บ้าน
+</td>
+
+<td>
+กรรมการ
+</td>
+
+<td>
+Editor
+</td>
+
+<td>
+
+<span class="status active">
+ใช้งาน
+</span>
+
+</td>
+
+<td>
+แก้ไข
+</td>
+
+</tr>
+
+
+
+
+<tr>
+
+<td>
+อสม.หมู่ 6
+</td>
+
+<td>
+เจ้าหน้าที่สุขภาพ
+</td>
+
+<td>
+Health User
+</td>
+
+<td>
+
+<span class="status active">
+ใช้งาน
+</span>
+
+</td>
+
+<td>
+แก้ไข
+</td>
+
+
+</tr>
+
+
+
+<tr>
+
+<td>
+สมาชิกทั่วไป
+</td>
+
+<td>
+ประชาชน
+</td>
+
+<td>
+Viewer
+</td>
+
+<td>
+
+<span class="status off">
+ปิดใช้งาน
+</span>
+
+</td>
+
+<td>
+แก้ไข
+</td>
+
+
+</tr>
 
 
 </table>
@@ -116,12 +431,96 @@ Username
 
 
 
-</section>
 
 
 
 
-<script src="../js/user-admin.js"></script>
+
+<div class="card">
+
+
+<h2>
+🔐 ระดับสิทธิ์การใช้งาน
+</h2>
+
+
+<ul>
+
+<li>
+👑 Administrator :
+จัดการระบบทั้งหมด
+</li>
+
+
+<li>
+📝 Editor :
+เพิ่มข่าว กิจกรรม โครงการ
+</li>
+
+
+<li>
+🩺 Health User :
+จัดการข้อมูลสุขภาพ
+</li>
+
+
+<li>
+👀 Viewer :
+ดูข้อมูลทั่วไป
+</li>
+
+
+</ul>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+🕒 ประวัติการใช้งานล่าสุด
+</h2>
+
+
+<ul>
+
+<li>
+18/07/2569 10:30 น.
+- เพิ่มข่าวประชาสัมพันธ์
+</li>
+
+
+<li>
+18/07/2569 09:15 น.
+- อัปเดตโครงการแหล่งซับน้ำจำ
+</li>
+
+
+<li>
+17/07/2569 18:20 น.
+- แก้ไขข้อมูลประชากร
+</li>
+
+
+</ul>
+
+
+</div>
+
+
+
+
+
+
+</div>
 
 
 </body>
