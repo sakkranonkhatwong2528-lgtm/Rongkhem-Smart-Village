@@ -15,52 +15,7 @@
       "news",
       "complaint",
       "document",
-      "setting"
-    ],
-    "status": "ใช้งาน"
-  },
-
-  {
-    "id": 2,
-    "name": "ผู้ช่วยผู้ใหญ่บ้าน",
-    "username": "assistant",
-    "password": "1234",
-    "role": "Editor",
-    "department": "ฝ่ายปกครอง",
-    "permission": [
-      "leaders",
-      "activity",
-      "news",
-      "complaint"
-    ],
-    "status": "ใช้งาน"
-  },
-
-  {
-    "id": 3,
-    "name": "ประธาน อสม.",
-    "username": "health",
-    "password": "1234",
-    "role": "Health Officer",
-    "department": "ฝ่ายสุขภาพ",
-    "permission": [
-      "health",
-      "elderly",
-      "vulnerable"
-    ],
-    "status": "ใช้งาน"
-  },
-
-  {
-    "id": 4,
-    "name": "ประชาชนทั่วไป",
-    "username": "viewer",
-    "password": "1234",
-    "role": "Viewer",
-    "department": "ประชาชน",
-    "permission": [
-      "view"
-    ],
-    "status": "จำกัดสิทธิ์"
+      "project"
+    ]
   }
 ]
