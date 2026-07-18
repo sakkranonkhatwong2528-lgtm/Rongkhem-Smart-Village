@@ -1,18 +1,77 @@
 <!DOCTYPE html>
-
 <html lang="th">
 
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>
-Admin Vulnerable
-</title>
-
+<title>กลุ่มเปราะบาง | Rongkhem Smart Village</title>
 
 <link rel="stylesheet" href="../css/style.css">
 
+<style>
+
+.container{
+padding:20px;
+}
+
+.header{
+
+background:linear-gradient(135deg,#dc3545,#198754);
+color:white;
+padding:25px;
+border-radius:15px;
+
+}
+
+.card{
+
+background:white;
+padding:20px;
+margin-top:20px;
+border-radius:15px;
+box-shadow:0 3px 10px #ddd;
+
+}
+
+.grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
+
+}
+
+.box{
+
+background:#f8f9fa;
+padding:20px;
+border-radius:15px;
+text-align:center;
+
+}
+
+.number{
+
+font-size:35px;
+font-weight:bold;
+color:#dc3545;
+
+}
+
+button{
+
+background:#198754;
+color:white;
+border:none;
+padding:12px 20px;
+border-radius:10px;
+
+}
+
+
+</style>
 
 </head>
 
@@ -20,110 +79,276 @@ Admin Vulnerable
 <body>
 
 
-<header class="hero">
+<div class="container">
+
+
+<div class="header">
 
 <h1>
-♿ ระบบดูแลกลุ่มเปราะบาง
+🤝 ระบบกลุ่มเปราะบาง
 </h1>
 
 <p>
-บ้านร่องเข็ม Smart Village
+🏡 Rongkhem Smart Village
+<br>
+ดูแลประชาชนกลุ่มที่ต้องได้รับการช่วยเหลือ
+
 </p>
 
-</header>
+</div>
 
 
 
-<section class="dashboard">
+
+
+
 
 
 <div class="card">
-
 
 <h2>
 📊 สรุปกลุ่มเปราะบาง
 </h2>
 
 
-<div id="vulnerable-summary">
+<div class="grid">
 
-กำลังโหลด...
+
+<div class="box">
+
+♿
+
+<h3>
+ผู้พิการ
+</h3>
+
+<div class="number">
+3
+</div>
+
+คน
+
+</div>
+
+
+
+<div class="box">
+
+👵
+
+<h3>
+ผู้สูงอายุพิเศษ
+
+</h3>
+
+<div class="number">
+-
+
+</div>
+
+คน
+
+</div>
+
+
+
+<div class="box">
+
+🏠
+
+<h3>
+ครัวเรือนช่วยเหลือ
+
+</h3>
+
+<div class="number">
+-
+
+</div>
+
+หลัง
+
+</div>
+
+
+
+<div class="box">
+
+🩺
+
+<h3>
+ติดตามแล้ว
+
+</h3>
+
+<div class="number">
+-
+
+</div>
+
+ราย
 
 </div>
 
 
 </div>
+
+
+</div>
+
+
+
+
+
 
 
 
 <div class="card">
 
-
 <h2>
-🤝 ทำเนียบกลุ่มเปราะบาง
+👥 ประเภทกลุ่มเปราะบาง
 </h2>
 
 
+<ul>
 
-<table width="100%" border="1">
+<li>
+♿ ผู้พิการ
+</li>
 
+<li>
+👵 ผู้สูงอายุที่ต้องดูแลพิเศษ
+</li>
 
-<thead>
+<li>
+🏠 ครัวเรือนรายได้น้อย
+</li>
 
-<tr>
+<li>
+🩺 ผู้มีปัญหาสุขภาพ
+</li>
 
-<th>
-ชื่อ/ครอบครัว
-</th>
+<li>
+👨‍👩‍👧 ครอบครัวที่ต้องได้รับการช่วยเหลือ
 
-<th>
-ประเภท
-</th>
-
-<th>
-อายุ
-</th>
-
-<th>
-บ้าน
-</th>
-
-<th>
-ปัญหา
-</th>
-
-<th>
-การช่วยเหลือ
-</th>
-
-<th>
-สถานะ
-</th>
+</li>
 
 
-</tr>
+</ul>
 
-</thead>
+</div>
 
 
 
-<tbody id="vulnerable-table">
-
-</tbody>
 
 
-</table>
+
+
+
+<div class="card">
+
+<h2>
+📋 แผนช่วยเหลือรายครัวเรือน
+</h2>
+
+
+<ul>
+
+<li>
+ประเมินปัญหา
+</li>
+
+<li>
+กำหนดผู้รับผิดชอบ
+</li>
+
+<li>
+บันทึกการช่วยเหลือ
+</li>
+
+<li>
+ติดตามผล
+
+</li>
+
+
+</ul>
+
+
+<button>
+
+เพิ่มแผนช่วยเหลือ
+
+</button>
 
 
 </div>
 
 
 
-</section>
 
 
 
-<script src="../js/vulnerable-admin.js"></script>
+
+
+<div class="card">
+
+<h2>
+🩺 การติดตามโดย อสม.
+</h2>
+
+
+<ul>
+
+<li>
+เยี่ยมบ้าน
+</li>
+
+<li>
+ตรวจสุขภาพเบื้องต้น
+</li>
+
+<li>
+รายงานปัญหา
+</li>
+
+<li>
+แจ้งเตือนผู้รับผิดชอบ
+
+</li>
+
+
+</ul>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+<h2>
+📈 รายงานกลุ่มเปราะบาง
+</h2>
+
+
+<button>
+
+สร้างรายงาน
+
+</button>
+
+
+</div>
+
+
+
+</div>
 
 
 </body>
