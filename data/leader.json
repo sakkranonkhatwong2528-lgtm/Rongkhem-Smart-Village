@@ -1,28 +1,50 @@
 [
- {
-  "id":1,
-  "name":"นายศักรนนทน์ ขัติย์วงศ์",
-  "position":"ผู้ใหญ่บ้าน หมู่ที่ 6",
-  "department":"ฝ่ายปกครอง",
-  "phone":"",
-  "image":"leader1.jpg"
- },
-
- {
-  "id":2,
-  "name":"ผู้ช่วยผู้ใหญ่บ้าน",
-  "position":"ผู้ช่วยผู้ใหญ่บ้าน",
-  "department":"ฝ่ายปกครอง",
-  "phone":"",
-  "image":"leader2.jpg"
- },
-
- {
-  "id":3,
-  "name":"ประธาน อสม.",
-  "position":"ประธานอาสาสมัครสาธารณสุข",
-  "department":"ฝ่ายสุขภาพ",
-  "phone":"",
-  "image":"leader3.jpg"
- }
+  {
+    "id": 1,
+    "position": "ผู้ใหญ่บ้าน",
+    "name": "นายศักรนนท์ ขัติย์วงศ์",
+    "image": "images/leaders/leader.jpg",
+    "phone": "",
+    "status": "active"
+  },
+  {
+    "id": 2,
+    "position": "ผู้ช่วยผู้ใหญ่บ้าน",
+    "name": "",
+    "image": "images/leaders/default.png",
+    "phone": "",
+    "status": "active"
+  },
+  {
+    "id": 3,
+    "position": "ผู้ช่วยผู้ใหญ่บ้าน",
+    "name": "",
+    "image": "images/leaders/default.png",
+    "phone": "",
+    "status": "active"
+  },
+  {
+    "id": 4,
+    "position": "สมาชิกสภา อบต.",
+    "name": "",
+    "image": "images/leaders/default.png",
+    "phone": "",
+    "status": "active"
+  },
+  {
+    "id": 5,
+    "position": "ประธาน อสม.",
+    "name": "",
+    "image": "images/leaders/default.png",
+    "phone": "",
+    "status": "active"
+  },
+  {
+    "id": 6,
+    "position": "ประธานผู้สูงอายุ",
+    "name": "",
+    "image": "images/leaders/default.png",
+    "phone": "",
+    "status": "active"
+  }
 ]
