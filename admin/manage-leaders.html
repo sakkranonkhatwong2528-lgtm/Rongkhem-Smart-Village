@@ -3,10 +3,9 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<title>จัดการทำเนียบผู้นำ | บ้านร่องเข็ม Smart Village</title>
-
+<title>จัดการทำเนียบผู้นำ</title>
 
 <style>
 
@@ -16,7 +15,6 @@ background:#f1f8e9;
 margin:0;
 }
 
-
 header{
 background:#2e7d32;
 color:white;
@@ -24,67 +22,59 @@ padding:20px;
 text-align:center;
 }
 
-
 .container{
 max-width:900px;
 margin:auto;
 padding:20px;
 }
 
-
-.card{
-
+.box{
 background:white;
 padding:20px;
 border-radius:15px;
 margin-bottom:20px;
 box-shadow:0 3px 10px #ccc;
-
 }
 
-
 input,textarea{
-
 width:100%;
 padding:12px;
 margin:8px 0;
-border:1px solid #ccc;
 border-radius:8px;
-
+border:1px solid #ccc;
+box-sizing:border-box;
 }
 
-
 button{
-
 background:#2e7d32;
 color:white;
 border:0;
-padding:12px 25px;
+padding:10px 18px;
 border-radius:10px;
 cursor:pointer;
-
 }
 
+.edit{
+background:#1565c0;
+}
+
+.delete{
+background:#c62828;
+}
 
 .leader{
-
 display:flex;
 gap:20px;
+padding:15px;
 border-bottom:1px solid #ddd;
-padding:15px 0;
-
 }
 
-
 .leader img{
-
 width:100px;
 height:100px;
 border-radius:50%;
 object-fit:cover;
-
 }
-
 
 </style>
 
@@ -107,10 +97,9 @@ object-fit:cover;
 <div class="container">
 
 
-<div class="card">
+<div class="box">
 
-
-<h3>➕ เพิ่มข้อมูลผู้นำ</h3>
+<h3>➕ เพิ่ม / แก้ไขข้อมูลผู้นำ</h3>
 
 
 <input id="name" placeholder="ชื่อ - นามสกุล">
@@ -120,24 +109,16 @@ object-fit:cover;
 
 
 <textarea id="duty"
-placeholder="หน้าที่รับผิดชอบ">
-</textarea>
+placeholder="หน้าที่รับผิดชอบ"></textarea>
 
 
 <input id="phone"
 placeholder="เบอร์โทร">
 
 
-<label>
-📷 เลือกรูปภาพ
-</label>
+📷 รูปภาพ
 
-<input type="file"
-id="image"
-accept="image/*">
-
-
-<br><br>
+<input id="image" type="file" accept="image/*">
 
 
 <button onclick="saveLeader()">
@@ -151,25 +132,27 @@ accept="image/*">
 
 
 
-<div class="card">
+<div class="box">
 
 <h3>📋 รายชื่อผู้นำ</h3>
 
-
 <div id="list">
-
 กำลังโหลด...
-
 </div>
 
 
 </div>
 
 
+<button onclick="logout()">
+
+🚪 ออกจากระบบ
+
+</button>
+
+
 
 </div>
-
-
 
 
 
@@ -187,60 +170,60 @@ accept="image/*">
 <script>
 
 
-async function saveLeader(){
+// ตรวจสอบ Login
 
+if(localStorage.getItem("adminLogin")!="true"){
 
-let name =
-document.getElementById("name").value;
-
-
-let position =
-document.getElementById("position").value;
-
-
-let duty =
-document.getElementById("duty").value;
-
-
-let phone =
-document.getElementById("phone").value;
-
-
-let file =
-document.getElementById("image").files[0];
-
-
-
-if(!name || !position){
-
-alert("กรุณากรอกชื่อและตำแหน่ง");
-
-return;
+location.href="login.html";
 
 }
 
 
-
-let imageURL="";
-
+let editID=null;
 
 
-// อัปโหลดรูป
+
+async function saveLeader(){
+
+
+let name=
+nameInput().value;
+
+
+let position=
+document.getElementById("position").value;
+
+
+let duty=
+document.getElementById("duty").value;
+
+
+let phone=
+document.getElementById("phone").value;
+
+
+let file=
+document.getElementById("image").files[0];
+
+
+
+let image="";
+
+
 
 if(file){
 
 
-let ref =
+let ref=
 storage.ref(
-"leaders/"+Date.now()+"_"+file.name
+"leaders/"+Date.now()+file.name
 );
-
 
 
 await ref.put(file);
 
 
-imageURL =
+image=
 await ref.getDownloadURL();
 
 
@@ -249,42 +232,54 @@ await ref.getDownloadURL();
 
 
 
-// บันทึกข้อมูล
+if(editID){
+
+
+await db.collection("leaders")
+.doc(editID)
+.update({
+
+name,
+position,
+duty,
+phone,
+...(image && {image})
+
+});
+
+
+alert("แก้ไขข้อมูลแล้ว");
+
+
+editID=null;
+
+
+}
+
+else{
 
 
 await db.collection("leaders")
 .add({
 
-name:name,
-
-position:position,
-
-duty:duty,
-
-phone:phone,
-
-image:imageURL,
-
-created:
-new Date()
+name,
+position,
+duty,
+phone,
+image,
+created:new Date()
 
 });
 
 
+alert("เพิ่มข้อมูลแล้ว");
 
-alert("✅ บันทึกข้อมูลเรียบร้อย");
+
+}
 
 
-document.getElementById("name").value="";
 
-document.getElementById("position").value="";
-
-document.getElementById("duty").value="";
-
-document.getElementById("phone").value="";
-
-document.getElementById("image").value="";
-
+clearForm();
 
 loadLeaders();
 
@@ -294,54 +289,118 @@ loadLeaders();
 
 
 
+function nameInput(){
+
+return document.getElementById("name");
+
+}
+
+
+
+function clearForm(){
+
+nameInput().value="";
+
+position.value="";
+
+duty.value="";
+
+phone.value="";
+
+image.value="";
+
+}
+
+
 
 async function loadLeaders(){
+
+
+let snap=
+await db.collection("leaders").get();
+
+
+let data=[];
+
+
+snap.forEach(doc=>{
+
+data.push({
+
+id:doc.id,
+...doc.data()
+
+});
+
+
+});
+
+
+
+let order={
+
+"ผู้ใหญ่บ้าน":1,
+"ผู้ช่วยผู้ใหญ่บ้าน":2,
+"สมาชิกสภา อบต.":3,
+"ประธาน อสม.":4,
+"ประธานผู้สูงอายุ":5,
+"ประธาน ชรบ.":6,
+"ประธาน อปพร.":7
+
+};
+
+
+
+data.sort((a,b)=>
+(order[a.position]||99)
+-
+(order[b.position]||99)
+);
+
 
 
 let html="";
 
 
-let snap =
-await db.collection("leaders")
-.orderBy("created","desc")
-.get();
+data.forEach(l=>{
 
 
-
-snap.forEach(doc=>{
-
-
-let l=doc.data();
-
-
-
-html +=`
+html+=`
 
 <div class="leader">
 
 
-${l.image ?
+${l.image?
 `<img src="${l.image}">`
 :
-"📷"
-}
-
+"📷"}
 
 <div>
 
-<b>${l.name}</b>
+<b>${l.name}</b><br>
 
-<br>
+🏛️ ${l.position}<br>
 
-🏛️ ${l.position}
-
-<br>
-
-📋 ${l.duty}
-
-<br>
+📋 ${l.duty}<br>
 
 ☎️ ${l.phone}
+
+<br><br>
+
+<button class="edit"
+onclick="editLeader('${l.id}')">
+
+✏️ แก้ไข
+
+</button>
+
+
+<button class="delete"
+onclick="deleteLeader('${l.id}')">
+
+🗑️ ลบ
+
+</button>
 
 
 </div>
@@ -352,10 +411,7 @@ ${l.image ?
 
 `;
 
-
-
 });
-
 
 
 document.getElementById("list").innerHTML=html;
@@ -365,11 +421,68 @@ document.getElementById("list").innerHTML=html;
 
 
 
+async function editLeader(id){
+
+
+let doc=
+await db.collection("leaders")
+.doc(id)
+.get();
+
+
+let l=doc.data();
+
+
+editID=id;
+
+
+name.value=l.name;
+
+position.value=l.position;
+
+duty.value=l.duty;
+
+phone.value=l.phone;
+
+
+}
+
+
+
+async function deleteLeader(id){
+
+
+if(confirm("ต้องการลบข้อมูลหรือไม่?")){
+
+
+await db.collection("leaders")
+.doc(id)
+.delete();
+
+
+loadLeaders();
+
+
+}
+
+}
+
+
+
+function logout(){
+
+localStorage.removeItem("adminLogin");
+
+location.href="login.html";
+
+}
+
+
+
 loadLeaders();
 
 
 </script>
-
 
 
 </body>
