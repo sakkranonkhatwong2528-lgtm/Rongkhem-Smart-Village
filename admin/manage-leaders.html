@@ -1,107 +1,87 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>จัดการทำเนียบผู้นำ | บ้านร่องเข็ม Smart Village</title>
 
+
 <style>
 
 body{
-    font-family:"Tahoma",sans-serif;
-    background:#f1f8e9;
-    margin:0;
+font-family:Tahoma,sans-serif;
+background:#f1f8e9;
+margin:0;
 }
+
 
 header{
-    background:#2e7d32;
-    color:white;
-    padding:20px;
-    text-align:center;
+background:#2e7d32;
+color:white;
+padding:20px;
+text-align:center;
 }
 
+
 .container{
-    max-width:900px;
-    margin:auto;
-    padding:20px;
+max-width:900px;
+margin:auto;
+padding:20px;
 }
 
 
 .card{
-    background:white;
-    padding:20px;
-    margin-bottom:20px;
-    border-radius:15px;
-    box-shadow:0 3px 10px #ccc;
+
+background:white;
+padding:20px;
+border-radius:15px;
+margin-bottom:20px;
+box-shadow:0 3px 10px #ccc;
+
 }
 
 
 input,textarea{
 
-    width:100%;
-    padding:12px;
-    margin:8px 0;
-    border-radius:8px;
-    border:1px solid #ccc;
-    box-sizing:border-box;
+width:100%;
+padding:12px;
+margin:8px 0;
+border:1px solid #ccc;
+border-radius:8px;
 
-}
-
-
-textarea{
-    height:100px;
 }
 
 
 button{
 
-    background:#2e7d32;
-    color:white;
-    border:0;
-    padding:12px 25px;
-    border-radius:10px;
-    cursor:pointer;
+background:#2e7d32;
+color:white;
+border:0;
+padding:12px 25px;
+border-radius:10px;
+cursor:pointer;
 
-}
-
-
-button:hover{
-    opacity:.8;
 }
 
 
 .leader{
 
-    display:flex;
-    gap:20px;
-    padding:15px;
-    border-bottom:1px solid #ddd;
-    align-items:center;
+display:flex;
+gap:20px;
+border-bottom:1px solid #ddd;
+padding:15px 0;
 
 }
 
 
 .leader img{
 
-    width:100px;
-    height:100px;
-    border-radius:50%;
-    object-fit:cover;
-
-}
-
-
-.delete{
-
-background:#c62828;
-
-}
-
-
-.back{
-
-background:#1565c0;
+width:100px;
+height:100px;
+border-radius:50%;
+object-fit:cover;
 
 }
 
@@ -129,43 +109,40 @@ background:#1565c0;
 
 <div class="card">
 
+
 <h3>➕ เพิ่มข้อมูลผู้นำ</h3>
 
 
-<label>ชื่อ - นามสกุล</label>
-
-<input id="name">
+<input id="name" placeholder="ชื่อ - นามสกุล">
 
 
-<label>ตำแหน่ง</label>
-
-<input id="position">
+<input id="position" placeholder="ตำแหน่ง">
 
 
-<label>หน้าที่รับผิดชอบ</label>
-
-<textarea id="duty"></textarea>
-
-
-<label>เบอร์โทร</label>
-
-<input id="phone">
+<textarea id="duty"
+placeholder="หน้าที่รับผิดชอบ">
+</textarea>
 
 
-<label>📷 รูปภาพ</label>
+<input id="phone"
+placeholder="เบอร์โทร">
 
-<input 
-type="file"
-id="photo"
+
+<label>
+📷 เลือกรูปภาพ
+</label>
+
+<input type="file"
+id="image"
 accept="image/*">
 
 
 <br><br>
 
 
-<button onclick="saveData()">
+<button onclick="saveLeader()">
 
-💾 บันทึก
+💾 บันทึกข้อมูล
 
 </button>
 
@@ -179,60 +156,62 @@ accept="image/*">
 <h3>📋 รายชื่อผู้นำ</h3>
 
 
-<div id="result"></div>
+<div id="list">
+
+กำลังโหลด...
+
+</div>
 
 
 </div>
 
 
 
-<button class="back"
-onclick="location.href='../index.html'">
-
-🏠 กลับหน้าแรก
-
-</button>
-
-
-
 </div>
+
+
+
+
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
+
+
+<script src="../js/firebase-config.js"></script>
 
 
 
 <script>
 
 
-let leaders = JSON.parse(
-localStorage.getItem("leaders")
-) || [];
-
-
-
-function saveData(){
+async function saveLeader(){
 
 
 let name =
-document.getElementById("name").value.trim();
+document.getElementById("name").value;
 
 
 let position =
-document.getElementById("position").value.trim();
+document.getElementById("position").value;
 
 
 let duty =
-document.getElementById("duty").value.trim();
+document.getElementById("duty").value;
 
 
 let phone =
-document.getElementById("phone").value.trim();
+document.getElementById("phone").value;
 
 
-let photo =
-document.getElementById("photo").files[0];
+let file =
+document.getElementById("image").files[0];
 
 
 
-if(name=="" || position==""){
+if(!name || !position){
 
 alert("กรุณากรอกชื่อและตำแหน่ง");
 
@@ -242,42 +221,39 @@ return;
 
 
 
-if(photo){
+let imageURL="";
 
 
-let reader=new FileReader();
+
+// อัปโหลดรูป
+
+if(file){
 
 
-reader.onload=function(e){
-
-
-addLeader(
-e.target.result
+let ref =
+storage.ref(
+"leaders/"+Date.now()+"_"+file.name
 );
 
 
-};
+
+await ref.put(file);
 
 
-reader.readAsDataURL(photo);
+imageURL =
+await ref.getDownloadURL();
 
-
-
-}else{
-
-
-addLeader("");
 
 }
 
 
 
-function addLeader(image){
+
+// บันทึกข้อมูล
 
 
-leaders.push({
-
-id:Date.now(),
+await db.collection("leaders")
+.add({
 
 name:name,
 
@@ -287,41 +263,17 @@ duty:duty,
 
 phone:phone,
 
-image:image
+image:imageURL,
+
+created:
+new Date()
 
 });
-
-
-localStorage.setItem(
-
-"leaders",
-
-JSON.stringify(leaders)
-
-);
 
 
 
 alert("✅ บันทึกข้อมูลเรียบร้อย");
 
-
-clearForm();
-
-
-show();
-
-
-
-}
-
-
-
-}
-
-
-
-
-function clearForm(){
 
 document.getElementById("name").value="";
 
@@ -331,65 +283,65 @@ document.getElementById("duty").value="";
 
 document.getElementById("phone").value="";
 
-document.getElementById("photo").value="";
+document.getElementById("image").value="";
+
+
+loadLeaders();
+
 
 }
 
 
 
 
-function show(){
+
+async function loadLeaders(){
 
 
 let html="";
 
 
-leaders.forEach(function(item){
+let snap =
+await db.collection("leaders")
+.orderBy("created","desc")
+.get();
 
 
 
-html += `
+snap.forEach(doc=>{
+
+
+let l=doc.data();
+
+
+
+html +=`
 
 <div class="leader">
 
 
-${
-item.image 
-?
-`<img src="${item.image}">`
+${l.image ?
+`<img src="${l.image}">`
 :
 "📷"
 }
 
 
-
 <div>
 
+<b>${l.name}</b>
 
-<h3>${item.name}</h3>
+<br>
 
+🏛️ ${l.position}
 
-<b>🏛️ ${item.position}</b>
+<br>
 
+📋 ${l.duty}
 
-<p>
-📋 ${item.duty}
-</p>
+<br>
 
-
-<p>
-☎️ ${item.phone}
-</p>
-
-
-
-<button 
-class="delete"
-onclick="deleteData(${item.id})">
-
-🗑️ ลบ
-
-</button>
+☎️ ${l.phone}
 
 
 </div>
@@ -406,54 +358,18 @@ onclick="deleteData(${item.id})">
 
 
 
-document.getElementById("result").innerHTML=html;
-
-
-
-}
-
-
-
-
-function deleteData(id){
-
-
-if(confirm("ต้องการลบข้อมูลนี้หรือไม่?")){
-
-
-leaders =
-leaders.filter(
-x=>x.id!==id
-);
-
-
-
-localStorage.setItem(
-
-"leaders",
-
-JSON.stringify(leaders)
-
-);
-
-
-
-show();
-
+document.getElementById("list").innerHTML=html;
 
 
 }
 
 
 
-}
-
-
-
-show();
+loadLeaders();
 
 
 </script>
+
 
 
 </body>
