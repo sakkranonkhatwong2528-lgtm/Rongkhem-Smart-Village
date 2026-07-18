@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>สมุดรายชื่อประชาชน | Rongkhem Smart Village</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+
+<style>
+
+.container{
+padding:20px;
+}
+
+
+.header{
+
+background:linear-gradient(135deg,#198754,#20c997);
+color:white;
+padding:25px;
+border-radius:15px;
+
+}
+
+
+.card{
+
+background:white;
+padding:20px;
+margin-top:20px;
+border-radius:15px;
+box-shadow:0 3px 10px #ddd;
+
+}
+
+
+input,select{
+
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid #ccc;
+
+}
+
+
+.grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
+
+}
+
+
+.person{
+
+background:#f8f9fa;
+padding:20px;
+border-radius:15px;
+
+}
+
+
+.icon{
+
+font-size:40px;
+
+}
+
+
+.tag{
+
+background:#198754;
+color:white;
+padding:5px 10px;
+border-radius:20px;
+
+}
+
+
+button{
+
+background:#198754;
+color:white;
+border:none;
+padding:10px 20px;
+border-radius:10px;
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<div class="header">
+
+<h1>
+📖 สมุดรายชื่อประชาชน
+</h1>
+
+<p>
+🏡 Rongkhem Smart Village
+<br>
+ฐานข้อมูลสมาชิกบ้านร่องเข็ม หมู่ที่ 6
+</p>
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+<h2>
+🔎 ค้นหาข้อมูล
+</h2>
+
+
+<input placeholder="ค้นหาชื่อ นามสกุล หรือบ้านเลขที่">
+
+
+<br><br>
+
+
+<select>
+
+<option>
+ทุกกลุ่ม
+</option>
+
+<option>
+ประชาชนทั่วไป
+</option>
+
+<option>
+ผู้สูงอายุ
+</option>
+
+<option>
+อสม.
+</option>
+
+<option>
+ชรบ.
+</option>
+
+<option>
+คณะกรรมการหมู่บ้าน
+</option>
+
+</select>
+
+
+<br><br>
+
+
+<button>
+
+ค้นหา
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+<h2>
+👥 รายชื่อสมาชิกตัวอย่าง
+</h2>
+
+
+<div class="grid">
+
+
+<div class="person">
+
+<div class="icon">
+👤
+</div>
+
+
+<h3>
+นายตัวอย่าง ใจดี
+</h3>
+
+
+<p>
+
+บ้านเลขที่ XX หมู่ 6
+
+</p>
+
+
+<span class="tag">
+
+ประชาชน
+
+</span>
+
+
+</div>
+
+
+
+
+
+<div class="person">
+
+<div class="icon">
+👵
+</div>
+
+
+<h3>
+นางตัวอย่าง รักบ้าน
+
+</h3>
+
+
+<p>
+
+กลุ่มผู้สูงอายุ
+
+</p>
+
+
+<span class="tag">
+
+ผู้สูงอายุ
+
+</span>
+
+
+</div>
+
+
+
+
+
+<div class="person">
+
+<div class="icon">
+🩺
+</div>
+
+
+<h3>
+อสม. ตัวอย่าง
+
+</h3>
+
+
+<p>
+
+ดูแลสุขภาพชุมชน
+
+</p>
+
+
+<span class="tag">
+
+อสม.
+
+</span>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+🏠 ข้อมูลครัวเรือน
+</h2>
+
+
+<ul>
+
+<li>
+จำนวนครัวเรือน : กำลังปรับปรุงข้อมูล
+</li>
+
+<li>
+สมาชิกต่อครัวเรือน
+</li>
+
+<li>
+ผู้สูงอายุในครัวเรือน
+</li>
+
+<li>
+กลุ่มเปราะบาง
+</li>
+
+
+</ul>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+👥 เครือข่ายบุคคลสำคัญ
+</h2>
+
+
+<ul>
+
+<li>
+👤 ผู้ใหญ่บ้าน
+</li>
+
+<li>
+🏛️ คณะกรรมการหมู่บ้าน
+</li>
+
+<li>
+🩺 ประธาน อสม.
+</li>
+
+<li>
+🛡️ หัวหน้า ชรบ.
+</li>
+
+<li>
+👵 ประธานผู้สูงอายุ
+</li>
+
+
+</ul>
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+</body>
+
+</html>
