@@ -17,17 +17,17 @@ body{
 
 margin:0;
 font-family:Tahoma,sans-serif;
-background:#e3f2fd;
+background:#e8eaf6;
 
 }
 
 
 header{
 
-background:#1565c0;
+background:#283593;
 color:white;
-text-align:center;
 padding:30px;
+text-align:center;
 
 }
 
@@ -39,40 +39,48 @@ padding:20px;
 }
 
 
-.card{
+.leaders{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+
+}
+
+
+.person{
 
 background:white;
 padding:20px;
-margin-bottom:20px;
 border-radius:20px;
-box-shadow:0 4px 12px #bbb;
+box-shadow:0 4px 12px #ccc;
 text-align:center;
 
 }
 
 
-.card img{
+.person img{
 
-width:150px;
-height:150px;
-object-fit:cover;
+width:130px;
+height:130px;
 border-radius:50%;
-border:5px solid #1565c0;
+object-fit:cover;
 
 }
 
 
-.card h2{
+.person h2{
 
-color:#1565c0;
+color:#283593;
 
 }
 
 
-.position{
+.default{
 
-font-size:18px;
-color:#555;
+background:white;
+padding:20px;
+border-radius:20px;
 
 }
 
@@ -87,7 +95,7 @@ margin:30px;
 
 .back a{
 
-background:#1565c0;
+background:#283593;
 color:white;
 padding:12px 25px;
 border-radius:20px;
@@ -95,13 +103,16 @@ text-decoration:none;
 
 }
 
-
 </style>
+
 
 </head>
 
 
+
 <body>
+
+
 
 
 <header>
@@ -112,7 +123,6 @@ text-decoration:none;
 
 <p>
 บ้านร่องเข็ม หมู่ที่ 6
-ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา
 </p>
 
 </header>
@@ -120,209 +130,18 @@ text-decoration:none;
 
 
 
+
 <div class="container">
 
 
+<div class="leaders" id="leaderList">
 
-<div class="card">
-
-<img src="images/leader.jpg">
-
-<h2>
-นายศักรนนทน์ ขัติย์วงศ์
-</h2>
-
-<p class="position">
-ผู้ใหญ่บ้าน บ้านร่องเข็ม หมู่ที่ 6
-</p>
 
 </div>
 
 
-
-
-<div class="card">
-
-<img src="images/assistant1.jpg">
-
-<h2>
-ผู้ช่วยผู้ใหญ่บ้าน
-</h2>
-
-<p class="position">
-ฝ่ายปกครองและรักษาความสงบเรียบร้อย
-</p>
-
 </div>
 
-
-
-
-<div class="card">
-
-<img src="images/assistant2.jpg">
-
-<h2>
-ผู้ช่วยผู้ใหญ่บ้าน
-</h2>
-
-<p class="position">
-ฝ่ายกิจการหมู่บ้านและงานพัฒนา
-</p>
-
-</div>
-
-
-
-
-<div class="card">
-
-<img src="images/sao.jpg">
-
-<h2>
-สมาชิกสภาองค์การบริหารส่วนตำบล
-</h2>
-
-<p class="position">
-ตัวแทนประชาชนในพื้นที่
-</p>
-
-</div>
-
-
-
-
-<div class="card">
-
-<img src="images/health.jpg">
-
-<h2>
-ประธาน อสม. บ้านร่องเข็ม
-</h2>
-
-<p class="position">
-งานส่งเสริมสุขภาพและดูแลประชาชน
-</p>
-
-</div>
-
-
-
-
-<div class="card">
-
-<img src="images/elder.jpg">
-
-<h2>
-ประธานผู้สูงอายุ
-</h2>
-
-<p class="position">
-ส่งเสริมคุณภาพชีวิตผู้สูงอายุ
-</p>
-
-</div>
-
-
-
-
-<div class="card">
-
-<img src="images/shorb.jpg">
-
-<h2>
-ชุดรักษาความปลอดภัยหมู่บ้าน (ชรบ.)
-</h2>
-
-<p class="position">
-ดูแลความปลอดภัยและช่วยเหลืองานชุมชน
-</p>
-
-</div>
-
-
-
-
-<div class="card">
-
-<img src="images/oporor.jpg">
-
-<h2>
-อปพร. บ้านร่องเข็ม
-</h2>
-
-<p class="position">
-ช่วยเหลืองานป้องกันและบรรเทาสาธารณภัย
-</p>
-
-</div>
-
-
-
-
-<h1 style="text-align:center;color:#1565c0;">
-⭐ ที่ปรึกษาผู้ทรงคุณวุฒิ
-</h1>
-
-
-
-<div class="card">
-
-<img src="images/advisor1.jpg">
-
-<h2>
-ที่ปรึกษาผู้ทรงคุณวุฒิ คนที่ 1
-</h2>
-
-</div>
-
-
-<div class="card">
-
-<img src="images/advisor2.jpg">
-
-<h2>
-ที่ปรึกษาผู้ทรงคุณวุฒิ คนที่ 2
-</h2>
-
-</div>
-
-
-<div class="card">
-
-<img src="images/advisor3.jpg">
-
-<h2>
-ที่ปรึกษาผู้ทรงคุณวุฒิ คนที่ 3
-</h2>
-
-</div>
-
-
-<div class="card">
-
-<img src="images/advisor4.jpg">
-
-<h2>
-ที่ปรึกษาผู้ทรงคุณวุฒิ คนที่ 4
-</h2>
-
-</div>
-
-
-<div class="card">
-
-<img src="images/advisor5.jpg">
-
-<h2>
-ที่ปรึกษาผู้ทรงคุณวุฒิ คนที่ 5
-</h2>
-
-</div>
-
-
-
-</div>
 
 
 
@@ -330,10 +149,146 @@ text-decoration:none;
 <div class="back">
 
 <a href="index.html">
+
 🏠 กลับหน้าแรก
+
 </a>
 
 </div>
+
+
+
+
+
+
+<script>
+
+
+function loadLeader(){
+
+
+
+let data=
+
+JSON.parse(
+localStorage.getItem("leader")
+) || [];
+
+
+
+let html="";
+
+
+
+
+// กรณียังไม่มีข้อมูล
+
+if(data.length==0){
+
+
+html += `
+
+
+<div class="default">
+
+
+<h2>
+👤 ผู้ใหญ่บ้าน
+</h2>
+
+
+<p>
+บ้านร่องเข็ม หมู่ที่ 6
+</p>
+
+
+<p>
+ข้อมูลกำลังปรับปรุง
+</p>
+
+
+</div>
+
+
+`;
+
+
+
+}
+
+
+
+// แสดงข้อมูลจาก Admin
+
+
+data.forEach(function(item){
+
+
+
+let img = item.image;
+
+
+if(img==""){
+
+img="logo.svg";
+
+}
+
+
+
+html += `
+
+
+<div class="person">
+
+
+<img src="images/${img}">
+
+
+<h2>
+${item.name}
+</h2>
+
+
+<p>
+<strong>
+${item.position}
+</strong>
+</p>
+
+
+<p>
+☎️ ${item.phone}
+</p>
+
+
+
+</div>
+
+
+`;
+
+
+
+});
+
+
+
+document.getElementById("leaderList")
+.innerHTML=html;
+
+
+
+}
+
+
+
+loadLeader();
+
+
+
+</script>
+
 
 
 
