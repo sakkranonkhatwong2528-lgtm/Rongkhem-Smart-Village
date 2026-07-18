@@ -17,14 +17,14 @@ body{
 
 margin:0;
 font-family:Tahoma,sans-serif;
-background:#f3e5f5;
+background:#e8eaf6;
 
 }
 
 
 header{
 
-background:#6a1b9a;
+background:#283593;
 color:white;
 padding:35px;
 text-align:center;
@@ -48,6 +48,7 @@ gap:20px;
 }
 
 
+
 .card{
 
 background:white;
@@ -68,18 +69,12 @@ font-size:45px;
 
 .number{
 
-font-size:40px;
+font-size:35px;
 font-weight:bold;
-color:#6a1b9a;
+color:#283593;
 
 }
 
-
-.card h2{
-
-color:#6a1b9a;
-
-}
 
 
 .section{
@@ -88,9 +83,9 @@ background:white;
 padding:25px;
 margin-top:25px;
 border-radius:25px;
-box-shadow:0 4px 12px #ccc;
 
 }
+
 
 
 .back{
@@ -101,9 +96,10 @@ margin:30px;
 }
 
 
+
 .back a{
 
-background:#6a1b9a;
+background:#283593;
 color:white;
 padding:12px 25px;
 border-radius:20px;
@@ -144,8 +140,8 @@ text-decoration:none;
 
 
 
-<div class="container">
 
+<div class="container">
 
 
 <div class="dashboard">
@@ -158,15 +154,16 @@ text-decoration:none;
 🏠
 </div>
 
-<div class="number">
+<div class="number" id="home">
 -
 </div>
 
-<h2>
+<p>
 ครัวเรือน
-</h2>
+</p>
 
 </div>
+
 
 
 
@@ -174,18 +171,19 @@ text-decoration:none;
 <div class="card">
 
 <div class="icon">
-👨‍👩‍👧‍👦
+👥
 </div>
 
-<div class="number">
+<div class="number" id="people">
 -
 </div>
 
-<h2>
+<p>
 ประชากร
-</h2>
+</p>
 
 </div>
+
 
 
 
@@ -196,15 +194,16 @@ text-decoration:none;
 👴
 </div>
 
-<div class="number">
+<div class="number" id="elder">
 -
 </div>
 
-<h2>
+<p>
 ผู้สูงอายุ
-</h2>
+</p>
 
 </div>
+
 
 
 
@@ -215,41 +214,16 @@ text-decoration:none;
 ♿
 </div>
 
-<div class="number">
+<div class="number" id="disabled">
 -
 </div>
 
-<h2>
+<p>
 ผู้พิการ
-</h2>
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-<div class="section">
-
-
-<h2>
-🩺 สุขภาพและกลุ่มเปราะบาง
-</h2>
-
-
-<p>
-
-- ผู้สูงอายุ 60 ปีขึ้นไป<br>
-- ผู้พิการ<br>
-- ผู้ป่วยติดบ้าน/ติดเตียง<br>
-- กลุ่มที่ต้องได้รับการดูแลเป็นพิเศษ
-
 </p>
+
+</div>
+
 
 
 </div>
@@ -264,26 +238,24 @@ text-decoration:none;
 
 
 <h2>
-👥 กลุ่มและองค์กรชุมชน
+🌱 ทรัพยากรชุมชน
 </h2>
 
 
 <p>
 
-🩺 อสม. ดูแลสุขภาพประชาชน<br>
-
-🛡 ชรบ. ดูแลความปลอดภัย<br>
-
-🚒 อปพร. ช่วยเหลืองานป้องกันภัย<br>
-
-🏡 คณะกรรมการหมู่บ้าน
+💧 แหล่งซับน้ำจำ  
+<br>
+🌳 พื้นที่ธรรมชาติ  
+<br>
+🌾 พื้นที่เกษตรกรรม  
+<br>
+🏡 วิถีชีวิตชุมชน
 
 </p>
 
 
 </div>
-
-
 
 
 
@@ -293,19 +265,13 @@ text-decoration:none;
 
 
 <h2>
-🌱 ทรัพยากรธรรมชาติ
+🏘 กลุ่มองค์กรชุมชน
 </h2>
 
 
-<p>
+<p id="group">
 
-💧 แหล่งซับน้ำจำ<br>
-
-🌳 พื้นที่ธรรมชาติ<br>
-
-🐟 ระบบนิเวศชุมชน<br>
-
-🌱 แหล่งเรียนรู้ด้านสิ่งแวดล้อม
+-
 
 </p>
 
@@ -314,11 +280,9 @@ text-decoration:none;
 
 
 
-
-
-
-
 </div>
+
+
 
 
 
@@ -327,15 +291,65 @@ text-decoration:none;
 
 <div class="back">
 
+
 <a href="index.html">
 
 🏠 กลับหน้าแรก
 
 </a>
 
+
 </div>
 
 
+
+
+
+
+
+
+<script>
+
+
+
+let data =
+
+JSON.parse(
+
+localStorage.getItem("community")
+
+);
+
+
+
+if(data){
+
+
+document.getElementById("home").innerHTML =
+data.home+" หลัง";
+
+
+document.getElementById("people").innerHTML =
+data.people+" คน";
+
+
+document.getElementById("elder").innerHTML =
+data.elder+" คน";
+
+
+document.getElementById("disabled").innerHTML =
+data.disabled+" คน";
+
+
+document.getElementById("group").innerHTML =
+data.group;
+
+
+}
+
+
+
+</script>
 
 
 
