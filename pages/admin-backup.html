@@ -1,57 +1,207 @@
 <!DOCTYPE html>
-
 <html lang="th">
 
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>
-Admin Backup
-</title>
-
+<title>สำรองข้อมูลระบบ | Rongkhem Smart Village</title>
 
 <link rel="stylesheet" href="../css/style.css">
+
+
+<style>
+
+.container{
+padding:20px;
+}
+
+
+.header{
+
+background:#198754;
+color:white;
+padding:25px;
+border-radius:15px;
+
+}
+
+
+.card{
+
+background:white;
+padding:20px;
+margin-top:20px;
+border-radius:15px;
+box-shadow:0 3px 10px #ddd;
+
+}
+
+
+.grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
+
+}
+
+
+.box{
+
+background:#f8f9fa;
+padding:20px;
+border-radius:15px;
+text-align:center;
+
+}
+
+
+.number{
+
+font-size:30px;
+color:#198754;
+font-weight:bold;
+
+}
+
+
+button{
+
+background:#198754;
+color:white;
+padding:12px 20px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+
+}
+
+
+table{
+
+width:100%;
+border-collapse:collapse;
+
+}
+
+
+th{
+
+background:#198754;
+color:white;
+
+}
+
+
+td,th{
+
+padding:10px;
+border:1px solid #ddd;
+
+}
+
+
+</style>
 
 
 </head>
 
 
+
 <body>
 
 
-<header class="hero">
+<div class="container">
 
+
+
+<div class="header">
 
 <h1>
-💾 ระบบสำรองข้อมูล
+💾 ระบบสำรองข้อมูลอัจฉริยะ
 </h1>
 
-
 <p>
-บ้านร่องเข็ม Smart Village
+🏡 Rongkhem Smart Village
+<br>
+ระบบบริหารจัดการหมู่บ้าน หมู่ที่ 6
 </p>
 
-
-</header>
-
+</div>
 
 
-<section class="dashboard">
+
+
 
 
 
 <div class="card">
 
-
 <h2>
-📊 ข้อมูลระบบ
+📊 ข้อมูลในระบบ
 </h2>
 
 
-<div id="backup-summary">
+<div class="grid">
 
-กำลังโหลด...
+
+<div class="box">
+
+👥 ประชาชน
+
+<div class="number">
+202
+</div>
+
+รายการ
+
+</div>
+
+
+
+<div class="box">
+
+🏠 ครัวเรือน
+
+<div class="number">
+-
+</div>
+
+รายการ
+
+</div>
+
+
+
+<div class="box">
+
+📋 โครงการ
+
+<div class="number">
+10
+</div>
+
+รายการ
+
+</div>
+
+
+
+<div class="box">
+
+📄 เอกสาร
+
+<div class="number">
+35
+</div>
+
+ไฟล์
+
+</div>
+
+
 
 </div>
 
@@ -62,24 +212,36 @@ Admin Backup
 
 
 
+
+
 <div class="card">
 
 
 <h2>
-💾 สำรองข้อมูล
+💾 สำรองข้อมูลทันที
 </h2>
 
 
-<button onclick="backupData()">
+<button>
 
-📥 ดาวน์โหลด Backup
+สำรองข้อมูลทั้งหมด
 
 </button>
 
 
-<button onclick="location.reload()">
+<br><br>
 
-🔄 รีเฟรชข้อมูล
+
+<button>
+
+Export JSON
+
+</button>
+
+
+<button>
+
+Export CSV
 
 </button>
 
@@ -90,56 +252,30 @@ Admin Backup
 
 
 
+
+
+
 <div class="card">
 
 
 <h2>
-📂 ไฟล์ข้อมูลหลัก
+📦 รายการข้อมูลที่สำรอง
 </h2>
 
 
 <ul>
 
+<li>✅ citizen.json</li>
 
-<li>
-👥 citizen.json
-</li>
+<li>✅ household.json</li>
 
+<li>✅ project.json</li>
 
-<li>
-🏠 household.json
-</li>
+<li>✅ budget.json</li>
 
+<li>✅ document.json</li>
 
-<li>
-❤️ health.json
-</li>
-
-
-<li>
-👴 elderly.json
-</li>
-
-
-<li>
-♿ vulnerable.json
-</li>
-
-
-<li>
-📋 complaint.json
-</li>
-
-
-<li>
-📌 project.json
-</li>
-
-
-<li>
-💧 wetland.json
-</li>
-
+<li>✅ notification.json</li>
 
 </ul>
 
@@ -148,13 +284,169 @@ Admin Backup
 
 
 
-</section>
 
 
 
 
-<script src="../js/backup-admin.js"></script>
 
+<div class="card">
+
+
+<h2>
+🔄 กู้คืนข้อมูล
+</h2>
+
+
+<p>
+
+เลือกไฟล์สำรองเพื่อ Restore ระบบ
+
+</p>
+
+
+<input type="file">
+
+
+<br><br>
+
+
+<button>
+
+Restore Data
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+🕒 ประวัติการสำรองข้อมูล
+</h2>
+
+
+<table>
+
+
+<tr>
+
+<th>
+วันที่
+</th>
+
+<th>
+ผู้ดำเนินการ
+</th>
+
+<th>
+ประเภท
+</th>
+
+<th>
+สถานะ
+</th>
+
+</tr>
+
+
+<tr>
+
+<td>
+18/07/2569
+</td>
+
+<td>
+Admin
+</td>
+
+<td>
+Full Backup
+</td>
+
+<td>
+สำเร็จ
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td>
+01/07/2569
+</td>
+
+<td>
+Admin
+</td>
+
+<td>
+Database Backup
+</td>
+
+<td>
+สำเร็จ
+</td>
+
+</tr>
+
+
+</table>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+☁️ เชื่อมต่อ Cloud Storage
+</h2>
+
+
+<ul>
+
+<li>Google Drive</li>
+
+<li>OneDrive</li>
+
+<li>Server สำรอง</li>
+
+</ul>
+
+
+<button>
+
+ตั้งค่าการเชื่อมต่อ
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+</div>
 
 
 </body>
