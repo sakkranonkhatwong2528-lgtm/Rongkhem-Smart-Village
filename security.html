@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>
-ระบบความปลอดภัยชุมชน | บ้านร่องเข็ม Smart Village
+ความปลอดภัยชุมชน | บ้านร่องเข็ม Smart Village
 </title>
 
 
@@ -17,17 +17,17 @@ body{
 
 margin:0;
 font-family:Tahoma,sans-serif;
-background:#eceff1;
+background:#e3f2fd;
 
 }
 
 
 header{
 
-background:#263238;
+background:#0d47a1;
 color:white;
+padding:35px;
 text-align:center;
-padding:30px;
 
 }
 
@@ -39,20 +39,22 @@ padding:20px;
 }
 
 
-.card{
+.dashboard{
 
-background:white;
-padding:20px;
-margin-bottom:20px;
-border-radius:20px;
-box-shadow:0 4px 12px #bbb;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
 
 }
 
 
-.card h2{
+.card{
 
-color:#263238;
+background:white;
+padding:25px;
+border-radius:25px;
+box-shadow:0 4px 12px #ccc;
+text-align:center;
 
 }
 
@@ -60,16 +62,26 @@ color:#263238;
 .icon{
 
 font-size:45px;
-text-align:center;
 
 }
 
 
-.contact{
+.number{
 
-background:#ffecb3;
-padding:20px;
-border-radius:20px;
+font-size:38px;
+font-weight:bold;
+color:#0d47a1;
+
+}
+
+
+.section{
+
+background:white;
+padding:25px;
+margin-top:25px;
+border-radius:25px;
+box-shadow:0 4px 12px #ccc;
 
 }
 
@@ -84,7 +96,7 @@ margin:30px;
 
 .back a{
 
-background:#263238;
+background:#0d47a1;
 color:white;
 padding:12px 25px;
 border-radius:20px;
@@ -92,22 +104,18 @@ text-decoration:none;
 
 }
 
-
 </style>
 
-
 </head>
-
 
 
 <body>
 
 
-
 <header>
 
 <h1>
-🛡 ระบบความปลอดภัยชุมชน
+🛡 ความปลอดภัยชุมชน
 </h1>
 
 <p>
@@ -118,8 +126,10 @@ text-decoration:none;
 
 
 
-
 <div class="container">
+
+
+<div class="dashboard">
 
 
 
@@ -129,18 +139,16 @@ text-decoration:none;
 🛡
 </div>
 
-<h2>
-ชุดรักษาความปลอดภัยหมู่บ้าน (ชรบ.)
-</h2>
+<div class="number" id="shorbor">
+-
+</div>
 
 <p>
-ชรบ. บ้านร่องเข็ม ทำหน้าที่ช่วยดูแลความสงบเรียบร้อย
-เฝ้าระวังเหตุผิดปกติ
-ช่วยงานด้านความปลอดภัย
-และสนับสนุนภารกิจของหมู่บ้าน
+ชรบ.
 </p>
 
 </div>
+
 
 
 
@@ -148,67 +156,19 @@ text-decoration:none;
 <div class="card">
 
 <div class="icon">
-🚑
+🚒
 </div>
 
-<h2>
-อปพร. บ้านร่องเข็ม
-</h2>
+<div class="number" id="orporn">
+-
+</div>
 
 <p>
-สนับสนุนงานป้องกันและบรรเทาสาธารณภัย
-ช่วยเหลือประชาชนเมื่อเกิดเหตุฉุกเฉิน
-อุบัติเหตุ และภัยพิบัติในพื้นที่
+อปพร.
 </p>
 
 </div>
 
-
-
-
-<div class="card">
-
-<div class="icon">
-🔥
-</div>
-
-<h2>
-การป้องกันไฟป่าและหมอกควัน
-</h2>
-
-<p>
-
-- เฝ้าระวังการเผาในพื้นที่<br>
-- จัดเวรยามช่วงเสี่ยงไฟป่า<br>
-- ประชาสัมพันธ์ช่วงห้ามเผา<br>
-- สร้างแนวกันไฟชุมชน
-
-</p>
-
-</div>
-
-
-
-
-<div class="card">
-
-<div class="icon">
-🚗
-</div>
-
-<h2>
-ความปลอดภัยทางถนน
-</h2>
-
-<p>
-
-ส่งเสริมการขับขี่ปลอดภัย
-ลดอุบัติเหตุในชุมชน
-ดูแลจุดเสี่ยงและประชาสัมพันธ์ประชาชน
-
-</p>
-
-</div>
 
 
 
@@ -219,35 +179,12 @@ text-decoration:none;
 🚨
 </div>
 
-<h2>
-ระบบแจ้งเหตุฉุกเฉิน
-</h2>
-
-<p>
-ประชาชนสามารถแจ้งเหตุผ่านผู้นำชุมชน
-ชรบ. อปพร. และหน่วยงานที่เกี่ยวข้อง
-เพื่อให้การช่วยเหลือรวดเร็ว
-</p>
-
+<div class="number" id="incident">
+-
 </div>
 
-
-
-
-<div class="contact">
-
-<h2>
-📞 ช่องทางติดต่อ
-</h2>
-
 <p>
-
-👤 ผู้ใหญ่บ้าน บ้านร่องเข็ม หมู่ที่ 6<br>
-
-📍 ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา<br>
-
-☎️ ติดต่อผ่านผู้นำชุมชนและคณะทำงานหมู่บ้าน
-
+เหตุการณ์แจ้งเตือน
 </p>
 
 </div>
@@ -255,6 +192,70 @@ text-decoration:none;
 
 
 </div>
+
+
+
+
+
+
+<div class="section">
+
+<h2>
+📞 เบอร์โทรสำคัญ
+</h2>
+
+
+<p>
+
+🚓 สถานีตำรวจ : 191
+
+<br>
+
+🚑 เจ็บป่วยฉุกเฉิน : 1669
+
+<br>
+
+🔥 เหตุเพลิงไหม้ : 199
+
+<br>
+
+🏡 ผู้ใหญ่บ้าน : ติดต่อสำนักงานหมู่บ้าน
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="section">
+
+
+<h2>
+🛡 ภารกิจความปลอดภัย
+</h2>
+
+
+<p>
+
+- ตรวจตราความสงบเรียบร้อย<br>
+- ดูแลความปลอดภัยในงานชุมชน<br>
+- ช่วยเหลือประชาชนเมื่อเกิดเหตุ<br>
+- เฝ้าระวังปัญหาอาชญากรรม
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
 
 
 
@@ -262,10 +263,51 @@ text-decoration:none;
 <div class="back">
 
 <a href="index.html">
+
 🏠 กลับหน้าแรก
+
 </a>
 
 </div>
+
+
+
+
+
+
+<script>
+
+
+let security =
+
+JSON.parse(
+
+localStorage.getItem("security")
+
+);
+
+
+
+if(security){
+
+
+document.getElementById("shorbor").innerHTML =
+security.shorbor+" คน";
+
+
+document.getElementById("orporn").innerHTML =
+security.orporn+" คน";
+
+
+document.getElementById("incident").innerHTML =
+security.incident+" ครั้ง";
+
+
+}
+
+
+
+</script>
 
 
 
