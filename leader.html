@@ -4,43 +4,145 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>
-ทำเนียบผู้นำ | Rongkhem Smart Village
+ทำเนียบผู้นำ | บ้านร่องเข็ม Smart Village
 </title>
-
-<link rel="stylesheet" href="css/style.css">
 
 
 <style>
 
-.person{
+body{
 
+margin:0;
+font-family:Tahoma,sans-serif;
+background:#f5f5f5;
+
+}
+
+
+header{
+
+background:#2e7d32;
+color:white;
+padding:35px;
 text-align:center;
 
 }
 
-.person img{
 
-width:150px;
-height:150px;
+.container{
 
-border-radius:50%;
-
-object-fit:cover;
-
-border:5px solid #81c784;
+padding:20px;
 
 }
 
 
+.search{
+
+width:100%;
+padding:12px;
+border-radius:20px;
+border:1px solid #ccc;
+font-size:16px;
+margin-bottom:20px;
+
+}
+
+
+
+.grid{
+
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(260px,1fr));
+
+gap:20px;
+
+}
+
+
+
+.card{
+
+background:white;
+padding:20px;
+border-radius:25px;
+text-align:center;
+box-shadow:0 4px 12px #ccc;
+
+}
+
+
+
+.card img{
+
+width:150px;
+height:150px;
+border-radius:50%;
+object-fit:cover;
+border:5px solid #2e7d32;
+
+}
+
+
+
 .position{
 
-color:#2e7d32;
+display:inline-block;
+background:#2e7d32;
+color:white;
+padding:8px 18px;
+border-radius:20px;
+margin-top:15px;
 
+}
+
+
+
+.name{
+
+font-size:22px;
 font-weight:bold;
+color:#2e7d32;
+margin-top:15px;
+
+}
+
+
+
+.duty{
+
+color:#555;
+
+}
+
+
+
+.phone{
+
+margin-top:10px;
+
+}
+
+
+
+.back{
+
+text-align:center;
+margin:30px;
+
+}
+
+
+.back a{
+
+background:#2e7d32;
+color:white;
+padding:12px 25px;
+border-radius:20px;
+text-decoration:none;
 
 }
 
@@ -50,17 +152,15 @@ font-weight:bold;
 </head>
 
 
+
 <body>
+
 
 
 <header>
 
-<div class="logo">
-🏡
-</div>
-
 <h1>
-👤 ทำเนียบผู้นำและคณะทำงานหมู่บ้าน
+👥 ทำเนียบผู้นำและคณะทำงาน
 </h1>
 
 <p>
@@ -72,283 +172,259 @@ font-weight:bold;
 
 
 
-<nav>
 
-<a href="index.html">🏡 หน้าแรก</a>
-
-<a href="leader.html">👥 ทำเนียบผู้นำ</a>
-
-<a href="shorbor.html">🛡️ ชรบ.</a>
-
-<a href="oppor.html">🚒 อปพร.</a>
-
-</nav>
+<div class="container">
 
 
+<input
 
-<section>
+class="search"
 
+id="search"
+
+placeholder="🔎 ค้นหาชื่อ หรือตำแหน่ง..."
+
+onkeyup="searchLeader()"
+
+>
+
+
+
+
+<div class="grid" id="leaders">
+
+กำลังโหลดข้อมูล...
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<div class="back">
+
+<a href="index.html">
+
+🏠 กลับหน้าแรก
+
+</a>
+
+</div>
+
+
+
+
+
+
+
+<script>
+
+
+let leaders=[];
+
+
+
+
+// โหลดข้อมูลจาก JSON
+
+fetch("data/leader.json")
+
+
+.then(response=>response.json())
+
+
+.then(data=>{
+
+
+leaders=data;
+
+
+showLeader(leaders);
+
+
+})
+
+
+.catch(error=>{
+
+
+document.getElementById("leaders").innerHTML=`
+
+<div class="card">
 
 <h2>
-⭐ ฝ่ายปกครองหมู่บ้าน
+โหลดข้อมูลไม่สำเร็จ
 </h2>
-
-
-<div class="grid">
-
-
-<div class="card person">
-
-<img src="images/leader/no-image.png">
-
-<h3>
-นายศักรนนทน์ ขัติย์วงศ์
-</h3>
-
-<p class="position">
-ผู้ใหญ่บ้าน หมู่ที่ 6
-</p>
 
 <p>
-บริหารงานปกครองหมู่บ้าน
-ประสานงานราชการ
-พัฒนาชุมชน
+กรุณาตรวจสอบ leader.json
 </p>
 
 </div>
 
+`;
+
+console.error(error);
 
 
-<div class="card person">
-
-<img src="images/leader/no-image.png">
-
-<h3>
-นายจักร์กวัส ประพลรัตนัง
-</h3>
-
-<p class="position">
-ผู้ช่วยผู้ใหญ่บ้าน
-</p>
-
-</div>
-
-
-
-<div class="card person">
-
-<img src="images/leader/no-image.png">
-
-<h3>
-น.ส.สุภาพร วังมูล
-</h3>
-
-<p class="position">
-ผู้ช่วยผู้ใหญ่บ้าน
-</p>
-
-</div>
-
-
-
-</div>
-
-
-</section>
+});
 
 
 
 
 
-<section>
 
+
+
+function showLeader(data){
+
+
+let html="";
+
+
+
+if(data.length===0){
+
+
+html=`
+
+<div class="card">
 
 <h2>
-⭐ ที่ปรึกษาผู้ทรงคุณวุฒิ
+ยังไม่มีข้อมูล
 </h2>
 
-
-<div class="grid">
-
-
-<div class="card person">
-
-<img src="images/leader/no-image.png">
-
-<h3>
-ชื่อ - นามสกุล
-</h3>
-
-<p class="position">
-ที่ปรึกษาผู้ทรงคุณวุฒิ
-</p>
-
 </div>
 
-
-</div>
-
-
-</section>
+`;
 
 
 
-
-
-<section>
-
-
-<h2>
-👥 คณะกรรมการหมู่บ้าน
-</h2>
-
-
-<div class="grid">
-
-
-<div class="card person">
-
-<img src="images/leader/no-image.png">
-
-<h3>
-ชื่อ - นามสกุล
-</h3>
-
-<p class="position">
-กรรมการหมู่บ้าน
-</p>
-
-</div>
-
-
-</div>
-
-
-</section>
+}else{
 
 
 
+data.forEach(item=>{
 
 
+html+=`
 
-<section>
-
-
-<h2>
-🏛️ สมาชิกสภา อบต.
-</h2>
+<div class="card">
 
 
-<div class="grid">
+<img src="${item.image || 'images/leaders/default.png'}">
 
 
-<div class="card person">
+<div class="position">
 
-<img src="images/leader/no-image.png">
-
-<h3>
-นายธวัชชัย บุญเก่ง
-</h3>
-
-<p class="position">
-สมาชิกสภา อบต.
-</p>
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-<section>
-
-
-<h2>
-🩺 งาน อสม.
-</h2>
-
-
-<div class="grid">
-
-
-<div class="card person">
-
-<img src="images/leader/no-image.png">
-
-<h3>
-น.ส.ศศิธร เข็มแก้ว
-</h3>
-
-<p class="position">
-ประธาน อสม.
-</p>
-
-</div>
-
-
-</div>
-
-
-</section>
-<div id="public-leader">
+${item.position || "-"}
 
 </div>
 
 
 
+<div class="name">
 
-
-<section>
-
-
-<h2>
-👩 กลุ่มแม่บ้าน
-</h2>
-
-
-<div class="grid">
-
-
-<div class="card person">
-
-<img src="images/leader/no-image.png">
-
-<h3>
-นางบัวจิ๋น ปันใจ
-</h3>
-
-<p class="position">
-ประธานแม่บ้าน
-</p>
+${item.name || "อยู่ระหว่างปรับปรุงข้อมูล"}
 
 </div>
 
 
+
+<div class="duty">
+
+${item.duty || ""}
+
 </div>
 
 
-</section>
+
+<div class="phone">
+
+☎️ ${item.phone || "-"}
+
+</div>
+
+
+
+</div>
+
+`;
+
+
+
+});
+
+
+}
+
+
+
+document
+.getElementById("leaders")
+.innerHTML=html;
+
+
+
+}
 
 
 
 
 
-<footer>
 
-© 2026 Rongkhem Smart Village
 
-<br>
 
-บ้านร่องเข็ม หมู่ที่ 6 จังหวัดพะเยา
+function searchLeader(){
 
-</footer>
+
+let key=
+
+document
+.getElementById("search")
+.value
+.toLowerCase();
+
+
+
+
+let result=
+
+leaders.filter(item=>{
+
+
+return (
+
+(item.name || "")
+.toLowerCase()
+.includes(key)
+
+||
+
+(item.position || "")
+.toLowerCase()
+.includes(key)
+
+);
+
+
+});
+
+
+
+showLeader(result);
+
+
+}
+
+
+
+</script>
+
 
 
 
