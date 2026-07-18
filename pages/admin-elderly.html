@@ -1,16 +1,99 @@
 <!DOCTYPE html>
-
 <html lang="th">
 
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>
-Admin Elderly
-</title>
+<title>ทะเบียนผู้สูงอายุ | Rongkhem Smart Village</title>
 
 <link rel="stylesheet" href="../css/style.css">
+
+
+<style>
+
+.container{
+padding:20px;
+}
+
+
+.header{
+
+background:linear-gradient(135deg,#198754,#20c997);
+color:white;
+padding:25px;
+border-radius:15px;
+
+}
+
+
+.card{
+
+background:white;
+padding:20px;
+margin-top:20px;
+border-radius:15px;
+box-shadow:0 3px 10px #ddd;
+
+}
+
+
+.grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
+
+}
+
+
+.box{
+
+background:#f8f9fa;
+padding:20px;
+border-radius:15px;
+text-align:center;
+
+}
+
+
+.number{
+
+font-size:35px;
+font-weight:bold;
+color:#198754;
+
+}
+
+
+table{
+
+width:100%;
+border-collapse:collapse;
+
+}
+
+
+th,td{
+
+border:1px solid #ddd;
+padding:10px;
+
+}
+
+
+button{
+
+background:#198754;
+color:white;
+border:none;
+padding:10px 20px;
+border-radius:10px;
+
+}
+
+</style>
 
 </head>
 
@@ -18,39 +101,27 @@ Admin Elderly
 <body>
 
 
-<header class="hero">
+<div class="container">
+
+
+<div class="header">
 
 <h1>
-👴 ระบบดูแลผู้สูงอายุ
+👵 ทะเบียนผู้สูงอายุ
 </h1>
 
 <p>
-บ้านร่องเข็ม Smart Village
+🏡 Rongkhem Smart Village
+<br>
+ระบบดูแลผู้สูงอายุชุมชน
+
 </p>
 
-</header>
-
-
-
-<section class="dashboard">
-
-
-<div class="card">
-
-
-<h2>
-📊 สรุปผู้สูงอายุ
-</h2>
-
-
-<div id="elderly-summary">
-
-กำลังโหลด...
-
 </div>
 
 
-</div>
+
+
 
 
 
@@ -59,49 +130,168 @@ Admin Elderly
 
 
 <h2>
-👴 ทำเนียบผู้สูงอายุ
+📊 สรุปข้อมูลผู้สูงอายุ
 </h2>
 
 
-<table width="100%" border="1">
+<div class="grid">
 
 
-<thead>
+<div class="box">
+
+👵
+
+<h3>
+ผู้สูงอายุทั้งหมด
+</h3>
+
+
+<div class="number">
+91
+
+</div>
+
+คน
+
+</div>
+
+
+
+
+<div class="box">
+
+🏠
+
+<h3>
+ครัวเรือน
+</h3>
+
+
+<div class="number">
+-
+
+</div>
+
+หลัง
+
+</div>
+
+
+
+
+<div class="box">
+
+🩺
+
+<h3>
+ติดตามแล้ว
+</h3>
+
+
+<div class="number">
+-
+
+</div>
+
+ราย
+
+</div>
+
+
+
+
+<div class="box">
+
+⚠️
+
+<h3>
+ต้องดูแลพิเศษ
+</h3>
+
+
+<div class="number">
+-
+
+</div>
+
+ราย
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+👥 รายชื่อผู้สูงอายุ
+</h2>
+
+
+<table>
+
 
 <tr>
 
 <th>
-ชื่อ
+ชื่อ-นามสกุล
+
 </th>
 
 <th>
 อายุ
+
 </th>
 
 <th>
-บ้าน
+สถานะ
+
 </th>
 
 <th>
-สุขภาพ
-</th>
+ผู้ดูแล
 
-<th>
-การดูแล
-</th>
-
-<th>
-เยี่ยมบ้านล่าสุด
 </th>
 
 </tr>
 
-</thead>
 
 
-<tbody id="elderly-table">
+<tr>
 
-</tbody>
+<td>
+ข้อมูลจาก elderly.json
+
+</td>
+
+<td>
+-
+
+</td>
+
+<td>
+ปกติ
+
+</td>
+
+<td>
+อสม.
+
+</td>
+
+</tr>
+
 
 
 </table>
@@ -110,11 +300,97 @@ Admin Elderly
 </div>
 
 
-</section>
 
 
 
-<script src="../js/elderly-admin.js"></script>
+
+
+
+<div class="card">
+
+
+<h2>
+🏠 ระบบเยี่ยมบ้าน
+</h2>
+
+
+<ul>
+
+<li>
+บันทึกวันที่เยี่ยม
+</li>
+
+<li>
+บันทึกปัญหาสุขภาพ
+</li>
+
+<li>
+บันทึกการช่วยเหลือ
+</li>
+
+<li>
+ติดตามผลการดูแล
+
+</li>
+
+
+</ul>
+
+
+<button>
+
+เพิ่มข้อมูลเยี่ยมบ้าน
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+📈 รายงานผู้สูงอายุ
+</h2>
+
+
+<ul>
+
+<li>
+จำนวนผู้สูงอายุรายเดือน
+</li>
+
+<li>
+ผู้สูงอายุแยกตามพื้นที่
+</li>
+
+<li>
+สรุปการช่วยเหลือ
+</li>
+
+
+</ul>
+
+
+<button>
+
+สร้างรายงาน
+
+</button>
+
+
+</div>
+
+
+
+</div>
 
 
 </body>
