@@ -1,0 +1,41 @@
+{
+ "villageName":"บ้านร่องเข็ม Smart Village",
+
+ "villageNo":"หมู่ที่ 6",
+
+ "tambon":"จำป่าหวาย",
+
+ "district":"เมือง",
+
+ "province":"พะเยา",
+
+ "admin":"นายศักรนนทน์ ขัติย์วงศ์",
+
+ "position":"ผู้ใหญ่บ้าน",
+
+ "phone":"",
+
+ "email":"",
+
+ "logo":"../images/logo.svg",
+
+ "users":[
+
+  {
+   "name":"ผู้ใหญ่บ้าน",
+   "role":"Administrator"
+  },
+
+  {
+   "name":"ผู้ช่วยผู้ใหญ่บ้าน",
+   "role":"Editor"
+  },
+
+  {
+   "name":"อสม.",
+   "role":"Health"
+  }
+
+ ]
+
+}
