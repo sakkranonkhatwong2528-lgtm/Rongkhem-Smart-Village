@@ -112,3 +112,21 @@ class DashboardManager {
 
 const DASHBOARD =
 new DashboardManager();
+fetch("data/project.json")
+
+.then(res=>res.json())
+
+.then(data=>{
+
+
+document.getElementById(
+"project-count"
+).innerHTML=
+
+`
+📌 โครงการทั้งหมด
+<br>
+${data.length}
+`;
+
+});
