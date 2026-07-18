@@ -122,7 +122,31 @@ x=>x.type=="รายรับ"
 .reduce(
 (a,b)=>a+b.amount,0
 );
+fetch("data/notification.json")
 
+.then(res=>res.json())
+
+.then(data=>{
+
+
+let count =
+data.filter(
+x=>x.status=="เผยแพร่"
+).length;
+
+
+document.getElementById(
+"notification-count"
+).innerHTML=
+
+`
+
+${count}
+รายการ
+
+`;
+
+});
 
 let expense =
 data.filter(
