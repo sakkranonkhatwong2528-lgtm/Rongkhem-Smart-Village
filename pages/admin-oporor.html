@@ -6,12 +6,17 @@
 
 <meta charset="UTF-8">
 
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+
 <title>
-Admin OPOROR
+Admin อปพร. | บ้านร่องเข็ม
 </title>
 
 
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="stylesheet" href="css/admin-oporor.css">
 
 
 </head>
@@ -20,16 +25,16 @@ Admin OPOROR
 <body>
 
 
-<header class="hero">
+<header class="admin-oporor-header">
 
 
 <h1>
-🚑 ระบบความปลอดภัยหมู่บ้าน
+🚨 จัดการข้อมูล อปพร.
 </h1>
 
 
 <p>
-อปพร. / ชรบ. บ้านร่องเข็ม Smart Village
+บ้านร่องเข็ม Smart Village
 </p>
 
 
@@ -38,41 +43,127 @@ Admin OPOROR
 
 
 
-<section class="dashboard">
 
+<section class="summary">
 
 
 <div class="card">
 
+<h3>
+🚨 อปพร.ทั้งหมด
+</h3>
 
-<h2>
-📊 สรุปกำลังอาสา
-</h2>
-
-
-<div id="oporor-summary">
-
-กำลังโหลด...
-
-</div>
-
+<h1 id="total">
+0
+</h1>
 
 </div>
 
 
 
+<div class="card">
+
+<h3>
+✅ พร้อมปฏิบัติ
+</h3>
+
+<h1 id="ready">
+0
+</h1>
+
+</div>
+
 
 
 <div class="card">
 
+<h3>
+🛠️ ทักษะ
+</h3>
+
+<h1 id="skill">
+0
+</h1>
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section class="form-box">
+
 
 <h2>
-🛡 รายชื่อ อปพร. / ชรบ.
+➕ เพิ่มสมาชิก อปพร.
+</h2>
+
+
+<input id="name"
+placeholder="ชื่อ-นามสกุล">
+
+
+<input id="position"
+placeholder="ตำแหน่ง">
+
+
+<input id="skillName"
+placeholder="ความสามารถ">
+
+
+<input id="area"
+placeholder="พื้นที่รับผิดชอบ">
+
+
+<select id="status">
+
+
+<option>
+พร้อมปฏิบัติ
+</option>
+
+
+<option>
+สำรอง
+</option>
+
+
+</select>
+
+
+
+
+<button onclick="addOporor()">
+
+บันทึก
+
+</button>
+
+
+</section>
+
+
+
+
+
+
+
+
+<section class="table-box">
+
+
+<h2>
+📋 รายชื่อ อปพร.
 </h2>
 
 
 
-<table width="100%" border="1">
+<table>
 
 
 <thead>
@@ -83,40 +174,29 @@ Admin OPOROR
 ชื่อ
 </th>
 
-
 <th>
-ประเภท
+ตำแหน่ง
 </th>
 
-
 <th>
-หน้าที่
+ทักษะ
 </th>
-
-
-<th>
-พื้นที่รับผิดชอบ
-</th>
-
-
-<th>
-เวร
-</th>
-
 
 <th>
 สถานะ
 </th>
 
+<th>
+จัดการ
+</th>
 
 </tr>
-
 
 </thead>
 
 
+<tbody id="opororTable">
 
-<tbody id="oporor-table">
 
 </tbody>
 
@@ -124,15 +204,15 @@ Admin OPOROR
 </table>
 
 
-</div>
-
-
 </section>
 
 
 
 
-<script src="../js/oporor-admin.js"></script>
+
+
+
+<script src="js/admin-oporor.js"></script>
 
 
 </body>
