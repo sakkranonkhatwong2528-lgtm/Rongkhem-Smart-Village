@@ -1,94 +1,23 @@
 <!DOCTYPE html>
+
 <html lang="th">
 
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>รายงานและเอกสารราชการ | Rongkhem Smart Village</title>
 
-<style>
-
-body{
-margin:0;
-font-family:Tahoma,sans-serif;
-background:#f3e5f5;
-}
-
-header{
-background:#6a1b9a;
-color:white;
-text-align:center;
-padding:25px;
-}
-
-.container{
-padding:20px;
-}
-
-.card{
-background:white;
-padding:20px;
-border-radius:15px;
-box-shadow:0 3px 10px #ccc;
-margin-bottom:20px;
-}
-
-h2{
-color:#6a1b9a;
-}
-
-.dashboard{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:15px;
-}
-
-.box{
-background:#f3e5f5;
-padding:20px;
-text-align:center;
-border-radius:15px;
-}
-
-.number{
-font-size:35px;
-font-weight:bold;
-color:#4a148c;
-}
+<title>
+Smart Report | บ้านร่องเข็ม
+</title>
 
 
-table{
-width:100%;
-border-collapse:collapse;
-margin-top:20px;
-}
+<link rel="stylesheet" href="css/style.css">
 
-th{
-background:#6a1b9a;
-color:white;
-padding:12px;
-}
+<link rel="stylesheet" href="css/report.css">
 
-td{
-padding:10px;
-text-align:center;
-border-bottom:1px solid #ddd;
-}
-
-
-.back{
-display:inline-block;
-margin-top:20px;
-background:#6a1b9a;
-color:white;
-padding:12px 20px;
-border-radius:10px;
-text-decoration:none;
-}
-
-</style>
 
 </head>
 
@@ -96,134 +25,130 @@ text-decoration:none;
 <body>
 
 
-<header>
+<header class="report-header">
 
-<h1>📄 ระบบรายงานและเอกสาร</h1>
+
+<h1>
+📊 รายงานสถานการณ์หมู่บ้าน
+</h1>
+
 
 <p>
-Rongkhem Smart Village<br>
-บ้านร่องเข็ม หมู่ที่ 6 จังหวัดพะเยา
+บ้านร่องเข็ม หมู่ที่ 6
+ตำบลจำป่าหวาย จังหวัดพะเยา
 </p>
+
 
 </header>
 
 
 
-<div class="container">
 
 
-<div class="card">
-
-<h2>📊 สรุปเอกสาร</h2>
+<main id="reportContent">
 
 
-<div class="dashboard">
+<section class="report-box">
 
 
-<div class="box">
-📄 หนังสือราชการ
-<div class="number">-</div>
-ฉบับ
-</div>
+<h2>
+🏡 ข้อมูลทั่วไป
+</h2>
 
 
-<div class="box">
-📝 รายงานประชุม
-<div class="number">-</div>
-ครั้ง
-</div>
+<div id="villageReport">
 
-
-<div class="box">
-📌 แผนพัฒนาหมู่บ้าน
-<div class="number">1</div>
-แผน
-</div>
-
-
-<div class="box">
-📁 โครงการ
-<div class="number">-</div>
-โครงการ
-</div>
-
-
-</div>
+กำลังโหลด...
 
 </div>
 
 
-
-<div class="card">
-
-<h2>📋 รายการเอกสาร</h2>
+</section>
 
 
-<table>
-
-<tr>
-<th>ลำดับ</th>
-<th>ประเภทเอกสาร</th>
-<th>ชื่อเรื่อง</th>
-<th>ปี</th>
-</tr>
 
 
-<tr>
-<td>1</td>
-<td>รายงานประชุม</td>
-<td>การประชุมประจำเดือนหมู่บ้าน</td>
-<td>2569</td>
-</tr>
+
+<section class="report-box">
 
 
-<tr>
-<td>2</td>
-<td>แผนพัฒนาหมู่บ้าน</td>
-<td>แผนพัฒนาหมู่บ้านร่องเข็ม</td>
-<td>2569</td>
-</tr>
+<h2>
+👥 ประชากรและสังคม
+</h2>
 
 
-<tr>
-<td>3</td>
-<td>หนังสือราชการ</td>
-<td>หนังสือแจ้งประชาสัมพันธ์ชุมชน</td>
-<td>2569</td>
-</tr>
+<div id="peopleReport">
 
-
-</table>
-
+กำลังโหลด...
 
 </div>
 
 
-
-<div class="card">
-
-<h2>📂 หมวดเอกสาร</h2>
-
-<p>✅ หนังสือราชการ</p>
-
-<p>✅ รายงานการประชุม</p>
-
-<p>✅ แผนพัฒนาหมู่บ้าน</p>
-
-<p>✅ โครงการและกิจกรรมชุมชน</p>
-
-<p>✅ รายงานผลการดำเนินงาน</p>
+</section>
 
 
-<a class="back" href="dashboard.html">
-⬅ กลับ Dashboard
-</a>
 
+
+
+<section class="report-box">
+
+
+<h2>
+🌱 สิ่งแวดล้อม
+</h2>
+
+
+<div id="environmentReport">
+
+กำลังโหลด...
 
 </div>
 
 
+</section>
+
+
+
+
+
+<section class="report-box">
+
+
+<h2>
+📌 โครงการพัฒนา
+</h2>
+
+
+<div id="projectReport">
+
+กำลังโหลด...
+
 </div>
+
+
+</section>
+
+
+
+</main>
+
+
+
+
+
+<button onclick="printReport()">
+
+🖨️ พิมพ์รายงาน
+
+</button>
+
+
+
+
+
+
+
+<script src="js/report.js"></script>
 
 
 </body>
