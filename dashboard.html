@@ -1,103 +1,231 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Dashboard | บ้านร่องเข็ม Smart Village</title>
+<title>
+Dashboard | บ้านร่องเข็ม Smart Village
+</title>
+
 
 <link rel="stylesheet" href="css/style.css">
+
 <link rel="stylesheet" href="css/dashboard.css">
+
 
 </head>
 
+
 <body>
 
+
 <header class="dashboard-header">
+
 
 <h1>
 🏡 Dashboard หมู่บ้านอัจฉริยะร่องเข็ม
 </h1>
 
+
 <p>
-บ้านร่องเข็ม หมู่ที่ 6  
+บ้านร่องเข็ม หมู่ที่ 6<br>
 ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา
 </p>
 
+
+<p>
+“เทคโนโลยีเพื่อการพัฒนาชุมชนอย่างยั่งยืน”
+</p>
+
+
 </header>
+
+
+
+<main>
+
 
 
 <section class="dashboard-container">
 
 
+
 <div class="card">
-<h3>👥 ประชากร</h3>
-<p id="population">0</p>
-<span>คน</span>
+
+<h3>
+👥 ประชากร
+</h3>
+
+<div class="number" id="population">
+0
+</div>
+
+<p>
+คน
+</p>
+
 </div>
 
 
-<div class="card">
-<h3>🏠 ครัวเรือน</h3>
-<p id="household">0</p>
-<span>หลังคาเรือน</span>
-</div>
 
 
 <div class="card">
-<h3>👴 ผู้สูงอายุ</h3>
-<p id="elderly">0</p>
-<span>คน</span>
+
+<h3>
+🏠 ครัวเรือน
+</h3>
+
+<div class="number" id="household">
+0
 </div>
+
+<p>
+หลังคาเรือน
+</p>
+
+</div>
+
+
+
 
 
 <div class="card">
-<h3>❤️ กลุ่มเปราะบาง</h3>
-<p id="vulnerable">0</p>
-<span>คน</span>
+
+<h3>
+👴 ผู้สูงอายุ
+</h3>
+
+<div class="number" id="elderly">
+0
 </div>
+
+<p>
+คน
+</p>
+
+</div>
+
+
+
 
 
 <div class="card">
-<h3>🩺 อสม.</h3>
-<p id="health">0</p>
-<span>คน</span>
+
+<h3>
+❤️ กลุ่มเปราะบาง
+</h3>
+
+<div class="number" id="vulnerable">
+0
 </div>
+
+<p>
+คน
+</p>
+
+</div>
+
+
+
 
 
 <div class="card">
-<h3>🛡️ ชรบ.</h3>
-<p id="shorbor">0</p>
-<span>คน</span>
+
+<h3>
+🩺 อสม.
+</h3>
+
+<div class="number" id="health">
+0
 </div>
+
+<p>
+คน
+</p>
+
+</div>
+
+
+
 
 
 <div class="card">
-<h3>🚨 อปพร.</h3>
-<p id="oporor">0</p>
-<span>คน</span>
+
+<h3>
+🛡️ ชรบ.
+</h3>
+
+<div class="number" id="shorbor">
+0
 </div>
+
+<p>
+คน
+</p>
+
+</div>
+
+
+
 
 
 <div class="card">
-<h3>📢 ข่าวสาร</h3>
-<p id="news">0</p>
-<span>รายการ</span>
+
+<h3>
+🚨 อปพร.
+</h3>
+
+<div class="number" id="oporor">
+0
 </div>
+
+<p>
+คน
+</p>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h3>
+📢 ข่าวสาร
+</h3>
+
+<div class="number" id="news">
+0
+</div>
+
+<p>
+รายการ
+</p>
+
+</div>
+
 
 
 </section>
 
 
 
-<section class="summary">
+
+
+<section class="summary-box">
+
 
 <h2>
 📊 สรุปสถานการณ์หมู่บ้าน
 </h2>
 
 
-<div id="summaryText">
+<div id="summary">
 
 กำลังโหลดข้อมูล...
 
@@ -105,88 +233,125 @@
 
 
 </section>
+
+
+
+
+
+
 <section class="chart-area">
 
 
 <div class="chart-box">
 
-<h2>📊 โครงสร้างประชากร</h2>
+
+<h2>
+📈 ภาพรวมประชากร
+</h2>
+
 
 <canvas id="populationChart"></canvas>
 
+
 </div>
+
 
 
 
 <div class="chart-box">
 
-<h2>👴 กลุ่มอายุ</h2>
+
+<h2>
+👴 โครงสร้างอายุ
+</h2>
+
 
 <canvas id="ageChart"></canvas>
 
+
 </div>
+
 
 
 </section>
 
 
 
-<section class="smart-panel">
+
+
+
+
+
+<section class="smart-area">
 
 
 <h2>
-🌱 ระบบติดตามสถานการณ์หมู่บ้าน
+🌱 ระบบติดตามหมู่บ้านอัจฉริยะ
 </h2>
+
 
 
 <div class="smart-grid">
 
 
+
 <div class="smart-card">
 
+<h3>
 🌫️ PM2.5
-
-<h3>
-ปกติ
 </h3>
 
 <p>
-ติดตามคุณภาพอากาศและการเผาในพื้นที่
+ระบบติดตามฝุ่นและการเผาในพื้นที่
 </p>
 
-</div>
-
-
-
-<div class="smart-card">
-
-🔥 การเผา
-
-<h3>
+<strong>
 เฝ้าระวัง
-</h3>
-
-<p>
-ระบบแจ้งเตือนช่วงห้ามเผา
-</p>
+</strong>
 
 </div>
 
 
 
+
+
 <div class="smart-card">
 
-🏞️ แหล่งซับน้ำจำ
+<h3>
+🔥 ลดการเผา
+</h3>
+
+<p>
+ติดตามการเผาช่วงห้ามเผา
+</p>
+
+<strong>
+Smart Environment
+</strong>
+
+</div>
+
+
+
+
+
+<div class="smart-card">
 
 <h3>
-Smart Wetland
+🏞️ แหล่งซับน้ำจำ
 </h3>
 
 <p>
 ระบบข้อมูลทรัพยากรธรรมชาติ
 </p>
 
+<strong>
+Smart Wetland
+</strong>
+
 </div>
+
+
 
 
 </div>
@@ -196,45 +361,82 @@ Smart Wetland
 
 
 
-<section class="project-panel">
+
+
+
+
+<section class="project-box">
 
 
 <h2>
-📌 โครงการพัฒนาหมู่บ้าน
+📌 โครงการพัฒนาชุมชน
 </h2>
 
 
 <ul>
 
-<li>🌱 พัฒนาแหล่งซับน้ำจำ</li>
+<li>
+🌱 ร่องเข็ม Smart Village
+</li>
 
-<li>💧 น้ำดื่มชุมชน ตราน้ำจำ</li>
+<li>
+💧 น้ำดื่มชุมชน ตราน้ำจำ
+</li>
 
-<li>♻️ ลดการเผา ลด PM2.5</li>
+<li>
+🏞️ พัฒนาแหล่งซับน้ำจำ
+</li>
 
-<li>🏡 Rongkhem Smart Village</li>
+<li>
+♻️ ลดการเผา ลด PM2.5
+</li>
+
+<li>
+🏡 ระบบข้อมูลหมู่บ้าน
+</li>
+
 
 </ul>
 
 
+
 <button onclick="printReport()">
 
-🖨️ พิมพ์รายงานหมู่บ้าน
+🖨️ พิมพ์รายงาน
 
 </button>
+
 
 
 </section>
 
 
+
+</main>
+
+
+
+
+
+
 <footer>
 
+
 © 2026 บ้านร่องเข็ม Smart Village
+
 
 </footer>
 
 
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <script src="js/dashboard.js"></script>
 
+
+
 </body>
+
 </html>
