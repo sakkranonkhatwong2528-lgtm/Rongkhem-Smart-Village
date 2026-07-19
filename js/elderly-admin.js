@@ -1,122 +1,128 @@
 let elderly=[];
 
 
-fetch("../data/elderly.json")
 
-.then(res=>res.json())
-
-.then(data=>{
-
-elderly=data;
-
-showElderly();
-
-summary();
-
-});
+async function loadElderly(){
 
 
+const data =
+await fetch(
+"data/elderly.json"
+)
+
+.then(r=>r.json());
+
+
+elderly=data.elderly;
+
+
+showElderly(elderly);
+
+
+}
 
 
 
-function showElderly(){
+
+function showElderly(list){
 
 
 let html="";
 
 
-elderly.forEach(e=>{
+list.forEach(e=>{
 
 
 html+=`
 
-<tr>
+<div class="elderly-card">
 
 
-<td>
-${e.name}
-</td>
+<h3>
+👴 ${e.name}
+</h3>
 
 
-<td>
-${e.age}
-ปี
-</td>
+<p>
+อายุ :
+${e.age} ปี
+</p>
 
 
-<td>
+<p>
+🏠 บ้านเลขที่ :
 ${e.house}
-</td>
+</p>
 
 
-<td>
+<p>
+❤️ สุขภาพ :
 ${e.health}
-</td>
+</p>
 
 
-<td>
+<p>
+🩺 การดูแล :
 ${e.care}
-</td>
+</p>
 
 
-<td>
-${e.visit}
-</td>
-
-
-</tr>
+</div>
 
 
 `;
+
 
 
 });
 
 
 document.getElementById(
-"elderly-table"
-).innerHTML=html;
+"elderlyList"
+)
+.innerHTML=html;
 
 
 }
 
 
 
-
-
-function summary(){
-
-
-let total =
-elderly.length;
-
-
-let sick =
-elderly.filter(
-x=>x.health!="ทั่วไป"
-).length;
 
 
 
 document.getElementById(
-"elderly-summary"
-).innerHTML=
+"search"
+)
+.addEventListener(
+"input",
 
-`
-
-👴 ผู้สูงอายุทั้งหมด :
-${total}
-คน
-
-<br>
-
-❤️ ต้องติดตามสุขภาพ :
-${sick}
-คน
+function(){
 
 
-`;
+let key=this.value;
+
+
+let result =
+elderly.filter(
+
+e=>
+
+e.name.includes(key)
+
+);
+
+
+
+showElderly(result);
 
 
 
 }
+
+);
+
+
+
+
+
+loadElderly();
