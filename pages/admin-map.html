@@ -1,94 +1,27 @@
 <!DOCTYPE html>
+
 <html lang="th">
 
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Smart Village GIS | Rongkhem Smart Village</title>
 
-<link rel="stylesheet" href="../css/style.css">
-
-
-<style>
-
-.container{
-padding:20px;
-}
+<title>
+Admin Smart Map | บ้านร่องเข็ม
+</title>
 
 
-.header{
+<link rel="stylesheet" href="css/style.css">
 
-background:#198754;
-color:white;
-padding:25px;
-border-radius:15px;
-
-}
+<link rel="stylesheet" href="css/admin-map.css">
 
 
-.card{
+<link rel="stylesheet"
+href="https://unpkg.com/leaflet/dist/leaflet.css">
 
-background:white;
-padding:20px;
-margin-top:20px;
-border-radius:15px;
-box-shadow:0 3px 10px #ddd;
-
-}
-
-
-.map{
-
-height:450px;
-background:#e9ecef;
-border-radius:15px;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:22px;
-
-}
-
-
-.grid{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:15px;
-
-}
-
-
-.box{
-
-background:#f8f9fa;
-padding:20px;
-border-radius:15px;
-text-align:center;
-
-}
-
-
-.icon{
-
-font-size:40px;
-
-}
-
-
-button{
-
-background:#198754;
-color:white;
-border:none;
-padding:12px 20px;
-border-radius:10px;
-
-}
-
-</style>
 
 </head>
 
@@ -96,21 +29,39 @@ border-radius:10px;
 <body>
 
 
-<div class="container">
+<header class="admin-map-header">
 
-
-
-<div class="header">
 
 <h1>
-🗺️ Smart Village GIS
+⚙️ ศูนย์จัดการแผนที่หมู่บ้าน
 </h1>
 
+
 <p>
-🏡 Rongkhem Smart Village
-<br>
-บ้านร่องเข็ม หมู่ที่ 6 จังหวัดพะเยา
+Rongkhem Smart Village
 </p>
+
+
+</header>
+
+
+
+
+
+
+<section class="map-dashboard">
+
+
+
+<div class="map-card">
+
+<h3>
+📍 จุดข้อมูลทั้งหมด
+</h3>
+
+<h1 id="placeCount">
+0
+</h1>
 
 </div>
 
@@ -118,220 +69,97 @@ border-radius:10px;
 
 
 
+<div class="map-card">
+
+<h3>
+🏞️ ทรัพยากร
+</h3>
+
+<h1 id="wetlandCount">
+0
+</h1>
+
+</div>
 
 
-<div class="card">
+
+
+
+<div class="map-card">
+
+<h3>
+👴 จุดกลุ่มผู้สูงอายุ
+</h3>
+
+<h1 id="elderlyCount">
+0
+</h1>
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+<section class="map-container">
+
+
+<div id="adminMap"></div>
+
+
+</section>
+
+
+
+
+
+
+
+<section class="location-list">
 
 
 <h2>
-📍 แผนที่หมู่บ้าน
+📋 รายการจุดในแผนที่
 </h2>
 
 
-<div class="map">
+<table>
 
-แผนที่ Google Map / GIS หมู่บ้าน
 
-<br>
-
-📍 พิกัดหมู่บ้าน
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-
-<div class="card">
-
-
-<h2>
-📌 จุดข้อมูลสำคัญ
-</h2>
-
-
-<div class="grid">
-
-
-
-<div class="box">
-
-<div class="icon">
-🏠
-</div>
-
-<h3>
-ครัวเรือน
-</h3>
-
-<p>
-แสดงตำแหน่งบ้าน
-</p>
-
-</div>
-
-
-
-
-<div class="box">
-
-<div class="icon">
-💧
-</div>
-
-<h3>
-แหล่งซับน้ำจำ
-</h3>
-
-<p>
-พื้นที่อนุรักษ์น้ำ
-</p>
-
-</div>
-
-
-
-
-<div class="box">
-
-<div class="icon">
-🏥
-</div>
-
-<h3>
-สุขภาพ
-</h3>
-
-<p>
-อสม. / จุดบริการ
-</p>
-
-</div>
-
-
-
-
-<div class="box">
-
-<div class="icon">
-⚠️
-</div>
-
-<h3>
-พื้นที่เสี่ยง
-</h3>
-
-<p>
-ไฟป่า / จุดเสี่ยงภัย
-</p>
-
-</div>
-
-
-
-
-<div class="box">
-
-<div class="icon">
-🏗️
-</div>
-
-<h3>
-โครงการพัฒนา
-</h3>
-
-<p>
-ตำแหน่งโครงการ
-</p>
-
-</div>
-
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-
-<div class="card">
-
-
-<h2>
-📡 ข้อมูลพิกัด GPS
-</h2>
-
-
-<table width="100%" border="1">
-
+<thead>
 
 <tr>
 
 <th>
-รายการ
+ชื่อสถานที่
 </th>
 
 <th>
-Latitude
+ประเภท
 </th>
 
-<th>
-Longitude
-</th>
 
 </tr>
 
-
-<tr>
-
-<td>
-บ้านร่องเข็ม
-</td>
-
-<td>
--
-</td>
-
-<td>
--
-</td>
-
-</tr>
+</thead>
 
 
-<tr>
+<tbody id="locationTable">
 
-<td>
-แหล่งซับน้ำจำ
-</td>
 
-<td>
--
-</td>
-
-<td>
--
-</td>
-
-</tr>
+</tbody>
 
 
 </table>
 
 
-</div>
+</section>
 
 
 
@@ -340,68 +168,11 @@ Longitude
 
 
 
-<div class="card">
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
 
-<h2>
-➕ เพิ่มจุดบนแผนที่
-</h2>
+<script src="js/admin-map.js"></script>
 
-
-<button>
-
-เพิ่มตำแหน่งใหม่
-
-</button>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="card">
-
-
-<h2>
-🚨 ใช้ประโยชน์ด้านการบริหาร
-</h2>
-
-
-<ul>
-
-<li>
-วางแผนพัฒนาหมู่บ้าน
-</li>
-
-<li>
-จัดการภัยพิบัติ
-</li>
-
-<li>
-ติดตามพื้นที่เสี่ยง
-</li>
-
-<li>
-วางแผนช่วยเหลือประชาชน
-</li>
-
-<li>
-บริหารทรัพยากรชุมชน
-</li>
-
-</ul>
-
-
-</div>
-
-
-
-
-</div>
 
 
 </body>
