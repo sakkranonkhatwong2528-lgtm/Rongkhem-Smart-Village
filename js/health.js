@@ -1,96 +1,137 @@
-// =====================================
-// Rongkhem Smart Village
-// Health Module v1.0
-// =====================================
-
-class HealthManager {
-
-    constructor(){
-
-        this.health = [];
-
-    }
+let health=[];
 
 
-    async load(){
 
-        this.health =
-        await API.load("health.json");
-
-        return this.health;
-
-    }
+async function loadHealth(){
 
 
-    render(containerId){
+const data =
+await fetch(
+"data/health.json"
+)
 
-        const container =
-        document.getElementById(containerId);
-
-
-        if(!container) return;
-
-
-        container.innerHTML="";
+.then(r=>r.json());
 
 
-        this.health.forEach(item=>{
+health=data.health;
 
 
-            container.innerHTML += `
-
-            <div class="health-card">
-
-                <h3>
-                🩺 ${item.name || ""}
-                </h3>
-
-                <p>
-                ประเภท :
-                ${item.type || "-"}
-                </p>
-
-                <p>
-                สถานะ :
-                ${item.status || "-"}
-                </p>
-
-                <p>
-                ผู้ดูแล :
-                ${item.volunteer || "-"}
-                </p>
-
-            </div>
-
-            `;
-
-
-        });
-
-
-    }
-
-
-    count(){
-
-        return this.health.length;
-
-    }
-
-
-    filter(type){
-
-        return this.health.filter(item =>
-
-            item.type.includes(type)
-
-        );
-
-    }
+showHealth(health);
 
 
 }
 
 
-const HEALTH =
-new HealthManager();
+
+
+
+
+function showHealth(list){
+
+
+let html="";
+
+
+list.forEach(h=>{
+
+
+html+=`
+
+<div class="health-card">
+
+
+<h3>
+🩺 ${h.name}
+</h3>
+
+
+<p>
+อายุ :
+${h.age} ปี
+</p>
+
+
+<p>
+🏠 บ้านเลขที่ :
+${h.house}
+</p>
+
+
+<p>
+โรคประจำตัว :
+${h.disease}
+</p>
+
+
+<p>
+สถานะ :
+${h.status}
+</p>
+
+
+<p>
+👩‍⚕️ อสม. :
+${h.volunteer}
+</p>
+
+
+</div>
+
+
+`;
+
+
+
+});
+
+
+
+document.getElementById(
+"healthList"
+)
+.innerHTML=html;
+
+
+
+}
+
+
+
+
+
+document.getElementById(
+"search"
+)
+.addEventListener(
+"input",
+
+function(){
+
+
+let key=this.value;
+
+
+let result =
+health.filter(
+
+h=>
+
+h.name.includes(key)
+
+);
+
+
+
+showHealth(result);
+
+
+
+}
+
+);
+
+
+
+
+
+loadHealth();
