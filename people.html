@@ -1,95 +1,31 @@
 <!DOCTYPE html>
+
 <html lang="th">
 
 <head>
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
 
 <title>
-ประชาชน | Rongkhem Smart Village
+ทะเบียนประชาชน | บ้านร่องเข็ม
 </title>
+
 
 <link rel="stylesheet" href="css/style.css">
 
-
-<style>
-
-.person-table{
-
-overflow-x:auto;
-
-}
-
-
-table{
-
-width:100%;
-
-border-collapse:collapse;
-
-background:white;
-
-}
-
-
-th{
-
-background:#2e7d32;
-
-color:white;
-
-padding:12px;
-
-}
-
-
-td{
-
-padding:12px;
-
-border-bottom:1px solid #ddd;
-
-text-align:center;
-
-}
-
-
-
-.add-btn{
-
-background:#2e7d32;
-
-color:white;
-
-padding:12px 25px;
-
-border-radius:20px;
-
-text-decoration:none;
-
-display:inline-block;
-
-}
-
-
-
-</style>
+<link rel="stylesheet" href="css/people.css">
 
 
 </head>
 
 
-
 <body>
 
 
-<header>
-
-<div class="logo">
-🏡
-</div>
+<header class="people-header">
 
 
 <h1>
@@ -98,8 +34,7 @@ display:inline-block;
 
 
 <p>
-บ้านร่องเข็ม หมู่ที่ 6
-ตำบลจำป่าหวาย จังหวัดพะเยา
+บ้านร่องเข็ม Smart Village
 </p>
 
 
@@ -109,89 +44,14 @@ display:inline-block;
 
 
 
-<nav>
-
-<a href="admin.html">
-📊 Dashboard
-</a>
+<section class="search-box">
 
 
-<a href="people.html">
-👥 ประชาชน
-</a>
+<input 
+id="search"
+placeholder="🔎 ค้นหาชื่อประชาชน"
+>
 
-
-<a href="household.html">
-🏠 ครัวเรือน
-</a>
-
-
-<a href="index.html">
-🏡 หน้าแรก
-</a>
-
-
-</nav>
-
-
-
-
-
-
-<section>
-
-
-<h2>
-📊 สรุปข้อมูลประชาชน
-</h2>
-
-
-<div class="grid">
-
-
-<div class="card">
-
-<h3>
-👨‍👩‍👧‍👦 ประชากรทั้งหมด
-</h3>
-
-<p class="stat-number">
-202 คน
-</p>
-
-</div>
-
-
-
-<div class="card">
-
-<h3>
-👨 ชาย
-</h3>
-
-<p>
-97 คน
-</p>
-
-</div>
-
-
-
-
-<div class="card">
-
-<h3>
-👩 หญิง
-</h3>
-
-<p>
-105 คน
-</p>
-
-</div>
-
-
-</div>
 
 
 </section>
@@ -201,128 +61,11 @@ display:inline-block;
 
 
 
-<section>
+<section id="peopleList"
+class="people-grid">
 
 
-<h2>
-📋 รายชื่อประชาชน
-</h2>
-
-
-
-<a class="add-btn">
-
-➕ เพิ่มข้อมูล
-
-</a>
-
-
-<br><br>
-
-
-
-<div class="person-table">
-
-
-<table>
-
-
-<tr>
-
-<th>
-ลำดับ
-</th>
-
-<th>
-ชื่อ - นามสกุล
-</th>
-
-<th>
-เพศ
-</th>
-
-<th>
-อายุ
-</th>
-
-<th>
-บ้านเลขที่
-</th>
-
-<th>
-รูปภาพ
-</th>
-
-</tr>
-
-
-
-
-<tr>
-
-<td>
-1
-</td>
-
-<td>
-ตัวอย่างข้อมูล
-</td>
-
-<td>
-ชาย
-</td>
-
-<td>
--
-</td>
-
-<td>
--
-</td>
-
-<td>
-📷
-</td>
-
-</tr>
-
-
-
-
-<tr>
-
-<td>
-2
-</td>
-
-<td>
-ตัวอย่างข้อมูล
-</td>
-
-<td>
-หญิง
-</td>
-
-<td>
--
-</td>
-
-<td>
--
-</td>
-
-<td>
-📷
-</td>
-
-</tr>
-
-
-
-</table>
-
-
-</div>
+กำลังโหลดข้อมูล...
 
 
 </section>
@@ -333,18 +76,7 @@ display:inline-block;
 
 
 
-<footer>
-
-
-© 2026 Rongkhem Smart Village
-
-<br>
-
-บ้านร่องเข็ม หมู่ที่ 6 จังหวัดพะเยา
-
-
-</footer>
-
+<script src="js/people.js"></script>
 
 
 </body>
