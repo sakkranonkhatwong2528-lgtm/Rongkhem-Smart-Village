@@ -1,105 +1,144 @@
-// =====================================
-// Rongkhem Smart Village
-// Household Module v1.0
-// =====================================
-
-class HouseholdManager {
-
-    constructor(){
-
-        this.households = [];
-
-    }
+let households=[];
 
 
-    async load(){
 
-        this.households =
-        await API.load("household.json");
-
-        return this.households;
-
-    }
+async function loadHouse(){
 
 
-    render(containerId){
+const data =
+await fetch(
+"data/household.json"
+)
 
-        const container =
-        document.getElementById(containerId);
-
-
-        if(!container) return;
-
-
-        container.innerHTML = "";
+.then(r=>r.json());
 
 
-        this.households.forEach(home=>{
+
+households =
+data.households;
 
 
-            container.innerHTML += `
-
-            <div class="house-card">
-
-                <h3>
-                🏠 บ้านเลขที่ ${home.house || "-"}
-                </h3>
-
-
-                <p>
-                หัวหน้าครัวเรือน :
-                ${home.head || "-"}
-                </p>
-
-
-                <p>
-                จำนวนสมาชิก :
-                ${home.members || 0} คน
-                </p>
-
-
-                <p>
-                หมู่ที่ :
-                ${home.moo || "6"}
-                </p>
-
-
-            </div>
-
-            `;
-
-
-        });
-
-
-    }
-
-
-    search(keyword){
-
-        return this.households.filter(home =>
-
-
-            JSON.stringify(home)
-            .toLowerCase()
-            .includes(
-                keyword.toLowerCase()
-            )
-
-        );
-
-    }
-
-
-    count(){
-
-        return this.households.length;
-
-    }
+showHouse(households);
 
 
 }
 
 
-const HOUSEHOLD =
-new HouseholdManager();
+
+
+
+
+
+function showHouse(list){
+
+
+let html="";
+
+
+
+list.forEach(h=>{
+
+
+html+=`
+
+<div class="house-card">
+
+
+<h3>
+🏠 บ้านเลขที่ ${h.houseNo}
+</h3>
+
+
+<p>
+👤 เจ้าบ้าน :
+${h.owner}
+</p>
+
+
+<p>
+👨‍👩‍👧 สมาชิก :
+${h.members} คน
+</p>
+
+
+<p>
+👴 ผู้สูงอายุ :
+${h.elderly} คน
+</p>
+
+
+<p>
+❤️ กลุ่มเปราะบาง :
+${h.vulnerable} คน
+</p>
+
+
+<p>
+📍 ${h.address}
+</p>
+
+
+</div>
+
+
+`;
+
+
+
+});
+
+
+
+document.getElementById(
+"houseList"
+)
+.innerHTML=html;
+
+
+}
+
+
+
+
+
+
+
+document.getElementById(
+"search"
+)
+.addEventListener(
+"input",
+
+function(){
+
+
+let key=this.value;
+
+
+
+let result =
+households.filter(
+
+h=>
+
+h.houseNo.includes(key)
+||
+h.owner.includes(key)
+
+);
+
+
+
+showHouse(result);
+
+
+
+}
+
+);
+
+
+
+
+
+loadHouse();
