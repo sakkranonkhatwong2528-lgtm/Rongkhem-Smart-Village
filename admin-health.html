@@ -1,139 +1,40 @@
 <!DOCTYPE html>
+
 <html lang="th">
 
 <head>
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 
 <title>
-จัดการสุขภาพชุมชน | บ้านร่องเข็ม Smart Village
+Admin Health | บ้านร่องเข็ม
 </title>
 
 
-<style>
+<link rel="stylesheet" href="css/style.css">
 
-
-body{
-
-margin:0;
-font-family:Tahoma,sans-serif;
-background:#e0f2f1;
-
-}
-
-
-
-header{
-
-background:#00695c;
-color:white;
-padding:30px;
-text-align:center;
-
-}
-
-
-
-.container{
-
-padding:20px;
-
-}
-
-
-
-.card{
-
-background:white;
-padding:25px;
-border-radius:25px;
-box-shadow:0 4px 12px #ccc;
-
-}
-
-
-
-input,textarea{
-
-width:100%;
-padding:12px;
-margin:10px 0;
-border-radius:10px;
-border:1px solid #ccc;
-box-sizing:border-box;
-
-}
-
-
-
-button{
-
-background:#00695c;
-color:white;
-padding:12px 30px;
-border:none;
-border-radius:20px;
-
-}
-
-
-
-.result{
-
-background:#e0f2f1;
-padding:20px;
-margin-top:20px;
-border-radius:20px;
-
-}
-
-
-
-.back{
-
-text-align:center;
-margin:30px;
-
-}
-
-
-
-.back a{
-
-background:#00695c;
-color:white;
-padding:12px 25px;
-border-radius:20px;
-text-decoration:none;
-
-}
-
-
-
-</style>
+<link rel="stylesheet" href="css/admin-health.css">
 
 
 </head>
 
 
-
 <body>
 
 
-
-<header>
+<header class="health-admin-header">
 
 
 <h1>
-🩺 จัดการข้อมูลสุขภาพชุมชน
+🩺 ศูนย์จัดการสุขภาพชุมชน
 </h1>
 
 
 <p>
-Admin Smart Health Village
+บ้านร่องเข็ม Smart Village
 </p>
 
 
@@ -144,348 +45,193 @@ Admin Smart Health Village
 
 
 
+<section class="summary">
 
-<div class="container">
+
+<div class="card">
+
+<h3>
+🩺 ทั้งหมด
+</h3>
+
+<h1 id="total">
+0
+</h1>
+
+</div>
+
 
 
 
 <div class="card">
 
+<h3>
+✅ ปกติ
+</h3>
+
+<h1 id="normal">
+0
+</h1>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h3>
+🔎 ติดตาม
+</h3>
+
+<h1 id="follow">
+0
+</h1>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h3>
+❤️ ดูแลพิเศษ
+</h3>
+
+<h1 id="special">
+0
+</h1>
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section class="form-box">
+
 
 <h2>
-📋 กรอกข้อมูลสุขภาพ
+➕ เพิ่มข้อมูลสุขภาพ
 </h2>
 
 
-
-<label>
-👩‍⚕️ จำนวน อสม.
-</label>
+<input id="name"
+placeholder="ชื่อ-นามสกุล">
 
 
-<input
-id="volunteer"
+<input id="age"
 type="number"
-placeholder="จำนวน อสม.">
+placeholder="อายุ">
+
+
+<input id="house"
+placeholder="บ้านเลขที่">
+
+
+<input id="disease"
+placeholder="โรคประจำตัว">
+
+
+<select id="status">
+
+
+<option>
+ปกติ
+</option>
+
+
+<option>
+ติดตาม
+</option>
+
+
+<option>
+ดูแลพิเศษ
+</option>
+
+
+</select>
 
 
 
+<button onclick="addHealth()">
 
-
-<label>
-👴 จำนวนผู้สูงอายุ
-</label>
-
-
-<input
-id="elder"
-type="number"
-placeholder="จำนวนผู้สูงอายุ">
-
-
-
-
-
-<label>
-♿ จำนวนผู้พิการ
-</label>
-
-
-<input
-id="disabled"
-type="number"
-placeholder="จำนวนผู้พิการ">
-
-
-
-
-
-<label>
-🏠 จำนวนการเยี่ยมบ้าน
-</label>
-
-
-<input
-id="visit"
-type="number"
-placeholder="จำนวนหลังคาเรือน">
-
-
-
-
-
-<label>
-👥 กลุ่มเปราะบาง
-</label>
-
-
-<textarea
-
-id="vulnerable"
-
-rows="5"
-
-placeholder="
-เช่น ผู้สูงอายุ ผู้ป่วยติดบ้าน เด็กเล็ก
-">
-
-</textarea>
-
-
-
-
-
-<label>
-📝 รายละเอียดงานสุขภาพ
-</label>
-
-
-<textarea
-
-id="detail"
-
-rows="5"
-
-placeholder="
-กิจกรรม อสม. การคัดกรอง การเยี่ยมบ้าน
-">
-
-</textarea>
-
-
-
-
-
-<button onclick="saveHealth()">
-
-💾 บันทึกข้อมูล
+บันทึก
 
 </button>
 
 
+</section>
 
 
 
-<div class="result" id="show">
 
-</div>
 
 
 
-</div>
 
+<section class="table-box">
 
-</div>
 
+<h2>
+📋 รายการสุขภาพ
+</h2>
 
 
+<table>
 
 
+<thead>
 
+<tr>
 
-<div class="back">
+<th>
+ชื่อ
+</th>
 
-<a href="admin-dashboard.html">
+<th>
+โรค
+</th>
 
-⚙️ กลับ Dashboard
+<th>
+สถานะ
+</th>
 
-</a>
+<th>
+จัดการ
+</th>
 
-</div>
+</tr>
 
+</thead>
 
 
 
+<tbody id="healthTable">
 
+</tbody>
 
 
+</table>
 
-<script>
 
+</section>
 
 
-loadHealth();
 
 
 
 
-
-function saveHealth(){
-
-
-
-let data={
-
-
-volunteer:
-
-document.getElementById("volunteer").value,
-
-
-elder:
-
-document.getElementById("elder").value,
-
-
-disabled:
-
-document.getElementById("disabled").value,
-
-
-visit:
-
-document.getElementById("visit").value,
-
-
-vulnerable:
-
-document.getElementById("vulnerable").value,
-
-
-detail:
-
-document.getElementById("detail").value
-
-
-};
-
-
-
-
-
-localStorage.setItem(
-
-"health",
-
-JSON.stringify(data)
-
-);
-
-
-
-
-alert("บันทึกข้อมูลสุขภาพเรียบร้อย");
-
-
-
-showHealth();
-
-
-
-}
-
-
-
-
-
-
-
-function loadHealth(){
-
-
-let data=
-
-JSON.parse(
-
-localStorage.getItem("health")
-
-);
-
-
-
-if(data){
-
-
-volunteer.value=data.volunteer;
-
-elder.value=data.elder;
-
-disabled.value=data.disabled;
-
-visit.value=data.visit;
-
-vulnerable.value=data.vulnerable;
-
-detail.value=data.detail;
-
-
-}
-
-
-
-showHealth();
-
-
-}
-
-
-
-
-
-
-
-function showHealth(){
-
-
-
-let data=
-
-JSON.parse(
-
-localStorage.getItem("health")
-
-);
-
-
-
-if(!data)return;
-
-
-
-document.getElementById("show").innerHTML=`
-
-<h3>
-ข้อมูลสุขภาพปัจจุบัน
-</h3>
-
-
-<p>
-👩‍⚕️ อสม. :
-${data.volunteer} คน
-</p>
-
-
-<p>
-👴 ผู้สูงอายุ :
-${data.elder} คน
-</p>
-
-
-<p>
-♿ ผู้พิการ :
-${data.disabled} คน
-</p>
-
-
-<p>
-🏠 เยี่ยมบ้าน :
-${data.visit} หลัง
-</p>
-
-
-`;
-
-
-
-}
-
-
-
-</script>
-
-
-
-
+<script src="js/admin-health.js"></script>
 
 
 </body>
