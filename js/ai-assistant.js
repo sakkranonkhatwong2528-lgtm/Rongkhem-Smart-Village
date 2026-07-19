@@ -1,64 +1,176 @@
-// =====================================
-// Rongkhem Smart Village
-// AI Assistant v1.0
-// =====================================
+/*
+=================================
+AI Village Assistant
+Rongkhem Smart Village
+=================================
+*/
 
 
-class VillageAI {
+function askAI(){
 
 
-constructor(){
-
-    this.knowledge=[];
-
-}
-
-
-
-async load(){
-
-    this.knowledge =
-    await API.load("knowledge.json");
-
-}
+let question =
+document.getElementById(
+"question"
+).value;
 
 
 
-ask(question){
+let answer =
+generateAnswer(question);
 
 
-let q =
-question.toLowerCase();
 
-
-let result =
-this.knowledge.find(item =>
-
-
-q.includes(
-item.keyword
+document.getElementById(
+"answer"
 )
-
-);
-
-
-
-if(result){
-
-    return result.answer;
-
-}
-
-
-return "ขออภัย ยังไม่พบข้อมูล กรุณาติดต่อผู้ดูแลระบบ";
-
-}
-
+.innerHTML =
+answer;
 
 
 }
 
 
 
-const VILLAGE_AI =
-new VillageAI();
+
+
+function quick(text){
+
+
+document.getElementById(
+"question"
+)
+.value=text;
+
+
+askAI();
+
+
+}
+
+
+
+
+
+
+
+function generateAnswer(q){
+
+
+
+q=q.toLowerCase();
+
+
+
+
+if(
+q.includes("ประชากร")
+||
+q.includes("คน")
+){
+
+return `
+
+👥 บ้านร่องเข็ม หมู่ที่ 6
+
+มีประชากรในระบบ
+ประมาณ 202 คน
+
+ข้อมูลจากระบบ Smart Village
+
+`;
+
+}
+
+
+
+
+
+if(
+q.includes("ผู้สูงอายุ")
+){
+
+return `
+
+👴 ระบบข้อมูลผู้สูงอายุ
+
+จำนวนประมาณ 91 คน
+
+ใช้สำหรับวางแผนสุขภาพชุมชน
+
+`;
+
+}
+
+
+
+
+
+if(
+q.includes("โครงการ")
+){
+
+return `
+
+📌 โครงการสำคัญ
+
+- ร่องเข็ม Smart Village
+
+- พัฒนาแหล่งซับน้ำจำ
+
+- ลดการเผา ลด PM2.5
+
+- ส่งเสริมเศรษฐกิจชุมชน
+
+`;
+
+}
+
+
+
+
+
+if(
+q.includes("รายงาน")
+){
+
+return `
+
+📄 รายงานสถานการณ์หมู่บ้าน
+
+บ้านร่องเข็ม หมู่ที่ 6
+
+มีระบบข้อมูลประชาชน
+สิ่งแวดล้อม
+สุขภาพ
+และการพัฒนาชุมชน
+
+`;
+
+}
+
+
+
+
+
+return `
+
+🤖 AI หมู่บ้าน
+
+ยังไม่พบข้อมูลคำถามนี้
+
+ลองถามเกี่ยวกับ
+
+- ประชากร
+
+- ผู้สูงอายุ
+
+- โครงการ
+
+- รายงาน
+
+`;
+
+
+
+}
