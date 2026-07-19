@@ -2,7 +2,7 @@ body{
 
 margin:0;
 
-font-family:"Noto Sans Thai",sans-serif;
+font-family:"Noto Sans Thai";
 
 background:#f0fdf4;
 
@@ -16,67 +16,34 @@ background:#166534;
 
 color:white;
 
-padding:30px;
-
 text-align:center;
 
-}
-
-
-
-.map-info{
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(250px,1fr));
-
-gap:20px;
-
-padding:20px;
+padding:30px;
 
 }
 
 
 
-.map-info div{
+#map{
+
+height:70vh;
+
+width:100%;
+
+}
+
+
+
+.legend{
 
 background:white;
 
-padding:20px;
-
-border-radius:15px;
-
-text-align:center;
-
-box-shadow:0 5px 15px #0002;
-
-}
-
-
-
-#map{
-
-height:600px;
-
 margin:20px;
+
+padding:20px;
 
 border-radius:20px;
 
-overflow:hidden;
-
-}
-
-
-
-
-
-@media(max-width:600px){
-
-#map{
-
-height:450px;
-
-}
+box-shadow:0 5px 15px #0002;
 
 }
