@@ -1,37 +1,37 @@
-[
- {
-  "id":1,
-  "houseNo":"15",
-  "head":"นายสมชาย ใจดี",
-  "members":4,
-  "elderly":1,
-  "vulnerable":0,
-  "water":"ใช้บริการ",
-  "location":"18.12001,99.85001",
-  "status":"ปกติ"
- },
+{
+"households":[
 
- {
-  "id":2,
-  "houseNo":"28",
-  "head":"นางมาลี แก้วดี",
-  "members":3,
-  "elderly":2,
-  "vulnerable":1,
-  "water":"ใช้บริการ",
-  "location":"18.12050,99.85050",
-  "status":"ต้องติดตาม"
- },
+{
+"id":1,
+"houseNo":"1",
+"owner":"นายตัวอย่าง ใจดี",
+"members":4,
+"elderly":1,
+"vulnerable":0,
+"address":"บ้านร่องเข็ม หมู่ที่ 6"
+},
 
- {
-  "id":3,
-  "houseNo":"55",
-  "head":"นายประเสริฐ ใจคำ",
-  "members":5,
-  "elderly":0,
-  "vulnerable":1,
-  "water":"ไม่มี",
-  "location":"18.12100,99.85100",
-  "status":"ต้องช่วยเหลือ"
- }
+
+{
+"id":2,
+"houseNo":"2",
+"owner":"นางตัวอย่าง ใจงาม",
+"members":3,
+"elderly":2,
+"vulnerable":1,
+"address":"บ้านร่องเข็ม หมู่ที่ 6"
+},
+
+
+{
+"id":3,
+"houseNo":"3",
+"owner":"นายสมชาย ตัวอย่าง",
+"members":5,
+"elderly":0,
+"vulnerable":0,
+"address":"บ้านร่องเข็ม หมู่ที่ 6"
+}
+
 ]
+}
