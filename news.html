@@ -1,98 +1,22 @@
 <!DOCTYPE html>
+
 <html lang="th">
 
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
 
 <title>
-ข่าวประชาสัมพันธ์ | บ้านร่องเข็ม Smart Village
+ข่าวสาร | บ้านร่องเข็ม
 </title>
 
 
-<style>
+<link rel="stylesheet" href="css/style.css">
 
-body{
-
-margin:0;
-font-family:Tahoma,sans-serif;
-background:#f1f8e5;
-
-}
-
-
-header{
-
-background:#00695c;
-color:white;
-text-align:center;
-padding:30px;
-
-}
-
-
-.container{
-
-padding:20px;
-
-}
-
-
-.news{
-
-background:white;
-padding:20px;
-margin-bottom:20px;
-border-radius:20px;
-box-shadow:0 4px 12px #ccc;
-
-}
-
-
-.news h2{
-
-color:#00695c;
-
-}
-
-
-.date{
-
-color:#777;
-font-size:14px;
-
-}
-
-
-.default{
-
-background:#e0f2f1;
-padding:15px;
-border-radius:15px;
-
-}
-
-
-.back{
-
-text-align:center;
-margin:30px;
-
-}
-
-
-.back a{
-
-background:#00695c;
-color:white;
-padding:12px 25px;
-border-radius:20px;
-text-decoration:none;
-
-}
-
-</style>
+<link rel="stylesheet" href="css/news.css">
 
 
 </head>
@@ -101,183 +25,54 @@ text-decoration:none;
 <body>
 
 
+<header class="news-header">
 
-<header>
 
 <h1>
-📰 ข่าวประชาสัมพันธ์
+📢 ข่าวสารหมู่บ้าน
 </h1>
+
 
 <p>
 บ้านร่องเข็ม Smart Village
 </p>
+
 
 </header>
 
 
 
 
-<div class="container">
 
+<section class="search-box">
 
-<div id="newsList">
+<input id="search"
+placeholder="🔎 ค้นหาข่าว">
 
 
+</section>
 
-</div>
 
 
-</div>
 
 
 
+<section id="newsList"
+class="news-grid">
 
-<div class="back">
 
-<a href="index.html">
+กำลังโหลด...
 
-🏠 กลับหน้าแรก
 
-</a>
+</section>
 
-</div>
 
 
 
 
 
 
-<script>
-
-
-function loadNews(){
-
-
-let news =
-JSON.parse(
-localStorage.getItem("news")
-) || [];
-
-
-
-let html="";
-
-
-
-// ข่าวตัวอย่าง
-
-if(news.length==0){
-
-
-html += `
-
-<div class="news">
-
-<h2>
-📢 ประชาสัมพันธ์กิจกรรมหมู่บ้าน
-</h2>
-
-<p class="date">
-วันที่เผยแพร่ : 2569
-</p>
-
-<p>
-ข่าวสาร กิจกรรม และประกาศต่าง ๆ
-ของบ้านร่องเข็ม หมู่ที่ 6
-</p>
-
-</div>
-
-
-
-<div class="news">
-
-<h2>
-🌱 การพัฒนาแหล่งซับน้ำจำ
-</h2>
-
-<p class="date">
-โครงการพัฒนาทรัพยากรธรรมชาติ
-</p>
-
-<p>
-ส่งเสริมการอนุรักษ์น้ำ
-ระบบนิเวศ และแหล่งเรียนรู้ชุมชน
-</p>
-
-</div>
-
-
-`;
-
-
-
-}
-
-
-
-
-// ข่าวจาก Admin
-
-news.reverse();
-
-
-
-news.forEach(function(item){
-
-
-
-html += `
-
-<div class="news">
-
-
-<h2>
-
-${item.title}
-
-</h2>
-
-
-<p class="date">
-
-📅 ${item.date}
-
-</p>
-
-
-<p>
-
-${item.detail}
-
-</p>
-
-
-</div>
-
-
-`;
-
-
-
-});
-
-
-
-document.getElementById("newsList")
-.innerHTML=html;
-
-
-
-}
-
-
-
-loadNews();
-
-
-</script>
-
+<script src="js/news.js"></script>
 
 
 </body>
