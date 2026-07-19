@@ -1,367 +1,124 @@
-// =====================================
-// Rongkhem Smart Village
-// Dashboard Pro v1.0
-// =====================================
+async function loadDashboard(){
+
+try{
 
 
-class DashboardManager {
+let citizen =
+await fetch("data/citizen.json")
+.then(r=>r.json());
 
 
-    async loadData(){
+let household =
+await fetch("data/household.json")
+.then(r=>r.json());
 
 
-        const citizen =
-        await API.load("citizen.json");
+let elderly =
+await fetch("data/elderly.json")
+.then(r=>r.json());
 
 
-        const household =
-        await API.load("household.json");
+let vulnerable =
+await fetch("data/vulnerable.json")
+.then(r=>r.json());
 
 
-        const health =
-        await API.load("health.json");
+let health =
+await fetch("data/health.json")
+.then(r=>r.json());
 
 
-        const vulnerable =
-        await API.load("vulnerable.json");
+let shorbor =
+await fetch("data/shorbor.json")
+.then(r=>r.json());
 
 
-        const osm =
-        await API.load("osm.json");
+let oporor =
+await fetch("data/oporor.json")
+.then(r=>r.json());
 
 
-        const oppor =
-        await API.load("oporor.json");
-
-
-        const shorbor =
-        await API.load("vrv.json");
-
-
-        const subnamjam =
-        await API.load("subnamjam.json");
-
-
-
-        this.render({
-
-            citizen: citizen.length,
-
-            household: household.length,
-
-            health: health.length,
-
-            vulnerable: vulnerable.length,
-
-            osm: osm.length,
-
-            oppor: oppor.length,
-
-            shorbor: shorbor.length,
-
-            subnamjam: subnamjam.length
-
-        });
-
-
-    }
+let news =
+await fetch("data/news.json")
+.then(r=>r.json());
 
 
 
-    render(data){
+document.getElementById("population")
+.innerHTML = citizen.length;
 
 
-        document.getElementById("citizenCount")
-        .innerHTML=data.citizen;
+document.getElementById("household")
+.innerHTML = household.length;
 
 
-        document.getElementById("householdCount")
-        .innerHTML=data.household;
+document.getElementById("elderly")
+.innerHTML = elderly.length;
 
 
-        document.getElementById("healthCount")
-        .innerHTML=data.health;
+document.getElementById("vulnerable")
+.innerHTML = vulnerable.length;
 
 
-        document.getElementById("vulnerableCount")
-        .innerHTML=data.vulnerable;
+document.getElementById("health")
+.innerHTML = health.length;
 
 
-        document.getElementById("osmCount")
-        .innerHTML=data.osm;
+document.getElementById("shorbor")
+.innerHTML = shorbor.length;
 
 
-        document.getElementById("opporCount")
-        .innerHTML=data.oppor;
+document.getElementById("oporor")
+.innerHTML = oporor.length;
 
 
-        document.getElementById("shorborCount")
-        .innerHTML=data.shorbor;
+document.getElementById("news")
+.innerHTML = news.length;
 
 
-        document.getElementById("subnamjamCount")
-        .innerHTML=data.subnamjam;
 
+document.getElementById("summaryText")
+.innerHTML = `
 
-    }
+🏡 บ้านร่องเข็ม หมู่ที่ 6
+
+<br><br>
+
+มีประชากรทั้งหมด 
+<b>${citizen.length}</b> คน
+
+<br>
+
+มีผู้สูงอายุ 
+<b>${elderly.length}</b> คน
+
+<br>
+
+มีกลุ่มเปราะบาง 
+<b>${vulnerable.length}</b> คน
+
+<br><br>
+
+ระบบ Dashboard เชื่อมต่อฐานข้อมูลหมู่บ้านอัจฉริยะ
+
+`;
+
 
 
 }
 
-fetch("data/budget.json")
+catch(error){
 
-.then(res=>res.json())
+console.log(error);
 
-.then(data=>{
+document.getElementById("summaryText")
+.innerHTML =
+"ไม่สามารถโหลดข้อมูลได้";
 
+}
 
-let income =
-data.filter(
-x=>x.type=="รายรับ"
-)
-.reduce(
-(a,b)=>a+b.amount,0
-);
-fetch("data/notification.json")
 
-.then(res=>res.json())
+}
 
-.then(data=>{
 
-
-let count =
-data.filter(
-x=>x.status=="เผยแพร่"
-).length;
-
-
-document.getElementById(
-"notification-count"
-).innerHTML=
-
-`
-
-${count}
-รายการ
-
-`;
-
-});
-
-let expense =
-data.filter(
-x=>x.type=="รายจ่าย"
-)
-.reduce(
-(a,b)=>a+b.amount,0
-);
-
-
-document.getElementById(
-"budget-total"
-).innerHTML=
-fetch("data/elderly.json")
-
-.then(res=>res.json())
-
-.then(data=>{
-
-
-document.getElementById(
-"elderly-total"
-).innerHTML=
-fetch("data/household.json")
-
-.then(res=>res.json())
-
-.then(data=>{
-
-
-document.getElementById(
-"household-total"
-).innerHTML=
-fetch("data/location.json")
-
-.then(res=>res.json())
-
-.then(data=>{
-
-
-document.getElementById(
-"location-count"
-).innerHTML=
-
-`
-
-${data.length}
-จุด
-
-`;
-
-});
-`
-
-${data.length}
-หลัง
-
-`;
-
-});
-`
-
-${data.length}
-คน
-
-`;
-
-});
-`
-
-💰 เงินคงเหลือ
-
-<br>
-
-${(income-expense).toLocaleString()}
-บาท
-
-`;
-
-});
-
-const DASHBOARD =
-new DashboardManager();
-fetch("data/project.json")
-
-.then(res=>res.json())
-
-.then(data=>{
-
-
-document.getElementById(
-"project-count"
-).innerHTML=
-fetch("data/health.json")
-
-.then(res=>res.json())
-
-.then(data=>{
-
-
-let elderly =
-data.filter(
-x=>x.group=="ผู้สูงอายุ"
-).length;
-fetch("data/oporor.json")
-
-.then(res=>res.json())
-
-.then(data=>{
-
-
-document.getElementById(
-"security-total"
-).innerHTML=
-
-`
-
-${data.length}
-คน
-
-`;
-
-});
-
-
-document.getElementById(
-"health-count"
-).innerHTML=
-fetch("data/vulnerable.json")
-
-.then(res=>res.json())
-
-.then(data=>{
-fetch("data/notification.json")
-
-.then(res=>res.json())
-
-.then(data=>{
-
-
-document.getElementById(
-"notification-count"
-).innerHTML=
-
-`
-
-${data.length}
-
-รายการ
-
-`;
-
-});
-
-document.getElementById(
-"vulnerable-total"
-).innerHTML=
-fetch("data/citizen.json")
-
-.then(res=>res.json())
-
-.then(data=>{
-
-
-document.getElementById(
-"citizen-total"
-).innerHTML=
-fetch("data/activity.json")
-
-.then(res=>res.json())
-
-.then(data=>{
-
-
-document.getElementById(
-"activity-total"
-).innerHTML=
-
-`
-
-${data.length}
-กิจกรรม
-
-`;
-
-});
-`
-
-${data.length}
-คน
-
-`;
-
-});
-`
-
-${data.length}
-รายการ
-
-`;
-
-});
-`
-
-👴 ผู้สูงอายุ
-${elderly}
-คน
-
-`;
-
-});
-`
-📌 โครงการทั้งหมด
-<br>
-${data.length}
-`;
-
-});
+loadDashboard();
