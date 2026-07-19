@@ -1,51 +1,104 @@
-// ตรวจสอบการเข้าสู่ระบบ
+/*
+=================================
+Authentication System
+Rongkhem Smart Village
+=================================
+*/
+
 
 function checkLogin(){
 
+
+
 let user =
-localStorage.getItem("loginUser");
+localStorage.getItem(
+"rongkhemUser"
+);
+
 
 
 if(!user){
 
-window.location.href="login.html";
 
-}
-
-}
-
-
-// แสดงชื่อผู้ใช้งาน
-
-function showUser(){
-
-let user =
-JSON.parse(
-localStorage.getItem("loginUser")
+alert(
+"กรุณาเข้าสู่ระบบ"
 );
 
 
+window.location.href=
+"login.html";
+
+
+return;
+
+
+}
+
+
+
+return JSON.parse(user);
+
+
+
+}
+
+
+
+
+
+
+function showUser(){
+
+
+let user =
+checkLogin();
+
+
+
 let box =
-document.getElementById("userName");
+document.getElementById(
+"userInfo"
+);
 
 
-if(user && box){
 
-box.innerHTML =
-"👤 "+user.name+
-" ("+user.role+")";
+if(box){
+
+
+box.innerHTML=`
+
+👤 ${user.name}
+
+<br>
+
+สิทธิ์:
+${user.role}
+
+`;
+
 
 }
 
+
+
 }
 
 
-// ออกจากระบบ
+
+
+
+
 
 function logout(){
 
-localStorage.removeItem("loginUser");
 
-window.location.href="login.html";
+localStorage.removeItem(
+"rongkhemUser"
+);
+
+
+window.location.href=
+"login.html";
+
 
 }
