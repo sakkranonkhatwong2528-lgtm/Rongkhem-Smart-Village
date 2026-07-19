@@ -1,81 +1,22 @@
 <!DOCTYPE html>
+
 <html lang="th">
 
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ข่าวสาร | บ้านร่องเข็ม Smart Village</title>
-
-
-<style>
-
-body{
-font-family:Tahoma,sans-serif;
-margin:0;
-background:#f1f8e9;
-}
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 
-header{
-background:#2e7d32;
-color:white;
-padding:20px;
-text-align:center;
-}
+<title>
+Admin ข่าวสาร | บ้านร่องเข็ม
+</title>
 
 
-.container{
-padding:20px;
-}
+<link rel="stylesheet" href="css/style.css">
 
-
-.card{
-
-background:white;
-padding:20px;
-border-radius:20px;
-box-shadow:0 3px 10px #ccc;
-margin-bottom:20px;
-
-}
-
-
-.news{
-
-border-left:5px solid #2e7d32;
-padding:15px;
-margin:10px 0;
-background:#f9fff9;
-border-radius:10px;
-
-}
-
-
-input,textarea{
-
-width:90%;
-padding:12px;
-margin:8px;
-border-radius:10px;
-border:1px solid #ccc;
-
-}
-
-
-button{
-
-background:#2e7d32;
-color:white;
-border:0;
-padding:12px 25px;
-border-radius:20px;
-
-}
-
-
-</style>
+<link rel="stylesheet" href="css/admin-news.css">
 
 
 </head>
@@ -84,36 +25,73 @@ border-radius:20px;
 <body>
 
 
-<header>
+<header class="admin-news-header">
+
 
 <h1>
-📢 ระบบข่าวสารประชาสัมพันธ์
+📢 จัดการข่าวสารหมู่บ้าน
 </h1>
+
 
 <p>
 บ้านร่องเข็ม Smart Village
 </p>
 
+
 </header>
 
 
 
-<div class="container">
 
 
 
-<div class="card">
+
+<section class="form-box">
+
 
 <h2>
-➕ เพิ่มข่าวใหม่
+➕ เพิ่มข่าวประชาสัมพันธ์
 </h2>
 
 
-<input id="title" placeholder="หัวข้อข่าว">
+<input id="title"
+placeholder="หัวข้อข่าว">
 
 
 <textarea id="detail"
 placeholder="รายละเอียดข่าว"></textarea>
+
+
+
+<select id="type">
+
+<option>
+ประกาศหมู่บ้าน
+</option>
+
+<option>
+กิจกรรมชุมชน
+</option>
+
+<option>
+สิ่งแวดล้อม
+</option>
+
+<option>
+โครงการพัฒนา
+</option>
+
+<option>
+แจ้งเตือนภัย
+</option>
+
+</select>
+
+
+
+<input id="date"
+placeholder="วันที่ประกาศ">
+
 
 
 <button onclick="addNews()">
@@ -123,139 +101,69 @@ placeholder="รายละเอียดข่าว"></textarea>
 </button>
 
 
-</div>
+</section>
 
 
 
 
 
-<div class="card">
+
+
+<section class="table-box">
 
 
 <h2>
-📰 ข่าวประชาสัมพันธ์
+📋 รายการข่าว
 </h2>
 
 
-<div id="newsList">
+<table>
 
 
-</div>
+<thead>
 
+<tr>
 
-</div>
+<th>
+หัวข้อ
+</th>
 
+<th>
+ประเภท
+</th>
 
+<th>
+วันที่
+</th>
 
-</div>
+<th>
+จัดการ
+</th>
 
+</tr>
 
+</thead>
 
 
+<tbody id="newsTable">
 
-<script>
 
+</tbody>
 
-let news=[];
 
+</table>
 
 
-fetch("data/news.json")
+</section>
 
-.then(res=>res.json())
 
-.then(data=>{
 
 
-news=data;
 
-showNews();
 
 
-});
 
-
-
-
-function showNews(){
-
-
-let html="";
-
-
-news.forEach(n=>{
-
-
-html+=`
-
-<div class="news">
-
-<h3>
-${n.title}
-</h3>
-
-<p>
-${n.detail}
-</p>
-
-<small>
-วันที่ ${n.date}
-</small>
-
-
-</div>
-
-
-`;
-
-
-});
-
-
-document.getElementById("newsList").innerHTML=html;
-
-
-}
-
-
-
-
-
-function addNews(){
-
-
-let item={
-
-id:news.length+1,
-
-title:
-document.getElementById("title").value,
-
-
-detail:
-document.getElementById("detail").value,
-
-
-date:
-new Date().toLocaleDateString("th-TH")
-
-};
-
-
-news.push(item);
-
-
-showNews();
-
-
-alert("เพิ่มข่าวแล้ว");
-
-
-}
-
-
-
-</script>
+<script src="js/admin-news.js"></script>
 
 
 </body>
