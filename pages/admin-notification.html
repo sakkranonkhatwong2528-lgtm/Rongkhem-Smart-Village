@@ -6,12 +6,17 @@
 
 <meta charset="UTF-8">
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
 <title>
-Admin Notification
+Notification Center | บ้านร่องเข็ม
 </title>
 
 
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="stylesheet" href="css/notification.css">
 
 
 </head>
@@ -20,11 +25,11 @@ Admin Notification
 <body>
 
 
-<header class="hero">
+<header class="notification-header">
 
 
 <h1>
-🔔 ระบบแจ้งเตือนหมู่บ้าน
+🔔 ศูนย์แจ้งเตือนหมู่บ้าน
 </h1>
 
 
@@ -38,89 +43,21 @@ Admin Notification
 
 
 
-<section class="dashboard">
 
 
+<section id="notificationList"
+class="notification-grid">
 
-<div class="card">
-
-
-<h2>
-📊 สรุปการแจ้งเตือน
-</h2>
-
-
-<div id="notification-summary">
 
 กำลังโหลด...
-
-</div>
-
-
-</div>
-
-
-
-
-<div class="card">
-
-
-<h2>
-🔔 รายการแจ้งเตือน
-</h2>
-
-
-
-<table width="100%" border="1">
-
-
-<thead>
-
-<tr>
-
-<th>
-หัวข้อ
-</th>
-
-<th>
-ประเภท
-</th>
-
-<th>
-วันที่
-</th>
-
-<th>
-ระดับ
-</th>
-
-<th>
-รายละเอียด
-</th>
-
-</tr>
-
-</thead>
-
-
-<tbody id="notification-table">
-
-</tbody>
-
-
-</table>
-
-
-</div>
-
-
 
 </section>
 
 
 
 
-<script src="../js/notification-admin.js"></script>
+
+<script src="js/notification.js"></script>
 
 
 </body>
