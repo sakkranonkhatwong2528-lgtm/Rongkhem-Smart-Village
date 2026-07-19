@@ -1,80 +1,532 @@
-.dashboard-header{
+/* ================================
+   Rongkhem Smart Village Dashboard
+================================ */
 
-background:#166534;
-color:white;
-padding:30px;
-text-align:center;
+
+body{
+
+font-family:"Noto Sans Thai",sans-serif;
+
+background:#f0fdf4;
+
+margin:0;
+
+color:#1f2937;
 
 }
+
+
+
+
+/* HEADER */
+
+.dashboard-header{
+
+background:linear-gradient(
+135deg,
+#166534,
+#15803d
+);
+
+color:white;
+
+text-align:center;
+
+padding:40px 20px;
+
+}
+
+
+.dashboard-header h1{
+
+font-size:32px;
+
+margin-bottom:10px;
+
+}
+
+
+
+.dashboard-header p{
+
+margin:5px;
+
+font-size:18px;
+
+}
+
+
+
+
+/* CARD AREA */
 
 
 .dashboard-container{
 
+
 display:grid;
+
+
 grid-template-columns:
 repeat(auto-fit,minmax(220px,1fr));
 
+
 gap:20px;
+
 
 padding:30px;
 
+
 }
+
+
+
 
 
 .card{
 
+
 background:white;
 
-border-radius:18px;
+
+border-radius:20px;
+
 
 padding:25px;
 
+
 text-align:center;
 
-box-shadow:0 5px 15px #0002;
+
+box-shadow:
+0 5px 15px rgba(0,0,0,.12);
+
+
+transition:.3s;
+
 
 }
+
+
+
+
+.card:hover{
+
+
+transform:translateY(-5px);
+
+
+}
+
+
 
 
 .card h3{
 
+
 font-size:20px;
+
+
+margin:0;
+
 
 }
 
 
-.card p{
+
+
+
+.number{
+
 
 font-size:45px;
 
+
 font-weight:bold;
 
-color:#166534;
 
-margin:10px;
+color:#15803d;
+
+
+margin:15px;
+
 
 }
 
 
 
-.summary{
+
+
+
+/* SUMMARY */
+
+
+.summary-box{
+
+
+background:white;
+
 
 margin:30px;
 
-padding:25px;
 
-background:#f0fdf4;
+padding:30px;
+
 
 border-radius:20px;
 
+
+box-shadow:
+0 5px 15px rgba(0,0,0,.1);
+
+
 }
+
+
+
+.summary-box h2{
+
+
+color:#166534;
+
+
+}
+
+
+
+
+
+
+/* CHART */
+
+
+.chart-area{
+
+
+display:grid;
+
+
+grid-template-columns:
+repeat(auto-fit,minmax(350px,1fr));
+
+
+gap:25px;
+
+
+padding:30px;
+
+
+}
+
+
+
+
+
+.chart-box{
+
+
+background:white;
+
+
+padding:25px;
+
+
+border-radius:20px;
+
+
+box-shadow:
+0 5px 15px rgba(0,0,0,.1);
+
+
+}
+
+
+
+
+
+.chart-box h2{
+
+
+text-align:center;
+
+
+color:#166534;
+
+
+}
+
+
+
+
+
+
+/* SMART SYSTEM */
+
+
+.smart-area{
+
+
+margin:30px;
+
+
+background:white;
+
+
+padding:30px;
+
+
+border-radius:20px;
+
+
+box-shadow:
+0 5px 15px rgba(0,0,0,.1);
+
+
+}
+
+
+
+
+
+.smart-area h2{
+
+
+color:#166534;
+
+
+}
+
+
+
+
+.smart-grid{
+
+
+display:grid;
+
+
+grid-template-columns:
+repeat(auto-fit,minmax(250px,1fr));
+
+
+gap:20px;
+
+
+}
+
+
+
+
+
+.smart-card{
+
+
+background:#ecfdf5;
+
+
+border-radius:18px;
+
+
+padding:25px;
+
+
+border-left:6px solid #15803d;
+
+
+}
+
+
+
+
+
+.smart-card h3{
+
+
+font-size:22px;
+
+
+}
+
+
+
+
+
+.smart-card strong{
+
+
+color:#166534;
+
+
+}
+
+
+
+
+
+
+
+/* PROJECT */
+
+
+.project-box{
+
+
+background:white;
+
+
+margin:30px;
+
+
+padding:30px;
+
+
+border-radius:20px;
+
+
+box-shadow:
+0 5px 15px rgba(0,0,0,.1);
+
+
+}
+
+
+
+.project-box h2{
+
+
+color:#166534;
+
+
+}
+
+
+
+
+.project-box li{
+
+
+font-size:18px;
+
+
+padding:8px;
+
+
+}
+
+
+
+
+
+
+button{
+
+
+background:#166534;
+
+
+color:white;
+
+
+border:none;
+
+
+padding:15px 30px;
+
+
+border-radius:15px;
+
+
+font-size:18px;
+
+
+cursor:pointer;
+
+
+margin-top:20px;
+
+
+}
+
+
+
+button:hover{
+
+
+background:#15803d;
+
+
+}
+
+
+
 
 
 
 footer{
 
+
+background:#166534;
+
+
+color:white;
+
+
 text-align:center;
 
+
 padding:20px;
+
+
+margin-top:30px;
+
+
+}
+
+
+
+
+
+
+
+/* MOBILE */
+
+
+@media(max-width:600px){
+
+
+
+.dashboard-header h1{
+
+font-size:24px;
+
+}
+
+
+
+.number{
+
+font-size:36px;
+
+}
+
+
+
+.chart-area{
+
+grid-template-columns:1fr;
+
+}
+
+
+
+.smart-area,
+.project-box,
+.summary-box{
+
+margin:15px;
+
+}
+
+
 
 }
