@@ -1,86 +1,104 @@
-// =====================================
-// Rongkhem Smart Village
-// Map Module v1.0
-// =====================================
+/*
+=================================
+Rongkhem Smart Village Map
+=================================
+*/
 
 
-class VillageMap {
+async function loadMap(){
 
 
-    constructor(){
-
-        this.map = null;
-
-    }
-
-
-
-    init(){
-
-
-        this.map =
-        L.map('villageMap')
-        .setView(
-            [19.15,99.90],
-            15
-        );
-
-
-        L.tileLayer(
-            'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-            {
-                maxZoom:19
-            }
-        )
-        .addTo(this.map);
-
-
-        this.loadMarker();
-
-
-    }
+const data =
+await fetch(
+"data/location.json"
+)
+.then(r=>r.json());
 
 
 
-    async loadMarker(){
 
 
-        const locations =
-        await API.load("location.json");
+let map =
+L.map('map')
+.setView(
+
+[
+data.center.lat,
+data.center.lng
+],
+
+16
+
+);
 
 
-        locations.forEach(item=>{
 
 
-            L.marker(
-                [
-                item.lat,
-                item.lng
-                ]
-            )
-            .addTo(this.map)
-            .bindPopup(`
-
-            <h3>
-            ${item.name}
-            </h3>
-
-            <p>
-            ${item.detail || ""}
-            </p>
-
-            `);
 
 
-        });
+L.tileLayer(
+
+'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+
+{
+
+maxZoom:19
+
+}
+
+).addTo(map);
 
 
-    }
+
+
+
+
+
+data.places.forEach(place=>{
+
+
+let marker =
+L.marker(
+
+[
+place.lat,
+place.lng
+]
+
+)
+
+.addTo(map);
+
+
+
+
+marker.bindPopup(
+
+`
+
+<h3>
+${place.name}
+</h3>
+
+
+<p>
+ระบบ Smart Village
+</p>
+
+
+`
+
+);
+
+
+
+});
+
+
 
 
 }
 
 
 
-const VILLAGE_MAP =
-new VillageMap();
+loadMap();
