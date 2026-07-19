@@ -1,37 +1,53 @@
 /*
-=====================================
-Rongkhem Smart Village Dashboard JS
-=====================================
+========================================
+Rongkhem Smart Village Dashboard
+Version 2.0
+========================================
 */
 
 
-// โหลดข้อมูล JSON
+// โหลด JSON
 
-async function loadData(file){
+async function loadJSON(file){
+
 
 try{
 
-const response = await fetch(file);
 
-const data = await response.json();
+const response =
+await fetch(file);
 
-return data;
+
+
+if(!response.ok){
+
+throw new Error();
+
+}
+
+
+return await response.json();
 
 
 }
 
 catch(error){
 
+
 console.log(
-"ไม่พบไฟล์ : "+file
+"ไม่พบข้อมูล : "+file
 );
+
 
 return [];
 
+
 }
 
 
 }
+
+
 
 
 
@@ -41,60 +57,53 @@ async function loadDashboard(){
 
 
 
-// เรียกข้อมูลจากระบบ
+// โหลดข้อมูล
 
 
 const citizen =
-await loadData(
+await loadJSON(
 "data/citizen.json"
 );
 
 
 
 const household =
-await loadData(
+await loadJSON(
 "data/household.json"
 );
 
 
 
-const elderly =
-await loadData(
-"data/elderly.json"
-);
-
-
-
-const vulnerable =
-await loadData(
-"data/vulnerable.json"
-);
-
-
-
 const health =
-await loadData(
+await loadJSON(
 "data/health.json"
 );
 
 
 
-const shorbor =
-await loadData(
-"data/shorbor.json"
+const vulnerable =
+await loadJSON(
+"data/vulnerable.json"
 );
 
 
 
 const oporor =
-await loadData(
+await loadJSON(
 "data/oporor.json"
 );
 
 
 
+const shorbor =
+await loadJSON(
+"data/shorbor.json"
+);
+
+
+
 const news =
-await loadData(
+await loadJSON(
 "data/news.json"
 );
 
@@ -102,69 +111,44 @@ await loadData(
 
 
 
-// แสดงตัวเลข
+
+// จำนวนข้อมูล
 
 
-document.getElementById(
-"population"
-).innerHTML =
+let population =
 citizen.length || 202;
 
 
+let households =
+household.length || 0;
 
 
-document.getElementById(
-"household"
-).innerHTML =
-household.length;
+let elderly =
+91;
 
 
-
-
-document.getElementById(
-"elderly"
-).innerHTML =
-elderly.length || 91;
-
-
-
-
-document.getElementById(
-"vulnerable"
-).innerHTML =
+let vulnerableCount =
 vulnerable.length || 3;
 
 
 
-
-document.getElementById(
-"health"
-).innerHTML =
-health.length;
+let healthCount =
+health.length || 0;
 
 
 
-
-document.getElementById(
-"shorbor"
-).innerHTML =
-shorbor.length;
+let opororCount =
+oporor.length || 0;
 
 
 
-
-document.getElementById(
-"oporor"
-).innerHTML =
-oporor.length;
+let shorborCount =
+shorbor.length || 15;
 
 
 
-
-document.getElementById(
-"news"
-).innerHTML =
-news.length;
+let newsCount =
+news.length || 0;
 
 
 
@@ -172,70 +156,132 @@ news.length;
 
 
 
-// สรุปสถานการณ์
+// แสดงผล
+
+
+setValue(
+"population",
+population
+);
+
+
+setValue(
+"household",
+households
+);
+
+
+
+setValue(
+"elderly",
+elderly
+);
+
+
+
+setValue(
+"vulnerable",
+vulnerableCount
+);
+
+
+
+setValue(
+"health",
+healthCount
+);
+
+
+
+setValue(
+"shorbor",
+shorborCount
+);
+
+
+
+setValue(
+"oporor",
+opororCount
+);
+
+
+
+setValue(
+"news",
+newsCount
+);
+
+
+
+
+
+
+// สรุป
 
 
 document.getElementById(
 "summary"
-).innerHTML =
+).innerHTML = `
 
-`
 
 <h3>
 🏡 บ้านร่องเข็ม หมู่ที่ 6
 </h3>
 
 
-<p>
 
+<p>
 👥 ประชากรทั้งหมด 
-<b>${citizen.length || 202}</b>
+<b>${population}</b>
 คน
-
 </p>
 
 
-<p>
 
-🏠 จำนวนครัวเรือน 
-<b>${household.length}</b>
+<p>
+🏠 ครัวเรือน 
+<b>${households}</b>
 หลัง
-
 </p>
 
 
-<p>
 
+<p>
 👴 ผู้สูงอายุ 
-<b>${elderly.length || 91}</b>
+<b>${elderly}</b>
 คน
-
 </p>
 
 
-<p>
 
+<p>
 ❤️ กลุ่มเปราะบาง 
-<b>${vulnerable.length || 3}</b>
+<b>${vulnerableCount}</b>
 คน
-
 </p>
+
 
 
 <p>
-
-ระบบบริหารจัดการหมู่บ้านอัจฉริยะ
-เชื่อมโยงข้อมูลเพื่อการพัฒนาชุมชน
-
+🩺 ระบบสุขภาพชุมชน 
+<b>${healthCount}</b>
+คน
 </p>
+
+
+
+<p>
+ระบบ Dashboard เชื่อมต่อฐานข้อมูลหมู่บ้านอัจฉริยะ
+</p>
+
+
 
 `;
 
 
 
 
-
-// สร้างกราฟ
 
 
 createCharts();
@@ -248,23 +294,50 @@ createCharts();
 
 
 
-// =============================
-// CHART
-// =============================
+
+
+
+
+function setValue(id,value){
+
+
+let element =
+document.getElementById(id);
+
+
+
+if(element){
+
+element.innerHTML=value;
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+// สร้างกราฟ
 
 
 function createCharts(){
 
 
 
-const populationChart =
+let populationChart =
 document.getElementById(
 "populationChart"
 );
 
 
 
-const ageChart =
+let ageChart =
 document.getElementById(
 "ageChart"
 );
@@ -272,11 +345,14 @@ document.getElementById(
 
 
 
-// กราฟประชากร
+
+if(populationChart){
+
 
 
 new Chart(
 populationChart,
+
 {
 
 
@@ -318,27 +394,32 @@ data:[
 },
 
 
-
 options:{
-
 
 responsive:true
 
-
 }
 
 
 }
+
 
 );
 
 
 
+}
 
 
 
 
-// กราฟอายุ
+
+
+
+
+
+if(ageChart){
+
 
 
 new Chart(
@@ -359,7 +440,7 @@ labels:[
 
 "ต่ำกว่า 40 ปี",
 
-"40 - 59 ปี",
+"40-59 ปี",
 
 "60 ปีขึ้นไป"
 
@@ -371,18 +452,16 @@ labels:[
 datasets:[{
 
 
-label:"จำนวนประชาชน",
+label:"จำนวนคน",
 
 
 data:[
-
 
 20,
 
 86,
 
 91
-
 
 ]
 
@@ -391,7 +470,6 @@ data:[
 
 
 },
-
 
 
 options:{
@@ -430,6 +508,14 @@ beginAtZero:true
 
 
 
+}
+
+
+
+
+
+
+
 
 // พิมพ์รายงาน
 
@@ -446,7 +532,9 @@ window.print();
 
 
 
-// เริ่มทำงาน
+
+
+// เริ่มระบบ
 
 
 loadDashboard();
