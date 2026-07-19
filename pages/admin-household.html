@@ -1,100 +1,23 @@
 <!DOCTYPE html>
+
 <html lang="th">
 
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ทะเบียนครัวเรือน | Rongkhem Smart Village</title>
-
-<link rel="stylesheet" href="../css/style.css">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 
-<style>
-
-.container{
-padding:20px;
-}
+<title>
+Admin Household | บ้านร่องเข็ม
+</title>
 
 
-.header{
+<link rel="stylesheet" href="css/style.css">
 
-background:linear-gradient(135deg,#198754,#0d6efd);
-color:white;
-padding:25px;
-border-radius:15px;
+<link rel="stylesheet" href="css/admin-household.css">
 
-}
-
-
-.card{
-
-background:white;
-padding:20px;
-margin-top:20px;
-border-radius:15px;
-box-shadow:0 3px 10px #ddd;
-
-}
-
-
-.grid{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:15px;
-
-}
-
-
-.box{
-
-background:#f8f9fa;
-padding:20px;
-border-radius:15px;
-text-align:center;
-
-}
-
-
-.number{
-
-font-size:35px;
-font-weight:bold;
-color:#198754;
-
-}
-
-
-table{
-
-width:100%;
-border-collapse:collapse;
-
-}
-
-
-th,td{
-
-border:1px solid #ddd;
-padding:10px;
-
-}
-
-
-button{
-
-background:#198754;
-color:white;
-border:none;
-padding:10px 20px;
-border-radius:10px;
-
-}
-
-
-</style>
 
 </head>
 
@@ -102,29 +25,41 @@ border-radius:10px;
 <body>
 
 
-<div class="container">
-
-
-<div class="header">
+<header class="house-admin-header">
 
 
 <h1>
-🏠 ระบบทะเบียนครัวเรือน
+🏠 จัดการทะเบียนครัวเรือน
 </h1>
 
 
 <p>
-🏡 Rongkhem Smart Village
-<br>
-ฐานข้อมูลครอบครัวบ้านร่องเข็ม
-
+บ้านร่องเข็ม Smart Village
 </p>
 
 
+</header>
+
+
+
+
+
+
+<section class="summary">
+
+
+
+<div class="card">
+
+<h3>
+🏠 ครัวเรือนทั้งหมด
+</h3>
+
+<h1 id="totalHouse">
+0
+</h1>
+
 </div>
-
-
-
 
 
 
@@ -132,105 +67,87 @@ border-radius:10px;
 
 <div class="card">
 
+<h3>
+👨‍👩‍👧 ประชาชนในครัวเรือน
+</h3>
+
+<h1 id="totalMember">
+0
+</h1>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h3>
+👴 ครัวเรือนผู้สูงอายุ
+</h3>
+
+<h1 id="elderHouse">
+0
+</h1>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h3>
+❤️ ครัวเรือนเปราะบาง
+</h3>
+
+<h1 id="vulnerableHouse">
+0
+</h1>
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+<section class="form-box">
+
 
 <h2>
-📊 ภาพรวมครัวเรือน
+➕ เพิ่มครัวเรือน
 </h2>
 
 
-<div class="grid">
+<input id="houseNo"
+placeholder="บ้านเลขที่">
 
 
-<div class="box">
-
-🏠
-
-<h3>
-จำนวนบ้าน
-
-</h3>
-
-<div class="number">
--
-
-</div>
-
-หลัง
+<input id="owner"
+placeholder="ชื่อเจ้าบ้าน">
 
 
-</div>
+<input id="members"
+type="number"
+placeholder="จำนวนสมาชิก">
 
 
+<button onclick="addHouse()">
+
+บันทึก
+
+</button>
 
 
-<div class="box">
-
-👥
-
-<h3>
-สมาชิกทั้งหมด
-
-</h3>
-
-<div class="number">
-202
-
-</div>
-
-คน
-
-
-</div>
-
-
-
-
-<div class="box">
-
-🤝
-
-<h3>
-ครัวเรือนเปราะบาง
-
-</h3>
-
-<div class="number">
--
-
-</div>
-
-หลัง
-
-
-</div>
-
-
-
-
-<div class="box">
-
-📍
-
-<h3>
-มีพิกัด GPS
-
-</h3>
-
-<div class="number">
--
-
-</div>
-
-หลัง
-
-
-</div>
-
-
-</div>
-
-
-</div>
+</section>
 
 
 
@@ -239,71 +156,51 @@ border-radius:10px;
 
 
 
-<div class="card">
+<section class="table-box">
 
 
 <h2>
-🏘️ รายการครัวเรือน
+📋 รายการครัวเรือน
 </h2>
 
 
 <table>
 
 
+<thead>
+
 <tr>
 
 <th>
 บ้านเลขที่
-
 </th>
 
 <th>
 เจ้าบ้าน
-
 </th>
 
 <th>
 สมาชิก
-
 </th>
 
 <th>
-สถานะ
-
+จัดการ
 </th>
 
 </tr>
 
+</thead>
 
-<tr>
 
-<td>
-ข้อมูลจาก household.json
+<tbody id="houseTable">
 
-</td>
-
-<td>
--
-
-</td>
-
-<td>
--
-
-</td>
-
-<td>
-ปกติ
-
-</td>
-
-</tr>
+</tbody>
 
 
 </table>
 
 
-</div>
+</section>
 
 
 
@@ -311,124 +208,7 @@ border-radius:10px;
 
 
 
-
-<div class="card">
-
-
-<h2>
-👨‍👩‍👧 สมาชิกในบ้าน
-</h2>
-
-
-<ul>
-
-<li>
-แสดงรายชื่อสมาชิก
-</li>
-
-<li>
-อายุ
-</li>
-
-<li>
-อาชีพ
-</li>
-
-<li>
-สถานะสุขภาพ
-
-</li>
-
-
-</ul>
-
-
-<button>
-
-ดูสมาชิก
-
-</button>
-
-
-</div>
-
-
-
-
-
-
-
-
-<div class="card">
-
-
-<h2>
-💧⚡ ระบบสาธารณูปโภค
-</h2>
-
-
-<ul>
-
-<li>
-ข้อมูลน้ำประปาหมู่บ้าน
-
-</li>
-
-<li>
-ข้อมูลมิเตอร์น้ำ
-
-</li>
-
-<li>
-ข้อมูลไฟฟ้า
-
-</li>
-
-<li>
-ปัญหาสาธารณูปโภค
-
-</li>
-
-
-</ul>
-
-
-</div>
-
-
-
-
-
-
-
-
-<div class="card">
-
-
-<h2>
-📄 รายงานครัวเรือน
-</h2>
-
-
-<button>
-
-Export PDF
-
-</button>
-
-
-<button>
-
-Export Excel
-
-</button>
-
-
-</div>
-
-
-
-</div>
+<script src="js/admin-household.js"></script>
 
 
 </body>
