@@ -1,117 +1,22 @@
 <!DOCTYPE html>
+
 <html lang="th">
 
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 
 <title>
-ผู้สูงอายุและกลุ่มเปราะบาง | บ้านร่องเข็ม Smart Village
+ผู้สูงอายุ | บ้านร่องเข็ม
 </title>
 
 
-<style>
+<link rel="stylesheet" href="css/style.css">
 
-
-body{
-
-margin:0;
-font-family:Tahoma,sans-serif;
-background:#fff3e0;
-
-}
-
-
-header{
-
-background:#ef6c00;
-color:white;
-padding:35px;
-text-align:center;
-
-}
-
-
-
-.container{
-
-padding:20px;
-
-}
-
-
-
-.grid{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-
-}
-
-
-
-.card{
-
-background:white;
-padding:25px;
-border-radius:25px;
-box-shadow:0 4px 12px #ccc;
-
-}
-
-
-
-.icon{
-
-font-size:45px;
-
-}
-
-
-
-.name{
-
-font-size:22px;
-font-weight:bold;
-color:#ef6c00;
-
-}
-
-
-
-.tag{
-
-background:#fff3e0;
-padding:10px;
-border-radius:15px;
-
-}
-
-
-
-.back{
-
-text-align:center;
-margin:30px;
-
-}
-
-
-.back a{
-
-background:#ef6c00;
-color:white;
-padding:12px 25px;
-border-radius:20px;
-text-decoration:none;
-
-}
-
-
-</style>
+<link rel="stylesheet" href="css/elderly.css">
 
 
 </head>
@@ -120,17 +25,16 @@ text-decoration:none;
 <body>
 
 
-
-<header>
+<header class="elderly-header">
 
 
 <h1>
-👴 กลุ่มผู้สูงอายุและเปราะบาง
+👴 ระบบผู้สูงอายุ
 </h1>
 
 
 <p>
-ระบบดูแลช่วยเหลือประชาชน บ้านร่องเข็ม
+บ้านร่องเข็ม Smart Village
 </p>
 
 
@@ -140,166 +44,37 @@ text-decoration:none;
 
 
 
+<section class="search-box">
 
 
-<div class="container">
+<input id="search"
+placeholder="🔎 ค้นหารายชื่อผู้สูงอายุ">
 
 
-<div class="grid" id="list">
+</section>
 
 
-</div>
 
 
-</div>
 
 
 
+<section id="elderlyList"
+class="elderly-grid">
 
 
+กำลังโหลดข้อมูล...
 
 
+</section>
 
-<div class="back">
 
-<a href="index.html">
 
-🏠 กลับหน้าแรก
 
-</a>
 
-</div>
 
 
-
-
-
-
-<script>
-
-
-let data =
-
-JSON.parse(
-
-localStorage.getItem("elderly")
-
-)||[];
-
-
-
-
-
-function show(){
-
-
-let html="";
-
-
-
-if(data.length==0){
-
-
-html=`
-
-<div class="card">
-
-<h2>
-ยังไม่มีข้อมูล
-</h2>
-
-<p>
-กำลังจัดเตรียมข้อมูล
-
-</p>
-
-</div>
-
-`;
-
-}
-
-
-
-data.forEach(function(item){
-
-
-
-html+=`
-
-<div class="card">
-
-
-<div class="icon">
-
-${item.type}
-
-</div>
-
-
-<div class="name">
-
-${item.name}
-
-</div>
-
-
-<p>
-
-🏠 บ้านเลขที่ :
-${item.house}
-
-</p>
-
-
-<p>
-
-ประเภท :
-${item.group}
-
-</p>
-
-
-<p>
-
-การดูแล :
-${item.care}
-
-</p>
-
-
-
-<div class="tag">
-
-🩺 ผู้ดูแล :
-${item.helper}
-
-</div>
-
-
-
-</div>
-
-`;
-
-
-
-});
-
-
-
-document.getElementById("list")
-.innerHTML=html;
-
-
-}
-
-
-
-show();
-
-
-</script>
+<script src="js/elderly.js"></script>
 
 
 </body>
