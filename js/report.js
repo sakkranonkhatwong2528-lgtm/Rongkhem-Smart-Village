@@ -1,115 +1,156 @@
-// =====================================
-// Rongkhem Smart Village
-// Report Module v1.0
-// =====================================
+/*
+====================================
+Smart Report Generator
+Rongkhem Smart Village
+====================================
+*/
 
 
-class ReportManager {
-
-
-    async load(){
-
-
-        const citizen =
-        await API.load("citizen.json");
-
-
-        const household =
-        await API.load("household.json");
-
-
-        const health =
-        await API.load("health.json");
-
-
-        const vulnerable =
-        await API.load("vulnerable.json");
-
-
-        const activity =
-        await API.load("activity.json");
+function loadReport(){
 
 
 
-        this.data = {
-
-            citizen: citizen.length,
-
-            household: household.length,
-
-            health: health.length,
-
-            vulnerable: vulnerable.length,
-
-            activity: activity.length
-
-        };
+document.getElementById(
+"villageReport"
+)
+.innerHTML = `
 
 
-        this.render();
+<p>
+🏡 บ้านร่องเข็ม หมู่ที่ 6
+</p>
 
 
-    }
+<p>
+ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา
+</p>
+
+
+<p>
+ระบบบริหารจัดการหมู่บ้านอัจฉริยะ
+Rongkhem Smart Village
+</p>
+
+
+`;
 
 
 
-    render(){
 
 
-        document
-        .getElementById("reportBox")
-        .innerHTML = `
+document.getElementById(
+"peopleReport"
+)
+.innerHTML = `
 
 
-        <h2>
-        📊 รายงานสรุปหมู่บ้านร่องเข็ม
-        </h2>
+<p>
+👥 ประชากรทั้งหมด : 202 คน
+</p>
 
 
-        <p>
-        👥 ประชาชน :
-        ${this.data.citizen}
-        คน
-        </p>
+<p>
+🏠 ครัวเรือน : ข้อมูลจากระบบทะเบียนบ้าน
+</p>
 
 
-        <p>
-        🏠 ครัวเรือน :
-        ${this.data.household}
-        หลัง
-        </p>
+<p>
+👴 ผู้สูงอายุ : 91 คน
+</p>
 
 
-        <p>
-        🩺 ข้อมูลสุขภาพ :
-        ${this.data.health}
-        ราย
-        </p>
+<p>
+❤️ กลุ่มเปราะบาง : 3 คน
+</p>
 
 
-        <p>
-        ❤️ กลุ่มเปราะบาง :
-        ${this.data.vulnerable}
-        ราย
-        </p>
+<p>
+🩺 ระบบสุขภาพเชื่อมโยง อสม.
+</p>
 
 
-        <p>
-        📸 กิจกรรม :
-        ${this.data.activity}
-        รายการ
-        </p>
+`;
 
 
-        `;
 
 
-    }
+
+
+document.getElementById(
+"environmentReport"
+)
+.innerHTML = `
+
+
+<p>
+🌫️ ติดตาม PM2.5 และการเผาในพื้นที่
+</p>
+
+
+<p>
+🔥 ส่งเสริมลดการเผาในชุมชน
+</p>
+
+
+<p>
+🏞️ แหล่งซับน้ำจำ ระบบนิเวศชุมชน
+</p>
+
+
+`;
+
+
+
+
+
+
+document.getElementById(
+"projectReport"
+)
+.innerHTML = `
+
+
+<ul>
+
+<li>
+🏡 Rongkhem Smart Village
+</li>
+
+<li>
+💧 น้ำดื่มชุมชน ตราน้ำจำ
+</li>
+
+<li>
+🏞️ พัฒนาแหล่งซับน้ำจำ
+</li>
+
+<li>
+♻️ ลดการเผา ลด PM2.5
+</li>
+
+</ul>
+
+
+`;
+
 
 
 }
 
 
 
-const REPORT =
-new ReportManager();
+
+
+
+function printReport(){
+
+
+window.print();
+
+
+}
+
+
+
+
+loadReport();
