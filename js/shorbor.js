@@ -1,101 +1,124 @@
-// =====================================
-// Rongkhem Smart Village
-// SHORBOR Module v1.0
-// =====================================
-
-class ShorborManager {
-
-    constructor(){
-
-        this.members = [];
-
-    }
+let shorbor=[];
 
 
-    async load(){
 
-        this.members =
-        await API.load("vrv.json");
-
-        return this.members;
-
-    }
+async function loadShorbor(){
 
 
-    render(containerId){
+const data =
+await fetch(
+"data/shorbor.json"
+)
 
-        const container =
-        document.getElementById(containerId);
-
-
-        if(!container) return;
-
-
-        container.innerHTML="";
+.then(r=>r.json());
 
 
-        this.members.forEach(person=>{
+shorbor=data.shorbor;
 
 
-            container.innerHTML += `
-
-            <div class="shorbor-card">
-
-                <img src="${person.image || 'images/no-image.jpg'}">
-
-
-                <h3>
-                👮 ${person.name || ""}
-                </h3>
-
-
-                <p>
-                หน้าที่ :
-                ${person.detail || "-"}
-                </p>
-
-
-                <p>
-                สถานะ :
-                ${person.status || "ปฏิบัติหน้าที่"}
-                </p>
-
-
-            </div>
-
-            `;
-
-
-        });
-
-
-    }
-
-
-    count(){
-
-        return this.members.length;
-
-    }
-
-
-    search(keyword){
-
-        return this.members.filter(person =>
-
-            JSON.stringify(person)
-            .toLowerCase()
-            .includes(
-                keyword.toLowerCase()
-            )
-
-        );
-
-    }
+showShorbor(shorbor);
 
 
 }
 
 
-const SHORBOR =
-new ShorborManager();
+
+
+
+function showShorbor(list){
+
+
+let html="";
+
+
+list.forEach(s=>{
+
+
+html+=`
+
+<div class="shorbor-card">
+
+
+<h3>
+🛡️ ${s.name}
+</h3>
+
+
+<p>
+ตำแหน่ง :
+${s.position}
+</p>
+
+
+<p>
+พื้นที่ :
+${s.area}
+</p>
+
+
+<p>
+สถานะ :
+${s.status}
+</p>
+
+
+</div>
+
+
+`;
+
+
+
+});
+
+
+
+document.getElementById(
+"shorborList"
+)
+.innerHTML=html;
+
+
+}
+
+
+
+
+
+
+document.getElementById(
+"search"
+)
+.addEventListener(
+"input",
+
+function(){
+
+
+let key=this.value;
+
+
+let result =
+shorbor.filter(
+
+s=>
+
+s.name.includes(key)
+
+);
+
+
+
+showShorbor(result);
+
+
+
+}
+
+);
+
+
+
+
+
+loadShorbor();
