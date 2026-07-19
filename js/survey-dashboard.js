@@ -1,117 +1,234 @@
 /*
-====================================
-Survey Connect Dashboard
+=========================================
 Rongkhem Smart Village
-====================================
+Survey Dashboard Connector
+=========================================
 */
 
 
 async function loadSurveyDashboard(){
 
 
+
 try{
 
 
-const data =
-await fetch(
-"data/survey.json"
-)
-.then(r=>r.json());
 
+const response = await fetch(
+"data/survey.json"
+);
+
+
+
+const data =
+await response.json();
+
+
+
+
+
+// คำนวณเปอร์เซ็นต์
 
 
 let elderlyPercent =
-((data.vulnerable.elderly / data.total)*100)
-.toFixed(1);
+(
+data.vulnerable.elderly /
+data.total *
+100
+).toFixed(1);
+
 
 
 
 let burningPercent =
-((data.environment.burning / data.total)*100)
-.toFixed(1);
+(
+data.environment.burning /
+data.total *
+100
+).toFixed(1);
+
 
 
 
 let alternativePercent =
-((data.environment.wantAlternative / data.total)*100)
-.toFixed(1);
+(
+data.environment.wantAlternative /
+data.total *
+100
+).toFixed(1);
 
 
 
 
 
-let box =
+
+
+let target =
 document.getElementById(
 "surveySummary"
 );
 
 
 
-if(box){
 
 
-box.innerHTML = `
+
+if(target){
+
+
+
+target.innerHTML = `
+
 
 
 <div class="survey-report">
 
 
-<h2>
-📊 ข้อมูลแบบสำรวจชุมชน
-</h2>
+
+<p>
+👥 จำนวนผู้ตอบแบบสำรวจ
+
+<br>
+
+<strong>
+${data.total}
+</strong>
+คน
+
+</p>
+
+
 
 
 <p>
-👥 ผู้ตอบแบบสำรวจ
-<b>
-${data.total}
-</b>
+⚥ เพศ
+
+<br>
+
+ชาย 
+<strong>
+${data.gender.male}
+</strong>
+
 คน
+
+<br>
+
+หญิง
+<strong>
+${data.gender.female}
+</strong>
+
+คน
+
 </p>
+
+
+
 
 
 <p>
 👴 ผู้สูงอายุ
-<b>
-${elderlyPercent}%
-</b>
+
+<br>
+
+<strong>
+${data.vulnerable.elderly}
+</strong>
+
+คน
+
+(${elderlyPercent}%)
+
 </p>
 
 
 
+
+
 <p>
-🔥 พบการเผาในพื้นที่
-<b>
-${burningPercent}%
-</b>
+♿ ผู้พิการ
+
+<br>
+
+<strong>
+${data.vulnerable.disabled}
+</strong>
+
+คน
+
 </p>
 
 
 
+
+
+
 <p>
-🌱 พร้อมเปลี่ยนหากมีทางเลือก
-<b>
-${alternativePercent}%
-</b>
+🔥 การเผาช่วงห้ามเผา
+
+<br>
+
+<strong>
+${data.environment.burning}
+</strong>
+
+ราย
+
+(${burningPercent}%)
+
 </p>
 
 
 
+
+
+
 <p>
-🌫️ ระบบติดตาม PM2.5
-<b>
+🌱 ยินดีเปลี่ยนหากมีทางเลือก
+
+<br>
+
+<strong>
+${data.environment.wantAlternative}
+</strong>
+
+ราย
+
+(${alternativePercent}%)
+
+</p>
+
+
+
+
+
+
+<p>
+🌫️ ระบบติดตามคุณภาพอากาศ
+
+<br>
+
+<strong>
 Smart Environment
-</b>
+</strong>
+
 </p>
+
 
 
 
 </div>
 
 
+
 `;
 
+
+
 }
+
+
 
 
 
@@ -119,12 +236,41 @@ Smart Environment
 
 catch(error){
 
-console.log(error);
+
+console.log(
+"Survey Error",
+error
+);
+
+
+
+let target =
+document.getElementById(
+"surveySummary"
+);
+
+
+
+if(target){
+
+target.innerHTML =
+
+"ไม่พบข้อมูลแบบสำรวจ";
+
 
 }
 
 
+
 }
+
+
+
+}
+
+
+
+
 
 
 
