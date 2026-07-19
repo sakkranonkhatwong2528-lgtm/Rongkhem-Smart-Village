@@ -1,275 +1,121 @@
 <!DOCTYPE html>
 <html lang="th">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>
-Dashboard | บ้านร่องเข็ม Smart Village
-</title>
+<title>Dashboard | บ้านร่องเข็ม Smart Village</title>
 
-
-<style>
-
-body{
-
-margin:0;
-font-family:Tahoma,sans-serif;
-background:#f1f8f5;
-
-}
-
-
-header{
-
-background:#00695c;
-color:white;
-text-align:center;
-padding:30px;
-
-}
-
-
-.container{
-
-padding:20px;
-
-}
-
-
-.grid{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:20px;
-
-}
-
-
-.card{
-
-background:white;
-padding:25px;
-border-radius:20px;
-text-align:center;
-box-shadow:0 4px 12px #ccc;
-
-}
-
-
-.number{
-
-font-size:40px;
-font-weight:bold;
-color:#00695c;
-
-}
-
-
-.title{
-
-font-size:18px;
-
-}
-<div class="card">
-
-<h3>
-💧 แหล่งซับน้ำจำ
-</h3>
-
-
-<p>
-
-ระบบนิเวศชุมชน
-
-</p>
-
-
-</div>
-
-.back{
-
-text-align:center;
-margin:30px;
-
-}
-
-
-.back a{
-
-background:#00695c;
-color:white;
-padding:12px 25px;
-border-radius:20px;
-text-decoration:none;
-
-}
-
-
-</style>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
 
 </head>
 
-
 <body>
 
-
-<header>
+<header class="dashboard-header">
 
 <h1>
-📊 Dashboard
+🏡 Dashboard หมู่บ้านอัจฉริยะร่องเข็ม
 </h1>
 
 <p>
-Rongkhem Smart Village
-</p>
-
-<p>
-บ้านร่องเข็ม หมู่ที่ 6 ตำบลจำป่าหวาย จังหวัดพะเยา
+บ้านร่องเข็ม หมู่ที่ 6  
+ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา
 </p>
 
 </header>
 
 
-
-<div class="container">
-
-
-<div class="grid">
-
+<section class="dashboard-container">
 
 
 <div class="card">
-
-<div class="number">
-0
+<h3>👥 ประชากร</h3>
+<p id="population">0</p>
+<span>คน</span>
 </div>
-
-<div class="title">
-🏠 ครัวเรือน
-</div>
-
-</div>
-
 
 
 <div class="card">
-
-<div class="number">
-0
+<h3>🏠 ครัวเรือน</h3>
+<p id="household">0</p>
+<span>หลังคาเรือน</span>
 </div>
-
-<div class="title">
-👥 ประชากร
-</div>
-
-</div>
-
 
 
 <div class="card">
-
-<div class="number">
-0
+<h3>👴 ผู้สูงอายุ</h3>
+<p id="elderly">0</p>
+<span>คน</span>
 </div>
-
-<div class="title">
-👵 ผู้สูงอายุ
-</div>
-
-</div>
-
 
 
 <div class="card">
-
-<div class="number">
-0
+<h3>❤️ กลุ่มเปราะบาง</h3>
+<p id="vulnerable">0</p>
+<span>คน</span>
 </div>
-
-<div class="title">
-❤️ กลุ่มเปราะบาง
-</div>
-
-</div>
-
 
 
 <div class="card">
-
-<div class="number">
-0
+<h3>🩺 อสม.</h3>
+<p id="health">0</p>
+<span>คน</span>
 </div>
-
-<div class="title">
-🩺 อสม.
-</div>
-
-</div>
-
 
 
 <div class="card">
-
-<div class="number">
-0
+<h3>🛡️ ชรบ.</h3>
+<p id="shorbor">0</p>
+<span>คน</span>
 </div>
-
-<div class="title">
-🚨 อปพร.
-</div>
-
-</div>
-
 
 
 <div class="card">
-
-<div class="number">
-0
+<h3>🚨 อปพร.</h3>
+<p id="oporor">0</p>
+<span>คน</span>
 </div>
-
-<div class="title">
-👮 ชรบ.
-</div>
-
-</div>
-
 
 
 <div class="card">
-
-<div class="number">
-0
-</div>
-
-<div class="title">
-👤 ผู้นำ
-</div>
-
+<h3>📢 ข่าวสาร</h3>
+<p id="news">0</p>
+<span>รายการ</span>
 </div>
 
 
-
-</div>
-
-
-</div>
+</section>
 
 
 
-<div class="back">
+<section class="summary">
 
-<a href="index.html">
-🏠 กลับหน้าแรก
-</a>
+<h2>
+📊 สรุปสถานการณ์หมู่บ้าน
+</h2>
+
+
+<div id="summaryText">
+
+กำลังโหลดข้อมูล...
 
 </div>
 
 
+</section>
+
+
+
+<footer>
+
+© 2026 บ้านร่องเข็ม Smart Village
+
+</footer>
+
+
+<script src="js/dashboard.js"></script>
 
 </body>
-
 </html>
