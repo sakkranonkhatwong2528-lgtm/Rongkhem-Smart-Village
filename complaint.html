@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="th">
 
 <head>
@@ -9,104 +10,14 @@
 
 
 <title>
-แจ้งปัญหาชุมชน | บ้านร่องเข็ม Smart Village
+ร้องเรียนออนไลน์ บ้านร่องเข็ม
 </title>
 
 
-<style>
+<link rel="stylesheet" href="css/style.css">
 
-body{
+<link rel="stylesheet" href="css/complaint.css">
 
-margin:0;
-font-family:Tahoma,sans-serif;
-background:#ffebee;
-
-}
-
-
-header{
-
-background:#c62828;
-color:white;
-padding:35px;
-text-align:center;
-
-}
-
-
-.container{
-
-padding:20px;
-
-}
-
-
-.card{
-
-background:white;
-padding:25px;
-border-radius:25px;
-box-shadow:0 4px 12px #ccc;
-margin-bottom:20px;
-
-}
-
-
-
-input,select,textarea{
-
-width:100%;
-padding:12px;
-margin:10px 0;
-border-radius:10px;
-border:1px solid #ccc;
-box-sizing:border-box;
-
-}
-
-
-
-button{
-
-background:#c62828;
-color:white;
-padding:12px 30px;
-border:none;
-border-radius:20px;
-
-}
-
-
-
-.item{
-
-background:#ffebee;
-padding:15px;
-border-radius:15px;
-
-}
-
-
-
-.back{
-
-text-align:center;
-margin:30px;
-
-}
-
-
-.back a{
-
-background:#c62828;
-color:white;
-padding:12px 25px;
-border-radius:20px;
-text-decoration:none;
-
-}
-
-</style>
 
 </head>
 
@@ -114,16 +25,18 @@ text-decoration:none;
 <body>
 
 
+<header class="complaint-header">
 
-<header>
 
 <h1>
-📝 แจ้งปัญหาชุมชน
+📢 ร้องเรียนออนไลน์
 </h1>
+
 
 <p>
 บ้านร่องเข็ม Smart Village
 </p>
+
 
 </header>
 
@@ -131,49 +44,39 @@ text-decoration:none;
 
 
 
-
-
-<div class="container">
-
-
-<div class="card">
+<section class="form-box">
 
 
 <h2>
-📢 ส่งเรื่องแจ้งปัญหา
+แจ้งปัญหาชุมชน
 </h2>
 
 
-<label>
-ประเภทปัญหา
-</label>
+<input id="name"
+placeholder="ชื่อผู้แจ้ง">
+
+
+<input id="title"
+placeholder="หัวข้อปัญหา">
 
 
 <select id="type">
+
+
+<option>
+สิ่งแวดล้อม
+</option>
+
 
 <option>
 ถนน
 </option>
 
-<option>
-ไฟฟ้า
-</option>
 
 <option>
-น้ำประปา
+ความปลอดภัย
 </option>
 
-<option>
-ขยะ
-</option>
-
-<option>
-ฝุ่น PM2.5
-</option>
-
-<option>
-สิ่งแวดล้อม
-</option>
 
 <option>
 อื่นๆ
@@ -184,267 +87,50 @@ text-decoration:none;
 
 
 
-
-<label>
-รายละเอียดปัญหา
-</label>
-
-
-<textarea
-
-id="detail"
-
-rows="5"
-
-placeholder="อธิบายปัญหา">
-
+<textarea id="detail"
+placeholder="รายละเอียดปัญหา">
 </textarea>
 
 
 
+<button onclick="sendComplaint()">
 
-<label>
-สถานที่เกิดเหตุ
-</label>
-
-
-<input
-
-id="location"
-
-placeholder="เช่น หมู่ 6 บ้านร่องเข็ม">
-
-
-
-
-
-<label>
-ชื่อผู้แจ้ง
-</label>
-
-
-<input
-
-id="name"
-
-placeholder="ชื่อ">
-
-
-
-
-<label>
-เบอร์ติดต่อ
-</label>
-
-
-<input
-
-id="phone"
-
-placeholder="เบอร์โทร">
-
-
-
-
-<button onclick="saveComplaint()">
-
-📨 ส่งเรื่องแจ้ง
+ส่งเรื่องร้องเรียน
 
 </button>
 
 
 
-</div>
+</section>
 
 
 
 
 
 
-
-<div class="card">
+<section>
 
 
 <h2>
-📋 รายการแจ้งของคุณ
+📋 รายการร้องเรียน
 </h2>
 
 
-<div id="list">
+<div id="complaintList">
+
+กำลังโหลด...
 
 </div>
 
 
-</div>
+</section>
 
 
 
-</div>
 
 
 
-
-
-
-
-<div class="back">
-
-<a href="index.html">
-
-🏠 กลับหน้าแรก
-
-</a>
-
-</div>
-
-
-
-
-
-
-
-<script>
-
-
-let complaint =
-
-JSON.parse(
-
-localStorage.getItem("complaint")
-
-)||[];
-
-
-
-
-
-function saveComplaint(){
-
-
-let data={
-
-
-type:
-
-document.getElementById("type").value,
-
-
-detail:
-
-document.getElementById("detail").value,
-
-
-location:
-
-document.getElementById("location").value,
-
-
-name:
-
-document.getElementById("name").value,
-
-
-phone:
-
-document.getElementById("phone").value,
-
-
-status:"รอดำเนินการ"
-
-
-};
-
-
-
-
-complaint.push(data);
-
-
-
-localStorage.setItem(
-
-"complaint",
-
-JSON.stringify(complaint)
-
-);
-
-
-
-alert("ส่งเรื่องเรียบร้อย");
-
-
-
-show();
-
-
-}
-
-
-
-
-
-
-
-function show(){
-
-
-let html="";
-
-
-complaint.forEach(function(item){
-
-
-
-html+=`
-
-<div class="item">
-
-<b>
-⚠️ ${item.type}
-</b>
-
-
-<p>
-${item.detail}
-</p>
-
-
-<p>
-📍 ${item.location}
-</p>
-
-
-<p>
-สถานะ :
-${item.status}
-</p>
-
-
-</div>
-
-`;
-
-
-
-});
-
-
-
-document.getElementById("list")
-.innerHTML=html;
-
-
-}
-
-
-
-show();
-
-
-
-</script>
-
+<script src="js/complaint.js"></script>
 
 
 </body>
