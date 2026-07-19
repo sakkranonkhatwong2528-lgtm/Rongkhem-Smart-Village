@@ -1,89 +1,23 @@
 <!DOCTYPE html>
+
 <html lang="th">
 
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ระบบเหตุฉุกเฉิน | Rongkhem Smart Village</title>
-
-<link rel="stylesheet" href="../css/style.css">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 
-<style>
-
-.container{
-padding:20px;
-}
-
-.header{
-
-background:linear-gradient(135deg,#dc3545,#fd7e14);
-color:white;
-padding:25px;
-border-radius:15px;
-
-}
+<title>
+แจ้งเหตุฉุกเฉิน | บ้านร่องเข็ม
+</title>
 
 
-.card{
+<link rel="stylesheet" href="css/style.css">
 
-background:white;
-padding:20px;
-margin-top:20px;
-border-radius:15px;
-box-shadow:0 3px 10px #ddd;
+<link rel="stylesheet" href="css/emergency.css">
 
-}
-
-
-.grid{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:15px;
-
-}
-
-
-.box{
-
-background:#f8f9fa;
-padding:20px;
-border-radius:15px;
-text-align:center;
-
-}
-
-
-.icon{
-
-font-size:45px;
-
-}
-
-
-.number{
-
-font-size:35px;
-font-weight:bold;
-color:#dc3545;
-
-}
-
-
-button{
-
-background:#dc3545;
-color:white;
-border:none;
-padding:12px 20px;
-border-radius:10px;
-
-}
-
-</style>
 
 </head>
 
@@ -91,234 +25,89 @@ border-radius:10px;
 <body>
 
 
-<div class="container">
+<header class="emergency-header">
 
-
-<div class="header">
 
 <h1>
-🚨 ระบบเหตุฉุกเฉินชุมชน
+🚨 แจ้งเหตุฉุกเฉิน
 </h1>
 
-<p>
-🏡 Rongkhem Smart Village
-<br>
-Smart Safety Village
 
+<p>
+ระบบแจ้งเหตุบ้านร่องเข็ม Smart Village
 </p>
 
-</div>
+
+</header>
 
 
 
 
 
-
-
-
-<div class="card">
+<section class="form-box">
 
 
 <h2>
-📊 สถานการณ์ล่าสุด
+📢 แจ้งเหตุ
 </h2>
 
 
-<div class="grid">
+<input id="name"
+placeholder="ชื่อผู้แจ้ง">
 
 
-<div class="box">
+<select id="type">
 
-<div class="icon">
-🚨
-</div>
-
-<h3>
-เหตุแจ้งวันนี้
-
-</h3>
-
-<div class="number">
-0
-
-</div>
-
-รายการ
-
-
-</div>
-
-
-
-
-<div class="box">
-
-<div class="icon">
-🛡️
-</div>
-
-<h3>
-ชรบ.
-
-</h3>
-
-<p>
-ทีมช่วยเหลือ
-
-</p>
-
-
-</div>
-
-
-
-
-<div class="box">
-
-<div class="icon">
-👨‍🚒
-</div>
-
-<h3>
-อปพร.
-
-</h3>
-
-<p>
-ทีมป้องกันภัย
-
-</p>
-
-
-</div>
-
-
-
-
-<div class="box">
-
-<div class="icon">
-🩺
-</div>
-
-<h3>
-อสม.
-
-</h3>
-
-<p>
-ช่วยเหลือสุขภาพ
-
-</p>
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-
-<div class="card">
-
-
-<h2>
-📢 ประเภทเหตุฉุกเฉิน
-
-</h2>
-
-
-<div class="grid">
-
-
-<div class="box">
-🔥
-<br>
+<option>
 ไฟไหม้
-</div>
+</option>
 
-
-<div class="box">
-🌧️
-<br>
-น้ำท่วม
-</div>
-
-
-<div class="box">
-🚑
-<br>
-เจ็บป่วยฉุกเฉิน
-</div>
-
-
-<div class="box">
-⚠️
-<br>
+<option>
 อุบัติเหตุ
-</div>
+</option>
+
+<option>
+โจรกรรม
+</option>
+
+<option>
+เหตุรบกวน
+</option>
+
+<option>
+อื่นๆ
+</option>
+
+</select>
 
 
-</div>
+
+<input id="location"
+placeholder="สถานที่เกิดเหตุ">
 
 
-</div>
+<select id="level">
+
+<option>
+ทั่วไป
+</option>
+
+<option>
+เร่งด่วน
+</option>
+
+</select>
 
 
 
+<button onclick="sendEmergency()">
 
-
-
-
-
-<div class="card">
-
-
-<h2>
-📝 แจ้งเหตุใหม่
-
-</h2>
-
-
-<ul>
-
-<li>
-ระบุประเภทเหตุ
-</li>
-
-<li>
-ระบุสถานที่
-</li>
-
-<li>
-แนบรูปภาพ
-</li>
-
-<li>
-ส่งแจ้งเตือนทีมช่วยเหลือ
-
-</li>
-
-
-</ul>
-
-
-<button>
-
-รับแจ้งเหตุ
+ส่งแจ้งเหตุ
 
 </button>
 
 
-</div>
+</section>
 
 
 
@@ -326,111 +115,18 @@ Smart Safety Village
 
 
 
+<section id="emergencyList"
+class="emergency-grid">
 
-<div class="card">
 
+</section>
 
-<h2>
-📍 ติดตามตำแหน่งเหตุการณ์
 
-</h2>
 
 
-<p>
 
-เชื่อมต่อระบบ GPS  
-แสดงตำแหน่งเกิดเหตุบนแผนที่
 
-</p>
-
-
-<button>
-
-เปิดแผนที่เหตุการณ์
-
-</button>
-
-
-</div>
-
-
-
-
-
-
-
-
-<div class="card">
-
-
-<h2>
-📋 ประวัติเหตุการณ์
-
-</h2>
-
-
-<ul>
-
-<li>
-ยังไม่มีข้อมูลเหตุการณ์
-
-</li>
-
-<li>
-บันทึกเวลาเกิดเหตุ
-
-</li>
-
-<li>
-บันทึกทีมเข้าช่วยเหลือ
-
-</li>
-
-<li>
-สรุปผลการแก้ไข
-
-</li>
-
-
-</ul>
-
-
-</div>
-
-
-
-
-
-
-
-
-<div class="card">
-
-
-<h2>
-📊 รายงานความปลอดภัย
-
-</h2>
-
-
-<button>
-
-สร้างรายงาน
-
-</button>
-
-
-<button>
-
-Export PDF
-
-</button>
-
-
-</div>
-
-
-</div>
+<script src="js/emergency.js"></script>
 
 
 </body>
