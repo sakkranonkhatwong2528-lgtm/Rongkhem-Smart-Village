@@ -6,12 +6,17 @@
 
 <meta charset="UTF-8">
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
 <title>
-Admin Community
+Admin Community Network | บ้านร่องเข็ม
 </title>
 
 
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="stylesheet" href="css/admin-community.css">
 
 
 </head>
@@ -20,11 +25,11 @@ Admin Community
 <body>
 
 
-<header class="hero">
+<header class="admin-community-header">
 
 
 <h1>
-🏡 ระบบข้อมูลชุมชน
+⚙️ จัดการเครือข่ายชุมชน
 </h1>
 
 
@@ -38,56 +43,65 @@ Admin Community
 
 
 
-<section class="dashboard">
-
-
-<div class="card">
-
-<h2>
-📍 ข้อมูลพื้นฐาน
-</h2>
-
-
-<div id="community-info">
-
-กำลังโหลด...
-
-</div>
-
-
-</div>
 
 
 
-<div class="card">
-
-<h2>
-🌱 ทรัพยากรชุมชน
-</h2>
+<section class="admin-summary">
 
 
-<div id="resource-list">
 
-</div>
+<div class="admin-card">
+
+
+<h3>
+👥 จำนวนกลุ่ม
+</h3>
+
+
+<h1 id="groupCount">
+0
+</h1>
 
 
 </div>
 
 
 
-<div class="card">
-
-<h2>
-🏆 ผลงานหมู่บ้าน
-</h2>
 
 
-<div id="achievement-list">
+<div class="admin-card">
+
+
+<h3>
+🏛️ องค์กรชุมชน
+</h3>
+
+
+<h1 id="orgCount">
+0
+</h1>
+
 
 </div>
 
 
+
+
+<div class="admin-card">
+
+
+<h3>
+🌱 ด้านสิ่งแวดล้อม
+</h3>
+
+
+<h1 id="environmentCount">
+0
+</h1>
+
+
 </div>
+
 
 
 
@@ -95,7 +109,65 @@ Admin Community
 
 
 
-<script src="../js/community-admin.js"></script>
+
+
+
+
+
+<section class="admin-table">
+
+
+<h2>
+📋 รายการเครือข่าย
+</h2>
+
+
+<table>
+
+
+<thead>
+
+<tr>
+
+<th>
+ชื่อกลุ่ม
+</th>
+
+<th>
+ประเภท
+</th>
+
+<th>
+รายละเอียด
+</th>
+
+</tr>
+
+</thead>
+
+
+
+<tbody id="communityTable">
+
+
+</tbody>
+
+
+
+</table>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<script src="js/admin-community.js"></script>
 
 
 </body>
