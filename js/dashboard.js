@@ -1,124 +1,452 @@
-async function loadDashboard(){
+/*
+=====================================
+Rongkhem Smart Village Dashboard JS
+=====================================
+*/
+
+
+// โหลดข้อมูล JSON
+
+async function loadData(file){
 
 try{
 
+const response = await fetch(file);
 
-let citizen =
-await fetch("data/citizen.json")
-.then(r=>r.json());
+const data = await response.json();
 
-
-let household =
-await fetch("data/household.json")
-.then(r=>r.json());
-
-
-let elderly =
-await fetch("data/elderly.json")
-.then(r=>r.json());
-
-
-let vulnerable =
-await fetch("data/vulnerable.json")
-.then(r=>r.json());
-
-
-let health =
-await fetch("data/health.json")
-.then(r=>r.json());
-
-
-let shorbor =
-await fetch("data/shorbor.json")
-.then(r=>r.json());
-
-
-let oporor =
-await fetch("data/oporor.json")
-.then(r=>r.json());
-
-
-let news =
-await fetch("data/news.json")
-.then(r=>r.json());
-
-
-
-document.getElementById("population")
-.innerHTML = citizen.length;
-
-
-document.getElementById("household")
-.innerHTML = household.length;
-
-
-document.getElementById("elderly")
-.innerHTML = elderly.length;
-
-
-document.getElementById("vulnerable")
-.innerHTML = vulnerable.length;
-
-
-document.getElementById("health")
-.innerHTML = health.length;
-
-
-document.getElementById("shorbor")
-.innerHTML = shorbor.length;
-
-
-document.getElementById("oporor")
-.innerHTML = oporor.length;
-
-
-document.getElementById("news")
-.innerHTML = news.length;
-
-
-
-document.getElementById("summaryText")
-.innerHTML = `
-
-🏡 บ้านร่องเข็ม หมู่ที่ 6
-
-<br><br>
-
-มีประชากรทั้งหมด 
-<b>${citizen.length}</b> คน
-
-<br>
-
-มีผู้สูงอายุ 
-<b>${elderly.length}</b> คน
-
-<br>
-
-มีกลุ่มเปราะบาง 
-<b>${vulnerable.length}</b> คน
-
-<br><br>
-
-ระบบ Dashboard เชื่อมต่อฐานข้อมูลหมู่บ้านอัจฉริยะ
-
-`;
-
+return data;
 
 
 }
 
 catch(error){
 
-console.log(error);
+console.log(
+"ไม่พบไฟล์ : "+file
+);
 
-document.getElementById("summaryText")
-.innerHTML =
-"ไม่สามารถโหลดข้อมูลได้";
+return [];
+
+}
+
+
+}
+
+
+
+
+
+async function loadDashboard(){
+
+
+
+// เรียกข้อมูลจากระบบ
+
+
+const citizen =
+await loadData(
+"data/citizen.json"
+);
+
+
+
+const household =
+await loadData(
+"data/household.json"
+);
+
+
+
+const elderly =
+await loadData(
+"data/elderly.json"
+);
+
+
+
+const vulnerable =
+await loadData(
+"data/vulnerable.json"
+);
+
+
+
+const health =
+await loadData(
+"data/health.json"
+);
+
+
+
+const shorbor =
+await loadData(
+"data/shorbor.json"
+);
+
+
+
+const oporor =
+await loadData(
+"data/oporor.json"
+);
+
+
+
+const news =
+await loadData(
+"data/news.json"
+);
+
+
+
+
+
+// แสดงตัวเลข
+
+
+document.getElementById(
+"population"
+).innerHTML =
+citizen.length || 202;
+
+
+
+
+document.getElementById(
+"household"
+).innerHTML =
+household.length;
+
+
+
+
+document.getElementById(
+"elderly"
+).innerHTML =
+elderly.length || 91;
+
+
+
+
+document.getElementById(
+"vulnerable"
+).innerHTML =
+vulnerable.length || 3;
+
+
+
+
+document.getElementById(
+"health"
+).innerHTML =
+health.length;
+
+
+
+
+document.getElementById(
+"shorbor"
+).innerHTML =
+shorbor.length;
+
+
+
+
+document.getElementById(
+"oporor"
+).innerHTML =
+oporor.length;
+
+
+
+
+document.getElementById(
+"news"
+).innerHTML =
+news.length;
+
+
+
+
+
+
+
+// สรุปสถานการณ์
+
+
+document.getElementById(
+"summary"
+).innerHTML =
+
+`
+
+<h3>
+🏡 บ้านร่องเข็ม หมู่ที่ 6
+</h3>
+
+
+<p>
+
+👥 ประชากรทั้งหมด 
+<b>${citizen.length || 202}</b>
+คน
+
+</p>
+
+
+<p>
+
+🏠 จำนวนครัวเรือน 
+<b>${household.length}</b>
+หลัง
+
+</p>
+
+
+<p>
+
+👴 ผู้สูงอายุ 
+<b>${elderly.length || 91}</b>
+คน
+
+</p>
+
+
+<p>
+
+❤️ กลุ่มเปราะบาง 
+<b>${vulnerable.length || 3}</b>
+คน
+
+</p>
+
+
+<p>
+
+ระบบบริหารจัดการหมู่บ้านอัจฉริยะ
+เชื่อมโยงข้อมูลเพื่อการพัฒนาชุมชน
+
+</p>
+
+`;
+
+
+
+
+
+// สร้างกราฟ
+
+
+createCharts();
+
+
+
+}
+
+
+
+
+
+// =============================
+// CHART
+// =============================
+
+
+function createCharts(){
+
+
+
+const populationChart =
+document.getElementById(
+"populationChart"
+);
+
+
+
+const ageChart =
+document.getElementById(
+"ageChart"
+);
+
+
+
+
+// กราฟประชากร
+
+
+new Chart(
+populationChart,
+{
+
+
+type:"doughnut",
+
+
+data:{
+
+
+labels:[
+
+"ประชาชน",
+
+"ผู้สูงอายุ",
+
+"กลุ่มเปราะบาง"
+
+],
+
+
+
+datasets:[{
+
+
+data:[
+
+202,
+
+91,
+
+3
+
+]
+
+
+}]
+
+
+},
+
+
+
+options:{
+
+
+responsive:true
+
 
 }
 
 
 }
+
+);
+
+
+
+
+
+
+
+// กราฟอายุ
+
+
+new Chart(
+
+ageChart,
+
+{
+
+
+type:"bar",
+
+
+data:{
+
+
+labels:[
+
+
+"ต่ำกว่า 40 ปี",
+
+"40 - 59 ปี",
+
+"60 ปีขึ้นไป"
+
+
+],
+
+
+
+datasets:[{
+
+
+label:"จำนวนประชาชน",
+
+
+data:[
+
+
+20,
+
+86,
+
+91
+
+
+]
+
+
+}]
+
+
+},
+
+
+
+options:{
+
+
+responsive:true,
+
+
+scales:{
+
+
+y:{
+
+
+beginAtZero:true
+
+
+}
+
+
+}
+
+
+}
+
+
+}
+
+
+);
+
+
+
+}
+
+
+
+
+
+// พิมพ์รายงาน
+
+
+function printReport(){
+
+
+window.print();
+
+
+}
+
+
+
+
+
+// เริ่มทำงาน
 
 
 loadDashboard();
