@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="th">
 
 <head>
@@ -9,119 +10,14 @@
 
 
 <title>
-จัดการเรื่องร้องเรียน | บ้านร่องเข็ม Smart Village
+Admin Complaint | บ้านร่องเข็ม
 </title>
 
 
-<style>
+<link rel="stylesheet" href="css/style.css">
 
+<link rel="stylesheet" href="css/admin-complaint.css">
 
-body{
-
-margin:0;
-font-family:Tahoma,sans-serif;
-background:#fffde7;
-
-}
-
-
-
-header{
-
-background:#ef6c00;
-color:white;
-padding:30px;
-text-align:center;
-
-}
-
-
-
-.container{
-
-padding:20px;
-
-}
-
-
-
-.card{
-
-background:white;
-padding:25px;
-border-radius:25px;
-box-shadow:0 4px 12px #ccc;
-margin-bottom:20px;
-
-}
-
-
-
-.item{
-
-background:#fff8e1;
-padding:20px;
-border-radius:20px;
-margin-top:15px;
-
-}
-
-
-
-select,textarea{
-
-width:100%;
-padding:10px;
-margin-top:10px;
-border-radius:10px;
-border:1px solid #ccc;
-
-}
-
-
-
-button{
-
-background:#ef6c00;
-color:white;
-border:none;
-padding:10px 25px;
-border-radius:20px;
-margin-top:10px;
-
-}
-
-
-
-.delete{
-
-background:#c62828;
-
-}
-
-
-
-.back{
-
-text-align:center;
-margin:30px;
-
-}
-
-
-
-.back a{
-
-background:#ef6c00;
-color:white;
-padding:12px 25px;
-border-radius:20px;
-text-decoration:none;
-
-}
-
-
-</style>
 
 </head>
 
@@ -129,17 +25,16 @@ text-decoration:none;
 <body>
 
 
-
-<header>
+<header class="complaint-admin-header">
 
 
 <h1>
-📝 จัดการเรื่องร้องเรียน
+📋 ศูนย์จัดการเรื่องร้องเรียน
 </h1>
 
 
 <p>
-Admin บ้านร่องเข็ม Smart Village
+บ้านร่องเข็ม Smart Village
 </p>
 
 
@@ -149,302 +44,130 @@ Admin บ้านร่องเข็ม Smart Village
 
 
 
+<section class="summary">
 
 
-<div class="container">
+<div class="summary-card">
+
+<h3>
+📌 ทั้งหมด
+</h3>
+
+<h1 id="total">
+0
+</h1>
+
+</div>
 
 
-<div class="card">
+
+
+<div class="summary-card">
+
+<h3>
+⏳ รอดำเนินการ
+</h3>
+
+<h1 id="pending">
+0
+</h1>
+
+</div>
+
+
+
+
+
+<div class="summary-card">
+
+<h3>
+🔄 กำลังแก้ไข
+</h3>
+
+<h1 id="process">
+0
+</h1>
+
+</div>
+
+
+
+
+
+<div class="summary-card">
+
+<h3>
+✅ เสร็จแล้ว
+</h3>
+
+<h1 id="done">
+0
+</h1>
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<section class="complaint-table">
 
 
 <h2>
-📋 รายการแจ้งปัญหา
+📋 รายการปัญหา
 </h2>
 
 
-<div id="list">
+<table>
 
-</div>
 
+<thead>
 
-</div>
+<tr>
 
+<th>
+ปัญหา
+</th>
 
+<th>
+ประเภท
+</th>
 
-</div>
-
-
-
-
-
-
-
-
-<div class="back">
-
-
-<a href="admin-dashboard.html">
-
-⚙️ กลับ Dashboard
-
-</a>
-
-
-</div>
-
-
-
-
-
-
-
-
-<script>
-
-
-let complaints =
-
-JSON.parse(
-
-localStorage.getItem("complaints")
-
-)||[];
-
-
-
-
-showComplaint();
-
-
-
-
-
-
-function showComplaint(){
-
-
-
-let html="";
-
-
-
-if(complaints.length==0){
-
-
-html=`
-
-<p>
-ยังไม่มีรายการแจ้งปัญหา
-</p>
-
-`;
-
-
-
-}
-
-
-
-complaints.forEach(function(item,index){
-
-
-
-html += `
-
-
-<div class="item">
-
-
-<h3>
-📌 ${item.type}
-</h3>
-
-
-
-<p>
-
-${item.detail}
-
-</p>
-
-
-
-<p>
-
-📍 สถานที่ :
-${item.location}
-
-</p>
-
-
-
-
-
-<label>
+<th>
 สถานะ
-</label>
+</th>
 
+<th>
+จัดการ
+</th>
 
+</tr>
 
-<select onchange="changeStatus(${index},this.value)">
+</thead>
 
 
-<option ${item.status=="รับเรื่องแล้ว"?"selected":""}>
-รับเรื่องแล้ว
-</option>
+<tbody id="complaintData">
 
 
-<option ${item.status=="กำลังดำเนินการ"?"selected":""}>
-กำลังดำเนินการ
-</option>
+</tbody>
 
 
-<option ${item.status=="เสร็จสิ้น"?"selected":""}>
-เสร็จสิ้น
-</option>
+</table>
 
 
+</section>
 
-</select>
 
 
 
 
 
-<label>
 
-ผลการดำเนินงาน
-
-</label>
-
-
-
-<textarea
-
-onchange="saveResult(${index},this.value)"
-
-rows="3">
-
-${item.result||""}
-
-</textarea>
-
-
-
-
-
-<button class="delete"
-
-onclick="deleteComplaint(${index})">
-
-ลบรายการ
-
-</button>
-
-
-
-
-</div>
-
-
-`;
-
-
-
-});
-
-
-
-document.getElementById("list")
-.innerHTML=html;
-
-
-
-}
-
-
-
-
-
-
-
-
-function changeStatus(index,value){
-
-
-
-complaints[index].status=value;
-
-
-
-save();
-
-
-
-}
-
-
-
-
-
-function saveResult(index,value){
-
-
-complaints[index].result=value;
-
-
-save();
-
-
-
-}
-
-
-
-
-
-function deleteComplaint(index){
-
-
-complaints.splice(index,1);
-
-
-save();
-
-
-
-}
-
-
-
-
-
-
-function save(){
-
-
-localStorage.setItem(
-
-"complaints",
-
-JSON.stringify(complaints)
-
-);
-
-
-
-showComplaint();
-
-
-}
-
-
-
-</script>
-
-
-
-
+<script src="js/admin-complaint.js"></script>
 
 
 </body>
