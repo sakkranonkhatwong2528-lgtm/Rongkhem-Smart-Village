@@ -1,130 +1,40 @@
 <!DOCTYPE html>
+
 <html lang="th">
 
 <head>
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 
 <title>
-สุขภาพชุมชน | บ้านร่องเข็ม Smart Village
+ระบบสุขภาพชุมชน | บ้านร่องเข็ม
 </title>
 
 
-<style>
+<link rel="stylesheet" href="css/style.css">
 
-body{
+<link rel="stylesheet" href="css/health.css">
 
-margin:0;
-font-family:Tahoma,sans-serif;
-background:#e0f2f1;
-
-}
-
-
-header{
-
-background:#00796b;
-color:white;
-padding:35px;
-text-align:center;
-
-}
-
-
-.container{
-
-padding:20px;
-
-}
-
-
-.grid{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-
-}
-
-
-.card{
-
-background:white;
-padding:25px;
-border-radius:25px;
-box-shadow:0 4px 12px #ccc;
-text-align:center;
-
-}
-
-
-.icon{
-
-font-size:45px;
-
-}
-
-
-.number{
-
-font-size:35px;
-color:#00796b;
-font-weight:bold;
-
-}
-
-
-
-.section{
-
-background:white;
-padding:25px;
-border-radius:25px;
-margin-top:20px;
-
-}
-
-
-.back{
-
-text-align:center;
-margin:30px;
-
-}
-
-
-.back a{
-
-background:#00796b;
-color:white;
-padding:12px 25px;
-border-radius:20px;
-text-decoration:none;
-
-}
-
-</style>
 
 </head>
-
 
 
 <body>
 
 
+<header class="health-header">
 
-<header>
 
 <h1>
-🩺 สุขภาพชุมชน
+🩺 ระบบสุขภาพชุมชน
 </h1>
 
 
 <p>
-Smart Health Village บ้านร่องเข็ม
+บ้านร่องเข็ม Smart Village
 </p>
 
 
@@ -134,204 +44,34 @@ Smart Health Village บ้านร่องเข็ม
 
 
 
+<section class="search-box">
 
 
-<div class="container">
+<input id="search"
+placeholder="🔎 ค้นหาชื่อผู้รับบริการ">
 
 
-<div class="grid">
+</section>
 
 
 
-<div class="card">
 
-<div class="icon">
-👴
-</div>
 
-<div class="number" id="elder">
--
-</div>
+<section id="healthList"
+class="health-grid">
 
-<p>
-ผู้สูงอายุ
-</p>
 
-</div>
+กำลังโหลดข้อมูล...
 
 
+</section>
 
 
 
-<div class="card">
 
-<div class="icon">
-♿
-</div>
 
-<div class="number" id="disabled">
--
-</div>
 
-<p>
-ผู้พิการ
-</p>
-
-</div>
-
-
-
-
-
-<div class="card">
-
-<div class="icon">
-👩‍⚕️
-</div>
-
-<div class="number" id="volunteer">
--
-</div>
-
-<p>
-อสม.
-</p>
-
-</div>
-
-
-
-
-
-<div class="card">
-
-<div class="icon">
-🏠
-</div>
-
-<div class="number" id="visit">
--
-</div>
-
-<p>
-เยี่ยมบ้าน
-</p>
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-<div class="section">
-
-
-<h2>
-📋 งานสุขภาพชุมชน
-</h2>
-
-
-<p>
-
-✅ อสม. ดูแลสุขภาพประชาชน
-
-<br>
-
-✅ สำรวจกลุ่มผู้สูงอายุและผู้เปราะบาง
-
-<br>
-
-✅ เยี่ยมบ้านผู้ป่วยติดบ้านติดเตียง
-
-<br>
-
-✅ เฝ้าระวังโรคในชุมชน
-
-</p>
-
-
-
-</div>
-
-
-
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-<div class="back">
-
-
-<a href="index.html">
-
-🏠 กลับหน้าแรก
-
-</a>
-
-
-</div>
-
-
-
-
-
-
-
-<script>
-
-
-let health =
-
-JSON.parse(
-
-localStorage.getItem("health")
-
-);
-
-
-
-if(health){
-
-
-elder.innerHTML =
-health.elder+" คน";
-
-
-disabled.innerHTML =
-health.disabled+" คน";
-
-
-volunteer.innerHTML =
-health.volunteer+" คน";
-
-
-visit.innerHTML =
-health.visit+" หลัง";
-
-
-}
-
-
-</script>
-
-
-
+<script src="js/health.js"></script>
 
 
 </body>
