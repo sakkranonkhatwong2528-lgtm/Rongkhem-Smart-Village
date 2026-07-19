@@ -1,92 +1,99 @@
-// =====================================
-// Rongkhem Smart Village
-// Notification Module v1.0
-// =====================================
+/*
+==================================
+Notification Center
+Rongkhem Smart Village
+==================================
+*/
 
 
-class NotificationManager {
+async function loadNotification(){
 
 
-    constructor(){
+const data =
+await fetch(
+"data/notification.json"
+)
 
-        this.notifications=[];
-
-    }
-
-
-
-    async load(){
-
-        this.notifications =
-        await API.load("notification.json");
-
-        return this.notifications;
-
-    }
+.then(r=>r.json());
 
 
 
-    render(containerId){
-
-
-        const box =
-        document.getElementById(containerId);
-
-
-        if(!box) return;
-
-
-        box.innerHTML="";
-
-
-        this.notifications
-        .forEach(item=>{
-
-
-            box.innerHTML += `
-
-            <div class="notification-card">
-
-
-                <h3>
-                🔔 ${item.title}
-                </h3>
-
-
-                <p>
-                ${item.date}
-                </p>
-
-
-                <p>
-                ${item.detail}
-                </p>
-
-
-            </div>
-
-
-            `;
-
-
-        });
-
-
-    }
+let html="";
 
 
 
-    latest(limit=5){
+data.notifications.forEach(n=>{
 
-        return this.notifications
-        .slice(0,limit);
 
-    }
+let level="";
+
+
+if(n.priority=="สูง"){
+
+level="high";
+
+}
+
+
+
+html += `
+
+
+<div class="notification-card ${level}">
+
+
+<h3>
+
+${n.title}
+
+</h3>
+
+
+<p>
+
+${n.detail}
+
+</p>
+
+
+<p>
+
+📅 ${n.date}
+
+</p>
+
+
+<p>
+
+ระดับ :
+${n.priority}
+
+</p>
+
+
+
+</div>
+
+
+`;
+
+
+
+});
+
+
+
+
+document.getElementById(
+"notificationList"
+)
+.innerHTML=html;
 
 
 
 }
 
 
-const NOTIFICATION =
-new NotificationManager();
+
+
+loadNotification();
