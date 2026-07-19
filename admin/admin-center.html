@@ -7,107 +7,16 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
 <title>
-Admin Center | Rongkhem Smart Village
+Admin Center | บ้านร่องเข็ม Smart Village
 </title>
-<a href="admin-user.html">
-
-👤 ผู้ใช้งาน
-
-</a>
-
-<style>
-
-body{
-<script src="js/auth.js"></script>
-
-<script>
-
-checkLogin();
-
-</script>
-font-family:"Sarabun",sans-serif;
-background:#f5f5f5;
-margin:0;
-
-}
 
 
-header{
+<link rel="stylesheet" href="css/style.css">
 
-background:#263238;
-color:white;
-padding:25px;
-text-align:center;
+<link rel="stylesheet" href="css/admin-center.css">
 
-}
-
-
-.container{
-
-padding:20px;
-
-}
-
-
-.menu{
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(220px,1fr));
-
-gap:20px;
-
-}
-
-
-
-.card{
-
-background:white;
-padding:25px;
-border-radius:20px;
-text-align:center;
-box-shadow:0 3px 10px #ccc;
-cursor:pointer;
-
-}
-
-
-
-.card:hover{
-
-transform:translateY(-5px);
-
-}
-
-
-
-.icon{
-
-font-size:45px;
-
-}
-
-
-a{
-
-text-decoration:none;
-color:#263238;
-
-}
-
-
-.logout{
-
-background:#c62828;
-color:white;
-
-}
-
-
-</style>
 
 </head>
 
@@ -115,212 +24,251 @@ color:white;
 <body>
 
 
-<header>
+<header class="admin-header">
+
 
 <h1>
-⚙️ Admin Center
+👨‍💻 ศูนย์ควบคุมผู้ดูแลระบบ
 </h1>
 
-<p>
-Rongkhem Smart Village
-</p>
 
 <p>
-ระบบบริหารจัดการบ้านร่องเข็ม หมู่ที่ 6
+บ้านร่องเข็ม Smart Village
 </p>
+
+
+<div id="userInfo">
+
+กำลังโหลด...
+
+</div>
+
+
+<button onclick="logout()">
+
+ออกจากระบบ
+
+</button>
+
 
 </header>
-<a href="admin-news.html">
-
-📰 ข่าวสาร
-
-</a>
 
 
-<div class="container">
 
 
-<div class="menu">
 
 
-<a href="../dashboard.html">
+<main>
 
-<div class="card">
 
-<div class="icon">
+
+<section class="admin-menu">
+
+
+
+<a href="dashboard.html">
+
 📊
-</div>
 
-<h2>
+<h3>
 Dashboard
-</h2>
+</h3>
 
 <p>
-ภาพรวมข้อมูลหมู่บ้าน
+ภาพรวมหมู่บ้าน
 </p>
-
-</div>
-
-</a>
-
-
-
-<a href="manage-news.html">
-
-<div class="card">
-
-<div class="icon">
-📰
-</div>
-
-<h2>
-ข่าวประชาสัมพันธ์
-</h2>
-
-<p>
-เพิ่ม แก้ไข ลบข่าว
-</p>
-
-</div>
 
 </a>
 
 
 
 
-<a href="manage-gallery.html">
 
-<div class="card">
+<a href="admin-citizen.html">
 
-<div class="icon">
-📸
-</div>
+👥
 
-<h2>
-คลังรูปภาพ
-</h2>
+<h3>
+ประชาชน
+</h3>
 
 <p>
-จัดการรูปกิจกรรม
+ทะเบียนประชาชน
 </p>
-
-</div>
 
 </a>
 
 
 
 
-<a href="manage-leaders.html">
 
-<div class="card">
 
-<div class="icon">
-👤
-</div>
+<a href="admin-health.html">
 
-<h2>
+🩺
+
+<h3>
+สุขภาพ
+</h3>
+
+<p>
+อสม. ผู้สูงอายุ
+</p>
+
+</a>
+
+
+
+
+
+
+<a href="admin-leaders-upload.html">
+
+🏛️
+
+<h3>
+ผู้นำชุมชน
+</h3>
+
+<p>
 ทำเนียบผู้นำ
-</h2>
-
-<p>
-ข้อมูลคณะทำงาน
 </p>
-
-</div>
 
 </a>
 
 
 
 
-<a href="manage-opp.html">
 
-<div class="card">
 
-<div class="icon">
-🚨
-</div>
+<a href="admin-community.html">
 
-<h2>
-อปพร.
-</h2>
+👥
+
+<h3>
+เครือข่ายชุมชน
+</h3>
 
 <p>
-ฐานข้อมูล อปพร.
+กลุ่มองค์กร
 </p>
-
-</div>
 
 </a>
 
 
 
-<div class="card">
 
-<div class="icon">
-🏡
-</div>
 
-<h2>
-ข้อมูลหมู่บ้าน
-</h2>
+
+<a href="document-center.html">
+
+📄
+
+<h3>
+เอกสาร
+</h3>
 
 <p>
-บ้านร่องเข็ม หมู่ที่ 6
+หนังสือ คำสั่ง รายงาน
 </p>
 
-</div>
+</a>
 
 
 
 
-<div class="card logout"
-onclick="logout()">
 
-<div class="icon">
-🔓
-</div>
+
+<a href="admin-map.html">
+
+🗺️
+
+<h3>
+Smart Map
+</h3>
+
+<p>
+แผนที่หมู่บ้าน
+</p>
+
+</a>
+
+
+
+
+
+
+<a href="ai.html">
+
+🤖
+
+<h3>
+AI ผู้ช่วย
+</h3>
+
+<p>
+ช่วยงานผู้ใหญ่บ้าน
+</p>
+
+</a>
+
+
+
+
+
+</section>
+
+
+
+
+
+
+<section class="system-status">
+
 
 <h2>
-ออกจากระบบ
+📡 สถานะระบบ
 </h2>
 
+
+
+<div id="status">
+
+กำลังตรวจสอบ...
+
 </div>
 
 
 
-</div>
+</section>
 
 
-</div>
 
+
+
+
+</main>
+
+
+
+
+
+
+
+<script src="js/auth.js"></script>
+
+<script src="js/admin-center.js"></script>
 
 
 
 <script>
 
+showUser();
 
-// ตรวจสอบ Login
-
-if(localStorage.getItem("login")!="true"){
-
-window.location.href="../login.html";
-
-}
-
-
-
-function logout(){
-
-localStorage.removeItem("login");
-
-window.location.href="../login.html";
-
-}
-
+checkLogin();
 
 </script>
+
 
 
 </body>
