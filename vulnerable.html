@@ -1,88 +1,40 @@
 <!DOCTYPE html>
+
 <html lang="th">
 
 <head>
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
 
 <title>
-กลุ่มเปราะบาง | Rongkhem Smart Village
+กลุ่มเปราะบาง | บ้านร่องเข็ม
 </title>
+
 
 <link rel="stylesheet" href="css/style.css">
 
-
-<style>
-
-.table-box{
-
-overflow-x:auto;
-
-}
-
-
-table{
-
-width:100%;
-
-border-collapse:collapse;
-
-background:white;
-
-}
-
-
-th{
-
-background:#2e7d32;
-
-color:white;
-
-padding:12px;
-
-}
-
-
-td{
-
-padding:12px;
-
-border-bottom:1px solid #ddd;
-
-text-align:center;
-
-}
-
-
-</style>
+<link rel="stylesheet" href="css/vulnerable.css">
 
 
 </head>
 
 
-
 <body>
 
 
-
-<header>
-
-
-<div class="logo">
-🏡
-</div>
+<header class="vulnerable-header">
 
 
 <h1>
-❤️ ระบบกลุ่มเปราะบาง
+❤️ กลุ่มเปราะบาง
 </h1>
 
 
 <p>
-บ้านร่องเข็ม หมู่ที่ 6<br>
-ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา
+ระบบติดตามและช่วยเหลือประชาชน
 </p>
 
 
@@ -92,98 +44,24 @@ text-align:center;
 
 
 
-<nav>
+<section class="search-box">
 
 
-<a href="admin.html">
-📊 Dashboard
-</a>
+<input id="search"
+placeholder="🔎 ค้นหารายชื่อ">
 
 
-<a href="elderly.html">
-👴 ผู้สูงอายุ
-</a>
-
-
-<a href="vulnerable.html">
-❤️ กลุ่มเปราะบาง
-</a>
-
-
-<a href="osm.html">
-🩺 อสม.
-</a>
-
-
-<a href="index.html">
-🏡 หน้าแรก
-</a>
-
-
-</nav>
+</section>
 
 
 
 
 
+<section id="vulnerableList"
+class="vulnerable-grid">
 
 
-<section>
-
-
-<h2>
-📊 สรุปข้อมูลกลุ่มเปราะบาง
-</h2>
-
-
-<div class="grid">
-
-
-
-<div class="card">
-
-<h3>
-👴 ผู้สูงอายุ
-</h3>
-
-<p>
-91 คน
-</p>
-
-</div>
-
-
-
-
-<div class="card">
-
-<h3>
-♿ ผู้พิการ
-</h3>
-
-<p>
-3 คน
-</p>
-
-</div>
-
-
-
-
-<div class="card">
-
-<h3>
-❤️ กลุ่มดูแลพิเศษ
-</h3>
-
-<p>
-ข้อมูลเพิ่มเติม
-</p>
-
-</div>
-
-
-</div>
+กำลังโหลด...
 
 
 </section>
@@ -194,188 +72,7 @@ text-align:center;
 
 
 
-<section>
-
-
-<h2>
-📋 รายละเอียดกลุ่มเปราะบาง
-</h2>
-
-
-<div class="table-box">
-
-
-<table>
-
-
-<tr>
-
-<th>
-ลำดับ
-</th>
-
-<th>
-ชื่อ - นามสกุล
-</th>
-
-<th>
-ประเภท
-</th>
-
-<th>
-บ้านเลขที่
-</th>
-
-<th>
-ผู้ดูแล
-</th>
-
-<th>
-การช่วยเหลือ
-</th>
-
-<th>
-รูปภาพ
-</th>
-
-</tr>
-
-
-
-<tr>
-
-<td>
-1
-</td>
-
-<td>
--
-</td>
-
-<td>
-ผู้สูงอายุ
-</td>
-
-<td>
--
-</td>
-
-<td>
--
-</td>
-
-<td>
--
-</td>
-
-<td>
-📷
-</td>
-
-</tr>
-
-
-
-<tr>
-
-<td>
-2
-</td>
-
-<td>
--
-</td>
-
-<td>
-ผู้พิการ
-</td>
-
-<td>
--
-</td>
-
-<td>
--
-</td>
-
-<td>
--
-</td>
-
-<td>
-📷
-</td>
-
-</tr>
-
-
-
-</table>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-<section>
-
-
-<h2>
-🤝 แนวทางช่วยเหลือ
-</h2>
-
-
-<div class="card">
-
-
-<p>
-
-🩺 อสม. ลงพื้นที่เยี่ยมบ้าน
-
-<br><br>
-
-👥 คณะกรรมการหมู่บ้านติดตามดูแล
-
-<br><br>
-
-🏥 ประสานหน่วยงานด้านสุขภาพและสวัสดิการ
-
-<br><br>
-
-❤️ สร้างระบบช่วยเหลือจากคนในชุมชน
-
-</p>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-<footer>
-
-
-© 2026 Rongkhem Smart Village
-
-<br>
-
-บ้านร่องเข็ม หมู่ที่ 6 จังหวัดพะเยา
-
-
-</footer>
+<script src="js/vulnerable.js"></script>
 
 
 </body>
