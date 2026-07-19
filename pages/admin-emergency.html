@@ -10,13 +10,13 @@
 
 
 <title>
-แจ้งเหตุฉุกเฉิน | บ้านร่องเข็ม
+Admin Emergency | บ้านร่องเข็ม
 </title>
 
 
 <link rel="stylesheet" href="css/style.css">
 
-<link rel="stylesheet" href="css/emergency.css">
+<link rel="stylesheet" href="css/admin-emergency.css">
 
 
 </head>
@@ -25,16 +25,16 @@
 <body>
 
 
-<header class="emergency-header">
+<header class="admin-emergency-header">
 
 
 <h1>
-🚨 แจ้งเหตุฉุกเฉิน
+🚨 ศูนย์ควบคุมแจ้งเหตุฉุกเฉิน
 </h1>
 
 
 <p>
-ระบบแจ้งเหตุบ้านร่องเข็ม Smart Village
+บ้านร่องเข็ม Smart Village
 </p>
 
 
@@ -44,67 +44,115 @@
 
 
 
-<section class="form-box">
+
+<section class="summary">
+
+
+<div class="card">
+
+<h3>
+🚨 เหตุทั้งหมด
+</h3>
+
+<h1 id="total">
+0
+</h1>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>
+⏳ รอดำเนินการ
+</h3>
+
+<h1 id="pending">
+0
+</h1>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>
+✅ ดำเนินการแล้ว
+</h3>
+
+<h1 id="done">
+0
+</h1>
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section class="table-box">
 
 
 <h2>
-📢 แจ้งเหตุ
+📋 รายการแจ้งเหตุ
 </h2>
 
 
-<input id="name"
-placeholder="ชื่อผู้แจ้ง">
+<table>
 
 
-<select id="type">
+<thead>
 
-<option>
-ไฟไหม้
-</option>
+<tr>
 
-<option>
-อุบัติเหตุ
-</option>
+<th>
+ประเภท
+</th>
 
-<option>
-โจรกรรม
-</option>
+<th>
+ผู้แจ้ง
+</th>
 
-<option>
-เหตุรบกวน
-</option>
+<th>
+สถานที่
+</th>
 
-<option>
-อื่นๆ
-</option>
+<th>
+ระดับ
+</th>
 
-</select>
+<th>
+ผู้รับผิดชอบ
+</th>
 
+<th>
+สถานะ
+</th>
 
+<th>
+จัดการ
+</th>
 
-<input id="location"
-placeholder="สถานที่เกิดเหตุ">
+</tr>
 
-
-<select id="level">
-
-<option>
-ทั่วไป
-</option>
-
-<option>
-เร่งด่วน
-</option>
-
-</select>
+</thead>
 
 
+<tbody id="emergencyTable">
 
-<button onclick="sendEmergency()">
 
-ส่งแจ้งเหตุ
+</tbody>
 
-</button>
+
+</table>
 
 
 </section>
@@ -115,18 +163,7 @@ placeholder="สถานที่เกิดเหตุ">
 
 
 
-<section id="emergencyList"
-class="emergency-grid">
-
-
-</section>
-
-
-
-
-
-
-<script src="js/emergency.js"></script>
+<script src="js/admin-emergency.js"></script>
 
 
 </body>
