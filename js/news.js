@@ -1,70 +1,122 @@
-// =====================================
-// Rongkhem Smart Village
-// News Module v1.0
-// =====================================
+let news=[];
 
-class NewsManager {
 
-    constructor() {
-        this.news = [];
-    }
 
-    async load() {
+async function loadNews(){
 
-        this.news = await API.load("news.json");
 
-        return this.news;
+const data =
+await fetch(
+"data/news.json"
+)
 
-    }
+.then(r=>r.json());
 
-    render(containerId) {
 
-        const container = document.getElementById(containerId);
+news=data.news;
 
-        if (!container) return;
 
-        container.innerHTML = "";
+showNews(news);
 
-        this.news.forEach(item => {
-
-            container.innerHTML += `
-
-            <div class="news-card">
-
-                <h3>${item.title}</h3>
-
-                <small>${item.date}</small>
-
-                <p>${item.detail}</p>
-
-            </div>
-
-            `;
-
-        });
-
-    }
-
-    latest(limit = 5) {
-
-        return [...this.news]
-            .reverse()
-            .slice(0, limit);
-
-    }
-
-    search(keyword) {
-
-        return this.news.filter(item =>
-
-            item.title.toLowerCase().includes(keyword.toLowerCase()) ||
-
-            item.detail.toLowerCase().includes(keyword.toLowerCase())
-
-        );
-
-    }
 
 }
 
-const NEWS = new NewsManager();
+
+
+
+
+
+function showNews(list){
+
+
+let html="";
+
+
+list.forEach(n=>{
+
+
+html+=`
+
+<div class="news-card">
+
+
+<h3>
+📢 ${n.title}
+</h3>
+
+
+<p>
+${n.detail}
+</p>
+
+
+<p>
+ประเภท :
+${n.type}
+</p>
+
+
+<p>
+📅 ${n.date}
+</p>
+
+
+</div>
+
+
+`;
+
+
+
+});
+
+
+document.getElementById(
+"newsList"
+)
+.innerHTML=html;
+
+
+}
+
+
+
+
+
+
+
+document.getElementById(
+"search"
+)
+.addEventListener(
+"input",
+
+function(){
+
+
+let key=this.value;
+
+
+let result =
+news.filter(
+
+n=>
+
+n.title.includes(key)
+
+);
+
+
+
+showNews(result);
+
+
+}
+
+);
+
+
+
+
+
+loadNews();
