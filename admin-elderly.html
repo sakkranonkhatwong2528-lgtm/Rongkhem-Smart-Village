@@ -1,131 +1,23 @@
 <!DOCTYPE html>
+
 <html lang="th">
 
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 
 <title>
-จัดการผู้สูงอายุ | บ้านร่องเข็ม Smart Village
+Admin Elderly | บ้านร่องเข็ม
 </title>
 
 
-<style>
+<link rel="stylesheet" href="css/style.css">
 
+<link rel="stylesheet" href="css/admin-elderly.css">
 
-body{
-
-margin:0;
-font-family:Tahoma,sans-serif;
-background:#fff3e0;
-
-}
-
-
-
-header{
-
-background:#e65100;
-color:white;
-padding:30px;
-text-align:center;
-
-}
-
-
-
-.container{
-
-padding:20px;
-
-}
-
-
-
-.card{
-
-background:white;
-padding:25px;
-border-radius:25px;
-box-shadow:0 4px 12px #ccc;
-margin-bottom:20px;
-
-}
-
-
-
-input,select,textarea{
-
-width:100%;
-padding:12px;
-margin:10px 0;
-border-radius:10px;
-border:1px solid #ccc;
-box-sizing:border-box;
-
-}
-
-
-
-button{
-
-background:#e65100;
-color:white;
-padding:12px 30px;
-border:none;
-border-radius:20px;
-
-}
-
-
-
-.item{
-
-background:#fff8e1;
-padding:15px;
-border-radius:15px;
-margin-top:15px;
-
-}
-
-
-
-.delete{
-
-background:#c62828;
-color:white;
-border:none;
-padding:8px 15px;
-border-radius:15px;
-
-}
-
-
-
-.back{
-
-text-align:center;
-margin:30px;
-
-}
-
-
-
-.back a{
-
-background:#e65100;
-color:white;
-padding:12px 25px;
-border-radius:20px;
-text-decoration:none;
-
-}
-
-
-
-</style>
 
 </head>
 
@@ -133,17 +25,16 @@ text-decoration:none;
 <body>
 
 
-
-<header>
+<header class="elderly-admin-header">
 
 
 <h1>
-👴 จัดการผู้สูงอายุและกลุ่มเปราะบาง
+👴 จัดการข้อมูลผู้สูงอายุ
 </h1>
 
 
 <p>
-Admin Elderly & Vulnerable System
+บ้านร่องเข็ม Smart Village
 </p>
 
 
@@ -153,410 +44,177 @@ Admin Elderly & Vulnerable System
 
 
 
-
-
-<div class="container">
+<section class="summary">
 
 
 
 <div class="card">
 
+<h3>
+👴 ผู้สูงอายุทั้งหมด
+</h3>
+
+<h1 id="total">
+0
+</h1>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>
+❤️ ติดตามสุขภาพ
+</h3>
+
+<h1 id="health">
+0
+</h1>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h3>
+🩺 อสม.ดูแล
+</h3>
+
+<h1 id="care">
+0
+</h1>
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section class="form-box">
+
 
 <h2>
-➕ เพิ่มข้อมูลผู้รับการดูแล
+➕ เพิ่มผู้สูงอายุ
 </h2>
 
 
+<input id="name"
+placeholder="ชื่อ-นามสกุล">
 
 
-<label>
-ประเภท
-</label>
+<input id="age"
+type="number"
+placeholder="อายุ">
 
 
-<select id="group">
+<input id="house"
+placeholder="บ้านเลขที่">
 
 
-<option>
-👴 ผู้สูงอายุ
-</option>
-
-
-<option>
-♿ ผู้พิการ
-</option>
-
+<select id="healthStatus">
 
 <option>
-🏠 ผู้ป่วยติดบ้าน
+ปกติ
 </option>
-
 
 <option>
-👥 กลุ่มเปราะบาง
+ติดตามสุขภาพ
 </option>
 
+<option>
+ต้องดูแลพิเศษ
+</option>
 
 </select>
 
 
 
+<button onclick="addElderly()">
 
-
-
-<label>
-ชื่อ - นามสกุล
-</label>
-
-
-<input id="name"
-
-placeholder="ชื่อผู้รับการดูแล">
-
-
-
-
-
-
-<label>
-บ้านเลขที่
-</label>
-
-
-<input id="house"
-
-placeholder="บ้านเลขที่">
-
-
-
-
-
-<label>
-ผู้ดูแล / อสม.
-</label>
-
-
-<input id="helper"
-
-placeholder="ชื่อ อสม. ผู้รับผิดชอบ">
-
-
-
-
-
-<label>
-วันที่เยี่ยมบ้าน
-</label>
-
-
-<input id="date"
-
-type="date">
-
-
-
-
-
-
-<label>
-รายละเอียดการดูแล
-</label>
-
-
-<textarea
-
-id="care"
-
-rows="5"
-
-placeholder="รายละเอียดการช่วยเหลือ">
-
-</textarea>
-
-
-
-
-
-
-<button onclick="saveData()">
-
-💾 บันทึกข้อมูล
+บันทึก
 
 </button>
 
 
-
-</div>
-
+</section>
 
 
 
 
 
 
-<div class="card">
+
+
+<section class="table-box">
 
 
 <h2>
-📋 รายการผู้รับการดูแล
+📋 รายชื่อผู้สูงอายุ
 </h2>
 
 
-<div id="list">
 
-</div>
+<table>
 
 
-</div>
+<thead>
 
+<tr>
 
+<th>
+ชื่อ
+</th>
 
-</div>
+<th>
+อายุ
+</th>
 
+<th>
+บ้าน
+</th>
 
+<th>
+สุขภาพ
+</th>
 
+<th>
+จัดการ
+</th>
 
+</tr>
 
+</thead>
 
 
-<div class="back">
 
+<tbody id="elderlyTable">
 
-<a href="admin-dashboard.html">
 
-⚙️ กลับ Dashboard
+</tbody>
 
-</a>
 
+</table>
 
-</div>
 
+</section>
 
 
 
 
 
 
-<script>
 
-
-let elderly =
-
-JSON.parse(
-
-localStorage.getItem("elderly")
-
-)||[];
-
-
-
-
-
-showList();
-
-
-
-
-
-
-
-function saveData(){
-
-
-
-let data={
-
-
-type:
-
-document.getElementById("group").value,
-
-
-name:
-
-document.getElementById("name").value,
-
-
-house:
-
-document.getElementById("house").value,
-
-
-helper:
-
-document.getElementById("helper").value,
-
-
-date:
-
-document.getElementById("date").value,
-
-
-care:
-
-document.getElementById("care").value
-
-
-};
-
-
-
-
-elderly.push(data);
-
-
-
-
-localStorage.setItem(
-
-"elderly",
-
-JSON.stringify(elderly)
-
-);
-
-
-
-
-alert("บันทึกข้อมูลเรียบร้อย");
-
-
-showList();
-
-
-}
-
-
-
-
-
-
-
-function showList(){
-
-
-
-let html="";
-
-
-
-elderly.forEach(function(item,index){
-
-
-
-html+=`
-
-<div class="item">
-
-
-<h3>
-
-${item.type}
-
-</h3>
-
-
-<p>
-
-👤 ${item.name}
-
-</p>
-
-
-<p>
-
-🏠 บ้านเลขที่ :
-${item.house}
-
-</p>
-
-
-<p>
-
-🩺 ผู้ดูแล :
-${item.helper}
-
-</p>
-
-
-<p>
-
-📅 วันที่เยี่ยม :
-${item.date}
-
-</p>
-
-
-<p>
-
-📝 ${item.care}
-
-</p>
-
-
-
-<button class="delete"
-
-onclick="deleteData(${index})">
-
-ลบ
-
-</button>
-
-
-</div>
-
-
-`;
-
-
-
-});
-
-
-
-document.getElementById("list")
-.innerHTML=html;
-
-
-
-}
-
-
-
-
-
-
-
-function deleteData(index){
-
-
-elderly.splice(index,1);
-
-
-
-localStorage.setItem(
-
-"elderly",
-
-JSON.stringify(elderly)
-
-);
-
-
-
-showList();
-
-
-
-}
-
-
-
-</script>
-
-
-
+<script src="js/admin-elderly.js"></script>
 
 
 </body>
