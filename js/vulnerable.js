@@ -1,114 +1,141 @@
-// =====================================
-// Rongkhem Smart Village
-// Vulnerable Module v1.0
-// =====================================
-
-class VulnerableManager {
-
-    constructor(){
-
-        this.people = [];
-
-    }
+let vulnerable=[];
 
 
-    async load(){
 
-        this.people =
-        await API.load("vulnerable.json");
-
-        return this.people;
-
-    }
+async function loadVulnerable(){
 
 
-    render(containerId){
+const data =
+await fetch(
+"data/vulnerable.json"
+)
 
-        const container =
-        document.getElementById(containerId);
-
-
-        if(!container) return;
-
-
-        container.innerHTML="";
+.then(r=>r.json());
 
 
-        this.people.forEach(person=>{
+vulnerable=data.vulnerable;
 
 
-            container.innerHTML += `
+showVulnerable(vulnerable);
 
-            <div class="vulnerable-card">
-
-                <h3>
-                ❤️ ${person.name || ""}
-                </h3>
-
-
-                <p>
-                ประเภท :
-                ${person.type || "-"}
-                </p>
-
-
-                <p>
-                บ้านเลขที่ :
-                ${person.house || "-"}
-                </p>
-
-
-                <p>
-                ผู้ดูแล :
-                ${person.caregiver || "-"}
-                </p>
-
-
-            </div>
-
-            `;
-
-
-        });
-
-
-    }
-
-
-    count(){
-
-        return this.people.length;
-
-    }
-
-
-    filter(type){
-
-        return this.people.filter(person =>
-
-            person.type.includes(type)
-
-        );
-
-    }
-
-
-    search(keyword){
-
-        return this.people.filter(person =>
-
-            JSON.stringify(person)
-            .toLowerCase()
-            .includes(
-                keyword.toLowerCase()
-            )
-
-        );
-
-    }
 
 }
 
 
-const VULNERABLE =
-new VulnerableManager();
+
+
+
+
+
+function showVulnerable(list){
+
+
+let html="";
+
+
+
+list.forEach(v=>{
+
+
+html+=`
+
+<div class="vulnerable-card">
+
+
+<h3>
+❤️ ${v.name}
+</h3>
+
+
+<p>
+อายุ :
+${v.age} ปี
+</p>
+
+
+<p>
+ประเภท :
+${v.type}
+</p>
+
+
+<p>
+🏠 บ้านเลขที่ :
+${v.house}
+</p>
+
+
+<p>
+🤝 การช่วยเหลือ :
+${v.support}
+</p>
+
+
+<p>
+ระดับ :
+${v.level}
+</p>
+
+
+</div>
+
+
+`;
+
+
+
+});
+
+
+
+document.getElementById(
+"vulnerableList"
+)
+.innerHTML=html;
+
+
+
+}
+
+
+
+
+
+
+
+document.getElementById(
+"search"
+)
+.addEventListener(
+"input",
+
+function(){
+
+
+let key=this.value;
+
+
+
+let result =
+vulnerable.filter(
+
+v=>
+
+v.name.includes(key)
+
+);
+
+
+
+showVulnerable(result);
+
+
+}
+
+);
+
+
+
+
+
+loadVulnerable();
