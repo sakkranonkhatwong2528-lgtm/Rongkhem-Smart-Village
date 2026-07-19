@@ -1,75 +1,79 @@
 let oporor=[];
 
 
-fetch("../data/oporor.json")
 
-.then(res=>res.json())
-
-.then(data=>{
+async function loadOporor(){
 
 
-oporor=data;
+const data =
+await fetch(
+"data/oporor.json"
+)
+
+.then(r=>r.json());
 
 
-showOporor();
-
-summary();
+oporor=data.oporor;
 
 
-});
+showOporor(oporor);
+
+
+}
 
 
 
 
 
-function showOporor(){
+
+function showOporor(list){
 
 
 let html="";
 
 
-oporor.forEach(o=>{
+list.forEach(o=>{
 
 
 html+=`
 
-<tr>
+<div class="oporor-card">
 
 
-<td>
-${o.name}
-</td>
+<h3>
+🚨 ${o.name}
+</h3>
 
 
-<td>
-${o.group}
-</td>
+<p>
+ตำแหน่ง :
+${o.position}
+</p>
 
 
-<td>
-${o.role}
-</td>
+<p>
+ความสามารถ :
+${o.skill}
+</p>
 
 
-<td>
+<p>
+พื้นที่ :
 ${o.area}
-</td>
+</p>
 
 
-<td>
-${o.duty}
-</td>
-
-
-<td>
+<p>
+สถานะ :
 ${o.status}
-</td>
+</p>
 
 
-</tr>
+</div>
 
 
 `;
+
 
 
 });
@@ -77,8 +81,9 @@ ${o.status}
 
 
 document.getElementById(
-"oporor-table"
-).innerHTML=html;
+"opororList"
+)
+.innerHTML=html;
 
 
 }
@@ -86,52 +91,41 @@ document.getElementById(
 
 
 
-
-function summary(){
-
-
-let total =
-oporor.length;
-
-
-let opr =
-oporor.filter(
-x=>x.group=="อปพร."
-).length;
-
-
-
-let chrb =
-oporor.filter(
-x=>x.group=="ชรบ."
-).length;
 
 
 
 document.getElementById(
-"oporor-summary"
-).innerHTML=
+"search"
+)
+.addEventListener(
+"input",
 
-`
+function(){
 
-🚑 อปพร. :
-${opr}
-คน
 
-<br>
+let key=this.value;
 
-🛡 ชรบ. :
-${chrb}
-คน
 
-<br>
+let result =
+oporor.filter(
 
-👥 รวมอาสาความปลอดภัย :
-${total}
-คน
+o=>
 
-`;
+o.name.includes(key)
 
+);
+
+
+
+showOporor(result);
 
 
 }
+
+);
+
+
+
+
+
+loadOporor();
