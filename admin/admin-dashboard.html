@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>
+Admin Dashboard | Rongkhem Smart Village
+</title>
+
+
+<link rel="stylesheet" href="../assets/css/dashboard.css">
+
+
+<style>
+
+
+.admin-menu{
+
+
+display:grid;
+
+grid-template-columns:
+
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:20px;
+
+}
+
+
+
+.menu-card{
+
+
+background:white;
+
+padding:25px;
+
+border-radius:20px;
+
+box-shadow:
+
+0 5px 15px rgba(0,0,0,.1);
+
+cursor:pointer;
+
+transition:.3s;
+
+
+}
+
+
+
+.menu-card:hover{
+
+
+transform:translateY(-8px);
+
+
+}
+
+
+
+.menu-card h3{
+
+
+color:#2e7d32;
+
+margin-bottom:10px;
+
+
+}
+
+
+
+.logout{
+
+
+background:#c62828;
+
+color:white;
+
+
+}
+
+
+
+</style>
+
+
+</head>
+
+
+
+<body onload="showUser()">
+
+
+
+<div class="dashboard-container">
+
+
+
+<header class="dashboard-header">
+
+
+<div>
+
+<h1>
+👨‍💻 Admin Center
+</h1>
+
+
+<p>
+
+ระบบบริหารจัดการ
+
+<br>
+
+บ้านร่องเข็ม Smart Village
+
+</p>
+
+
+</div>
+
+
+
+<button
+
+class="btn btn-print"
+
+onclick="logout()">
+
+ออกจากระบบ
+
+</button>
+
+
+</header>
+
+
+
+
+
+
+<section class="section">
+
+
+<h2 class="section-title">
+
+ผู้ดูแลระบบ
+
+</h2>
+
+
+
+<div id="adminUser">
+
+กำลังโหลด...
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section class="section">
+
+
+<h2 class="section-title">
+
+⚙️ ระบบจัดการ
+
+</h2>
+
+
+
+<div class="admin-menu">
+
+
+
+<div class="menu-card"
+
+onclick="location.href='manage-data.html'">
+
+<h3>
+👥 ประชาชน
+</h3>
+
+<p>
+
+จัดการข้อมูลประชากร
+
+</p>
+
+</div>
+
+
+
+
+
+
+
+<div class="menu-card"
+
+onclick="location.href='manage-data.html'">
+
+
+<h3>
+👤 ผู้นำชุมชน
+</h3>
+
+<p>
+
+ทำเนียบผู้นำและคณะทำงาน
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="menu-card"
+
+onclick="location.href='manage-data.html'">
+
+
+<h3>
+❤️ สุขภาพ
+</h3>
+
+
+<p>
+
+Smart Health
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="menu-card"
+
+onclick="location.href='manage-data.html'">
+
+
+<h3>
+📰 ข่าวประชาสัมพันธ์
+</h3>
+
+
+<p>
+
+เพิ่มและแก้ไขข่าว
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="menu-card"
+
+onclick="location.href='manage-data.html'">
+
+
+<h3>
+📅 กิจกรรม
+
+</h3>
+
+
+<p>
+
+จัดการกิจกรรมหมู่บ้าน
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="menu-card"
+
+onclick="location.href='manage-data.html'">
+
+
+<h3>
+📋 ร้องเรียน
+
+</h3>
+
+
+<p>
+
+จัดการปัญหาชุมชน
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+</div>
+
+
+
+
+
+<script src="../assets/js/admin.js"></script>
+
+
+</body>
+
+
+</html>
