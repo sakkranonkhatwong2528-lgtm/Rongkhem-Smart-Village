@@ -1,25 +1,45 @@
+/*
+Rongkhem Smart Village
+Service Worker
+Version 1.0
+*/
+
+
 const CACHE_NAME =
+
 "rongkhem-smart-village-v1";
+
+
 
 
 const FILES = [
 
 
-"index.html",
+"/",
 
-"dashboard.html",
+"/index.html",
 
-"css/style.css",
+"/dashboard.html",
 
-"css/dashboard.css",
 
-"js/dashboard.js",
+"/assets/css/dashboard.css",
 
-"data/citizen.json",
 
-"data/household.json",
+"/assets/js/dashboard.js",
 
-"data/vulnerable.json"
+
+"/data/village.json",
+
+"/data/citizen.json",
+
+"/data/health.json",
+
+"/data/leader.json",
+
+"/data/activity.json",
+
+"/data/news.json"
+
 
 ];
 
@@ -27,7 +47,9 @@ const FILES = [
 
 
 
+
 self.addEventListener(
+
 "install",
 
 event=>{
@@ -35,17 +57,17 @@ event=>{
 
 event.waitUntil(
 
-caches.open(
-CACHE_NAME
-)
+
+caches.open(CACHE_NAME)
 
 .then(cache=>{
 
-return cache.addAll(
-FILES
-);
+
+return cache.addAll(FILES);
+
 
 })
+
 
 );
 
@@ -53,6 +75,7 @@ FILES
 }
 
 );
+
 
 
 
@@ -61,6 +84,7 @@ FILES
 
 
 self.addEventListener(
+
 "fetch",
 
 event=>{
@@ -68,18 +92,15 @@ event=>{
 
 event.respondWith(
 
-caches.match(
-event.request
-)
+
+caches.match(event.request)
 
 .then(response=>{
 
 
 return response ||
 
-fetch(
-event.request
-);
+fetch(event.request);
 
 
 })
@@ -91,3 +112,50 @@ event.request
 }
 
 );
+
+
+
+
+
+
+self.addEventListener(
+
+"activate",
+
+event=>{
+
+
+event.waitUntil(
+
+caches.keys()
+
+.then(keys=>{
+
+
+return Promise.all(
+
+keys.map(key=>{
+
+
+if(key!==CACHE_NAME){
+
+
+return caches.delete(key);
+
+
+}
+
+
+})
+
+
+);
+
+
+})
+
+
+);
+
+
+});
