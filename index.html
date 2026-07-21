@@ -553,3 +553,34 @@ class="menu-card">
 </body>
 
 </html>
+<script>
+
+if("serviceWorker" in navigator){
+
+window.addEventListener(
+
+"load",
+
+()=>{
+
+navigator.serviceWorker.register(
+
+"service-worker.js"
+
+)
+
+.then(()=>{
+
+console.log(
+"Smart Village App Ready"
+);
+
+});
+
+}
+
+);
+
+}
+
+</script>
