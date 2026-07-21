@@ -4,110 +4,123 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
 
 <title>
-จัดการข่าว | บ้านร่องเข็ม Smart Village
+จัดการข่าว | Rongkhem Smart Village
 </title>
+
+
+<link rel="stylesheet" href="../assets/css/dashboard.css">
 
 
 <style>
 
-body{
 
-margin:0;
-font-family:Tahoma,sans-serif;
-background:#e8f5e9;
+.form-box{
+
+background:white;
+
+padding:25px;
+
+border-radius:20px;
+
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+
+margin-bottom:25px;
 
 }
 
 
-header{
 
-background:#00695c;
+input,textarea,select{
+
+
+width:100%;
+
+padding:12px;
+
+margin-bottom:15px;
+
+border-radius:10px;
+
+border:1px solid #ddd;
+
+font-size:15px;
+
+
+}
+
+
+
+textarea{
+
+height:120px;
+
+resize:none;
+
+}
+
+
+
+.save-btn{
+
+
+background:#2e7d32;
+
 color:white;
-padding:30px;
-text-align:center;
+
+border:none;
+
+padding:12px 25px;
+
+border-radius:10px;
+
+cursor:pointer;
+
 
 }
 
 
-.container{
+
+.news-card{
+
+
+background:white;
 
 padding:20px;
 
-}
-
-
-.card{
-
-background:white;
-padding:25px;
-border-radius:20px;
-box-shadow:0 4px 12px #ccc;
-margin-bottom:20px;
-
-}
-
-
-h2{
-
-color:#00695c;
-
-}
-
-
-input,textarea{
-
-width:100%;
-padding:12px;
-margin:10px 0;
-border-radius:10px;
-border:1px solid #ccc;
-box-sizing:border-box;
-
-}
-
-
-button{
-
-background:#00695c;
-color:white;
-border:none;
-padding:12px 30px;
-border-radius:20px;
-font-size:16px;
-
-}
-
-
-.news-item{
-
-background:#f1f8e9;
-padding:15px;
-margin-top:15px;
 border-radius:15px;
 
+margin-bottom:15px;
+
+box-shadow:0 3px 10px rgba(0,0,0,.08);
+
+
 }
 
 
-.back{
 
-text-align:center;
-margin:30px;
-
-}
+.delete-btn{
 
 
-.back a{
+background:#c62828;
 
-background:#00695c;
 color:white;
-padding:12px 25px;
-border-radius:20px;
-text-decoration:none;
+
+border:none;
+
+padding:8px 15px;
+
+border-radius:8px;
+
+cursor:pointer;
+
 
 }
+
 
 
 </style>
@@ -116,57 +129,129 @@ text-decoration:none;
 </head>
 
 
-<body>
+
+<body onload="checkLogin();loadNews()">
 
 
 
-<header>
+<div class="dashboard-container">
+
+
+
+
+
+<header class="dashboard-header">
+
+
+<div>
 
 <h1>
+
 📰 จัดการข่าวประชาสัมพันธ์
+
 </h1>
 
+
 <p>
-Admin : บ้านร่องเข็ม Smart Village
+
+Rongkhem Smart Village Admin
+
 </p>
+
+
+</div>
+
+
+<button
+
+class="btn btn-print"
+
+onclick="logout()">
+
+ออกจากระบบ
+
+</button>
+
 
 </header>
 
 
 
 
-<div class="container">
 
 
 
-<div class="card">
 
-<h2>
-✍️ เพิ่มข่าวใหม่
+<section class="section">
+
+
+<h2 class="section-title">
+
+➕ เพิ่มข่าวใหม่
+
 </h2>
 
 
-<input 
-id="title"
+
+
+<div class="form-box">
+
+
+<input id="title"
+
 placeholder="หัวข้อข่าว">
 
 
-<input 
-id="date"
-placeholder="วันที่ เช่น 18 กรกฎาคม 2569">
+<select id="category">
+
+<option>
+
+ประกาศหมู่บ้าน
+
+</option>
+
+<option>
+
+กิจกรรม
+
+</option>
+
+<option>
+
+สิ่งแวดล้อม
+
+</option>
+
+<option>
+
+สุขภาพ
+
+</option>
+
+</select>
 
 
-<textarea 
-id="detail"
-rows="6"
+
+<textarea id="detail"
+
 placeholder="รายละเอียดข่าว">
+
 </textarea>
 
 
 
-<button onclick="saveNews()">
+<input id="author"
 
-💾 บันทึกข่าว
+placeholder="ผู้ประกาศ">
+
+
+<button
+
+class="save-btn"
+
+onclick="saveNews()">
+
+บันทึกข่าว
 
 </button>
 
@@ -174,121 +259,202 @@ placeholder="รายละเอียดข่าว">
 </div>
 
 
+</section>
 
 
 
-<div class="card">
 
-<h2>
-📋 ข่าวที่บันทึกไว้
+
+
+
+
+<section class="section">
+
+
+<h2 class="section-title">
+
+📋 รายการข่าว
+
 </h2>
 
 
-<div id="showNews">
+<div id="newsList">
+
+กำลังโหลด...
 
 </div>
 
 
-</div>
-
-
-
-</div>
+</section>
 
 
 
 
-
-<div class="back">
-
-<a href="admin-dashboard.html">
-
-⚙️ กลับ Dashboard
-
-</a>
 
 </div>
 
 
 
+
+
+
+
+<script src="../assets/js/admin.js"></script>
 
 
 
 <script>
 
 
-// โหลดข่าว
+let newsData=[];
 
-showNews();
+
+
+async function loadNews(){
+
+
+const res = await fetch("../data/news.json");
+
+
+const data = await res.json();
+
+
+newsData=data.news || [];
+
+
+displayNews();
+
+
+}
+
+
+
+
+
+function displayNews(){
+
+
+let box=document.getElementById("newsList");
+
+
+box.innerHTML="";
+
+
+
+newsData.forEach((item,index)=>{
+
+
+box.innerHTML += `
+
+
+<div class="news-card">
+
+
+<h3>
+
+📰 ${item.title}
+
+</h3>
+
+
+<p>
+
+ประเภท : ${item.category}
+
+</p>
+
+
+<p>
+
+${item.detail}
+
+</p>
+
+
+<small>
+
+ผู้ประกาศ : ${item.author}
+
+</small>
+
+
+<br><br>
+
+
+<button
+
+class="delete-btn"
+
+onclick="deleteNews(${index})">
+
+ลบ
+
+</button>
+
+
+</div>
+
+
+`;
+
+
+});
+
+
+}
+
+
+
 
 
 
 function saveNews(){
 
 
-let title =
-document.getElementById("title").value;
+
+let item={
 
 
-let date =
-document.getElementById("date").value;
+id:Date.now(),
 
 
-let detail =
-document.getElementById("detail").value;
+title:
+
+document.getElementById("title").value,
 
 
+category:
 
-if(title==""
-|| detail==""){
-
-alert("กรุณากรอกข้อมูลให้ครบ");
-
-return;
-
-}
+document.getElementById("category").value,
 
 
+date:
 
-let news =
-JSON.parse(
-localStorage.getItem("news")
-) || [];
+new Date().toISOString().slice(0,10),
 
 
+detail:
 
-news.push({
+document.getElementById("detail").value,
 
-title:title,
 
-date:date,
+author:
 
-detail:detail
+document.getElementById("author").value
 
-});
+
+};
 
 
 
-localStorage.setItem(
-"news",
-JSON.stringify(news)
-);
+newsData.unshift(item);
+
+
+displayNews();
 
 
 
-alert("บันทึกข่าวเรียบร้อย");
-
-
-
-document.getElementById("title").value="";
-
-document.getElementById("date").value="";
-
-document.getElementById("detail").value="";
-
-
-
-showNews();
+alert("เพิ่มข่าวเรียบร้อย");
 
 
 }
@@ -297,51 +463,20 @@ showNews();
 
 
 
-function showNews(){
+
+function deleteNews(index){
 
 
-let news =
-JSON.parse(
-localStorage.getItem("news")
-) || [];
+if(confirm("ต้องการลบข่าวนี้หรือไม่?")){
 
 
-
-let html="";
-
+newsData.splice(index,1);
 
 
-news.forEach(function(item){
+displayNews();
 
 
-html += `
-
-<div class="news-item">
-
-<h3>
-${item.title}
-</h3>
-
-<p>
-📅 ${item.date}
-</p>
-
-<p>
-${item.detail}
-</p>
-
-</div>
-
-`;
-
-
-
-});
-
-
-
-document.getElementById("showNews")
-.innerHTML=html;
+}
 
 
 }
@@ -351,7 +486,7 @@ document.getElementById("showNews")
 </script>
 
 
-
 </body>
+
 
 </html>
