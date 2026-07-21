@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-
 <html lang="th">
+
 
 <head>
 
+
 <meta charset="UTF-8">
+
 
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 
 <title>
-ศูนย์เอกสารหมู่บ้าน
+Document Center
 </title>
 
 
-<link rel="stylesheet" href="css/style.css">
-
-<link rel="stylesheet" href="css/document-center.css">
+<link rel="stylesheet"
+href="assets/css/dashboard.css">
 
 
 </head>
@@ -25,15 +26,27 @@
 <body>
 
 
-<header class="document-header">
+<div class="dashboard-container">
+
+
+
+<header class="dashboard-header">
+
+
+<div>
 
 <h1>
-📄 ศูนย์เอกสารหมู่บ้านอัจฉริยะ
+📄 Smart Document Center
 </h1>
 
+
 <p>
-บ้านร่องเข็ม Smart Village
+ศูนย์เอกสารบ้านร่องเข็ม
 </p>
+
+
+</div>
+
 
 </header>
 
@@ -41,35 +54,131 @@
 
 
 
-<section class="document-search">
+
+<section class="section">
 
 
-<input 
-id="search"
-placeholder="🔎 ค้นหาเอกสาร..."
->
+<h2 class="section-title">
+
+📚 เอกสารทั้งหมด
+
+</h2>
+
+
+
+<div id="documentList">
+
+กำลังโหลด...
+
+</div>
 
 
 </section>
 
 
 
-
-
-
-
-<section id="documentList"
-class="document-grid">
-
-กำลังโหลดข้อมูล...
-
-</section>
+</div>
 
 
 
 
 
-<script src="js/document-center.js"></script>
+<script>
+
+
+async function loadDocument(){
+
+
+
+const res=
+
+await fetch(
+
+"data/document.json"
+
+);
+
+
+
+const data=
+
+await res.json();
+
+
+
+let box=
+
+document.getElementById(
+
+"documentList"
+
+);
+
+
+
+box.innerHTML="";
+
+
+
+
+
+data.documents.forEach(doc=>{
+
+
+box.innerHTML += `
+
+
+<div class="dashboard-card">
+
+
+<h3>
+
+📄 ${doc.title}
+
+</h3>
+
+
+<p>
+
+ประเภท : ${doc.category}
+
+</p>
+
+
+<p>
+
+วันที่ : ${doc.date}
+
+</p>
+
+
+<a href="documents/${doc.file}">
+
+ดาวน์โหลดเอกสาร
+
+</a>
+
+
+</div>
+
+
+`;
+
+
+
+});
+
+
+
+}
+
+
+
+loadDocument();
+
+
+</script>
+
 
 
 </body>
