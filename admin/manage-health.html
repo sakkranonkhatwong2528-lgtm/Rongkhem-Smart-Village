@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+
+<title>
+Smart Health | Rongkhem Smart Village
+</title>
+
+
+<link rel="stylesheet" href="../assets/css/dashboard.css">
+
+
+<style>
+
+.form-box{
+
+background:white;
+
+padding:25px;
+
+border-radius:20px;
+
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+
+}
+
+
+input{
+
+width:100%;
+
+padding:12px;
+
+margin-bottom:15px;
+
+border-radius:10px;
+
+border:1px solid #ddd;
+
+}
+
+
+
+.save-btn{
+
+background:#2e7d32;
+
+color:white;
+
+border:none;
+
+padding:12px 25px;
+
+border-radius:10px;
+
+cursor:pointer;
+
+}
+
+
+
+.health-grid{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(auto-fit,minmax(180px,1fr));
+
+gap:15px;
+
+}
+
+
+
+.health-card{
+
+background:white;
+
+padding:20px;
+
+border-radius:15px;
+
+text-align:center;
+
+box-shadow:0 5px 10px rgba(0,0,0,.08);
+
+}
+
+
+.health-card h2{
+
+font-size:35px;
+
+color:#2e7d32;
+
+}
+
+
+</style>
+
+
+</head>
+
+
+
+<body onload="checkLogin();loadHealth()">
+
+
+
+<div class="dashboard-container">
+
+
+
+<header class="dashboard-header">
+
+
+<div>
+
+<h1>
+❤️ Smart Health Center
+</h1>
+
+
+<p>
+
+ระบบข้อมูลสุขภาพบ้านร่องเข็ม
+
+</p>
+
+
+</div>
+
+
+<button
+
+class="btn btn-print"
+
+onclick="logout()">
+
+ออกจากระบบ
+
+</button>
+
+
+</header>
+
+
+
+
+
+
+
+
+<section class="section">
+
+
+<h2 class="section-title">
+
+📊 สรุปสุขภาพชุมชน
+
+</h2>
+
+
+
+<div class="health-grid">
+
+
+<div class="health-card">
+
+<h2 id="normal">
+
+0
+
+</h2>
+
+<p>
+
+กลุ่มปกติ
+
+</p>
+
+</div>
+
+
+
+<div class="health-card">
+
+<h2 id="risk">
+
+0
+
+</h2>
+
+<p>
+
+กลุ่มเสี่ยง
+
+</p>
+
+</div>
+
+
+
+<div class="health-card">
+
+<h2 id="vulnerable">
+
+0
+
+</h2>
+
+<p>
+
+กลุ่มเปราะบาง
+
+</p>
+
+</div>
+
+
+
+<div class="health-card">
+
+<h2 id="vaccine">
+
+0
+
+</h2>
+
+<p>
+
+ติดตามสุขภาพ
+
+</p>
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<section class="section">
+
+
+<h2 class="section-title">
+
+✏️ แก้ไขข้อมูลสุขภาพ
+
+</h2>
+
+
+
+<div class="form-box">
+
+
+
+<input id="normalInput"
+
+placeholder="จำนวนกลุ่มปกติ">
+
+
+
+<input id="riskInput"
+
+placeholder="จำนวนกลุ่มเสี่ยง">
+
+
+
+<input id="vulnerableInput"
+
+placeholder="จำนวนกลุ่มเปราะบาง">
+
+
+
+<input id="vaccineInput"
+
+placeholder="จำนวนติดตามสุขภาพ">
+
+
+
+<input id="osmInput"
+
+placeholder="จำนวน อสม.">
+
+
+
+<button
+
+class="save-btn"
+
+onclick="saveHealth()">
+
+บันทึกข้อมูล
+
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+<script src="../assets/js/admin.js"></script>
+
+
+
+<script>
+
+
+let health={};
+
+
+
+
+
+async function loadHealth(){
+
+
+const res=
+
+await fetch("../data/health.json");
+
+
+
+health=
+
+await res.json();
+
+
+
+showHealth();
+
+
+}
+
+
+
+
+
+function showHealth(){
+
+
+
+document.getElementById("normal").innerHTML=
+
+health.normal || 0;
+
+
+
+document.getElementById("risk").innerHTML=
+
+health.risk || 0;
+
+
+
+document.getElementById("vulnerable").innerHTML=
+
+health.vulnerable || 0;
+
+
+
+document.getElementById("vaccine").innerHTML=
+
+health.elderlyCare || 0;
+
+
+
+}
+
+
+
+
+
+function saveHealth(){
+
+
+
+health.normal=
+
+Number(
+
+document.getElementById("normalInput").value
+
+)||0;
+
+
+
+health.risk=
+
+Number(
+
+document.getElementById("riskInput").value
+
+)||0;
+
+
+
+health.vulnerable=
+
+Number(
+
+document.getElementById("vulnerableInput").value
+
+)||0;
+
+
+
+health.elderlyCare=
+
+Number(
+
+document.getElementById("vaccineInput").value
+
+)||0;
+
+
+
+health.healthVolunteer={
+
+
+total:
+
+Number(
+
+document.getElementById("osmInput").value
+
+)||0
+
+
+};
+
+
+
+showHealth();
+
+
+
+alert(
+
+"บันทึกข้อมูลสุขภาพแล้ว"
+
+);
+
+
+
+}
+
+
+
+</script>
+
+
+</body>
+
+</html>
