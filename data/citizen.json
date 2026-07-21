@@ -1,35 +1,59 @@
 {
-"citizens":[
+    "village": "บ้านร่องเข็ม หมู่ที่ 6",
 
-{
-"id":1,
-"name":"นายตัวอย่าง ใจดี",
-"gender":"ชาย",
-"age":55,
-"status":"ประชาชน",
-"health":"ปกติ",
-"house":"1"
-},
+    "total": 0,
 
-{
-"id":2,
-"name":"นางตัวอย่าง ใจงาม",
-"gender":"หญิง",
-"age":68,
-"status":"ผู้สูงอายุ",
-"health":"ติดตามสุขภาพ",
-"house":"2"
-},
+    "male": 0,
 
-{
-"id":3,
-"name":"เด็กชายตัวอย่าง",
-"gender":"ชาย",
-"age":10,
-"status":"เด็ก",
-"health":"ปกติ",
-"house":"3"
-}
+    "female": 0,
 
-]
+
+    "ageGroup": {
+
+        "child": 0,
+
+        "worker": 0,
+
+        "elderly": 0
+
+    },
+
+
+    "child": 0,
+
+    "worker": 0,
+
+    "elderly": 0,
+
+
+    "occupation": {
+
+        "farmer": 0,
+
+        "employee": 0,
+
+        "government": 0,
+
+        "business": 0,
+
+        "other": 0
+
+    },
+
+
+    "education": {
+
+        "primary": 0,
+
+        "secondary": 0,
+
+        "vocational": 0,
+
+        "university": 0
+
+    },
+
+
+    "update": "2026-07-21"
+
 }
