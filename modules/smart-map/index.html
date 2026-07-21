@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="th">
 
+
 <head>
+
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 
 <title>
@@ -14,70 +17,30 @@ Smart Map บ้านร่องเข็ม
 
 
 <link rel="stylesheet"
+href="assets/css/dashboard.css">
+
+
+<link rel="stylesheet"
 href="https://unpkg.com/leaflet/dist/leaflet.css">
 
 
 <style>
 
-body{
-
-margin:0;
-
-font-family:sans-serif;
-
-background:#eef7f5;
-
-}
-
-
-header{
-
-background:#00695c;
-
-color:white;
-
-padding:20px;
-
-text-align:center;
-
-}
-
 
 #map{
 
-height:70vh;
+
+height:600px;
+
+border-radius:20px;
+
+box-shadow:
+
+0 5px 15px rgba(0,0,0,.15);
+
 
 }
 
-
-.panel{
-
-background:white;
-
-padding:20px;
-
-margin:15px;
-
-border-radius:15px;
-
-}
-
-
-button{
-
-padding:10px;
-
-border:0;
-
-border-radius:10px;
-
-background:#00897b;
-
-color:white;
-
-margin:5px;
-
-}
 
 </style>
 
@@ -88,52 +51,50 @@ margin:5px;
 <body>
 
 
-<header>
+<div class="dashboard-container">
+
+
+
+<header class="dashboard-header">
+
+
+<div>
+
 
 <h1>
 🗺 Smart Map
 </h1>
 
+
 <p>
-แผนที่อัจฉริยะบ้านร่องเข็ม หมู่ที่ 6
+
+แผนที่อัจฉริยะบ้านร่องเข็ม
+
 </p>
+
+
+</div>
+
 
 </header>
 
 
 
+
+
+<section class="section">
+
+
 <div id="map"></div>
 
 
+</section>
 
-<div class="panel">
-
-<h2>
-📍 ชั้นข้อมูล
-</h2>
-
-
-<button>
-💧 แหล่งน้ำ
-</button>
-
-
-<button>
-👴 ผู้สูงอายุ
-</button>
-
-
-<button>
-🌳 ทรัพยากร
-</button>
-
-
-<button>
-🚨 จุดเหตุ
-</button>
 
 
 </div>
+
+
 
 
 
@@ -144,84 +105,92 @@ margin:5px;
 <script>
 
 
-// ตั้งค่าพิกัดเริ่มต้น (ปรับภายหลังด้วย GPS จริง)
+const map = L.map('map')
 
-var map = L.map('map')
 .setView(
-[19.1667,99.9000],
-15
+
+[19.123456,99.123456],
+
+16
+
 );
 
 
 
 L.tileLayer(
 
-'https://tile.openstreetmap.org/{z}/{x}/{y}.png'
+'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+
+{
+
+maxZoom:19
+
+}
 
 ).addTo(map);
 
 
 
-// จุดแหล่งซับน้ำจำ
 
-var water =
-L.marker(
-[19.1667,99.9000]
-)
+
+
+fetch("data/location.json")
+
+.then(res=>res.json())
+
+.then(data=>{
+
+
+data.location.forEach(item=>{
+
+
+let marker=L.marker([
+
+item.latitude,
+
+item.longitude
+
+])
+
 .addTo(map);
 
 
-water.bindPopup(
 
-`
-💧 แหล่งซับน้ำจำ<br>
-🌱 พื้นที่อนุรักษ์<br>
-🐟 ความหลากหลายชีวภาพ
-`
-
-);
+marker.bindPopup(`
 
 
+<h3>
 
-// จุดสุขภาพ
+${item.name}
 
-var health =
-L.marker(
-[19.1680,99.9020]
-)
-.addTo(map);
+</h3>
 
 
-health.bindPopup(
+<p>
 
-`
-🩺 จุดสุขภาพชุมชน<br>
-👴 ผู้สูงอายุ<br>
-อสม.รับผิดชอบ
-`
+ประเภท :
 
-);
+${item.type}
+
+</p>
+
+
+<p>
+
+${item.detail}
+
+</p>
+
+
+`);
 
 
 
-// จุดสิ่งแวดล้อม
 
-var env =
-L.marker(
-[19.1700,99.9050]
-)
-.addTo(map);
+});
 
 
-env.bindPopup(
-
-`
-🌳 จุดเรียนรู้ธรรมชาติ<br>
-บ้านร่องเข็ม
-`
-
-);
-
+});
 
 
 </script>
@@ -229,5 +198,6 @@ env.bindPopup(
 
 
 </body>
+
 
 </html>
