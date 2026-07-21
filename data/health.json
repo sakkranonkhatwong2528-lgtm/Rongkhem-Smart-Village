@@ -1,35 +1,57 @@
 {
-"health":[
+    "village": "บ้านร่องเข็ม หมู่ที่ 6",
 
-{
-"id":1,
-"name":"นางตัวอย่าง ใจงาม",
-"age":68,
-"house":"2",
-"disease":"ความดันโลหิต",
-"status":"ติดตาม",
-"volunteer":"น.ส.ศศิธร เข็มแก้ว"
-},
+    "status": "พร้อม",
 
-{
-"id":2,
-"name":"นายสมบัติ ตัวอย่าง",
-"age":75,
-"house":"5",
-"disease":"ไม่มี",
-"status":"ปกติ",
-"volunteer":"อสม.ประจำบ้าน"
-},
 
-{
-"id":3,
-"name":"นางคำดี ตัวอย่าง",
-"age":82,
-"house":"8",
-"disease":"ผู้สูงอายุพึ่งพิง",
-"status":"ดูแลพิเศษ",
-"volunteer":"อสม.ประจำบ้าน"
-}
+    "totalPeople": 0,
 
-]
+
+    "normal": 0,
+
+    "risk": 0,
+
+    "vulnerable": 0,
+
+
+    "elderlyCare": 0,
+
+
+    "chronicDisease": {
+
+        "diabetes": 0,
+
+        "hypertension": 0,
+
+        "heartDisease": 0,
+
+        "other": 0
+
+    },
+
+
+    "healthVolunteer": {
+
+        "name": "อสม.บ้านร่องเข็ม",
+
+        "total": 0
+
+    },
+
+
+    "healthActivities": [
+
+        "ตรวจสุขภาพประชาชน",
+
+        "ติดตามผู้สูงอายุ",
+
+        "ดูแลกลุ่มเปราะบาง",
+
+        "เฝ้าระวังโรคในชุมชน"
+
+    ],
+
+
+    "update": "2026-07-21"
+
 }
