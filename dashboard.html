@@ -7,14 +7,20 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
 <title>
-Dashboard | บ้านร่องเข็ม Smart Village
+บ้านร่องเข็ม Smart Village Dashboard
 </title>
 
 
-<link rel="stylesheet" href="css/style.css">
+<!-- CSS -->
 
-<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="assets/css/dashboard.css">
+
+
+<!-- Chart.js -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
 </head>
@@ -23,157 +29,216 @@ Dashboard | บ้านร่องเข็ม Smart Village
 <body>
 
 
+
+<div class="dashboard-container">
+
+
+
+<!-- Header -->
+
 <header class="dashboard-header">
 
 
+<div>
+
 <h1>
-🏡 Dashboard หมู่บ้านอัจฉริยะร่องเข็ม
+🏡 บ้านร่องเข็ม Smart Village
 </h1>
 
 
 <p>
-บ้านร่องเข็ม หมู่ที่ 6<br>
-ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา
+หมู่ที่ 6 ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา
+<br>
+"กล้าคิด กล้าทำ กล้านำ กล้าพัฒนา"
 </p>
 
 
-<p>
-“เทคโนโลยีเพื่อการพัฒนาชุมชนอย่างยั่งยืน”
-</p>
+</div>
+
+
+
+<button 
+id="printReport"
+class="btn btn-print">
+
+🖨 พิมพ์รายงาน
+
+</button>
+
 
 
 </header>
 
 
 
-<main>
+
+
+<!-- Error -->
+
+<div id="dashboardError"></div>
 
 
 
-<section class="dashboard-container">
 
 
 
-<div class="card">
+<!-- Summary -->
 
-<h3>👥 ประชากร</h3>
 
-<div class="number" id="population">
+<section class="summary-grid">
+
+
+
+<div class="dashboard-card">
+
+
+<div class="card-icon">
+🏠
+</div>
+
+
+<div class="card-title">
+
+ครัวเรือน
+
+</div>
+
+
+<div 
+class="card-number"
+id="totalHouse">
+
 0
-</div>
-
-<p>คน</p>
 
 </div>
 
 
+</div>
 
 
-<div class="card">
 
-<h3>🏠 ครัวเรือน</h3>
 
-<div class="number" id="household">
+
+
+<div class="dashboard-card">
+
+
+<div class="card-icon">
+👥
+</div>
+
+
+<div class="card-title">
+
+ประชากร
+
+</div>
+
+
+<div 
+class="card-number"
+id="totalPeople">
+
 0
-</div>
-
-<p>หลังคาเรือน</p>
 
 </div>
 
 
+</div>
 
 
 
-<div class="card">
 
-<h3>👴 ผู้สูงอายุ</h3>
 
-<div class="number" id="elderly">
+
+
+<div class="dashboard-card">
+
+
+<div class="card-icon">
+👴
+</div>
+
+
+<div class="card-title">
+
+ผู้สูงอายุ
+
+</div>
+
+
+<div 
+class="card-number"
+id="elderly">
+
 0
-</div>
-
-<p>คน</p>
 
 </div>
 
 
+</div>
 
 
 
-<div class="card">
 
-<h3>❤️ กลุ่มเปราะบาง</h3>
 
-<div class="number" id="vulnerable">
+
+
+<div class="dashboard-card">
+
+
+<div class="card-icon">
+❤️
+</div>
+
+
+<div class="card-title">
+
+กลุ่มเปราะบาง
+
+</div>
+
+
+<div 
+class="card-number"
+id="vulnerable">
+
 0
-</div>
-
-<p>คน</p>
 
 </div>
 
 
+</div>
 
 
 
-<div class="card">
 
-<h3>🩺 อสม.</h3>
 
-<div class="number" id="health">
+
+
+<div class="dashboard-card">
+
+
+<div class="card-icon">
+👨‍💼
+</div>
+
+
+<div class="card-title">
+
+ผู้นำและคณะทำงาน
+
+</div>
+
+
+<div 
+class="card-number"
+id="leaders">
+
 0
-</div>
-
-<p>คน</p>
 
 </div>
 
-
-
-
-
-<div class="card">
-
-<h3>🛡️ ชรบ.</h3>
-
-<div class="number" id="shorbor">
-0
-</div>
-
-<p>คน</p>
-
-</div>
-
-
-
-
-
-<div class="card">
-
-<h3>🚨 อปพร.</h3>
-
-<div class="number" id="oporor">
-0
-</div>
-
-<p>คน</p>
-
-</div>
-
-
-
-
-
-<div class="card">
-
-<h3>📢 ข่าวสาร</h3>
-
-<div class="number" id="news">
-0
-</div>
-
-<p>รายการ</p>
 
 </div>
 
@@ -187,15 +252,23 @@ Dashboard | บ้านร่องเข็ม Smart Village
 
 
 
-<section class="summary-box">
+<!-- Smart Village Status -->
 
 
-<h2>
-📊 สรุปสถานการณ์หมู่บ้าน
+<section class="section">
+
+
+<h2 class="section-title">
+
+🌱 Smart Village Status
+
 </h2>
 
 
-<div id="summary">
+<div 
+class="status-grid"
+id="villageStatus">
+
 
 กำลังโหลดข้อมูล...
 
@@ -210,30 +283,34 @@ Dashboard | บ้านร่องเข็ม Smart Village
 
 
 
-<section class="chart-area">
+
+
+<!-- Charts -->
+
+
+<section class="section">
+
+
+<h2 class="section-title">
+
+📊 ข้อมูลชุมชน
+
+</h2>
+
+
+
+<div class="chart-grid">
+
 
 
 <div class="chart-box">
 
-<h2>
-📈 ภาพรวมประชากร
-</h2>
 
-<canvas id="populationChart"></canvas>
+<h3>
 
+ประชากรตามช่วงวัย
 
-</div>
-
-
-
-
-
-<div class="chart-box">
-
-
-<h2>
-👴 โครงสร้างอายุ
-</h2>
+</h3>
 
 
 <canvas id="ageChart"></canvas>
@@ -242,6 +319,32 @@ Dashboard | บ้านร่องเข็ม Smart Village
 </div>
 
 
+
+
+
+
+
+<div class="chart-box">
+
+
+<h3>
+
+สถานะสุขภาพประชาชน
+
+</h3>
+
+
+<canvas id="healthChart"></canvas>
+
+
+</div>
+
+
+
+
+</div>
+
+
 </section>
 
 
@@ -252,79 +355,27 @@ Dashboard | บ้านร่องเข็ม Smart Village
 
 
 
-<section class="smart-area">
+<!-- News -->
 
 
-<h2>
-🌱 ระบบติดตามหมู่บ้านอัจฉริยะ
+<section class="section">
+
+
+<h2 class="section-title">
+
+📰 ข่าวสารล่าสุด
+
 </h2>
 
 
 
-<div class="smart-grid">
+<div id="latestNews">
 
 
-
-<div class="smart-card">
-
-<h3>
-🌫️ PM2.5
-</h3>
-
-<p>
-ติดตามคุณภาพอากาศและสถานการณ์ฝุ่น
-</p>
-
-<strong>
-เฝ้าระวัง
-</strong>
+กำลังโหลดข่าว...
 
 </div>
 
-
-
-
-
-<div class="smart-card">
-
-<h3>
-🔥 ลดการเผา
-</h3>
-
-<p>
-ระบบติดตามการเผาในพื้นที่
-</p>
-
-<strong>
-Smart Environment
-</strong>
-
-</div>
-
-
-
-
-
-<div class="smart-card">
-
-<h3>
-🏞️ แหล่งซับน้ำจำ
-</h3>
-
-<p>
-ระบบข้อมูลทรัพยากรธรรมชาติ
-</p>
-
-<strong>
-Smart Wetland
-</strong>
-
-</div>
-
-
-
-
-</div>
 
 
 </section>
@@ -335,116 +386,15 @@ Smart Wetland
 
 
 
-
-
-<section class="survey-dashboard">
-
-
-<h2>
-📊 ผลสำรวจชุมชนล่าสุด
-</h2>
-
-
-<div id="surveySummary">
-
-กำลังโหลดข้อมูลแบบสำรวจ...
-
 </div>
 
 
-</section>
 
 
 
+<!-- JS -->
 
-
-
-
-
-
-<section class="project-box">
-
-
-<h2>
-📌 โครงการพัฒนาชุมชน
-</h2>
-
-
-<ul>
-
-<li>
-🌱 ร่องเข็ม Smart Village
-</li>
-
-
-<li>
-💧 น้ำดื่มชุมชน ตราน้ำจำ
-</li>
-
-
-<li>
-🏞️ พัฒนาแหล่งซับน้ำจำ
-</li>
-
-
-<li>
-♻️ ลดการเผา ลด PM2.5
-</li>
-
-
-<li>
-🏡 ระบบข้อมูลหมู่บ้าน
-</li>
-
-
-</ul>
-
-
-
-
-<button onclick="printReport()">
-
-🖨️ พิมพ์รายงาน
-
-</button>
-
-
-
-
-</section>
-
-
-
-
-</main>
-
-
-
-
-
-
-
-<footer>
-
-
-© 2026 บ้านร่องเข็ม Smart Village
-
-
-</footer>
-
-
-
-
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-
-<script src="js/dashboard.js"></script>
-
-
-<script src="js/survey-dashboard.js"></script>
+<script src="assets/js/dashboard.js"></script>
 
 
 
