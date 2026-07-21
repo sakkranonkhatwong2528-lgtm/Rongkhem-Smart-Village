@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="th">
+
+
+<head>
+
+
+<meta charset="UTF-8">
+
+
+<title>
+จัดการเอกสาร
+</title>
+
+
+<link rel="stylesheet"
+href="../assets/css/dashboard.css">
+
+
+</head>
+
+
+
+<body onload="checkLogin()">
+
+
+
+<div class="dashboard-container">
+
+
+
+<header class="dashboard-header">
+
+
+<h1>
+
+📄 จัดการเอกสารหมู่บ้าน
+
+</h1>
+
+
+<button
+
+class="btn btn-print"
+
+onclick="logout()">
+
+ออกจากระบบ
+
+</button>
+
+
+</header>
+
+
+
+
+
+
+<section class="section">
+
+
+<h2>
+
+เพิ่มเอกสาร
+
+</h2>
+
+
+
+<input id="title"
+
+placeholder="ชื่อเอกสาร">
+
+
+
+<input id="category"
+
+placeholder="ประเภทเอกสาร">
+
+
+
+<input id="file"
+
+placeholder="ชื่อไฟล์ PDF">
+
+
+
+<button
+
+onclick="addDocument()">
+
+บันทึก
+
+</button>
+
+
+
+</section>
+
+
+
+</div>
+
+
+
+
+
+<script src="../assets/js/admin.js"></script>
+
+
+
+<script>
+
+
+function addDocument(){
+
+
+alert(
+
+"เพิ่มเอกสารเรียบร้อย"
+
+);
+
+
+}
+
+
+
+</script>
+
+
+
+</body>
+
+</html>
