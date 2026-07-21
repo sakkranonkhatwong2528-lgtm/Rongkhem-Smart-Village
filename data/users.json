@@ -1,66 +1,67 @@
 [
-{
-"id":1,
-"name":"นายศักรนนท์ ขัติย์วงศ์",
-"username":"admin",
-"password":"1234",
-"role":"Administrator",
-"department":"ฝ่ายปกครอง",
-"permission":[
-"dashboard",
-"leaders",
-"citizen",
-"health",
-"activity",
-"news",
-"complaint",
-"document",
-"project"
-]
-},
+    {
+        "id":1,
+
+        "name":"นายศักรนนท์ ขัติย์วงศ์",
+
+        "username":"admin",
+
+        "password":"1234",
+
+        "role":"Administrator",
+
+        "department":"ฝ่ายปกครอง",
+
+        "permission":[
+
+            "dashboard",
+
+            "leaders",
+
+            "citizen",
+
+            "health",
+
+            "activity",
+
+            "news",
+
+            "complaint",
+
+            "document"
+
+        ],
+
+        "status":"active"
+
+    },
 
 
-{
-"id":2,
-"name":"อสม.บ้านร่องเข็ม",
-"username":"health",
-"password":"1234",
-"role":"Health",
-"department":"สาธารณสุข",
-"permission":[
-"dashboard",
-"health",
-"elderly"
-]
-},
+    {
+        "id":2,
 
+        "name":"เจ้าหน้าที่หมู่บ้าน",
 
-{
-"id":3,
-"name":"ชรบ.บ้านร่องเข็ม",
-"username":"security",
-"password":"1234",
-"role":"Security",
-"department":"ความปลอดภัย",
-"permission":[
-"dashboard",
-"security"
-]
-},
+        "username":"staff",
 
+        "password":"1234",
 
-{
-"id":4,
-"name":"ประชาชน",
-"username":"user",
-"password":"1234",
-"role":"Citizen",
-"department":"ประชาชน",
-"permission":[
-"dashboard",
-"news",
-"complaint"
-]
-}
+        "role":"Staff",
+
+        "department":"งานข้อมูลชุมชน",
+
+        "permission":[
+
+            "dashboard",
+
+            "news",
+
+            "activity"
+
+        ],
+
+        "status":"active"
+
+    }
 
 ]
