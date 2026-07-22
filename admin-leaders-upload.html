@@ -6,71 +6,95 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>จัดการทำเนียบผู้นำ | บ้านร่องเข็ม Smart Village</title>
+<title>Admin จัดการผู้นำ | บ้านร่องเข็ม</title>
 
 <style>
 
 body{
-font-family:Tahoma,sans-serif;
-background:#e8f5e9;
-margin:0;
-}
-
-header{
-background:#2e7d32;
-color:white;
+font-family:"Sarabun",sans-serif;
+background:#f1f5f9;
 padding:20px;
-text-align:center;
 }
 
 .container{
-padding:20px;
+max-width:1200px;
+margin:auto;
 }
 
-.box{
-background:white;
+.header{
+background:#166534;
+color:white;
+padding:25px;
 border-radius:20px;
-padding:20px;
-margin-bottom:20px;
-box-shadow:0 3px 10px #aaa;
+text-align:center;
 }
+
+.card{
+background:white;
+border-radius:18px;
+padding:20px;
+margin-top:20px;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
 
 input,button{
 
-width:95%;
 padding:12px;
-margin:8px;
-border-radius:15px;
-border:1px solid #ccc;
-
-}
-
-button{
-
-background:#2e7d32;
-color:white;
-border:none;
+border-radius:10px;
+border:1px solid #ddd;
 font-size:16px;
 
 }
 
 
-.preview{
+button{
 
-width:130px;
-height:130px;
-border-radius:50%;
-object-fit:cover;
-border:3px solid #2e7d32;
+background:#166534;
+color:white;
+cursor:pointer;
 
 }
 
 
-.card{
+table{
 
-background:#f9f9f9;
-padding:15px;
-border-radius:15px;
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+
+}
+
+
+th{
+
+background:#dcfce7;
+
+}
+
+
+td,th{
+
+padding:12px;
+border-bottom:1px solid #ddd;
+text-align:center;
+
+}
+
+
+img{
+
+width:60px;
+height:60px;
+border-radius:50%;
+object-fit:cover;
+
+}
+
+
+.search{
+
+width:100%;
 margin-top:15px;
 
 }
@@ -84,229 +108,259 @@ margin-top:15px;
 <body>
 
 
-<header>
-
-<h1>👥 จัดการทำเนียบผู้นำ</h1>
-
-<p>
-บ้านร่องเข็ม Smart Village
-</p>
-
-</header>
-
-
-
 <div class="container">
 
 
-<div class="box">
+<div class="header">
+
+<h1>👨‍💻 Admin Center</h1>
+
+<h2>จัดการทำเนียบผู้นำและคณะทำงาน</h2>
+
+<p>
+บ้านร่องเข็ม หมู่ที่ 6
+ตำบลจำป่าหวาย จังหวัดพะเยา
+</p>
+
+</div>
 
 
-<h2>➕ เพิ่มข้อมูลผู้นำ</h2>
+
+<div class="card">
 
 
-<input id="name"
-placeholder="ชื่อ - นามสกุล">
-
-
-<input id="position"
-placeholder="ตำแหน่ง">
-
-
-<input id="duty"
-placeholder="หน้าที่">
-
-
-<input id="phone"
-placeholder="เบอร์โทร">
-
-
-<label>
-📷 เลือกรูปภาพ
-</label>
+<h2>👥 รายชื่อผู้นำ</h2>
 
 
 <input 
-type="file"
-accept="image/*"
-onchange="preview(event)"
->
+class="search"
+id="search"
+placeholder="ค้นหาชื่อ / ตำแหน่ง"
+onkeyup="searchLeader()">
 
 
-<img 
-id="imagePreview"
-class="preview"
-src="images/leader.jpg"
->
+<table>
 
 
-<br>
+<thead>
+
+<tr>
+
+<th>รูป</th>
+<th>ชื่อ</th>
+<th>ตำแหน่ง</th>
+<th>ฝ่าย</th>
+<th>สถานะ</th>
+<th>จัดการ</th>
+
+</tr>
+
+</thead>
 
 
-<button onclick="save()">
+<tbody id="table">
 
-💾 บันทึกข้อมูล
-
-</button>
+</tbody>
 
 
-</div>
-
-
-
-
-<div class="box">
-
-
-<h2>📋 รายชื่อผู้นำ</h2>
-
-
-<div id="leaders"></div>
+</table>
 
 
 </div>
 
 
-</div>
 
+</div>
 
 
 
 <script>
 
 
-let data =
-JSON.parse(
-localStorage.getItem("leaders")
-) || [];
+let leaders=[];
 
 
+// โหลดข้อมูล
 
-function preview(e){
-
-let img =
-document.getElementById("imagePreview");
+fetch("data/leader.json")
 
 
-img.src =
-URL.createObjectURL(
-e.target.files[0]
-);
-
-}
+.then(res=>res.json())
 
 
+.then(data=>{
 
 
-function save(){
+leaders=data.leaders || [];
+
+showTable(leaders);
 
 
-let leader={
+})
+
+.catch(()=>{
 
 
-name:
-document.getElementById("name").value,
+document.getElementById("table").innerHTML=
 
-
-position:
-document.getElementById("position").value,
-
-
-duty:
-document.getElementById("duty").value,
-
-
-phone:
-document.getElementById("phone").value,
-
-
-image:
-document.getElementById("imagePreview").src
-
-
-};
-
-
-
-data.push(leader);
-
-
-
-localStorage.setItem(
-"leaders",
-JSON.stringify(data)
-);
-
-
-
-show();
-
-
-alert("บันทึกเรียบร้อย");
-
-
-}
-
-
-
-
-
-function show(){
-
-
-let html="";
-
-
-data.forEach((x)=>{
-
-
-html += `
-
-<div class="card">
-
-<img 
-src="${x.image}"
-class="preview"
->
-
-
-<h3>
-${x.position}
-</h3>
-
-
-<p>
-${x.name}
-</p>
-
-
-<p>
-${x.duty}
-</p>
-
-
-<p>
-☎️ ${x.phone}
-</p>
-
-
-</div>
-
+`
+<tr>
+<td colspan="6">
+โหลดข้อมูลไม่สำเร็จ
+</td>
+</tr>
 `;
-
 
 });
 
 
 
-document.getElementById("leaders").innerHTML=html;
+
+
+function showTable(data){
+
+
+let html="";
+
+
+data.forEach(item=>{
+
+
+html+=`
+
+<tr>
+
+<td>
+
+<img src="${item.image || 'images/leader.jpg'}">
+
+</td>
+
+
+<td>${item.name}</td>
+
+
+<td>${item.position}</td>
+
+
+<td>${item.department}</td>
+
+
+<td>${item.status}</td>
+
+
+<td>
+
+
+<button onclick="editLeader(${item.id})">
+✏️ แก้ไข
+</button>
+
+
+<button onclick="deleteLeader(${item.id})">
+🗑 ลบ
+</button>
+
+
+</td>
+
+
+</tr>
+
+
+`;
+
+});
+
+
+document.getElementById("table").innerHTML=html;
 
 
 }
 
 
 
-show();
+
+
+function searchLeader(){
+
+
+let key=document
+.getElementById("search")
+.value
+.toLowerCase();
+
+
+
+let result=leaders.filter(item=>{
+
+
+return (
+
+item.name.toLowerCase().includes(key)
+
+||
+
+item.position.toLowerCase().includes(key)
+
+||
+
+item.department.toLowerCase().includes(key)
+
+);
+
+
+});
+
+
+showTable(result);
+
+
+}
+
+
+
+
+
+function editLeader(id){
+
+
+let item=leaders.find(x=>x.id===id);
+
+
+alert(
+"แก้ไขข้อมูล\n\n"+
+item.name+
+"\n\nขั้นต่อไปเชื่อมฐานข้อมูล"
+);
+
+
+}
+
+
+
+
+
+function deleteLeader(id){
+
+
+let item=leaders.find(x=>x.id===id);
+
+
+if(confirm(
+"ต้องการลบ "+item.name+" หรือไม่?"
+)){
+
+
+alert(
+"ตอนนี้ JSON ยังเป็นแบบอ่านอย่างเดียว\nต้องเชื่อมฐานข้อมูลก่อน"
+);
+
+
+}
+
+
+}
 
 
 </script>
