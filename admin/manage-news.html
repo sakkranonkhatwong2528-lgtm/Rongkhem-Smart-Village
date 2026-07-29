@@ -5,289 +5,72 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>
-จัดการข่าว | Rongkhem Smart Village
+จัดการข่าว | ร่องเข็ม Smart Village
 </title>
 
-
-<link rel="stylesheet" href="../assets/css/dashboard.css">
-
-
-<style>
-
-
-.form-box{
-
-background:white;
-
-padding:25px;
-
-border-radius:20px;
-
-box-shadow:0 5px 15px rgba(0,0,0,.1);
-
-margin-bottom:25px;
-
-}
-
-
-
-input,textarea,select{
-
-
-width:100%;
-
-padding:12px;
-
-margin-bottom:15px;
-
-border-radius:10px;
-
-border:1px solid #ddd;
-
-font-size:15px;
-
-
-}
-
-
-
-textarea{
-
-height:120px;
-
-resize:none;
-
-}
-
-
-
-.save-btn{
-
-
-background:#2e7d32;
-
-color:white;
-
-border:none;
-
-padding:12px 25px;
-
-border-radius:10px;
-
-cursor:pointer;
-
-
-}
-
-
-
-.news-card{
-
-
-background:white;
-
-padding:20px;
-
-border-radius:15px;
-
-margin-bottom:15px;
-
-box-shadow:0 3px 10px rgba(0,0,0,.08);
-
-
-}
-
-
-
-.delete-btn{
-
-
-background:#c62828;
-
-color:white;
-
-border:none;
-
-padding:8px 15px;
-
-border-radius:8px;
-
-cursor:pointer;
-
-
-}
-
-
-
-</style>
-
+<link rel="stylesheet" href="../css/admin-news.css">
 
 </head>
 
 
-
-<body onload="checkLogin();loadNews()">
-
+<body>
 
 
-<div class="dashboard-container">
-
-
-
-
-
-<header class="dashboard-header">
-
-
-<div>
+<header>
 
 <h1>
-
-📰 จัดการข่าวประชาสัมพันธ์
-
+📰 ระบบจัดการข่าวประชาสัมพันธ์
 </h1>
 
-
 <p>
-
-Rongkhem Smart Village Admin
-
+บ้านร่องเข็ม หมู่ที่ 6
 </p>
-
-
-</div>
-
-
-<button
-
-class="btn btn-print"
-
-onclick="logout()">
-
-ออกจากระบบ
-
-</button>
-
 
 </header>
 
 
 
+<div class="container">
 
 
-
-
-
-<section class="section">
-
-
-<h2 class="section-title">
-
-➕ เพิ่มข่าวใหม่
-
+<h2>
+เพิ่มข่าวใหม่
 </h2>
 
 
-
-
-<div class="form-box">
-
-
-<input id="title"
-
-placeholder="หัวข้อข่าว">
-
-
-<select id="category">
-
-<option>
-
-ประกาศหมู่บ้าน
-
-</option>
-
-<option>
-
-กิจกรรม
-
-</option>
-
-<option>
-
-สิ่งแวดล้อม
-
-</option>
-
-<option>
-
-สุขภาพ
-
-</option>
-
-</select>
+<input 
+id="title"
+placeholder="หัวข้อข่าว"
+>
 
 
 
-<textarea id="detail"
-
+<textarea 
+id="detail"
 placeholder="รายละเอียดข่าว">
-
 </textarea>
 
 
 
-<input id="author"
+<button onclick="addNews()">
 
-placeholder="ผู้ประกาศ">
-
-
-<button
-
-class="save-btn"
-
-onclick="saveNews()">
-
-บันทึกข่าว
+เพิ่มข่าว
 
 </button>
 
 
-</div>
 
-
-</section>
-
-
-
-
-
-
-
-
-<section class="section">
-
-
-<h2 class="section-title">
-
-📋 รายการข่าว
-
+<h2>
+รายการข่าว
 </h2>
 
 
-<div id="newsList">
-
-กำลังโหลด...
+<div id="newsBox">
 
 </div>
-
-
-</section>
-
-
 
 
 
@@ -295,198 +78,9 @@ onclick="saveNews()">
 
 
 
-
-
-
-
-<script src="../assets/js/admin.js"></script>
-
-
-
-<script>
-
-
-let newsData=[];
-
-
-
-async function loadNews(){
-
-
-const res = await fetch("../data/news.json");
-
-
-const data = await res.json();
-
-
-newsData=data.news || [];
-
-
-displayNews();
-
-
-}
-
-
-
-
-
-function displayNews(){
-
-
-let box=document.getElementById("newsList");
-
-
-box.innerHTML="";
-
-
-
-newsData.forEach((item,index)=>{
-
-
-box.innerHTML += `
-
-
-<div class="news-card">
-
-
-<h3>
-
-📰 ${item.title}
-
-</h3>
-
-
-<p>
-
-ประเภท : ${item.category}
-
-</p>
-
-
-<p>
-
-${item.detail}
-
-</p>
-
-
-<small>
-
-ผู้ประกาศ : ${item.author}
-
-</small>
-
-
-<br><br>
-
-
-<button
-
-class="delete-btn"
-
-onclick="deleteNews(${index})">
-
-ลบ
-
-</button>
-
-
-</div>
-
-
-`;
-
-
-});
-
-
-}
-
-
-
-
-
-
-function saveNews(){
-
-
-
-let item={
-
-
-id:Date.now(),
-
-
-title:
-
-document.getElementById("title").value,
-
-
-category:
-
-document.getElementById("category").value,
-
-
-date:
-
-new Date().toISOString().slice(0,10),
-
-
-detail:
-
-document.getElementById("detail").value,
-
-
-author:
-
-document.getElementById("author").value
-
-
-};
-
-
-
-newsData.unshift(item);
-
-
-displayNews();
-
-
-
-alert("เพิ่มข่าวเรียบร้อย");
-
-
-}
-
-
-
-
-
-
-function deleteNews(index){
-
-
-if(confirm("ต้องการลบข่าวนี้หรือไม่?")){
-
-
-newsData.splice(index,1);
-
-
-displayNews();
-
-
-}
-
-
-}
-
-
-
-</script>
+<script src="../js/admin-news.js"></script>
 
 
 </body>
-
 
 </html>
