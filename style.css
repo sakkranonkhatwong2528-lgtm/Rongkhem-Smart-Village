@@ -1,371 +1,142 @@
-/* ==========================
-   Rongkhem Smart Village
-   Home Page Style
-========================== */
+*{
 
+box-sizing:border-box;
 
-* {
-    box-sizing: border-box;
 }
 
 
-body {
+body{
 
-    margin:0;
+margin:0;
 
-    font-family:
-    "Tahoma",
-    "Noto Sans Thai",
-    sans-serif;
-
-    background:#f2f8f1;
-
-    color:#333;
-
-    line-height:1.7;
+font-family:Tahoma,sans-serif;
 
 }
 
 
 
+.hero{
 
-/* Header */
 
-header {
+height:100vh;
 
-    background:
-    linear-gradient(
-    135deg,
-    #1b5e20,
-    #66bb6a
-    );
 
-    color:white;
+background:
 
-    text-align:center;
+linear-gradient(
 
-    padding:45px 20px;
+rgba(0,80,0,0.55),
+
+rgba(0,0,0,0.55)
+
+),
+
+url("images/rongkhem.jpg");
+
+
+
+background-size:cover;
+
+
+background-position:center;
+
+
+
+display:flex;
+
+
+align-items:center;
+
+
+justify-content:center;
+
+
+
+text-align:center;
+
+
+color:white;
+
 
 }
 
 
 
-.logo {
+.content{
 
-    width:130px;
 
-    height:130px;
+padding:20px;
 
-    object-fit:contain;
-
-    background:white;
-
-    border-radius:50%;
-
-    padding:8px;
 
 }
 
 
 
-header h1 {
+h1{
 
-    font-size:38px;
-
-    margin:15px 0;
+font-size:45px;
 
 }
 
 
 
-header p {
+h2{
 
-    font-size:18px;
-
-}
-
-
-
-
-
-/* Menu */
-
-nav {
-
-    background:#145214;
-
-    text-align:center;
-
-    padding:15px;
-
-    position:sticky;
-
-    top:0;
-
-    z-index:100;
+font-size:25px;
 
 }
 
 
 
-nav a {
+p{
 
-    color:white;
-
-    text-decoration:none;
-
-    margin:0 12px;
-
-    font-weight:bold;
+font-size:22px;
 
 }
 
 
 
-nav a:hover {
+a{
 
-    color:#ffeb3b;
+
+display:inline-block;
+
+
+margin-top:20px;
+
+
+padding:15px 35px;
+
+
+background:#2e7d32;
+
+
+color:white;
+
+
+text-decoration:none;
+
+
+border-radius:30px;
+
 
 }
 
 
 
+@media(max-width:600px){
 
 
-/* Hero */
+h1{
 
-.hero {
-
-    max-width:1100px;
-
-    margin:30px auto;
-
-    background:white;
-
-    padding:30px;
-
-    border-radius:20px;
-
-    text-align:center;
-
-    box-shadow:
-    0 5px 15px rgba(0,0,0,.15);
+font-size:30px;
 
 }
 
 
+h2{
 
-.hero img {
-
-    width:100%;
-
-    max-height:450px;
-
-    object-fit:cover;
-
-    border-radius:20px;
-
-}
-
-
-
-.hero h2 {
-
-    color:#1b5e20;
-
-    font-size:30px;
-
-}
-
-
-
-
-
-
-
-/* Section */
-
-section {
-
-    max-width:1100px;
-
-    margin:auto;
-
-    padding:25px;
-
-}
-
-
-
-section h2 {
-
-    color:#1b5e20;
-
-    border-left:
-
-    8px solid #66bb6a;
-
-    padding-left:15px;
-
-}
-
-
-
-
-
-
-/* Vision */
-
-.vision {
-
-    background:white;
-
-    border-radius:20px;
-
-    text-align:center;
-
-    box-shadow:
-    0 5px 15px rgba(0,0,0,.15);
-
-}
-
-
-
-.vision h3 {
-
-    color:#2e7d32;
-
-    font-size:32px;
-
-}
-
-
-
-
-
-
-
-/* Card */
-
-.card {
-
-    background:white;
-
-    padding:25px;
-
-    border-radius:18px;
-
-    box-shadow:
-
-    0 4px 12px rgba(0,0,0,.12);
-
-    margin:15px 0;
-
-}
-
-
-
-
-.card h3 {
-
-    color:#2e7d32;
-
-}
-
-
-
-
-
-/* Grid */
-
-.grid {
-
-    display:grid;
-
-    grid-template-columns:
-
-    repeat(
-    auto-fit,
-    minmax(250px,1fr)
-    );
-
-    gap:20px;
-
-}
-
-
-
-
-
-/* Contact */
-
-.contact a {
-
-    color:#1b5e20;
-
-    font-weight:bold;
-
-}
-
-
-
-
-
-
-/* Footer */
-
-footer {
-
-    background:#145214;
-
-    color:white;
-
-    text-align:center;
-
-    padding:25px;
-
-    margin-top:30px;
-
-}
-
-
-
-
-
-/* Mobile */
-
-@media(max-width:700px){
-
-
-header h1 {
-
-    font-size:28px;
-
-}
-
-
-
-nav a {
-
-    display:block;
-
-    padding:8px;
-
-}
-
-
-
-.hero h2 {
-
-    font-size:24px;
-
-}
-
-
-
-section {
-
-    padding:15px;
+font-size:20px;
 
 }
 
