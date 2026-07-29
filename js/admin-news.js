@@ -2,90 +2,64 @@ let news=[];
 
 
 
-async function loadAdminNews(){
+fetch("../data/news.json")
 
+.then(res=>res.json())
 
-const data =
-await fetch(
-"data/news.json"
-)
+.then(data=>{
 
-.then(r=>r.json());
+news=data;
 
+showNews();
 
-news=data.news;
-
-
-showTable();
-
-
-}
+});
 
 
 
 
 
-function showTable(){
+function showNews(){
 
 
-let html="";
+let box=document.getElementById("newsBox");
 
 
-news.forEach((n,i)=>{
+box.innerHTML="";
 
 
-html+=`
-
-<tr>
-
-<td>
-${n.title}
-</td>
+news.forEach((item,index)=>{
 
 
-<td>
-${n.type}
-</td>
+box.innerHTML +=`
+
+<div class="news-item">
+
+<h3>
+${item.title}
+</h3>
 
 
-<td>
-${n.date}
-</td>
+<p>
+${item.detail}
+</p>
 
 
-<td>
-
-
-<button onclick="deleteNews(${i})">
+<button onclick="deleteNews(${index})">
 
 ลบ
 
 </button>
 
 
-</td>
-
-
-</tr>
-
+</div>
 
 `;
-
 
 
 });
 
 
-document.getElementById(
-"newsTable"
-)
-.innerHTML=html;
-
-
 }
-
-
-
 
 
 
@@ -93,46 +67,41 @@ document.getElementById(
 function addNews(){
 
 
+let title=document.getElementById("title").value;
 
-let data={
-
-
-id:Date.now(),
-
-
-title:
-document.getElementById("title").value,
-
-
-detail:
-document.getElementById("detail").value,
-
-
-type:
-document.getElementById("type").value,
-
-
-date:
-document.getElementById("date").value
+let detail=document.getElementById("detail").value;
 
 
 
-};
+if(title=="" || detail==""){
+
+alert("กรุณากรอกข้อมูล");
+
+return;
+
+}
 
 
 
-news.unshift(data);
+news.unshift({
+
+title:title,
+
+detail:detail
+
+});
+
+
+showNews();
 
 
 
-showTable();
+document.getElementById("title").value="";
+
+document.getElementById("detail").value="";
 
 
-
-alert(
-"เพิ่มข่าวแล้ว"
-);
-
+alert("เพิ่มข่าวแล้ว");
 
 
 }
@@ -140,28 +109,12 @@ alert(
 
 
 
+function deleteNews(index){
 
 
+news.splice(index,1);
 
-function deleteNews(i){
-
-
-if(confirm("ลบข่าวนี้หรือไม่")){
-
-
-news.splice(i,1);
-
-
-showTable();
+showNews();
 
 
 }
-
-
-}
-
-
-
-
-
-loadAdminNews();
