@@ -1,57 +1,53 @@
 body{
 
+font-family:Tahoma,sans-serif;
+
 margin:0;
 
-font-family:"Noto Sans Thai";
-
-background:#f0fdf4;
+background:#f5f5f5;
 
 }
 
 
+header{
 
-.admin-news-header{
-
-background:#166534;
+background:#1b5e20;
 
 color:white;
 
-text-align:center;
+padding:25px;
 
-padding:35px;
+text-align:center;
 
 }
 
 
 
-.form-box,
-.table-box{
+.container{
 
 background:white;
 
-margin:30px;
+max-width:700px;
 
-padding:30px;
+margin:30px auto;
 
-border-radius:20px;
+padding:25px;
+
+border-radius:15px;
 
 }
 
 
 
-input,
-textarea,
-select{
+input,textarea{
 
-width:90%;
+width:100%;
 
-padding:12px;
+padding:15px;
 
-margin:8px;
+margin:10px 0;
 
-border-radius:10px;
-
-border:1px solid #ddd;
+font-size:16px;
 
 }
 
@@ -59,7 +55,7 @@ border:1px solid #ddd;
 
 textarea{
 
-height:120px;
+height:150px;
 
 }
 
@@ -67,46 +63,25 @@ height:120px;
 
 button{
 
-background:#166534;
+background:#2e7d32;
 
 color:white;
-
-padding:12px 25px;
 
 border:none;
 
+padding:15px 30px;
+
 border-radius:10px;
 
-}
-
-
-
-table{
-
-width:100%;
-
-border-collapse:collapse;
+cursor:pointer;
 
 }
 
 
+.news-item{
 
-th{
+border-bottom:1px solid #ddd;
 
-background:#166534;
-
-color:white;
-
-}
-
-
-
-td,th{
-
-padding:12px;
-
-border:1px solid #ddd;
-
-text-align:center;
+padding:15px;
 
 }
