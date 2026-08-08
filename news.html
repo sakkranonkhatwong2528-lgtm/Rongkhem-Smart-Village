@@ -1,80 +1,178 @@
 <!DOCTYPE html>
-
 <html lang="th">
-
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-
-<title>
-ข่าวสาร | บ้านร่องเข็ม
-</title>
-
-
-<link rel="stylesheet" href="css/style.css">
-
-<link rel="stylesheet" href="css/news.css">
-
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ข่าวประชาสัมพันธ์ | ร่องเข็ม สมาร์ท วิลเลจ</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (Sarabun) -->
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { font-family: 'Sarabun', sans-serif; }
+    </style>
 </head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
 
+    <!-- 1. TOP HEADER -->
+    <div id="header-container"></div>
 
-<body>
+    <!-- 2. MAIN CONTAINER -->
+    <div class="flex flex-1 max-w-7xl w-full mx-auto">
+        
+        <!-- SIDEBAR -->
+        <div id="sidebar-container" class="hidden md:block"></div>
 
+        <!-- MAIN CONTENT -->
+        <main class="flex-1 p-4 sm:p-6 lg:p-8 space-y-6">
+            
+            <!-- Header ประจำหน้าข่าวสาร -->
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between bg-slate-900/80 p-5 rounded-2xl border border-slate-800 shadow-xl gap-4 backdrop-blur-md">
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-bold text-amber-400 flex items-center gap-2">
+                        <span>📰</span> ข่าวประชาสัมพันธ์และกิจกรรม
+                    </h1>
+                    <p class="text-xs text-gray-400">ติดตามข่าวสาร เสียงตามสาย และประกาศสำคัญ บ้านร่องเข็ม หมู่ที่ 6</p>
+                </div>
+                <!-- ช่องค้นหาข่าว -->
+                <div class="relative w-full sm:w-64">
+                    <input type="text" id="searchInput" onkeyup="searchNews()" placeholder="🔍 ค้นหาข่าวสาร..." 
+                           class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2 text-xs text-white focus:outline-none focus:border-amber-500 transition">
+                </div>
+            </div>
 
-<header class="news-header">
+            <!-- หมวดหมู่ข่าว / แท็กคัดกรอง -->
+            <div class="flex flex-wrap gap-2 text-xs">
+                <button onclick="filterCategory('all')" class="px-3.5 py-1.5 rounded-xl bg-amber-500 text-slate-950 font-bold shadow-md shadow-amber-500/20 active:scale-95 transition">
+                    ทั้งหมด
+                </button>
+                <button onclick="filterCategory('ประกาศ')" class="px-3.5 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-gray-300 hover:text-amber-400 transition">
+                    📢 ประกาศหมู่บ้าน
+                </button>
+                <button onclick="filterCategory('กิจกรรม')" class="px-3.5 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-gray-300 hover:text-amber-400 transition">
+                    📸 กิจกรรมชุมชน
+                </button>
+                <button onclick="filterCategory('กลุ่มข้าว')" class="px-3.5 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-gray-300 hover:text-amber-400 transition">
+                    🌾 กลุ่มข้าวสาร
+                </button>
+            </div>
 
+            <!-- รายการข่าวสารทั้งหมด (Grid Display) -->
+            <div id="allNewsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- ข่าวสารจะถูก Render ลงในส่วนนี้ผ่าน JS -->
+            </div>
 
-<h1>
-📢 ข่าวสารหมู่บ้าน
-</h1>
+        </main>
+    </div>
 
+    <!-- 3. FOOTER -->
+    <div id="footer-container"></div>
 
-<p>
-บ้านร่องเข็ม Smart Village
-</p>
+    <!-- JavaScript สำหรับดึงข้อมูลและแสดงผล -->
+    <script>
+        let newsData = [];
 
+        function loadAllNews() {
+            const container = document.getElementById('allNewsContainer');
+            
+            // ดึงข้อมูลจาก LocalStorage ก่อน ถ้าไม่มีค่อยไปดึง news.json
+            const localData = localStorage.getItem('rongkhem_news_list');
+            if (localData) {
+                try {
+                    newsData = JSON.parse(localData);
+                    renderNewsGrid(newsData);
+                    return;
+                } catch(e) { console.error(e); }
+            }
 
-</header>
+            fetch("data/news.json")
+                .then(res => res.json())
+                .then(data => {
+                    newsData = data;
+                    localStorage.setItem('rongkhem_news_list', JSON.stringify(data));
+                    renderNewsGrid(data);
+                })
+                .catch(() => {
+                    container.innerHTML = `<div class="col-span-2 text-center py-10 text-gray-500 text-xs">ไม่พบข้อมูลข่าวสารในขณะนี้</div>`;
+                });
+        }
 
+        function renderNewsGrid(data) {
+            const container = document.getElementById('allNewsContainer');
+            
+            if (!data || data.length === 0) {
+                container.innerHTML = `<div class="col-span-2 text-center py-10 text-gray-500 text-xs">ไม่มีข่าวสารในหมวดหมู่นี้</div>`;
+                return;
+            }
 
+            container.innerHTML = data.map((item, index) => `
+                <div class="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 shadow-xl space-y-3 hover:border-slate-700 transition flex flex-col justify-between">
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between text-[11px]">
+                            <span class="px-2.5 py-0.5 font-semibold rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">
+                                📢 ข่าวประชาสัมพันธ์
+                            </span>
+                            <span class="text-gray-500 font-mono">${item.date || '8 ส.ค. 2026'}</span>
+                        </div>
+                        <h2 class="text-base font-bold text-white hover:text-amber-400 transition leading-snug">
+                            ${item.title}
+                        </h2>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            ${item.detail}
+                        </p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs">
+                        <span class="text-gray-500 text-[11px]">📍 บ้านร่องเข็ม หมู่ 6</span>
+                        <button onclick="shareNews('${item.title}')" class="text-amber-400 hover:underline flex items-center gap-1 font-medium">
+                            🔗 แชร์ข่าว
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
 
+        // ค้นหาข่าวตามข้อความ
+        function searchNews() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = newsData.filter(item => 
+                item.title.toLowerCase().includes(query) || 
+                item.detail.toLowerCase().includes(query)
+            );
+            renderNewsGrid(filtered);
+        }
 
+        // คัดกรองข่าวตามประเภท
+        function filterCategory(cat) {
+            if (cat === 'all') {
+                renderNewsGrid(newsData);
+            } else {
+                const filtered = newsData.filter(item => 
+                    item.title.includes(cat) || item.detail.includes(cat)
+                );
+                renderNewsGrid(filtered);
+            }
+        }
 
-<section class="search-box">
+        function shareNews(title) {
+            if (navigator.share) {
+                navigator.share({
+                    title: title,
+                    text: `ข่าวสารบ้านร่องเข็ม: ${title}`,
+                    url: window.location.href
+                }).catch(() => {});
+            } else {
+                alert(`คัดลอกหัวข้อข่าวแล้ว: ${title}`);
+            }
+        }
 
-<input id="search"
-placeholder="🔎 ค้นหาข่าว">
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch("components/header.html").then(res => res.text()).then(data => document.getElementById("header-container").innerHTML = data);
+            fetch("components/sidebar.html").then(res => res.text()).then(data => document.getElementById("sidebar-container").innerHTML = data);
+            fetch("components/footer.html").then(res => res.text()).then(data => document.getElementById("footer-container").innerHTML = data);
 
-
-</section>
-
-
-
-
-
-
-<section id="newsList"
-class="news-grid">
-
-
-กำลังโหลด...
-
-
-</section>
-
-
-
-
-
-
-
-<script src="js/news.js"></script>
-
-
+            loadAllNews();
+        });
+    </script>
 </body>
-
 </html>
