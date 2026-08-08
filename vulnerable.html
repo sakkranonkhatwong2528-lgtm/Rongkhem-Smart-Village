@@ -1,80 +1,81 @@
 <!DOCTYPE html>
-
 <html lang="th">
-
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-
-<title>
-กลุ่มเปราะบาง | บ้านร่องเข็ม
-</title>
-
-
-<link rel="stylesheet" href="css/style.css">
-
-<link rel="stylesheet" href="css/vulnerable.css">
-
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>กลุ่มเปราะบาง & ความช่วยเหลือ | บ้านร่องเข็ม Smart Village</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style> body { font-family: 'Sarabun', sans-serif; } </style>
 </head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
 
+    <!-- TOP HEADER -->
+    <div id="header-container"></div>
 
-<body>
+    <!-- MAIN CONTAINER -->
+    <div class="flex flex-1 max-w-7xl w-full mx-auto">
+        <!-- SIDEBAR -->
+        <div id="sidebar-container" class="hidden md:block"></div>
 
+        <!-- MAIN CONTENT -->
+        <main class="flex-1 p-4 sm:p-6 lg:p-8 space-y-6">
+            
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between bg-slate-900/80 p-5 rounded-2xl border border-slate-800 shadow-xl gap-4 backdrop-blur-md">
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-bold text-amber-400 flex items-center gap-2">
+                        <span>❤️</span> ศูนย์ช่วยเหลือกลุ่มเปราะบาง
+                    </h1>
+                    <p class="text-xs text-gray-400">ระบบติดตามและดูแลผู้พิการ ผู้ยากไร้ และผู้ป่วยติดเตียง บ้านร่องเข็ม หมู่ 6</p>
+                </div>
+            </div>
 
-<header class="vulnerable-header">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div class="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 space-y-2">
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-400">ผู้พิการประจำหมู่บ้าน</span>
+                        <span class="text-xl">♿</span>
+                    </div>
+                    <div class="text-2xl font-bold text-amber-400">12 คน</div>
+                    <p class="text-[11px] text-gray-400">ได้รับการสนับสนุนเบี้ยคนพิการแล้ว</p>
+                </div>
 
+                <div class="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 space-y-2">
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-400">ผู้ป่วยติดเตียง / เรื้อรัง</span>
+                        <span class="text-xl">🛌</span>
+                    </div>
+                    <div class="text-2xl font-bold text-rose-400">4 คน</div>
+                    <p class="text-[11px] text-gray-400">มีทีม อสม. และ รพ.สต. ลงตรวจประจำ</p>
+                </div>
 
-<h1>
-❤️ กลุ่มเปราะบาง
-</h1>
+                <div class="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 space-y-2">
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-400">ครัวเรือนยากจน / เปราะบาง</span>
+                        <span class="text-xl">🤝</span>
+                    </div>
+                    <div class="text-2xl font-bold text-cyan-400">5 ครัวเรือน</div>
+                    <p class="text-[11px] text-gray-400">ได้รับถุงยังชีพและถุงสวัสดิการหมู่บ้าน</p>
+                </div>
+            </div>
 
+            <!-- Emergency Request Form -->
+            <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 shadow-xl space-y-4">
+                <h2 class="text-base font-bold text-white flex items-center gap-2 border-b border-slate-800 pb-3">
+                    <span>🆘</span> แจ้งขอความช่วยเหลือพิเศษ / วัสดุอุปกรณ์การแพทย์
+                </h2>
+                <p class="text-xs text-gray-400">หากพบผู้ป่วย ผู้สูงอายุ หรือผู้พิการที่ต้องการเตียงผู้ป่วย รถเข็น (Wheelchair) หรือผ้าอ้อมผู้ใหญ่ สามารถแจ้งเรื่องผ่านระบบได้ทันที</p>
+                <a href="complaint.html" class="inline-block px-5 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs rounded-xl shadow-lg transition">
+                    📩 พิมพ์แจ้งเรื่องขอรับสวัสดิการ
+                </a>
+            </div>
 
-<p>
-ระบบติดตามและช่วยเหลือประชาชน
-</p>
+        </main>
+    </div>
 
-
-</header>
-
-
-
-
-
-<section class="search-box">
-
-
-<input id="search"
-placeholder="🔎 ค้นหารายชื่อ">
-
-
-</section>
-
-
-
-
-
-<section id="vulnerableList"
-class="vulnerable-grid">
-
-
-กำลังโหลด...
-
-
-</section>
-
-
-
-
-
-
-
-<script src="js/vulnerable.js"></script>
-
-
+    <!-- FOOTER -->
+    <div id="footer-container"></div>
+    <script src="js/main.js"></script>
 </body>
-
 </html>
