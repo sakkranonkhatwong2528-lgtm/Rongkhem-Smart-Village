@@ -1,285 +1,81 @@
 <!DOCTYPE html>
 <html lang="th">
-
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>
-อสม. | Rongkhem Smart Village
-</title>
-
-<link rel="stylesheet" href="css/style.css">
-
-
-<style>
-
-.person{
-
-text-align:center;
-
-}
-
-
-.person img{
-
-width:150px;
-height:150px;
-
-border-radius:50%;
-
-object-fit:cover;
-
-border:5px solid #81c784;
-
-}
-
-
-.position{
-
-color:#2e7d32;
-
-font-weight:bold;
-
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>งาน อสม. สุขภาพ | บ้านร่องเข็ม Smart Village</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style> body { font-family: 'Sarabun', sans-serif; } </style>
 </head>
-
-
-<body>
-
-
-<header>
-
-<div class="logo">
-🏡
-</div>
-
-
-<h1>
-🩺 งานสาธารณสุขหมู่บ้าน (อสม.)
-</h1>
-
-
-<p>
-บ้านร่องเข็ม หมู่ที่ 6<br>
-ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา
-</p>
-
-
-</header>
-
-
-
-
-<nav>
-
-
-<a href="index.html">
-🏡 หน้าแรก
-</a>
-
-
-<a href="leader.html">
-👥 ทำเนียบผู้นำ
-</a>
-
-
-<a href="osm.html">
-🩺 อสม.
-</a>
-
-
-<a href="admin.html">
-📊 ระบบบริหาร
-</a>
-
-
-</nav>
-
-
-
-
-
-
-<section>
-
-
-<h2>
-⭐ ประธาน อสม. บ้านร่องเข็ม
-</h2>
-
-
-<div class="grid">
-
-
-<div class="card person">
-
-
-<img src="images/leader/no-image.png">
-
-
-<h3>
-น.ส.ศศิธร เข็มแก้ว
-</h3>
-
-
-<p class="position">
-ประธาน อสม.
-</p>
-
-
-<p>
-ดูแลและประสานงานด้านสุขภาพชุมชน
-ส่งเสริมการป้องกันโรคและสุขภาพประชาชน
-</p>
-
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-<section>
-
-
-<h2>
-🩺 สมาชิก อสม.
-</h2>
-
-
-<div class="grid">
-
-
-<div class="card person">
-
-<img src="images/leader/no-image.png">
-
-<h3>
-ชื่อ - นามสกุล
-</h3>
-
-<p>
-อสม.
-</p>
-
-</div>
-
-
-
-
-<div class="card person">
-
-<img src="images/leader/no-image.png">
-
-<h3>
-ชื่อ - นามสกุล
-</h3>
-
-<p>
-อสม.
-</p>
-
-</div>
-
-
-
-
-<div class="card person">
-
-<img src="images/leader/no-image.png">
-
-<h3>
-ชื่อ - นามสกุล
-</h3>
-
-<p>
-อสม.
-</p>
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-<section>
-
-
-<h2>
-📋 ภารกิจ อสม.
-</h2>
-
-
-<div class="card">
-
-
-<p>
-
-❤️ เฝ้าระวังและส่งเสริมสุขภาพประชาชน
-
-<br><br>
-
-🦟 ตรวจป้องกันโรคไข้เลือดออกและโรคติดต่อ
-
-<br><br>
-
-👵 ดูแลผู้สูงอายุและกลุ่มเปราะบาง
-
-<br><br>
-
-📢 ประชาสัมพันธ์ข้อมูลข่าวสารด้านสุขภาพ
-
-<br><br>
-
-🤝 ทำงานร่วมกับหน่วยงานสาธารณสุขและชุมชน
-
-</p>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-<footer>
-
-© 2026 Rongkhem Smart Village
-
-<br>
-
-บ้านร่องเข็ม หมู่ที่ 6 จังหวัดพะเยา
-
-</footer>
-
-
-
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
+
+    <!-- TOP HEADER -->
+    <div id="header-container"></div>
+
+    <!-- MAIN CONTAINER -->
+    <div class="flex flex-1 max-w-7xl w-full mx-auto">
+        <!-- SIDEBAR -->
+        <div id="sidebar-container" class="hidden md:block"></div>
+
+        <!-- MAIN CONTENT -->
+        <main class="flex-1 p-4 sm:p-6 lg:p-8 space-y-6">
+            
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between bg-slate-900/80 p-5 rounded-2xl border border-slate-800 shadow-xl gap-4 backdrop-blur-md">
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-bold text-amber-400 flex items-center gap-2">
+                        <span>🩺</span> งานอาสาสมัครสาธารณสุขประจำหมู่บ้าน (อสม.)
+                    </h1>
+                    <p class="text-xs text-gray-400">การส่งเสริมสุขภาพ ควบคุมโรค และคัดกรองเบื้องต้น บ้านร่องเข็ม หมู่ 6</p>
+                </div>
+            </div>
+
+            <!-- Stats grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div class="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 space-y-1 shadow-lg">
+                    <span class="text-xs text-gray-400">จำนวนเจ้าหน้าที่ อสม.</span>
+                    <div class="text-3xl font-bold text-emerald-400">14 <span class="text-xs font-normal text-gray-400">คน</span></div>
+                    <p class="text-[11px] text-gray-400">ดูแลรับผิดชอบ 185 หลังคาเรือน</p>
+                </div>
+                <div class="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 space-y-1 shadow-lg">
+                    <span class="text-xs text-gray-400">การคัดกรองสุขภาพประจำเดือน</span>
+                    <div class="text-xl font-bold text-amber-400">ความดัน / เบาหวาน</div>
+                    <p class="text-[11px] text-gray-400">บริการตรวจวัดถึงบ้านเรือน</p>
+                </div>
+                <div class="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 space-y-1 shadow-lg">
+                    <span class="text-xs text-gray-400">เครือข่ายโรงพยาบาล</span>
+                    <div class="text-xl font-bold text-cyan-400">รพ.สต.จำป่าหวาย</div>
+                    <p class="text-[11px] text-gray-400">ส่งต่อเคสฉุกเฉินและรับยาประจำ</p>
+                </div>
+            </div>
+
+            <!-- Operational Activity Card -->
+            <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 shadow-xl space-y-3">
+                <h2 class="text-base font-bold text-white flex items-center gap-2 border-b border-slate-800 pb-3">
+                    <span>📋</span> ภารกิจหลักงานสาธารณสุขชุมชน
+                </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-gray-300">
+                    <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800 flex items-center gap-2">
+                        <span>🦟</span> หยอดทรายอะเบท & สำรวจลูกน้ำยุงลายทุกวันศุกร์
+                    </div>
+                    <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800 flex items-center gap-2">
+                        <span>💊</span> เยี่ยมบ้านติดตามการรับยาผู้ป่วยโรคเรื้อรัง
+                    </div>
+                    <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800 flex items-center gap-2">
+                        <span>🩸</span> ให้คำแนะนำโภชนาการและการออกกำลังกาย
+                    </div>
+                    <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800 flex items-center gap-2">
+                        <span>📢</span> ประชาสัมพันธ์ข่าวสารสุขภาพ เสียงตามสายประจำหมู่บ้าน
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- FOOTER -->
+    <div id="footer-container"></div>
+    <script src="js/main.js"></script>
 </body>
-
 </html>
