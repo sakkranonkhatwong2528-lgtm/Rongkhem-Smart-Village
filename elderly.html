@@ -1,82 +1,76 @@
 <!DOCTYPE html>
-
 <html lang="th">
-
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-
-<title>
-ผู้สูงอายุ | บ้านร่องเข็ม
-</title>
-
-
-<link rel="stylesheet" href="css/style.css">
-
-<link rel="stylesheet" href="css/elderly.css">
-
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ข้อมูลผู้สูงอายุ & สวัสดิการ | บ้านร่องเข็ม Smart Village</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style> body { font-family: 'Sarabun', sans-serif; } </style>
 </head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
 
+    <!-- TOP HEADER -->
+    <div id="header-container"></div>
 
-<body>
+    <!-- MAIN CONTAINER -->
+    <div class="flex flex-1 max-w-7xl w-full mx-auto">
+        <!-- SIDEBAR -->
+        <div id="sidebar-container" class="hidden md:block"></div>
 
+        <!-- MAIN CONTENT -->
+        <main class="flex-1 p-4 sm:p-6 lg:p-8 space-y-6">
+            
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between bg-slate-900/80 p-5 rounded-2xl border border-slate-800 shadow-xl gap-4 backdrop-blur-md">
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-bold text-amber-400 flex items-center gap-2">
+                        <span>👴</span> ระบบข้อมูลผู้สูงอายุ & เบี้ยยังชีพ
+                    </h1>
+                    <p class="text-xs text-gray-400">ทะเบียนสวัสดิการและการดูแลสุขภาพผู้สูงอายุ บ้านร่องเข็ม หมู่ 6</p>
+                </div>
+            </div>
 
-<header class="elderly-header">
+            <!-- Stats grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div class="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 space-y-1">
+                    <span class="text-xs text-gray-400">จำนวนผู้สูงอายุรวม</span>
+                    <div class="text-3xl font-bold text-amber-400">84 <span class="text-xs font-normal text-gray-400">คน</span></div>
+                    <p class="text-[11px] text-emerald-400">ได้รับเบี้ยยังชีพครบถ้วน 100%</p>
+                </div>
+                <div class="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 space-y-1">
+                    <span class="text-xs text-gray-400">ผู้สูงอายุติดบ้าน / ติดเตียง</span>
+                    <div class="text-3xl font-bold text-rose-400">6 <span class="text-xs font-normal text-gray-400">คน</span></div>
+                    <p class="text-[11px] text-gray-400">อยู่ในความดูแลของ อสม. ประจำซอย</p>
+                </div>
+                <div class="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 space-y-1">
+                    <span class="text-xs text-gray-400">ชมรมผู้สูงอายุบ้านร่องเข็ม</span>
+                    <div class="text-xl font-bold text-cyan-400">ทำกิจกรรมทุกพุธ</div>
+                    <p class="text-[11px] text-gray-400">ณ ศาลาอเนกประสงค์หมู่บ้าน</p>
+                </div>
+            </div>
 
+            <!-- Schedule -->
+            <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 shadow-xl space-y-3">
+                <h2 class="text-base font-bold text-white flex items-center gap-2 border-b border-slate-800 pb-3">
+                    <span>🗓️</span> กำหนดการจ่ายเบี้ยยังชีพประจำเดือน
+                </h2>
+                <div class="p-4 bg-slate-950/60 rounded-xl border border-slate-800 flex items-center justify-between text-xs">
+                    <div>
+                        <div class="font-bold text-amber-400">โอนเข้าบัญชีเงินฝากธนาคาร / รับเงินสด</div>
+                        <div class="text-gray-400">ทุกวันที่ 10 ของทุกเดือน (หากติดวันหยุดจะโอนล่วงหน้า)</div>
+                    </div>
+                    <span class="px-3 py-1 bg-emerald-500/10 text-emerald-400 rounded-full border border-emerald-500/20 font-bold">
+                        สถานะ: ปกติ
+                    </span>
+                </div>
+            </div>
 
-<h1>
-👴 ระบบผู้สูงอายุ
-</h1>
+        </main>
+    </div>
 
-
-<p>
-บ้านร่องเข็ม Smart Village
-</p>
-
-
-</header>
-
-
-
-
-
-<section class="search-box">
-
-
-<input id="search"
-placeholder="🔎 ค้นหารายชื่อผู้สูงอายุ">
-
-
-</section>
-
-
-
-
-
-
-
-<section id="elderlyList"
-class="elderly-grid">
-
-
-กำลังโหลดข้อมูล...
-
-
-</section>
-
-
-
-
-
-
-
-<script src="js/elderly.js"></script>
-
-
+    <!-- FOOTER -->
+    <div id="footer-container"></div>
+    <script src="js/main.js"></script>
 </body>
-
 </html>
