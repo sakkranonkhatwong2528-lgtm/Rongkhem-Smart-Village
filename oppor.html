@@ -1,279 +1,72 @@
 <!DOCTYPE html>
 <html lang="th">
-
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>
-อปพร. | Rongkhem Smart Village
-</title>
-
-<link rel="stylesheet" href="css/style.css">
-
-
-<style>
-
-.person{
-
-text-align:center;
-
-}
-
-
-.person img{
-
-width:150px;
-height:150px;
-
-border-radius:50%;
-
-object-fit:cover;
-
-border:5px solid #81c784;
-
-}
-
-
-.position{
-
-color:#2e7d32;
-
-font-weight:bold;
-
-}
-
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ศูนย์ อปพร. | บ้านร่องเข็ม Smart Village</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style> body { font-family: 'Sarabun', sans-serif; } </style>
 </head>
-
-
-
-<body>
-
-
-
-<header>
-
-<div class="logo">
-🏡
-</div>
-
-
-<h1>
-🚒 อาสาสมัครป้องกันภัยฝ่ายพลเรือน (อปพร.)
-</h1>
-
-
-<p>
-บ้านร่องเข็ม หมู่ที่ 6<br>
-ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา
-</p>
-
-
-</header>
-
-
-
-
-<nav>
-
-
-<a href="index.html">
-🏡 หน้าแรก
-</a>
-
-
-<a href="leader.html">
-👥 ทำเนียบผู้นำ
-</a>
-
-
-<a href="shorbor.html">
-🛡️ ชรบ.
-</a>
-
-
-<a href="oppor.html">
-🚒 อปพร.
-</a>
-
-
-</nav>
-
-
-
-
-
-<section>
-
-
-<h2>
-🚒 คณะทำงาน อปพร.
-</h2>
-
-
-<div class="grid">
-
-
-<div class="card person">
-
-<img src="images/leader/no-image.png">
-
-
-<h3>
-ชื่อ - นามสกุล
-</h3>
-
-
-<p class="position">
-ผู้รับผิดชอบ อปพร.
-</p>
-
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-<section>
-
-
-<h2>
-👥 รายชื่อสมาชิก อปพร.
-</h2>
-
-
-
-<div class="grid">
-
-
-
-<div class="card person">
-
-<img src="images/leader/no-image.png">
-
-<h3>
-ชื่อ - นามสกุล
-</h3>
-
-<p>
-สมาชิก อปพร.
-</p>
-
-</div>
-
-
-
-<div class="card person">
-
-<img src="images/leader/no-image.png">
-
-<h3>
-ชื่อ - นามสกุล
-</h3>
-
-<p>
-สมาชิก อปพร.
-</p>
-
-</div>
-
-
-
-<div class="card person">
-
-<img src="images/leader/no-image.png">
-
-<h3>
-ชื่อ - นามสกุล
-</h3>
-
-<p>
-สมาชิก อปพร.
-</p>
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-<section>
-
-
-<h2>
-📋 ภารกิจ อปพร.
-</h2>
-
-
-<div class="card">
-
-
-<p>
-
-🚒 สนับสนุนงานป้องกันและบรรเทาสาธารณภัย
-
-<br><br>
-
-🚑 ช่วยเหลือประชาชนเมื่อเกิดเหตุฉุกเฉิน
-
-<br><br>
-
-🛡️ ดูแลความปลอดภัยในกิจกรรมของชุมชน
-
-<br><br>
-
-🌧️ สนับสนุนการแก้ไขปัญหาภัยธรรมชาติ
-
-<br><br>
-
-🤝 ทำงานร่วมกับฝ่ายปกครอง หน่วยงานท้องถิ่น และประชาชน
-
-</p>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-<footer>
-
-© 2026 Rongkhem Smart Village
-
-<br>
-
-บ้านร่องเข็ม หมู่ที่ 6 จังหวัดพะเยา
-
-</footer>
-
-
-
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
+
+    <!-- TOP HEADER -->
+    <div id="header-container"></div>
+
+    <!-- MAIN CONTAINER -->
+    <div class="flex flex-1 max-w-7xl w-full mx-auto">
+        <!-- SIDEBAR -->
+        <div id="sidebar-container" class="hidden md:block"></div>
+
+        <!-- MAIN CONTENT -->
+        <main class="flex-1 p-4 sm:p-6 lg:p-8 space-y-6">
+            
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between bg-slate-900/80 p-5 rounded-2xl border border-slate-800 shadow-xl gap-4 backdrop-blur-md">
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-bold text-amber-400 flex items-center gap-2">
+                        <span>🚨</span> ศูนย์อาสาสมัครป้องกันภัยฝ่ายพลเรือน (อปพร.)
+                    </h1>
+                    <p class="text-xs text-gray-400">งานป้องกัน บรรเทาสาธารณภัย และกู้ภัยในชุมชน บ้านร่องเข็ม หมู่ 6</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div class="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 space-y-1 shadow-lg">
+                    <span class="text-xs text-gray-400">กำลังพล อปพร. ประจำหมู่บ้าน</span>
+                    <div class="text-3xl font-bold text-amber-400">18 <span class="text-xs font-normal text-gray-400">นาย</span></div>
+                    <p class="text-[11px] text-gray-400">พร้อมปฏิบัติการช่วยเหลือ 24 ชั่วโมง</p>
+                </div>
+                <div class="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 space-y-1 shadow-lg">
+                    <span class="text-xs text-gray-400">ภารกิจเฝ้าระวังภัยธรรมชาติ</span>
+                    <div class="text-xl font-bold text-rose-400">วาตภัย / น้ำท่วมฉับพลัน</div>
+                    <p class="text-[11px] text-gray-400">เตรียมพร้อมเครื่องมือและอุปกรณ์กู้ภัย</p>
+                </div>
+                <div class="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 space-y-1 shadow-lg">
+                    <span class="text-xs text-gray-400">จุดบริการประชาชน</span>
+                    <div class="text-xl font-bold text-emerald-400">ศาลาประชาคม หมู่ 6</div>
+                    <p class="text-[11px] text-gray-400">ศูนย์ประสานงานช่วงเทศกาล</p>
+                </div>
+            </div>
+
+            <!-- Emergency Card Callout -->
+            <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 shadow-xl space-y-3">
+                <h2 class="text-base font-bold text-white flex items-center gap-2 border-b border-slate-800 pb-3">
+                    <span>🚒</span> การแจ้งเหตุสาธารณภัยเบื้องต้น
+                </h2>
+                <p class="text-xs text-gray-300 leading-relaxed">
+                    หากพบเหตุไฟไหม้ พายุถล่ม กิ่งไม้ใหญ่หักโค่นขวางทางจราจร หรือต้องการความช่วยเหลือยามวิกฤต สามารถติดต่อสายด่วนชุมชนผ่านผู้นำหมู่บ้านหรือกดปุ่มโทรฉุกเฉินได้ทันที
+                </p>
+                <a href="contact.html" class="inline-block px-5 py-2.5 bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs rounded-xl shadow-lg transition">
+                    🚨 รวมเบอร์สายด่วนฉุกเฉิน
+                </a>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- FOOTER -->
+    <div id="footer-container"></div>
+    <script src="js/main.js"></script>
 </body>
-
 </html>
