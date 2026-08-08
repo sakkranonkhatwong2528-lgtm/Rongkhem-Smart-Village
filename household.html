@@ -1,78 +1,106 @@
 <!DOCTYPE html>
-
 <html lang="th">
-
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-
-<title>
-ทะเบียนครัวเรือน | บ้านร่องเข็ม
-</title>
-
-
-<link rel="stylesheet" href="css/style.css">
-
-<link rel="stylesheet" href="css/household.css">
-
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ทะเบียนครัวเรือน | บ้านร่องเข็ม Smart Village</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style> body { font-family: 'Sarabun', sans-serif; } </style>
 </head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
 
+    <!-- TOP HEADER -->
+    <div id="header-container"></div>
 
-<body>
+    <!-- MAIN CONTAINER -->
+    <div class="flex flex-1 max-w-7xl w-full mx-auto">
+        <!-- SIDEBAR -->
+        <div id="sidebar-container" class="hidden md:block"></div>
 
+        <!-- MAIN CONTENT -->
+        <main class="flex-1 p-4 sm:p-6 lg:p-8 space-y-6">
+            
+            <!-- Page Header -->
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between bg-slate-900/80 p-5 rounded-2xl border border-slate-800 shadow-xl gap-4 backdrop-blur-md">
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-bold text-amber-400 flex items-center gap-2">
+                        <span>🏠</span> สถิติและข้อมูลทะเบียนครัวเรือน
+                    </h1>
+                    <p class="text-xs text-gray-400">ฐานข้อมูลหลังคาเรือนและการตั้งถิ่นฐาน บ้านร่องเข็ม หมู่ที่ 6</p>
+                </div>
+                <div class="relative w-full sm:w-64">
+                    <input type="text" id="searchHousehold" onkeyup="filterHousehold()" placeholder="🔍 ค้นหาบ้านเลขที่/ชื่อเจ้าบ้าน..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2 text-xs text-white focus:outline-none focus:border-amber-500 transition">
+                </div>
+            </div>
 
-<header class="house-header">
+            <!-- Dashboard Overview Cards -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-800 text-center space-y-1 shadow-lg">
+                    <span class="text-xs text-gray-400">จำนวนหลังคาเรือนรวม</span>
+                    <div class="text-2xl font-bold text-amber-400">185</div>
+                    <span class="text-[10px] text-gray-500">หลังคาเรือน (หมู่ 6)</span>
+                </div>
+                <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-800 text-center space-y-1 shadow-lg">
+                    <span class="text-xs text-gray-400">ประชากรอาศัยจริง</span>
+                    <div class="text-2xl font-bold text-emerald-400">542</div>
+                    <span class="text-[10px] text-gray-500">คน</span>
+                </div>
+                <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-800 text-center space-y-1 shadow-lg">
+                    <span class="text-xs text-gray-400">กลุ่มอาชีพหลัก</span>
+                    <div class="text-xl font-bold text-cyan-400">เกษตรกรรม</div>
+                    <span class="text-[10px] text-gray-500">68% ของครัวเรือน</span>
+                </div>
+                <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-800 text-center space-y-1 shadow-lg">
+                    <span class="text-xs text-gray-400">เข้าร่วมกลุ่มข้าวสาร</span>
+                    <div class="text-2xl font-bold text-amber-400">142</div>
+                    <span class="text-[10px] text-gray-500">ครัวเรือน</span>
+                </div>
+            </div>
 
-<h1>
-🏠 ทะเบียนครัวเรือน
-</h1>
+            <!-- Household Table List -->
+            <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 shadow-xl space-y-4">
+                <h2 class="text-base font-bold text-white flex items-center gap-2 border-b border-slate-800 pb-3">
+                    <span>📋</span> รายชื่อครัวเรือนตัวอย่างในหมู่บ้าน
+                </h2>
 
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs text-gray-300">
+                        <thead class="bg-slate-950 text-amber-400 uppercase text-[11px] font-bold">
+                            <tr>
+                                <th class="p-3 rounded-l-xl">บ้านเลขที่</th>
+                                <th class="p-3">เจ้าบ้าน / หัวหน้าครัวเรือน</th>
+                                <th class="p-3">จำนวนสมาชิก</th>
+                                <th class="p-3">หมวดหมู่สมาชิก</th>
+                                <th class="p-3 rounded-r-xl">สถานะกลุ่มข้าวสาร</th>
+                            </tr>
+                        </thead>
+                        <tbody id="householdTable" class="divide-y divide-slate-800">
+                            <tr class="hover:bg-slate-800/50 transition">
+                                <td class="p-3 font-mono font-bold text-amber-400">12/1</td>
+                                <td class="p-3 font-medium text-white">นายสมชาย ใจดี</td>
+                                <td class="p-3">4 คน</td>
+                                <td class="p-3"><span class="px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20">ทั่วไป / ผู้สูงอายุ 1</span></td>
+                                <td class="p-3"><span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">🟢 สมาชิกปกติ</span></td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/50 transition">
+                                <td class="p-3 font-mono font-bold text-amber-400">25/3</td>
+                                <td class="p-3 font-medium text-white">นางจันทร์ดี มีสุข</td>
+                                <td class="p-3">2 คน</td>
+                                <td class="p-3"><span class="px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20">ผู้สูงอายุทั้งหมด</span></td>
+                                <td class="p-3"><span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">🟢 สมาชิกปกติ</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-<p>
-บ้านร่องเข็ม Smart Village
-</p>
+        </main>
+    </div>
 
-</header>
-
-
-
-
-
-<section class="search-box">
-
-
-<input 
-id="search"
-placeholder="🔎 ค้นหาบ้านเลขที่ หรือชื่อเจ้าบ้าน"
->
-
-
-</section>
-
-
-
-
-
-<section id="houseList"
-class="house-grid">
-
-
-กำลังโหลดข้อมูล...
-
-
-</section>
-
-
-
-
-
-<script src="js/household.js"></script>
-
-
+    <!-- FOOTER -->
+    <div id="footer-container"></div>
+    <script src="js/main.js"></script>
 </body>
-
 </html>
