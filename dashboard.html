@@ -2,166 +2,147 @@
 <html lang="th">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | ร่องเข็ม สมาร์ท วิลเลจ</title>
 
-<title>
-Dashboard | ร่องเข็ม สมาร์ท วิลเลจ
-</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (Sarabun) -->
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- CSS เดิมของคุณ -->
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="style.css">
 
-<link rel="stylesheet" href="css/dashboard.css">
-
+    <style>
+        body { font-family: 'Sarabun', sans-serif; }
+    </style>
 </head>
 
-
-<body>
-
-
-<header class="top">
-
-<h1>
-🏡 ร่องเข็ม สมาร์ท วิลเลจ
-</h1>
-
-<p>
-ระบบบริหารจัดการหมู่บ้านอัจฉริยะ
-หมู่ที่ 6 ตำบลจำป่าหวาย จังหวัดพะเยา
-</p>
-
-</header>
-
-
-
-<section class="dashboard">
-
-
-<div class="card">
-
-<h2>🏠 หลังคาเรือน</h2>
-
-<p>
-120
-</p>
-
-<span>
-ครัวเรือน
-</span>
-
-</div>
-
-
-
-<div class="card">
-
-<h2>👥 ประชากร</h2>
-
-<p>
-409
-</p>
-
-<span>
-คน
-</span>
-
-</div>
-
-
-
-<div class="card">
-
-<h2>👵 ผู้สูงอายุ</h2>
-
-<p>
-91
-</p>
-
-<span>
-คน
-</span>
-
-</div>
-
-
-
-<div class="card">
-
-<h2>❤️ กลุ่มเปราะบาง</h2>
-
-<p>
-3
-</p>
-
-<span>
-คน
-</span>
-
-</div>
-
-
-
-</section>
-
-
-
-<section class="menu">
-
-
-<a href="people.html">
-👥 ข้อมูลประชาชน
-</a>
-
-
-<a href="health.html">
-🏥 ระบบสุขภาพ
-</a>
-
-
-<a href="news.html">
-📰 ข่าวประชาสัมพันธ์
-</a>
-
-
-<a href="emergency.html">
-🚨 แจ้งเหตุฉุกเฉิน
-</a>
-
-
-<a href="map.html">
-🗺 Smart Map
-</a>
-
-
-<a href="leaders.html">
-👨‍💼 ผู้นำชุมชน
-</a>
-
-
-</section>
-
-
-
-
-<section class="news">
-
-
-<h2>
-📰 ข่าวล่าสุด
-</h2>
-
-
-<div id="newsList">
-
-กำลังโหลดข้อมูล...
-
-</div>
-
-
-</section>
-
-
-
-<script src="js/dashboard.js"></script>
-
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
+
+    <!-- 1. TOP HEADER (โหลดอัตโนมัติจาก components/header.html) -->
+    <div id="header-container"></div>
+
+    <!-- 2. MAIN CONTAINER -->
+    <div class="flex flex-1 max-w-7xl w-full mx-auto">
+
+        <!-- SIDEBAR (แสดงเฉพาะบน PC / Tablet) -->
+        <div id="sidebar-container" class="hidden md:block"></div>
+
+        <!-- MAIN CONTENT AREA -->
+        <main class="flex-1 p-4 sm:p-6 lg:p-8 space-y-6">
+
+            <!-- Header ประจำหน้า -->
+            <header class="top bg-slate-900/80 p-6 rounded-2xl border border-slate-800 shadow-xl text-center space-y-2 backdrop-blur-md">
+                <h1 class="text-2xl sm:text-3xl font-bold text-amber-400 flex items-center justify-center gap-2">
+                    <span>🏡</span> ร่องเข็ม สมาร์ท วิลเลจ
+                </h1>
+                <p class="text-xs sm:text-sm text-gray-300">
+                    ระบบบริหารจัดการหมู่บ้านอัจฉริยะ หมู่ที่ 6 ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา
+                </p>
+            </header>
+
+            <!-- SECTION 1: สถิติตัวเลขสรุปข้อมูล (Dashboard Cards) -->
+            <section class="dashboard grid grid-cols-2 lg:grid-cols-4 gap-4">
+
+                <!-- หลังคาเรือน -->
+                <div class="card bg-slate-900/80 p-5 rounded-2xl border border-slate-800 shadow-lg text-center space-y-1 hover:border-amber-500/50 transition">
+                    <h2 class="text-sm font-semibold text-gray-300">🏠 หลังคาเรือน</h2>
+                    <p class="text-3xl font-bold text-amber-400">120</p>
+                    <span class="text-xs text-gray-400">ครัวเรือน</span>
+                </div>
+
+                <!-- ประชากร -->
+                <div class="card bg-slate-900/80 p-5 rounded-2xl border border-slate-800 shadow-lg text-center space-y-1 hover:border-emerald-500/50 transition">
+                    <h2 class="text-sm font-semibold text-gray-300">👥 ประชากร</h2>
+                    <p class="text-3xl font-bold text-emerald-400">409</p>
+                    <span class="text-xs text-gray-400">คน</span>
+                </div>
+
+                <!-- ผู้สูงอายุ -->
+                <div class="card bg-slate-900/80 p-5 rounded-2xl border border-slate-800 shadow-lg text-center space-y-1 hover:border-cyan-500/50 transition">
+                    <h2 class="text-sm font-semibold text-gray-300">👵 ผู้สูงอายุ</h2>
+                    <p class="text-3xl font-bold text-cyan-400">91</p>
+                    <span class="text-xs text-gray-400">คน</span>
+                </div>
+
+                <!-- กลุ่มเปราะบาง -->
+                <div class="card bg-slate-900/80 p-5 rounded-2xl border border-slate-800 shadow-lg text-center space-y-1 hover:border-rose-500/50 transition">
+                    <h2 class="text-sm font-semibold text-gray-300">❤️ กลุ่มเปราะบาง</h2>
+                    <p class="text-3xl font-bold text-rose-400">3</p>
+                    <span class="text-xs text-gray-400">คน</span>
+                </div>
+
+            </section>
+
+            <!-- SECTION 2: เมนูปฏิบัติการนำทางด่วน -->
+            <section class="menu bg-slate-900/80 p-5 rounded-2xl border border-slate-800 shadow-xl">
+                <h2 class="text-sm font-bold text-gray-300 mb-3 flex items-center gap-2">
+                    <span>⚡</span> บริการและข้อมูลชุมชน
+                </h2>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-center text-xs">
+                    <a href="people.html" class="p-3 bg-slate-800 hover:bg-slate-700 text-gray-200 font-medium rounded-xl border border-slate-700 transition flex items-center justify-center gap-1.5">
+                        👥 ข้อมูลประชาชน
+                    </a>
+                    <a href="health.html" class="p-3 bg-slate-800 hover:bg-slate-700 text-gray-200 font-medium rounded-xl border border-slate-700 transition flex items-center justify-center gap-1.5">
+                        🏥 ระบบสุขภาพ
+                    </a>
+                    <a href="news.html" class="p-3 bg-slate-800 hover:bg-slate-700 text-gray-200 font-medium rounded-xl border border-slate-700 transition flex items-center justify-center gap-1.5">
+                        📰 ข่าวประชาสัมพันธ์
+                    </a>
+                    <a href="emergency.html" class="p-3 bg-rose-950/40 hover:bg-rose-900/50 text-rose-300 font-semibold rounded-xl border border-rose-800/60 transition flex items-center justify-center gap-1.5">
+                        🚨 แจ้งเหตุฉุกเฉิน
+                    </a>
+                    <a href="map.html" class="p-3 bg-slate-800 hover:bg-slate-700 text-gray-200 font-medium rounded-xl border border-slate-700 transition flex items-center justify-center gap-1.5">
+                        🗺️ Smart Map
+                    </a>
+                    <a href="leaders.html" class="p-3 bg-slate-800 hover:bg-slate-700 text-gray-200 font-medium rounded-xl border border-slate-700 transition flex items-center justify-center gap-1.5">
+                        👨‍💼 ผู้นำชุมชน
+                    </a>
+                </div>
+            </section>
+
+            <!-- SECTION 3: ข่าวล่าสุดประจำหมู่บ้าน -->
+            <section class="news bg-slate-900/80 p-6 rounded-2xl border border-slate-800 shadow-xl space-y-4">
+                <h2 class="text-base font-bold text-white flex items-center gap-2">
+                    <span>📰</span> ข่าวล่าสุดประจำหมู่บ้าน
+                </h2>
+
+                <div id="newsList" class="text-sm text-gray-400 divide-y divide-slate-800">
+                    <div class="py-4 text-center">กำลังโหลดข้อมูล...</div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- 3. FOOTER & MOBILE NAV (โหลดอัตโนมัติจาก components/footer.html) -->
+    <div id="footer-container"></div>
+
+    <!-- Script โหลดส่วนประกอบ Header, Sidebar, Footer และข้อมูลข่าวสาร -->
+    <script src="js/dashboard.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // โหลด Header
+            fetch("components/header.html")
+                .then(res => res.text())
+                .then(data => document.getElementById("header-container").innerHTML = data)
+                .catch(err => console.log("Header error:", err));
+
+            // โหลด Sidebar
+            fetch("components/sidebar.html")
+                .then(res => res.text())
+                .then(data => document.getElementById("sidebar-container").innerHTML = data)
+                .catch(err => console.log("Sidebar error:", err));
+
+            // โหลด Footer
+            fetch("components/footer.html")
+                .then(res => res.text())
+                .then(data => document.getElementById("footer-container").innerHTML = data)
+                .catch(err => console.log("Footer error:", err));
+        });
+    </script>
 
 </body>
 
