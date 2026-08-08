@@ -1,81 +1,73 @@
 <!DOCTYPE html>
-
 <html lang="th">
-
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-
-<title>
-ชรบ. | บ้านร่องเข็ม
-</title>
-
-
-<link rel="stylesheet" href="css/style.css">
-
-<link rel="stylesheet" href="css/shorbor.css">
-
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>งาน ชรบ. รักษาความปลอดภัย | บ้านร่องเข็ม Smart Village</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style> body { font-family: 'Sarabun', sans-serif; } </style>
 </head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
 
+    <!-- TOP HEADER -->
+    <div id="header-container"></div>
 
-<body>
+    <!-- MAIN CONTAINER -->
+    <div class="flex flex-1 max-w-7xl w-full mx-auto">
+        <!-- SIDEBAR -->
+        <div id="sidebar-container" class="hidden md:block"></div>
 
+        <!-- MAIN CONTENT -->
+        <main class="flex-1 p-4 sm:p-6 lg:p-8 space-y-6">
+            
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between bg-slate-900/80 p-5 rounded-2xl border border-slate-800 shadow-xl gap-4 backdrop-blur-md">
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-bold text-amber-400 flex items-center gap-2">
+                        <span>👮</span> ชุดรักษาความปลอดภัยหมู่บ้าน (ชรบ.)
+                    </h1>
+                    <p class="text-xs text-gray-400">การดูแลความสงบเรียบร้อย ตั้งด่านตรวจ และป้องกันยาเสพติด บ้านร่องเข็ม หมู่ 6</p>
+                </div>
+            </div>
 
-<header class="shorbor-header">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div class="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 space-y-1 shadow-lg">
+                    <span class="text-xs text-gray-400">กำลังพล ชรบ. ปฏิบัติหน้าที่</span>
+                    <div class="text-3xl font-bold text-cyan-400">15 <span class="text-xs font-normal text-gray-400">นาย</span></div>
+                    <p class="text-[11px] text-gray-400">ออกตรวจเวรยามช่วงกลางคืน</p>
+                </div>
+                <div class="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 space-y-1 shadow-lg">
+                    <span class="text-xs text-gray-400">จุดตั้งด่านตรวจชุมชน</span>
+                    <div class="text-xl font-bold text-amber-400">ปากทางเข้า หมู่ 6</div>
+                    <p class="text-[11px] text-gray-400">เฝ้าระวังรถแปลกหน้าและสิ่งผิดกฎหมาย</p>
+                </div>
+                <div class="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 space-y-1 shadow-lg">
+                    <span class="text-xs text-gray-400">สถานะความปลอดภัย</span>
+                    <div class="text-xl font-bold text-emerald-400">เรียบร้อยปกติ</div>
+                    <p class="text-[11px] text-gray-400">ไม่มีเหตุอาชญากรรมในพื้นที่</p>
+                </div>
+            </div>
 
+            <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 shadow-xl space-y-3">
+                <h2 class="text-base font-bold text-white flex items-center gap-2 border-b border-slate-800 pb-3">
+                    <span>🛡️</span> ตารางการลาดตระเวนและดูแลความปลอดภัย
+                </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-gray-300">
+                    <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800 flex items-center gap-2">
+                        <span>🌙</span> เวรยามตรวจการณ์กลางคืนเวลา 21:00 - 03:00 น.
+                    </div>
+                    <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800 flex items-center gap-2">
+                        <span>🚦</span> อำนวยความสะดวกการจราจรงานบุญและงานพิธีการ
+                    </div>
+                </div>
+            </div>
 
-<h1>
-🛡️ ชุดรักษาความปลอดภัยหมู่บ้าน (ชรบ.)
-</h1>
+        </main>
+    </div>
 
-
-<p>
-บ้านร่องเข็ม Smart Village
-</p>
-
-
-</header>
-
-
-
-
-
-
-<section class="search-box">
-
-
-<input id="search"
-placeholder="🔎 ค้นหารายชื่อ ชรบ.">
-
-
-</section>
-
-
-
-
-
-
-<section id="shorborList"
-class="shorbor-grid">
-
-
-กำลังโหลดข้อมูล...
-
-
-</section>
-
-
-
-
-
-
-<script src="js/shorbor.js"></script>
-
-
+    <!-- FOOTER -->
+    <div id="footer-container"></div>
+    <script src="js/main.js"></script>
 </body>
-
 </html>
