@@ -1,63 +1,82 @@
 <!DOCTYPE html>
-
 <html lang="th">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>บ้านร่องเข็ม Smart Village - หมู่ที่ 6 ต.จำป่าหวาย จ.พะเยา</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (Sarabun) -->
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom Style (CSS ของคุณ) -->
+    <link rel="stylesheet" href="style.css">
 
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>
-บ้านร่องเข็ม Smart Village
-</title>
-
-
-<link rel="stylesheet" href="style.css">
-
-
+    <style>
+        body { font-family: 'Sarabun', sans-serif; }
+    </style>
 </head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
 
+    <!-- 1. TOP HEADER (โหลดอัตโนมัติจาก components/header.html) -->
+    <div id="header-container"></div>
 
-<body>
+    <!-- 2. MAIN CONTAINER -->
+    <div class="flex flex-1 max-w-7xl w-full mx-auto">
+        
+        <!-- SIDEBAR (โหลดอัตโนมัติจาก components/sidebar.html บนหน้าจอใหญ่) -->
+        <div id="sidebar-container" class="hidden md:block"></div>
 
+        <!-- MAIN CONTENT AREA (ส่วน Hero Section หลัก) -->
+        <main class="flex-1">
+            <section class="hero">
+                <div class="content">
+                    <h1>🏡 บ้านร่องเข็ม Smart Village</h1>
+                    <h2>
+                        หมู่ที่ 6 ตำบลจำป่าหวาย<br>
+                        อำเภอเมือง จังหวัดพะเยา
+                    </h2>
+                    <p>ระบบบริหารจัดการหมู่บ้านอัจฉริยะ</p>
 
-<section class="hero">
+                    <div class="flex flex-wrap justify-center gap-3 mt-6">
+                        <a href="dashboard.html" class="btn-hero">
+                            📊 เข้าสู่ Dashboard
+                        </a>
+                        <a href="ai-assistant.html" class="btn-hero !bg-slate-800 hover:!bg-slate-700 !text-cyan-300 border border-slate-700">
+                            🤖 สอบถาม AI ชุมชน
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
 
+    </div>
 
-<div class="content">
+    <!-- 3. FOOTER & MOBILE NAV (โหลดอัตโนมัติจาก components/footer.html) -->
+    <div id="footer-container"></div>
 
+    <!-- JavaScript สำหรับดึงส่วนประกอบ Header, Sidebar, Footer มาแทรกอัตโนมัติ -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // โหลด Header
+            fetch("components/header.html")
+                .then(res => res.text())
+                .then(data => document.getElementById("header-container").innerHTML = data)
+                .catch(err => console.log("Header error:", err));
 
-<h1>
-🏡 บ้านร่องเข็ม Smart Village
-</h1>
+            // โหลด Sidebar
+            fetch("components/sidebar.html")
+                .then(res => res.text())
+                .then(data => document.getElementById("sidebar-container").innerHTML = data)
+                .catch(err => console.log("Sidebar error:", err));
 
-
-<h2>
-หมู่ที่ 6 ตำบลจำป่าหวาย<br>
-อำเภอเมือง จังหวัดพะเยา
-</h2>
-
-
-<p>
-ระบบบริหารจัดการหมู่บ้านอัจฉริยะ
-</p>
-
-
-
-<a href="dashboard.html">
-
-เข้าสู่ Dashboard
-
-</a>
-
-
-</div>
-
-
-</section>
-
+            // โหลด Footer
+            fetch("components/footer.html")
+                .then(res => res.text())
+                .then(data => document.getElementById("footer-container").innerHTML = data)
+                .catch(err => console.log("Footer error:", err));
+        });
+    </script>
 
 </body>
-
 </html>
