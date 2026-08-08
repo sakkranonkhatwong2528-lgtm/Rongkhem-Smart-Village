@@ -1,17 +1,71 @@
-<header class="top-header">
+<!-- =================================================================
+     TOP HEADER SYSTEM - SMART VILLAGE RONGKHEM
+     ================================================================= -->
+<header class="top-header sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 text-white shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        
+        <!-- ฝั่งซ้าย: โลโก้ & ชื่อระบบ -->
+        <a href="index.html" class="logo flex items-center gap-2.5 group transition">
+            <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-amber-500 via-yellow-400 to-amber-300 flex items-center justify-center text-slate-950 font-bold text-lg shadow-md shadow-amber-500/20 group-hover:scale-105 transition transform">
+                🏡
+            </div>
+            <div>
+                <span class="font-bold text-base sm:text-lg tracking-wide text-white group-hover:text-amber-400 transition">
+                    Rongkhem Smart Village
+                </span>
+                <span class="hidden sm:block text-[10px] text-amber-400 font-medium -mt-1">
+                    หมู่บ้านอัจฉริยะร่องเข็ม หมู่ 6
+                </span>
+            </div>
+        </a>
 
-    <div class="logo">
+        <!-- ฝั่งขวา: เมนูหลัก & เมนูผู้ดูแลระบบ (Desktop Nav) -->
+        <div class="right hidden md:flex items-center gap-3">
+            <a href="index.html" class="px-3 py-1.5 text-xs font-medium text-gray-300 hover:text-white hover:bg-slate-800 rounded-lg transition flex items-center gap-1.5">
+                🏠 หน้าหลัก
+            </a>
+            <a href="dashboard.html" class="px-3 py-1.5 text-xs font-medium text-gray-300 hover:text-white hover:bg-slate-800 rounded-lg transition flex items-center gap-1.5">
+                📊 Dashboard
+            </a>
+            <a href="news.html" class="px-3 py-1.5 text-xs font-medium text-gray-300 hover:text-white hover:bg-slate-800 rounded-lg transition flex items-center gap-1.5">
+                📢 ข่าวสาร
+            </a>
+            <a href="ai-assistant.html" class="px-3 py-1.5 text-xs font-medium text-cyan-300 hover:bg-slate-800 rounded-lg transition flex items-center gap-1.5 border border-cyan-500/30">
+                🤖 ถาม AI
+            </a>
+            
+            <div class="h-4 w-px bg-slate-700 my-auto"></div>
 
-        🏡 Rongkhem Smart Village
+            <a href="admin-panel.html" class="px-3.5 py-1.5 text-xs font-bold bg-gradient-to-r from-amber-500 to-yellow-400 hover:from-amber-400 hover:to-yellow-300 text-slate-950 rounded-lg transition shadow-md shadow-amber-500/20 flex items-center gap-1.5 active:scale-95">
+                🔑 Admin
+            </a>
+        </div>
+
+        <!-- ปุ่มสำหรับเปิดเมนูบนมือถือ (Mobile Hamburger Button) -->
+        <div class="md:hidden flex items-center gap-2">
+            <a href="admin-panel.html" class="px-2.5 py-1 text-xs font-bold bg-amber-500 text-slate-950 rounded-md">
+                Admin
+            </a>
+            <button onclick="toggleMobileMenu()" class="p-2 text-gray-300 hover:text-white rounded-lg focus:outline-none">
+                <span class="text-xl">☰</span>
+            </button>
+        </div>
 
     </div>
 
-    <div class="right">
-
-        <a href="dashboard.html">Dashboard</a>
-
-        <a href="admin-panel.html">Admin</a>
-
+    <!-- Dropdown Menu บนมือถือ -->
+    <div id="mobileHeaderMenu" class="hidden md:hidden bg-slate-950 border-b border-slate-800 px-4 pt-2 pb-4 space-y-2 text-xs">
+        <a href="index.html" class="block py-2 text-gray-300 hover:text-amber-400">🏠 หน้าหลัก</a>
+        <a href="dashboard.html" class="block py-2 text-gray-300 hover:text-amber-400">📊 Dashboard</a>
+        <a href="news.html" class="block py-2 text-gray-300 hover:text-amber-400">📢 ข่าวสารประชาสัมพันธ์</a>
+        <a href="ai-assistant.html" class="block py-2 text-cyan-300 font-semibold">🤖 ถาม AI ชุมชน</a>
+        <a href="admin-panel.html" class="block py-2 text-amber-400 font-bold">🔑 ระบบผู้ดูแล (Admin Panel)</a>
     </div>
-
 </header>
+
+<script>
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobileHeaderMenu');
+        menu.classList.toggle('hidden');
+    }
+</script>
