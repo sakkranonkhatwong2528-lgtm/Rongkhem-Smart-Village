@@ -1,23 +1,24 @@
 <!-- =================================================================
-     SIDEBAR NAVIGATION - SMART VILLAGE RONGKHEM
+     SIDEBAR NAVIGATION - SMART VILLAGE RONGKHEM (v4.1)
      ================================================================= -->
-<aside class="sidebar w-64 bg-slate-900 text-slate-200 min-h-screen p-4 border-r border-slate-800 shadow-xl flex flex-col justify-between font-sans">
+<aside class="sidebar w-64 bg-slate-900 text-slate-200 min-h-screen p-4 border-r border-slate-800 shadow-xl flex flex-col justify-between font-sans shrink-0">
     
-    <div>
+    <div class="space-y-4">
         <!-- หัวข้อเมนูหลัก -->
-        <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-800 px-2">
+        <div class="flex items-center justify-between pb-4 border-b border-slate-800 px-2">
             <h2 class="text-sm font-bold tracking-wider text-amber-400 uppercase flex items-center gap-2">
                 <span>🏡</span> เมนูหลักชุมชน
             </h2>
             <span class="text-[10px] bg-slate-800 text-amber-400/80 px-2 py-0.5 rounded-full border border-slate-700 font-mono">
-                v4.0
+                v4.1
             </span>
         </div>
 
         <!-- รายการเมนูนำทาง -->
-        <nav>
+        <nav class="max-h-[calc(100vh-160px)] overflow-y-auto no-scrollbar pr-1">
             <ul class="space-y-1 text-xs">
 
+                <!-- หมวดหมู่: เมนูหลัก -->
                 <li>
                     <a href="index.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-800 hover:text-amber-400 transition group font-medium">
                         <span class="text-base group-hover:scale-110 transition-transform">🏠</span>
@@ -40,20 +41,13 @@
                 </li>
 
                 <li>
-                    <a href="activities.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-800 hover:text-amber-400 transition group font-medium">
-                        <span class="text-base group-hover:scale-110 transition-transform">📸</span>
-                        <span>กิจกรรมชุมชน</span>
-                    </a>
-                </li>
-
-                <li>
                     <a href="leader.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-800 hover:text-amber-400 transition group font-medium">
                         <span class="text-base group-hover:scale-110 transition-transform">👤</span>
                         <span>ข้อมูลผู้นำชุมชน</span>
                     </a>
                 </li>
 
-                <!-- เส้นแบ่งหมวดหมู่ทะเบียน -->
+                <!-- หมวดหมู่: ข้อมูลทะเบียน & สวัสดิการ -->
                 <li class="pt-3 pb-1 px-3 text-[10px] font-semibold text-slate-500 uppercase tracking-wider">
                     ข้อมูลทะเบียน & สวัสดิการ
                 </li>
@@ -86,7 +80,33 @@
                     </a>
                 </li>
 
-                <!-- เส้นแบ่งหมวดหมู่ความปลอดภัย/ฝ่ายปฏิบัติการ -->
+                <!-- หมวดหมู่: ทรัพยากร & วัฒนธรรม -->
+                <li class="pt-3 pb-1 px-3 text-[10px] font-semibold text-slate-500 uppercase tracking-wider">
+                    สถานที่ & ทรัพยากร
+                </li>
+
+                <li>
+                    <a href="subnamjam.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-800 hover:text-emerald-400 transition group font-medium">
+                        <span class="text-base group-hover:scale-110 transition-transform">🌱</span>
+                        <span>แหล่งซับน้ำจำ</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="wat-rongkhem.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-800 hover:text-amber-400 transition group font-medium">
+                        <span class="text-base group-hover:scale-110 transition-transform">🛕</span>
+                        <span>วัดร่องเข็ม</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="products.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-800 hover:text-amber-400 transition group font-medium">
+                        <span class="text-base group-hover:scale-110 transition-transform">🛍️</span>
+                        <span>สินค้าชุมชน & OTOP</span>
+                    </a>
+                </li>
+
+                <!-- หมวดหมู่: งานบริการ & ความปลอดภัย -->
                 <li class="pt-3 pb-1 px-3 text-[10px] font-semibold text-slate-500 uppercase tracking-wider">
                     งานบริการ & ความปลอดภัย
                 </li>
@@ -113,9 +133,23 @@
                 </li>
 
                 <li>
-                    <a href="subnamjam.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-800 hover:text-emerald-400 transition group font-medium">
-                        <span class="text-base group-hover:scale-110 transition-transform">🌱</span>
-                        <span>แหล่งซับน้ำจำ</span>
+                    <a href="complaint.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-800 hover:text-rose-400 transition group font-medium">
+                        <span class="text-base group-hover:scale-110 transition-transform">📢</span>
+                        <span>แจ้งเรื่องร้องเรียน</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="ai-assistant.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-800 hover:text-cyan-400 transition group font-medium">
+                        <span class="text-base group-hover:scale-110 transition-transform">🤖</span>
+                        <span>ผู้ช่วย AI ชุมชน</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contact.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-800 hover:text-amber-400 transition group font-medium">
+                        <span class="text-base group-hover:scale-110 transition-transform">📞</span>
+                        <span>ติดต่อเรา & สายด่วน</span>
                     </a>
                 </li>
 
@@ -123,9 +157,9 @@
         </nav>
     </div>
 
-    <!-- ส่วนท้ายสั้นๆ ของ Sidebar -->
-    <div class="pt-4 border-t border-slate-800 mt-6">
-        <a href="admin-panel.html" class="flex items-center justify-center gap-2 w-full py-2 bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-slate-950 font-bold text-xs rounded-xl transition shadow-lg shadow-amber-600/20">
+    <!-- ส่วนท้าย Sidebar ปุ่มสำหรับผู้ดูแลระบบ -->
+    <div class="pt-4 border-t border-slate-800 mt-4">
+        <a href="admin-news.html" class="flex items-center justify-center gap-2 w-full py-2.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs rounded-xl transition shadow-lg shadow-amber-500/20 active:scale-95">
             <span>🔑</span> ระบบผู้ดูแลระบบ
         </a>
     </div>
