@@ -1,82 +1,285 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>บ้านร่องเข็ม Smart Village - หมู่ที่ 6 ต.จำป่าหวาย จ.พะเยา</title>
-    
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts (Sarabun) -->
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Custom Style (CSS ของคุณ) -->
-    <link rel="stylesheet" href="style.css">
-
-    <style>
-        body { font-family: 'Sarabun', sans-serif; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>บ้านร่องเข็ม Smart Village หมู่ที่ 6</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Swiper.js CSS (สำหรับทำภาพสไลด์เคลื่อนไหว) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- Google Font (Kanit) -->
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    body { font-family: 'Kanit', sans-serif; }
+    .swiper-pagination-bullet-active { background: #059669 !important; }
+  </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
+<body class="bg-slate-50 text-slate-800 antialiased">
 
-    <!-- 1. TOP HEADER (โหลดอัตโนมัติจาก components/header.html) -->
-    <div id="header-container"></div>
+  <!-- 1. Header Topbar & Navbar -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- Logo & Title -->
+      <div class="flex items-center gap-3">
+        <span class="text-3xl">🏡</span>
+        <div>
+          <h1 class="font-bold text-base sm:text-lg text-emerald-800 leading-tight">
+            Rongkhem Smart Village
+          </h1>
+          <p class="text-xs text-slate-500">หมู่บ้านอัจฉริยะร่องเข็ม หมู่ 6 ต.จำป่าหวาย</p>
+        </div>
+      </div>
 
-    <!-- 2. MAIN CONTAINER -->
-    <div class="flex flex-1 max-w-7xl w-full mx-auto">
-        
-        <!-- SIDEBAR (โหลดอัตโนมัติจาก components/sidebar.html บนหน้าจอใหญ่) -->
-        <div id="sidebar-container" class="hidden md:block"></div>
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+        <a href="#" class="text-emerald-600 font-semibold">🏠 หน้าหลัก</a>
+        <a href="#" class="text-slate-600 hover:text-emerald-600">📊 Dashboard</a>
+        <a href="#" class="text-slate-600 hover:text-emerald-600">📢 ข่าวสาร</a>
+        <a href="#" class="text-slate-600 hover:text-emerald-600">🤖 ถาม AI</a>
+      </nav>
 
-        <!-- MAIN CONTENT AREA (ส่วน Hero Section หลัก) -->
-        <main class="flex-1">
-            <section class="hero">
-                <div class="content">
-                    <h1>🏡 บ้านร่องเข็ม Smart Village</h1>
-                    <h2>
-                        หมู่ที่ 6 ตำบลจำป่าหวาย<br>
-                        อำเภอเมือง จังหวัดพะเยา
-                    </h2>
-                    <p>ระบบบริหารจัดการหมู่บ้านอัจฉริยะ</p>
-
-                    <div class="flex flex-wrap justify-center gap-3 mt-6">
-                        <a href="dashboard.html" class="btn-hero">
-                            📊 เข้าสู่ Dashboard
-                        </a>
-                        <a href="ai-assistant.html" class="btn-hero !bg-slate-800 hover:!bg-slate-700 !text-cyan-300 border border-slate-700">
-                            🤖 สอบถาม AI ชุมชน
-                        </a>
-                    </div>
-                </div>
-            </section>
-        </main>
-
+      <!-- Admin Button -->
+      <a href="#" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition flex items-center gap-2 shadow-sm">
+        <i class="fa-solid fa-key"></i> <span>🔑 Admin</span>
+      </a>
     </div>
+  </header>
 
-    <!-- 3. FOOTER & MOBILE NAV (โหลดอัตโนมัติจาก components/footer.html) -->
-    <div id="footer-container"></div>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
 
-    <!-- JavaScript สำหรับดึงส่วนประกอบ Header, Sidebar, Footer มาแทรกอัตโนมัติ -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // โหลด Header
-            fetch("components/header.html")
-                .then(res => res.text())
-                .then(data => document.getElementById("header-container").innerHTML = data)
-                .catch(err => console.log("Header error:", err));
+    <!-- 2. Hero Section: Animated Image Slider (สไลด์ภาพเคลื่อนไหว) -->
+    <section class="relative rounded-3xl overflow-hidden shadow-lg border border-slate-200 bg-slate-900">
+      
+      <!-- Swiper Slider Container -->
+      <div class="swiper mySwiper min-h-[380px] sm:min-h-[440px]">
+        <div class="swiper-wrapper">
+          
+          <!-- Slide 1: ภาพบรรยากาศหมู่บ้าน -->
+          <div class="swiper-slide relative">
+            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80" 
+                 class="w-full h-full object-cover opacity-60 min-h-[380px] sm:min-h-[440px]" alt="หมู่บ้านร่องเข็ม">
+          </div>
 
-            // โหลด Sidebar
-            fetch("components/sidebar.html")
-                .then(res => res.text())
-                .then(data => document.getElementById("sidebar-container").innerHTML = data)
-                .catch(err => console.log("Sidebar error:", err));
+          <!-- Slide 2: กิจกรรมสิ่งแวดล้อม & ชุมชน -->
+          <div class="swiper-slide relative">
+            <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1200&q=80" 
+                 class="w-full h-full object-cover opacity-60 min-h-[380px] sm:min-h-[440px]" alt="สิ่งแวดล้อมชุมชน">
+          </div>
 
-            // โหลด Footer
-            fetch("components/footer.html")
-                .then(res => res.text())
-                .then(data => document.getElementById("footer-container").innerHTML = data)
-                .catch(err => console.log("Footer error:", err));
-        });
-    </script>
+          <!-- Slide 3: สินค้า OTOP & กลุ่มข้าวสาร -->
+          <div class="swiper-slide relative">
+            <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=1200&q=80" 
+                 class="w-full h-full object-cover opacity-60 min-h-[380px] sm:min-h-[440px]" alt="ข้าวสารบ้านร่องเข็ม">
+          </div>
 
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+      <!-- Gradient Overlay Layer -->
+      <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent pointer-events-none z-10"></div>
+
+      <!-- Live Weather Bar Top-Right -->
+      <div class="absolute top-4 right-4 z-20 bg-white/20 backdrop-blur-md border border-white/30 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-2xl text-xs sm:text-sm flex items-center gap-3">
+        <span>🌤️ 28°C</span>
+        <span class="border-l border-white/30 pl-3 text-emerald-300 font-semibold">🟢 PM2.5: 18 µg/m³</span>
+      </div>
+
+      <!-- Hero Overlay Content (ข้อความและช่องค้นหา AI) -->
+      <div class="absolute bottom-0 left-0 right-0 z-20 p-6 sm:p-10 max-w-3xl">
+        <span class="bg-emerald-500 text-white text-xs px-3 py-1 rounded-full font-medium tracking-wide">
+          SMART VILLAGE 2026 (v4.1)
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-bold text-white mt-2 mb-2 leading-tight">
+          🏡 บ้านร่องเข็ม Smart Village
+        </h2>
+        <p class="text-slate-200 text-xs sm:text-base mb-5 font-light line-clamp-2">
+          โครงการพัฒนาระบบสารสนเทศและนวัตกรรมดิจิทัลเพื่อสนับสนุนการบริหารงานชุมชน การดูแลสุขภาพ สิ่งแวดล้อม และสวัสดิการอย่างยั่งยืน "ร่องเข็มโมเดล"
+        </p>
+
+        <!-- AI Assistant Search Bar -->
+        <div class="bg-white/95 backdrop-blur-md p-1.5 sm:p-2 rounded-2xl shadow-xl flex items-center gap-2">
+          <div class="pl-3 text-emerald-600 text-lg"><i class="fa-solid fa-robot"></i></div>
+          <input type="text" placeholder="สอบถาม AI ชุมชน... เช่น 'เบี้ยยังชีพออกวันไหน'" 
+                 class="w-full bg-transparent border-none text-slate-800 focus:outline-none text-xs sm:text-sm">
+          <button class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl font-medium text-xs sm:text-sm transition shrink-0">
+            🤖 สอบถาม AI
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Executive / Leader Showcase (ข้อมูลผู้นำชุมชน) -->
+    <section class="bg-white rounded-3xl p-6 border border-slate-100 shadow-sm">
+      <div class="flex items-center justify-between mb-5">
+        <div>
+          <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+            👔 คณะกรรมการ & ผู้นำชุมชน
+          </h3>
+          <p class="text-xs text-slate-500">ทีมบริหารงานและผู้ประสานงานประจำหมู่บ้านร่องเข็ม หมู่ 6</p>
+        </div>
+        <a href="#" class="text-xs sm:text-sm font-medium text-emerald-600 hover:underline">ดูทั้งหมด →</a>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <!-- Leader 1 -->
+        <div class="p-3 bg-slate-50 rounded-2xl text-center border border-slate-100 hover:border-emerald-200 transition">
+          <div class="w-20 h-20 mx-auto rounded-full overflow-hidden mb-2 border-2 border-emerald-500 p-0.5">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80" 
+                 class="w-full h-full object-cover rounded-full" alt="ผู้ใหญ่บ้าน">
+          </div>
+          <h4 class="font-bold text-slate-800 text-sm">ผู้ใหญ่บ้าน</h4>
+          <p class="text-xs text-emerald-600 font-medium">หมู่ที่ 6 ต.จำป่าหวาย</p>
+          <a href="tel:0812345678" class="mt-2 inline-flex items-center justify-center gap-1 text-xs bg-emerald-600 text-white px-3 py-1 rounded-xl w-full hover:bg-emerald-700 transition">
+            <i class="fa-solid fa-phone"></i> โทรติดต่อ
+          </a>
+        </div>
+
+        <!-- Leader 2 -->
+        <div class="p-3 bg-slate-50 rounded-2xl text-center border border-slate-100 hover:border-emerald-200 transition">
+          <div class="w-20 h-20 mx-auto rounded-full overflow-hidden mb-2 border-2 border-slate-300 p-0.5">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80" 
+                 class="w-full h-full object-cover rounded-full" alt="ผู้ช่วยผู้ใหญ่บ้าน">
+          </div>
+          <h4 class="font-bold text-slate-800 text-sm">ผู้ช่วยผู้ใหญ่บ้าน</h4>
+          <p class="text-xs text-slate-500 font-medium">ฝ่ายปกครอง</p>
+          <a href="tel:0812345678" class="mt-2 inline-flex items-center justify-center gap-1 text-xs bg-slate-200 text-slate-700 px-3 py-1 rounded-xl w-full hover:bg-slate-300 transition">
+            <i class="fa-solid fa-phone"></i> โทรติดต่อ
+          </a>
+        </div>
+
+        <!-- Leader 3 -->
+        <div class="p-3 bg-slate-50 rounded-2xl text-center border border-slate-100 hover:border-emerald-200 transition">
+          <div class="w-20 h-20 mx-auto rounded-full overflow-hidden mb-2 border-2 border-slate-300 p-0.5">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80" 
+                 class="w-full h-full object-cover rounded-full" alt="ประธาน อสม.">
+          </div>
+          <h4 class="font-bold text-slate-800 text-sm">ประธาน อสม.</h4>
+          <p class="text-xs text-slate-500 font-medium">งานสุขภาพชุมชน</p>
+          <a href="tel:0812345678" class="mt-2 inline-flex items-center justify-center gap-1 text-xs bg-slate-200 text-slate-700 px-3 py-1 rounded-xl w-full hover:bg-slate-300 transition">
+            <i class="fa-solid fa-phone"></i> โทรติดต่อ
+          </a>
+        </div>
+
+        <!-- Leader 4 -->
+        <div class="p-3 bg-slate-50 rounded-2xl text-center border border-slate-100 hover:border-emerald-200 transition">
+          <div class="w-20 h-20 mx-auto rounded-full overflow-hidden mb-2 border-2 border-slate-300 p-0.5">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300&q=80" 
+                 class="w-full h-full object-cover rounded-full" alt="หัวหน้า ชรบ.">
+          </div>
+          <h4 class="font-bold text-slate-800 text-sm">หัวหน้า ชรบ.</h4>
+          <p class="text-xs text-slate-500 font-medium">รักษาความปลอดภัย</p>
+          <a href="tel:0812345678" class="mt-2 inline-flex items-center justify-center gap-1 text-xs bg-slate-200 text-slate-700 px-3 py-1 rounded-xl w-full hover:bg-slate-300 transition">
+            <i class="fa-solid fa-phone"></i> โทรติดต่อ
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Main Categorized Service Hub (หมวดหมู่บริการทั้ง 4 ด้าน) -->
+    <section class="space-y-6">
+      <h3 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+        📂 ระบบบริการและข้อมูลชุมชน
+      </h3>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        
+        <!-- Category 1: บริหารชุมชน & สวัสดิการ -->
+        <div class="bg-white p-5 rounded-3xl border border-slate-100 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center text-xl font-bold mb-3">🏛️</div>
+            <h4 class="font-bold text-slate-800 mb-2">บริหารชุมชน & สวัสดิการ</h4>
+            <ul class="space-y-2 text-xs sm:text-sm text-slate-600">
+              <li><a href="#" class="hover:text-emerald-600">👥 ทะเบียนประชาชน & ประชากร</a></li>
+              <li><a href="#" class="hover:text-emerald-600">🏠 ทะเบียนครัวเรือนในหมู่บ้าน</a></li>
+              <li><a href="#" class="hover:text-emerald-600">👴 สวัสดิการผู้สูงอายุ & เบี้ยยังชีพ</a></li>
+              <li><a href="#" class="hover:text-emerald-600">♿ ข้อมูลกลุ่มเปราะบาง & ผู้พึ่งพิง</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Category 2: สุขภาพ & ความปลอดภัย -->
+        <div class="bg-white p-5 rounded-3xl border border-slate-100 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 bg-rose-100 text-rose-700 rounded-2xl flex items-center justify-center text-xl font-bold mb-3">🩺</div>
+            <h4 class="font-bold text-slate-800 mb-2">สุขภาพ & ความปลอดภัย</h4>
+            <ul class="space-y-2 text-xs sm:text-sm text-slate-600">
+              <li><a href="#" class="hover:text-emerald-600">🩺 สุขภาพชุมชน & งาน อสม.</a></li>
+              <li><a href="#" class="hover:text-emerald-600">🛡️ ชุดรักษาความปลอดภัย (ชรบ.)</a></li>
+              <li><a href="#" class="hover:text-emerald-600">🚨 ศูนย์ อปพร. เฝ้าระวังภัย</a></li>
+              <li><a href="#" class="hover:text-emerald-600">📢 ศูนย์รับเรื่องร้องเรียนแจ้งปัญหา</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Category 3: สิ่งแวดล้อม & ทรัพยากร -->
+        <div class="bg-white p-5 rounded-3xl border border-slate-100 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 bg-amber-100 text-amber-700 rounded-2xl flex items-center justify-center text-xl font-bold mb-3">🌱</div>
+            <h4 class="font-bold text-slate-800 mb-2">สิ่งแวดล้อม & ทรัพยากร</h4>
+            <ul class="space-y-2 text-xs sm:text-sm text-slate-600">
+              <li><a href="#" class="hover:text-emerald-600">🔥 ตรวจวัด PM2.5 & ลดการเผา</a></li>
+              <li><a href="#" class="hover:text-emerald-600">💧 โครงการพัฒนาแหล่งซับน้ำจำ</a></li>
+              <li><a href="#" class="hover:text-emerald-600">🗺️ แผนที่พิกัดสารสนเทศหมู่บ้าน</a></li>
+              <li><a href="#" class="hover:text-emerald-600">📄 ศูนย์เอกสาร & พิมพ์รายงาน</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Category 4: เศรษฐกิจ & วัฒนธรรม -->
+        <div class="bg-white p-5 rounded-3xl border border-slate-100 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 bg-blue-100 text-blue-700 rounded-2xl flex items-center justify-center text-xl font-bold mb-3">🛍️</div>
+            <h4 class="font-bold text-slate-800 mb-2">เศรษฐกิจ & วัฒนธรรม</h4>
+            <ul class="space-y-2 text-xs sm:text-sm text-slate-600">
+              <li><a href="#" class="hover:text-emerald-600">🌾 กลุ่มข้าวสารบ้านร่องเข็ม</a></li>
+              <li><a href="#" class="hover:text-emerald-600">🛍️ สินค้าชุมชน & ร้านค้า OTOP</a></li>
+              <li><a href="#" class="hover:text-emerald-600">🛕 ข้อมูลวัดร่องเข็ม & งานบุญ</a></li>
+              <li><a href="#" class="hover:text-emerald-600">📞 ติดต่อเรา & สายด่วนสำคัญ</a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 5. Footer -->
+  <footer class="bg-slate-900 text-slate-400 text-xs py-8 border-t border-slate-800 mt-12">
+    <div class="max-w-7xl mx-auto px-4 text-center space-y-3">
+      <p class="text-sm font-semibold text-slate-200">
+        © 2026 หมู่บ้านอัจฉริยะร่องเข็ม (Rongkhem Smart Village) | ร่องเข็มโมเดล Version 4.1
+      </p>
+      <p>📍 หมู่ที่ 6 ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา</p>
+      <div class="flex justify-center gap-4 pt-2 text-slate-400">
+        <a href="#" class="hover:text-white">เกี่ยวกับโครงการ</a> |
+        <a href="#" class="hover:text-white">ติดต่อเรา</a> |
+        <a href="#" class="hover:text-white">นโยบายความเป็นส่วนตัว</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Swiper.js JavaScript for Auto Slider -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      loop: true,
+    });
+  </script>
 </body>
 </html>
