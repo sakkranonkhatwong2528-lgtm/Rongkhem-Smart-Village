@@ -1,171 +1,30 @@
-<!DOCTYPE html>
+<!-- ปุ่มสายด่วนกู้ชีพ อบต. และตู้ยามตำรวจประจำตำบลจำป่าหวาย -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+    <!-- กู้ชีพกู้ภัย อบต.จำป่าหวาย -->
+    <a href="tel:054886930" class="p-5 bg-rose-950/70 hover:bg-rose-900/90 border-2 border-rose-500/60 rounded-2xl flex items-center justify-between transition shadow-xl group">
+        <div class="flex items-center gap-3">
+            <span class="text-3xl group-hover:scale-110 transition-transform">🚑</span>
+            <div>
+                <div class="font-bold text-white text-sm">ศูนย์กู้ชีพกู้ภัย อบต.จำป่าหวาย</div>
+                <div class="text-[11px] text-gray-300">บริการรับ-ส่งผู้ป่วยฉุกเฉินและอุบัติเหตุในพื้นที่</div>
+            </div>
+        </div>
+        <span class="px-3.5 py-1.5 bg-rose-600 text-white font-mono font-bold text-xs rounded-xl shadow-md whitespace-nowrap">
+            📞 054-886-930
+        </span>
+    </a>
 
-<html lang="th">
-
-<head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-
-<title>
-Admin Emergency | บ้านร่องเข็ม
-</title>
-
-
-<link rel="stylesheet" href="css/style.css">
-
-<link rel="stylesheet" href="css/admin-emergency.css">
-
-
-</head>
-
-
-<body>
-
-
-<header class="admin-emergency-header">
-
-
-<h1>
-🚨 ศูนย์ควบคุมแจ้งเหตุฉุกเฉิน
-</h1>
-
-
-<p>
-บ้านร่องเข็ม Smart Village
-</p>
-
-
-</header>
-
-
-
-
-
-
-<section class="summary">
-
-
-<div class="card">
-
-<h3>
-🚨 เหตุทั้งหมด
-</h3>
-
-<h1 id="total">
-0
-</h1>
-
+    <!-- ตู้ยามตำรวจจำป่าหวาย -->
+    <a href="tel:054886932" class="p-5 bg-slate-900/90 hover:bg-slate-800 border-2 border-amber-500/50 rounded-2xl flex items-center justify-between transition shadow-xl group">
+        <div class="flex items-center gap-3">
+            <span class="text-3xl group-hover:scale-110 transition-transform">🚔</span>
+            <div>
+                <div class="font-bold text-white text-sm">ตู้ยามตำรวจจำป่าหวาย</div>
+                <div class="text-[11px] text-gray-300">ระงับเหตุด่วนเหตุร้าย เฝ้าระวังความปลอดภัยประจำตำบล</div>
+            </div>
+        </div>
+        <span class="px-3.5 py-1.5 bg-amber-500 text-slate-950 font-mono font-bold text-xs rounded-xl shadow-md whitespace-nowrap">
+            📞 054-886-932
+        </span>
+    </a>
 </div>
-
-
-
-<div class="card">
-
-<h3>
-⏳ รอดำเนินการ
-</h3>
-
-<h1 id="pending">
-0
-</h1>
-
-</div>
-
-
-
-
-<div class="card">
-
-<h3>
-✅ ดำเนินการแล้ว
-</h3>
-
-<h1 id="done">
-0
-</h1>
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-<section class="table-box">
-
-
-<h2>
-📋 รายการแจ้งเหตุ
-</h2>
-
-
-<table>
-
-
-<thead>
-
-<tr>
-
-<th>
-ประเภท
-</th>
-
-<th>
-ผู้แจ้ง
-</th>
-
-<th>
-สถานที่
-</th>
-
-<th>
-ระดับ
-</th>
-
-<th>
-ผู้รับผิดชอบ
-</th>
-
-<th>
-สถานะ
-</th>
-
-<th>
-จัดการ
-</th>
-
-</tr>
-
-</thead>
-
-
-<tbody id="emergencyTable">
-
-
-</tbody>
-
-
-</table>
-
-
-</section>
-
-
-
-
-
-
-
-<script src="js/admin-emergency.js"></script>
-
-
-</body>
-
-</html>
