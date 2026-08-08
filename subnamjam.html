@@ -1,346 +1,155 @@
 <!DOCTYPE html>
 <html lang="th">
-
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-<title>
-แหล่งซับน้ำจำ | บ้านร่องเข็ม Smart Village
-</title>
-
-
-<style>
-
-
-body{
-
-margin:0;
-font-family:Tahoma,sans-serif;
-background:#e8f5e9;
-
-}
-
-
-header{
-
-background:#00695c;
-color:white;
-padding:40px;
-text-align:center;
-
-}
-
-
-
-.cover{
-
-width:100%;
-height:350px;
-object-fit:cover;
-
-}
-
-
-
-.container{
-
-padding:20px;
-
-}
-
-
-
-.card{
-
-background:white;
-padding:25px;
-border-radius:25px;
-box-shadow:0 4px 12px #ccc;
-margin-bottom:20px;
-
-}
-
-
-
-h2{
-
-color:#00695c;
-
-}
-
-
-
-.info{
-
-background:#e0f2f1;
-padding:20px;
-border-radius:20px;
-
-}
-
-
-
-.gallery{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-
-}
-
-
-
-.gallery img{
-
-width:100%;
-height:200px;
-object-fit:cover;
-border-radius:20px;
-
-}
-
-
-
-.back{
-
-text-align:center;
-margin:30px;
-
-}
-
-
-
-.back a{
-
-background:#00695c;
-color:white;
-padding:12px 25px;
-border-radius:20px;
-text-decoration:none;
-
-}
-
-
-</style>
-
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แหล่งซับน้ำจำ | บ้านร่องเข็ม Smart Village</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (Sarabun) -->
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { font-family: 'Sarabun', sans-serif; }
+    </style>
 </head>
-
-
-<body>
-
-
-
-<header>
-
-
-<h1>
-💧 แหล่งซับน้ำจำ
-</h1>
-
-
-<p>
-ฐานทรัพยากรธรรมชาติบ้านร่องเข็ม Smart Village
-</p>
-
-
-</header>
-
-
-
-
-
-
-<img 
-src="images/subnamjam-cover.jpg"
-class="cover">
-
-
-
-
-
-
-
-<div class="container">
-
-
-
-<div class="card">
-
-
-<h2>
-🌱 ความเป็นมา
-</h2>
-
-
-<p>
-
-แหล่งซับน้ำจำ เป็นพื้นที่ทรัพยากรธรรมชาติสำคัญของบ้านร่องเข็ม
-หมู่ที่ 6 ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา
-
-เป็นพื้นที่ที่มีความสำคัญด้านระบบนิเวศ
-แหล่งน้ำ ความหลากหลายทางชีวภาพ
-และเป็นพื้นที่เรียนรู้ของชุมชน
-
-</p>
-
-
-
-</div>
-
-
-
-
-
-
-
-<div class="card">
-
-
-<h2>
-💧 คุณค่าของแหล่งซับน้ำจำ
-</h2>
-
-
-
-<div class="info">
-
-
-<p>
-
-💧 ช่วยรักษาความสมดุลของระบบน้ำ
-
-</p>
-
-
-<p>
-
-🌱 เป็นพื้นที่อนุรักษ์ทรัพยากรธรรมชาติ
-
-</p>
-
-
-<p>
-
-🦀 เป็นแหล่งอาศัยของสัตว์น้ำและสิ่งมีชีวิต
-
-</p>
-
-
-<p>
-
-📚 เป็นแหล่งเรียนรู้ของเยาวชนและชุมชน
-
-</p>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="card">
-
-
-<h2>
-🌳 กิจกรรมอนุรักษ์
-</h2>
-
-
-<p>
-
-✅ สำรวจระบบนิเวศ
-
-<br>
-
-✅ ปลูกต้นไม้เพิ่มพื้นที่สีเขียว
-
-<br>
-
-✅ ทำความสะอาดแหล่งน้ำ
-
-<br>
-
-✅ ถ่ายทอดความรู้ภูมิปัญญาชุมชน
-
-</p>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-<div class="card">
-
-
-<h2>
-📸 ภาพกิจกรรม
-</h2>
-
-
-<div class="gallery">
-
-
-<img src="images/subnamjam1.jpg">
-
-
-<img src="images/subnamjam2.jpg">
-
-
-<img src="images/subnamjam3.jpg">
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-<div class="back">
-
-<a href="index.html">
-
-🏠 กลับหน้าแรก
-
-</a>
-
-</div>
-
-
-
-
-
-
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
+
+    <!-- 1. TOP HEADER -->
+    <div id="header-container"></div>
+
+    <!-- 2. MAIN CONTAINER -->
+    <div class="flex flex-1 max-w-7xl w-full mx-auto">
+        
+        <!-- SIDEBAR -->
+        <div id="sidebar-container" class="hidden md:block"></div>
+
+        <!-- MAIN CONTENT AREA -->
+        <main class="flex-1 p-4 sm:p-6 lg:p-8 space-y-6">
+            
+            <!-- Header ประจำหน้า -->
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between bg-slate-900/80 p-5 rounded-2xl border border-slate-800 shadow-xl gap-4 backdrop-blur-md">
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-bold text-amber-400 flex items-center gap-2">
+                        <span>💧</span> แหล่งซับน้ำจำ บ้านร่องเข็ม
+                    </h1>
+                    <p class="text-xs text-gray-400">ฐานทรัพยากรธรรมชาติ ขับเคลื่อนระบบนิเวศชุมชนยั่งยืน บ้านร่องเข็ม หมู่ที่ 6</p>
+                </div>
+                <a href="index.html" class="px-4 py-2 text-xs bg-slate-800 hover:bg-slate-700 text-gray-300 font-medium rounded-xl border border-slate-700 transition flex items-center gap-1.5 w-fit">
+                    <span>🏠</span> กลับหน้าแรก
+                </a>
+            </div>
+
+            <!-- ภาพปกหลัก (Hero Image) -->
+            <div class="relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden border border-slate-800 shadow-2xl">
+                <img src="images/subnamjam-cover.jpg" 
+                     onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80';" 
+                     alt="ภาพปกแหล่งซับน้ำจำ" 
+                     class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent flex items-end p-6">
+                    <div>
+                        <span class="px-2.5 py-1 text-[11px] font-semibold rounded-md bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                            🌿 พื้นที่อนุรักษ์สิ่งแวดล้อม
+                        </span>
+                        <h2 class="text-lg sm:text-xl font-bold text-white mt-1">
+                            ความสมบูรณ์แห่งสายน้ำซับธรรมชาติ บ้านร่องเข็ม
+                        </h2>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GRID เนื้อหา 2 คอลัมน์ -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                
+                <!-- การ์ด 1: ความเป็นมา -->
+                <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 shadow-xl space-y-3 hover:border-slate-700 transition">
+                    <h2 class="text-base font-bold text-amber-400 flex items-center gap-2 border-b border-slate-800 pb-2">
+                        <span>🌱</span> ความเป็นมา
+                    </h2>
+                    <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                        <strong>แหล่งซับน้ำจำ</strong> เป็นพื้นที่ทรัพยากรธรรมชาติสำคัญของบ้านร่องเข็ม หมู่ที่ 6 ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา เป็นพื้นที่ที่มีความสำคัญด้านระบบนิเวศ แหล่งน้ำใต้ดิน ความหลากหลายทางชีวภาพ และเป็นพื้นที่เรียนรู้ภูมิปัญญาของชุมชนอย่างยั่งยืน
+                    </p>
+                </div>
+
+                <!-- การ์ด 2: คุณค่าของแหล่งซับน้ำจำ -->
+                <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 shadow-xl space-y-3 hover:border-slate-700 transition">
+                    <h2 class="text-base font-bold text-amber-400 flex items-center gap-2 border-b border-slate-800 pb-2">
+                        <span>💧</span> คุณค่าของแหล่งซับน้ำจำ
+                    </h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-gray-300">
+                        <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80 flex items-center gap-2">
+                            <span>💧</span> ช่วยรักษาความสมดุลของระบบน้ำ
+                        </div>
+                        <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80 flex items-center gap-2">
+                            <span>🌱</span> เป็นพื้นที่อนุรักษ์ทรัพยากรธรรมชาติ
+                        </div>
+                        <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80 flex items-center gap-2">
+                            <span>🦀</span> แหล่งอาศัยของสัตว์น้ำและสิ่งมีชีวิต
+                        </div>
+                        <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80 flex items-center gap-2">
+                            <span>📚</span> แหล่งเรียนรู้เยาวชนและชุมชน
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- การ์ด 3: กิจกรรมอนุรักษ์ -->
+            <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 shadow-xl space-y-3 hover:border-slate-700 transition">
+                <h2 class="text-base font-bold text-amber-400 flex items-center gap-2 border-b border-slate-800 pb-2">
+                    <span>🌳</span> กิจกรรมอนุรักษ์ทรัพยากร
+                </h2>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs text-center">
+                    <div class="p-4 bg-slate-950/60 rounded-xl border border-slate-800 space-y-1">
+                        <div class="text-xl">🔍</div>
+                        <div class="font-bold text-slate-200">สำรวจระบบนิเวศ</div>
+                    </div>
+                    <div class="p-4 bg-slate-950/60 rounded-xl border border-slate-800 space-y-1">
+                        <div class="text-xl">🌲</div>
+                        <div class="font-bold text-slate-200">ปลูกต้นไม้เพิ่มพื้นที่เขียว</div>
+                    </div>
+                    <div class="p-4 bg-slate-950/60 rounded-xl border border-slate-800 space-y-1">
+                        <div class="text-xl">🧹</div>
+                        <div class="font-bold text-slate-200">ทำความสะอาดแหล่งน้ำ</div>
+                    </div>
+                    <div class="p-4 bg-slate-950/60 rounded-xl border border-slate-800 space-y-1">
+                        <div class="text-xl">💡</div>
+                        <div class="font-bold text-slate-200">ถ่ายทอดภูมิปัญญาชุมชน</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- การ์ด 4: Gallery ภาพกิจกรรม -->
+            <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 shadow-xl space-y-4">
+                <h2 class="text-base font-bold text-amber-400 flex items-center gap-2 border-b border-slate-800 pb-3">
+                    <span>📸</span> ภาพกิจกรรมและบรรยากาศ
+                </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="h-44 rounded-xl overflow-hidden border border-slate-800">
+                        <img src="images/subnamjam1.jpg" 
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=600&q=80';" 
+                             alt="ภาพกิจกรรม 1" class="w-full h-full object-cover hover:scale-105 transition duration-300">
+                    </div>
+                    <div class="h-44 rounded-xl overflow-hidden border border-slate-800">
+                        <img src="images/subnamjam2.jpg" 
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1511497584788-8767611136f6?auto=format&fit=crop&w=600&q=80';" 
+                             alt="ภาพกิจกรรม 2" class="w-full h-full object-cover hover:scale-105 transition duration-300">
+                    </div>
+                    <div class="h-44 rounded-xl overflow-hidden border border-slate-800">
+                        <img src="images/subnamjam3.jpg" 
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=600&q=80';" 
+                             alt="ภาพกิจกรรม 3" class="w-full h-full object-cover hover:scale-105 transition duration-300">
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- 3. FOOTER -->
+    <div id="footer-container"></div>
+
+    <!-- โหลดสคริปต์กลางดึง Header, Sidebar, Footer -->
+    <script src="js/main.js"></script>
 </body>
-
 </html>
