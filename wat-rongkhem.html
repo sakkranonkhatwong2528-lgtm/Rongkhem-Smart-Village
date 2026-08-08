@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>วัดร่องเข็ม | บ้านร่องเข็ม Smart Village</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (Sarabun) -->
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { font-family: 'Sarabun', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
+
+    <!-- 1. TOP HEADER -->
+    <div id="header-container"></div>
+
+    <!-- 2. MAIN CONTAINER -->
+    <div class="flex flex-1 max-w-7xl w-full mx-auto">
+        
+        <!-- SIDEBAR -->
+        <div id="sidebar-container" class="hidden md:block"></div>
+
+        <!-- MAIN CONTENT AREA -->
+        <main class="flex-1 p-4 sm:p-6 lg:p-8 space-y-6">
+            
+            <!-- Header ประจำหน้า -->
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between bg-slate-900/80 p-5 rounded-2xl border border-slate-800 shadow-xl gap-4 backdrop-blur-md">
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-bold text-amber-400 flex items-center gap-2">
+                        <span>🛕</span> วัดร่องเข็ม
+                    </h1>
+                    <p class="text-xs text-gray-400">ศูนย์รวมจิตใจ สืบสานวัฒนธรรมและประเพณีท้องถิ่น บ้านร่องเข็ม หมู่ 6</p>
+                </div>
+                <a href="index.html" class="px-4 py-2 text-xs bg-slate-800 hover:bg-slate-700 text-gray-300 font-medium rounded-xl border border-slate-700 transition flex items-center gap-1.5 w-fit">
+                    <span>🏠</span> กลับหน้าแรก
+                </a>
+            </div>
+
+            <!-- ภาพปกวัดร่องเข็ม -->
+            <div class="relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden border border-slate-800 shadow-2xl">
+                <img src="images/wat-rongkhem.jpg" 
+                     onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1590077428593-a55bb07c4665?auto=format&fit=crop&w=1200&q=80';" 
+                     alt="ภาพวัดร่องเข็ม" 
+                     class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent flex items-end p-6">
+                    <div>
+                        <span class="px-2.5 py-1 text-[11px] font-semibold rounded-md bg-amber-500/20 text-amber-400 border border-amber-500/30">
+                            🙏 ศาสนสถานประจำหมู่บ้าน
+                        </span>
+                        <h2 class="text-lg sm:text-xl font-bold text-white mt-1">
+                            วัดร่องเข็ม ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา
+                        </h2>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GRID เนื้อหา 2 คอลัมน์ -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                
+                <!-- การ์ด 1: ประวัติความเป็นมา -->
+                <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 shadow-xl space-y-3 hover:border-slate-700 transition">
+                    <h2 class="text-base font-bold text-amber-400 flex items-center gap-2 border-b border-slate-800 pb-2">
+                        <span>📜</span> ประวัติความเป็นมา
+                    </h2>
+                    <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                        <strong>[วัดร่องเข็ม](http://googleusercontent.com/map_location_reference/2)</strong> ตั้งอยู่ ณ บ้านร่องเข็ม หมู่ที่ 6 ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา เป็นวัดประจำหมู่บ้านที่เป็นศูนย์กลางในการประกอบพิธีทางศาสนาพุทธ ตลอดจนเป็นศูนย์รวมจิตใจและความร่วมมือร่วมใจของชาวบ้านร่องเข็มมาอย่างยาวนาน
+                    </p>
+                </div>
+
+                <!-- การ์ด 2: กิจกรรมและประเพณีสำคัญ -->
+                <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 shadow-xl space-y-3 hover:border-slate-700 transition">
+                    <h2 class="text-base font-bold text-amber-400 flex items-center gap-2 border-b border-slate-800 pb-2">
+                        <span>🕯️</span> งานบุญและประเพณีสำคัญ
+                    </h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-gray-300">
+                        <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80 flex items-center gap-2">
+                            <span>🌕</span> ทำบุญตักบาตรวันสำคัญทางศาสนา
+                        </div>
+                        <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80 flex items-center gap-2">
+                            <span>💦</span> งานประเพณีสรงน้ำพระวันสงกรานต์
+                        </div>
+                        <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80 flex items-center gap-2">
+                            <span>🎋</span> งานบุญตานก๋วยสลาก (สลากภัต)
+                        </div>
+                        <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80 flex items-center gap-2">
+                            <span>🕯️</span> พิธีเวียนเทียนและฟังธรรมเทศนา
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- การ์ด 3: แผนที่และการเดินทาง -->
+            <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 shadow-xl space-y-4">
+                <h2 class="text-base font-bold text-amber-400 flex items-center gap-2 border-b border-slate-800 pb-3">
+                    <span>📍</span> แผนที่และการเดินทางมายังวัดร่องเข็ม
+                </h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                    <!-- ข้อมูลสถานที่ -->
+                    <div class="space-y-3 text-xs text-gray-300">
+                        <p class="leading-relaxed">
+                            ตั้งอยู่ในชุมชนบ้านร่องเข็ม หมู่ 6 ตำบลจำป่าหวาย อำเภอเมืองพะเยา จังหวัดพะเยา 56000
+                        </p>
+                        <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800 space-y-1.5">
+                            <div class="font-bold text-amber-400">🚗 ข้อแนะนำการเดินทาง:</div>
+                            <p class="text-[11px] text-gray-400">ตั้งอยู่ใจกลางหมู่บ้าน มีพื้นที่จอดรถกว้างขวาง สะดวกต่อการเดินทางมาร่วมงานบุญและทำกิจกรรมของชุมชน</p>
+                        </div>
+                        <a href="https://maps.google.com/?cid=11095671755764433093" target="_blank" class="w-full py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-xl flex items-center justify-center gap-2 transition text-xs shadow-lg shadow-amber-500/20">
+                            🗺️ เปิดนำทางด้วย Google Maps
+                        </a>
+                    </div>
+
+                    <!-- แผนที่ฝัง (Google Maps Embed) -->
+                    <div class="lg:col-span-2 h-56 rounded-xl overflow-hidden border border-slate-800">
+                        <iframe 
+                            class="w-full h-full border-0"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3780.00!2d99.88!3d19.12!2m3!1f0!2f0!3f0!3m2!1i1024!2e768!4f13.1!3m3!1m2!1s0x0%3A0x99f8beac2aaa18a5!2z4Lin4Lix4LiB4Lij4LmJ4LiHidden4LiC4Lij4LmI!5e0!3m2!1sth!2sth!4v1600000000000!5m2!1sth!2sth" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- 3. FOOTER -->
+    <div id="footer-container"></div>
+
+    <!-- โหลดสคริปต์กลางดึง Header, Sidebar, Footer -->
+    <script src="js/main.js"></script>
+</body>
+</html>
