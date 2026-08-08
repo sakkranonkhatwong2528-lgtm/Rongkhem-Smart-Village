@@ -1,274 +1,221 @@
 <!DOCTYPE html>
 <html lang="th">
-
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-
-<title>
-แจ้งปัญหาชุมชน | บ้านร่องเข็ม
-</title>
-
-
-<link rel="stylesheet" href="assets/css/dashboard.css">
-
-
-<style>
-
-
-.form-box{
-
-background:white;
-
-padding:25px;
-
-max-width:600px;
-
-margin:auto;
-
-border-radius:20px;
-
-box-shadow:0 5px 15px rgba(0,0,0,.1);
-
-}
-
-
-input,textarea,select{
-
-
-width:100%;
-
-padding:12px;
-
-margin-bottom:15px;
-
-border-radius:10px;
-
-border:1px solid #ddd;
-
-}
-
-
-
-textarea{
-
-height:120px;
-
-}
-
-
-
-button{
-
-
-background:#2e7d32;
-
-color:white;
-
-border:none;
-
-padding:12px 25px;
-
-border-radius:10px;
-
-cursor:pointer;
-
-}
-
-
-</style>
-
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แจ้งเรื่องร้องเรียน / ข้อเสนอแนะ | ร่องเข็ม สมาร์ท วิลเลจ</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (Sarabun) -->
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { font-family: 'Sarabun', sans-serif; }
+    </style>
 </head>
-
-
-
-<body>
-
-
-<div class="dashboard-container">
-
-
-
-<header class="dashboard-header">
-
-
-<div>
-
-
-<h1>
-
-📢 แจ้งปัญหาชุมชน
-
-</h1>
-
-
-<p>
-
-บ้านร่องเข็ม Smart Village
-
-</p>
-
-
-</div>
-
-
-</header>
-
-
-
-
-
-
-<section class="section">
-
-
-<div class="form-box">
-
-
-
-<input 
-id="name"
-
-placeholder="ชื่อผู้แจ้ง">
-
-
-
-<select id="type">
-
-
-<option>
-ถนน
-</option>
-
-<option>
-ไฟฟ้า
-</option>
-
-<option>
-น้ำประปา
-</option>
-
-<option>
-ฝุ่น PM2.5
-</option>
-
-<option>
-การเผา
-</option>
-
-<option>
-ขยะ
-</option>
-
-
-</select>
-
-
-
-
-<textarea
-
-id="detail"
-
-placeholder="รายละเอียดปัญหา">
-
-</textarea>
-
-
-
-
-<button onclick="sendComplaint()">
-
-ส่งเรื่องร้องเรียน
-
-</button>
-
-
-
-</div>
-
-
-</section>
-
-
-
-</div>
-
-
-
-
-
-
-
-<script>
-
-
-function sendComplaint(){
-
-
-let complaint={
-
-
-id:Date.now(),
-
-
-name:
-
-document.getElementById("name").value,
-
-
-type:
-
-document.getElementById("type").value,
-
-
-detail:
-
-document.getElementById("detail").value,
-
-
-date:
-
-new Date().toISOString().slice(0,10),
-
-
-status:"รอดำเนินการ"
-
-
-
-};
-
-
-
-localStorage.setItem(
-
-"complaint",
-
-JSON.stringify(complaint)
-
-);
-
-
-
-alert(
-
-"ส่งเรื่องร้องเรียนเรียบร้อย"
-
-);
-
-
-
-}
-
-
-
-</script>
-
-
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
+
+    <!-- 1. TOP HEADER -->
+    <div id="header-container"></div>
+
+    <!-- 2. MAIN CONTAINER -->
+    <div class="flex flex-1 max-w-7xl w-full mx-auto">
+        
+        <!-- SIDEBAR -->
+        <div id="sidebar-container" class="hidden md:block"></div>
+
+        <!-- MAIN CONTENT -->
+        <main class="flex-1 p-4 sm:p-6 lg:p-8 space-y-6">
+            
+            <!-- Header ประจำหน้า -->
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between bg-slate-900/80 p-5 rounded-2xl border border-slate-800 shadow-xl gap-4 backdrop-blur-md">
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-bold text-amber-400 flex items-center gap-2">
+                        <span>📢</span> ศูนย์แจ้งปัญหาและรับเรื่องร้องเรียน
+                    </h1>
+                    <p class="text-xs text-gray-400">แจ้งปัญหาความเดือดร้อน สาธารณูปโภค หรือข้อเสนอแนะพัฒนา บ้านร่องเข็ม หมู่ 6</p>
+                </div>
+            </div>
+
+            <!-- ฟอร์มส่งเรื่องร้องเรียน -->
+            <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 shadow-xl space-y-4">
+                <h2 class="text-base font-bold text-white flex items-center gap-2 border-b border-slate-800 pb-3">
+                    <span>✍️</span> แบบฟอร์มแจ้งเรื่องร้องเรียน / ร้องเรียนสาธารณูปโภค
+                </h2>
+
+                <form id="complaintForm" onsubmit="handleSendComplaint(event)" class="space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-medium text-gray-300 mb-1">ชื่อ-นามสกุล ผู้แจ้ง <span class="text-rose-400">*</span></label>
+                            <input type="text" id="reporterName" required placeholder="นายสมชาย ใจดี" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-amber-500 transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-gray-300 mb-1">เบอร์โทรศัพท์ติดต่อ <span class="text-rose-400">*</span></label>
+                            <input type="tel" id="reporterPhone" required placeholder="08X-XXX-XXXX" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-amber-500 transition">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-medium text-gray-300 mb-1">หมวดหมู่ปัญหา <span class="text-rose-400">*</span></label>
+                            <select id="complaintCategory" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-amber-500 transition">
+                                <option value="ไฟถนน / ไฟฟ้าสาธารณะ">💡 ไฟถนน / ไฟฟ้าสาธารณะ</option>
+                                <option value="น้ำประปา / ท่อน้ำทิ้ง">💧 น้ำประปา / ท่อน้ำทิ้ง</option>
+                                <option value="ขยะ / ความสะอาด">🗑️ ขยะ / ความสะอาด</option>
+                                <option value="ถนน / ทางหลวงหมู่บ้าน">🛣️ ถนน / ทางหลวงหมู่บ้าน</option>
+                                <option value="เสียงรบกวน / เหตุรำคาญ">🔊 เสียงรบกวน / เหตุรำคาญ</option>
+                                <option value="อื่นๆ">📌 อื่นๆ / ข้อเสนอแนะทั่วไป</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-gray-300 mb-1">พิกัด / สถานที่เกิดเหตุ <span class="text-rose-400">*</span></label>
+                            <input type="text" id="locationText" required placeholder="เช่น หน้าบ้านเลขที่ 12/1 ซอย 3..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-amber-500 transition">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-medium text-gray-300 mb-1">รายละเอียดปัญหา <span class="text-rose-400">*</span></label>
+                        <textarea id="complaintDetail" rows="3" required placeholder="อธิบายรายละเอียดของปัญหาที่พบ..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-amber-500 transition"></textarea>
+                    </div>
+
+                    <div class="flex justify-end gap-2">
+                        <button type="reset" class="px-4 py-2 text-xs bg-slate-800 hover:bg-slate-700 text-gray-300 font-medium rounded-xl transition">
+                            ล้างข้อมูล
+                        </button>
+                        <button type="submit" class="px-5 py-2 text-xs bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-xl shadow-lg shadow-amber-500/20 transition active:scale-95">
+                            📩 ส่งเรื่องร้องเรียน
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- รายการเรื่องร้องเรียนและติดตามสถานะ -->
+            <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 shadow-xl space-y-4">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                    <h2 class="text-base font-bold text-white flex items-center gap-2">
+                        <span>📋</span> ติดตามสถานะเรื่องร้องเรียน
+                    </h2>
+                    <span id="complaintCountBadge" class="px-3 py-1 bg-amber-500/10 text-amber-400 text-xs font-bold rounded-full border border-amber-500/20">
+                        0 เรื่อง
+                    </span>
+                </div>
+
+                <div id="complaintList" class="space-y-3">
+                    <!-- รายการจะแสดงที่นี่ -->
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- 3. FOOTER -->
+    <div id="footer-container"></div>
+
+    <script>
+        const initialComplaints = [
+            {
+                id: "RC-2026-001",
+                name: "นายสมศักดิ์",
+                category: "💡 ไฟถนน / ไฟฟ้าสาธารณะ",
+                location: "ซอย 2 ข้างวัดร่องเข็ม",
+                detail: "หลอดไฟถนนดับ 2 กิ่ง มืดมากในช่วงกลางคืน",
+                status: "กำลังดำเนินการ",
+                statusColor: "bg-amber-500/10 text-amber-400 border-amber-500/20",
+                date: "7 ส.ค. 2026"
+            },
+            {
+                id: "RC-2026-002",
+                name: "นางใจดี",
+                category: "🗑️ ขยะ / ความสะอาด",
+                location: "ปากทางเข้าหมู่บ้าน หมู่ 6",
+                detail: "มีขยะตกค้างบริเวณถังขยะรวม อยากให้เพิ่มรอบจัดเก็บ",
+                status: "แก้ไขแล้ว",
+                statusColor: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
+                date: "5 ส.ค. 2026"
+            }
+        ];
+
+        function getComplaints() {
+            const data = localStorage.getItem('rongkhem_complaints');
+            if (!data) {
+                localStorage.setItem('rongkhem_complaints', JSON.stringify(initialComplaints));
+                return initialComplaints;
+            }
+            return JSON.parse(data);
+        }
+
+        function saveComplaints(list) {
+            localStorage.setItem('rongkhem_complaints', JSON.stringify(list));
+            renderComplaints();
+        }
+
+        function handleSendComplaint(e) {
+            e.preventDefault();
+            const name = document.getElementById('reporterName').value.trim();
+            const phone = document.getElementById('reporterPhone').value.trim();
+            const category = document.getElementById('complaintCategory').value;
+            const location = document.getElementById('locationText').value.trim();
+            const detail = document.getElementById('complaintDetail').value.trim();
+
+            const newComplaint = {
+                id: `RC-2026-00${Math.floor(Math.random() * 900 + 100)}`,
+                name: name,
+                phone: phone,
+                category: category,
+                location: location,
+                detail: detail,
+                status: "รอดำเนินการ",
+                statusColor: "bg-sky-500/10 text-sky-400 border-sky-500/20",
+                date: new Date().toLocaleDateString('th-TH', { day: 'numeric', month: 'short', year: 'numeric' })
+            };
+
+            const list = getComplaints();
+            list.unshift(newComplaint);
+            saveComplaints(list);
+
+            document.getElementById('complaintForm').reset();
+            alert(`ส่งเรื่องร้องเรียนสำเร็จ! รหัสติดตามของคุณคือ ${newComplaint.id}`);
+        }
+
+        function renderComplaints() {
+            const list = getComplaints();
+            const container = document.getElementById('complaintList');
+            const badge = document.getElementById('complaintCountBadge');
+
+            badge.innerText = `${list.length} เรื่อง`;
+
+            if (list.length === 0) {
+                container.innerHTML = `<div class="text-center py-6 text-gray-500 text-xs">ยังไม่มีรายการร้องเรียน</div>`;
+                return;
+            }
+
+            container.innerHTML = list.map(item => `
+                <div class="p-4 bg-slate-950/60 rounded-xl border border-slate-800 space-y-2 hover:border-slate-700 transition">
+                    <div class="flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-mono font-bold text-amber-400">${item.id}</span>
+                            <span class="text-xs text-gray-400">• ${item.category}</span>
+                        </div>
+                        <span class="px-2.5 py-0.5 text-[10px] font-semibold rounded-full border ${item.statusColor}">
+                            ${item.status}
+                        </span>
+                    </div>
+                    <p class="text-xs text-gray-200">${item.detail}</p>
+                    <div class="flex items-center justify-between text-[11px] text-gray-500 pt-1 border-t border-slate-800/60">
+                        <span>📍 ${item.location}</span>
+                        <span>🗓️ ${item.date}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch("components/header.html").then(res => res.text()).then(data => document.getElementById("header-container").innerHTML = data);
+            fetch("components/sidebar.html").then(res => res.text()).then(data => document.getElementById("sidebar-container").innerHTML = data);
+            fetch("components/footer.html").then(res => res.text()).then(data => document.getElementById("footer-container").innerHTML = data);
+
+            renderComplaints();
+        });
+    </script>
 </body>
-
 </html>
