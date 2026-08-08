@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>หมู่บ้านอัจฉริยะร่องเข็ม - Rongkhem Smart Village</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (Sarabun) -->
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { font-family: 'Sarabun', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
+
+    <!-- 1. TOP HEADER -->
+    <div id="header-container"></div>
+
+    <!-- 2. MAIN CONTAINER (SIDEBAR + CONTENT) -->
+    <div class="flex flex-1 max-w-7xl w-full mx-auto">
+        
+        <!-- SIDEBAR (แสดงเฉพาะบนจอ Tablet / PC) -->
+        <div id="sidebar-container" class="hidden md:block"></div>
+
+        <!-- MAIN CONTENT AREA (เนื้อหาหลักแต่ละหน้าจะเปลี่ยนที่ตรงนี้) -->
+        <main class="flex-1 p-4 sm:p-6 lg:p-8 space-y-6">
+            
+            <!-- Breadcrumb / ตัวชี้ตำแหน่งหน้า -->
+            <div class="flex items-center justify-between bg-slate-900/60 p-4 rounded-2xl border border-slate-800/80 backdrop-blur-md">
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+                        <span>📊</span> แผงควบคุมระบบอัจฉริยะ
+                    </h1>
+                    <p class="text-xs text-amber-400">บ้านร่องเข็ม หมู่ที่ 6 ต.จำป่าหวาย อ.เมืองพะเยา</p>
+                </div>
+                <span class="text-xs px-3 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-medium">
+                    🟢 สถานะระบบปกติ
+                </span>
+            </div>
+
+            <!-- ส่วนเนื้อหาของหน้าเว็บ (ใส่เนื้อหาหน้าต่างๆ ตรงนี้) -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- ตัวอย่าง Card สรุปยอด -->
+                <div class="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 shadow-xl space-y-2">
+                    <p class="text-xs text-gray-400">👥 จำนวนครัวเรือนทั้งหมด</p>
+                    <p class="text-3xl font-bold text-amber-400">248 <span class="text-xs text-gray-500 font-normal">ครัวเรือน</span></p>
+                </div>
+
+                <div class="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 shadow-xl space-y-2">
+                    <p class="text-xs text-gray-400">🌾 รับส่งข้าวสารรอบล่าสุด</p>
+                    <p class="text-3xl font-bold text-emerald-400">100% <span class="text-xs text-gray-500 font-normal">ครบถ้วน</span></p>
+                </div>
+
+                <div class="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 shadow-xl space-y-2">
+                    <p class="text-xs text-gray-400">🔥 ค่าคุณภาพอากาศ PM2.5</p>
+                    <p class="text-3xl font-bold text-cyan-400">12 <span class="text-xs text-gray-500 font-normal">µg/m³ (ดีมาก)</span></p>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- 3. FOOTER & MOBILE NAV -->
+    <div id="footer-container"></div>
+
+    <!-- SCRIPT สำหรับโหลด Header, Sidebar และ Footer อัตโนมัติ -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // โหลด Header
+            fetch("components/header.html")
+                .then(res => res.text())
+                .then(data => document.getElementById("header-container").innerHTML = data)
+                .catch(err => console.log("Header Error:", err));
+
+            // โหลด Sidebar
+            fetch("components/sidebar.html")
+                .then(res => res.text())
+                .then(data => document.getElementById("sidebar-container").innerHTML = data)
+                .catch(err => console.log("Sidebar Error:", err));
+
+            // โหลด Footer
+            fetch("components/footer.html")
+                .then(res => res.text())
+                .then(data => document.getElementById("footer-container").innerHTML = data)
+                .catch(err => console.log("Footer Error:", err));
+        });
+    </script>
+</body>
+</html>
