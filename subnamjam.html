@@ -1,155 +1,71 @@
-<!DOCTYPE html>
-<html lang="th">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>แหล่งซับน้ำจำ | บ้านร่องเข็ม Smart Village</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts (Sarabun) -->
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <style>
-        body { font-family: 'Sarabun', sans-serif; }
-    </style>
-</head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
-
-    <!-- 1. TOP HEADER -->
-    <div id="header-container"></div>
-
-    <!-- 2. MAIN CONTAINER -->
-    <div class="flex flex-1 max-w-7xl w-full mx-auto">
-        
-        <!-- SIDEBAR -->
-        <div id="sidebar-container" class="hidden md:block"></div>
-
-        <!-- MAIN CONTENT AREA -->
-        <main class="flex-1 p-4 sm:p-6 lg:p-8 space-y-6">
-            
-            <!-- Header ประจำหน้า -->
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between bg-slate-900/80 p-5 rounded-2xl border border-slate-800 shadow-xl gap-4 backdrop-blur-md">
-                <div>
-                    <h1 class="text-xl sm:text-2xl font-bold text-amber-400 flex items-center gap-2">
-                        <span>💧</span> แหล่งซับน้ำจำ บ้านร่องเข็ม
-                    </h1>
-                    <p class="text-xs text-gray-400">ฐานทรัพยากรธรรมชาติ ขับเคลื่อนระบบนิเวศชุมชนยั่งยืน บ้านร่องเข็ม หมู่ที่ 6</p>
-                </div>
-                <a href="index.html" class="px-4 py-2 text-xs bg-slate-800 hover:bg-slate-700 text-gray-300 font-medium rounded-xl border border-slate-700 transition flex items-center gap-1.5 w-fit">
-                    <span>🏠</span> กลับหน้าแรก
-                </a>
-            </div>
-
-            <!-- ภาพปกหลัก (Hero Image) -->
-            <div class="relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden border border-slate-800 shadow-2xl">
-                <img src="images/subnamjam-cover.jpg" 
-                     onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80';" 
-                     alt="ภาพปกแหล่งซับน้ำจำ" 
-                     class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent flex items-end p-6">
-                    <div>
-                        <span class="px-2.5 py-1 text-[11px] font-semibold rounded-md bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
-                            🌿 พื้นที่อนุรักษ์สิ่งแวดล้อม
-                        </span>
-                        <h2 class="text-lg sm:text-xl font-bold text-white mt-1">
-                            ความสมบูรณ์แห่งสายน้ำซับธรรมชาติ บ้านร่องเข็ม
-                        </h2>
-                    </div>
-                </div>
-            </div>
-
-            <!-- GRID เนื้อหา 2 คอลัมน์ -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                
-                <!-- การ์ด 1: ความเป็นมา -->
-                <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 shadow-xl space-y-3 hover:border-slate-700 transition">
-                    <h2 class="text-base font-bold text-amber-400 flex items-center gap-2 border-b border-slate-800 pb-2">
-                        <span>🌱</span> ความเป็นมา
+<!-- การ์ด 1: ระบบติดตามคุณภาพน้ำ (IoT Water Quality Monitoring) -->
+            <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 shadow-xl space-y-4">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                    <h2 class="text-base font-bold text-amber-400 flex items-center gap-2">
+                        <span>🧪</span> ระบบติดตามคุณภาพน้ำซับธรรมชาติ (IoT Monitoring)
                     </h2>
-                    <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
-                        <strong>แหล่งซับน้ำจำ</strong> เป็นพื้นที่ทรัพยากรธรรมชาติสำคัญของบ้านร่องเข็ม หมู่ที่ 6 ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา เป็นพื้นที่ที่มีความสำคัญด้านระบบนิเวศ แหล่งน้ำใต้ดิน ความหลากหลายทางชีวภาพ และเป็นพื้นที่เรียนรู้ภูมิปัญญาของชุมชนอย่างยั่งยืน
-                    </p>
+                    <span class="flex items-center gap-1.5 text-[10px] font-semibold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> อัปเดตล่าสุด
+                    </span>
                 </div>
 
-                <!-- การ์ด 2: คุณค่าของแหล่งซับน้ำจำ -->
-                <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 shadow-xl space-y-3 hover:border-slate-700 transition">
-                    <h2 class="text-base font-bold text-amber-400 flex items-center gap-2 border-b border-slate-800 pb-2">
-                        <span>💧</span> คุณค่าของแหล่งซับน้ำจำ
-                    </h2>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-gray-300">
-                        <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80 flex items-center gap-2">
-                            <span>💧</span> ช่วยรักษาความสมดุลของระบบน้ำ
-                        </div>
-                        <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80 flex items-center gap-2">
-                            <span>🌱</span> เป็นพื้นที่อนุรักษ์ทรัพยากรธรรมชาติ
-                        </div>
-                        <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80 flex items-center gap-2">
-                            <span>🦀</span> แหล่งอาศัยของสัตว์น้ำและสิ่งมีชีวิต
-                        </div>
-                        <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80 flex items-center gap-2">
-                            <span>📚</span> แหล่งเรียนรู้เยาวชนและชุมชน
-                        </div>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    <!-- ค่า pH -->
+                    <div class="p-4 bg-slate-950/60 rounded-xl border border-slate-800 text-center space-y-1">
+                        <span class="text-xs text-gray-400">ค่าความเป็นกรด-ด่าง (pH)</span>
+                        <div class="text-xl font-bold text-emerald-400">7.2</div>
+                        <span class="text-[10px] text-gray-500">เกณฑ์ปกติ (6.5 - 8.5)</span>
                     </div>
-                </div>
-
-            </div>
-
-            <!-- การ์ด 3: กิจกรรมอนุรักษ์ -->
-            <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 shadow-xl space-y-3 hover:border-slate-700 transition">
-                <h2 class="text-base font-bold text-amber-400 flex items-center gap-2 border-b border-slate-800 pb-2">
-                    <span>🌳</span> กิจกรรมอนุรักษ์ทรัพยากร
-                </h2>
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs text-center">
-                    <div class="p-4 bg-slate-950/60 rounded-xl border border-slate-800 space-y-1">
-                        <div class="text-xl">🔍</div>
-                        <div class="font-bold text-slate-200">สำรวจระบบนิเวศ</div>
+                    <!-- อุณหภูมิ -->
+                    <div class="p-4 bg-slate-950/60 rounded-xl border border-slate-800 text-center space-y-1">
+                        <span class="text-xs text-gray-400">อุณหภูมิน้ำ</span>
+                        <div class="text-xl font-bold text-cyan-400">24.5 °C</div>
+                        <span class="text-[10px] text-gray-500">เย็นสบายตลอดปี</span>
                     </div>
-                    <div class="p-4 bg-slate-950/60 rounded-xl border border-slate-800 space-y-1">
-                        <div class="text-xl">🌲</div>
-                        <div class="font-bold text-slate-200">ปลูกต้นไม้เพิ่มพื้นที่เขียว</div>
+                    <!-- ความใส/ความขุ่น -->
+                    <div class="p-4 bg-slate-950/60 rounded-xl border border-slate-800 text-center space-y-1">
+                        <span class="text-xs text-gray-400">ความใสของน้ำ (NTU)</span>
+                        <div class="text-xl font-bold text-amber-400">1.2 NTU</div>
+                        <span class="text-[10px] text-gray-500">น้ำใสบริสุทธิ์</span>
                     </div>
-                    <div class="p-4 bg-slate-950/60 rounded-xl border border-slate-800 space-y-1">
-                        <div class="text-xl">🧹</div>
-                        <div class="font-bold text-slate-200">ทำความสะอาดแหล่งน้ำ</div>
-                    </div>
-                    <div class="p-4 bg-slate-950/60 rounded-xl border border-slate-800 space-y-1">
-                        <div class="text-xl">💡</div>
-                        <div class="font-bold text-slate-200">ถ่ายทอดภูมิปัญญาชุมชน</div>
+                    <!-- ระดับน้ำ -->
+                    <div class="p-4 bg-slate-950/60 rounded-xl border border-slate-800 text-center space-y-1">
+                        <span class="text-xs text-gray-400">สถานะปริมาณน้ำ</span>
+                        <div class="text-xl font-bold text-emerald-400">อุดมสมบูรณ์</div>
+                        <span class="text-[10px] text-gray-500">ซับน้ำไหลสม่ำเสมอ</span>
                     </div>
                 </div>
             </div>
 
-            <!-- การ์ด 4: Gallery ภาพกิจกรรม -->
+            <!-- การ์ด 2: แผนที่พิกัดและการเดินทาง -->
             <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 shadow-xl space-y-4">
                 <h2 class="text-base font-bold text-amber-400 flex items-center gap-2 border-b border-slate-800 pb-3">
-                    <span>📸</span> ภาพกิจกรรมและบรรยากาศ
+                    <span>📍</span> แผนที่และการเดินทางสู่แหล่งซับน้ำจำ
                 </h2>
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    <div class="h-44 rounded-xl overflow-hidden border border-slate-800">
-                        <img src="images/subnamjam1.jpg" 
-                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=600&q=80';" 
-                             alt="ภาพกิจกรรม 1" class="w-full h-full object-cover hover:scale-105 transition duration-300">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                    <!-- กล่องข้อมูลการเดินทาง -->
+                    <div class="space-y-3 text-xs text-gray-300">
+                        <p class="leading-relaxed">
+                            ตั้งอยู่ในพื้นที่บ้านร่องเข็ม หมู่ 6 ตำบลจำป่าหวาย อำเภอเมือง จังหวัดพะเยา อยู่ใกล้กับ [ศูนย์การเรียนชุมชนบ้านร่องเข็ม](http://googleusercontent.com/map_location_reference/4) และไม่ไกลจาก [โรงเรียนบ้านจำป่าหวาย](http://googleusercontent.com/map_location_reference/5)
+                        </p>
+                        <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800 space-y-1.5">
+                            <div class="font-bold text-amber-400">🚗 ข้อแนะนำการเดินทาง:</div>
+                            <p class="text-[11px] text-gray-400">เดินทางจากตัวเมืองพะเยาใช้เส้นทางสายหลักเข้าสู่ตำบลจำป่าหวาย สามารถนำรถยนต์และรถจักรยานยนต์เข้าจอดได้ ณ จุดบริการชุมชน</p>
+                        </div>
+                        <a href="https://maps.google.com/?q=ตำบล+จำป่าหวาย+อำเภอเมืองพะเยา+พะเยา" target="_blank" class="w-full py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-xl flex items-center justify-center gap-2 transition text-xs shadow-lg shadow-amber-500/20">
+                            🗺️ เปิดนำทางด้วย Google Maps
+                        </a>
                     </div>
-                    <div class="h-44 rounded-xl overflow-hidden border border-slate-800">
-                        <img src="images/subnamjam2.jpg" 
-                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1511497584788-8767611136f6?auto=format&fit=crop&w=600&q=80';" 
-                             alt="ภาพกิจกรรม 2" class="w-full h-full object-cover hover:scale-105 transition duration-300">
-                    </div>
-                    <div class="h-44 rounded-xl overflow-hidden border border-slate-800">
-                        <img src="images/subnamjam3.jpg" 
-                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=600&q=80';" 
-                             alt="ภาพกิจกรรม 3" class="w-full h-full object-cover hover:scale-105 transition duration-300">
+
+                    <!-- แผนที่ฝัง (Embedded Map) -->
+                    <div class="lg:col-span-2 h-56 rounded-xl overflow-hidden border border-slate-800">
+                        <iframe 
+                            class="w-full h-full border-0"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15124.81180290234!2d99.88!3d19.12!2m3!1f0!2f0!3f0!3m2!1i1024!2e768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTksMTI'MDAuMCJOIDk5wrA1MicwMC4wIkU!5e0!3m2!1sth!2sth!4v1600000000000!5m2!1sth!2sth" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
                     </div>
                 </div>
             </div>
-
-        </main>
-    </div>
-
-    <!-- 3. FOOTER -->
-    <div id="footer-container"></div>
-
-    <!-- โหลดสคริปต์กลางดึง Header, Sidebar, Footer -->
-    <script src="js/main.js"></script>
-</body>
-</html>
