@@ -1,878 +1,297 @@
 <!DOCTYPE html>
 <html lang="th">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>
-Admin Dashboard | บ้านร่องเข็ม Smart Village
-</title>
-
-
-<style>
-
-body{
-
-margin:0;
-font-family:Tahoma,sans-serif;
-background:#f5f5f5;
-
-}
-
-
-header{
-
-background:#1565c0;
-color:white;
-padding:30px;
-text-align:center;
-
-}
-
-
-.logo{
-
-width:90px;
-
-}
-
-
-.container{
-
-padding:20px;
-
-}
-
-
-.welcome{
-
-background:white;
-padding:20px;
-border-radius:20px;
-box-shadow:0 4px 12px #ccc;
-margin-bottom:25px;
-text-align:center;
-
-}
-
-
-.menu{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-
-}
-
-
-.card{
-
-background:white;
-padding:25px;
-border-radius:20px;
-box-shadow:0 4px 12px #ccc;
-text-align:center;
-transition:0.3s;
-
-}
-
-
-.card:hover{
-
-transform:scale(1.05);
-
-}
-
-
-.card h2{
-
-color:#1565c0;
-
-}
-
-
-.icon{
-
-font-size:45px;
-
-}
-
-
-a{
-
-text-decoration:none;
-color:#333;
-
-}
-
-
-.logout{
-
-text-align:center;
-margin:30px;
-
-}
-
-
-.logout a{
-
-background:#c62828;
-color:white;
-padding:12px 30px;
-border-radius:20px;
-
-}
-
-
-.footer{
-
-background:#1565c0;
-color:white;
-text-align:center;
-padding:15px;
-
-}
-
-</style>
-
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ศูนย์ข้อมูลอัจฉริยะ - บ้านร่องเข็ม หมู่ 6 (สทบ. สไตล์)</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (Kanit) -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Kanit', sans-serif; background-color: #020617; color: #f8fafc; }
+        .portal-card {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .portal-card:hover {
+            border-color: rgba(56, 189, 248, 0.6);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -15px rgba(14, 165, 233, 0.25);
+        }
+        .live-dot { animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.1); } }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #020617; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
+    </style>
 </head>
-
-
-
-<body>
-<div class="card">
-
-<h3>
-🏡 ข้อมูลชุมชน
-</h3>
-
-<p>
-บ้านร่องเข็ม Smart Village
-</p>
-
-</div>
-
-
-<header>
-
-
-<img src="logo.svg" class="logo">
-
-
-<h1>
-⚙️ Admin Dashboard
-</h1>
-
-
-<p>
-ระบบบริหารจัดการ
-บ้านร่องเข็ม Smart Village
-</p>
-<div class="card">
-
-<h3>
-📄 รายงานหมู่บ้าน
-</h3>
-<a href="admin-setting.html">
-
-⚙ ตั้งค่าระบบ
-
-</a>
-
-<p>
-
-ศูนย์รวมรายงาน
-
-</p>
-
-
-</div>
-
-</header>
-
-<a href="admin-document.html">
-
-<div class="card">
-
-<div class="icon">
-📂
-</div>
-
-<h2>
-จัดการเอกสาร
-</h2>
-
-<p>
-เพิ่ม คำสั่ง ประกาศ รายงาน
-</p>
-
-</div>
-
-</a>
-<a href="admin-activities.html">
-
-<div class="card">
-
-<div class="icon">
-📅
-</div>
-
-<h2>
-จัดการกิจกรรม
-</h2>
-
-<p>
-เพิ่มและแก้ไขกิจกรรมหมู่บ้าน
-</p>
-
-</div>
-
-</a>
-
-
-<div class="container">
-<div class="card">
-
-<h3>
-🛡 ความปลอดภัย
-</h3>
-
-
-<p id="security-total">
-
-0
-
-</p>
-
-
-</div>
-<a href="admin-backup.html">
-
-💾 สำรองข้อมูล
-
-</a>
-
-<div class="welcome">
-
-<h2>
-👤 ผู้ดูแลระบบ
-</h2>
-
-<p>
-ผู้ใหญ่บ้าน และคณะทำงานบ้านร่องเข็ม
-</p>
-
-</div>
-
-<a href="admin-complaint.html">
-
-<div class="card">
-
-<div class="icon">
-📝
-</div>
-
-<h2>
-จัดการร้องเรียน
-</h2>
-
-<p>
-ติดตามและแก้ไขปัญหาชุมชน
-</p>
-
-</div>
-
-</a>
-<a href="admin-data.html">
-
-<div class="card">
-
-<div class="icon">
-📊
-</div>
-
-<h2>
-จัดการข้อมูลชุมชน
-</h2>
-
-<p>
-สถิติและข้อมูลพื้นฐานหมู่บ้าน
-</p>
-
-</div>
-
-</a>
-<a href="admin-citizen.html">
-
-<div class="card">
-
-<div class="icon">
-👥
-</div>
-
-<h2>
-จัดการประชาชน
-</h2>
-
-<p>
-ฐานข้อมูลครัวเรือนและสมาชิก
-</p>
-
-</div>
-
-</a>
-
-<div class="menu">
-<a href="admin-gallery.html">
-
-<div class="card">
-
-<div class="icon">
-📸
-</div>
-
-<h2>
-จัดการคลังภาพ
-</h2>
-
-<p>
-เพิ่มและลบรูปภาพกิจกรรม
-</p>
-
-</div>
-
-</a>
-<a href="admin-elderly.html">
-
-<div class="card">
-
-<div class="icon">
-👴
-</div>
-
-<h2>
-จัดการผู้สูงอายุ
-</h2>
-
-<p>
-กลุ่มเปราะบางและการเยี่ยมบ้าน
-</p>
-
-</div>
-
-</a>
-
-<a href="admin-news.html">
-
-<div class="card">
-
-<div class="icon">
-📰
-</div>
-
-<h2>
-จัดการข่าว
-</h2>
-
-<p>
-เพิ่ม แก้ไข ข่าวประชาสัมพันธ์
-</p>
-
-</div>
-
-</a>
-<a href="admin-health.html">
-
-<div class="card">
-
-<div class="icon">
-🩺
-</div>
-
-<h2>
-จัดการสุขภาพ
-</h2>
-
-<p>
-ข้อมูล อสม. และกลุ่มเปราะบาง
-</p>
-
-</div>
-
-</a>
-<a href="admin-leaders.html">
-
-<div class="card">
-
-<div class="icon">
-👥
-</div>
-
-<h2>
-จัดการผู้นำ
-</h2>
-
-<p>
-เพิ่ม แก้ไข รายชื่อบุคลากร
-</p>
-
-</div>
-
-</a>
-<a href="admin-subnamjam.html">
-
-<div class="card">
-
-<div class="icon">
-💧
-</div>
-
-<h2>
-จัดการแหล่งซับน้ำจำ
-</h2>
-
-<p>
-ข้อมูลทรัพยากรธรรมชาติ
-</p>
-
-</div>
-
-</a>
-<div class="card">
-
-<h3>
-📅 กิจกรรมหมู่บ้าน
-</h3>
-
-
-<p id="activity-total">
-
-0
-
-</p>
-
-
-</div>
-
-<a href="admin-activity.html">
-
-<div class="card">
-
-<div class="icon">
-📅
-</div>
-
-<h2>
-จัดการกิจกรรม
-</h2>
-
-<p>
-เพิ่มกิจกรรมหมู่บ้าน
-</p>
-
-</div>
-
-</a>
-<a href="admin-environment.html">
-
-<div class="card">
-
-<div class="icon">
-🌱
-</div>
-<a href="admin-organization.html">
-
-<div class="card">
-
-<div class="icon">
-👥
-</div>
-
-<h2>
-จัดการองค์กรชุมชน
-</h2>
-
-<p>
-คณะทำงาน กลุ่มองค์กร อสม. ชรบ.
-</p>
-
-</div>
-
-</a>
-
-<h2>
-จัดการสิ่งแวดล้อม
-</h2>
-
-
-<p>
-PM2.5 ขยะ และทรัพยากร
-</p>
-
-
-</div>
-
-</a>
-<a href="admin-security.html">
-
-<div class="card">
-
-<div class="icon">
-🛡
-</div>
-
-<h2>
-จัดการความปลอดภัย
-</h2>
-
-<p>
-ชรบ. อปพร. แจ้งเหตุ
-</p>
-
-</div>
-
-</a>
-<a href="admin-health.html">
-
-<div class="card">
-
-<div class="icon">
-🩺
-</div>
-
-<h2>
-จัดการสุขภาพ
-</h2>
-
-<p>
-ข้อมูล อสม. และกลุ่มเปราะบาง
-</p>
-
-</div>
-
-</a>
-<div class="card">
-
-<h3>
-📍 จุดสำคัญหมู่บ้าน
-</h3>
-
-
-<p id="location-count">
-
-0
-
-</p>
-
-
-</div>
-
-<a href="leaders.html">
-
-<div class="card">
-
-<div class="icon">
-👥
-</div>
-
-<h2>
-จัดการบุคลากร
-</h2>
-
-<p>
-ผู้นำและคณะทำงาน
-</p>
-
-</div>
-
-</a>
-<div class="card">
-
-<h3>
-📌 โครงการหมู่บ้าน
-</h3>
-
-
-<p id="project-count">
-
-0
-
-</p>
-
-
-</div>
-<div class="card">
-
-<h3>
-💰 งบประมาณหมู่บ้าน
-</h3>
-
-
-<p id="budget-total">
-
-0
-
-</p>
-
-
-</div>
-<div class="card">
-
-<h3>
-♿ กลุ่มเปราะบาง
-</h3>
-
-
-<p id="vulnerable-total">
-
-0
-
-</p>
-
-
-</div>
-
-
-<a href="download.html">
-
-<div class="card">
-
-<div class="icon">
-📂
-</div>
-
-<h2>
-เอกสารหมู่บ้าน
-</h2>
-
-<p>
-ประกาศ รายงาน แบบฟอร์ม
-</p>
-
-</div>
-
-</a>
-<div class="card">
-
-<h3>
-🔔 แจ้งเตือน
-</h3>
-
-
-<p id="notification-count">
-
-0
-
-</p>
-
-
-</div>
-
-
-
-
-<a href="data.html">
-
-<div class="card">
-
-<div class="icon">
-📊
-</div>
-
-<h2>
-ข้อมูลหมู่บ้าน
-</h2>
-
-<p>
-ประชากร สถิติชุมชน
-</p>
-
-</div>
-
-</a>
-<div class="card">
-
-<h3>
-👴 ผู้สูงอายุ
-</h3>
-
-
-<p id="elderly-total">
-
-0
-
-</p>
-
-
-</div>
-
-
-
-
-<a href="gallery.html">
-
-<div class="card">
-
-<div class="icon">
-📸
-</div>
-
-<h2>
-จัดการรูปภาพ
-</h2>
-
-<p>
-คลังภาพกิจกรรม
-</p>
-
-</div>
-
-</a>
-<div class="card">
-
-<h3>
-❤️ สุขภาพชุมชน
-</h3>
-
-<p id="health-count">
-
-0
-
-</p>
-
-</div>
-
-
-
-
-<a href="admin-report.html">
-
-<div class="card">
-
-<div class="icon">
-📑
-</div>
-
-<h2>
-รายงานหมู่บ้าน
-</h2>
-
-<p>
-สรุปผลการดำเนินงาน
-</p>
-
-</div>
-
-</a>
-
-
-
-
-
-<a href="complaint.html">
-
-<div class="card">
-
-<div class="icon">
-📝
-</div>
-
-<h2>
-เรื่องร้องเรียน
-</h2>
-
-<p>
-ตรวจสอบปัญหาประชาชน
-</p>
-
-</div>
-
-</a>
-<div class="card">
-
-<h3>
-🏠 ครัวเรือน
-</h3>
-
-
-<p id="household-total">
-
-0
-
-</p>
-
-
-</div>
-
-
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="logout">
-
-<a href="#" onclick="logout()">
-
-🚪 ออกจากระบบ
-
-</a>
-
-</div>
-
-
-
-
-
-<div class="footer">
-
-© บ้านร่องเข็ม Smart Village
-
-</div>
-
-
-
-
-
-
-<script>
-
-
-// ตรวจสอบการ Login
-
-if(localStorage.getItem("login")!="true"){
-
-window.location.href="admin.html";
-
-}
-
-
-
-// Logout
-
-function logout(){
-
-localStorage.removeItem("login");
-
-window.location.href="admin.html";
-
-}
-
-
-</script>
-
-
-
-
+<body class="flex h-screen overflow-hidden">
+
+    <!-- Sidebar Navigation (เมนูสไตล์ สทบ.) -->
+    <aside class="w-72 bg-slate-950/95 backdrop-blur-xl border-r border-slate-800 flex flex-col z-30 hidden lg:flex">
+        <div class="p-6 border-b border-slate-800 flex items-center gap-3">
+            <div class="w-3 h-3 rounded-full bg-cyan-400 live-dot"></div>
+            <div>
+                <span class="font-bold text-base tracking-wider text-white">RONGKHEM <span class="text-cyan-400">PORTAL</span></span>
+                <p class="text-xs text-slate-400">Smart Village Official v7.0</p>
+            </div>
+        </div>
+        
+        <nav class="flex-1 p-4 space-y-4 overflow-y-auto text-sm">
+            <!-- 👑 ส่วนราชการ & กองทุนแม่ฯ -->
+            <div>
+                <p class="text-xs font-semibold text-cyan-400 uppercase px-3 mb-2">⭐ ข้อมูลองค์กรชุมชน</p>
+                <a href="#mother-fund" class="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-medium shadow-lg shadow-cyan-600/30">
+                    <i class="fas fa-crown w-5 text-cyan-200"></i> กองทุนแม่ของแผ่นดิน
+                </a>
+                <a href="leaders.html" class="flex items-center gap-3 px-3 py-2 mt-1 rounded-xl text-slate-300 hover:bg-slate-800 hover:text-white transition">
+                    <i class="fas fa-id-badge w-5 text-cyan-400"></i> ทำเนียบผู้นำและคณะทำงาน
+                </a>
+            </div>
+
+            <!-- 🏛️ ศูนย์ข้อมูลและสถานที่ -->
+            <div>
+                <p class="text-xs font-semibold text-slate-400 uppercase px-3 mb-2">🏛️ ศูนย์ข้อมูลบริการ</p>
+                <a href="subnamjam.html" class="flex items-center gap-3 px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800 hover:text-white transition"><i class="fas fa-water w-5 text-teal-400"></i> แหล่งซับน้ำจำ & IoT</a>
+                <a href="wat-rongkhem.html" class="flex items-center gap-3 px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800 hover:text-white transition"><i class="fas fa-vihara w-5 text-amber-400"></i> วัดร่องเข็ม & วัฒนธรรม</a>
+            </div>
+
+            <!-- 📰 ข่าวสารและกิจกรรม -->
+            <div>
+                <p class="text-xs font-semibold text-slate-400 uppercase px-3 mb-2">📰 ข่าวสารและกิจกรรม</p>
+                <a href="news.html" class="flex items-center gap-3 px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800 hover:text-white transition"><i class="fas fa-bullhorn w-5 text-sky-400"></i> ข่าวประชาสัมพันธ์ & กิจกรรม</a>
+                <a href="products.html" class="flex items-center gap-3 px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800 hover:text-white transition"><i class="fas fa-store w-5 text-yellow-400"></i> ผลิตภัณฑ์ OTOP / กลุ่มข้าว</a>
+            </div>
+
+            <!-- 🏡 ทะเบียนและสวัสดิการ -->
+            <div>
+                <p class="text-xs font-semibold text-slate-400 uppercase px-3 mb-2">มิติทะเบียน & สวัสดิการ</p>
+                <a href="household.html" class="flex items-center gap-3 px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800 hover:text-white transition"><i class="fas fa-house-user w-5 text-blue-400"></i> ทะเบียนครัวเรือน</a>
+                <a href="elderly.html" class="flex items-center gap-3 px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800 hover:text-white transition"><i class="fas fa-blind w-5 text-purple-400"></i> ข้อมูลผู้สูงอายุ</a>
+                <a href="vulnerable.html" class="flex items-center gap-3 px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800 hover:text-white transition"><i class="fas fa-hands-helping w-5 text-rose-400"></i> กลุ่มเปราะบาง</a>
+            </div>
+
+            <!-- 🛡️ ความปลอดภัย & บริการ -->
+            <div>
+                <p class="text-xs font-semibold text-slate-400 uppercase px-3 mb-2">ความปลอดภัย & บริการ</p>
+                <a href="shorbor.html" class="flex items-center gap-3 px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800 hover:text-white transition"><i class="fas fa-shield-alt w-5 text-cyan-400"></i> ชรบ. และความมั่นคง</a>
+                <a href="oppor.html" class="flex items-center gap-3 px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800 hover:text-white transition"><i class="fas fa-fire-extinguisher w-5 text-orange-400"></i> อพปร. บรรเทาสภัย</a>
+                <a href="osm.html" class="flex items-center gap-3 px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800 hover:text-white transition"><i class="fas fa-heartbeat w-5 text-emerald-400"></i> สุขภาพ อสม.</a>
+                <a href="complaint.html" class="flex items-center gap-3 px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800 hover:text-white transition"><i class="fas fa-comment-dots w-5 text-yellow-400"></i> แจ้งเรื่องร้องเรียน</a>
+            </div>
+
+            <!-- ระบบผู้ดูแลระบบ -->
+            <div>
+                <p class="text-xs font-semibold text-slate-400 uppercase px-3 mb-2">ผู้ดูแลระบบ</p>
+                <a href="admin-panel.html" class="flex items-center gap-3 px-3 py-2 rounded-xl text-cyan-400 border border-cyan-500/20 hover:bg-cyan-500/10 transition"><i class="fas fa-cog w-5"></i> Admin Control Center</a>
+            </div>
+        </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="flex-1 flex flex-col h-screen overflow-y-auto">
+        
+        <!-- Top Government Portal Header -->
+        <header class="bg-slate-900 border-b border-slate-800 sticky top-0 z-20">
+            <!-- Ticker ข่าวประกาศด่วนแบบราชการ -->
+            <div class="bg-blue-600 text-white text-xs py-1.5 px-6 flex items-center justify-between">
+                <div class="flex items-center gap-2 overflow-hidden whitespace-nowrap">
+                    <span class="bg-white text-blue-700 px-2 py-0.5 rounded font-bold uppercase text-[10px]">ประกาศสำคัญ</span>
+                    <span class="animate-pulse">ยินดีต้อนรับสู่ศูนย์ข้อมูลอัจฉริยะ บ้านร่องเข็ม หมู่ 6 ตำบลจำป่าหวาย อำเภอเมืองพะเยา จังหวัดพะเยา</span>
+                </div>
+                <div class="hidden md:flex items-center gap-4 text-[11px]">
+                    <span><i class="fas fa-phone-alt mr-1"></i> สายด่วนผู้ใหญ่บ้าน: 08x-xxx-xxxx</span>
+                    <span>TH | EN</span>
+                </div>
+            </div>
+
+            <!-- Main Title Bar -->
+            <div class="h-20 px-8 flex justify-between items-center bg-slate-900/90 backdrop-blur-md">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-500 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-blue-600/30">
+                        รข
+                    </div>
+                    <div>
+                        <h1 class="text-base md:text-lg font-bold text-white tracking-tight">บ้านร่องเข็ม หมู่ 6 (สมาร์ทวิลเลจ)</h1>
+                        <p class="text-xs text-slate-400">National Village & Urban Community Fund Style Portal</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span class="hidden sm:inline-block text-xs bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 px-3 py-1.5 rounded-full">
+                        <i class="fas fa-crown mr-1"></i> หมู่บ้านกองทุนแม่ของแผ่นดิน
+                    </span>
+                    <a href="admin-panel.html" class="bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-semibold px-4 py-2 rounded-xl transition shadow-lg shadow-cyan-600/30">
+                        <i class="fas fa-terminal mr-1"></i> แอดมิน
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Dashboard View -->
+        <main class="p-6 md:p-10 max-w-7xl mx-auto w-full space-y-10" id="overview">
+            
+            <!-- 👑 พระบรมฉายาลักษณ​์ & กองทุนแม่ของแผ่นดิน (ไฮไลท์ระดับสูงสุด) -->
+            <div id="mother-fund" class="portal-card rounded-3xl p-8 relative overflow-hidden border-2 border-cyan-500/30 bg-gradient-to-br from-slate-900 via-slate-900 to-blue-950/40">
+                <div class="absolute -right-10 -bottom-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="relative z-10 flex flex-col lg:flex-row items-center gap-8">
+                    
+                    <!-- โซนพระบรมฉายาลักษณ์ (คลิกเปลี่ยนรูปได้) -->
+                    <div class="w-full lg:w-72 shrink-0 text-center">
+                        <div class="w-full h-80 rounded-2xl bg-slate-950 border-2 border-amber-500/40 overflow-hidden shadow-2xl relative group">
+                            <img id="royalPortraitImg" src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=400" alt="พระบรมฉายาลักษณ​์" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-slate-900/85 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center p-4">
+                                <label for="uploadPortrait" class="cursor-pointer bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-semibold py-2.5 px-4 rounded-xl shadow-lg transition">
+                                    <i class="fas fa-upload mr-1"></i> เปลี่ยนพระบรมฉายาลักษณ​์
+                                </label>
+                                <input type="file" id="uploadPortrait" accept="image/*" class="hidden" onchange="changeRoyalPortrait(event)">
+                                <span class="text-[10px] text-slate-400 mt-2">อัปโหลดภาพมงคลได้ทันที</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-amber-400 font-medium mt-2"><i class="fas fa-heart text-rose-500 mx-1"></i> ด้วยสำนึกในพระมหากรุณาธิคุณ</p>
+                    </div>
+
+                    <!-- รายละเอียดกองทุนแม่ฯ -->
+                    <div class="flex-1 text-center lg:text-left">
+                        <span class="px-3 py-1 rounded-full bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 mb-3">
+                            <i class="fas fa-crown"></i> ศูนย์รวมจิตใจและความสามัคคี
+                        </span>
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-3">กองทุนแม่ของแผ่นดิน บ้านร่องเข็ม หมู่ 6</h2>
+                        <p class="text-slate-300 text-sm md:text-base leading-relaxed mb-4">
+                            ศูนย์กลางการขับเคลื่อนกิจกรรมป้องกันและแก้ไขปัญหายาเสพติด ความสมานฉันท์ และการพัฒนาคุณภาพชีวิตของประชาชนในชุมชนด้วยความสำนึกในพระมหากรุณาธิคุณ
+                        </p>
+                        <div class="flex flex-wrap justify-center lg:justify-start gap-3 text-xs text-cyan-200">
+                            <span class="bg-slate-800/80 px-3 py-1.5 rounded-lg border border-cyan-500/20"><i class="fas fa-shield-alt mr-1 text-cyan-400"></i> ชุมชนสีขาวปลอดยาเสพติด</span>
+                            <span class="bg-slate-800/80 px-3 py-1.5 rounded-lg border border-cyan-500/20"><i class="fas fa-hands-helping mr-1 text-cyan-400"></i> กองทุนสัจจะออมทรัพย์</span>
+                        </div>
+                        <div class="mt-6 flex flex-wrap justify-center lg:justify-start gap-3">
+                            <a href="leaders.html" class="bg-cyan-600 hover:bg-cyan-500 text-white font-semibold py-3 px-5 rounded-xl text-sm transition shadow-lg shadow-cyan-600/30 flex items-center gap-2">
+                                <i class="fas fa-id-badge"></i> ทำเนียบผู้นำชุมชน
+                            </a>
+                            <a href="admin-leaders.html" class="bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold py-3 px-5 rounded-xl text-sm border border-slate-700 transition flex items-center gap-2">
+                                <i class="fas fa-edit"></i> จัดการผู้นำ & รูปภาพ
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 🏛️ สถานที่สำคัญในหมู่บ้าน -->
+            <div>
+                <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                    <i class="fas fa-map-marked-alt text-cyan-400"></i> ศูนย์ข้อมูลสถานที่สำคัญ
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <a href="subnamjam.html" class="portal-card rounded-2xl p-6 block group">
+                        <div class="flex items-start gap-4">
+                            <div class="w-14 h-14 rounded-2xl bg-teal-500/10 text-teal-400 flex items-center justify-center text-2xl shrink-0 border border-teal-500/20 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-water"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-base group-hover:text-cyan-400 transition">แหล่งซับน้ำจำ & ระบบ IoT</h4>
+                                <p class="text-xs text-slate-400 leading-relaxed mt-1">แหล่งน้ำธรรมชาติ ป่าชุมชน และจุดตรวจวัดคุณภาพน้ำอัจฉริยะ (pH/ระดับน้ำ)</p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="wat-rongkhem.html" class="portal-card rounded-2xl p-6 block group">
+                        <div class="flex items-start gap-4">
+                            <div class="w-14 h-14 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-2xl shrink-0 border border-amber-500/20 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-vihara"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-base group-hover:text-cyan-400 transition">วัดร่องเข็ม & ศูนย์วัฒนธรรม</h4>
+                                <p class="text-xs text-slate-400 leading-relaxed mt-1">ศูนย์รวมจิตใจของชาวบ้าน จัดงานบุญประเพณี และกิจกรรมทางพุทธศาสนา</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 📢 ข่าวสารและกิจกรรม (รูปแบบ Portal ข่าวราชการ) -->
+            <div>
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                        <i class="fas fa-bullhorn text-sky-400"></i> ข่าวประชาสัมพันธ์ & กิจกรรมชุมชน
+                    </h3>
+                    <a href="news.html" class="text-xs text-cyan-400 hover:text-cyan-300 transition">ดูทั้งหมดทั้งหมด →</a>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="portal-card rounded-2xl p-6">
+                        <span class="text-[10px] bg-sky-500/20 text-sky-300 px-2.5 py-1 rounded-full font-medium">ประกาศราชการ</span>
+                        <h4 class="font-bold text-white text-base mt-3 mb-2">ประชุมประชาคมหมู่บ้านประจำเดือน</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-4">สรุปผลการดำเนินงานกองทุนแม่ฯ และแจ้งแผนพัฒนาโครงสร้างพื้นฐานประจำปี</p>
+                        <span class="text-[11px] text-slate-500"><i class="fas fa-calendar-alt mr-1"></i> เร็วๆ นี้</span>
+                    </div>
+
+                    <div class="portal-card rounded-2xl p-6">
+                        <span class="text-[10px] bg-emerald-500/20 text-emerald-300 px-2.5 py-1 rounded-full font-medium">สาธารณสุข</span>
+                        <h4 class="font-bold text-white text-base mt-3 mb-2">อสม. ออกหน่วยตรวจสุขภาพเชิงรุก</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-4">บริการวัดความดัน ตรวจน้ำตาลในเลือด และเยี่ยมผู้สูงอายุติดเตียงถึงบ้าน</p>
+                        <span class="text-[11px] text-slate-500"><i class="fas fa-calendar-alt mr-1"></i> สัปดาห์นี้</span>
+                    </div>
+
+                    <div class="portal-card rounded-2xl p-6">
+                        <span class="text-[10px] bg-amber-500/20 text-amber-300 px-2.5 py-1 rounded-full font-medium">ความปลอดภัย</span>
+                        <h4 class="font-bold text-white text-base mt-3 mb-2">ชุด ชรบ. ตั้งจุดตรวจความมั่นคง</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-4">ปฏิบัติภารกิจเวรยามรักษาความปลอดภัยในเขตก่อสร้างและคุ้มหมู่บ้าน</p>
+                        <span class="text-[11px] text-slate-500"><i class="fas fa-calendar-alt mr-1"></i> ทุกค่ำคืน</span>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Footer สไตล์หน่วยงานราชการ -->
+        <footer class="bg-slate-950 border-t border-slate-800 mt-auto py-8 px-8 text-xs text-slate-400">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
+                <div>
+                    <h5 class="font-bold text-white text-sm mb-2">บ้านร่องเข็ม หมู่ 6 (สมาร์ทวิลเลจ)</h5>
+                    <p class="text-slate-500 leading-relaxed">ตำบลจำป่าหวาย อำเภอเมืองพะเยา จังหวัดพะเยา 56000</p>
+                </div>
+                <div>
+                    <h5 class="font-bold text-white text-sm mb-2">ช่องทางการติดต่อ</h5>
+                    <p class="text-slate-500">โทรศัพท์: สายด่วนผู้ใหญ่บ้าน / คณะกรรมการชุมชน</p>
+                    <p class="text-slate-500">อีเมล: rongkhem.smartvillage@gmail.com</p>
+                </div>
+                <div>
+                    <h5 class="font-bold text-white text-sm mb-2">บริการอิเล็กทรอนิกส์</h5>
+                    <p class="text-slate-500">ระบบฐานข้อมูลครัวเรือน | แจ้งเรื่องร้องเรียนออนไลน์</p>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-4 text-center text-slate-600">
+                © 2026 Rongkhem Smart Village Command Center • พัฒนาขึ้นเพื่อให้บริการประชาชนบ้านร่องเข็ม หมู่ 6
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Script สำหรับอัปโหลดและบันทึกรูปภาพพระบรมฉายาลักษณ​์ -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedPortrait = localStorage.getItem('rongkhem_royal_portrait');
+            if (savedPortrait) {
+                document.getElementById('royalPortraitImg').src = savedPortrait;
+            }
+        });
+
+        function changeRoyalPortrait(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const base64Image = e.target.result;
+                    document.getElementById('royalPortraitImg').src = base64Image;
+                    localStorage.setItem('rongkhem_royal_portrait', base64Image);
+                    alert('อัปโหลดและเปลี่ยนพระบรมฉายาลักษณ​์เรียบร้อยแล้ว!');
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
 </body>
-
 </html>
