@@ -102,40 +102,12 @@
         <div id="mother-fund" class="portal-card rounded-3xl p-8 md:p-12 relative overflow-hidden bg-gradient-to-br from-white via-blue-50/40 to-sky-50/60 border border-blue-100 shadow-lg">
             <div class="relative z-10 flex flex-col lg:flex-row items-center gap-8">
                 
-                <!-- โซนพระบรมฉายาลักษณ์ พร้อมเครื่องมือปรับขนาด -->
-                <div class="w-full lg:w-80 shrink-0 text-center flex flex-col items-center">
-                    <div id="portraitContainer" class="rounded-2xl bg-white border-2 border-amber-400/60 overflow-hidden shadow-xl relative group transition-all duration-300" style="width: 260px; height: 320px;">
+                <!-- โซนพระบรมฉายาลักษณ์ (แสดงรูปภาพนิ่งปกติ ไม่มีเมนูปรับขนาดแล้ว) -->
+                <div class="w-full lg:w-72 shrink-0 text-center flex flex-col items-center">
+                    <div class="w-64 h-80 rounded-2xl bg-white border-2 border-amber-400/60 overflow-hidden shadow-xl relative">
                         <img id="royalPortraitImg" src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=400" alt="พระบรมฉายาลักษณ​์" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-slate-900/80 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center p-4">
-                            <label for="uploadPortrait" class="cursor-pointer bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold py-2 px-3 rounded-xl shadow-lg transition mb-2">
-                                <i class="fas fa-upload mr-1"></i> เปลี่ยนรูปภาพ
-                            </label>
-                            <input type="file" id="uploadPortrait" accept="image/*" class="hidden" onchange="changeRoyalPortrait(event)">
-                            <span class="text-[10px] text-slate-300">คลิกเพื่ออัปโหลดภาพใหม่</span>
-                        </div>
                     </div>
-
-                    <!-- ส่วนควบคุมปรับขนาดรูปภาพ -->
-                    <div class="w-full mt-4 bg-slate-100 p-3 rounded-xl border border-slate-200 text-left space-y-2">
-                        <p class="text-[11px] font-bold text-slate-700 flex items-center justify-between">
-                            <span><i class="fas fa-sliders-h text-blue-600 mr-1"></i> ปรับขนาดรูปภาพ</span>
-                            <button onclick="resetImageSize()" class="text-blue-600 hover:underline text-[10px]">รีเซ็ตค่าเดิม</button>
-                        </p>
-                        <div>
-                            <div class="flex justify-between text-[10px] text-slate-500 mb-0.5">
-                                <span id="widthLabel">ความกว้าง: 260px</span>
-                            </div>
-                            <input type="range" id="widthSlider" min="150" max="400" value="260" class="w-full accent-blue-600 cursor-pointer" oninput="adjustImageWidth(this.value)">
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-[10px] text-slate-500 mb-0.5">
-                                <span id="heightLabel">ความสูง: 320px</span>
-                            </div>
-                            <input type="range" id="heightSlider" min="150" max="500" value="320" class="w-full accent-blue-600 cursor-pointer" oninput="adjustImageHeight(this.value)">
-                        </div>
-                    </div>
-
-                    <p class="text-xs text-amber-600 font-semibold mt-2"><i class="fas fa-heart text-rose-500 mx-1"></i> ด้วยสำนึกในพระมหากรุณาธิคุณ</p>
+                    <p class="text-xs text-amber-600 font-semibold mt-3"><i class="fas fa-heart text-rose-500 mx-1"></i> ด้วยสำนึกในพระมหากรุณาธิคุณ</p>
                 </div>
 
                 <!-- รายละเอียดกองทุนแม่ฯ -->
@@ -156,7 +128,7 @@
                             <i class="fas fa-id-badge"></i> ทำเนียบผู้นำชุมชน
                         </a>
                         <a href="admin-leaders.html" class="bg-white hover:bg-slate-50 text-slate-700 font-semibold py-3 px-6 rounded-xl text-sm border border-slate-300 transition flex items-center gap-2 shadow-sm">
-                            <i class="fas fa-edit text-blue-600"></i> จัดการผู้นำ & รูปภาพ
+                            <i class="fas fa-edit text-blue-600"></i> จัดการข้อมูลผู้นำ
                         </a>
                     </div>
                 </div>
@@ -371,70 +343,6 @@
             © 2026 Rongkhem Smart Village Command Center • พัฒนาขึ้นเพื่อให้บริการประชาชนบ้านร่องเข็ม หมู่ 6
         </div>
     </footer>
-
-    <!-- Script สำหรับอัปโหลด, เปลี่ยนรูป และปรับขนาดภาพ -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedPortrait = localStorage.getItem('rongkhem_royal_portrait');
-            if (savedPortrait) {
-                document.getElementById('royalPortraitImg').src = savedPortrait;
-            }
-
-            const savedWidth = localStorage.getItem('rongkhem_img_width') || '260';
-            const savedHeight = localStorage.getItem('rongkhem_img_height') || '320';
-            
-            const container = document.getElementById('portraitContainer');
-            container.style.width = savedWidth + 'px';
-            container.style.height = savedHeight + 'px';
-            
-            document.getElementById('widthSlider').value = savedWidth;
-            document.getElementById('heightSlider').value = savedHeight;
-            document.getElementById('widthLabel').innerText = 'ความกว้าง: ' + savedWidth + 'px';
-            document.getElementById('heightLabel').innerText = 'ความสูง: ' + savedHeight + 'px';
-        });
-
-        function changeRoyalPortrait(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const base64Image = e.target.result;
-                    document.getElementById('royalPortraitImg').src = base64Image;
-                    localStorage.setItem('rongkhem_royal_portrait', base64Image);
-                    alert('อัปโหลดและเปลี่ยนพระบรมฉายาลักษณ​์เรียบร้อยแล้ว!');
-                };
-                reader.readAsDataURL(file);
-            }
-        }
-
-        function adjustImageWidth(val) {
-            const container = document.getElementById('portraitContainer');
-            container.style.width = val + 'px';
-            document.getElementById('widthLabel').innerText = 'ความกว้าง: ' + val + 'px';
-            localStorage.setItem('rongkhem_img_width', val);
-        }
-
-        function adjustImageHeight(val) {
-            const container = document.getElementById('portraitContainer');
-            container.style.height = val + 'px';
-            document.getElementById('heightLabel').innerText = 'ความสูง: ' + val + 'px';
-            localStorage.setItem('rongkhem_img_height', val);
-        }
-
-        function resetImageSize() {
-            const container = document.getElementById('portraitContainer');
-            container.style.width = '260px';
-            container.style.height = '320px';
-            
-            document.getElementById('widthSlider').value = 260;
-            document.getElementById('heightSlider').value = 320;
-            document.getElementById('widthLabel').innerText = 'ความกว้าง: 260px';
-            document.getElementById('heightLabel').innerText = 'ความสูง: 320px';
-
-            localStorage.removeItem('rongkhem_img_width');
-            localStorage.removeItem('rongkhem_img_height');
-        }
-    </script>
 
 </body>
 </html>
