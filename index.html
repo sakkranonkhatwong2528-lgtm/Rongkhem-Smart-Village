@@ -13,7 +13,6 @@
     <style>
         body { font-family: 'Kanit', sans-serif; background-color: #f8fafc; color: #1e293b; overflow-x: hidden; }
         
-        /* สไตล์การ์ดแบบสว่าง สดใส (Light Glassmorphism) */
         .portal-card {
             background: #ffffff;
             border: 1px solid #e2e8f0;
@@ -26,7 +25,6 @@
             box-shadow: 0 20px 25px -5px rgba(2, 132, 199, 0.1), 0 10px 10px -5px rgba(2, 132, 199, 0.04);
         }
 
-        /* เอฟเฟกต์จุดสถานะกระพริบ */
         .live-dot { animation: pulse-glow 2s infinite; }
         @keyframes pulse-glow {
             0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 rgba(2, 132, 199, 0.4); }
@@ -41,7 +39,7 @@
 </head>
 <body class="flex flex-col min-h-screen">
 
-    <!-- Top Utility Bar (ประกาศด่วน & สายด่วน) -->
+    <!-- Top Utility Bar -->
     <div class="bg-blue-600 text-white text-xs py-2 px-6 flex items-center justify-between shadow-sm">
         <div class="flex items-center gap-2 overflow-hidden whitespace-nowrap">
             <span class="bg-white text-blue-700 px-2.5 py-0.5 rounded-full font-bold uppercase text-[10px] animate-pulse">ประกาศสำคัญ</span>
@@ -57,7 +55,6 @@
     <header class="bg-white/90 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50 shadow-sm">
         <div class="max-w-7xl mx-auto px-6 h-24 flex justify-between items-center">
             <div class="flex items-center gap-4">
-                <!-- ลบตัวอักษร รข ออก เปลี่ยนเป็นตราสัญลักษณ์ทางการแบบโมเดิร์น -->
                 <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-blue-600 to-cyan-500 flex items-center justify-center text-white text-2xl shadow-lg shadow-blue-500/20">
                     <i class="fas fa-landmark"></i>
                 </div>
@@ -104,18 +101,40 @@
         <!-- 👑 พระบรมฉายาลักษณ​์ & กองทุนแม่ของแผ่นดิน -->
         <div id="mother-fund" class="portal-card rounded-3xl p-8 md:p-12 relative overflow-hidden bg-gradient-to-br from-white via-blue-50/40 to-sky-50/60 border border-blue-100 shadow-lg">
             <div class="relative z-10 flex flex-col lg:flex-row items-center gap-8">
-                <!-- โซนพระบรมฉายาลักษณ์ -->
-                <div class="w-full lg:w-72 shrink-0 text-center">
-                    <div class="w-full h-80 rounded-2xl bg-white border-2 border-amber-400/60 overflow-hidden shadow-xl relative group">
+                
+                <!-- โซนพระบรมฉายาลักษณ์ พร้อมเครื่องมือปรับขนาด -->
+                <div class="w-full lg:w-80 shrink-0 text-center flex flex-col items-center">
+                    <div id="portraitContainer" class="rounded-2xl bg-white border-2 border-amber-400/60 overflow-hidden shadow-xl relative group transition-all duration-300" style="width: 260px; height: 320px;">
                         <img id="royalPortraitImg" src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=400" alt="พระบรมฉายาลักษณ​์" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-slate-900/80 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center p-4">
-                            <label for="uploadPortrait" class="cursor-pointer bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold py-2.5 px-4 rounded-xl shadow-lg transition">
-                                <i class="fas fa-upload mr-1"></i> เปลี่ยนพระบรมฉายาลักษณ​์
+                            <label for="uploadPortrait" class="cursor-pointer bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold py-2 px-3 rounded-xl shadow-lg transition mb-2">
+                                <i class="fas fa-upload mr-1"></i> เปลี่ยนรูปภาพ
                             </label>
                             <input type="file" id="uploadPortrait" accept="image/*" class="hidden" onchange="changeRoyalPortrait(event)">
-                            <span class="text-[10px] text-slate-300 mt-2">อัปโหลดภาพมงคลได้ทันที</span>
+                            <span class="text-[10px] text-slate-300">คลิกเพื่ออัปโหลดภาพใหม่</span>
                         </div>
                     </div>
+
+                    <!-- ส่วนควบคุมปรับขนาดรูปภาพ -->
+                    <div class="w-full mt-4 bg-slate-100 p-3 rounded-xl border border-slate-200 text-left space-y-2">
+                        <p class="text-[11px] font-bold text-slate-700 flex items-center justify-between">
+                            <span><i class="fas fa-sliders-h text-blue-600 mr-1"></i> ปรับขนาดรูปภาพ</span>
+                            <button onclick="resetImageSize()" class="text-blue-600 hover:underline text-[10px]">รีเซ็ตค่าเดิม</button>
+                        </p>
+                        <div>
+                            <div class="flex justify-between text-[10px] text-slate-500 mb-0.5">
+                                <span id="widthLabel">ความกว้าง: 260px</span>
+                            </div>
+                            <input type="range" id="widthSlider" min="150" max="400" value="260" class="w-full accent-blue-600 cursor-pointer" oninput="adjustImageWidth(this.value)">
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-[10px] text-slate-500 mb-0.5">
+                                <span id="heightLabel">ความสูง: 320px</span>
+                            </div>
+                            <input type="range" id="heightSlider" min="150" max="500" value="320" class="w-full accent-blue-600 cursor-pointer" oninput="adjustImageHeight(this.value)">
+                        </div>
+                    </div>
+
                     <p class="text-xs text-amber-600 font-semibold mt-2"><i class="fas fa-heart text-rose-500 mx-1"></i> ด้วยสำนึกในพระมหากรุณาธิคุณ</p>
                 </div>
 
@@ -140,6 +159,41 @@
                             <i class="fas fa-edit text-blue-600"></i> จัดการผู้นำ & รูปภาพ
                         </a>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 🏛️ มิติทะเบียน & สวัสดิการชุมชนอัจฉริยะ -->
+        <div class="space-y-4">
+            <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <i class="fas fa-users text-blue-600"></i> มิติทะเบียน & สวัสดิการชุมชนอัจฉริยะ
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="portal-card rounded-2xl p-6">
+                    <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl mb-4 border border-blue-200">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-base mb-1">ทะเบียนครัวเรือน</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed mb-4">ระบบจัดเก็บข้อมูลจำนวนครัวเรือนและสมาชิกในคุ้มต่างๆ ของบ้านร่องเข็ม หมู่ 6</p>
+                    <a href="household.html" class="text-xs text-blue-600 font-semibold hover:underline flex items-center gap-1">เข้าสู่ระบบฐานข้อมูล →</a>
+                </div>
+
+                <div class="portal-card rounded-2xl p-6">
+                    <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl mb-4 border border-amber-200">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-base mb-1">ข้อมูลผู้สูงอายุ</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed mb-4">ฐานข้อมูลสถิติผู้สูงอายุ การจ่ายเบี้ยยังชีพ และการดูแลสุขภาพผู้สูงวัยในชุมชน</p>
+                    <a href="elderly.html" class="text-xs text-blue-600 font-semibold hover:underline flex items-center gap-1">ดูข้อมูลผู้สูงอายุ →</a>
+                </div>
+
+                <div class="portal-card rounded-2xl p-6">
+                    <div class="w-12 h-12 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center text-xl mb-4 border border-rose-200">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-base mb-1">กลุ่มเปราะบาง</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed mb-4">การช่วยเหลือผู้ป่วยติดเตียง ผู้พิการ และครัวเรือนยากจนเป้าหมายเพื่อการพัฒนาที่ยั่งยืน</p>
+                    <a href="vulnerable.html" class="text-xs text-blue-600 font-semibold hover:underline flex items-center gap-1">ตรวจสอบข้อมูล →</a>
                 </div>
             </div>
         </div>
@@ -233,13 +287,25 @@
         </div>
     </footer>
 
-    <!-- Script สำหรับอัปโหลดและบันทึกรูปภาพพระบรมฉายาลักษณ​์ -->
+    <!-- Script สำหรับอัปโหลด, เปลี่ยนรูป และปรับขนาดภาพ -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const savedPortrait = localStorage.getItem('rongkhem_royal_portrait');
             if (savedPortrait) {
                 document.getElementById('royalPortraitImg').src = savedPortrait;
             }
+
+            const savedWidth = localStorage.getItem('rongkhem_img_width') || '260';
+            const savedHeight = localStorage.getItem('rongkhem_img_height') || '320';
+            
+            const container = document.getElementById('portraitContainer');
+            container.style.width = savedWidth + 'px';
+            container.style.height = savedHeight + 'px';
+            
+            document.getElementById('widthSlider').value = savedWidth;
+            document.getElementById('heightSlider').value = savedHeight;
+            document.getElementById('widthLabel').innerText = 'ความกว้าง: ' + savedWidth + 'px';
+            document.getElementById('heightLabel').innerText = 'ความสูง: ' + savedHeight + 'px';
         });
 
         function changeRoyalPortrait(event) {
@@ -254,6 +320,34 @@
                 };
                 reader.readAsDataURL(file);
             }
+        }
+
+        function adjustImageWidth(val) {
+            const container = document.getElementById('portraitContainer');
+            container.style.width = val + 'px';
+            document.getElementById('widthLabel').innerText = 'ความกว้าง: ' + val + 'px';
+            localStorage.setItem('rongkhem_img_width', val);
+        }
+
+        function adjustImageHeight(val) {
+            const container = document.getElementById('portraitContainer');
+            container.style.height = val + 'px';
+            document.getElementById('heightLabel').innerText = 'ความสูง: ' + val + 'px';
+            localStorage.setItem('rongkhem_img_height', val);
+        }
+
+        function resetImageSize() {
+            const container = document.getElementById('portraitContainer');
+            container.style.width = '260px';
+            container.style.height = '320px';
+            
+            document.getElementById('widthSlider').value = 260;
+            document.getElementById('heightSlider').value = 320;
+            document.getElementById('widthLabel').innerText = 'ความกว้าง: 260px';
+            document.getElementById('heightLabel').innerText = 'ความสูง: 320px';
+
+            localStorage.removeItem('rongkhem_img_width');
+            localStorage.removeItem('rongkhem_img_height');
         }
     </script>
 
