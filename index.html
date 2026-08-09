@@ -1,34 +1,62 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="th" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ศูนย์ข้อมูลอัจฉริยะ - บ้านร่องเข็ม หมู่ 6 (Smart Village Portal)</title>
+    <title>ศูนย์ข้อมูลอัจฉริยะ - บ้านร่องเข็ม หมู่ 6 (Smart Village Live Portal)</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts (Kanit) -->
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- FontAwesome 6 Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <style>
         body { font-family: 'Kanit', sans-serif; background-color: #f8fafc; color: #1e293b; overflow-x: hidden; }
         
+        /* สไตล์การ์ดมีชีวิตชีวา เรืองแสงอ่อนๆ และนุ่มนวล */
         .portal-card {
             background: #ffffff;
             border: 1px solid #e2e8f0;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
         }
         .portal-card:hover {
             border-color: #0284c7;
-            transform: translateY(-4px);
-            box-shadow: 0 20px 25px -5px rgba(2, 132, 199, 0.1), 0 10px 10px -5px rgba(2, 132, 199, 0.04);
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 25px 35px -5px rgba(2, 132, 199, 0.15), 0 10px 15px -5px rgba(2, 132, 199, 0.08);
         }
 
+        /* อนิเมชั่นจุดสถานะสด (Live Glow) */
         .live-dot { animation: pulse-glow 2s infinite; }
         @keyframes pulse-glow {
-            0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 rgba(2, 132, 199, 0.4); }
-            50% { opacity: 0.6; transform: scale(1.15); box-shadow: 0 0 0 8px rgba(2, 132, 199, 0); }
+            0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6); }
+            50% { opacity: 0.5; transform: scale(1.25); box-shadow: 0 0 0 12px rgba(16, 185, 129, 0); }
+        }
+
+        /* เอฟเฟกต์ลอยตัวของภาพหรือการ์ด */
+        .floating {
+            animation: floatingEffect 4s ease-in-out infinite;
+        }
+        @keyframes floatingEffect {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* คลื่นประกาศวิ่ง */
+        .ticker-wrap {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .ticker-move {
+            display: inline-block;
+            animation: tickerAnimation 25s linear infinite;
+        }
+        @keyframes tickerAnimation {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
         }
 
         ::-webkit-scrollbar { width: 8px; }
@@ -37,25 +65,28 @@
         ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
     </style>
 </head>
-<body class="flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen relative">
 
-    <!-- Top Utility Bar -->
-    <div class="bg-blue-600 text-white text-xs py-2 px-6 flex items-center justify-between shadow-sm">
-        <div class="flex items-center gap-2 overflow-hidden whitespace-nowrap">
-            <span class="bg-white text-blue-700 px-2.5 py-0.5 rounded-full font-bold uppercase text-[10px] animate-pulse">ประกาศสำคัญ</span>
-            <span>ยินดีต้อนรับสู่ศูนย์ข้อมูลอัจฉริยะ บ้านร่องเข็ม หมู่ 6 ตำบลจำป่าหวาย อำเภอเมืองพะเยา จังหวัดพะเยา</span>
+    <!-- Top Utility Bar (ประกาศวิ่งอัตโนมัติ) -->
+    <div class="bg-blue-600 text-white text-xs py-2 px-6 flex items-center justify-between shadow-sm z-50">
+        <div class="ticker-wrap overflow-hidden flex-1 mr-4">
+            <div class="ticker-move flex items-center gap-8 font-medium">
+                <span class="inline-flex items-center gap-1.5"><span class="bg-white text-blue-700 px-2 py-0.5 rounded-full font-bold text-[10px] animate-pulse">ประกาศสำคัญ</span> ยินดีต้อนรับสู่ศูนย์ข้อมูลอัจฉริยะ บ้านร่องเข็ม หมู่ 6 ตำบลจำป่าหวาย อำเภอเมืองพะเยา จังหวัดพะเยา</span>
+                <span class="inline-flex items-center gap-1.5"><i class="fas fa-bell text-amber-300"></i> แจ้งเตือน: กำหนดการประชุมประชาคมหมู่บ้านประจำเดือนเร็วๆ นี้</span>
+                <span class="inline-flex items-center gap-1.5"><span class="bg-white text-blue-700 px-2 py-0.5 rounded-full font-bold text-[10px] animate-pulse">ประกาศสำคัญ</span> ยินดีต้อนรับสู่ศูนย์ข้อมูลอัจฉริยะ บ้านร่องเข็ม หมู่ 6 ตำบลจำป่าหวาย อำเภอเมืองพะเยา จังหวัดพะเยา</span>
+            </div>
         </div>
-        <div class="hidden md:flex items-center gap-4 text-[11px]">
+        <div class="hidden md:flex items-center gap-4 text-[11px] shrink-0 font-medium">
             <span><i class="fas fa-phone-alt mr-1"></i> สายด่วนผู้ใหญ่บ้าน: 08x-xxx-xxxx</span>
             <span>TH | EN</span>
         </div>
     </div>
 
     <!-- Main Header & Branding -->
-    <header class="bg-white/90 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+    <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-40 shadow-sm transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 h-24 flex justify-between items-center">
             <div class="flex items-center gap-4">
-                <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-blue-600 to-cyan-500 flex items-center justify-center text-white text-2xl shadow-lg shadow-blue-500/20">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-cyan-500 flex items-center justify-center text-white text-2xl shadow-lg shadow-blue-500/25 floating">
                     <i class="fas fa-landmark"></i>
                 </div>
                 <div>
@@ -63,14 +94,14 @@
                         บ้านร่องเข็ม หมู่ 6 (สมาร์ทวิลเลจ)
                         <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 live-dot"></span>
                     </h1>
-                    <p class="text-xs text-blue-600 font-medium">Smart Village Official v7.0 • พะเยา</p>
+                    <p class="text-xs text-blue-600 font-semibold">Smart Village Official v7.0 • พะเยา</p>
                 </div>
             </div>
             <div class="hidden lg:flex items-center gap-3">
-                <span class="text-xs bg-amber-50 text-amber-700 border border-amber-200 px-4 py-2 rounded-xl flex items-center gap-1.5 font-medium">
-                    <i class="fas fa-crown text-amber-500"></i> หมู่บ้านกองทุนแม่ของแผ่นดิน
+                <span class="text-xs bg-amber-50 text-amber-700 border border-amber-200 px-4 py-2 rounded-xl flex items-center gap-1.5 font-medium shadow-sm">
+                    <i class="fas fa-crown text-amber-500 animate-bounce"></i> หมู่บ้านกองทุนแม่ของแผ่นดิน
                 </span>
-                <a href="admin-panel.html" class="bg-slate-900 hover:bg-blue-600 text-white text-xs font-semibold px-5 py-3 rounded-xl transition shadow-md flex items-center gap-2">
+                <a href="admin-panel.html" class="bg-slate-900 hover:bg-blue-600 text-white text-xs font-semibold px-5 py-3 rounded-xl transition shadow-md flex items-center gap-2 transform hover:scale-105">
                     <i class="fas fa-terminal"></i> แอดมินคอนโทรล
                 </a>
             </div>
@@ -96,23 +127,23 @@
     </header>
 
     <!-- Main Content Body -->
-    <main class="flex-1 max-w-7xl mx-auto w-full p-6 md:p-8 space-y-10" id="overview">
+    <main class="flex-1 max-w-7xl mx-auto w-full p-6 md:p-8 space-y-12" id="overview">
 
-        <!-- 👑 พระบรมฉายาลักษณ​์ & กองทุนแม่ของแผ่นดิน -->
-        <div id="mother-fund" class="portal-card rounded-3xl p-8 md:p-12 relative overflow-hidden bg-gradient-to-br from-white via-blue-50/40 to-sky-50/60 border border-blue-100 shadow-lg">
+        <!-- 👑 พระบรมฉายาลักษณ​์ & กองทุนแม่ของแผ่นดิน (มีแอนิเมชันเปิดตัว AOS) -->
+        <div id="mother-fund" class="portal-card rounded-3xl p-8 md:p-12 relative overflow-hidden bg-gradient-to-br from-white via-blue-50/50 to-sky-50/70 border border-blue-100 shadow-xl" data-aos="fade-up" data-aos-duration="1000">
             <div class="relative z-10 flex flex-col lg:flex-row items-center gap-8">
                 
-                <!-- โซนพระบรมฉายาลักษณ์ (แสดงรูปภาพนิ่งปกติ ไม่มีเมนูปรับขนาดแล้ว) -->
-                <div class="w-full lg:w-72 shrink-0 text-center flex flex-col items-center">
-                    <div class="w-64 h-80 rounded-2xl bg-white border-2 border-amber-400/60 overflow-hidden shadow-xl relative">
-                        <img id="royalPortraitImg" src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=400" alt="พระบรมฉายาลักษณ​์" class="w-full h-full object-cover">
+                <!-- โซนพระบรมฉายาลักษณ์แบบมีกรอบเรืองแสงนุ่ม -->
+                <div class="w-full lg:w-72 shrink-0 text-center flex flex-col items-center" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="w-64 h-80 rounded-2xl bg-white border-2 border-amber-400/80 overflow-hidden shadow-2xl relative floating">
+                        <img id="royalPortraitImg" src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=400" alt="พระบรมฉายาลักษณ​์" class="w-full h-full object-cover transform hover:scale-105 transition duration-700">
                     </div>
-                    <p class="text-xs text-amber-600 font-semibold mt-3"><i class="fas fa-heart text-rose-500 mx-1"></i> ด้วยสำนึกในพระมหากรุณาธิคุณ</p>
+                    <p class="text-xs text-amber-600 font-bold mt-4 tracking-wide"><i class="fas fa-heart text-rose-500 mx-1 animate-pulse"></i> ด้วยสำนึกในพระมหากรุณาธิคุณ</p>
                 </div>
 
                 <!-- รายละเอียดกองทุนแม่ฯ -->
-                <div class="flex-1 text-center lg:text-left">
-                    <span class="px-3.5 py-1 rounded-full bg-blue-100 text-blue-800 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2 mb-3">
+                <div class="flex-1 text-center lg:text-left" data-aos="fade-left" data-aos-delay="300">
+                    <span class="px-3.5 py-1 rounded-full bg-blue-100 text-blue-800 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2 mb-3 shadow-sm">
                         <i class="fas fa-crown text-amber-500"></i> ศูนย์รวมจิตใจและความสามัคคี
                     </span>
                     <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-3">กองทุนแม่ของแผ่นดิน บ้านร่องเข็ม หมู่ 6</h2>
@@ -120,14 +151,14 @@
                         ศูนย์กลางการขับเคลื่อนกิจกรรมป้องกันและแก้ไขปัญหายาเสพติด ความสมานฉันท์ และการพัฒนาคุณภาพชีวิตของประชาชนในชุมชนด้วยความสำนึกในพระมหากรุณาธิคุณ
                     </p>
                     <div class="flex flex-wrap justify-center lg:justify-start gap-3 text-xs text-slate-700 mb-6 font-medium">
-                        <span class="bg-white px-3.5 py-2 rounded-xl border border-slate-200 shadow-sm"><i class="fas fa-shield-alt mr-1.5 text-blue-600"></i> ชุมชนสีขาวปลอดยาเสพติด</span>
-                        <span class="bg-white px-3.5 py-2 rounded-xl border border-slate-200 shadow-sm"><i class="fas fa-hands-helping mr-1.5 text-blue-600"></i> กองทุนสัจจะออมทรัพย์</span>
+                        <span class="bg-white px-3.5 py-2 rounded-xl border border-slate-200 shadow-sm flex items-center gap-1.5"><i class="fas fa-shield-alt text-blue-600"></i> ชุมชนสีขาวปลอดยาเสพติด</span>
+                        <span class="bg-white px-3.5 py-2 rounded-xl border border-slate-200 shadow-sm flex items-center gap-1.5"><i class="fas fa-hands-helping text-blue-600"></i> กองทุนสัจจะออมทรัพย์</span>
                     </div>
                     <div class="flex flex-wrap justify-center lg:justify-start gap-3">
-                        <a href="leaders.html" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl text-sm transition shadow-md flex items-center gap-2">
+                        <a href="leaders.html" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl text-sm transition shadow-md flex items-center gap-2 transform hover:-translate-y-1">
                             <i class="fas fa-id-badge"></i> ทำเนียบผู้นำชุมชน
                         </a>
-                        <a href="admin-leaders.html" class="bg-white hover:bg-slate-50 text-slate-700 font-semibold py-3 px-6 rounded-xl text-sm border border-slate-300 transition flex items-center gap-2 shadow-sm">
+                        <a href="admin-leaders.html" class="bg-white hover:bg-slate-50 text-slate-700 font-semibold py-3 px-6 rounded-xl text-sm border border-slate-300 transition flex items-center gap-2 shadow-sm transform hover:-translate-y-1">
                             <i class="fas fa-edit text-blue-600"></i> จัดการข้อมูลผู้นำ
                         </a>
                     </div>
@@ -136,13 +167,13 @@
         </div>
 
         <!-- 🏛️ มิติทะเบียน & สวัสดิการชุมชนอัจฉริยะ -->
-        <div class="space-y-4">
-            <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+        <div class="space-y-6" data-aos="fade-up" data-aos-duration="800">
+            <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
                 <i class="fas fa-users text-blue-600"></i> มิติทะเบียน & สวัสดิการชุมชนอัจฉริยะ
             </h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="portal-card rounded-2xl p-6">
-                    <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl mb-4 border border-blue-200">
+                <div class="portal-card rounded-2xl p-6 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl mb-4 border border-blue-200 group-hover:bg-blue-600 group-hover:text-white transition duration-300">
                         <i class="fas fa-home"></i>
                     </div>
                     <h4 class="font-bold text-slate-900 text-base mb-1">ทะเบียนครัวเรือน</h4>
@@ -150,8 +181,8 @@
                     <a href="household.html" class="text-xs text-blue-600 font-semibold hover:underline flex items-center gap-1">เข้าสู่ระบบฐานข้อมูล →</a>
                 </div>
 
-                <div class="portal-card rounded-2xl p-6">
-                    <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl mb-4 border border-amber-200">
+                <div class="portal-card rounded-2xl p-6 group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl mb-4 border border-amber-200 group-hover:bg-amber-500 group-hover:text-white transition duration-300">
                         <i class="fas fa-user-friends"></i>
                     </div>
                     <h4 class="font-bold text-slate-900 text-base mb-1">ข้อมูลผู้สูงอายุ</h4>
@@ -159,8 +190,8 @@
                     <a href="elderly.html" class="text-xs text-blue-600 font-semibold hover:underline flex items-center gap-1">ดูข้อมูลผู้สูงอายุ →</a>
                 </div>
 
-                <div class="portal-card rounded-2xl p-6">
-                    <div class="w-12 h-12 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center text-xl mb-4 border border-rose-200">
+                <div class="portal-card rounded-2xl p-6 group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-12 h-12 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center text-xl mb-4 border border-rose-200 group-hover:bg-rose-600 group-hover:text-white transition duration-300">
                         <i class="fas fa-hands-helping"></i>
                     </div>
                     <h4 class="font-bold text-slate-900 text-base mb-1">กลุ่มเปราะบาง</h4>
@@ -171,14 +202,14 @@
         </div>
 
         <!-- 🏛️ สถานที่สำคัญในหมู่บ้าน -->
-        <div class="space-y-4">
-            <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+        <div class="space-y-6" data-aos="fade-up" data-aos-duration="800">
+            <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
                 <i class="fas fa-map-marked-alt text-blue-600"></i> ศูนย์ข้อมูลสถานที่สำคัญอัจฉริยะ
             </h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <a href="subnamjam.html" class="portal-card rounded-2xl p-6 block group">
+                <a href="subnamjam.html" class="portal-card rounded-2xl p-6 block group" data-aos="fade-right" data-aos-delay="100">
                     <div class="flex items-start gap-4">
-                        <div class="w-14 h-14 rounded-2xl bg-teal-50 text-teal-600 flex items-center justify-center text-2xl shrink-0 border border-teal-200 group-hover:scale-110 transition-transform">
+                        <div class="w-14 h-14 rounded-2xl bg-teal-50 text-teal-600 flex items-center justify-center text-2xl shrink-0 border border-teal-200 group-hover:scale-110 group-hover:bg-teal-600 group-hover:text-white transition-all duration-300">
                             <i class="fas fa-water"></i>
                         </div>
                         <div>
@@ -188,9 +219,9 @@
                     </div>
                 </a>
 
-                <a href="wat-rongkhem.html" class="portal-card rounded-2xl p-6 block group">
+                <a href="wat-rongkhem.html" class="portal-card rounded-2xl p-6 block group" data-aos="fade-left" data-aos-delay="200">
                     <div class="flex items-start gap-4">
-                        <div class="w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-2xl shrink-0 border border-amber-200 group-hover:scale-110 transition-transform">
+                        <div class="w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-2xl shrink-0 border border-amber-200 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-white transition-all duration-300">
                             <i class="fas fa-vihara"></i>
                         </div>
                         <div>
@@ -203,14 +234,14 @@
         </div>
 
         <!-- 🛡️ ความปลอดภัย บรรเทาสภัย & สุขภาพชุมชน -->
-        <div class="space-y-4">
-            <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+        <div class="space-y-6" data-aos="fade-up" data-aos-duration="800">
+            <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
                 <i class="fas fa-shield-alt text-blue-600"></i> ความปลอดภัย & บริการสาธารณะ
             </h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- ชรบ. -->
-                <div class="portal-card rounded-2xl p-6">
-                    <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl mb-4 border border-blue-200">
+                <div class="portal-card rounded-2xl p-6 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl mb-4 border border-blue-200 group-hover:bg-blue-600 group-hover:text-white transition duration-300">
                         <i class="fas fa-user-shield"></i>
                     </div>
                     <h4 class="font-bold text-slate-900 text-base mb-1">ชรบ. และความมั่นคง</h4>
@@ -219,8 +250,8 @@
                 </div>
 
                 <!-- อปพร. -->
-                <div class="portal-card rounded-2xl p-6">
-                    <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl mb-4 border border-amber-200">
+                <div class="portal-card rounded-2xl p-6 group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl mb-4 border border-amber-200 group-hover:bg-amber-500 group-hover:text-white transition duration-300">
                         <i class="fas fa-fire-extinguisher"></i>
                     </div>
                     <h4 class="font-bold text-slate-900 text-base mb-1">อปพร. บรรเทาสภัย</h4>
@@ -229,8 +260,8 @@
                 </div>
 
                 <!-- สุขภาพ อสม. -->
-                <div class="portal-card rounded-2xl p-6">
-                    <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl mb-4 border border-emerald-200">
+                <div class="portal-card rounded-2xl p-6 group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl mb-4 border border-emerald-200 group-hover:bg-emerald-600 group-hover:text-white transition duration-300">
                         <i class="fas fa-heartbeat"></i>
                     </div>
                     <h4 class="font-bold text-slate-900 text-base mb-1">สุขภาพ อสม.</h4>
@@ -241,13 +272,13 @@
         </div>
 
         <!-- 🌾 ผลิตภัณฑ์ชุมชน (OTOP / กลุ่มข้าว) -->
-        <div class="space-y-4">
-            <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+        <div class="space-y-6" data-aos="fade-up" data-aos-duration="800">
+            <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
                 <i class="fas fa-shopping-basket text-blue-600"></i> ผลิตภัณฑ์ชุมชน & กลุ่มข้าวอินทรีย์
             </h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="portal-card rounded-2xl p-6 flex flex-col sm:flex-row gap-5 items-center">
-                    <div class="w-24 h-24 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-3xl shrink-0 border border-amber-200">
+                <div class="portal-card rounded-2xl p-6 flex flex-col sm:flex-row gap-5 items-center group" data-aos="fade-right">
+                    <div class="w-24 h-24 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-3xl shrink-0 border border-amber-200 group-hover:bg-amber-500 group-hover:text-white transition duration-300">
                         <i class="fas fa-seedling"></i>
                     </div>
                     <div class="flex-1">
@@ -258,8 +289,8 @@
                     </div>
                 </div>
 
-                <div class="portal-card rounded-2xl p-6 flex flex-col sm:flex-row gap-5 items-center">
-                    <div class="w-24 h-24 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-3xl shrink-0 border border-blue-200">
+                <div class="portal-card rounded-2xl p-6 flex flex-col sm:flex-row gap-5 items-center group" data-aos="fade-left">
+                    <div class="w-24 h-24 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-3xl shrink-0 border border-blue-200 group-hover:bg-blue-600 group-hover:text-white transition duration-300">
                         <i class="fas fa-gifts"></i>
                     </div>
                     <div class="flex-1">
@@ -273,29 +304,29 @@
         </div>
 
         <!-- 📢 ข่าวสารและกิจกรรมชุมชน -->
-        <div class="space-y-4">
+        <div class="space-y-6" data-aos="fade-up" data-aos-duration="800">
             <div class="flex justify-between items-center">
-                <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
                     <i class="fas fa-bullhorn text-sky-600"></i> ข่าวประชาสัมพันธ์ & กิจกรรมชุมชน
                 </h3>
                 <a href="news.html" class="text-xs text-blue-600 hover:underline font-semibold">ดูทั้งหมดทั้งหมด →</a>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="portal-card rounded-2xl p-6">
+                <div class="portal-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="100">
                     <span class="text-[10px] bg-sky-100 text-sky-800 px-2.5 py-1 rounded-full font-medium border border-sky-200">ประกาศราชการ</span>
                     <h4 class="font-bold text-slate-900 text-base mt-3 mb-2">ประชุมประชาคมหมู่บ้านประจำเดือน</h4>
                     <p class="text-xs text-slate-500 leading-relaxed mb-4">สรุปผลการดำเนินงานกองทุนแม่ฯ และแจ้งแผนพัฒนาโครงสร้างพื้นฐานประจำปี</p>
                     <span class="text-[11px] text-slate-400"><i class="fas fa-calendar-alt mr-1 text-blue-600"></i> เร็วๆ นี้</span>
                 </div>
 
-                <div class="portal-card rounded-2xl p-6">
+                <div class="portal-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="200">
                     <span class="text-[10px] bg-emerald-100 text-emerald-800 px-2.5 py-1 rounded-full font-medium border border-emerald-200">สาธารณสุข</span>
                     <h4 class="font-bold text-slate-900 text-base mt-3 mb-2">อสม. ออกหน่วยตรวจสุขภาพเชิงรุก</h4>
                     <p class="text-xs text-slate-500 leading-relaxed mb-4">บริการวัดความดัน ตรวจน้ำตาลในเลือด และเยี่ยมผู้สูงอายุติดเตียงถึงบ้าน</p>
                     <span class="text-[11px] text-slate-400"><i class="fas fa-calendar-alt mr-1 text-blue-600"></i> สัปดาห์นี้</span>
                 </div>
 
-                <div class="portal-card rounded-2xl p-6">
+                <div class="portal-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="300">
                     <span class="text-[10px] bg-amber-100 text-amber-800 px-2.5 py-1 rounded-full font-medium border border-amber-200">ความปลอดภัย</span>
                     <h4 class="font-bold text-slate-900 text-base mt-3 mb-2">ชุด ชรบ. ตั้งจุดตรวจความมั่นคง</h4>
                     <p class="text-xs text-slate-500 leading-relaxed mb-4">ปฏิบัติภารกิจเวรยามรักษาความปลอดภัยในเขตก่อสร้างและคุ้มหมู่บ้าน</p>
@@ -305,21 +336,75 @@
         </div>
 
         <!-- 💬 ระบบแจ้งเรื่องร้องเรียน / แจ้งเหตุด่วน -->
-        <div class="portal-card rounded-3xl p-8 bg-gradient-to-r from-blue-900 to-slate-900 text-white relative overflow-hidden shadow-xl">
-            <div class="absolute right-0 top-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none"></div>
+        <div class="portal-card rounded-3xl p-8 bg-gradient-to-r from-blue-900 to-indigo-950 text-white relative overflow-hidden shadow-2xl" data-aos="zoom-in" data-aos-duration="1000">
+            <div class="absolute right-0 top-0 w-64 h-64 bg-cyan-500/15 rounded-full blur-3xl pointer-events-none"></div>
             <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
                 <div>
                     <span class="px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 text-xs font-bold border border-cyan-500/30">ศูนย์บริการเบ็ดเสร็จ (One Stop Service)</span>
                     <h3 class="text-xl md:text-2xl font-extrabold mt-3 mb-1">แจ้งเรื่องร้องเรียน / ร้องทุกข์ หรือแจ้งเหตุด่วน</h3>
                     <p class="text-xs text-slate-300">เพื่อความรวดเร็วในการประสานงานและความเป็นส่วนตัว ข้อมูลการแจ้งจะส่งตรงถึงผู้ใหญ่บ้านและคณะกรรมการชุมชนทันที</p>
                 </div>
-                <a href="complaint.html" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold py-3.5 px-8 rounded-xl text-sm shadow-lg transition shrink-0 flex items-center gap-2">
+                <a href="complaint.html" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold py-3.5 px-8 rounded-xl text-sm shadow-lg transition shrink-0 flex items-center gap-2 transform hover:scale-105">
                     <i class="fas fa-paper-plane"></i> แจ้งเรื่องออนไลน์
                 </a>
             </div>
         </div>
 
     </main>
+
+    <!-- 🤖 AI Assistant Floating Chat Widget (ถามตอบ AI อัตโนมัติ ครบทุกมิติ) -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <!-- ปุ่มเปิด/ปิดแชท AI -->
+        <button id="aiToggleBtn" onclick="toggleAIChat()" class="w-14 h-14 bg-gradient-to-tr from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white rounded-full shadow-2xl flex items-center justify-center text-xl transition transform hover:scale-110 relative group">
+            <i class="fas fa-robot animate-bounce"></i>
+            <span class="absolute -top-1 -right-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-white live-dot"></span>
+        </button>
+
+        <!-- หน้าต่างแชท AI -->
+        <div id="aiChatWindow" class="hidden absolute bottom-20 right-0 w-80 md:w-96 bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col transition-all duration-300 transform scale-95 opacity-0 origin-bottom-right">
+            <!-- ส่วนหัวแชท -->
+            <div class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white p-4 flex justify-between items-center">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center text-white text-base">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm">ผู้ช่วย AI ร่องเข็มสมาร์ท</h4>
+                        <p class="text-[10px] text-emerald-300 flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-400 live-dot inline-block"></span> พร้อมช่วยเหลือ 24 ชม.</p>
+                    </div>
+                </div>
+                <button onclick="toggleAIChat()" class="text-white/80 hover:text-white transition text-sm">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <!-- กล่องข้อความแชท -->
+            <div id="chatMessages" class="p-4 h-80 overflow-y-auto space-y-3 bg-slate-50 text-xs flex flex-col">
+                <div class="flex items-start gap-2">
+                    <div class="w-7 h-7 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs shrink-0"><i class="fas fa-robot"></i></div>
+                    <div class="bg-white p-3 rounded-2xl rounded-tl-none border border-slate-200 text-slate-700 shadow-sm max-w-[80%] leading-relaxed">
+                        สวัสดีครับ! ผมคือผู้ช่วย AI ของศูนย์ข้อมูลอัจฉริยะ <b>บ้านร่องเข็ม หมู่ 6</b> ต.จำป่าหวาย อ.เมืองพะเยา มีอะไรให้ผมช่วยแนะนำหรือค้นหาข้อมูลไหมครับ? (เช่น กองทุนแม่, ผู้สูงอายุ, น้ำจำ, แจ้งเรื่องร้องเรียน)
+                    </div>
+                </div>
+            </div>
+
+            <!-- คำถามตัวอย่างด่วน -->
+            <div class="px-3 py-2 bg-slate-100 border-t border-slate-200 flex gap-1.5 overflow-x-auto text-[10px] whitespace-nowrap">
+                <button onclick="sendQuickQuery('กองทุนแม่คืออะไร?')" class="bg-white hover:bg-blue-50 text-blue-700 border border-blue-200 px-2.5 py-1 rounded-full transition shadow-sm">👑 กองทุนแม่</button>
+                <button onclick="sendQuickQuery('ติดต่อผู้ใหญ่บ้านอย่างไร?')" class="bg-white hover:bg-blue-50 text-blue-700 border border-blue-200 px-2.5 py-1 rounded-full transition shadow-sm">📞 เบอร์ผู้ใหญ่บ้าน</button>
+                <button onclick="sendQuickQuery('สถานะน้ำจำ IoT')" class="bg-white hover:bg-blue-50 text-blue-700 border border-blue-200 px-2.5 py-1 rounded-full transition shadow-sm">💧 น้ำจำ IoT</button>
+                <button onclick="sendQuickQuery('วิธีแจ้งเรื่องร้องเรียน')" class="bg-white hover:bg-blue-50 text-blue-700 border border-blue-200 px-2.5 py-1 rounded-full transition shadow-sm">🚨 แจ้งเรื่องร้องเรียน</button>
+            </div>
+
+            <!-- ช่องพิมพ์ข้อความ -->
+            <div class="p-3 bg-white border-t border-slate-200 flex items-center gap-2">
+                <input type="text" id="userInput" placeholder="พิมพ์คำถามของคุณที่นี่..." class="flex-1 bg-slate-100 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-blue-500 transition" onkeypress="handleKeyPress(event)">
+                <button onclick="sendMessage()" class="w-10 h-10 rounded-xl bg-blue-600 hover:bg-blue-500 text-white flex items-center justify-center transition shadow-md shrink-0">
+                    <i class="fas fa-paper-plane text-xs"></i>
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="bg-slate-900 text-slate-300 text-xs mt-auto py-10 px-8 border-t border-slate-800">
@@ -343,6 +428,102 @@
             © 2026 Rongkhem Smart Village Command Center • พัฒนาขึ้นเพื่อให้บริการประชาชนบ้านร่องเข็ม หมู่ 6
         </div>
     </footer>
+
+    <!-- AOS Animation Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 800
+        });
+
+        // ฟังก์ชันควบคุมเปิดปิดแชท AI
+        function toggleAIChat() {
+            const chatWin = document.getElementById('aiChatWindow');
+            if (chatWin.classList.contains('hidden')) {
+                chatWin.classList.remove('hidden');
+                setTimeout(() => {
+                    chatWin.classList.remove('scale-95', 'opacity-0');
+                    chatWin.classList.add('scale-100', 'opacity-100');
+                }, 10);
+            } else {
+                chatWin.classList.remove('scale-100', 'opacity-100');
+                chatWin.classList.add('scale-95', 'opacity-0');
+                setTimeout(() => {
+                    chatWin.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        // ระบบตอบคำถามอัตโนมัติของ AI ตามฐานข้อมูลชุมชน
+        function getAIResponse(query) {
+            query = query.toLowerCase();
+            if (query.includes('กองทุนแม่') || query.includes('ประวัติ')) {
+                return "กองทุนแม่ของแผ่นดิน บ้านร่องเข็ม หมู่ 6 เป็นศูนย์กลางการขับเคลื่อนกิจกรรมป้องกันและแก้ไขปัญหายาเสพติด ความสมานฉันท์ และสร้างความสามัคคีในชุมชนตำบลจำป่าหวายครับ";
+            } else if (query.includes('เบอร์') || query.includes('ติดต่อ') || query.includes('ผู้ใหญ่บ้าน')) {
+                return "สามารถติดต่อผู้ใหญ่บ้าน (นายศักรนนทน์ ขัติย์วงศ์) ได้ผ่านสายด่วนหมู่บ้านที่เบอร์ 08x-xxx-xxxx หรือเดินทางมาที่ทำการผู้ใหญ่บ้าน บ้านร่องเข็ม หมู่ 6 ครับ";
+            } else if (query.includes('น้ำจำ') || query.includes('iot') || query.includes('แหล่งน้ำ')) {
+                return "แหล่งซับน้ำจำ เป็นแหล่งน้ำธรรมชาติและป่าชุมชน พร้อมระบบตรวจวัดคุณภาพน้ำ IoT (ค่า pH และระดับน้ำ) แบบเรียลไทม์ สามารถคลิกดูได้ที่เมนู 'แหล่งซับน้ำจำ & IoT' ครับ";
+            } else if (query.includes('ร้องเรียน') || query.includes('ร้องทุกข์')) {
+                return "ท่านสามารถแจ้งเรื่องร้องเรียนหรือแจ้งเหตุด่วนได้โดยคลิกปุ่ม 'แจ้งเรื่องออนไลน์' ที่ด้านล่างของหน้าเว็บ ข้อมูลจะส่งตรงถึงผู้ใหญ่บ้านทันทีครับ";
+            } else if (query.includes('ผู้สูงอายุ') || query.includes('เบี้ยยังชีพ')) {
+                return "ข้อมูลสถิติผู้สูงอายุและการจ่ายเบี้ยยังชีพ สามารถตรวจสอบได้ที่เมนู 'มิติทะเบียน & สวัสดิการชุมชนอัจฉริยะ' หัวข้อข้อมูลผู้สูงอายุครับ";
+            } else if (query.includes('otop') || query.includes('ข้าว') || query.includes('สินค้า')) {
+                return "บ้านร่องเข็มของเรามีชื่อเสียงด้าน 'กลุ่มข้าวอินทรีย์' และผลิตภัณฑ์ OTOP ท้องถิ่น งานจักสานฝีมือชาวบ้านครับ";
+            } else {
+                return "ขอบคุณสำหรับคำถามครับเกี่ยวกับ '" + query + "' หากต้องการข้อมูลเชิงลึกเพิ่มเติม สามารถติดต่อสอบถามโดยตรงกับคณะกรรมการหมู่บ้าน หรือใช้เมนูด้านบนนำทางไปยังระบบที่ต้องการได้เลยครับ!";
+            }
+        }
+
+        function appendMessage(sender, text) {
+            const chatMessages = document.getElementById('chatMessages');
+            const isUser = sender === 'user';
+            
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `flex items-start gap-2 ${isUser ? 'flex-row-reverse' : ''}`;
+            
+            msgDiv.innerHTML = `
+                <div class="w-7 h-7 rounded-full ${isUser ? 'bg-slate-800' : 'bg-blue-600'} text-white flex items-center justify-center text-xs shrink-0">
+                    <i class="fas ${isUser ? 'fa-user' : 'fa-robot'}"></i>
+                </div>
+                <div class="${isUser ? 'bg-blue-600 text-white rounded-tr-none' : 'bg-white text-slate-700 border border-slate-200 rounded-tl-none'} p-3 rounded-2xl shadow-sm max-w-[80%] leading-relaxed">
+                    ${text}
+                </div>
+            `;
+            chatMessages.appendChild(msgDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('userInput');
+            const text = input.value.trim();
+            if (!text) return;
+
+            appendMessage('user', text);
+            input.value = '';
+
+            // จำลองการพิมพ์ตอบของ AI ชั่วขณะ
+            setTimeout(() => {
+                const response = getAIResponse(text);
+                appendMessage('ai', response);
+            }, 500);
+        }
+
+        function sendQuickQuery(queryText) {
+            appendMessage('user', queryText);
+            setTimeout(() => {
+                const response = getAIResponse(queryText);
+                appendMessage('ai', response);
+            }, 500);
+        }
+
+        function handleKeyPress(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        }
+    </script>
 
 </body>
 </html>
