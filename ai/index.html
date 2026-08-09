@@ -19,10 +19,9 @@
             overflow-x: hidden; 
         }
 
-        /* Hero Banner ถอดแบบตามภาพตัวอย่าง */
         .hero-banner {
             position: relative;
-            background: linear-gradient(rgba(4, 8, 20, 0.35), rgba(6, 9, 19, 0.95)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1600') center/cover no-repeat;
+            background: linear-gradient(rgba(4, 8, 20, 0.4), rgba(6, 9, 19, 0.95)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1600') center/cover no-repeat;
             min-height: 92vh;
             display: flex;
             flex-direction: column;
@@ -94,11 +93,17 @@
         </div>
     </header>
 
-    <!-- 🌟 HERO SECTION ถอดแบบตรงตามภาพตัวอย่าง 100% -->
+    <!-- 🌟 HERO SECTION -->
     <section class="hero-banner px-4 py-8 md:py-12 text-center relative overflow-hidden">
         
-        <!-- ส่วนบน: ไอคอนบ้านอัจฉริยะ, ชื่อหัวข้อ และป้ายกองทุนแม่ -->
         <div class="max-w-5xl mx-auto space-y-4 z-10 pt-2">
+            <!-- ส่วนพระบรมฉายาลักษณ์ -->
+            <div class="mb-4">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Queen_Sirikit_of_Thailand.jpg/330px-Queen_Sirikit_of_Thailand.jpg" 
+                     alt="สมเด็จพระบรมราชชนนีพันปีหลวง" 
+                     class="w-36 md:w-44 h-auto mx-auto rounded-xl shadow-2xl border-2 border-amber-500/60">
+            </div>
+
             <!-- ไอคอนบ้านหลังเล็กด้านบนหัวข้อ -->
             <div class="flex justify-center items-center">
                 <div class="text-emerald-400 text-3xl md:text-4xl drop-shadow-md">
@@ -116,11 +121,16 @@
                 ชุมชนเข้มแข็ง บริหารจัดการด้วยเทคโนโลยี
             </div>
 
-            <!-- ป้ายกองทุนแม่ของแผ่นดิน -->
-            <div class="pt-1">
-                <span class="inline-flex items-center gap-2 px-6 py-2 rounded-full gold-pill text-slate-950 text-xs md:text-sm font-extrabold tracking-wide uppercase">
-                    <i class="fas fa-crown text-slate-950"></i> หมู่บ้านกองทุนแม่ของแผ่นดิน
-                </span>
+            <!-- ป้ายกองทุนแม่ของแผ่นดิน และข้อความเทิดพระเกียรติ -->
+            <div class="pt-2 max-w-3xl mx-auto">
+                <div class="bg-slate-900/80 backdrop-blur-md p-5 rounded-2xl border border-amber-500/40 shadow-xl space-y-2">
+                    <span class="inline-flex items-center gap-2 px-6 py-1.5 rounded-full gold-pill text-slate-950 text-xs md:text-sm font-extrabold tracking-wide uppercase">
+                        <i class="fas fa-crown text-slate-950"></i> หมู่บ้านกองทุนแม่ของแผ่นดิน
+                    </span>
+                    <p class="text-xs md:text-sm text-amber-300 font-medium pt-1">
+                        ด้วยสำนึกในพระมหากรุณาธิคุณ สมเด็จพระบรมราชชนนีพันปีหลวง
+                    </p>
+                </div>
             </div>
         </div>
 
@@ -169,7 +179,7 @@
             </a>
         </div>
 
-        <!-- 📌 แถบล่างสุดใน Hero Banner (ตรงตามภาพต้นฉบับเป๊ะ) -->
+        <!-- 📌 แถบล่างสุดใน Hero Banner -->
         <div class="max-w-6xl mx-auto w-full z-15 pb-2">
             <div class="bg-slate-950/85 backdrop-blur-md border-t border-b border-amber-500/40 py-3.5 px-6 grid grid-cols-2 md:grid-cols-5 gap-4 items-center text-xs md:text-sm font-semibold text-slate-200 shadow-2xl rounded-2xl">
                 <div class="flex items-center justify-center md:justify-start gap-2"><i class="fas fa-users text-emerald-400"></i> โปร่งใส ตรวจสอบได้</div>
