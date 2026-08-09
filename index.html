@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>บ้านร่องเข็ม หมู่ 6 - Smart Village & กองทุนแม่ของแผ่นดิน</title>
+    <title>หมู่บ้านอัจฉริยะร่องเข็ม หมู่ 6 (ร่องเข็มโมเดล v4.1)</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts (Kanit) -->
@@ -24,7 +24,7 @@
         /* Hero Banner ดีไซน์ตรงตามภาพตัวอย่าง */
         .hero-banner {
             position: relative;
-            background: linear-gradient(rgba(4, 8, 20, 0.35), rgba(6, 9, 19, 0.95)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1600') center/cover no-repeat;
+            background: linear-gradient(rgba(4, 8, 20, 0.4), rgba(6, 9, 19, 0.95)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1600') center/cover no-repeat;
             min-height: 92vh;
             display: flex;
             flex-direction: column;
@@ -64,6 +64,19 @@
             50% { opacity: 0.5; transform: scale(1.25); box-shadow: 0 0 0 10px rgba(234, 179, 8, 0); }
         }
 
+        .ticker-wrap {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .ticker-move {
+            display: inline-block;
+            animation: tickerAnimation 25s linear infinite;
+        }
+        @keyframes tickerAnimation {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
+        }
+
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #060913; }
         ::-webkit-scrollbar-thumb { background: #10b981; border-radius: 4px; }
@@ -71,8 +84,23 @@
 </head>
 <body class="flex flex-col min-h-screen relative">
 
-    <!-- Top Navigation -->
-    <header class="bg-slate-950/90 backdrop-blur-md border-b border-emerald-500/30 sticky top-0 z-50">
+    <!-- Top Utility Bar & Announcement Ticker -->
+    <div class="bg-emerald-950 text-emerald-200 text-xs py-2 px-6 flex items-center justify-between shadow-sm z-50 border-b border-emerald-500/30">
+        <div class="ticker-wrap overflow-hidden flex-1 mr-4">
+            <div class="ticker-move flex items-center gap-8 font-medium">
+                <span class="inline-flex items-center gap-1.5"><span class="bg-emerald-500 text-slate-950 px-2 py-0.5 rounded-full font-bold text-[10px] animate-pulse">ประกาศสำคัญ</span> ยินดีต้อนรับสู่ศูนย์ข้อมูลอัจฉริยะ บ้านร่องเข็ม หมู่ 6 ตำบลจำป่าหวาย อำเภอเมืองพะเยา จังหวัดพะเยา ("ร่องเข็มโมเดล" v4.1)</span>
+                <span class="inline-flex items-center gap-1.5"><i class="fas fa-leaf text-amber-300"></i> แจ้งเตือน PM2.5 และมาตรการลดการเผาในชุมชน</span>
+                <span class="inline-flex items-center gap-1.5"><span class="bg-emerald-500 text-slate-950 px-2 py-0.5 rounded-full font-bold text-[10px] animate-pulse">ประกาศสำคัญ</span> ยินดีต้อนรับสู่ศูนย์ข้อมูลอัจฉริยะ บ้านร่องเข็ม หมู่ 6 ตำบลจำป่าหวาย อำเภอเมืองพะเยา จังหวัดพะเยา ("ร่องเข็มโมเดล" v4.1)</span>
+            </div>
+        </div>
+        <div class="hidden md:flex items-center gap-4 text-[11px] shrink-0 font-medium">
+            <span><i class="fas fa-phone-alt mr-1"></i> สายด่วนผู้ใหญ่บ้าน: 08x-xxx-xxxx</span>
+            <span>TH | EN</span>
+        </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <header class="bg-slate-950/90 backdrop-blur-md border-b border-emerald-500/30 sticky top-0 z-40">
         <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
             <div class="flex items-center gap-3">
                 <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center text-white text-xl shadow-lg">
@@ -80,7 +108,7 @@
                 </div>
                 <div>
                     <h1 class="text-sm md:text-base font-extrabold text-white tracking-tight flex items-center gap-2">
-                        บ้านร่องเข็ม หมู่ 6 <span class="text-xs text-emerald-400 font-normal">Smart Village</span>
+                        หมู่บ้านอัจฉริยะร่องเข็ม หมู่ 6 <span class="text-xs text-emerald-400 font-normal">v4.1</span>
                         <span class="w-2 h-2 rounded-full bg-emerald-400 live-dot"></span>
                     </h1>
                     <p class="text-[11px] text-amber-300 font-medium">ต.จำป่าหวาย อ.เมืองพะเยา จ.พะเยา</p>
@@ -92,13 +120,13 @@
                     <i class="fas fa-users"></i> ทะเบียนประชากร
                 </a>
                 <button onclick="openAdminLogin()" class="bg-slate-900 hover:bg-emerald-700 text-white border border-emerald-500/40 text-xs font-semibold px-4 py-2 rounded-xl transition shadow-md flex items-center gap-2">
-                    <i class="fas fa-key"></i> Admin
+                    <i class="fas fa-key"></i> Admin Center
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- 🌟 HERO BANNER ถอดแบบตามภาพตัวอย่างเป๊ะๆ -->
+    <!-- 🌟 HERO BANNER (ถอดแบบตามภาพตัวอย่างพรีเมียม) -->
     <section class="hero-banner px-4 py-8 md:py-12 text-center relative overflow-hidden">
         
         <!-- ส่วนหัวข้อหลักและป้ายกองทุนแม่ -->
@@ -178,10 +206,30 @@
     <!-- Main Content Body -->
     <main class="flex-1 max-w-7xl mx-auto w-full p-6 md:p-8 space-y-12 mt-6">
 
+        <!-- Project Intro Info -->
+        <div class="portal-card rounded-3xl p-6 md:p-8 relative overflow-hidden bg-gradient-to-r from-slate-900 to-emerald-950/40 border border-emerald-500/30" data-aos="fade-up">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div>
+                    <span class="px-3.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2 mb-3 border border-emerald-500/30">
+                        <i class="fas fa-award text-amber-400"></i> โครงการต้นแบบนวัตกรรมดิจิทัลชุมชน
+                    </span>
+                    <h3 class="text-2xl md:text-3xl font-extrabold text-white mb-2">ร่องเข็มโมเดล (Smart Village 2026)</h3>
+                    <p class="text-slate-300 text-xs md:text-sm leading-relaxed max-w-3xl">
+                        โครงการพัฒนาระบบสารสนเทศและนวัตกรรมดิจิทัลเพื่อสนับสนุนการบริหารงานชุมชน การดูแลสุขภาพ สิ่งแวดล้อม และสวัสดิการอย่างยั่งยืน 
+                        บริหารงานโดย <b>นายศักรนนทน์ ขัติย์วงศ์</b> ผู้ใหญ่บ้าน บ้านร่องเข็ม หมู่ 6 ต.จำป่าหวาย อ.เมืองพะเยา จ.พะเยา
+                    </p>
+                </div>
+                <div class="bg-slate-950/80 p-4 rounded-2xl border border-amber-400/40 text-center shrink-0">
+                    <p class="text-xs text-amber-300 font-bold">สถานะระบบ</p>
+                    <p class="text-sm font-extrabold text-emerald-400 mt-1"><i class="fas fa-signal animate-pulse mr-1"></i> ออนไลน์พร้อมใช้งาน (v4.1)</p>
+                </div>
+            </div>
+        </div>
+
         <!-- Dashboard & Services -->
         <div id="dashboard" class="space-y-6" data-aos="fade-up">
             <h3 class="text-xl font-bold text-white flex items-center gap-2">
-                <i class="fas fa-th-large text-emerald-400"></i> ระบบบริหารชุมชน & สวัสดิการอัจฉริยะ (Smart Village Services)
+                <i class="fas fa-th-large text-emerald-400"></i> ระบบบริหารชุมชน & สวัสดิการ (Smart Village Services)
             </h3>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -371,7 +419,7 @@
     <footer class="bg-slate-950 text-slate-400 py-8 px-6 text-center text-xs border-t border-emerald-500/30 mt-16 space-y-2">
         <h4 class="font-bold text-white text-sm">หมู่บ้านอัจฉริยะร่องเข็ม</h4>
         <p>บ้านร่องเข็ม หมู่ที่ 6 ตำบลจำป่าหวาย อำเภอเมืองพะเยา จังหวัดพะเยา 56000</p>
-        <p>เกี่ยวกับโครงการ: ร่องเข็มโมเดล Version 4.1 (Smart Village 2026)</p>
+        <p>เกี่ยวกับโครงการ: ร่องเข็มโมเดล Version 4.1 (Smart Village 2026) | อีเมล: rongkhem.smartvillage@gmail.com</p>
         <p class="text-emerald-400 font-semibold pt-2">ผู้บริหารจัดการระบบ: นายศักรนนทน์ ขัติย์วงศ์ (ผู้ใหญ่บ้าน บ้านร่องเข็ม หมู่ 6 ต.จำป่าหวาย อ.เมือง จ.พะเยา)</p>
         <p class="text-slate-600 pt-2">© 2026 หมู่บ้านอัจฉริยะร่องเข็ม (Rongkhem Smart Village). | ร่องเข็มโมเดล Version 4.1</p>
     </footer>
@@ -490,6 +538,8 @@
                     reply = "📞 สายด่วนผู้ใหญ่บ้าน นายศักรนนทน์ ขัติย์วงศ์ โทร: 08x-xxx-xxxx ครับ";
                 } else if (text.includes("กองทุนแม่")) {
                     reply = "👑 บ้านร่องเข็ม หมู่ 6 เป็นหมู่บ้านกองทุนแม่ของแผ่นดิน มุ่งเน้นความสามัคคีและป้องกันยาเสพติดอย่างยั่งยืน";
+                } else if (text.includes("น้ำจำ") || text.includes("IoT")) {
+                    reply = "💧 โครงการแหล่งซับน้ำจำ หมู่ 6 มีระบบตรวจวัดคุณภาพน้ำ IoT และป่าชุมชนอัจฉริยะ";
                 }
                 appendMessage(reply, 'bot');
             }, 600);
