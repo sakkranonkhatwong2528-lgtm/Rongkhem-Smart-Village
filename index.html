@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ศูนย์ข้อมูลอัจฉริยะ - บ้านร่องเข็ม หมู่ 6 (Smart Village v4.1)</title>
+    <title>ศูนย์ข้อมูลอัจฉริยะ & กองทุนแม่ของแผ่นดิน - บ้านร่องเข็ม หมู่ 6</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts (Kanit) -->
@@ -22,7 +22,14 @@
             background-attachment: fixed;
         }
         
-        /* สไตล์การ์ดกระจกมีมิติ (Green Glassmorphism) พรีเมียม */
+        /* ลวดลายไทยประยุกต์พื้นหลังสีน้ำเงินสำหรับโซนกองทุนแม่ */
+        .thai-pattern-bg {
+            background-color: #0f172a;
+            background-image: radial-gradient(rgba(234, 179, 8, 0.15) 1px, transparent 1px), radial-gradient(rgba(234, 179, 8, 0.1) 1px, #0f172a 1px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+        }
+
         .portal-card {
             background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(12px);
@@ -36,14 +43,12 @@
             box-shadow: 0 25px 40px -5px rgba(5, 150, 105, 0.2), 0 10px 15px -5px rgba(0, 0, 0, 0.05);
         }
 
-        /* อนิเมชั่นจุดสถานะสด (Live Glow) */
         .live-dot { animation: pulse-glow 2s infinite; }
         @keyframes pulse-glow {
             0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6); }
             50% { opacity: 0.5; transform: scale(1.25); box-shadow: 0 0 0 12px rgba(16, 185, 129, 0); }
         }
 
-        /* เอฟเฟกต์ลอยตัว */
         .floating {
             animation: floatingEffect 4s ease-in-out infinite;
         }
@@ -52,7 +57,6 @@
             50% { transform: translateY(-6px); }
         }
 
-        /* คลื่นประกาศวิ่ง */
         .ticker-wrap {
             overflow: hidden;
             white-space: nowrap;
@@ -74,7 +78,7 @@
 </head>
 <body class="flex flex-col min-h-screen relative">
 
-    <!-- Top Utility Bar (ประกาศวิ่งอัตโนมัติ ธีมสีเขียวร่องเข็มโมเดล) -->
+    <!-- Top Utility Bar -->
     <div class="bg-emerald-700 text-white text-xs py-2 px-6 flex items-center justify-between shadow-sm z-50">
         <div class="ticker-wrap overflow-hidden flex-1 mr-4">
             <div class="ticker-move flex items-center gap-8 font-medium">
@@ -114,11 +118,12 @@
             </div>
         </div>
 
-        <!-- Navigation Menu Bar (ครบทุกหมวดหมู่เมนูหลัก v4.1) -->
+        <!-- Navigation Menu Bar -->
         <nav class="bg-slate-900 text-slate-200 border-t border-slate-800 px-6">
             <div class="max-w-7xl mx-auto flex items-center justify-between text-sm overflow-x-auto py-3">
                 <div class="flex items-center gap-6 whitespace-nowrap font-medium">
                     <a href="#overview" class="text-emerald-400 flex items-center gap-1.5 hover:text-white transition"><i class="fas fa-home"></i> หน้าหลัก</a>
+                    <a href="#motherfund" class="text-amber-400 hover:text-amber-300 transition"><i class="fas fa-crown mr-1"></i> กองทุนแม่ของแผ่นดิน</a>
                     <a href="#dashboard" class="text-slate-300 hover:text-white transition"><i class="fas fa-chart-bar mr-1"></i> Dashboard</a>
                     <a href="#news" class="text-slate-300 hover:text-white transition"><i class="fas fa-bullhorn mr-1"></i> ข่าวสาร</a>
                     <a href="#population" class="text-slate-300 hover:text-white transition"><i class="fas fa-users mr-1"></i> ทะเบียนประชากร</a>
@@ -136,7 +141,45 @@
     <!-- Main Content Body -->
     <main class="flex-1 max-w-7xl mx-auto w-full p-6 md:p-8 space-y-12" id="overview">
 
-        <!-- 🏡 Hero Section: ร่องเข็มโมเดล -->
+        <!-- 👑 ส่วนที่ 1: หมู่บ้านกองทุนแม่ของแผ่นดิน (พื้นหลังสีน้ำเงิน ลายไทย ไว้บนสุด) -->
+        <div id="motherfund" class="thai-pattern-bg rounded-3xl p-8 md:p-12 relative overflow-hidden border-2 border-amber-400 shadow-2xl text-slate-100" data-aos="fade-down" data-aos-duration="1000">
+            <div class="absolute -right-10 -top-10 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left">
+                <!-- กรอบพระบรมฉายาลักษณ์ / ตรากองทุนแม่ -->
+                <div class="w-56 h-72 md:w-64 md:h-80 rounded-3xl bg-slate-900 border-4 border-amber-400 overflow-hidden shadow-2xl relative shrink-0 floating">
+                    <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=400" alt="พระบรมฉายาลักษณ์ กองทุนแม่ของแผ่นดิน" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60"></div>
+                    <div class="absolute bottom-3 left-0 right-0 text-center">
+                        <span class="bg-amber-500 text-slate-950 text-[10px] font-bold px-3 py-1 rounded-full shadow-md">ทรงพระเจริญ</span>
+                    </div>
+                </div>
+
+                <div class="flex-1 space-y-4">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-400/60 text-xs font-bold shadow-sm">
+                        <i class="fas fa-crown text-amber-400"></i> สมเด็จพระเจ้าลูกเธอ เจ้าฟ้าพัชรกิติยาภา นเรนทิราเทพยวดีกรมหลวงราชสาริณีสิริพัชร มหาวัชรราชธิดา
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight" style="text-shadow: 0 0 20px rgba(234, 179, 8, 0.6);">
+                        หมู่บ้านกองทุนแม่ของแผ่นดิน <span class="text-amber-400">บ้านร่องเข็ม หมู่ 6</span>
+                    </h2>
+                    <p class="text-slate-300 text-sm md:text-base leading-relaxed max-w-2xl">
+                        ด้วยสำนึกในพระมหากรุณาธิคุณอันหาที่สุดมิได้ ชาวบ้านร่องเข็ม หมู่ที่ 6 ตำบลจำป่าหวาย อำเภอเมืองพะเยา จังหวัดพะเยา ได้ร่วมใจกันขับเคลื่อนปรัชญาและกองทุนแม่ของแผ่นดิน เพื่อพลังแห่งความสามัคคี การเอาชนะยาเสพติด และการพัฒนาชุมชนให้มีความมั่นคง มั่งคั่ง ยั่งยืน ภายใต้ <b>"ร่องเข็มโมเดล"</b>
+                    </p>
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-2">
+                        <div class="bg-blue-900/60 border border-amber-400/40 px-5 py-3 rounded-2xl text-center">
+                            <p class="text-[11px] text-amber-300 font-medium">กองทุนชุมชน</p>
+                            <p class="text-base font-bold text-white">เข้มแข็ง มั่นคง</p>
+                        </div>
+                        <div class="bg-blue-900/60 border border-amber-400/40 px-5 py-3 rounded-2xl text-center">
+                            <p class="text-[11px] text-amber-300 font-medium">สถานะหมู่บ้าน</p>
+                            <p class="text-base font-bold text-emerald-400">สีขาว ปลอดยาเสพติด</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
         <div class="portal-card rounded-3xl p-8 md:p-12 relative overflow-hidden bg-gradient-to-br from-white via-emerald-50/50 to-teal-50/70 border border-emerald-200 shadow-xl" data-aos="fade-up" data-aos-duration="1000">
             <div class="absolute right-0 top-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
             <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
@@ -168,7 +211,6 @@
                     </div>
                 </div>
 
-                <!-- 👑 รูปผู้นำ / โลโก้โครงการเด่น -->
                 <div class="w-full lg:w-80 shrink-0 text-center flex flex-col items-center" data-aos="zoom-in" data-aos-delay="200">
                     <div class="w-64 h-80 rounded-2xl bg-white border-2 border-amber-400/80 overflow-hidden shadow-2xl relative floating">
                         <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=400" alt="ผู้นำชุมชน" class="w-full h-full object-cover transform hover:scale-105 transition duration-700">
@@ -181,14 +223,13 @@
             </div>
         </div>
 
-        <!-- 📊 Dashboard & เมนูบริการชุมชนครบทุกมิติ -->
+        <!-- Dashboard & Services -->
         <div id="dashboard" class="space-y-6" data-aos="fade-up" data-aos-duration="800">
             <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
                 <i class="fas fa-th-large text-emerald-600"></i> ระบบบริหารชุมชน & สวัสดิการ (Smart Village Services)
             </h3>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- 1. ทะเบียนประชากร -->
                 <a href="#population" class="portal-card rounded-2xl p-6 block group">
                     <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl mb-4 border border-emerald-200 group-hover:bg-emerald-600 group-hover:text-white transition duration-300">
                         <i class="fas fa-users"></i>
@@ -198,7 +239,6 @@
                     <span class="text-xs text-emerald-600 font-semibold group-hover:underline flex items-center gap-1">จัดการข้อมูลประชากร →</span>
                 </a>
 
-                <!-- 2. ผู้สูงอายุ -->
                 <div class="portal-card rounded-2xl p-6 group">
                     <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl mb-4 border border-amber-200 group-hover:bg-amber-500 group-hover:text-white transition duration-300">
                         <i class="fas fa-user-friends"></i>
@@ -208,7 +248,6 @@
                     <span class="text-xs text-emerald-600 font-semibold group-hover:underline flex items-center gap-1">ดูข้อมูลผู้สูงอายุ →</span>
                 </div>
 
-                <!-- 3. กลุ่มเปราะบาง -->
                 <div class="portal-card rounded-2xl p-6 group">
                     <div class="w-12 h-12 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center text-xl mb-4 border border-rose-200 group-hover:bg-rose-600 group-hover:text-white transition duration-300">
                         <i class="fas fa-hands-helping"></i>
@@ -218,7 +257,6 @@
                     <span class="text-xs text-emerald-600 font-semibold group-hover:underline flex items-center gap-1">ตรวจสอบกลุ่มเปราะบาง →</span>
                 </div>
 
-                <!-- 4. สุขภาพ อสม. -->
                 <div class="portal-card rounded-2xl p-6 group">
                     <div class="w-12 h-12 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center text-xl mb-4 border border-teal-200 group-hover:bg-teal-600 group-hover:text-white transition duration-300">
                         <i class="fas fa-heartbeat"></i>
@@ -230,13 +268,12 @@
             </div>
         </div>
 
-        <!-- 🌱 สิ่งแวดล้อม แหล่งน้ำ IoT & PM2.5 -->
+        <!-- Resources & IoT -->
         <div id="resources" class="space-y-6" data-aos="fade-up" data-aos-duration="800">
             <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
                 <i class="fas fa-seedling text-emerald-600"></i> ทรัพยากร สิ่งแวดล้อม & IoT อัจฉริยะ
             </h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- แหล่งซับน้ำจำ -->
                 <div class="portal-card rounded-2xl p-6 group">
                     <div class="w-12 h-12 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center text-xl mb-4 border border-cyan-200 group-hover:bg-cyan-600 group-hover:text-white transition duration-300">
                         <i class="fas fa-water"></i>
@@ -246,7 +283,6 @@
                     <span class="text-xs text-emerald-600 font-semibold group-hover:underline">ดูสถานะน้ำจำ →</span>
                 </div>
 
-                <!-- ตรวจวัด PM2.5 -->
                 <div class="portal-card rounded-2xl p-6 group">
                     <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl mb-4 border border-amber-200 group-hover:bg-amber-500 group-hover:text-white transition duration-300">
                         <i class="fas fa-smog"></i>
@@ -256,7 +292,6 @@
                     <span class="text-xs text-emerald-600 font-semibold group-hover:underline">ตรวจสอบสภาพอากาศ →</span>
                 </div>
 
-                <!-- กลุ่มข้าวสารบ้านร่องเข็ม -->
                 <div class="portal-card rounded-2xl p-6 group">
                     <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl mb-4 border border-emerald-200 group-hover:bg-emerald-600 group-hover:text-white transition duration-300">
                         <i class="fas fa-shopping-basket"></i>
@@ -268,13 +303,12 @@
             </div>
         </div>
 
-        <!-- 🛡️ งานบริการ ความปลอดภัย & วัด/ศาสนา -->
+        <!-- Services & Security -->
         <div id="services" class="space-y-6" data-aos="fade-up" data-aos-duration="800">
             <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
                 <i class="fas fa-shield-alt text-emerald-600"></i> ความปลอดภัย, ภัยพิบัติ & วัฒนธรรมชุมชน
             </h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- ชรบ. -->
                 <div class="portal-card rounded-2xl p-6">
                     <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl mb-4 border border-blue-200">
                         <i class="fas fa-user-shield"></i>
@@ -284,7 +318,6 @@
                     <span class="text-xs text-emerald-600 font-semibold">ดูภารกิจ ชรบ. →</span>
                 </div>
 
-                <!-- อปพร. -->
                 <div class="portal-card rounded-2xl p-6">
                     <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl mb-4 border border-amber-200">
                         <i class="fas fa-fire-extinguisher"></i>
@@ -294,7 +327,6 @@
                     <span class="text-xs text-emerald-600 font-semibold">ศูนย์บรรเทาสภัย →</span>
                 </div>
 
-                <!-- วัดร่องเข็ม -->
                 <div class="portal-card rounded-2xl p-6">
                     <div class="w-12 h-12 rounded-xl bg-yellow-50 text-yellow-600 flex items-center justify-center text-xl mb-4 border border-yellow-200">
                         <i class="fas fa-vihara"></i>
@@ -306,21 +338,20 @@
             </div>
         </div>
 
-        <!-- 👥 ทะเบียนประชากร & ระบบจัดการข้อมูล (Interactive Feature ตามตัวอย่างผู้ใช้) -->
+        <!-- Population Data Section -->
         <div id="population" class="portal-card rounded-3xl p-6 md:p-8 space-y-6" data-aos="fade-up" data-aos-duration="800">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-emerald-100 pb-4">
                 <div>
                     <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
                         <i class="fas fa-users text-emerald-600"></i> ทะเบียนประชาชน & บันทึกข้อมูลประชากร
                     </h3>
-                    <p class="text-xs text-slate-500 mt-1">บันทึกและจัดการข้อมูลสมาชิกในครัวเรือน บ้านร่องเข็ม หมู่ 6</p>
+                    <p class="text-xs text-slate-500 mt-1">บันทึกและจัดการข้อมูลสมาชิกในครัวเรือน บ้านร่องเข็ม หมู่ 6 (ทุกคนเปิดดูได้ / แอดมินจัดการ)</p>
                 </div>
                 <button onclick="openPopulationModal()" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold px-5 py-3 rounded-xl transition shadow-md flex items-center gap-2">
                     <i class="fas fa-plus-circle"></i> บันทึก / แก้ไข ข้อมูลประชากร
                 </button>
             </div>
 
-            <!-- ตารางรายชื่อประชากรในระบบ -->
             <div class="overflow-x-auto">
                 <table class="w-full text-left border-collapse text-xs">
                     <thead>
@@ -355,7 +386,7 @@
             </div>
         </div>
 
-        <!-- 📢 ข่าวสารประชาสัมพันธ์ & แจ้งเรื่องร้องเรียน -->
+        <!-- News & Complaint Section -->
         <div id="news" class="space-y-6" data-aos="fade-up" data-aos-duration="800">
             <div class="flex justify-between items-center">
                 <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
@@ -383,14 +414,13 @@
 
     </main>
 
-    <!-- 🤖 AI Assistant Floating Chat Widget -->
+    <!-- AI Assistant Floating Chat Widget -->
     <div class="fixed bottom-6 right-6 z-50">
         <button id="aiToggleBtn" onclick="toggleAIChat()" class="w-14 h-14 bg-gradient-to-tr from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white rounded-full shadow-2xl flex items-center justify-center text-xl transition transform hover:scale-110 relative group">
             <i class="fas fa-robot animate-bounce"></i>
             <span class="absolute -top-1 -right-1 w-4 h-4 bg-emerald-400 rounded-full border-2 border-white live-dot"></span>
         </button>
 
-        <!-- หน้าต่างแชท AI -->
         <div id="aiChatWindow" class="hidden absolute bottom-20 right-0 w-80 md:w-96 bg-white rounded-3xl shadow-2xl border border-emerald-100 overflow-hidden flex flex-col transition-all duration-300 transform scale-95 opacity-0 origin-bottom-right">
             <div class="bg-gradient-to-r from-emerald-700 to-teal-800 text-white p-4 flex justify-between items-center">
                 <div class="flex items-center gap-2.5">
@@ -411,13 +441,13 @@
                 <div class="flex items-start gap-2">
                     <div class="w-7 h-7 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs shrink-0"><i class="fas fa-robot"></i></div>
                     <div class="bg-white p-3 rounded-2xl rounded-tl-none border border-slate-200 text-slate-700 shadow-sm max-w-[80%] leading-relaxed">
-                        สวัสดีครับ! ผมคือผู้ช่วย AI ของศูนย์ข้อมูลอัจฉริยะ <b>บ้านร่องเข็ม หมู่ 6</b> ต.จำป่าหวาย อ.เมืองพะเยา มีอะไรให้ผมช่วยแนะนำหรือค้นหาข้อมูลไหมครับ? (เช่น ทะเบียนประชากร, น้ำจำ IoT, ร้องเรียน, เบอร์ผู้ใหญ่บ้าน)
+                        สวัสดีครับ! ผมคือผู้ช่วย AI ของศูนย์ข้อมูลอัจฉริยะและหมู่บ้านกองทุนแม่ของแผ่นดิน <b>บ้านร่องเข็ม หมู่ 6</b> มีอะไรให้ผมช่วยแนะนำไหมครับ?
                     </div>
                 </div>
             </div>
 
             <div class="px-3 py-2 bg-slate-100 border-t border-slate-200 flex gap-1.5 overflow-x-auto text-[10px] whitespace-nowrap">
-                <button onclick="sendQuickQuery('ร่องเข็มโมเดลคืออะไร?')" class="bg-white hover:bg-emerald-50 text-emerald-700 border border-emerald-200 px-2.5 py-1 rounded-full transition shadow-sm">🌿 ร่องเข็มโมเดล</button>
+                <button onclick="sendQuickQuery('กองทุนแม่ของแผ่นดินคืออะไร?')" class="bg-white hover:bg-emerald-50 text-emerald-700 border border-emerald-200 px-2.5 py-1 rounded-full transition shadow-sm">👑 กองทุนแม่ของแผ่นดิน</button>
                 <button onclick="sendQuickQuery('เบอร์ติดต่อผู้ใหญ่บ้าน')" class="bg-white hover:bg-emerald-50 text-emerald-700 border border-emerald-200 px-2.5 py-1 rounded-full transition shadow-sm">📞 เบอร์ผู้ใหญ่บ้าน</button>
                 <button onclick="sendQuickQuery('สถานะน้ำจำ IoT')" class="bg-white hover:bg-emerald-50 text-emerald-700 border border-emerald-200 px-2.5 py-1 rounded-full transition shadow-sm">💧 น้ำจำ & IoT</button>
             </div>
@@ -431,7 +461,7 @@
         </div>
     </div>
 
-    <!-- Modal: บันทึกข้อมูลประชากร -->
+    <!-- Modal: Population Form -->
     <div id="populationModal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl shadow-2xl max-w-md w-full p-6 md:p-8 relative border border-emerald-100 transform transition-all scale-95 opacity-0 duration-300" id="popModalContent">
             <div class="flex justify-between items-center mb-6">
@@ -442,158 +472,38 @@
                     <i class="fas fa-times text-lg"></i>
                 </button>
             </div>
-            <form id="popForm" onsubmit="savePopulation(event)" class="space-y-4 text-xs">
+            <form id="popForm" onsubmit="savePopulation(event)" class="space-y-4">
+                <input type="hidden" id="editIndex" value="-1">
                 <div>
-                    <label class="block font-bold text-slate-700 mb-1.5">บ้านเลขที่ *</label>
-                    <input type="text" id="popHouseNo" required placeholder="เช่น 12/1" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-emerald-500 transition">
+                    <label class="block text-xs font-bold text-slate-700 mb-1">บ้านเลขที่</label>
+                    <input type="text" id="modalHouseNo" required placeholder="เช่น 12/1" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-emerald-500">
                 </div>
                 <div>
-                    <label class="block font-bold text-slate-700 mb-1.5">ชื่อ - นามสกุล *</label>
-                    <input type="text" id="popName" required placeholder="เช่น นายสมชาย ใจดี" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-emerald-500 transition">
+                    <label class="block text-xs font-bold text-slate-700 mb-1">ชื่อ - นามสกุล</label>
+                    <input type="text" id="modalFullName" required placeholder="เช่น นายสมชาย ใจดี" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-emerald-500">
                 </div>
                 <div>
-                    <label class="block font-bold text-slate-700 mb-1.5">กลุ่มสวัสดิการ *</label>
-                    <select id="popGroup" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-emerald-500 transition">
+                    <label class="block text-xs font-bold text-slate-700 mb-1">กลุ่มสวัสดิการ</label>
+                    <select id="modalWelfareGroup" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-emerald-500">
                         <option value="ประชาชนทั่วไป">ประชาชนทั่วไป</option>
                         <option value="ผู้สูงอายุ">ผู้สูงอายุ</option>
-                        <option value="กลุ่มเปราะบาง / ผู้พิการ">กลุ่มเปราะบาง / ผู้พิการ</option>
+                        <option value="ผู้ป่วยติดเตียง">ผู้ป่วยติดเตียง</option>
+                        <option value="อสม.">อสม.</option>
                     </select>
                 </div>
-                <div class="flex justify-end gap-3 pt-2">
-                    <button type="button" onclick="closePopulationModal()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold py-3 px-6 rounded-xl transition">ยกเลิก</button>
-                    <button type="submit" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 px-8 rounded-xl transition shadow-md">💾 บันทึกข้อมูลประชากร</button>
+                <div class="pt-4 flex gap-3">
+                    <button type="button" onclick="closePopulationModal()" class="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold py-2.5 rounded-xl text-xs transition">ยกเลิก</button>
+                    <button type="submit" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-2.5 rounded-xl text-xs transition shadow-md">บันทึกข้อมูล</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- Modal: Admin Login -->
-    <div id="adminModal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl shadow-2xl max-w-sm w-full p-6 md:p-8 relative border border-emerald-100 text-center">
-            <div class="w-16 h-16 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-2xl mx-auto mb-4">
-                <i class="fas fa-key"></i>
-            </div>
-            <h4 class="font-bold text-slate-900 text-lg mb-1">ผู้ดูแลระบบ (Admin Center)</h4>
-            <p class="text-xs text-slate-500 mb-4">ผู้ใหญ่บ้าน: นายศักรนนทน์ ขัติย์วงศ์</p>
-            <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-4 mb-6 text-left text-xs space-y-2">
-                <p class="font-bold text-emerald-900"><i class="fas fa-shield-alt text-emerald-600 mr-1"></i> สถานะ: ยืนยันตัวตนสำเร็จ</p>
-                <p class="text-slate-600">ยินดีต้อนรับเข้าสู่ระบบบริหารจัดการหลังบ้าน ร่องเข็มโมเดล v4.1</p>
-            </div>
-            <button onclick="closeAdminLogin()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl text-xs transition shadow-md">เข้าสู่หน้าจัดการระบบ</button>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-300 text-xs mt-auto py-10 px-8 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            <div>
-                <h5 class="font-bold text-white text-sm mb-2">หมู่บ้านอัจฉริยะร่องเข็ม</h5>
-                <p class="text-slate-400 leading-relaxed">บ้านร่องเข็ม หมู่ที่ 6 ตำบลจำป่าหวาย อำเภอเมืองพะเยา จังหวัดพะเยา 56000</p>
-            </div>
-            <div>
-                <h5 class="font-bold text-white text-sm mb-2">เกี่ยวกับโครงการ</h5>
-                <p class="text-slate-400">ร่องเข็มโมเดล Version 4.1 (Smart Village 2026)</p>
-                <p class="text-slate-400">อีเมล: rongkhem.smartvillage@gmail.com</p>
-            </div>
-            <div>
-                <h5 class="font-bold text-white text-sm mb-2">ผู้บริหารจัดการระบบ</h5>
-                <p class="text-emerald-400 font-medium text-sm">นายศักรนนทน์ ขัติย์วงศ์</p>
-                <p class="text-slate-400">ผู้ใหญ่บ้าน บ้านร่องเข็ม หมู่ 6 ต.จำป่าหวาย อ.เมือง จ.พะเยา</p>
-            </div>
-        </div>
-        <div class="border-t border-slate-800 pt-6 text-center text-slate-500">
-            © 2026 หมู่บ้านอัจฉริยะร่องเข็ม (Rongkhem Smart Village). | ร่องเข็มโมเดล Version 4.1
-        </div>
-    </footer>
-
-    <!-- AOS Animation Script -->
+    <!-- AOS & JavaScript Functions -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ once: true, offset: 50, duration: 800 });
+        AOS.init({ once: true });
 
-        // ควบคุม Modal ทะเบียนประชากร
-        function openPopulationModal() {
-            const modal = document.getElementById('populationModal');
-            const content = document.getElementById('popModalContent');
-            modal.classList.remove('hidden');
-            setTimeout(() => {
-                content.classList.remove('scale-95', 'opacity-0');
-                content.classList.add('scale-100', 'opacity-100');
-            }, 10);
-        }
-
-        function closePopulationModal() {
-            const modal = document.getElementById('populationModal');
-            const content = document.getElementById('popModalContent');
-            content.classList.remove('scale-100', 'opacity-100');
-            content.classList.add('scale-95', 'opacity-0');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-                document.getElementById('popForm').reset();
-            }, 300);
-        }
-
-        // บันทึกข้อมูลประชากรใหม่ลงตาราง
-        function savePopulation(event) {
-            event.preventDefault();
-            const houseNo = document.getElementById('popHouseNo').value;
-            const name = document.getElementById('popName').value;
-            const group = document.getElementById('popGroup').value;
-
-            let badgeColor = 'bg-blue-100 text-blue-800';
-            if (group.includes('ผู้สูงอายุ')) badgeColor = 'bg-amber-100 text-amber-800';
-            if (group.includes('เปราะบาง')) badgeColor = 'bg-rose-100 text-rose-800';
-
-            const tbody = document.getElementById('populationTableBody');
-            const tr = document.createElement('tr');
-            tr.className = 'hover:bg-slate-50/80 transition';
-            tr.innerHTML = `
-                <td class="p-3 font-medium text-slate-700">${houseNo}</td>
-                <td class="p-3 font-bold text-slate-900">${name}</td>
-                <td class="p-3"><span class="${badgeColor} px-2.5 py-1 rounded-full text-[10px] font-semibold">${group}</span></td>
-                <td class="p-3 text-center">
-                    <button onclick="editRow(this)" class="text-amber-600 hover:text-amber-700 mx-1 font-medium"><i class="fas fa-edit"></i> แก้ไข</button>
-                    <button onclick="deleteRow(this)" class="text-rose-600 hover:text-rose-700 mx-1 font-medium"><i class="fas fa-trash-alt"></i> ลบ</button>
-                </td>
-            `;
-            tbody.appendChild(tr);
-            closePopulationModal();
-            alert('บันทึกข้อมูลประชากรเรียบร้อยแล้ว!');
-        }
-
-        function deleteRow(btn) {
-            if (confirm('คุณต้องการลบข้อมูลนี้ใช่หรือไม่?')) {
-                const row = btn.closest('tr');
-                row.remove();
-            }
-        }
-
-        function editRow(btn) {
-            const row = btn.closest('tr');
-            const houseNo = row.cells[0].innerText;
-            const name = row.cells[1].innerText;
-            
-            document.getElementById('popHouseNo').value = houseNo;
-            document.getElementById('popName').value = name;
-            openPopulationModal();
-            row.remove();
-        }
-
-        // Admin Modal
-        function openAdminLogin() {
-            const modal = document.getElementById('adminModal');
-            modal.classList.remove('hidden');
-        }
-        function closeAdminLogin() {
-            const modal = document.getElementById('adminModal');
-            modal.classList.add('hidden');
-        }
-
-        function openComplaintModal() {
-            alert('เปิดศูนย์รับเรื่องร้องเรียน: ข้อมูลจะส่งตรงถึงผู้ใหญ่บ้าน นายศักรนนทน์ ขัติย์วงศ์ ทันทีครับ');
-        }
-
-        // AI Chat Control
         function toggleAIChat() {
             const chatWin = document.getElementById('aiChatWindow');
             if (chatWin.classList.contains('hidden')) {
@@ -605,66 +515,136 @@
             } else {
                 chatWin.classList.remove('scale-100', 'opacity-100');
                 chatWin.classList.add('scale-95', 'opacity-0');
-                setTimeout(() => { chatWin.classList.add('hidden'); }, 300);
+                setTimeout(() => {
+                    chatWin.classList.add('hidden');
+                }, 300);
             }
-        }
-
-        function getAIResponse(query) {
-            query = query.toLowerCase();
-            if (query.includes('ร่องเข็มโมเดล') || query.includes('โครงการ')) {
-                return "ร่องเข็มโมเดล Version 4.1 คือโครงการพัฒนาระบบสารสนเทศและนวัตกรรมดิจิทัลเพื่อสนับสนุนการบริหารงานชุมชน การดูแลสุขภาพ สิ่งแวดล้อม และสวัสดิการอย่างยั่งยืนของบ้านร่องเข็ม หมู่ 6 ครับ";
-            } else if (query.includes('เบอร์') || query.includes('ติดต่อ') || query.includes('ผู้ใหญ่บ้าน')) {
-                return "สามารถติดต่อผู้ใหญ่บ้าน (นายศักรนนทน์ ขัติย์วงศ์) ผู้ดูแลระบบ ได้ที่เบอร์ 08x-xxx-xxxx ครับ";
-            } else if (query.includes('น้ำจำ') || query.includes('iot') || query.includes('แหล่งน้ำ')) {
-                return "โครงการพัฒนาแหล่งซับน้ำจำ มีระบบตรวจวัดคุณภาพน้ำอัจฉริยะ (IoT) และดูแลป่าชุมชนเพื่อความยั่งยืนครับ";
-            } else if (query.includes('ร้องเรียน') || query.includes('แจ้งปัญหา')) {
-                return "คุณสามารถคลิกปุ่ม 'แจ้งเรื่องร้องเรียนออนไลน์' บนหน้าเว็บเพื่อส่งเรื่องตรงถึงผู้ใหญ่บ้านได้ทันทีครับ";
-            } else {
-                return "ขอบคุณสำหรับคำถามเกี่ยวกับ '" + query + "' ค่ะ/ครับ ร่องเข็มโมเดล v4.1 พร้อมให้บริการข้อมูลทะเบียนประชากร สุขภาพ อสม. และสิ่งแวดล้อมอย่างครบถ้วน!";
-            }
-        }
-
-        function appendMessage(sender, text) {
-            const chatMessages = document.getElementById('chatMessages');
-            const isUser = sender === 'user';
-            const msgDiv = document.createElement('div');
-            msgDiv.className = `flex items-start gap-2 ${isUser ? 'flex-row-reverse' : ''}`;
-            msgDiv.innerHTML = `
-                <div class="w-7 h-7 rounded-full ${isUser ? 'bg-slate-800' : 'bg-emerald-600'} text-white flex items-center justify-center text-xs shrink-0">
-                    <i class="fas ${isUser ? 'fa-user' : 'fa-robot'}"></i>
-                </div>
-                <div class="${isUser ? 'bg-emerald-600 text-white rounded-tr-none' : 'bg-white text-slate-700 border border-slate-200 rounded-tl-none'} p-3 rounded-2xl shadow-sm max-w-[80%] leading-relaxed">
-                    ${text}
-                </div>
-            `;
-            chatMessages.appendChild(msgDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
         }
 
         function sendMessage() {
             const input = document.getElementById('userInput');
             const text = input.value.trim();
             if (!text) return;
-            appendMessage('user', text);
+            appendMessage(text, 'user');
             input.value = '';
+            
             setTimeout(() => {
-                const response = getAIResponse(text);
-                appendMessage('ai', response);
-            }, 500);
+                let reply = "ขอบคุณสำหรับคำถามครับ ศูนย์ข้อมูลอัจฉริยะ บ้านร่องเข็ม หมู่ 6 พร้อมให้บริการข้อมูลครับ";
+                if (text.includes("ผู้ใหญ่บ้าน") || text.includes("เบอร์")) {
+                    reply = "📞 สายด่วนผู้ใหญ่บ้าน นายศักรนนทน์ ขัติย์วงศ์ โทร: 08x-xxx-xxxx ครับ";
+                } else if (text.includes("กองทุนแม่")) {
+                    reply = "👑 บ้านร่องเข็ม หมู่ 6 เป็นหมู่บ้านกองทุนแม่ของแผ่นดิน มุ่งเน้นความสามัคคีและป้องกันยาเสพติด";
+                } else if (text.includes("น้ำจำ") || text.includes("IoT")) {
+                    reply = "💧 โครงการแหล่งซับน้ำจำ หมู่ 6 มีระบบตรวจวัดคุณภาพน้ำ IoT และป่าชุมชนอัจฉริยะ";
+                }
+                appendMessage(reply, 'bot');
+            }, 600);
         }
 
-        function sendQuickQuery(queryText) {
-            appendMessage('user', queryText);
-            setTimeout(() => {
-                const response = getAIResponse(queryText);
-                appendMessage('ai', response);
-            }, 500);
+        function sendQuickQuery(query) {
+            document.getElementById('userInput').value = query;
+            sendMessage();
         }
 
         function handleKeyPress(e) {
             if (e.key === 'Enter') sendMessage();
         }
-    </script>
 
+        function appendMessage(text, sender) {
+            const msgBox = document.getElementById('chatMessages');
+            const div = document.createElement('div');
+            if (sender === 'user') {
+                div.className = 'flex items-end justify-end gap-2';
+                div.innerHTML = `<div class="bg-emerald-600 text-white p-3 rounded-2xl rounded-tr-none shadow-sm max-w-[80%] leading-relaxed">${text}</div><div class="w-7 h-7 rounded-full bg-slate-800 text-white flex items-center justify-center text-xs shrink-0"><i class="fas fa-user"></i></div>`;
+            } else {
+                div.className = 'flex items-start gap-2';
+                div.innerHTML = `<div class="w-7 h-7 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs shrink-0"><i class="fas fa-robot"></i></div><div class="bg-white p-3 rounded-2xl rounded-tl-none border border-slate-200 text-slate-700 shadow-sm max-w-[80%] leading-relaxed">${text}</div>`;
+            }
+            msgBox.appendChild(div);
+            msgBox.scrollTop = msgBox.scrollHeight;
+        }
+
+        function openPopulationModal() {
+            document.getElementById('editIndex').value = '-1';
+            document.getElementById('modalHouseNo').value = '';
+            document.getElementById('modalFullName').value = '';
+            const modal = document.getElementById('populationModal');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                document.getElementById('popModalContent').classList.remove('scale-95', 'opacity-0');
+                document.getElementById('popModalContent').classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function closePopulationModal() {
+            document.getElementById('popModalContent').classList.remove('scale-100', 'opacity-100');
+            document.getElementById('popModalContent').classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                document.getElementById('populationModal').classList.add('hidden');
+            }, 300);
+        }
+
+        function savePopulation(e) {
+            e.preventDefault();
+            const houseNo = document.getElementById('modalHouseNo').value;
+            const fullName = document.getElementById('modalFullName').value;
+            const welfare = document.getElementById('modalWelfareGroup').value;
+            const editIndex = parseInt(document.getElementById('editIndex').value);
+            
+            const tbody = document.getElementById('populationTableBody');
+            let badgeColor = 'bg-blue-100 text-blue-800';
+            if (welfare === 'ผู้สูงอายุ') badgeColor = 'bg-amber-100 text-amber-800';
+            if (welfare === 'ผู้ป่วยติดเตียง') badgeColor = 'bg-rose-100 text-rose-800';
+            if (welfare === 'อสม.') badgeColor = 'bg-teal-100 text-teal-800';
+
+            if (editIndex > -1) {
+                const row = tbody.rows[editIndex];
+                row.cells[0].innerText = houseNo;
+                row.cells[1].innerText = fullName;
+                row.cells[2].innerHTML = `<span class="${badgeColor} px-2.5 py-1 rounded-full text-[10px] font-semibold">${welfare}</span>`;
+                alert("✅ อัปเดตข้อมูลประชากรสำเร็จ");
+            } else {
+                const newRow = tbody.insertRow();
+                newRow.className = 'hover:bg-slate-50/80 transition';
+                newRow.innerHTML = `
+                    <td class="p-3 font-medium text-slate-700">${houseNo}</td>
+                    <td class="p-3 font-bold text-slate-900">${fullName}</td>
+                    <td class="p-3"><span class="${badgeColor} px-2.5 py-1 rounded-full text-[10px] font-semibold">${welfare}</span></td>
+                    <td class="p-3 text-center">
+                        <button onclick="editRow(this)" class="text-amber-600 hover:text-amber-700 mx-1 font-medium"><i class="fas fa-edit"></i> แก้ไข</button>
+                        <button onclick="deleteRow(this)" class="text-rose-600 hover:text-rose-700 mx-1 font-medium"><i class="fas fa-trash-alt"></i> ลบ</button>
+                    </td>
+                `;
+                alert("✅ บันทึกข้อมูลประชากรสำเร็จ");
+            }
+            closePopulationModal();
+        }
+
+        function editRow(btn) {
+            const row = btn.closest('tr');
+            const index = row.rowIndex - 1;
+            document.getElementById('editIndex').value = index;
+            document.getElementById('modalHouseNo').value = row.cells[0].innerText;
+            document.getElementById('modalFullName').value = row.cells[1].innerText;
+            document.getElementById('modalWelfareGroup').value = row.cells[2].innerText.trim();
+            openPopulationModal();
+        }
+
+        function deleteRow(btn) {
+            if (confirm("คุณต้องการลบข้อมูลนี้ใช่หรือไม่?")) {
+                const row = btn.closest('tr');
+                row.remove();
+                alert("🗑️ ลบข้อมูลเรียบร้อยแล้ว");
+            }
+        }
+
+        function openAdminLogin() {
+            window.location.href = "login.html";
+        }
+
+        function openComplaintModal() {
+            alert("📝 ระบบแจ้งเรื่องร้องเรียนออนไลน์ ส่งตรงถึงผู้ใหญ่บ้านและคณะกรรมการหมู่บ้านร่องเข็ม หมู่ 6 เรียบร้อย");
+        }
+    </script>
 </body>
 </html>
