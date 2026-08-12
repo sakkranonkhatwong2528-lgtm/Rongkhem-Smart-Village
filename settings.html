@@ -1,0 +1,2530 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ตั้งค่าระบบ | ร่องเข็ม Smart Village</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:"Segoe UI","Noto Sans Thai",Tahoma,sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+    color:#172033;
+}
+
+/* =========================
+TOPBAR
+========================= */
+
+.topbar{
+    height:68px;
+    background:#031d38;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 25px;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:1000;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:#f4c52d;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+}
+
+.brand h2{
+    font-size:17px;
+}
+
+.brand small{
+    color:#aebdcb;
+    font-size:10px;
+}
+
+.top-icons{
+    font-size:19px;
+}
+
+.mobile-toggle{
+    display:none;
+    font-size:24px;
+    cursor:pointer;
+}
+
+/* =========================
+SIDEBAR
+========================= */
+
+.sidebar{
+    position:fixed;
+    top:68px;
+    left:0;
+    bottom:0;
+    width:250px;
+    background:#061f39;
+    color:#fff;
+    padding:20px 14px;
+    overflow-y:auto;
+    z-index:900;
+}
+
+.profile{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:8px 8px 22px;
+    border-bottom:1px solid rgba(255,255,255,.1);
+    margin-bottom:15px;
+}
+
+.avatar{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:23px;
+}
+
+.profile strong{
+    font-size:14px;
+}
+
+.profile small{
+    display:block;
+    color:#9eafbf;
+    margin-top:4px;
+}
+
+.menu{
+    list-style:none;
+}
+
+.menu li{
+    margin-bottom:4px;
+}
+
+.menu a{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:12px 14px;
+    border-radius:8px;
+    color:#c8d3df;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.menu a:hover,
+.menu a.active{
+    background:#087be9;
+    color:#fff;
+}
+
+/* =========================
+MAIN
+========================= */
+
+.main{
+    margin-left:250px;
+    padding:95px 30px 40px;
+}
+
+.page-header{
+    margin-bottom:25px;
+}
+
+.page-header h1{
+    color:#092b4d;
+    font-size:29px;
+}
+
+.page-header p{
+    color:#7c8793;
+    margin-top:5px;
+    font-size:14px;
+}
+
+/* =========================
+LAYOUT
+========================= */
+
+.settings-layout{
+    display:grid;
+    grid-template-columns:230px 1fr;
+    gap:20px;
+}
+
+/* =========================
+SETTINGS MENU
+========================= */
+
+.settings-menu{
+    background:#fff;
+    border:1px solid #e7ebf0;
+    border-radius:14px;
+    padding:10px;
+    height:max-content;
+    box-shadow:0 4px 18px rgba(20,45,70,.06);
+}
+
+.settings-menu button{
+    width:100%;
+    border:0;
+    background:transparent;
+    padding:13px 14px;
+    text-align:left;
+    border-radius:8px;
+    cursor:pointer;
+    color:#64717e;
+    font-size:13px;
+    margin-bottom:3px;
+}
+
+.settings-menu button:hover,
+.settings-menu button.active{
+    background:#eaf3ff;
+    color:#0875d9;
+    font-weight:bold;
+}
+
+/* =========================
+PANEL
+========================= */
+
+.settings-content{
+    min-width:0;
+}
+
+.panel{
+    display:none;
+    background:#fff;
+    border:1px solid #e7ebf0;
+    border-radius:14px;
+    box-shadow:0 4px 18px rgba(20,45,70,.06);
+    overflow:hidden;
+}
+
+.panel.active{
+    display:block;
+}
+
+.panel-header{
+    padding:20px 24px;
+    border-bottom:1px solid #edf0f4;
+}
+
+.panel-header h2{
+    color:#173452;
+    font-size:19px;
+}
+
+.panel-header p{
+    color:#7c8793;
+    font-size:12px;
+    margin-top:5px;
+}
+
+.panel-body{
+    padding:24px;
+}
+
+/* =========================
+FORM
+========================= */
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+}
+
+.form-group.full{
+    grid-column:1/-1;
+}
+
+.form-group label{
+    color:#475565;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    padding:11px 12px;
+    border:1px solid #dce2e8;
+    border-radius:7px;
+    outline:none;
+    background:#fff;
+}
+
+.form-group textarea{
+    min-height:100px;
+    resize:vertical;
+}
+
+.save-btn{
+    margin-top:22px;
+    border:0;
+    background:#087be9;
+    color:#fff;
+    padding:12px 22px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* =========================
+SYSTEM INFO
+========================= */
+
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.info-box{
+    border:1px solid #e4e9ee;
+    border-radius:10px;
+    padding:18px;
+    background:#fafbfd;
+}
+
+.info-box .icon{
+    font-size:25px;
+}
+
+.info-box small{
+    display:block;
+    color:#7b8793;
+    margin-top:8px;
+}
+
+.info-box strong{
+    display:block;
+    color:#173452;
+    margin-top:4px;
+}
+
+/* =========================
+BACKUP
+========================= */
+
+.backup-list{
+    display:grid;
+    gap:12px;
+}
+
+.backup-item{
+    border:1px solid #e2e8ee;
+    border-radius:10px;
+    padding:16px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+}
+
+.backup-item h3{
+    font-size:14px;
+    color:#173452;
+}
+
+.backup-item p{
+    font-size:11px;
+    color:#7b8793;
+    margin-top:4px;
+}
+
+.backup-actions{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    border:0;
+    border-radius:7px;
+    padding:9px 14px;
+    cursor:pointer;
+    font-size:12px;
+}
+
+.btn-blue{
+    background:#087be9;
+    color:#fff;
+}
+
+.btn-green{
+    background:#15965b;
+    color:#fff;
+}
+
+.btn-orange{
+    background:#e69b14;
+    color:#fff;
+}
+
+.btn-red{
+    background:#e84b4b;
+    color:#fff;
+}
+
+/* =========================
+DANGER
+========================= */
+
+.danger{
+    border:1px solid #f0caca;
+    background:#fff8f8;
+    border-radius:10px;
+    padding:18px;
+}
+
+.danger h3{
+    color:#c73838;
+    font-size:15px;
+}
+
+.danger p{
+    color:#7d6a6a;
+    font-size:12px;
+    margin-top:6px;
+    line-height:1.6;
+}
+
+.danger button{
+    margin-top:13px;
+}
+
+/* =========================
+SWITCH
+========================= */
+
+.switch-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 0;
+    border-bottom:1px solid #edf0f4;
+}
+
+.switch-row:last-child{
+    border-bottom:0;
+}
+
+.switch-info strong{
+    display:block;
+    color:#34495e;
+    font-size:13px;
+}
+
+.switch-info small{
+    display:block;
+    color:#84909c;
+    font-size:11px;
+    margin-top:4px;
+}
+
+.switch{
+    position:relative;
+    width:46px;
+    height:24px;
+}
+
+.switch input{
+    opacity:0;
+    width:0;
+    height:0;
+}
+
+.slider{
+    position:absolute;
+    inset:0;
+    background:#ccd4dc;
+    border-radius:20px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.slider:before{
+    content:"";
+    position:absolute;
+    width:18px;
+    height:18px;
+    left:3px;
+    top:3px;
+    background:#fff;
+    border-radius:50%;
+    transition:.2s;
+}
+
+.switch input:checked + .slider{
+    background:#087be9;
+}
+
+.switch input:checked + .slider:before{
+    transform:translateX(22px);
+}
+
+/* =========================
+TOAST
+========================= */
+
+.toast{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    background:#173452;
+    color:#fff;
+    padding:13px 18px;
+    border-radius:8px;
+    box-shadow:0 8px 25px rgba(0,0,0,.2);
+    display:none;
+    z-index:3000;
+    font-size:13px;
+}
+
+.toast.show{
+    display:block;
+}
+
+/* =========================
+MOBILE
+========================= */
+
+@media(max-width:900px){
+
+    .settings-layout{
+        grid-template-columns:1fr;
+    }
+
+    .settings-menu{
+        display:grid;
+        grid-template-columns:repeat(2,1fr);
+        gap:4px;
+    }
+
+    .info-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+@media(max-width:750px){
+
+    .mobile-toggle{
+        display:block;
+    }
+
+    .sidebar{
+        transform:translateX(-100%);
+        transition:.3s;
+    }
+
+    .sidebar.open{
+        transform:translateX(0);
+    }
+
+    .main{
+        margin-left:0;
+        padding:88px 15px 30px;
+    }
+
+    .settings-menu{
+        grid-template-columns:1fr;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .form-group.full{
+        grid-column:auto;
+    }
+
+    .info-grid{
+        grid-template-columns:1fr;
+    }
+
+    .backup-item{
+        display:block;
+    }
+
+    .backup-actions{
+        margin-top:12px;
+    }
+
+    .brand h2{
+        font-size:14px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+TOPBAR
+========================= -->
+
+<header class="topbar">
+
+    <div class="brand">
+
+        <div class="mobile-toggle"
+             onclick="toggleSidebar()">
+            ☰
+        </div>
+
+        <div class="logo">
+            🏡
+        </div>
+
+        <div>
+            <h2>ร่องเข็ม Smart Village</h2>
+
+            <small>
+                ระบบบริหารจัดการหมู่บ้านอัจฉริยะ
+            </small>
+        </div>
+
+    </div>
+
+    <div class="top-icons">
+        🔔 &nbsp; 👤
+    </div>
+
+</header>
+
+
+<!-- =========================
+SIDEBAR
+========================= -->
+
+<aside class="sidebar" id="sidebar">
+
+    <div class="profile">
+
+        <div class="avatar">
+            👨🏻‍💼
+        </div>
+
+        <div>
+            <strong>
+                ผู้ใหญ่บ้านร่องเข็ม
+            </strong>
+
+            <small>
+                ผู้ดูแลระบบ
+            </small>
+        </div>
+
+    </div>
+
+
+    <ul class="menu">
+
+        <li>
+            <a href="dashboard.html">
+                📊 Dashboard
+            </a>
+        </li>
+
+        <li>
+            <a href="citizen.html">
+                👥 ข้อมูลประชาชน
+            </a>
+        </li>
+
+        <li>
+            <a href="household.html">
+                🏠 ข้อมูลครัวเรือน
+            </a>
+        </li>
+
+        <li>
+            <a href="elderly.html">
+                👴 ผู้สูงอายุ
+            </a>
+        </li>
+
+        <li>
+            <a href="vulnerable.html">
+                🤝 กลุ่มเปราะบาง
+            </a>
+        </li>
+
+        <li>
+            <a href="health.html">
+                ❤️ ข้อมูลสุขภาพ
+            </a>
+        </li>
+
+        <li>
+            <a href="leader.html">
+                👨‍💼 ผู้นำชุมชน
+            </a>
+        </li>
+
+        <li>
+            <a href="projects.html">
+                📋 โครงการ / กิจกรรม
+            </a>
+        </li>
+
+        <li>
+            <a href="news.html">
+                📰 ข่าวสาร / ประกาศ
+            </a>
+        </li>
+
+        <li>
+            <a href="reports.html">
+                📈 รายงาน
+            </a>
+        </li>
+
+        <li>
+            <a href="settings.html"
+               class="active">
+                ⚙️ ตั้งค่า
+            </a>
+        </li>
+
+        <li style="margin-top:20px;">
+
+            <a href="index.html">
+                🏡 กลับหน้าเว็บไซต์
+            </a>
+
+        </li>
+
+    </ul>
+
+</aside>
+
+
+<!-- =========================
+MAIN
+========================= -->
+
+<main class="main">
+
+    <div class="page-header">
+
+        <h1>
+            ⚙️ ตั้งค่าระบบ
+        </h1>
+
+        <p>
+            จัดการข้อมูลพื้นฐานและการทำงานของระบบ ร่องเข็ม Smart Village
+        </p>
+
+    </div>
+
+
+    <div class="settings-layout">
+
+
+        <!-- SETTINGS MENU -->
+
+        <div class="settings-menu">
+
+            <button
+                class="active"
+                onclick="showPanel('village',this)">
+
+                🏡 ข้อมูลหมู่บ้าน
+
+            </button>
+
+
+            <button
+                onclick="showPanel('admin',this)">
+
+                👨‍💼 ผู้ดูแลระบบ
+
+            </button>
+
+
+            <button
+                onclick="showPanel('website',this)">
+
+                🌐 เว็บไซต์
+
+            </button>
+
+
+            <button
+                onclick="showPanel('notification',this)">
+
+                🔔 การแจ้งเตือน
+
+            </button>
+
+
+            <button
+                onclick="showPanel('backup',this)">
+
+                💾 สำรองข้อมูล
+
+            </button>
+
+
+            <button
+                onclick="showPanel('system',this)">
+
+                🖥️ ข้อมูลระบบ
+
+            </button>
+
+        </div>
+
+
+        <!-- CONTENT -->
+
+        <div class="settings-content">
+
+
+            <!-- =========================
+            VILLAGE
+            ========================= -->
+
+            <section
+                class="panel active"
+                id="panel-village">
+
+                <div class="panel-header">
+
+                    <h2>
+                        🏡 ข้อมูลหมู่บ้าน
+                    </h2>
+
+                    <p>
+                        ข้อมูลนี้จะนำไปใช้แสดงในหน้าเว็บไซต์และรายงาน
+                    </p>
+
+                </div>
+
+
+                <div class="panel-body">
+
+                    <div class="form-grid">
+
+
+                        <div class="form-group">
+
+                            <label>
+                                ชื่อหมู่บ้าน
+                            </label>
+
+                            <input
+                                id="villageName"
+                                value="บ้านร่องเข็ม"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                หมู่ที่
+                            </label>
+
+                            <input
+                                id="villageNo"
+                                value="6"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                ตำบล
+                            </label>
+
+                            <input
+                                id="subdistrict"
+                                value="จำป่าหวาย"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                อำเภอ
+                            </label>
+
+                            <input
+                                id="district"
+                                value="เมืองพะเยา"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                จังหวัด
+                            </label>
+
+                            <input
+                                id="province"
+                                value="พะเยา"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                รหัสไปรษณีย์
+                            </label>
+
+                            <input
+                                id="postcode"
+                                value="56000"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group full">
+
+                            <label>
+                                คำขวัญ / คำอธิบายหมู่บ้าน
+                            </label>
+
+                            <textarea id="villageDescription">ชุมชนเข้มแข็ง บริหารจัดการด้วยเทคโนโลยี หมู่บ้านกองทุนแม่ของแผ่นดิน</textarea>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="save-btn"
+                        onclick="saveVillage()">
+
+                        💾 บันทึกข้อมูลหมู่บ้าน
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+            ADMIN
+            ========================= -->
+
+            <section
+                class="panel"
+                id="panel-admin">
+
+                <div class="panel-header">
+
+                    <h2>
+                        👨‍💼 ผู้ดูแลระบบ
+                    </h2>
+
+                    <p>
+                        ข้อมูลผู้รับผิดชอบระบบ
+                    </p>
+
+                </div>
+
+
+                <div class="panel-body">
+
+                    <div class="form-grid">
+
+
+                        <div class="form-group">
+
+                            <label>
+                                ชื่อผู้ดูแล
+                            </label>
+
+                            <input
+                                id="adminName"
+                                value="ผู้ใหญ่บ้านร่องเข็ม"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                ตำแหน่ง
+                            </label>
+
+                            <input
+                                id="adminPosition"
+                                value="ผู้ใหญ่บ้าน"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                เบอร์โทรศัพท์
+                            </label>
+
+                            <input
+                                id="adminPhone"
+                                placeholder="08XXXXXXXX"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                อีเมล
+                            </label>
+
+                            <input
+                                id="adminEmail"
+                                type="email"
+                                placeholder="example@email.com"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="save-btn"
+                        onclick="saveAdmin()">
+
+                        💾 บันทึกข้อมูลผู้ดูแล
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+            WEBSITE
+            ========================= -->
+
+            <section
+                class="panel"
+                id="panel-website">
+
+                <div class="panel-header">
+
+                    <h2>
+                        🌐 ตั้งค่าเว็บไซต์
+                    </h2>
+
+                    <p>
+                        ตั้งค่าการแสดงผลหน้าเว็บไซต์หลัก
+                    </p>
+
+                </div>
+
+
+                <div class="panel-body">
+
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+
+                            <label>
+                                ชื่อเว็บไซต์
+                            </label>
+
+                            <input
+                                id="siteName"
+                                value="ร่องเข็ม Smart Village"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                ชื่อภาษาอังกฤษ
+                            </label>
+
+                            <input
+                                id="siteEnglish"
+                                value="Rongkhem Smart Village"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group full">
+
+                            <label>
+                                ข้อความหน้าแรก
+                            </label>
+
+                            <textarea id="siteDescription">ศูนย์ข้อมูลอัจฉริยะ บ้านร่องเข็ม หมู่ที่ 6 ตำบลจำป่าหวาย อำเภอเมืองพะเยา จังหวัดพะเยา</textarea>
+
+                        </div>
+
+                    </div>
+
+
+                    <div style="margin-top:20px;">
+
+                        <div class="switch-row">
+
+                            <div class="switch-info">
+
+                                <strong>
+                                    แสดงข่าวสารหน้าแรก
+                                </strong>
+
+                                <small>
+                                    แสดงประกาศล่าสุดบนหน้าเว็บไซต์
+                                </small>
+
+                            </div>
+
+
+                            <label class="switch">
+
+                                <input
+                                    type="checkbox"
+                                    id="showNews"
+                                    checked
+                                >
+
+                                <span class="slider"></span>
+
+                            </label>
+
+                        </div>
+
+
+                        <div class="switch-row">
+
+                            <div class="switch-info">
+
+                                <strong>
+                                    แสดงโครงการ
+                                </strong>
+
+                                <small>
+                                    แสดงโครงการล่าสุดบนหน้าเว็บไซต์
+                                </small>
+
+                            </div>
+
+
+                            <label class="switch">
+
+                                <input
+                                    type="checkbox"
+                                    id="showProjects"
+                                    checked
+                                >
+
+                                <span class="slider"></span>
+
+                            </label>
+
+                        </div>
+
+
+                        <div class="switch-row">
+
+                            <div class="switch-info">
+
+                                <strong>
+                                    แสดงข้อมูลสถิติ
+                                </strong>
+
+                                <small>
+                                    แสดงตัวเลขสรุปของหมู่บ้าน
+                                </small>
+
+                            </div>
+
+
+                            <label class="switch">
+
+                                <input
+                                    type="checkbox"
+                                    id="showStats"
+                                    checked
+                                >
+
+                                <span class="slider"></span>
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="save-btn"
+                        onclick="saveWebsite()">
+
+                        💾 บันทึกการตั้งค่าเว็บไซต์
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+            NOTIFICATION
+            ========================= -->
+
+            <section
+                class="panel"
+                id="panel-notification">
+
+                <div class="panel-header">
+
+                    <h2>
+                        🔔 การแจ้งเตือน
+                    </h2>
+
+                    <p>
+                        ตั้งค่าการแจ้งเตือนภายในระบบ
+                    </p>
+
+                </div>
+
+
+                <div class="panel-body">
+
+
+                    <div class="switch-row">
+
+                        <div class="switch-info">
+
+                            <strong>
+                                แจ้งเตือนประกาศใหม่
+                            </strong>
+
+                            <small>
+                                แจ้งเมื่อมีการสร้างประกาศใหม่
+                            </small>
+
+                        </div>
+
+
+                        <label class="switch">
+
+                            <input
+                                type="checkbox"
+                                id="notifyNews"
+                                checked
+                            >
+
+                            <span class="slider"></span>
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="switch-row">
+
+                        <div class="switch-info">
+
+                            <strong>
+                                แจ้งเตือนโครงการ
+                            </strong>
+
+                            <small>
+                                แจ้งเตือนเมื่อโครงการใกล้ครบกำหนด
+                            </small>
+
+                        </div>
+
+
+                        <label class="switch">
+
+                            <input
+                                type="checkbox"
+                                id="notifyProject"
+                                checked
+                            >
+
+                            <span class="slider"></span>
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="switch-row">
+
+                        <div class="switch-info">
+
+                            <strong>
+                                แจ้งเตือนการเยี่ยมบ้าน
+                            </strong>
+
+                            <small>
+                                แจ้งเตือนรายการที่ยังไม่ได้เยี่ยม
+                            </small>
+
+                        </div>
+
+
+                        <label class="switch">
+
+                            <input
+                                type="checkbox"
+                                id="notifyHealth"
+                                checked
+                            >
+
+                            <span class="slider"></span>
+
+                        </label>
+
+                    </div>
+
+
+                    <button
+                        class="save-btn"
+                        onclick="saveNotification()">
+
+                        💾 บันทึกการแจ้งเตือน
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+            BACKUP
+            ========================= -->
+
+            <section
+                class="panel"
+                id="panel-backup">
+
+                <div class="panel-header">
+
+                    <h2>
+                        💾 สำรองและกู้คืนข้อมูล
+                    </h2>
+
+                    <p>
+                        สำรองข้อมูลที่จัดเก็บไว้ในเบราว์เซอร์
+                    </p>
+
+                </div>
+
+
+                <div class="panel-body">
+
+
+                    <div class="backup-list">
+
+
+                        <div class="backup-item">
+
+                            <div>
+
+                                <h3>
+                                    💾 สำรองข้อมูลทั้งหมด
+                                </h3>
+
+                                <p>
+                                    ดาวน์โหลดข้อมูลระบบทั้งหมดเป็นไฟล์ JSON
+                                </p>
+
+                            </div>
+
+
+                            <div class="backup-actions">
+
+                                <button
+                                    class="btn btn-green"
+                                    onclick="backupAll()">
+
+                                    ดาวน์โหลดสำรองข้อมูล
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="backup-item">
+
+                            <div>
+
+                                <h3>
+                                    ♻️ กู้คืนข้อมูล
+                                </h3>
+
+                                <p>
+                                    นำไฟล์ JSON ที่สำรองไว้กลับเข้าสู่ระบบ
+                                </p>
+
+                            </div>
+
+
+                            <div class="backup-actions">
+
+                                <input
+                                    type="file"
+                                    id="restoreFile"
+                                    accept=".json"
+                                    style="display:none"
+                                    onchange="restoreData(event)"
+                                >
+
+                                <button
+                                    class="btn btn-blue"
+                                    onclick="document.getElementById('restoreFile').click()">
+
+                                    เลือกไฟล์กู้คืน
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="backup-item">
+
+                            <div>
+
+                                <h3>
+                                    📊 ตรวจสอบพื้นที่ข้อมูล
+                                </h3>
+
+                                <p>
+                                    ตรวจสอบจำนวนข้อมูลที่บันทึกไว้
+                                </p>
+
+                            </div>
+
+
+                            <div class="backup-actions">
+
+                                <button
+                                    class="btn btn-orange"
+                                    onclick="showStorageInfo()">
+
+                                    ตรวจสอบข้อมูล
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+            SYSTEM
+            ========================= -->
+
+            <section
+                class="panel"
+                id="panel-system">
+
+                <div class="panel-header">
+
+                    <h2>
+                        🖥️ ข้อมูลระบบ
+                    </h2>
+
+                    <p>
+                        สถานะและรายละเอียดของระบบ
+                    </p>
+
+                </div>
+
+
+                <div class="panel-body">
+
+
+                    <div class="info-grid">
+
+
+                        <div class="info-box">
+
+                            <div class="icon">
+                                🏡
+                            </div>
+
+                            <small>
+                                ระบบ
+                            </small>
+
+                            <strong>
+                                Rongkhem Smart Village
+                            </strong>
+
+                        </div>
+
+
+                        <div class="info-box">
+
+                            <div class="icon">
+                                💻
+                            </div>
+
+                            <small>
+                                เวอร์ชัน
+                            </small>
+
+                            <strong>
+                                1.0.0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="info-box">
+
+                            <div class="icon">
+                                🌐
+                            </div>
+
+                            <small>
+                                รูปแบบ
+                            </small>
+
+                            <strong>
+                                Web Application
+                            </strong>
+
+                        </div>
+
+
+                        <div class="info-box">
+
+                            <div class="icon">
+                                📱
+                            </div>
+
+                            <small>
+                                รองรับ
+                            </small>
+
+                            <strong>
+                                Mobile / Desktop
+                            </strong>
+
+                        </div>
+
+
+                        <div class="info-box">
+
+                            <div class="icon">
+                                💾
+                            </div>
+
+                            <small>
+                                ฐานข้อมูลปัจจุบัน
+                            </small>
+
+                            <strong>
+                                Local Storage
+                            </strong>
+
+                        </div>
+
+
+                        <div class="info-box">
+
+                            <div class="icon">
+                                🔒
+                            </div>
+
+                            <small>
+                                สถานะ
+                            </small>
+
+                            <strong>
+                                พร้อมใช้งาน
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="danger"
+                        style="margin-top:25px;">
+
+                        <h3>
+                            ⚠️ พื้นที่อันตราย
+                        </h3>
+
+                        <p>
+                            การล้างข้อมูลจะลบข้อมูลที่บันทึกในเบราว์เซอร์เครื่องนี้
+                            และไม่สามารถกู้คืนได้หากไม่ได้สำรองข้อมูลไว้ก่อน
+                        </p>
+
+
+                        <button
+                            class="btn btn-red"
+                            onclick="clearAllData()">
+
+                            ล้างข้อมูลระบบ
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- TOAST -->
+
+<div class="toast"
+     id="toast">
+</div>
+
+
+<script>
+
+/* =========================
+TAB
+========================= */
+
+function showPanel(name,button){
+
+    document
+        .querySelectorAll(".panel")
+        .forEach(panel=>{
+            panel.classList.remove("active");
+        });
+
+
+    document
+        .getElementById(
+            "panel-" + name
+        )
+        .classList.add("active");
+
+
+    document
+        .querySelectorAll(".settings-menu button")
+        .forEach(btn=>{
+            btn.classList.remove("active");
+        });
+
+
+    button.classList.add("active");
+
+}
+
+
+/* =========================
+TOAST
+========================= */
+
+function showToast(message){
+
+    const toast =
+        document.getElementById("toast");
+
+    toast.textContent =
+        message;
+
+    toast.classList.add("show");
+
+
+    setTimeout(()=>{
+
+        toast.classList.remove("show");
+
+    },2500);
+
+}
+
+
+/* =========================
+VILLAGE
+========================= */
+
+function saveVillage(){
+
+    const data = {
+
+        villageName:
+            document.getElementById("villageName").value,
+
+        villageNo:
+            document.getElementById("villageNo").value,
+
+        subdistrict:
+            document.getElementById("subdistrict").value,
+
+        district:
+            document.getElementById("district").value,
+
+        province:
+            document.getElementById("province").value,
+
+        postcode:
+            document.getElementById("postcode").value,
+
+        description:
+            document.getElementById("villageDescription").value
+
+    };
+
+
+    localStorage.setItem(
+        "rongkhem_village_settings",
+        JSON.stringify(data)
+    );
+
+
+    showToast(
+        "บันทึกข้อมูลหมู่บ้านเรียบร้อยแล้ว"
+    );
+
+}
+
+
+/* =========================
+ADMIN
+========================= */
+
+function saveAdmin(){
+
+    const data = {
+
+        name:
+            document.getElementById("adminName").value,
+
+        position:
+            document.getElementById("adminPosition").value,
+
+        phone:
+            document.getElementById("adminPhone").value,
+
+        email:
+            document.getElementById("adminEmail").value
+
+    };
+
+
+    localStorage.setItem(
+        "rongkhem_admin_settings",
+        JSON.stringify(data)
+    );
+
+
+    showToast(
+        "บันทึกข้อมูลผู้ดูแลเรียบร้อยแล้ว"
+    );
+
+}
+
+
+/* =========================
+WEBSITE
+========================= */
+
+function saveWebsite(){
+
+    const data = {
+
+        siteName:
+            document.getElementById("siteName").value,
+
+        siteEnglish:
+            document.getElementById("siteEnglish").value,
+
+        description:
+            document.getElementById("siteDescription").value,
+
+        showNews:
+            document.getElementById("showNews").checked,
+
+        showProjects:
+            document.getElementById("showProjects").checked,
+
+        showStats:
+            document.getElementById("showStats").checked
+
+    };
+
+
+    localStorage.setItem(
+        "rongkhem_website_settings",
+        JSON.stringify(data)
+    );
+
+
+    showToast(
+        "บันทึกการตั้งค่าเว็บไซต์แล้ว"
+    );
+
+}
+
+
+/* =========================
+NOTIFICATION
+========================= */
+
+function saveNotification(){
+
+    const data = {
+
+        news:
+            document.getElementById("notifyNews").checked,
+
+        project:
+            document.getElementById("notifyProject").checked,
+
+        health:
+            document.getElementById("notifyHealth").checked
+
+    };
+
+
+    localStorage.setItem(
+        "rongkhem_notification_settings",
+        JSON.stringify(data)
+    );
+
+
+    showToast(
+        "บันทึกการตั้งค่าการแจ้งเตือนแล้ว"
+    );
+
+}
+
+
+/* =========================
+BACKUP
+========================= */
+
+function backupAll(){
+
+    const backup = {
+
+        backupDate:
+            new Date().toISOString(),
+
+        village:
+            getStorage(
+                "rongkhem_village_settings"
+            ),
+
+        admin:
+            getStorage(
+                "rongkhem_admin_settings"
+            ),
+
+        website:
+            getStorage(
+                "rongkhem_website_settings"
+            ),
+
+        notification:
+            getStorage(
+                "rongkhem_notification_settings"
+            ),
+
+        citizen:
+            getStorage(
+                "rongkhem_citizens"
+            ),
+
+        household:
+            getStorage(
+                "rongkhem_households"
+            ),
+
+        elderly:
+            getStorage(
+                "rongkhem_elderly"
+            ),
+
+        vulnerable:
+            getStorage(
+                "rongkhem_vulnerable"
+            ),
+
+        health:
+            getStorage(
+                "rongkhem_health"
+            ),
+
+        leaders:
+            getStorage(
+                "rongkhem_leaders"
+            ),
+
+        projects:
+            getStorage(
+                "rongkhem_projects"
+            ),
+
+        news:
+            getStorage(
+                "rongkhem_news"
+            )
+
+    };
+
+
+    const json =
+        JSON.stringify(
+            backup,
+            null,
+            2
+        );
+
+
+    const blob =
+        new Blob(
+            [json],
+            {
+                type:
+                "application/json"
+            }
+        );
+
+
+    const url =
+        URL.createObjectURL(blob);
+
+
+    const a =
+        document.createElement("a");
+
+
+    const date =
+        new Date()
+        .toISOString()
+        .slice(0,10);
+
+
+    a.href = url;
+
+    a.download =
+        `Rongkhem-Smart-Village-Backup-${date}.json`;
+
+    a.click();
+
+
+    URL.revokeObjectURL(url);
+
+
+    showToast(
+        "สำรองข้อมูลเรียบร้อยแล้ว"
+    );
+
+}
+
+
+function getStorage(key){
+
+    const value =
+        localStorage.getItem(key);
+
+    if(!value){
+        return null;
+    }
+
+    try{
+
+        return JSON.parse(value);
+
+    }catch{
+
+        return value;
+
+    }
+
+}
+
+
+/* =========================
+RESTORE
+========================= */
+
+function restoreData(event){
+
+    const file =
+        event.target.files[0];
+
+    if(!file){
+        return;
+    }
+
+
+    const reader =
+        new FileReader();
+
+
+    reader.onload = function(e){
+
+        try{
+
+            const backup =
+                JSON.parse(
+                    e.target.result
+                );
+
+
+            if(!backup ||
+               typeof backup !== "object"){
+
+                throw new Error(
+                    "รูปแบบไฟล์ไม่ถูกต้อง"
+                );
+
+            }
+
+
+            if(backup.village){
+
+                localStorage.setItem(
+                    "rongkhem_village_settings",
+                    JSON.stringify(
+                        backup.village
+                    )
+                );
+
+            }
+
+
+            if(backup.admin){
+
+                localStorage.setItem(
+                    "rongkhem_admin_settings",
+                    JSON.stringify(
+                        backup.admin
+                    )
+                );
+
+            }
+
+
+            if(backup.website){
+
+                localStorage.setItem(
+                    "rongkhem_website_settings",
+                    JSON.stringify(
+                        backup.website
+                    )
+                );
+
+            }
+
+
+            if(backup.notification){
+
+                localStorage.setItem(
+                    "rongkhem_notification_settings",
+                    JSON.stringify(
+                        backup.notification
+                    )
+                );
+
+            }
+
+
+            const map = {
+
+                citizen:
+                    "rongkhem_citizens",
+
+                household:
+                    "rongkhem_households",
+
+                elderly:
+                    "rongkhem_elderly",
+
+                vulnerable:
+                    "rongkhem_vulnerable",
+
+                health:
+                    "rongkhem_health",
+
+                leaders:
+                    "rongkhem_leaders",
+
+                projects:
+                    "rongkhem_projects",
+
+                news:
+                    "rongkhem_news"
+
+            };
+
+
+            Object.keys(map)
+                .forEach(key=>{
+
+                    if(
+                        backup[key] !== undefined &&
+                        backup[key] !== null
+                    ){
+
+                        localStorage.setItem(
+                            map[key],
+                            JSON.stringify(
+                                backup[key]
+                            )
+                        );
+
+                    }
+
+                });
+
+
+            showToast(
+                "กู้คืนข้อมูลเรียบร้อยแล้ว"
+            );
+
+
+        }catch(error){
+
+            alert(
+                "ไม่สามารถกู้คืนข้อมูลได้\n" +
+                error.message
+            );
+
+        }
+
+    };
+
+
+    reader.readAsText(file);
+
+}
+
+
+/* =========================
+STORAGE INFO
+========================= */
+
+function showStorageInfo(){
+
+    const keys = [
+
+        "rongkhem_village_settings",
+        "rongkhem_admin_settings",
+        "rongkhem_website_settings",
+        "rongkhem_notification_settings",
+        "rongkhem_citizens",
+        "rongkhem_households",
+        "rongkhem_elderly",
+        "rongkhem_vulnerable",
+        "rongkhem_health",
+        "rongkhem_leaders",
+        "rongkhem_projects",
+        "rongkhem_news"
+
+    ];
+
+
+    let total = 0;
+
+    let count = 0;
+
+
+    keys.forEach(key=>{
+
+        const value =
+            localStorage.getItem(key);
+
+        if(value){
+
+            total +=
+                value.length;
+
+            count++;
+
+        }
+
+    });
+
+
+    const kb =
+        (total / 1024)
+        .toFixed(2);
+
+
+    alert(
+`
+สถานะข้อมูลระบบ
+
+ชุดข้อมูลที่ใช้งาน:
+${count} ชุด
+
+ขนาดข้อมูลโดยประมาณ:
+${kb} KB
+
+พื้นที่นี้เป็นข้อมูลที่เก็บในเบราว์เซอร์เครื่องปัจจุบัน
+`
+    );
+
+}
+
+
+/* =========================
+CLEAR DATA
+========================= */
+
+function clearAllData(){
+
+    const answer =
+        prompt(
+`
+คำเตือน!
+
+การดำเนินการนี้จะลบข้อมูลระบบทั้งหมด
+จากเบราว์เซอร์เครื่องนี้
+
+หากต้องการดำเนินการต่อ
+ให้พิมพ์คำว่า:
+
+ลบข้อมูล
+`
+        );
+
+
+    if(answer !== "ลบข้อมูล"){
+
+        return;
+
+    }
+
+
+    const keys = [
+
+        "rongkhem_village_settings",
+        "rongkhem_admin_settings",
+        "rongkhem_website_settings",
+        "rongkhem_notification_settings",
+        "rongkhem_citizens",
+        "rongkhem_households",
+        "rongkhem_elderly",
+        "rongkhem_vulnerable",
+        "rongkhem_health",
+        "rongkhem_leaders",
+        "rongkhem_projects",
+        "rongkhem_news"
+
+    ];
+
+
+    keys.forEach(key=>{
+
+        localStorage.removeItem(key);
+
+    });
+
+
+    showToast(
+        "ล้างข้อมูลระบบเรียบร้อยแล้ว"
+    );
+
+
+    setTimeout(()=>{
+
+        location.reload();
+
+    },1200);
+
+}
+
+
+/* =========================
+LOAD SETTINGS
+========================= */
+
+function loadSettings(){
+
+    loadVillage();
+
+    loadAdmin();
+
+    loadWebsite();
+
+    loadNotification();
+
+}
+
+
+function loadVillage(){
+
+    const data =
+        getStorage(
+            "rongkhem_village_settings"
+        );
+
+
+    if(!data) return;
+
+
+    setValue(
+        "villageName",
+        data.villageName
+    );
+
+    setValue(
+        "villageNo",
+        data.villageNo
+    );
+
+    setValue(
+        "subdistrict",
+        data.subdistrict
+    );
+
+    setValue(
+        "district",
+        data.district
+    );
+
+    setValue(
+        "province",
+        data.province
+    );
+
+    setValue(
+        "postcode",
+        data.postcode
+    );
+
+    setValue(
+        "villageDescription",
+        data.description
+    );
+
+}
+
+
+function loadAdmin(){
+
+    const data =
+        getStorage(
+            "rongkhem_admin_settings"
+        );
+
+
+    if(!data) return;
+
+
+    setValue(
+        "adminName",
+        data.name
+    );
+
+    setValue(
+        "adminPosition",
+        data.position
+    );
+
+    setValue(
+        "adminPhone",
+        data.phone
+    );
+
+    setValue(
+        "adminEmail",
+        data.email
+    );
+
+}
+
+
+function loadWebsite(){
+
+    const data =
+        getStorage(
+            "rongkhem_website_settings"
+        );
+
+
+    if(!data) return;
+
+
+    setValue(
+        "siteName",
+        data.siteName
+    );
+
+    setValue(
+        "siteEnglish",
+        data.siteEnglish
+    );
+
+    setValue(
+        "siteDescription",
+        data.description
+    );
+
+
+    document
+        .getElementById("showNews")
+        .checked =
+        data.showNews !== false;
+
+
+    document
+        .getElementById("showProjects")
+        .checked =
+        data.showProjects !== false;
+
+
+    document
+        .getElementById("showStats")
+        .checked =
+        data.showStats !== false;
+
+}
+
+
+function loadNotification(){
+
+    const data =
+        getStorage(
+            "rongkhem_notification_settings"
+        );
+
+
+    if(!data) return;
+
+
+    document
+        .getElementById("notifyNews")
+        .checked =
+        data.news !== false;
+
+
+    document
+        .getElementById("notifyProject")
+        .checked =
+        data.project !== false;
+
+
+    document
+        .getElementById("notifyHealth")
+        .checked =
+        data.health !== false;
+
+}
+
+
+function setValue(id,value){
+
+    const el =
+        document.getElementById(id);
+
+    if(el && value !== undefined){
+
+        el.value = value;
+
+    }
+
+}
+
+
+/* MOBILE */
+
+function toggleSidebar(){
+
+    document
+        .getElementById("sidebar")
+        .classList.toggle("open");
+
+}
+
+
+/* START */
+
+loadSettings();
+
+</script>
+
+</body>
+</html>
