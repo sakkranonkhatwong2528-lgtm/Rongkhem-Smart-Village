@@ -1,79 +1,2053 @@
 <!DOCTYPE html>
-
 <html lang="th">
-
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ข้อมูลสุขภาพ | ร่องเข็ม Smart Village</title>
 
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:"Segoe UI","Noto Sans Thai",Tahoma,sans-serif;
+}
 
-<title>
-ระบบสุขภาพชุมชน | บ้านร่องเข็ม
-</title>
+body{
+    background:#f4f7fb;
+    color:#172033;
+}
 
+/* =========================
+TOPBAR
+========================= */
 
-<link rel="stylesheet" href="css/style.css">
+.topbar{
+    height:68px;
+    background:#031d38;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 25px;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:1000;
+}
 
-<link rel="stylesheet" href="css/health.css">
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
 
+.logo{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:#f4c52d;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+}
 
+.brand h2{
+    font-size:17px;
+}
+
+.brand small{
+    color:#aebdcb;
+    font-size:10px;
+}
+
+.top-icons{
+    font-size:19px;
+}
+
+.mobile-toggle{
+    display:none;
+    font-size:24px;
+    cursor:pointer;
+}
+
+/* =========================
+SIDEBAR
+========================= */
+
+.sidebar{
+    position:fixed;
+    top:68px;
+    left:0;
+    bottom:0;
+    width:250px;
+    background:#061f39;
+    color:white;
+    padding:20px 14px;
+    overflow-y:auto;
+    z-index:900;
+}
+
+.profile{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:8px 8px 22px;
+    border-bottom:1px solid rgba(255,255,255,.1);
+    margin-bottom:15px;
+}
+
+.avatar{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    background:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:23px;
+}
+
+.profile strong{
+    font-size:14px;
+}
+
+.profile small{
+    display:block;
+    color:#9eafbf;
+    margin-top:4px;
+}
+
+.menu{
+    list-style:none;
+}
+
+.menu li{
+    margin-bottom:4px;
+}
+
+.menu a{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:12px 14px;
+    border-radius:8px;
+    color:#c8d3df;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.menu a:hover,
+.menu a.active{
+    background:#087be9;
+    color:white;
+}
+
+/* =========================
+MAIN
+========================= */
+
+.main{
+    margin-left:250px;
+    padding:95px 30px 40px;
+}
+
+.page-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.page-header h1{
+    color:#092b4d;
+    font-size:29px;
+}
+
+.page-header p{
+    color:#7c8793;
+    margin-top:5px;
+    font-size:14px;
+}
+
+.add-btn{
+    border:0;
+    background:#087be9;
+    color:white;
+    padding:12px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* =========================
+SUMMARY
+========================= */
+
+.summary{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+    margin-bottom:22px;
+}
+
+.summary-card{
+    background:white;
+    padding:20px;
+    border-radius:13px;
+    border:1px solid #e8edf2;
+    box-shadow:0 4px 15px rgba(20,45,70,.05);
+}
+
+.summary-card .icon{
+    font-size:24px;
+}
+
+.summary-card small{
+    display:block;
+    color:#7b8793;
+    margin-top:7px;
+}
+
+.summary-card strong{
+    display:block;
+    font-size:28px;
+    margin-top:4px;
+}
+
+.blue{
+    color:#0875d9;
+}
+
+.red{
+    color:#d94747;
+}
+
+.orange{
+    color:#bd7600;
+}
+
+.green{
+    color:#159052;
+}
+
+/* =========================
+TABLE CARD
+========================= */
+
+.table-card{
+    background:white;
+    border-radius:14px;
+    border:1px solid #e7ebf0;
+    box-shadow:0 4px 18px rgba(20,45,70,.06);
+    overflow:hidden;
+}
+
+.table-header{
+    padding:22px;
+    border-bottom:1px solid #edf0f4;
+}
+
+.search-row{
+    display:flex;
+    gap:10px;
+}
+
+.search-box{
+    flex:1;
+    position:relative;
+}
+
+.search-box input{
+    width:100%;
+    padding:12px 15px 12px 42px;
+    border:1px solid #dce2e8;
+    border-radius:8px;
+    outline:none;
+    font-size:14px;
+}
+
+.search-icon{
+    position:absolute;
+    left:14px;
+    top:11px;
+}
+
+.filter{
+    padding:12px 15px;
+    border:1px solid #dce2e8;
+    border-radius:8px;
+    background:white;
+    outline:none;
+}
+
+.export-btn{
+    border:0;
+    background:#15965b;
+    color:white;
+    padding:0 18px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+/* =========================
+TABLE
+========================= */
+
+.table-wrap{
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:1100px;
+}
+
+thead{
+    background:#f7f9fb;
+}
+
+th{
+    padding:14px 15px;
+    text-align:left;
+    font-size:12px;
+    color:#64717e;
+    white-space:nowrap;
+}
+
+td{
+    padding:15px;
+    border-top:1px solid #edf0f4;
+    font-size:13px;
+    color:#344252;
+}
+
+tbody tr:hover{
+    background:#f9fbfd;
+}
+
+.number{
+    color:#84909c;
+}
+
+.name{
+    font-weight:bold;
+    color:#173452;
+}
+
+/* HEALTH TYPE */
+
+.health-type{
+    display:inline-block;
+    padding:5px 9px;
+    border-radius:20px;
+    font-size:11px;
+}
+
+.normal{
+    background:#eaf8ef;
+    color:#159052;
+}
+
+.chronic{
+    background:#fff3dc;
+    color:#b87500;
+}
+
+.home-care{
+    background:#eaf3ff;
+    color:#0875d9;
+}
+
+.bed-care{
+    background:#ffecec;
+    color:#d84444;
+}
+
+/* VISIT */
+
+.visit{
+    display:inline-block;
+    padding:5px 9px;
+    border-radius:20px;
+    font-size:11px;
+}
+
+.visited{
+    background:#eaf8ef;
+    color:#159052;
+}
+
+.pending{
+    background:#fff3dc;
+    color:#b87500;
+}
+
+/* ACTIONS */
+
+.actions{
+    display:flex;
+    gap:5px;
+}
+
+.action-btn{
+    width:32px;
+    height:32px;
+    border:0;
+    border-radius:6px;
+    color:white;
+    cursor:pointer;
+}
+
+.view{
+    background:#087be9;
+}
+
+.edit{
+    background:#f2a514;
+}
+
+.delete{
+    background:#e84b4b;
+}
+
+.visit-btn{
+    background:#15965b;
+}
+
+/* =========================
+MODAL
+========================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:2000;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-box{
+    width:100%;
+    max-width:760px;
+    max-height:90vh;
+    overflow-y:auto;
+    background:white;
+    border-radius:15px;
+}
+
+.modal-header{
+    padding:20px 24px;
+    border-bottom:1px solid #edf0f4;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.modal-header h2{
+    color:#123452;
+    font-size:20px;
+}
+
+.close{
+    border:0;
+    background:none;
+    font-size:25px;
+    cursor:pointer;
+    color:#7b8793;
+}
+
+.form{
+    padding:24px;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:17px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+}
+
+.form-group.full{
+    grid-column:1/-1;
+}
+
+.form-group label{
+    font-size:13px;
+    font-weight:bold;
+    color:#475565;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    padding:11px 12px;
+    border:1px solid #dce2e8;
+    border-radius:7px;
+    outline:none;
+}
+
+.form-group textarea{
+    min-height:90px;
+    resize:vertical;
+}
+
+.modal-footer{
+    display:flex;
+    justify-content:flex-end;
+    gap:10px;
+    margin-top:25px;
+}
+
+.cancel{
+    border:1px solid #dce2e8;
+    background:white;
+    padding:11px 20px;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+.save{
+    border:0;
+    background:#087be9;
+    color:white;
+    padding:11px 22px;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+/* =========================
+MOBILE
+========================= */
+
+@media(max-width:1050px){
+
+    .summary{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:750px){
+
+    .mobile-toggle{
+        display:block;
+    }
+
+    .sidebar{
+        transform:translateX(-100%);
+        transition:.3s;
+    }
+
+    .sidebar.open{
+        transform:translateX(0);
+    }
+
+    .main{
+        margin-left:0;
+        padding:88px 15px 30px;
+    }
+
+    .page-header{
+        display:block;
+    }
+
+    .add-btn{
+        margin-top:15px;
+    }
+
+    .summary{
+        grid-template-columns:1fr;
+    }
+
+    .search-row{
+        flex-wrap:wrap;
+    }
+
+    .search-box{
+        flex-basis:100%;
+    }
+
+    .filter{
+        flex:1;
+    }
+
+    .export-btn{
+        padding:12px 18px;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .form-group.full{
+        grid-column:auto;
+    }
+
+    .brand h2{
+        font-size:14px;
+    }
+}
+</style>
 </head>
-
 
 <body>
 
+<!-- TOPBAR -->
 
-<header class="health-header">
+<header class="topbar">
 
+    <div class="brand">
 
-<h1>
-🩺 ระบบสุขภาพชุมชน
-</h1>
+        <div class="mobile-toggle"
+             onclick="toggleSidebar()">
+            ☰
+        </div>
 
+        <div class="logo">
+            🏡
+        </div>
 
-<p>
-บ้านร่องเข็ม Smart Village
-</p>
+        <div>
+            <h2>ร่องเข็ม Smart Village</h2>
 
+            <small>
+                ระบบบริหารจัดการหมู่บ้านอัจฉริยะ
+            </small>
+        </div>
+
+    </div>
+
+    <div class="top-icons">
+        🔔 &nbsp; 👤
+    </div>
 
 </header>
 
 
+<!-- SIDEBAR -->
+
+<aside class="sidebar" id="sidebar">
+
+    <div class="profile">
+
+        <div class="avatar">
+            👨🏻‍💼
+        </div>
+
+        <div>
+
+            <strong>
+                ผู้ใหญ่บ้านร่องเข็ม
+            </strong>
+
+            <small>
+                ผู้ดูแลระบบ
+            </small>
+
+        </div>
+
+    </div>
 
 
+    <ul class="menu">
 
-<section class="search-box">
+        <li>
+            <a href="dashboard.html">
+                📊 Dashboard
+            </a>
+        </li>
+
+        <li>
+            <a href="citizen.html">
+                👥 ข้อมูลประชาชน
+            </a>
+        </li>
+
+        <li>
+            <a href="household.html">
+                🏠 ข้อมูลครัวเรือน
+            </a>
+        </li>
+
+        <li>
+            <a href="elderly.html">
+                👴 ผู้สูงอายุ
+            </a>
+        </li>
+
+        <li>
+            <a href="vulnerable.html">
+                🤝 กลุ่มเปราะบาง
+            </a>
+        </li>
+
+        <li>
+            <a href="health.html" class="active">
+                ❤️ ข้อมูลสุขภาพ
+            </a>
+        </li>
+
+        <li>
+            <a href="leader.html">
+                👨‍💼 ผู้นำชุมชน
+            </a>
+        </li>
+
+        <li>
+            <a href="projects.html">
+                📋 โครงการ / กิจกรรม
+            </a>
+        </li>
+
+        <li>
+            <a href="news.html">
+                📰 ข่าวสาร / ประกาศ
+            </a>
+        </li>
+
+        <li>
+            <a href="reports.html">
+                📈 รายงาน
+            </a>
+        </li>
+
+        <li>
+            <a href="settings.html">
+                ⚙️ ตั้งค่า
+            </a>
+        </li>
+
+        <li style="margin-top:20px;">
+
+            <a href="index.html">
+                🏡 กลับหน้าเว็บไซต์
+            </a>
+
+        </li>
+
+    </ul>
+
+</aside>
 
 
-<input id="search"
-placeholder="🔎 ค้นหาชื่อผู้รับบริการ">
+<!-- MAIN -->
+
+<main class="main">
+
+    <div class="page-header">
+
+        <div>
+
+            <h1>
+                ข้อมูลสุขภาพชุมชน
+            </h1>
+
+            <p>
+                ระบบติดตามข้อมูลสุขภาพและการเยี่ยมบ้าน
+            </p>
+
+        </div>
 
 
-</section>
+        <button class="add-btn"
+                onclick="openModal()">
+
+            ＋ เพิ่มข้อมูลสุขภาพ
+
+        </button>
+
+    </div>
 
 
+    <!-- SUMMARY -->
+
+    <section class="summary">
+
+        <div class="summary-card">
+
+            <div class="icon">
+                ❤️
+            </div>
+
+            <small>
+                ข้อมูลสุขภาพทั้งหมด
+            </small>
+
+            <strong class="blue"
+                    id="total">
+                48
+            </strong>
+
+        </div>
 
 
+        <div class="summary-card">
 
-<section id="healthList"
-class="health-grid">
+            <div class="icon">
+                🩺
+            </div>
+
+            <small>
+                โรคเรื้อรัง
+            </small>
+
+            <strong class="red"
+                    id="chronic">
+                25
+            </strong>
+
+        </div>
 
 
-กำลังโหลดข้อมูล...
+        <div class="summary-card">
+
+            <div class="icon">
+                🏠
+            </div>
+
+            <small>
+                ติดบ้าน / ติดเตียง
+            </small>
+
+            <strong class="orange"
+                    id="homecare">
+                17
+            </strong>
+
+        </div>
 
 
-</section>
+        <div class="summary-card">
+
+            <div class="icon">
+                ✅
+            </div>
+
+            <small>
+                เยี่ยมบ้านแล้ว
+            </small>
+
+            <strong class="green"
+                    id="visited">
+                39
+            </strong>
+
+        </div>
+
+    </section>
 
 
+    <!-- TABLE -->
+
+    <section class="table-card">
+
+        <div class="table-header">
+
+            <div class="search-row">
+
+                <div class="search-box">
+
+                    <span class="search-icon">
+                        🔍
+                    </span>
+
+                    <input
+                        id="searchInput"
+                        type="text"
+                        placeholder="ค้นหาชื่อ บ้านเลขที่ เบอร์โทร หรือโรค..."
+                        oninput="searchHealth()"
+                    >
+
+                </div>
 
 
+                <select
+                    class="filter"
+                    id="typeFilter"
+                    onchange="searchHealth()">
+
+                    <option value="">
+                        ทุกประเภท
+                    </option>
+
+                    <option value="ปกติ">
+                        สุขภาพทั่วไป
+                    </option>
+
+                    <option value="โรคเรื้อรัง">
+                        โรคเรื้อรัง
+                    </option>
+
+                    <option value="ติดบ้าน">
+                        ติดบ้าน
+                    </option>
+
+                    <option value="ติดเตียง">
+                        ติดเตียง
+                    </option>
+
+                </select>
 
 
-<script src="js/health.js"></script>
+                <select
+                    class="filter"
+                    id="visitFilter"
+                    onchange="searchHealth()">
 
+                    <option value="">
+                        การเยี่ยมบ้านทั้งหมด
+                    </option>
+
+                    <option value="เยี่ยมแล้ว">
+                        เยี่ยมแล้ว
+                    </option>
+
+                    <option value="รอเยี่ยม">
+                        รอเยี่ยม
+                    </option>
+
+                </select>
+
+
+                <button class="export-btn"
+                        onclick="exportCSV()">
+
+                    ↓ Excel
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="table-wrap">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ลำดับ</th>
+
+                        <th>ชื่อ-นามสกุล</th>
+
+                        <th>อายุ</th>
+
+                        <th>บ้านเลขที่</th>
+
+                        <th>โรค / ภาวะ</th>
+
+                        <th>เบอร์โทรศัพท์</th>
+
+                        <th>อสม.ผู้รับผิดชอบ</th>
+
+                        <th>เยี่ยมบ้าน</th>
+
+                        <th>จัดการ</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="healthTable">
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- MODAL -->
+
+<div class="modal"
+     id="healthModal">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <h2 id="modalTitle">
+                เพิ่มข้อมูลสุขภาพ
+            </h2>
+
+            <button class="close"
+                    onclick="closeModal()">
+                ×
+            </button>
+
+        </div>
+
+
+        <form class="form"
+              onsubmit="saveHealth(event)">
+
+            <div class="form-grid">
+
+
+                <div class="form-group">
+
+                    <label>
+                        ชื่อ
+                    </label>
+
+                    <input
+                        id="firstName"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        นามสกุล
+                    </label>
+
+                    <input
+                        id="lastName"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        อายุ
+                    </label>
+
+                    <input
+                        id="age"
+                        type="number"
+                        min="0"
+                        max="120"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        บ้านเลขที่
+                    </label>
+
+                    <input
+                        id="houseNo"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        ประเภทสุขภาพ
+                    </label>
+
+                    <select
+                        id="type"
+                        required>
+
+                        <option value="">
+                            เลือกประเภท
+                        </option>
+
+                        <option value="ปกติ">
+                            สุขภาพทั่วไป
+                        </option>
+
+                        <option value="โรคเรื้อรัง">
+                            โรคเรื้อรัง
+                        </option>
+
+                        <option value="ติดบ้าน">
+                            ติดบ้าน
+                        </option>
+
+                        <option value="ติดเตียง">
+                            ติดเตียง
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        โรค / ภาวะ
+                    </label>
+
+                    <input
+                        id="disease"
+                        placeholder="เช่น เบาหวาน ความดัน"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        เบอร์โทรศัพท์
+                    </label>
+
+                    <input
+                        id="phone"
+                        type="tel"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        อสม.ผู้รับผิดชอบ
+                    </label>
+
+                    <input
+                        id="volunteer"
+                        placeholder="ชื่อ อสม."
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        สถานะเยี่ยมบ้าน
+                    </label>
+
+                    <select id="visit">
+
+                        <option value="เยี่ยมแล้ว">
+                            เยี่ยมแล้ว
+                        </option>
+
+                        <option value="รอเยี่ยม">
+                            รอเยี่ยม
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        วันที่เยี่ยมล่าสุด
+                    </label>
+
+                    <input
+                        id="visitDate"
+                        type="date"
+                    >
+
+                </div>
+
+
+                <div class="form-group full">
+
+                    <label>
+                        บันทึกการเยี่ยม / หมายเหตุ
+                    </label>
+
+                    <textarea
+                        id="note"
+                        placeholder="รายละเอียดอาการ การช่วยเหลือ หรือสิ่งที่ต้องติดตาม">
+                    </textarea>
+
+                </div>
+
+            </div>
+
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="cancel"
+                    onclick="closeModal()">
+
+                    ยกเลิก
+
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="save">
+
+                    บันทึกข้อมูล
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================
+DATA
+========================= */
+
+let health = [
+
+{
+    id:1,
+    firstName:"นายสมชาย",
+    lastName:"ใจดี",
+    age:65,
+    houseNo:"12",
+    type:"โรคเรื้อรัง",
+    disease:"เบาหวาน / ความดัน",
+    phone:"0812345678",
+    volunteer:"นางสมใจ อสม.",
+    visit:"เยี่ยมแล้ว",
+    visitDate:"2026-08-05",
+    note:"ติดตามระดับน้ำตาล"
+},
+
+{
+    id:2,
+    firstName:"นางคำปัน",
+    lastName:"อินต๊ะ",
+    age:78,
+    houseNo:"25",
+    type:"ติดบ้าน",
+    disease:"ความดันโลหิตสูง",
+    phone:"0823456789",
+    volunteer:"นางมาลี อสม.",
+    visit:"เยี่ยมแล้ว",
+    visitDate:"2026-08-07",
+    note:"ติดตามการรับประทานยา"
+},
+
+{
+    id:3,
+    firstName:"นายบุญมี",
+    lastName:"แก้วดี",
+    age:82,
+    houseNo:"31",
+    type:"ติดเตียง",
+    disease:"อัมพฤกษ์",
+    phone:"0834567890",
+    volunteer:"นายวิชัย อสม.",
+    visit:"รอเยี่ยม",
+    visitDate:"",
+    note:"ต้องการเยี่ยมบ้าน"
+},
+
+{
+    id:4,
+    firstName:"นางดวงใจ",
+    lastName:"คำดี",
+    age:56,
+    houseNo:"44",
+    type:"โรคเรื้อรัง",
+    disease:"เบาหวาน",
+    phone:"0845678901",
+    volunteer:"นางสาวมาลี อสม.",
+    visit:"เยี่ยมแล้ว",
+    visitDate:"2026-08-02",
+    note:"สุขภาพทั่วไปคงที่"
+},
+
+{
+    id:5,
+    firstName:"นายประเสริฐ",
+    lastName:"สุขใจ",
+    age:45,
+    houseNo:"51",
+    type:"ปกติ",
+    disease:"-",
+    phone:"0856789012",
+    volunteer:"นายสมชาย อสม.",
+    visit:"เยี่ยมแล้ว",
+    visitDate:"2026-08-01",
+    note:"สุขภาพปกติ"
+},
+
+{
+    id:6,
+    firstName:"นางทองดี",
+    lastName:"คำเมือง",
+    age:88,
+    houseNo:"63",
+    type:"ติดเตียง",
+    disease:"เบาหวาน / ความดัน",
+    phone:"0867890123",
+    volunteer:"นางคำปัน อสม.",
+    visit:"รอเยี่ยม",
+    visitDate:"",
+    note:"ติดตามการดูแลต่อเนื่อง"
+}
+
+];
+
+let editId = null;
+
+
+/* =========================
+RENDER
+========================= */
+
+function renderHealth(list = health){
+
+    const table =
+        document.getElementById(
+            "healthTable"
+        );
+
+    table.innerHTML = "";
+
+
+    list.forEach((person,index)=>{
+
+        let typeClass = "normal";
+
+        if(person.type === "โรคเรื้อรัง"){
+            typeClass = "chronic";
+        }
+
+        if(person.type === "ติดบ้าน"){
+            typeClass = "home-care";
+        }
+
+        if(person.type === "ติดเตียง"){
+            typeClass = "bed-care";
+        }
+
+
+        const visitClass =
+            person.visit === "เยี่ยมแล้ว"
+            ? "visited"
+            : "pending";
+
+
+        const row =
+            document.createElement("tr");
+
+
+        row.innerHTML = `
+
+            <td class="number">
+                ${index + 1}
+            </td>
+
+
+            <td class="name">
+                ${person.firstName}
+                ${person.lastName}
+            </td>
+
+
+            <td>
+                ${person.age} ปี
+            </td>
+
+
+            <td>
+                ${person.houseNo}
+            </td>
+
+
+            <td>
+
+                <span class="health-type ${typeClass}">
+                    ${person.type}
+                </span>
+
+                <br>
+
+                <small style="color:#7d8995;">
+                    ${person.disease || "-"}
+                </small>
+
+            </td>
+
+
+            <td>
+                ${person.phone || "-"}
+            </td>
+
+
+            <td>
+                ${person.volunteer || "-"}
+            </td>
+
+
+            <td>
+
+                <span class="visit ${visitClass}">
+                    ${person.visit}
+                </span>
+
+            </td>
+
+
+            <td>
+
+                <div class="actions">
+
+                    <button
+                        class="action-btn view"
+                        onclick="viewHealth(${person.id})">
+                        👁
+                    </button>
+
+
+                    <button
+                        class="action-btn edit"
+                        onclick="editHealth(${person.id})">
+                        ✎
+                    </button>
+
+
+                    <button
+                        class="action-btn visit-btn"
+                        onclick="recordVisit(${person.id})">
+                        🏠
+                    </button>
+
+
+                    <button
+                        class="action-btn delete"
+                        onclick="deleteHealth(${person.id})">
+                        🗑
+                    </button>
+
+                </div>
+
+            </td>
+
+        `;
+
+
+        table.appendChild(row);
+
+    });
+
+
+    updateSummary(list);
+
+}
+
+
+/* =========================
+SEARCH
+========================= */
+
+function searchHealth(){
+
+    const keyword =
+        document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+
+    const type =
+        document
+        .getElementById("typeFilter")
+        .value;
+
+
+    const visit =
+        document
+        .getElementById("visitFilter")
+        .value;
+
+
+    const result =
+        health.filter(person=>{
+
+            const text = `
+
+                ${person.firstName}
+                ${person.lastName}
+                ${person.houseNo}
+                ${person.phone}
+                ${person.disease}
+                ${person.volunteer}
+
+            `.toLowerCase();
+
+
+            return (
+
+                text.includes(keyword) &&
+
+                (!type ||
+                 person.type === type) &&
+
+                (!visit ||
+                 person.visit === visit)
+
+            );
+
+        });
+
+
+    renderHealth(result);
+
+}
+
+
+/* =========================
+SUMMARY
+========================= */
+
+function updateSummary(list){
+
+    document
+        .getElementById("total")
+        .textContent =
+        list.length;
+
+
+    document
+        .getElementById("chronic")
+        .textContent =
+        list.filter(
+            p=>p.type === "โรคเรื้อรัง"
+        ).length;
+
+
+    document
+        .getElementById("homecare")
+        .textContent =
+        list.filter(
+            p=>p.type === "ติดบ้าน" ||
+               p.type === "ติดเตียง"
+        ).length;
+
+
+    document
+        .getElementById("visited")
+        .textContent =
+        list.filter(
+            p=>p.visit === "เยี่ยมแล้ว"
+        ).length;
+
+}
+
+
+/* =========================
+MODAL
+========================= */
+
+function openModal(){
+
+    editId = null;
+
+
+    document
+        .getElementById("modalTitle")
+        .textContent =
+        "เพิ่มข้อมูลสุขภาพ";
+
+
+    document
+        .querySelector(".form")
+        .reset();
+
+
+    document
+        .getElementById("healthModal")
+        .classList.add("show");
+
+}
+
+
+function closeModal(){
+
+    document
+        .getElementById("healthModal")
+        .classList.remove("show");
+
+}
+
+
+/* =========================
+SAVE
+========================= */
+
+function saveHealth(event){
+
+    event.preventDefault();
+
+
+    const person = {
+
+        id:
+            editId ||
+            Date.now(),
+
+
+        firstName:
+            document
+            .getElementById("firstName")
+            .value,
+
+
+        lastName:
+            document
+            .getElementById("lastName")
+            .value,
+
+
+        age:
+            Number(
+                document
+                .getElementById("age")
+                .value
+            ),
+
+
+        houseNo:
+            document
+            .getElementById("houseNo")
+            .value,
+
+
+        type:
+            document
+            .getElementById("type")
+            .value,
+
+
+        disease:
+            document
+            .getElementById("disease")
+            .value,
+
+
+        phone:
+            document
+            .getElementById("phone")
+            .value,
+
+
+        volunteer:
+            document
+            .getElementById("volunteer")
+            .value,
+
+
+        visit:
+            document
+            .getElementById("visit")
+            .value,
+
+
+        visitDate:
+            document
+            .getElementById("visitDate")
+            .value,
+
+
+        note:
+            document
+            .getElementById("note")
+            .value
+
+    };
+
+
+    if(editId){
+
+        const index =
+            health.findIndex(
+                x=>x.id === editId
+            );
+
+        health[index] =
+            person;
+
+    }else{
+
+        health.push(person);
+
+    }
+
+
+    saveData();
+
+    renderHealth();
+
+    closeModal();
+
+}
+
+
+/* =========================
+EDIT
+========================= */
+
+function editHealth(id){
+
+    const person =
+        health.find(
+            x=>x.id === id
+        );
+
+    if(!person) return;
+
+
+    editId = id;
+
+
+    document
+        .getElementById("modalTitle")
+        .textContent =
+        "แก้ไขข้อมูลสุขภาพ";
+
+
+    document
+        .getElementById("firstName")
+        .value =
+        person.firstName;
+
+
+    document
+        .getElementById("lastName")
+        .value =
+        person.lastName;
+
+
+    document
+        .getElementById("age")
+        .value =
+        person.age;
+
+
+    document
+        .getElementById("houseNo")
+        .value =
+        person.houseNo;
+
+
+    document
+        .getElementById("type")
+        .value =
+        person.type;
+
+
+    document
+        .getElementById("disease")
+        .value =
+        person.disease;
+
+
+    document
+        .getElementById("phone")
+        .value =
+        person.phone;
+
+
+    document
+        .getElementById("volunteer")
+        .value =
+        person.volunteer;
+
+
+    document
+        .getElementById("visit")
+        .value =
+        person.visit;
+
+
+    document
+        .getElementById("visitDate")
+        .value =
+        person.visitDate;
+
+
+    document
+        .getElementById("note")
+        .value =
+        person.note;
+
+
+    document
+        .getElementById("healthModal")
+        .classList.add("show");
+
+}
+
+
+/* =========================
+VIEW
+========================= */
+
+function viewHealth(id){
+
+    const p =
+        health.find(
+            x=>x.id === id
+        );
+
+    if(!p) return;
+
+
+    alert(
+`
+ข้อมูลสุขภาพ
+
+ชื่อ:
+${p.firstName} ${p.lastName}
+
+อายุ:
+${p.age} ปี
+
+บ้านเลขที่:
+${p.houseNo}
+
+ประเภท:
+${p.type}
+
+โรค / ภาวะ:
+${p.disease || "-"}
+
+โทรศัพท์:
+${p.phone || "-"}
+
+อสม.:
+${p.volunteer || "-"}
+
+เยี่ยมบ้าน:
+${p.visit}
+
+วันที่เยี่ยมล่าสุด:
+${p.visitDate || "-"}
+
+หมายเหตุ:
+${p.note || "-"}
+`
+    );
+
+}
+
+
+/* =========================
+RECORD VISIT
+========================= */
+
+function recordVisit(id){
+
+    const p =
+        health.find(
+            x=>x.id === id
+        );
+
+    if(!p) return;
+
+
+    const today =
+        new Date()
+        .toISOString()
+        .split("T")[0];
+
+
+    p.visit = "เยี่ยมแล้ว";
+
+    p.visitDate = today;
+
+
+    saveData();
+
+    renderHealth();
+
+
+    alert(
+        `บันทึกการเยี่ยมบ้านของ ${p.firstName} ${p.lastName} เรียบร้อยแล้ว`
+    );
+
+}
+
+
+/* =========================
+DELETE
+========================= */
+
+function deleteHealth(id){
+
+    const p =
+        health.find(
+            x=>x.id === id
+        );
+
+    if(!p) return;
+
+
+    if(!confirm(
+        `ต้องการลบข้อมูล ${p.firstName} ${p.lastName} หรือไม่?`
+    )){
+        return;
+    }
+
+
+    health =
+        health.filter(
+            x=>x.id !== id
+        );
+
+
+    saveData();
+
+    renderHealth();
+
+}
+
+
+/* =========================
+LOCAL STORAGE
+========================= */
+
+function saveData(){
+
+    localStorage.setItem(
+        "rongkhem_health",
+        JSON.stringify(health)
+    );
+
+}
+
+
+function loadData(){
+
+    const saved =
+        localStorage.getItem(
+            "rongkhem_health"
+        );
+
+
+    if(saved){
+
+        health =
+            JSON.parse(saved);
+
+    }
+
+}
+
+
+/* =========================
+EXPORT CSV
+========================= */
+
+function exportCSV(){
+
+    let csv =
+        "\uFEFFลำดับ,ชื่อ-นามสกุล,อายุ,บ้านเลขที่,ประเภท,โรค/ภาวะ,โทรศัพท์,อสม.,เยี่ยมบ้าน,วันที่เยี่ยมล่าสุด,หมายเหตุ\n";
+
+
+    health.forEach((p,i)=>{
+
+        csv +=
+        `${i+1},` +
+        `"${p.firstName} ${p.lastName}",` +
+        `${p.age},` +
+        `${p.houseNo},` +
+        `"${p.type}",` +
+        `"${p.disease || ""}",` +
+        `"${p.phone || ""}",` +
+        `"${p.volunteer || ""}",` +
+        `"${p.visit}",` +
+        `"${p.visitDate || ""}",` +
+        `"${p.note || ""}"\n`;
+
+    });
+
+
+    const blob =
+        new Blob(
+            [csv],
+            {
+                type:
+                "text/csv;charset=utf-8;"
+            }
+        );
+
+
+    const url =
+        URL.createObjectURL(blob);
+
+
+    const a =
+        document.createElement("a");
+
+
+    a.href = url;
+
+    a.download =
+        "ข้อมูลสุขภาพ_บ้านร่องเข็ม.csv";
+
+    a.click();
+
+
+    URL.revokeObjectURL(url);
+
+}
+
+
+/* MOBILE */
+
+function toggleSidebar(){
+
+    document
+        .getElementById("sidebar")
+        .classList.toggle("open");
+
+}
+
+
+/* START */
+
+loadData();
+
+renderHealth();
+
+</script>
 
 </body>
-
 </html>
