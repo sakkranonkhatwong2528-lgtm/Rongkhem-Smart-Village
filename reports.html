@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>รายงานหมู่บ้าน | ร่องเข็ม Smart Village</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:"Segoe UI","Noto Sans Thai",Tahoma,sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+    color:#172033;
+}
+
+/* =========================
+TOPBAR
+========================= */
+
+.topbar{
+    height:68px;
+    background:#031d38;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 25px;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:1000;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:#f4c52d;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+}
+
+.brand h2{
+    font-size:17px;
+}
+
+.brand small{
+    color:#aebdcb;
+    font-size:10px;
+}
+
+.top-icons{
+    font-size:19px;
+}
+
+.mobile-toggle{
+    display:none;
+    font-size:24px;
+    cursor:pointer;
+}
+
+/* =========================
+SIDEBAR
+========================= */
+
+.sidebar{
+    position:fixed;
+    top:68px;
+    left:0;
+    bottom:0;
+    width:250px;
+    background:#061f39;
+    color:#fff;
+    padding:20px 14px;
+    overflow-y:auto;
+    z-index:900;
+}
+
+.profile{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:8px 8px 22px;
+    border-bottom:1px solid rgba(255,255,255,.1);
+    margin-bottom:15px;
+}
+
+.avatar{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:23px;
+}
+
+.profile strong{
+    font-size:14px;
+}
+
+.profile small{
+    display:block;
+    color:#9eafbf;
+    margin-top:4px;
+}
+
+.menu{
+    list-style:none;
+}
+
+.menu li{
+    margin-bottom:4px;
+}
+
+.menu a{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:12px 14px;
+    border-radius:8px;
+    color:#c8d3df;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.menu a:hover,
+.menu a.active{
+    background:#087be9;
+    color:#fff;
+}
+
+/* =========================
+MAIN
+========================= */
+
+.main{
+    margin-left:250px;
+    padding:95px 30px 40px;
+}
+
+.page-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.page-header h1{
+    color:#092b4d;
+    font-size:29px;
+}
+
+.page-header p{
+    color:#7c8793;
+    margin-top:5px;
+    font-size:14px;
+}
+
+.print-btn{
+    border:0;
+    background:#087be9;
+    color:#fff;
+    padding:12px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* =========================
+REPORT HEADER
+========================= */
+
+.report-header{
+    background:#fff;
+    border-radius:14px;
+    border:1px solid #e7ebf0;
+    box-shadow:0 4px 18px rgba(20,45,70,.06);
+    padding:25px;
+    margin-bottom:20px;
+}
+
+.village-title{
+    text-align:center;
+}
+
+.village-title .emblem{
+    font-size:40px;
+}
+
+.village-title h2{
+    color:#092b4d;
+    margin-top:8px;
+}
+
+.village-title p{
+    color:#6f7b87;
+    margin-top:5px;
+    font-size:13px;
+}
+
+.report-date{
+    display:flex;
+    justify-content:space-between;
+    margin-top:22px;
+    padding-top:15px;
+    border-top:1px solid #edf0f4;
+    color:#6f7b87;
+    font-size:12px;
+}
+
+/* =========================
+SUMMARY
+========================= */
+
+.summary{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+    margin-bottom:22px;
+}
+
+.summary-card{
+    background:#fff;
+    padding:20px;
+    border-radius:13px;
+    border:1px solid #e8edf2;
+    box-shadow:0 4px 15px rgba(20,45,70,.05);
+}
+
+.summary-card .icon{
+    font-size:25px;
+}
+
+.summary-card small{
+    display:block;
+    color:#7b8793;
+    margin-top:7px;
+}
+
+.summary-card strong{
+    display:block;
+    font-size:28px;
+    margin-top:4px;
+}
+
+.blue{
+    color:#0875d9;
+}
+
+.green{
+    color:#159052;
+}
+
+.orange{
+    color:#c47a00;
+}
+
+.red{
+    color:#d94747;
+}
+
+/* =========================
+REPORT GRID
+========================= */
+
+.report-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.report-card{
+    background:#fff;
+    border-radius:14px;
+    border:1px solid #e7ebf0;
+    box-shadow:0 4px 18px rgba(20,45,70,.06);
+    overflow:hidden;
+}
+
+.report-card-header{
+    padding:18px 20px;
+    background:#f8fafc;
+    border-bottom:1px solid #edf0f4;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.report-card-header h3{
+    color:#173452;
+    font-size:16px;
+}
+
+.report-card-header span{
+    font-size:20px;
+}
+
+.report-body{
+    padding:20px;
+}
+
+.data-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 0;
+    border-bottom:1px solid #edf0f4;
+    font-size:13px;
+}
+
+.data-row:last-child{
+    border-bottom:0;
+}
+
+.data-row .label{
+    color:#697785;
+}
+
+.data-row .value{
+    font-weight:bold;
+    color:#193a58;
+}
+
+.progress-wrap{
+    margin-top:15px;
+}
+
+.progress-label{
+    display:flex;
+    justify-content:space-between;
+    font-size:12px;
+    color:#687684;
+    margin-bottom:7px;
+}
+
+.progress{
+    width:100%;
+    height:8px;
+    background:#edf1f5;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.progress-bar{
+    height:100%;
+    background:#087be9;
+    border-radius:10px;
+}
+
+.progress-green{
+    background:#159052;
+}
+
+.progress-orange{
+    background:#d18a00;
+}
+
+.progress-red{
+    background:#d94747;
+}
+
+/* =========================
+ACTION
+========================= */
+
+.action-panel{
+    margin-top:20px;
+    background:#fff;
+    border:1px solid #e7ebf0;
+    border-radius:14px;
+    padding:20px;
+}
+
+.action-panel h3{
+    color:#173452;
+    margin-bottom:15px;
+}
+
+.action-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+}
+
+.action{
+    padding:14px;
+    border:1px solid #e1e7ed;
+    background:#fff;
+    border-radius:9px;
+    cursor:pointer;
+    text-align:center;
+    color:#34495e;
+}
+
+.action:hover{
+    background:#f6f9fc;
+}
+
+.action-icon{
+    font-size:23px;
+    display:block;
+    margin-bottom:6px;
+}
+
+/* =========================
+PRINT
+========================= */
+
+@media print{
+
+    body{
+        background:#fff;
+    }
+
+    .topbar,
+    .sidebar,
+    .page-header,
+    .action-panel{
+        display:none !important;
+    }
+
+    .main{
+        margin-left:0;
+        padding:0;
+    }
+
+    .report-header,
+    .summary-card,
+    .report-card{
+        box-shadow:none;
+    }
+
+}
+
+/* =========================
+MOBILE
+========================= */
+
+@media(max-width:1050px){
+
+    .summary{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .action-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:750px){
+
+    .mobile-toggle{
+        display:block;
+    }
+
+    .sidebar{
+        transform:translateX(-100%);
+        transition:.3s;
+    }
+
+    .sidebar.open{
+        transform:translateX(0);
+    }
+
+    .main{
+        margin-left:0;
+        padding:88px 15px 30px;
+    }
+
+    .page-header{
+        display:block;
+    }
+
+    .print-btn{
+        margin-top:15px;
+    }
+
+    .summary{
+        grid-template-columns:1fr;
+    }
+
+    .report-grid{
+        grid-template-columns:1fr;
+    }
+
+    .action-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .report-date{
+        display:block;
+    }
+
+    .report-date span{
+        display:block;
+        margin-top:5px;
+    }
+
+    .brand h2{
+        font-size:14px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- TOPBAR -->
+
+<header class="topbar">
+
+    <div class="brand">
+
+        <div class="mobile-toggle"
+             onclick="toggleSidebar()">
+            ☰
+        </div>
+
+        <div class="logo">
+            🏡
+        </div>
+
+        <div>
+            <h2>ร่องเข็ม Smart Village</h2>
+            <small>
+                ระบบบริหารจัดการหมู่บ้านอัจฉริยะ
+            </small>
+        </div>
+
+    </div>
+
+    <div class="top-icons">
+        🔔 &nbsp; 👤
+    </div>
+
+</header>
+
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar" id="sidebar">
+
+    <div class="profile">
+
+        <div class="avatar">
+            👨🏻‍💼
+        </div>
+
+        <div>
+            <strong>ผู้ใหญ่บ้านร่องเข็ม</strong>
+            <small>ผู้ดูแลระบบ</small>
+        </div>
+
+    </div>
+
+
+    <ul class="menu">
+
+        <li>
+            <a href="dashboard.html">
+                📊 Dashboard
+            </a>
+        </li>
+
+        <li>
+            <a href="citizen.html">
+                👥 ข้อมูลประชาชน
+            </a>
+        </li>
+
+        <li>
+            <a href="household.html">
+                🏠 ข้อมูลครัวเรือน
+            </a>
+        </li>
+
+        <li>
+            <a href="elderly.html">
+                👴 ผู้สูงอายุ
+            </a>
+        </li>
+
+        <li>
+            <a href="vulnerable.html">
+                🤝 กลุ่มเปราะบาง
+            </a>
+        </li>
+
+        <li>
+            <a href="health.html">
+                ❤️ ข้อมูลสุขภาพ
+            </a>
+        </li>
+
+        <li>
+            <a href="leader.html">
+                👨‍💼 ผู้นำชุมชน
+            </a>
+        </li>
+
+        <li>
+            <a href="projects.html">
+                📋 โครงการ / กิจกรรม
+            </a>
+        </li>
+
+        <li>
+            <a href="news.html">
+                📰 ข่าวสาร / ประกาศ
+            </a>
+        </li>
+
+        <li>
+            <a href="reports.html" class="active">
+                📈 รายงาน
+            </a>
+        </li>
+
+        <li>
+            <a href="settings.html">
+                ⚙️ ตั้งค่า
+            </a>
+        </li>
+
+        <li style="margin-top:20px;">
+            <a href="index.html">
+                🏡 กลับหน้าเว็บไซต์
+            </a>
+        </li>
+
+    </ul>
+
+</aside>
+
+
+<!-- MAIN -->
+
+<main class="main">
+
+    <div class="page-header">
+
+        <div>
+
+            <h1>
+                ศูนย์รวมรายงานหมู่บ้าน
+            </h1>
+
+            <p>
+                สรุปข้อมูลสำหรับการบริหารจัดการบ้านร่องเข็ม หมู่ที่ 6
+            </p>
+
+        </div>
+
+        <button
+            class="print-btn"
+            onclick="window.print()">
+
+            🖨️ พิมพ์รายงาน
+
+        </button>
+
+    </div>
+
+
+    <!-- REPORT HEADER -->
+
+    <section class="report-header">
+
+        <div class="village-title">
+
+            <div class="emblem">
+                🏡
+            </div>
+
+            <h2>
+                บ้านร่องเข็ม หมู่ที่ 6
+            </h2>
+
+            <p>
+                ตำบลจำป่าหวาย อำเภอเมืองพะเยา จังหวัดพะเยา
+            </p>
+
+            <p>
+                รายงานข้อมูลการบริหารจัดการหมู่บ้าน
+            </p>
+
+        </div>
+
+
+        <div class="report-date">
+
+            <span>
+                วันที่ออกรายงาน:
+                <strong id="reportDate"></strong>
+            </span>
+
+            <span>
+                ผู้จัดทำ:
+                <strong>ผู้ใหญ่บ้านร่องเข็ม</strong>
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- SUMMARY -->
+
+    <section class="summary">
+
+        <div class="summary-card">
+
+            <div class="icon">
+                👥
+            </div>
+
+            <small>
+                ประชาชน
+            </small>
+
+            <strong class="blue">
+                486
+            </strong>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="icon">
+                🏠
+            </div>
+
+            <small>
+                ครัวเรือน
+            </small>
+
+            <strong class="green">
+                192
+            </strong>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="icon">
+                👴
+            </div>
+
+            <small>
+                ผู้สูงอายุ
+            </small>
+
+            <strong class="orange">
+                86
+            </strong>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="icon">
+                ❤️
+            </div>
+
+            <small>
+                ข้อมูลสุขภาพ
+            </small>
+
+            <strong class="red">
+                48
+            </strong>
+
+        </div>
+
+    </section>
+
+
+    <!-- REPORT GRID -->
+
+    <section class="report-grid">
+
+
+        <!-- PEOPLE -->
+
+        <div class="report-card">
+
+            <div class="report-card-header">
+
+                <h3>
+                    👥 ข้อมูลประชาชน
+                </h3>
+
+                <span>
+                    📊
+                </span>
+
+            </div>
+
+
+            <div class="report-body">
+
+                <div class="data-row">
+
+                    <span class="label">
+                        ประชาชนทั้งหมด
+                    </span>
+
+                    <span class="value">
+                        486 คน
+                    </span>
+
+                </div>
+
+
+                <div class="data-row">
+
+                    <span class="label">
+                        ชาย
+                    </span>
+
+                    <span class="value">
+                        239 คน
+                    </span>
+
+                </div>
+
+
+                <div class="data-row">
+
+                    <span class="label">
+                        หญิง
+                    </span>
+
+                    <span class="value">
+                        247 คน
+                    </span>
+
+                </div>
+
+
+                <div class="data-row">
+
+                    <span class="label">
+                        ครัวเรือน
+                    </span>
+
+                    <span class="value">
+                        192 ครัวเรือน
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ELDERLY -->
+
+        <div class="report-card">
+
+            <div class="report-card-header">
+
+                <h3>
+                    👴 ผู้สูงอายุ
+                </h3>
+
+                <span>
+                    ❤️
+                </span>
+
+            </div>
+
+
+            <div class="report-body">
+
+                <div class="data-row">
+
+                    <span class="label">
+                        ผู้สูงอายุทั้งหมด
+                    </span>
+
+                    <span class="value">
+                        86 คน
+                    </span>
+
+                </div>
+
+
+                <div class="data-row">
+
+                    <span class="label">
+                        ช่วยเหลือตนเองได้
+                    </span>
+
+                    <span class="value">
+                        69 คน
+                    </span>
+
+                </div>
+
+
+                <div class="data-row">
+
+                    <span class="label">
+                        ติดบ้าน
+                    </span>
+
+                    <span class="value">
+                        12 คน
+                    </span>
+
+                </div>
+
+
+                <div class="data-row">
+
+                    <span class="label">
+                        ติดเตียง
+                    </span>
+
+                    <span class="value">
+                        5 คน
+                    </span>
+
+                </div>
+
+
+                <div class="progress-wrap">
+
+                    <div class="progress-label">
+
+                        <span>
+                            เยี่ยมบ้านแล้ว
+                        </span>
+
+                        <span>
+                            91%
+                        </span>
+
+                    </div>
+
+                    <div class="progress">
+
+                        <div
+                            class="progress-bar progress-green"
+                            style="width:91%">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- HEALTH -->
+
+        <div class="report-card">
+
+            <div class="report-card-header">
+
+                <h3>
+                    ❤️ สุขภาพชุมชน
+                </h3>
+
+                <span>
+                    🩺
+                </span>
+
+            </div>
+
+
+            <div class="report-body">
+
+                <div class="data-row">
+
+                    <span class="label">
+                        ผู้มีข้อมูลสุขภาพ
+                    </span>
+
+                    <span class="value">
+                        48 คน
+                    </span>
+
+                </div>
+
+
+                <div class="data-row">
+
+                    <span class="label">
+                        โรคเรื้อรัง
+                    </span>
+
+                    <span class="value">
+                        25 คน
+                    </span>
+
+                </div>
+
+
+                <div class="data-row">
+
+                    <span class="label">
+                        ติดบ้าน / ติดเตียง
+                    </span>
+
+                    <span class="value">
+                        17 คน
+                    </span>
+
+                </div>
+
+
+                <div class="progress-wrap">
+
+                    <div class="progress-label">
+
+                        <span>
+                            เยี่ยมบ้านแล้ว
+                        </span>
+
+                        <span>
+                            81%
+                        </span>
+
+                    </div>
+
+                    <div class="progress">
+
+                        <div
+                            class="progress-bar progress-green"
+                            style="width:81%">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- LEADER -->
+
+        <div class="report-card">
+
+            <div class="report-card-header">
+
+                <h3>
+                    👨‍💼 ผู้นำชุมชน
+                </h3>
+
+                <span>
+                    🏡
+                </span>
+
+            </div>
+
+
+            <div class="report-body">
+
+                <div class="data-row">
+
+                    <span class="label">
+                        บุคลากรทั้งหมด
+                    </span>
+
+                    <span class="value">
+                        18 คน
+                    </span>
+
+                </div>
+
+
+                <div class="data-row">
+
+                    <span class="label">
+                        ฝ่ายปกครอง
+                    </span>
+
+                    <span class="value">
+                        3 คน
+                    </span>
+
+                </div>
+
+
+                <div class="data-row">
+
+                    <span class="label">
+                        ชรบ.
+                    </span>
+
+                    <span class="value">
+                        8 คน
+                    </span>
+
+                </div>
+
+
+                <div class="data-row">
+
+                    <span class="label">
+                        อสม.
+                    </span>
+
+                    <span class="value">
+                        7 คน
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROJECT -->
+
+        <div class="report-card">
+
+            <div class="report-card-header">
+
+                <h3>
+                    📋 โครงการ
+                </h3>
+
+                <span>
+                    💰
+                </span>
+
+            </div>
+
+
+            <div class="report-body">
+
+                <div class="data-row">
+
+                    <span class="label">
+                        โครงการทั้งหมด
+                    </span>
+
+                    <span class="value">
+                        18 โครงการ
+                    </span>
+
+                </div>
+
+
+                <div class="data-row">
+
+                    <span class="label">
+                        กำลังดำเนินการ
+                    </span>
+
+                    <span class="value">
+                        7 โครงการ
+                    </span>
+
+                </div>
+
+
+                <div class="data-row">
+
+                    <span class="label">
+                        เสร็จสิ้น
+                    </span>
+
+                    <span class="value">
+                        9 โครงการ
+                    </span>
+
+                </div>
+
+
+                <div class="progress-wrap">
+
+                    <div class="progress-label">
+
+                        <span>
+                            ความคืบหน้า
+                        </span>
+
+                        <span>
+                            88%
+                        </span>
+
+                    </div>
+
+                    <div class="progress">
+
+                        <div
+                            class="progress-bar progress-orange"
+                            style="width:88%">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- NEWS -->
+
+        <div class="report-card">
+
+            <div class="report-card-header">
+
+                <h3>
+                    📰 ข่าวสาร
+                </h3>
+
+                <span>
+                    📢
+                </span>
+
+            </div>
+
+
+            <div class="report-body">
+
+                <div class="data-row">
+
+                    <span class="label">
+                        ข่าวทั้งหมด
+                    </span>
+
+                    <span class="value">
+                        12 ข่าว
+                    </span>
+
+                </div>
+
+
+                <div class="data-row">
+
+                    <span class="label">
+                        ประกาศสำคัญ
+                    </span>
+
+                    <span class="value">
+                        3 รายการ
+                    </span>
+
+                </div>
+
+
+                <div class="data-row">
+
+                    <span class="label">
+                        กิจกรรม
+                    </span>
+
+                    <span class="value">
+                        5 รายการ
+                    </span>
+
+                </div>
+
+
+                <div class="data-row">
+
+                    <span class="label">
+                        เผยแพร่แล้ว
+                    </span>
+
+                    <span class="value">
+                        10 รายการ
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ACTION PANEL -->
+
+    <section class="action-panel">
+
+        <h3>
+            📑 เอกสารและรายงาน
+        </h3>
+
+
+        <div class="action-grid">
+
+            <button
+                class="action"
+                onclick="printSection()">
+
+                <span class="action-icon">
+                    🖨️
+                </span>
+
+                พิมพ์รายงาน
+
+            </button>
+
+
+            <button
+                class="action"
+                onclick="exportCSV()">
+
+                <span class="action-icon">
+                    📥
+                </span>
+
+                ส่งออกข้อมูล
+
+            </button>
+
+
+            <button
+                class="action"
+                onclick="window.location.href='dashboard.html'">
+
+                <span class="action-icon">
+                    📊
+                </span>
+
+                ดู Dashboard
+
+            </button>
+
+
+            <button
+                class="action"
+                onclick="window.location.href='index.html'">
+
+                <span class="action-icon">
+                    🏡
+                </span>
+
+                หน้าเว็บไซต์
+
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script>
+
+/* =========================
+DATE
+========================= */
+
+function setReportDate(){
+
+    const now = new Date();
+
+    const day =
+        String(now.getDate())
+        .padStart(2,"0");
+
+    const month =
+        String(now.getMonth()+1)
+        .padStart(2,"0");
+
+    const year =
+        now.getFullYear()+543;
+
+    document
+        .getElementById("reportDate")
+        .textContent =
+        `${day}/${month}/${year}`;
+
+}
+
+
+/* =========================
+PRINT
+========================= */
+
+function printSection(){
+
+    window.print();
+
+}
+
+
+/* =========================
+EXPORT
+========================= */
+
+function exportCSV(){
+
+    const rows = [
+
+        ["หัวข้อ","จำนวน"],
+
+        ["ประชาชน","486"],
+
+        ["ครัวเรือน","192"],
+
+        ["ผู้สูงอายุ","86"],
+
+        ["ข้อมูลสุขภาพ","48"],
+
+        ["ผู้นำชุมชน","18"],
+
+        ["โครงการ","18"],
+
+        ["โครงการกำลังดำเนินการ","7"],
+
+        ["โครงการเสร็จสิ้น","9"],
+
+        ["ข่าวสาร","12"],
+
+        ["ประกาศสำคัญ","3"]
+
+    ];
+
+
+    let csv =
+        "\uFEFF";
+
+
+    rows.forEach(row=>{
+
+        csv +=
+            row.map(
+                x => `"${x}"`
+            ).join(",") +
+            "\n";
+
+    });
+
+
+    const blob =
+        new Blob(
+            [csv],
+            {
+                type:
+                "text/csv;charset=utf-8;"
+            }
+        );
+
+
+    const url =
+        URL.createObjectURL(blob);
+
+
+    const a =
+        document.createElement("a");
+
+
+    a.href = url;
+
+    a.download =
+        "รายงานบ้านร่องเข็ม.csv";
+
+    a.click();
+
+
+    URL.revokeObjectURL(url);
+
+}
+
+
+/* MOBILE */
+
+function toggleSidebar(){
+
+    document
+        .getElementById("sidebar")
+        .classList.toggle("open");
+
+}
+
+
+/* START */
+
+setReportDate();
+
+</script>
+
+</body>
+</html>
