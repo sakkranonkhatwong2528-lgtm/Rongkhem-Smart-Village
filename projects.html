@@ -1,0 +1,1994 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>โครงการและกิจกรรม | ร่องเข็ม Smart Village</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:"Segoe UI","Noto Sans Thai",Tahoma,sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+    color:#172033;
+}
+
+/* TOPBAR */
+
+.topbar{
+    height:68px;
+    background:#031d38;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 25px;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:1000;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:#f4c52d;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+}
+
+.brand h2{
+    font-size:17px;
+}
+
+.brand small{
+    color:#aebdcb;
+    font-size:10px;
+}
+
+.top-icons{
+    font-size:19px;
+}
+
+.mobile-toggle{
+    display:none;
+    font-size:24px;
+    cursor:pointer;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    position:fixed;
+    top:68px;
+    left:0;
+    bottom:0;
+    width:250px;
+    background:#061f39;
+    color:#fff;
+    padding:20px 14px;
+    overflow-y:auto;
+    z-index:900;
+}
+
+.profile{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:8px 8px 22px;
+    border-bottom:1px solid rgba(255,255,255,.1);
+    margin-bottom:15px;
+}
+
+.avatar{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:23px;
+}
+
+.profile strong{
+    font-size:14px;
+}
+
+.profile small{
+    display:block;
+    color:#9eafbf;
+    margin-top:4px;
+}
+
+.menu{
+    list-style:none;
+}
+
+.menu li{
+    margin-bottom:4px;
+}
+
+.menu a{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:12px 14px;
+    border-radius:8px;
+    color:#c8d3df;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.menu a:hover,
+.menu a.active{
+    background:#087be9;
+    color:#fff;
+}
+
+/* MAIN */
+
+.main{
+    margin-left:250px;
+    padding:95px 30px 40px;
+}
+
+.page-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.page-header h1{
+    color:#092b4d;
+    font-size:29px;
+}
+
+.page-header p{
+    color:#7c8793;
+    margin-top:5px;
+    font-size:14px;
+}
+
+.add-btn{
+    border:0;
+    background:#087be9;
+    color:white;
+    padding:12px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* SUMMARY */
+
+.summary{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+    margin-bottom:22px;
+}
+
+.summary-card{
+    background:#fff;
+    padding:20px;
+    border-radius:13px;
+    border:1px solid #e8edf2;
+    box-shadow:0 4px 15px rgba(20,45,70,.05);
+}
+
+.summary-card .icon{
+    font-size:24px;
+}
+
+.summary-card small{
+    display:block;
+    color:#7b8793;
+    margin-top:7px;
+}
+
+.summary-card strong{
+    display:block;
+    font-size:28px;
+    margin-top:4px;
+}
+
+.blue{
+    color:#0875d9;
+}
+
+.orange{
+    color:#c47a00;
+}
+
+.green{
+    color:#159052;
+}
+
+.red{
+    color:#d94747;
+}
+
+/* CONTENT */
+
+.content-card{
+    background:#fff;
+    border-radius:14px;
+    border:1px solid #e7ebf0;
+    box-shadow:0 4px 18px rgba(20,45,70,.06);
+    overflow:hidden;
+}
+
+.toolbar{
+    padding:22px;
+    border-bottom:1px solid #edf0f4;
+}
+
+.search-row{
+    display:flex;
+    gap:10px;
+}
+
+.search-box{
+    flex:1;
+    position:relative;
+}
+
+.search-box input{
+    width:100%;
+    padding:12px 15px 12px 42px;
+    border:1px solid #dce2e8;
+    border-radius:8px;
+    outline:none;
+    font-size:14px;
+}
+
+.search-icon{
+    position:absolute;
+    left:14px;
+    top:11px;
+}
+
+.filter{
+    padding:12px 15px;
+    border:1px solid #dce2e8;
+    border-radius:8px;
+    background:#fff;
+    outline:none;
+}
+
+.export-btn{
+    border:0;
+    background:#15965b;
+    color:white;
+    padding:0 18px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+/* PROJECT GRID */
+
+.project-grid{
+    padding:22px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.project-card{
+    border:1px solid #e3e8ee;
+    border-radius:13px;
+    overflow:hidden;
+    background:#fff;
+    transition:.2s;
+}
+
+.project-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 25px rgba(20,45,70,.1);
+}
+
+.project-top{
+    background:linear-gradient(135deg,#07345d,#087be9);
+    color:#fff;
+    padding:18px;
+}
+
+.project-code{
+    font-size:11px;
+    opacity:.75;
+}
+
+.project-top h3{
+    font-size:17px;
+    margin-top:7px;
+    line-height:1.5;
+}
+
+.project-body{
+    padding:18px;
+}
+
+.info{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    padding:9px 0;
+    border-bottom:1px solid #edf0f4;
+    font-size:13px;
+}
+
+.info:last-child{
+    border-bottom:0;
+}
+
+.info span:first-child{
+    color:#7b8793;
+}
+
+.info span:last-child{
+    color:#253b52;
+    font-weight:600;
+    text-align:right;
+}
+
+.status{
+    display:inline-block;
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:11px;
+}
+
+.status-plan{
+    background:#eaf3ff;
+    color:#0875d9;
+}
+
+.status-progress{
+    background:#fff3dc;
+    color:#b87500;
+}
+
+.status-done{
+    background:#eaf8ef;
+    color:#159052;
+}
+
+.status-stop{
+    background:#ffecec;
+    color:#d94747;
+}
+
+.project-footer{
+    background:#fafbfd;
+    padding:13px 18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.actions{
+    display:flex;
+    gap:5px;
+}
+
+.action-btn{
+    width:32px;
+    height:32px;
+    border:0;
+    border-radius:6px;
+    color:#fff;
+    cursor:pointer;
+}
+
+.view{
+    background:#087be9;
+}
+
+.edit{
+    background:#f2a514;
+}
+
+.delete{
+    background:#e84b4b;
+}
+
+/* MODAL */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:2000;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-box{
+    width:100%;
+    max-width:760px;
+    max-height:90vh;
+    overflow-y:auto;
+    background:#fff;
+    border-radius:15px;
+}
+
+.modal-header{
+    padding:20px 24px;
+    border-bottom:1px solid #edf0f4;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.modal-header h2{
+    color:#123452;
+    font-size:20px;
+}
+
+.close{
+    border:0;
+    background:none;
+    font-size:25px;
+    cursor:pointer;
+    color:#7b8793;
+}
+
+.form{
+    padding:24px;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:17px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+}
+
+.form-group.full{
+    grid-column:1/-1;
+}
+
+.form-group label{
+    font-size:13px;
+    font-weight:bold;
+    color:#475565;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    padding:11px 12px;
+    border:1px solid #dce2e8;
+    border-radius:7px;
+    outline:none;
+}
+
+.form-group textarea{
+    min-height:90px;
+    resize:vertical;
+}
+
+.modal-footer{
+    display:flex;
+    justify-content:flex-end;
+    gap:10px;
+    margin-top:25px;
+}
+
+.cancel{
+    border:1px solid #dce2e8;
+    background:#fff;
+    padding:11px 20px;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+.save{
+    border:0;
+    background:#087be9;
+    color:#fff;
+    padding:11px 22px;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+/* MOBILE */
+
+@media(max-width:1050px){
+
+    .summary{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .project-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:750px){
+
+    .mobile-toggle{
+        display:block;
+    }
+
+    .sidebar{
+        transform:translateX(-100%);
+        transition:.3s;
+    }
+
+    .sidebar.open{
+        transform:translateX(0);
+    }
+
+    .main{
+        margin-left:0;
+        padding:88px 15px 30px;
+    }
+
+    .page-header{
+        display:block;
+    }
+
+    .add-btn{
+        margin-top:15px;
+    }
+
+    .summary{
+        grid-template-columns:1fr;
+    }
+
+    .search-row{
+        flex-wrap:wrap;
+    }
+
+    .search-box{
+        flex-basis:100%;
+    }
+
+    .filter{
+        flex:1;
+    }
+
+    .export-btn{
+        padding:12px 18px;
+    }
+
+    .project-grid{
+        grid-template-columns:1fr;
+        padding:15px;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .form-group.full{
+        grid-column:auto;
+    }
+
+    .brand h2{
+        font-size:14px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- TOPBAR -->
+
+<header class="topbar">
+
+    <div class="brand">
+
+        <div class="mobile-toggle"
+             onclick="toggleSidebar()">
+            ☰
+        </div>
+
+        <div class="logo">
+            🏡
+        </div>
+
+        <div>
+            <h2>ร่องเข็ม Smart Village</h2>
+            <small>
+                ระบบบริหารจัดการหมู่บ้านอัจฉริยะ
+            </small>
+        </div>
+
+    </div>
+
+    <div class="top-icons">
+        🔔 &nbsp; 👤
+    </div>
+
+</header>
+
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar" id="sidebar">
+
+    <div class="profile">
+
+        <div class="avatar">
+            👨🏻‍💼
+        </div>
+
+        <div>
+            <strong>ผู้ใหญ่บ้านร่องเข็ม</strong>
+            <small>ผู้ดูแลระบบ</small>
+        </div>
+
+    </div>
+
+
+    <ul class="menu">
+
+        <li>
+            <a href="dashboard.html">
+                📊 Dashboard
+            </a>
+        </li>
+
+        <li>
+            <a href="citizen.html">
+                👥 ข้อมูลประชาชน
+            </a>
+        </li>
+
+        <li>
+            <a href="household.html">
+                🏠 ข้อมูลครัวเรือน
+            </a>
+        </li>
+
+        <li>
+            <a href="elderly.html">
+                👴 ผู้สูงอายุ
+            </a>
+        </li>
+
+        <li>
+            <a href="vulnerable.html">
+                🤝 กลุ่มเปราะบาง
+            </a>
+        </li>
+
+        <li>
+            <a href="health.html">
+                ❤️ ข้อมูลสุขภาพ
+            </a>
+        </li>
+
+        <li>
+            <a href="leader.html">
+                👨‍💼 ผู้นำชุมชน
+            </a>
+        </li>
+
+        <li>
+            <a href="projects.html" class="active">
+                📋 โครงการ / กิจกรรม
+            </a>
+        </li>
+
+        <li>
+            <a href="news.html">
+                📰 ข่าวสาร / ประกาศ
+            </a>
+        </li>
+
+        <li>
+            <a href="reports.html">
+                📈 รายงาน
+            </a>
+        </li>
+
+        <li>
+            <a href="settings.html">
+                ⚙️ ตั้งค่า
+            </a>
+        </li>
+
+        <li style="margin-top:20px;">
+            <a href="index.html">
+                🏡 กลับหน้าเว็บไซต์
+            </a>
+        </li>
+
+    </ul>
+
+</aside>
+
+
+<!-- MAIN -->
+
+<main class="main">
+
+    <div class="page-header">
+
+        <div>
+
+            <h1>
+                โครงการและกิจกรรม
+            </h1>
+
+            <p>
+                ระบบบริหารโครงการ กิจกรรม และงบประมาณของหมู่บ้าน
+            </p>
+
+        </div>
+
+        <button class="add-btn"
+                onclick="openModal()">
+
+            ＋ เพิ่มโครงการ
+
+        </button>
+
+    </div>
+
+
+    <!-- SUMMARY -->
+
+    <section class="summary">
+
+        <div class="summary-card">
+
+            <div class="icon">
+                📋
+            </div>
+
+            <small>
+                โครงการทั้งหมด
+            </small>
+
+            <strong class="blue"
+                    id="total">
+                18
+            </strong>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="icon">
+                🔄
+            </div>
+
+            <small>
+                กำลังดำเนินการ
+            </small>
+
+            <strong class="orange"
+                    id="progress">
+                7
+            </strong>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="icon">
+                ✅
+            </div>
+
+            <small>
+                ดำเนินการแล้ว
+            </small>
+
+            <strong class="green"
+                    id="done">
+                9
+            </strong>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="icon">
+                💰
+            </div>
+
+            <small>
+                งบประมาณรวม
+            </small>
+
+            <strong class="red"
+                    id="budget">
+                2.48 ลบ.
+            </strong>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTENT -->
+
+    <section class="content-card">
+
+        <div class="toolbar">
+
+            <div class="search-row">
+
+                <div class="search-box">
+
+                    <span class="search-icon">
+                        🔍
+                    </span>
+
+                    <input
+                        id="searchInput"
+                        type="text"
+                        placeholder="ค้นหาชื่อโครงการ ผู้รับผิดชอบ หรือรายละเอียด..."
+                        oninput="searchProjects()"
+                    >
+
+                </div>
+
+
+                <select
+                    class="filter"
+                    id="categoryFilter"
+                    onchange="searchProjects()">
+
+                    <option value="">
+                        ทุกหมวด
+                    </option>
+
+                    <option value="โครงสร้างพื้นฐาน">
+                        โครงสร้างพื้นฐาน
+                    </option>
+
+                    <option value="สาธารณสุข">
+                        สาธารณสุข
+                    </option>
+
+                    <option value="สิ่งแวดล้อม">
+                        สิ่งแวดล้อม
+                    </option>
+
+                    <option value="สังคม">
+                        สังคม
+                    </option>
+
+                    <option value="พัฒนาอาชีพ">
+                        พัฒนาอาชีพ
+                    </option>
+
+                    <option value="อื่นๆ">
+                        อื่นๆ
+                    </option>
+
+                </select>
+
+
+                <select
+                    class="filter"
+                    id="statusFilter"
+                    onchange="searchProjects()">
+
+                    <option value="">
+                        ทุกสถานะ
+                    </option>
+
+                    <option value="เตรียมการ">
+                        เตรียมการ
+                    </option>
+
+                    <option value="กำลังดำเนินการ">
+                        กำลังดำเนินการ
+                    </option>
+
+                    <option value="เสร็จสิ้น">
+                        เสร็จสิ้น
+                    </option>
+
+                    <option value="ระงับ">
+                        ระงับ
+                    </option>
+
+                </select>
+
+
+                <button class="export-btn"
+                        onclick="exportCSV()">
+
+                    ↓ Excel
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="project-grid"
+             id="projectGrid">
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- MODAL -->
+
+<div class="modal"
+     id="projectModal">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <h2 id="modalTitle">
+                เพิ่มโครงการ
+            </h2>
+
+            <button class="close"
+                    onclick="closeModal()">
+                ×
+            </button>
+
+        </div>
+
+
+        <form class="form"
+              onsubmit="saveProject(event)">
+
+            <div class="form-grid">
+
+                <div class="form-group full">
+
+                    <label>
+                        ชื่อโครงการ
+                    </label>
+
+                    <input
+                        id="name"
+                        required
+                        placeholder="ชื่อโครงการ"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        หมวดหมู่
+                    </label>
+
+                    <select
+                        id="category"
+                        required>
+
+                        <option value="">
+                            เลือกหมวดหมู่
+                        </option>
+
+                        <option value="โครงสร้างพื้นฐาน">
+                            โครงสร้างพื้นฐาน
+                        </option>
+
+                        <option value="สาธารณสุข">
+                            สาธารณสุข
+                        </option>
+
+                        <option value="สิ่งแวดล้อม">
+                            สิ่งแวดล้อม
+                        </option>
+
+                        <option value="สังคม">
+                            สังคม
+                        </option>
+
+                        <option value="พัฒนาอาชีพ">
+                            พัฒนาอาชีพ
+                        </option>
+
+                        <option value="อื่นๆ">
+                            อื่นๆ
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        สถานะ
+                    </label>
+
+                    <select
+                        id="status"
+                        required>
+
+                        <option value="เตรียมการ">
+                            เตรียมการ
+                        </option>
+
+                        <option value="กำลังดำเนินการ">
+                            กำลังดำเนินการ
+                        </option>
+
+                        <option value="เสร็จสิ้น">
+                            เสร็จสิ้น
+                        </option>
+
+                        <option value="ระงับ">
+                            ระงับ
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        งบประมาณ (บาท)
+                    </label>
+
+                    <input
+                        id="budgetInput"
+                        type="number"
+                        min="0"
+                        step="0.01"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        ผู้รับผิดชอบ
+                    </label>
+
+                    <input
+                        id="responsible"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        วันที่เริ่มโครงการ
+                    </label>
+
+                    <input
+                        id="startDate"
+                        type="date"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        วันที่สิ้นสุด
+                    </label>
+
+                    <input
+                        id="endDate"
+                        type="date"
+                    >
+
+                </div>
+
+
+                <div class="form-group full">
+
+                    <label>
+                        เป้าหมาย / รายละเอียด
+                    </label>
+
+                    <textarea
+                        id="description"
+                        placeholder="รายละเอียดโครงการ กลุ่มเป้าหมาย และผลที่คาดว่าจะได้รับ">
+                    </textarea>
+
+                </div>
+
+            </div>
+
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="cancel"
+                    onclick="closeModal()">
+
+                    ยกเลิก
+
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="save">
+
+                    บันทึกโครงการ
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================
+DATA
+========================= */
+
+let projects = [
+
+{
+    id:1,
+    name:"โครงการปรับปรุงถนนภายในหมู่บ้าน",
+    category:"โครงสร้างพื้นฐาน",
+    status:"กำลังดำเนินการ",
+    budget:450000,
+    responsible:"ผู้ใหญ่บ้านหมู่ 6",
+    startDate:"2026-06-01",
+    endDate:"2026-09-30",
+    description:"ปรับปรุงถนนและแก้ไขจุดชำรุดภายในหมู่บ้าน"
+},
+
+{
+    id:2,
+    name:"โครงการชุมชนเข้มแข็งลดการเผา",
+    category:"สิ่งแวดล้อม",
+    status:"กำลังดำเนินการ",
+    budget:120000,
+    responsible:"คณะกรรมการหมู่บ้าน",
+    startDate:"2026-02-01",
+    endDate:"2026-12-31",
+    description:"ลดการเผาในพื้นที่และสร้างความรู้เรื่อง PM2.5"
+},
+
+{
+    id:3,
+    name:"โครงการดูแลผู้สูงอายุและกลุ่มเปราะบาง",
+    category:"สาธารณสุข",
+    status:"กำลังดำเนินการ",
+    budget:85000,
+    responsible:"อสม. หมู่ 6",
+    startDate:"2026-01-15",
+    endDate:"2026-12-31",
+    description:"เยี่ยมบ้านและติดตามสุขภาพผู้สูงอายุ"
+},
+
+{
+    id:4,
+    name:"โครงการพัฒนากองทุนแม่ของแผ่นดิน",
+    category:"สังคม",
+    status:"เสร็จสิ้น",
+    budget:150000,
+    responsible:"คณะกรรมการกองทุนแม่",
+    startDate:"2026-03-01",
+    endDate:"2026-06-30",
+    description:"ส่งเสริมการมีส่วนร่วมและป้องกันปัญหายาเสพติด"
+},
+
+{
+    id:5,
+    name:"โครงการพัฒนาอาชีพกลุ่มเกษตรกร",
+    category:"พัฒนาอาชีพ",
+    status:"เตรียมการ",
+    budget:200000,
+    responsible:"กลุ่มเกษตรกรหมู่ 6",
+    startDate:"2026-09-01",
+    endDate:"2026-12-31",
+    description:"ส่งเสริมอาชีพและเพิ่มรายได้ให้ครัวเรือน"
+},
+
+{
+    id:6,
+    name:"โครงการจัดการขยะชุมชน",
+    category:"สิ่งแวดล้อม",
+    status:"เสร็จสิ้น",
+    budget:175000,
+    responsible:"คณะกรรมการหมู่บ้าน",
+    startDate:"2026-01-01",
+    endDate:"2026-05-31",
+    description:"คัดแยกขยะและพัฒนาระบบจัดการขยะชุมชน"
+}
+
+];
+
+let editId = null;
+
+
+/* =========================
+RENDER
+========================= */
+
+function renderProjects(list = projects){
+
+    const grid =
+        document.getElementById(
+            "projectGrid"
+        );
+
+    grid.innerHTML = "";
+
+
+    list.forEach(project=>{
+
+        let statusClass =
+            "status-plan";
+
+        if(project.status === "กำลังดำเนินการ"){
+            statusClass = "status-progress";
+        }
+
+        if(project.status === "เสร็จสิ้น"){
+            statusClass = "status-done";
+        }
+
+        if(project.status === "ระงับ"){
+            statusClass = "status-stop";
+        }
+
+
+        const card =
+            document.createElement("div");
+
+        card.className =
+            "project-card";
+
+
+        card.innerHTML = `
+
+            <div class="project-top">
+
+                <div class="project-code">
+                    PROJECT-${String(project.id).padStart(3,"0")}
+                </div>
+
+                <h3>
+                    ${project.name}
+                </h3>
+
+            </div>
+
+
+            <div class="project-body">
+
+                <div class="info">
+
+                    <span>
+                        หมวดหมู่
+                    </span>
+
+                    <span>
+                        ${project.category}
+                    </span>
+
+                </div>
+
+
+                <div class="info">
+
+                    <span>
+                        งบประมาณ
+                    </span>
+
+                    <span>
+                        ${formatMoney(project.budget)}
+                    </span>
+
+                </div>
+
+
+                <div class="info">
+
+                    <span>
+                        ผู้รับผิดชอบ
+                    </span>
+
+                    <span>
+                        ${project.responsible}
+                    </span>
+
+                </div>
+
+
+                <div class="info">
+
+                    <span>
+                        ระยะเวลา
+                    </span>
+
+                    <span>
+                        ${formatDate(project.startDate)}
+                        -
+                        ${formatDate(project.endDate)}
+                    </span>
+
+                </div>
+
+
+                <div class="info">
+
+                    <span>
+                        สถานะ
+                    </span>
+
+                    <span>
+
+                        <b class="status ${statusClass}">
+                            ${project.status}
+                        </b>
+
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="project-footer">
+
+                <small>
+                    ร่องเข็ม หมู่ 6
+                </small>
+
+
+                <div class="actions">
+
+                    <button
+                        class="action-btn view"
+                        onclick="viewProject(${project.id})">
+                        👁
+                    </button>
+
+
+                    <button
+                        class="action-btn edit"
+                        onclick="editProject(${project.id})">
+                        ✎
+                    </button>
+
+
+                    <button
+                        class="action-btn delete"
+                        onclick="deleteProject(${project.id})">
+                        🗑
+                    </button>
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        grid.appendChild(card);
+
+    });
+
+
+    updateSummary(list);
+
+}
+
+
+/* =========================
+SEARCH
+========================= */
+
+function searchProjects(){
+
+    const keyword =
+        document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+
+    const category =
+        document
+        .getElementById("categoryFilter")
+        .value;
+
+
+    const status =
+        document
+        .getElementById("statusFilter")
+        .value;
+
+
+    const result =
+        projects.filter(project=>{
+
+            const text = `
+
+                ${project.name}
+                ${project.category}
+                ${project.responsible}
+                ${project.description}
+
+            `.toLowerCase();
+
+
+            return (
+
+                text.includes(keyword) &&
+
+                (!category ||
+                 project.category === category) &&
+
+                (!status ||
+                 project.status === status)
+
+            );
+
+        });
+
+
+    renderProjects(result);
+
+}
+
+
+/* =========================
+SUMMARY
+========================= */
+
+function updateSummary(list){
+
+    document
+        .getElementById("total")
+        .textContent =
+        list.length;
+
+
+    document
+        .getElementById("progress")
+        .textContent =
+        list.filter(
+            p=>p.status === "กำลังดำเนินการ"
+        ).length;
+
+
+    document
+        .getElementById("done")
+        .textContent =
+        list.filter(
+            p=>p.status === "เสร็จสิ้น"
+        ).length;
+
+
+    const totalBudget =
+        list.reduce(
+            (sum,p)=>sum + Number(p.budget || 0),
+            0
+        );
+
+
+    document
+        .getElementById("budget")
+        .textContent =
+        formatShortMoney(totalBudget);
+
+}
+
+
+/* =========================
+FORMAT MONEY
+========================= */
+
+function formatMoney(value){
+
+    return Number(value || 0)
+        .toLocaleString("th-TH") +
+        " บาท";
+
+}
+
+
+function formatShortMoney(value){
+
+    if(value >= 1000000){
+
+        return (
+            (value / 1000000)
+            .toFixed(2) +
+            " ลบ."
+        );
+
+    }
+
+    if(value >= 1000){
+
+        return (
+            (value / 1000)
+            .toFixed(0) +
+            " พัน"
+        );
+
+    }
+
+    return value.toLocaleString("th-TH");
+
+}
+
+
+/* =========================
+DATE
+========================= */
+
+function formatDate(date){
+
+    if(!date){
+        return "-";
+    }
+
+    const parts =
+        date.split("-");
+
+    if(parts.length !== 3){
+        return date;
+    }
+
+    return `${parts[2]}/${parts[1]}/${parts[0]}`;
+
+}
+
+
+/* =========================
+MODAL
+========================= */
+
+function openModal(){
+
+    editId = null;
+
+
+    document
+        .getElementById("modalTitle")
+        .textContent =
+        "เพิ่มโครงการ";
+
+
+    document
+        .querySelector(".form")
+        .reset();
+
+
+    document
+        .getElementById("projectModal")
+        .classList.add("show");
+
+}
+
+
+function closeModal(){
+
+    document
+        .getElementById("projectModal")
+        .classList.remove("show");
+
+}
+
+
+/* =========================
+SAVE
+========================= */
+
+function saveProject(event){
+
+    event.preventDefault();
+
+
+    const project = {
+
+        id:
+            editId ||
+            Date.now(),
+
+
+        name:
+            document
+            .getElementById("name")
+            .value,
+
+
+        category:
+            document
+            .getElementById("category")
+            .value,
+
+
+        status:
+            document
+            .getElementById("status")
+            .value,
+
+
+        budget:
+            Number(
+                document
+                .getElementById("budgetInput")
+                .value
+            ),
+
+
+        responsible:
+            document
+            .getElementById("responsible")
+            .value,
+
+
+        startDate:
+            document
+            .getElementById("startDate")
+            .value,
+
+
+        endDate:
+            document
+            .getElementById("endDate")
+            .value,
+
+
+        description:
+            document
+            .getElementById("description")
+            .value
+
+    };
+
+
+    if(editId){
+
+        const index =
+            projects.findIndex(
+                x=>x.id === editId
+            );
+
+        projects[index] =
+            project;
+
+    }else{
+
+        projects.push(project);
+
+    }
+
+
+    saveData();
+
+    renderProjects();
+
+    closeModal();
+
+}
+
+
+/* =========================
+EDIT
+========================= */
+
+function editProject(id){
+
+    const project =
+        projects.find(
+            x=>x.id === id
+        );
+
+    if(!project) return;
+
+
+    editId = id;
+
+
+    document
+        .getElementById("modalTitle")
+        .textContent =
+        "แก้ไขโครงการ";
+
+
+    document
+        .getElementById("name")
+        .value =
+        project.name;
+
+
+    document
+        .getElementById("category")
+        .value =
+        project.category;
+
+
+    document
+        .getElementById("status")
+        .value =
+        project.status;
+
+
+    document
+        .getElementById("budgetInput")
+        .value =
+        project.budget;
+
+
+    document
+        .getElementById("responsible")
+        .value =
+        project.responsible;
+
+
+    document
+        .getElementById("startDate")
+        .value =
+        project.startDate;
+
+
+    document
+        .getElementById("endDate")
+        .value =
+        project.endDate;
+
+
+    document
+        .getElementById("description")
+        .value =
+        project.description;
+
+
+    document
+        .getElementById("projectModal")
+        .classList.add("show");
+
+}
+
+
+/* =========================
+VIEW
+========================= */
+
+function viewProject(id){
+
+    const p =
+        projects.find(
+            x=>x.id === id
+        );
+
+    if(!p) return;
+
+
+    alert(
+`
+ข้อมูลโครงการ
+
+ชื่อ:
+${p.name}
+
+หมวดหมู่:
+${p.category}
+
+สถานะ:
+${p.status}
+
+งบประมาณ:
+${formatMoney(p.budget)}
+
+ผู้รับผิดชอบ:
+${p.responsible}
+
+วันที่เริ่ม:
+${formatDate(p.startDate)}
+
+วันที่สิ้นสุด:
+${formatDate(p.endDate)}
+
+รายละเอียด:
+${p.description || "-"}
+`
+    );
+
+}
+
+
+/* =========================
+DELETE
+========================= */
+
+function deleteProject(id){
+
+    const p =
+        projects.find(
+            x=>x.id === id
+        );
+
+    if(!p) return;
+
+
+    if(!confirm(
+        `ต้องการลบโครงการ "${p.name}" หรือไม่?`
+    )){
+        return;
+    }
+
+
+    projects =
+        projects.filter(
+            x=>x.id !== id
+        );
+
+
+    saveData();
+
+    renderProjects();
+
+}
+
+
+/* =========================
+LOCAL STORAGE
+========================= */
+
+function saveData(){
+
+    localStorage.setItem(
+        "rongkhem_projects",
+        JSON.stringify(projects)
+    );
+
+}
+
+
+function loadData(){
+
+    const saved =
+        localStorage.getItem(
+            "rongkhem_projects"
+        );
+
+
+    if(saved){
+
+        projects =
+            JSON.parse(saved);
+
+    }
+
+}
+
+
+/* =========================
+EXPORT CSV
+========================= */
+
+function exportCSV(){
+
+    let csv =
+        "\uFEFFลำดับ,ชื่อโครงการ,หมวดหมู่,สถานะ,งบประมาณ,ผู้รับผิดชอบ,วันที่เริ่ม,วันที่สิ้นสุด,รายละเอียด\n";
+
+
+    projects.forEach((p,i)=>{
+
+        csv +=
+        `${i+1},` +
+        `"${p.name}",` +
+        `"${p.category}",` +
+        `"${p.status}",` +
+        `${p.budget},` +
+        `"${p.responsible}",` +
+        `"${p.startDate || ""}",` +
+        `"${p.endDate || ""}",` +
+        `"${p.description || ""}"\n`;
+
+    });
+
+
+    const blob =
+        new Blob(
+            [csv],
+            {
+                type:
+                "text/csv;charset=utf-8;"
+            }
+        );
+
+
+    const url =
+        URL.createObjectURL(blob);
+
+
+    const a =
+        document.createElement("a");
+
+
+    a.href = url;
+
+    a.download =
+        "โครงการ_กิจกรรม_บ้านร่องเข็ม.csv";
+
+    a.click();
+
+
+    URL.revokeObjectURL(url);
+
+}
+
+
+/* MOBILE */
+
+function toggleSidebar(){
+
+    document
+        .getElementById("sidebar")
+        .classList.toggle("open");
+
+}
+
+
+/* START */
+
+loadData();
+
+renderProjects();
+
+</script>
+
+</body>
+</html>
