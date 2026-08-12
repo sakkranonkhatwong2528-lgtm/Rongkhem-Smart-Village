@@ -1,288 +1,755 @@
 <!DOCTYPE html>
 <html lang="th">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>เข้าสู่ระบบ | บ้านร่องเข็ม Smart Village</title>
+<title>เข้าสู่ระบบ | ร่องเข็ม Smart Village</title>
 
 <style>
 
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:"Segoe UI","Noto Sans Thai",Tahoma,sans-serif;
+}
+
 body{
-margin:0;
-font-family:Tahoma,sans-serif;
-background:#e8f5e9;
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
+    min-height:100vh;
+    background:
+        radial-gradient(circle at 20% 20%,rgba(8,123,233,.25),transparent 30%),
+        radial-gradient(circle at 80% 80%,rgba(244,197,45,.15),transparent 30%),
+        linear-gradient(135deg,#031d38,#082f52,#031a30);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    color:#172033;
 }
 
+/* =========================
+BACKGROUND
+========================= */
 
-.box{
-
-background:white;
-width:350px;
-padding:30px;
-border-radius:25px;
-box-shadow:0 5px 20px #aaa;
-text-align:center;
-
+.bg-circle{
+    position:fixed;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.08);
+    pointer-events:none;
 }
 
-
-.logo{
-
-width:100px;
-
+.circle1{
+    width:500px;
+    height:500px;
+    left:-220px;
+    top:-180px;
 }
 
-
-input{
-
-width:90%;
-padding:12px;
-margin:10px;
-border-radius:15px;
-border:1px solid #ccc;
-font-size:16px;
-
+.circle2{
+    width:700px;
+    height:700px;
+    right:-350px;
+    bottom:-300px;
 }
 
+/* =========================
+LOGIN
+========================= */
 
-button{
-
-width:95%;
-padding:12px;
-border:0;
-border-radius:20px;
-background:#2e7d32;
-color:white;
-font-size:16px;
-cursor:pointer;
-
+.login-wrapper{
+    width:100%;
+    max-width:980px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    background:rgba(255,255,255,.97);
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:0 30px 80px rgba(0,0,0,.35);
 }
 
+/* =========================
+LEFT
+========================= */
 
-button:hover{
-
-background:#1b5e20;
-
+.login-info{
+    background:linear-gradient(145deg,#062b4e,#087be9);
+    color:#fff;
+    padding:55px 45px;
+    position:relative;
+    overflow:hidden;
 }
 
-
-#error{
-
-color:red;
-margin-top:15px;
-
+.login-info:after{
+    content:"";
+    position:absolute;
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.1);
+    right:-130px;
+    bottom:-120px;
 }
 
+.logo-large{
+    width:85px;
+    height:85px;
+    border-radius:50%;
+    background:#f4c52d;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:44px;
+    margin-bottom:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
 
-#status{
+.login-info h1{
+    font-size:30px;
+    line-height:1.35;
+}
 
-color:#666;
-font-size:14px;
+.login-info .english{
+    color:#b9d8f5;
+    margin-top:6px;
+    font-size:14px;
+}
+
+.login-info .description{
+    margin-top:25px;
+    line-height:1.8;
+    color:#dcecfb;
+    font-size:14px;
+}
+
+.feature-list{
+    list-style:none;
+    margin-top:28px;
+}
+
+.feature-list li{
+    margin:13px 0;
+    display:flex;
+    gap:10px;
+    align-items:center;
+    font-size:13px;
+}
+
+/* =========================
+RIGHT
+========================= */
+
+.login-form{
+    padding:55px 45px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.login-form h2{
+    color:#092b4d;
+    font-size:25px;
+}
+
+.login-form .subtitle{
+    color:#7b8793;
+    font-size:13px;
+    margin-top:7px;
+    margin-bottom:30px;
+}
+
+.form-group{
+    margin-bottom:18px;
+}
+
+.form-group label{
+    display:block;
+    color:#465666;
+    font-weight:bold;
+    font-size:13px;
+    margin-bottom:7px;
+}
+
+.input-wrap{
+    position:relative;
+}
+
+.input-icon{
+    position:absolute;
+    left:14px;
+    top:12px;
+    font-size:16px;
+}
+
+.input-wrap input{
+    width:100%;
+    padding:12px 42px;
+    border:1px solid #d9e0e7;
+    border-radius:9px;
+    outline:none;
+    font-size:14px;
+    transition:.2s;
+}
+
+.input-wrap input:focus{
+    border-color:#087be9;
+    box-shadow:0 0 0 3px rgba(8,123,233,.1);
+}
+
+.password-toggle{
+    position:absolute;
+    right:12px;
+    top:10px;
+    border:0;
+    background:none;
+    cursor:pointer;
+    font-size:17px;
+}
+
+.remember-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin:5px 0 22px;
+    font-size:12px;
+}
+
+.remember{
+    display:flex;
+    gap:7px;
+    align-items:center;
+    color:#667482;
+}
+
+.forgot{
+    color:#0875d9;
+    cursor:pointer;
+}
+
+.login-btn{
+    width:100%;
+    border:0;
+    background:linear-gradient(135deg,#087be9,#0759b8);
+    color:#fff;
+    padding:14px;
+    border-radius:9px;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:bold;
+    box-shadow:0 8px 20px rgba(8,123,233,.25);
+    transition:.2s;
+}
+
+.login-btn:hover{
+    transform:translateY(-1px);
+}
+
+.demo{
+    margin-top:20px;
+    background:#f5f8fb;
+    border:1px solid #e5ebf0;
+    border-radius:9px;
+    padding:12px;
+    font-size:11px;
+    color:#71808e;
+    line-height:1.7;
+}
+
+.footer{
+    text-align:center;
+    margin-top:25px;
+    color:#9aa6b1;
+    font-size:11px;
+}
+
+/* =========================
+MESSAGE
+========================= */
+
+.message{
+    display:none;
+    padding:11px 13px;
+    border-radius:8px;
+    font-size:12px;
+    margin-bottom:17px;
+}
+
+.message.error{
+    display:block;
+    background:#fff0f0;
+    color:#c73535;
+    border:1px solid #ffd0d0;
+}
+
+.message.success{
+    display:block;
+    background:#edf9f2;
+    color:#16834f;
+    border:1px solid #cceedd;
+}
+
+/* =========================
+MOBILE
+========================= */
+
+@media(max-width:750px){
+
+    body{
+        padding:12px;
+    }
+
+    .login-wrapper{
+        grid-template-columns:1fr;
+        max-width:500px;
+    }
+
+    .login-info{
+        padding:30px;
+        text-align:center;
+    }
+
+    .logo-large{
+        margin:0 auto 18px;
+        width:70px;
+        height:70px;
+        font-size:35px;
+    }
+
+    .login-info h1{
+        font-size:23px;
+    }
+
+    .login-info .description{
+        margin-top:15px;
+    }
+
+    .feature-list{
+        display:none;
+    }
+
+    .login-form{
+        padding:35px 25px;
+    }
 
 }
 
 </style>
-
-
 </head>
-
 
 <body>
 
-
-<div class="box">
-
-
-<img src="images/logo.svg" class="logo">
+<div class="bg-circle circle1"></div>
+<div class="bg-circle circle2"></div>
 
 
-<h2>
-⚙️ ผู้ดูแลระบบ
-</h2>
+<div class="login-wrapper">
 
 
-<p>
-บ้านร่องเข็ม Smart Village
-</p>
+    <!-- LEFT -->
+
+    <section class="login-info">
+
+        <div class="logo-large">
+            🏡
+        </div>
+
+        <h1>
+            ร่องเข็ม<br>
+            Smart Village
+        </h1>
+
+        <div class="english">
+            SMART COMMUNITY MANAGEMENT SYSTEM
+        </div>
+
+        <p class="description">
+            ระบบบริหารจัดการหมู่บ้านอัจฉริยะ
+            บ้านร่องเข็ม หมู่ที่ 6
+            ตำบลจำป่าหวาย
+            อำเภอเมืองพะเยา จังหวัดพะเยา
+        </p>
 
 
+        <ul class="feature-list">
 
-<input 
-id="username"
-placeholder="ชื่อผู้ใช้">
+            <li>
+                ✓ ข้อมูลประชาชนและครัวเรือน
+            </li>
 
+            <li>
+                ✓ ระบบโครงการและกิจกรรม
+            </li>
 
+            <li>
+                ✓ ระบบข่าวสารประชาสัมพันธ์
+            </li>
 
-<input 
-id="password"
-type="password"
-placeholder="รหัสผ่าน">
+            <li>
+                ✓ รายงานข้อมูลหมู่บ้าน
+            </li>
 
+            <li>
+                ✓ รองรับการใช้งานบนมือถือ
+            </li>
 
+        </ul>
 
-<button onclick="login()">
-
-🔐 เข้าสู่ระบบ
-
-</button>
-
-
-
-<p id="status">
-กำลังโหลดข้อมูลผู้ใช้...
-</p>
-
-
-
-<p id="error"></p>
+    </section>
 
 
+    <!-- RIGHT -->
+
+    <section class="login-form">
+
+        <h2>
+            เข้าสู่ระบบ
+        </h2>
+
+        <p class="subtitle">
+            สำหรับผู้ดูแลระบบหมู่บ้าน
+        </p>
+
+
+        <div
+            id="message"
+            class="message">
+        </div>
+
+
+        <form
+            id="loginForm"
+            onsubmit="login(event)">
+
+
+            <div class="form-group">
+
+                <label>
+                    ชื่อผู้ใช้งาน
+                </label>
+
+                <div class="input-wrap">
+
+                    <span class="input-icon">
+                        👤
+                    </span>
+
+                    <input
+                        type="text"
+                        id="username"
+                        placeholder="กรอกชื่อผู้ใช้งาน"
+                        autocomplete="username"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    รหัสผ่าน
+                </label>
+
+                <div class="input-wrap">
+
+                    <span class="input-icon">
+                        🔒
+                    </span>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="กรอกรหัสผ่าน"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        class="password-toggle"
+                        onclick="togglePassword()"
+                        aria-label="แสดงรหัสผ่าน">
+
+                        👁️
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="remember-row">
+
+                <label class="remember">
+
+                    <input
+                        type="checkbox"
+                        id="remember"
+                    >
+
+                    จดจำการเข้าสู่ระบบ
+
+                </label>
+
+
+                <span
+                    class="forgot"
+                    onclick="forgotPassword()">
+
+                    ลืมรหัสผ่าน?
+
+                </span>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="login-btn">
+
+                🔐 เข้าสู่ระบบ
+
+            </button>
+
+        </form>
+
+
+        <div class="demo">
+
+            <strong>โหมดทดสอบ</strong><br>
+
+            Username:
+            <b>admin</b><br>
+
+            Password:
+            <b>123456</b>
+
+            <br><br>
+
+            <span>
+                * สำหรับทดสอบหน้าเว็บเท่านั้น
+            </span>
+
+        </div>
+
+
+        <div class="footer">
+
+            © 2026 Rongkhem Smart Village
+
+        </div>
+
+    </section>
 
 </div>
 
 
-
-
-
 <script>
 
+/* =========================
+LOGIN
+========================= */
 
-let users=[];
+function login(event){
 
-
-
-// โหลดข้อมูลผู้ใช้
-
-fetch("users.json")
-
-
-.then(response=>{
+    event.preventDefault();
 
 
-if(!response.ok){
+    const username =
+        document
+        .getElementById("username")
+        .value
+        .trim();
 
-throw new Error("ไม่พบไฟล์ users.json");
+
+    const password =
+        document
+        .getElementById("password")
+        .value;
+
+
+    const remember =
+        document
+        .getElementById("remember")
+        .checked;
+
+
+    /*
+        DEMO LOGIN ONLY
+
+        ขั้นต่อไปจะเปลี่ยนส่วนนี้
+        เป็น Supabase Authentication
+    */
+
+    if(
+        username === "admin" &&
+        password === "123456"
+    ){
+
+        const session = {
+
+            username:"admin",
+
+            role:"admin",
+
+            loginAt:
+                new Date().toISOString()
+
+        };
+
+
+        if(remember){
+
+            localStorage.setItem(
+                "rongkhem_session",
+                JSON.stringify(session)
+            );
+
+        }else{
+
+            sessionStorage.setItem(
+                "rongkhem_session",
+                JSON.stringify(session)
+            );
+
+        }
+
+
+        showMessage(
+            "เข้าสู่ระบบสำเร็จ กำลังเข้าสู่ Dashboard...",
+            "success"
+        );
+
+
+        setTimeout(()=>{
+
+            window.location.href =
+                "dashboard.html";
+
+        },800);
+
+
+    }else{
+
+        showMessage(
+            "ชื่อผู้ใช้งานหรือรหัสผ่านไม่ถูกต้อง",
+            "error"
+        );
+
+    }
 
 }
 
 
-return response.json();
+/* =========================
+PASSWORD
+========================= */
+
+function togglePassword(){
+
+    const input =
+        document.getElementById(
+            "password"
+        );
 
 
-})
+    const button =
+        document.querySelector(
+            ".password-toggle"
+        );
 
 
-.then(data=>{
+    if(input.type === "password"){
 
+        input.type = "text";
 
-users=data;
+        button.textContent = "🙈";
 
+    }else{
 
-document.getElementById("status").innerHTML=
-"พร้อมเข้าสู่ระบบ";
+        input.type = "password";
 
+        button.textContent = "👁️";
 
-console.log("USERS =",users);
-
-
-})
-
-
-.catch(error=>{
-
-
-document.getElementById("status").innerHTML=
-"โหลดข้อมูลผู้ใช้ไม่ได้";
-
-
-console.error(error);
-
-
-});
-
-
-
-
-
-function login(){
-
-
-
-let username =
-document.getElementById("username")
-.value
-.trim();
-
-
-
-let password =
-document.getElementById("password")
-.value
-.trim();
-
-
-
-
-
-let user =
-users.find(u=>
-
-
-u.username === username
-&&
-u.password === password
-
-
-);
-
-
-
-
-
-if(user){
-
-
-
-localStorage.setItem(
-"loginUser",
-JSON.stringify(user)
-);
-
-
-
-window.location.href=
-"admin-panel.html";
-
-
-
-}
-
-else{
-
-
-document.getElementById("error").innerHTML=
-
-"❌ ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง";
-
+    }
 
 }
 
 
+/* =========================
+MESSAGE
+========================= */
+
+function showMessage(
+    text,
+    type
+){
+
+    const message =
+        document.getElementById(
+            "message"
+        );
+
+
+    message.textContent =
+        text;
+
+
+    message.className =
+        "message " + type;
 
 }
 
 
+/* =========================
+FORGOT
+========================= */
+
+function forgotPassword(){
+
+    alert(
+        "กรุณาติดต่อผู้ดูแลระบบหมู่บ้านเพื่อรีเซ็ตรหัสผ่าน"
+    );
+
+}
+
+
+/* =========================
+SESSION CHECK
+========================= */
+
+function checkExistingSession(){
+
+    const local =
+        localStorage.getItem(
+            "rongkhem_session"
+        );
+
+
+    const session =
+        sessionStorage.getItem(
+            "rongkhem_session"
+        );
+
+
+    if(local || session){
+
+        /*
+        หากต้องการให้เปิดหน้า Login
+        ทุกครั้ง ให้ลบบล็อกนี้ออก
+        */
+
+    }
+
+}
+
+
+checkExistingSession();
 
 </script>
 
-
 </body>
-
 </html>
