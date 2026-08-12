@@ -1,104 +1,239 @@
-/*
-=================================
-Authentication System
-Rongkhem Smart Village
-=================================
-*/
+/* ==========================================
+   RONGKHEM SMART VILLAGE
+   AUTH SYSTEM v1.0
+   ========================================== */
 
 
-function checkLogin(){
+/* ==========================================
+   SESSION
+   ========================================== */
+
+function getSession(){
+
+    const localSession =
+        localStorage.getItem(
+            "rongkhem_session"
+        );
+
+    const temporarySession =
+        sessionStorage.getItem(
+            "rongkhem_session"
+        );
 
 
+    if(localSession){
 
-let user =
-localStorage.getItem(
-"rongkhemUser"
-);
+        try{
 
+            return JSON.parse(localSession);
 
+        }catch{
 
-if(!user){
+            localStorage.removeItem(
+                "rongkhem_session"
+            );
 
+        }
 
-alert(
-"กรุณาเข้าสู่ระบบ"
-);
-
-
-window.location.href=
-"login.html";
+    }
 
 
-return;
+    if(temporarySession){
+
+        try{
+
+            return JSON.parse(
+                temporarySession
+            );
+
+        }catch{
+
+            sessionStorage.removeItem(
+                "rongkhem_session"
+            );
+
+        }
+
+    }
 
 
-}
-
-
-
-return JSON.parse(user);
-
-
-
-}
-
-
-
-
-
-
-function showUser(){
-
-
-let user =
-checkLogin();
-
-
-
-let box =
-document.getElementById(
-"userInfo"
-);
-
-
-
-if(box){
-
-
-box.innerHTML=`
-
-👤 ${user.name}
-
-<br>
-
-สิทธิ์:
-${user.role}
-
-`;
-
+    return null;
 
 }
 
 
+/* ==========================================
+   CHECK LOGIN
+   ========================================== */
+
+function requireLogin(){
+
+    const session =
+        getSession();
+
+
+    if(!session){
+
+        window.location.href =
+            "login.html";
+
+        return false;
+
+    }
+
+
+    return true;
 
 }
 
 
+/* ==========================================
+   CHECK ADMIN
+   ========================================== */
+
+function requireAdmin(){
+
+    const session =
+        getSession();
 
 
+    if(!session){
+
+        window.location.href =
+            "login.html";
+
+        return false;
+
+    }
 
 
+    if(session.role !== "admin"){
+
+        alert(
+            "คุณไม่มีสิทธิ์เข้าถึงส่วนนี้"
+        );
+
+        window.location.href =
+            "index.html";
+
+        return false;
+
+    }
+
+
+    return true;
+
+}
+
+
+/* ==========================================
+   LOGOUT
+   ========================================== */
 
 function logout(){
 
+    const confirmLogout =
+        confirm(
+            "ต้องการออกจากระบบหรือไม่?"
+        );
 
-localStorage.removeItem(
-"rongkhemUser"
-);
+
+    if(!confirmLogout){
+
+        return;
+
+    }
 
 
-window.location.href=
-"login.html";
+    localStorage.removeItem(
+        "rongkhem_session"
+    );
 
+
+    sessionStorage.removeItem(
+        "rongkhem_session"
+    );
+
+
+    window.location.href =
+        "login.html";
 
 }
+
+
+/* ==========================================
+   USER INFO
+   ========================================== */
+
+function getCurrentUser(){
+
+    return getSession();
+
+}
+
+
+/* ==========================================
+   DISPLAY USER
+   ========================================== */
+
+function displayCurrentUser(){
+
+    const session =
+        getSession();
+
+
+    if(!session){
+
+        return;
+
+    }
+
+
+    const usernameElements =
+        document.querySelectorAll(
+            "[data-user]"
+        );
+
+
+    usernameElements.forEach(
+        element=>{
+
+            element.textContent =
+                session.username || "ผู้ดูแลระบบ";
+
+        }
+    );
+
+
+    const roleElements =
+        document.querySelectorAll(
+            "[data-role]"
+        );
+
+
+    roleElements.forEach(
+        element=>{
+
+            element.textContent =
+                session.role === "admin"
+                ? "ผู้ดูแลระบบ"
+                : "ผู้ใช้งาน";
+
+        }
+    );
+
+}
+
+
+/* ==========================================
+   AUTO CHECK
+   ========================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        displayCurrentUser();
+
+    }
+);
