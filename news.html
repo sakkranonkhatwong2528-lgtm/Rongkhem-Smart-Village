@@ -1,178 +1,1862 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ข่าวประชาสัมพันธ์ | ร่องเข็ม สมาร์ท วิลเลจ</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts (Sarabun) -->
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <style>
-        body { font-family: 'Sarabun', sans-serif; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ข่าวสารและประกาศ | ร่องเข็ม Smart Village</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:"Segoe UI","Noto Sans Thai",Tahoma,sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+    color:#172033;
+}
+
+/* =========================
+TOPBAR
+========================= */
+
+.topbar{
+    height:68px;
+    background:#031d38;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 25px;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:1000;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:#f4c52d;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+}
+
+.brand h2{
+    font-size:17px;
+}
+
+.brand small{
+    color:#aebdcb;
+    font-size:10px;
+}
+
+.top-icons{
+    font-size:19px;
+}
+
+.mobile-toggle{
+    display:none;
+    font-size:24px;
+    cursor:pointer;
+}
+
+/* =========================
+SIDEBAR
+========================= */
+
+.sidebar{
+    position:fixed;
+    top:68px;
+    left:0;
+    bottom:0;
+    width:250px;
+    background:#061f39;
+    color:#fff;
+    padding:20px 14px;
+    overflow-y:auto;
+    z-index:900;
+}
+
+.profile{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:8px 8px 22px;
+    border-bottom:1px solid rgba(255,255,255,.1);
+    margin-bottom:15px;
+}
+
+.avatar{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:23px;
+}
+
+.profile strong{
+    font-size:14px;
+}
+
+.profile small{
+    display:block;
+    color:#9eafbf;
+    margin-top:4px;
+}
+
+.menu{
+    list-style:none;
+}
+
+.menu li{
+    margin-bottom:4px;
+}
+
+.menu a{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:12px 14px;
+    border-radius:8px;
+    color:#c8d3df;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.menu a:hover,
+.menu a.active{
+    background:#087be9;
+    color:#fff;
+}
+
+/* =========================
+MAIN
+========================= */
+
+.main{
+    margin-left:250px;
+    padding:95px 30px 40px;
+}
+
+.page-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.page-header h1{
+    color:#092b4d;
+    font-size:29px;
+}
+
+.page-header p{
+    color:#7c8793;
+    margin-top:5px;
+    font-size:14px;
+}
+
+.add-btn{
+    border:0;
+    background:#087be9;
+    color:white;
+    padding:12px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* =========================
+SUMMARY
+========================= */
+
+.summary{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+    margin-bottom:22px;
+}
+
+.summary-card{
+    background:#fff;
+    padding:20px;
+    border-radius:13px;
+    border:1px solid #e8edf2;
+    box-shadow:0 4px 15px rgba(20,45,70,.05);
+}
+
+.summary-card .icon{
+    font-size:24px;
+}
+
+.summary-card small{
+    display:block;
+    color:#7b8793;
+    margin-top:7px;
+}
+
+.summary-card strong{
+    display:block;
+    font-size:28px;
+    margin-top:4px;
+}
+
+.blue{
+    color:#0875d9;
+}
+
+.red{
+    color:#d94747;
+}
+
+.orange{
+    color:#c47a00;
+}
+
+.green{
+    color:#159052;
+}
+
+/* =========================
+CONTENT
+========================= */
+
+.content-card{
+    background:#fff;
+    border-radius:14px;
+    border:1px solid #e7ebf0;
+    box-shadow:0 4px 18px rgba(20,45,70,.06);
+    overflow:hidden;
+}
+
+.toolbar{
+    padding:22px;
+    border-bottom:1px solid #edf0f4;
+}
+
+.search-row{
+    display:flex;
+    gap:10px;
+}
+
+.search-box{
+    flex:1;
+    position:relative;
+}
+
+.search-box input{
+    width:100%;
+    padding:12px 15px 12px 42px;
+    border:1px solid #dce2e8;
+    border-radius:8px;
+    outline:none;
+    font-size:14px;
+}
+
+.search-icon{
+    position:absolute;
+    left:14px;
+    top:11px;
+}
+
+.filter{
+    padding:12px 15px;
+    border:1px solid #dce2e8;
+    border-radius:8px;
+    background:#fff;
+    outline:none;
+}
+
+.export-btn{
+    border:0;
+    background:#15965b;
+    color:white;
+    padding:0 18px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+/* =========================
+NEWS LIST
+========================= */
+
+.news-list{
+    padding:22px;
+    display:grid;
+    gap:16px;
+}
+
+.news-card{
+    border:1px solid #e2e8ee;
+    border-radius:13px;
+    padding:20px;
+    background:#fff;
+    transition:.2s;
+}
+
+.news-card:hover{
+    box-shadow:0 8px 25px rgba(20,45,70,.08);
+    transform:translateY(-2px);
+}
+
+.news-head{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.news-title{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+}
+
+.news-title h3{
+    color:#123452;
+    font-size:17px;
+    line-height:1.5;
+}
+
+.pin{
+    color:#d94747;
+    font-size:18px;
+}
+
+.news-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+    margin-top:9px;
+}
+
+.badge{
+    display:inline-block;
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:11px;
+}
+
+.badge-general{
+    background:#eaf3ff;
+    color:#0875d9;
+}
+
+.badge-important{
+    background:#ffecec;
+    color:#d94747;
+}
+
+.badge-event{
+    background:#fff3dc;
+    color:#b87500;
+}
+
+.badge-public{
+    background:#eaf8ef;
+    color:#159052;
+}
+
+.news-date{
+    color:#8793a0;
+    font-size:12px;
+    white-space:nowrap;
+}
+
+.news-content{
+    color:#5d6a78;
+    line-height:1.7;
+    font-size:13px;
+    margin-top:14px;
+    padding-top:14px;
+    border-top:1px solid #edf0f4;
+}
+
+.news-footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:16px;
+    padding-top:14px;
+    border-top:1px solid #edf0f4;
+}
+
+.author{
+    color:#7b8793;
+    font-size:12px;
+}
+
+.actions{
+    display:flex;
+    gap:5px;
+}
+
+.action-btn{
+    width:32px;
+    height:32px;
+    border:0;
+    border-radius:6px;
+    color:#fff;
+    cursor:pointer;
+}
+
+.view{
+    background:#087be9;
+}
+
+.edit{
+    background:#f2a514;
+}
+
+.delete{
+    background:#e84b4b;
+}
+
+/* =========================
+MODAL
+========================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:2000;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-box{
+    width:100%;
+    max-width:760px;
+    max-height:90vh;
+    overflow-y:auto;
+    background:#fff;
+    border-radius:15px;
+}
+
+.modal-header{
+    padding:20px 24px;
+    border-bottom:1px solid #edf0f4;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.modal-header h2{
+    color:#123452;
+    font-size:20px;
+}
+
+.close{
+    border:0;
+    background:none;
+    font-size:25px;
+    cursor:pointer;
+    color:#7b8793;
+}
+
+.form{
+    padding:24px;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:17px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+}
+
+.form-group.full{
+    grid-column:1/-1;
+}
+
+.form-group label{
+    font-size:13px;
+    font-weight:bold;
+    color:#475565;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    padding:11px 12px;
+    border:1px solid #dce2e8;
+    border-radius:7px;
+    outline:none;
+}
+
+.form-group textarea{
+    min-height:130px;
+    resize:vertical;
+}
+
+.check{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:13px;
+    color:#475565;
+}
+
+.modal-footer{
+    display:flex;
+    justify-content:flex-end;
+    gap:10px;
+    margin-top:25px;
+}
+
+.cancel{
+    border:1px solid #dce2e8;
+    background:#fff;
+    padding:11px 20px;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+.save{
+    border:0;
+    background:#087be9;
+    color:#fff;
+    padding:11px 22px;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+/* =========================
+MOBILE
+========================= */
+
+@media(max-width:1050px){
+
+    .summary{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:750px){
+
+    .mobile-toggle{
+        display:block;
+    }
+
+    .sidebar{
+        transform:translateX(-100%);
+        transition:.3s;
+    }
+
+    .sidebar.open{
+        transform:translateX(0);
+    }
+
+    .main{
+        margin-left:0;
+        padding:88px 15px 30px;
+    }
+
+    .page-header{
+        display:block;
+    }
+
+    .add-btn{
+        margin-top:15px;
+    }
+
+    .summary{
+        grid-template-columns:1fr;
+    }
+
+    .search-row{
+        flex-wrap:wrap;
+    }
+
+    .search-box{
+        flex-basis:100%;
+    }
+
+    .filter{
+        flex:1;
+    }
+
+    .export-btn{
+        padding:12px 18px;
+    }
+
+    .news-head{
+        display:block;
+    }
+
+    .news-date{
+        display:block;
+        margin-top:10px;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .form-group.full{
+        grid-column:auto;
+    }
+
+    .brand h2{
+        font-size:14px;
+    }
+
+}
+
+</style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
 
-    <!-- 1. TOP HEADER -->
-    <div id="header-container"></div>
+<body>
 
-    <!-- 2. MAIN CONTAINER -->
-    <div class="flex flex-1 max-w-7xl w-full mx-auto">
-        
-        <!-- SIDEBAR -->
-        <div id="sidebar-container" class="hidden md:block"></div>
+<!-- TOPBAR -->
 
-        <!-- MAIN CONTENT -->
-        <main class="flex-1 p-4 sm:p-6 lg:p-8 space-y-6">
-            
-            <!-- Header ประจำหน้าข่าวสาร -->
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between bg-slate-900/80 p-5 rounded-2xl border border-slate-800 shadow-xl gap-4 backdrop-blur-md">
-                <div>
-                    <h1 class="text-xl sm:text-2xl font-bold text-amber-400 flex items-center gap-2">
-                        <span>📰</span> ข่าวประชาสัมพันธ์และกิจกรรม
-                    </h1>
-                    <p class="text-xs text-gray-400">ติดตามข่าวสาร เสียงตามสาย และประกาศสำคัญ บ้านร่องเข็ม หมู่ที่ 6</p>
-                </div>
-                <!-- ช่องค้นหาข่าว -->
-                <div class="relative w-full sm:w-64">
-                    <input type="text" id="searchInput" onkeyup="searchNews()" placeholder="🔍 ค้นหาข่าวสาร..." 
-                           class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2 text-xs text-white focus:outline-none focus:border-amber-500 transition">
-                </div>
-            </div>
+<header class="topbar">
 
-            <!-- หมวดหมู่ข่าว / แท็กคัดกรอง -->
-            <div class="flex flex-wrap gap-2 text-xs">
-                <button onclick="filterCategory('all')" class="px-3.5 py-1.5 rounded-xl bg-amber-500 text-slate-950 font-bold shadow-md shadow-amber-500/20 active:scale-95 transition">
-                    ทั้งหมด
-                </button>
-                <button onclick="filterCategory('ประกาศ')" class="px-3.5 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-gray-300 hover:text-amber-400 transition">
-                    📢 ประกาศหมู่บ้าน
-                </button>
-                <button onclick="filterCategory('กิจกรรม')" class="px-3.5 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-gray-300 hover:text-amber-400 transition">
-                    📸 กิจกรรมชุมชน
-                </button>
-                <button onclick="filterCategory('กลุ่มข้าว')" class="px-3.5 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-gray-300 hover:text-amber-400 transition">
-                    🌾 กลุ่มข้าวสาร
-                </button>
-            </div>
+    <div class="brand">
 
-            <!-- รายการข่าวสารทั้งหมด (Grid Display) -->
-            <div id="allNewsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <!-- ข่าวสารจะถูก Render ลงในส่วนนี้ผ่าน JS -->
-            </div>
+        <div class="mobile-toggle"
+             onclick="toggleSidebar()">
+            ☰
+        </div>
 
-        </main>
+        <div class="logo">
+            🏡
+        </div>
+
+        <div>
+            <h2>ร่องเข็ม Smart Village</h2>
+
+            <small>
+                ระบบบริหารจัดการหมู่บ้านอัจฉริยะ
+            </small>
+        </div>
+
     </div>
 
-    <!-- 3. FOOTER -->
-    <div id="footer-container"></div>
+    <div class="top-icons">
+        🔔 &nbsp; 👤
+    </div>
 
-    <!-- JavaScript สำหรับดึงข้อมูลและแสดงผล -->
-    <script>
-        let newsData = [];
+</header>
 
-        function loadAllNews() {
-            const container = document.getElementById('allNewsContainer');
-            
-            // ดึงข้อมูลจาก LocalStorage ก่อน ถ้าไม่มีค่อยไปดึง news.json
-            const localData = localStorage.getItem('rongkhem_news_list');
-            if (localData) {
-                try {
-                    newsData = JSON.parse(localData);
-                    renderNewsGrid(newsData);
-                    return;
-                } catch(e) { console.error(e); }
-            }
 
-            fetch("data/news.json")
-                .then(res => res.json())
-                .then(data => {
-                    newsData = data;
-                    localStorage.setItem('rongkhem_news_list', JSON.stringify(data));
-                    renderNewsGrid(data);
-                })
-                .catch(() => {
-                    container.innerHTML = `<div class="col-span-2 text-center py-10 text-gray-500 text-xs">ไม่พบข้อมูลข่าวสารในขณะนี้</div>`;
-                });
-        }
+<!-- SIDEBAR -->
 
-        function renderNewsGrid(data) {
-            const container = document.getElementById('allNewsContainer');
-            
-            if (!data || data.length === 0) {
-                container.innerHTML = `<div class="col-span-2 text-center py-10 text-gray-500 text-xs">ไม่มีข่าวสารในหมวดหมู่นี้</div>`;
-                return;
-            }
+<aside class="sidebar" id="sidebar">
 
-            container.innerHTML = data.map((item, index) => `
-                <div class="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 shadow-xl space-y-3 hover:border-slate-700 transition flex flex-col justify-between">
-                    <div class="space-y-2">
-                        <div class="flex items-center justify-between text-[11px]">
-                            <span class="px-2.5 py-0.5 font-semibold rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">
-                                📢 ข่าวประชาสัมพันธ์
-                            </span>
-                            <span class="text-gray-500 font-mono">${item.date || '8 ส.ค. 2026'}</span>
-                        </div>
-                        <h2 class="text-base font-bold text-white hover:text-amber-400 transition leading-snug">
-                            ${item.title}
-                        </h2>
-                        <p class="text-xs text-gray-300 leading-relaxed">
-                            ${item.detail}
-                        </p>
-                    </div>
-                    <div class="pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs">
-                        <span class="text-gray-500 text-[11px]">📍 บ้านร่องเข็ม หมู่ 6</span>
-                        <button onclick="shareNews('${item.title}')" class="text-amber-400 hover:underline flex items-center gap-1 font-medium">
-                            🔗 แชร์ข่าว
-                        </button>
-                    </div>
+    <div class="profile">
+
+        <div class="avatar">
+            👨🏻‍💼
+        </div>
+
+        <div>
+            <strong>ผู้ใหญ่บ้านร่องเข็ม</strong>
+            <small>ผู้ดูแลระบบ</small>
+        </div>
+
+    </div>
+
+
+    <ul class="menu">
+
+        <li>
+            <a href="dashboard.html">
+                📊 Dashboard
+            </a>
+        </li>
+
+        <li>
+            <a href="citizen.html">
+                👥 ข้อมูลประชาชน
+            </a>
+        </li>
+
+        <li>
+            <a href="household.html">
+                🏠 ข้อมูลครัวเรือน
+            </a>
+        </li>
+
+        <li>
+            <a href="elderly.html">
+                👴 ผู้สูงอายุ
+            </a>
+        </li>
+
+        <li>
+            <a href="vulnerable.html">
+                🤝 กลุ่มเปราะบาง
+            </a>
+        </li>
+
+        <li>
+            <a href="health.html">
+                ❤️ ข้อมูลสุขภาพ
+            </a>
+        </li>
+
+        <li>
+            <a href="leader.html">
+                👨‍💼 ผู้นำชุมชน
+            </a>
+        </li>
+
+        <li>
+            <a href="projects.html">
+                📋 โครงการ / กิจกรรม
+            </a>
+        </li>
+
+        <li>
+            <a href="news.html" class="active">
+                📰 ข่าวสาร / ประกาศ
+            </a>
+        </li>
+
+        <li>
+            <a href="reports.html">
+                📈 รายงาน
+            </a>
+        </li>
+
+        <li>
+            <a href="settings.html">
+                ⚙️ ตั้งค่า
+            </a>
+        </li>
+
+        <li style="margin-top:20px;">
+
+            <a href="index.html">
+                🏡 กลับหน้าเว็บไซต์
+            </a>
+
+        </li>
+
+    </ul>
+
+</aside>
+
+
+<!-- MAIN -->
+
+<main class="main">
+
+    <div class="page-header">
+
+        <div>
+
+            <h1>
+                ข่าวสาร / ประกาศ
+            </h1>
+
+            <p>
+                ระบบประชาสัมพันธ์ข่าวสารและประกาศของบ้านร่องเข็ม
+            </p>
+
+        </div>
+
+        <button class="add-btn"
+                onclick="openModal()">
+
+            ＋ สร้างประกาศ
+
+        </button>
+
+    </div>
+
+
+    <!-- SUMMARY -->
+
+    <section class="summary">
+
+        <div class="summary-card">
+
+            <div class="icon">
+                📰
+            </div>
+
+            <small>
+                ข่าวทั้งหมด
+            </small>
+
+            <strong class="blue"
+                    id="total">
+                12
+            </strong>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="icon">
+                📌
+            </div>
+
+            <small>
+                ประกาศสำคัญ
+            </small>
+
+            <strong class="red"
+                    id="important">
+                3
+            </strong>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="icon">
+                📅
+            </div>
+
+            <small>
+                กิจกรรม
+            </small>
+
+            <strong class="orange"
+                    id="events">
+                5
+            </strong>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="icon">
+                📢
+            </div>
+
+            <small>
+                เผยแพร่แล้ว
+            </small>
+
+            <strong class="green"
+                    id="published">
+                10
+            </strong>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTENT -->
+
+    <section class="content-card">
+
+        <div class="toolbar">
+
+            <div class="search-row">
+
+                <div class="search-box">
+
+                    <span class="search-icon">
+                        🔍
+                    </span>
+
+                    <input
+                        id="searchInput"
+                        type="text"
+                        placeholder="ค้นหาหัวข้อข่าว เนื้อหา หรือผู้ประกาศ..."
+                        oninput="searchNews()"
+                    >
+
                 </div>
-            `).join('');
+
+
+                <select
+                    class="filter"
+                    id="categoryFilter"
+                    onchange="searchNews()">
+
+                    <option value="">
+                        ทุกประเภท
+                    </option>
+
+                    <option value="ประกาศสำคัญ">
+                        ประกาศสำคัญ
+                    </option>
+
+                    <option value="ข่าวทั่วไป">
+                        ข่าวทั่วไป
+                    </option>
+
+                    <option value="กิจกรรม">
+                        กิจกรรม
+                    </option>
+
+                    <option value="ประชาสัมพันธ์">
+                        ประชาสัมพันธ์
+                    </option>
+
+                </select>
+
+
+                <select
+                    class="filter"
+                    id="statusFilter"
+                    onchange="searchNews()">
+
+                    <option value="">
+                        ทุกสถานะ
+                    </option>
+
+                    <option value="เผยแพร่">
+                        เผยแพร่
+                    </option>
+
+                    <option value="ฉบับร่าง">
+                        ฉบับร่าง
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <div class="news-list"
+             id="newsList">
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- MODAL -->
+
+<div class="modal"
+     id="newsModal">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <h2 id="modalTitle">
+                สร้างประกาศใหม่
+            </h2>
+
+            <button class="close"
+                    onclick="closeModal()">
+                ×
+            </button>
+
+        </div>
+
+
+        <form class="form"
+              onsubmit="saveNews(event)">
+
+            <div class="form-grid">
+
+
+                <div class="form-group full">
+
+                    <label>
+                        หัวข้อข่าว / ประกาศ
+                    </label>
+
+                    <input
+                        id="title"
+                        required
+                        placeholder="ระบุหัวข้อ"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        ประเภท
+                    </label>
+
+                    <select
+                        id="category"
+                        required>
+
+                        <option value="ประกาศสำคัญ">
+                            ประกาศสำคัญ
+                        </option>
+
+                        <option value="ข่าวทั่วไป">
+                            ข่าวทั่วไป
+                        </option>
+
+                        <option value="กิจกรรม">
+                            กิจกรรม
+                        </option>
+
+                        <option value="ประชาสัมพันธ์">
+                            ประชาสัมพันธ์
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        วันที่เผยแพร่
+                    </label>
+
+                    <input
+                        id="date"
+                        type="date"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        ผู้ประกาศ
+                    </label>
+
+                    <input
+                        id="author"
+                        value="ผู้ใหญ่บ้านร่องเข็ม"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        สถานะ
+                    </label>
+
+                    <select
+                        id="status">
+
+                        <option value="เผยแพร่">
+                            เผยแพร่
+                        </option>
+
+                        <option value="ฉบับร่าง">
+                            ฉบับร่าง
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group full">
+
+                    <label>
+                        เนื้อหาข่าว / ประกาศ
+                    </label>
+
+                    <textarea
+                        id="content"
+                        required
+                        placeholder="เขียนรายละเอียดข่าวหรือประกาศ">
+                    </textarea>
+
+                </div>
+
+
+                <div class="form-group full">
+
+                    <label class="check">
+
+                        <input
+                            type="checkbox"
+                            id="pinned"
+                        >
+
+                        📌 ปักหมุดเป็นประกาศสำคัญ
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="cancel"
+                    onclick="closeModal()">
+
+                    ยกเลิก
+
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="save">
+
+                    บันทึกประกาศ
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================
+DATA
+========================= */
+
+let news = [
+
+{
+    id:1,
+
+    title:"ประกาศประชุมประจำเดือน บ้านร่องเข็ม หมู่ที่ 6",
+
+    category:"ประกาศสำคัญ",
+
+    date:"2026-08-10",
+
+    author:"ผู้ใหญ่บ้านร่องเข็ม",
+
+    status:"เผยแพร่",
+
+    pinned:true,
+
+    content:"ขอเชิญพ่อแม่พี่น้องบ้านร่องเข็มเข้าร่วมประชุมประจำเดือน ณ อาคารเอนกประสงค์หมู่บ้าน"
+},
+
+{
+    id:2,
+
+    title:"กิจกรรมพัฒนาหมู่บ้านและทำความสะอาดชุมชน",
+
+    category:"กิจกรรม",
+
+    date:"2026-08-08",
+
+    author:"คณะกรรมการหมู่บ้าน",
+
+    status:"เผยแพร่",
+
+    pinned:false,
+
+    content:"ขอเชิญประชาชนร่วมกิจกรรมพัฒนาหมู่บ้านและทำความสะอาดพื้นที่สาธารณะ"
+},
+
+{
+    id:3,
+
+    title:"ประชาสัมพันธ์การดูแลสุขภาพและป้องกันโรค",
+
+    category:"ประชาสัมพันธ์",
+
+    date:"2026-08-05",
+
+    author:"อสม. หมู่ 6",
+
+    status:"เผยแพร่",
+
+    pinned:false,
+
+    content:"ประชาสัมพันธ์ให้ประชาชนดูแลสุขภาพและติดตามข่าวสารจาก อสม. ประจำหมู่บ้าน"
+},
+
+{
+    id:4,
+
+    title:"แจ้งกำหนดการกิจกรรมชุมชน",
+
+    category:"กิจกรรม",
+
+    date:"2026-08-01",
+
+    author:"ผู้ใหญ่บ้านร่องเข็ม",
+
+    status:"เผยแพร่",
+
+    pinned:true,
+
+    content:"แจ้งกำหนดการและรายละเอียดกิจกรรมของหมู่บ้านประจำเดือน"
+},
+
+{
+    id:5,
+
+    title:"ข่าวสารการพัฒนาระบบหมู่บ้านอัจฉริยะ",
+
+    category:"ข่าวทั่วไป",
+
+    date:"2026-07-28",
+
+    author:"ผู้ใหญ่บ้านร่องเข็ม",
+
+    status:"ฉบับร่าง",
+
+    pinned:false,
+
+    content:"อยู่ระหว่างจัดทำข้อมูลเพื่อเผยแพร่ให้ประชาชนได้รับทราบ"
+}
+
+];
+
+let editId = null;
+
+
+/* =========================
+RENDER
+========================= */
+
+function renderNews(list = news){
+
+    const container =
+        document.getElementById(
+            "newsList"
+        );
+
+    container.innerHTML = "";
+
+
+    list.forEach(item=>{
+
+        let badgeClass =
+            "badge-general";
+
+        if(item.category === "ประกาศสำคัญ"){
+            badgeClass = "badge-important";
         }
 
-        // ค้นหาข่าวตามข้อความ
-        function searchNews() {
-            const query = document.getElementById('searchInput').value.toLowerCase();
-            const filtered = newsData.filter(item => 
-                item.title.toLowerCase().includes(query) || 
-                item.detail.toLowerCase().includes(query)
+        if(item.category === "กิจกรรม"){
+            badgeClass = "badge-event";
+        }
+
+        if(item.category === "ประชาสัมพันธ์"){
+            badgeClass = "badge-public";
+        }
+
+
+        const card =
+            document.createElement("article");
+
+        card.className =
+            "news-card";
+
+
+        card.innerHTML = `
+
+            <div class="news-head">
+
+                <div>
+
+                    <div class="news-title">
+
+                        ${
+                            item.pinned
+                            ? '<span class="pin">📌</span>'
+                            : ''
+                        }
+
+                        <h3>
+                            ${escapeHTML(item.title)}
+                        </h3>
+
+                    </div>
+
+
+                    <div class="news-meta">
+
+                        <span class="badge ${badgeClass}">
+                            ${item.category}
+                        </span>
+
+
+                        <span class="badge ${
+                            item.status === "เผยแพร่"
+                            ? "badge-public"
+                            : "badge-event"
+                        }">
+                            ${item.status}
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="news-date">
+
+                    📅 ${formatDate(item.date)}
+
+                </div>
+
+            </div>
+
+
+            <div class="news-content">
+
+                ${escapeHTML(item.content)}
+
+            </div>
+
+
+            <div class="news-footer">
+
+                <div class="author">
+
+                    👤 ${escapeHTML(item.author)}
+
+                </div>
+
+
+                <div class="actions">
+
+                    <button
+                        class="action-btn view"
+                        onclick="viewNews(${item.id})">
+                        👁
+                    </button>
+
+
+                    <button
+                        class="action-btn edit"
+                        onclick="editNews(${item.id})">
+                        ✎
+                    </button>
+
+
+                    <button
+                        class="action-btn delete"
+                        onclick="deleteNews(${item.id})">
+                        🗑
+                    </button>
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        container.appendChild(card);
+
+    });
+
+
+    updateSummary(list);
+
+}
+
+
+/* =========================
+SEARCH
+========================= */
+
+function searchNews(){
+
+    const keyword =
+        document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+
+    const category =
+        document
+        .getElementById("categoryFilter")
+        .value;
+
+
+    const status =
+        document
+        .getElementById("statusFilter")
+        .value;
+
+
+    const result =
+        news.filter(item=>{
+
+            const text = `
+
+                ${item.title}
+                ${item.content}
+                ${item.author}
+
+            `.toLowerCase();
+
+
+            return (
+
+                text.includes(keyword) &&
+
+                (!category ||
+                 item.category === category) &&
+
+                (!status ||
+                 item.status === status)
+
             );
-            renderNewsGrid(filtered);
-        }
 
-        // คัดกรองข่าวตามประเภท
-        function filterCategory(cat) {
-            if (cat === 'all') {
-                renderNewsGrid(newsData);
-            } else {
-                const filtered = newsData.filter(item => 
-                    item.title.includes(cat) || item.detail.includes(cat)
-                );
-                renderNewsGrid(filtered);
-            }
-        }
-
-        function shareNews(title) {
-            if (navigator.share) {
-                navigator.share({
-                    title: title,
-                    text: `ข่าวสารบ้านร่องเข็ม: ${title}`,
-                    url: window.location.href
-                }).catch(() => {});
-            } else {
-                alert(`คัดลอกหัวข้อข่าวแล้ว: ${title}`);
-            }
-        }
-
-        document.addEventListener("DOMContentLoaded", function() {
-            fetch("components/header.html").then(res => res.text()).then(data => document.getElementById("header-container").innerHTML = data);
-            fetch("components/sidebar.html").then(res => res.text()).then(data => document.getElementById("sidebar-container").innerHTML = data);
-            fetch("components/footer.html").then(res => res.text()).then(data => document.getElementById("footer-container").innerHTML = data);
-
-            loadAllNews();
         });
-    </script>
+
+
+    renderNews(result);
+
+}
+
+
+/* =========================
+SUMMARY
+========================= */
+
+function updateSummary(list){
+
+    document
+        .getElementById("total")
+        .textContent =
+        list.length;
+
+
+    document
+        .getElementById("important")
+        .textContent =
+        list.filter(
+            x=>x.pinned
+        ).length;
+
+
+    document
+        .getElementById("events")
+        .textContent =
+        list.filter(
+            x=>x.category === "กิจกรรม"
+        ).length;
+
+
+    document
+        .getElementById("published")
+        .textContent =
+        list.filter(
+            x=>x.status === "เผยแพร่"
+        ).length;
+
+}
+
+
+/* =========================
+MODAL
+========================= */
+
+function openModal(){
+
+    editId = null;
+
+
+    document
+        .getElementById("modalTitle")
+        .textContent =
+        "สร้างประกาศใหม่";
+
+
+    document
+        .querySelector(".form")
+        .reset();
+
+
+    document
+        .getElementById("author")
+        .value =
+        "ผู้ใหญ่บ้านร่องเข็ม";
+
+
+    document
+        .getElementById("date")
+        .value =
+        new Date()
+        .toISOString()
+        .split("T")[0];
+
+
+    document
+        .getElementById("newsModal")
+        .classList.add("show");
+
+}
+
+
+function closeModal(){
+
+    document
+        .getElementById("newsModal")
+        .classList.remove("show");
+
+}
+
+
+/* =========================
+SAVE
+========================= */
+
+function saveNews(event){
+
+    event.preventDefault();
+
+
+    const item = {
+
+        id:
+            editId ||
+            Date.now(),
+
+
+        title:
+            document
+            .getElementById("title")
+            .value,
+
+
+        category:
+            document
+            .getElementById("category")
+            .value,
+
+
+        date:
+            document
+            .getElementById("date")
+            .value,
+
+
+        author:
+            document
+            .getElementById("author")
+            .value,
+
+
+        status:
+            document
+            .getElementById("status")
+            .value,
+
+
+        content:
+            document
+            .getElementById("content")
+            .value,
+
+
+        pinned:
+            document
+            .getElementById("pinned")
+            .checked
+
+    };
+
+
+    if(editId){
+
+        const index =
+            news.findIndex(
+                x=>x.id === editId
+            );
+
+        news[index] =
+            item;
+
+    }else{
+
+        news.unshift(item);
+
+    }
+
+
+    saveData();
+
+    renderNews();
+
+    closeModal();
+
+}
+
+
+/* =========================
+EDIT
+========================= */
+
+function editNews(id){
+
+    const item =
+        news.find(
+            x=>x.id === id
+        );
+
+    if(!item) return;
+
+
+    editId = id;
+
+
+    document
+        .getElementById("modalTitle")
+        .textContent =
+        "แก้ไขประกาศ";
+
+
+    document
+        .getElementById("title")
+        .value =
+        item.title;
+
+
+    document
+        .getElementById("category")
+        .value =
+        item.category;
+
+
+    document
+        .getElementById("date")
+        .value =
+        item.date;
+
+
+    document
+        .getElementById("author")
+        .value =
+        item.author;
+
+
+    document
+        .getElementById("status")
+        .value =
+        item.status;
+
+
+    document
+        .getElementById("content")
+        .value =
+        item.content;
+
+
+    document
+        .getElementById("pinned")
+        .checked =
+        item.pinned;
+
+
+    document
+        .getElementById("newsModal")
+        .classList.add("show");
+
+}
+
+
+/* =========================
+VIEW
+========================= */
+
+function viewNews(id){
+
+    const item =
+        news.find(
+            x=>x.id === id
+        );
+
+    if(!item) return;
+
+
+    alert(
+`
+${item.pinned ? "📌 " : ""}${item.title}
+
+ประเภท:
+${item.category}
+
+วันที่:
+${formatDate(item.date)}
+
+ผู้ประกาศ:
+${item.author}
+
+สถานะ:
+${item.status}
+
+รายละเอียด:
+${item.content}
+`
+    );
+
+}
+
+
+/* =========================
+DELETE
+========================= */
+
+function deleteNews(id){
+
+    const item =
+        news.find(
+            x=>x.id === id
+        );
+
+    if(!item) return;
+
+
+    if(!confirm(
+        `ต้องการลบประกาศ "${item.title}" หรือไม่?`
+    )){
+        return;
+    }
+
+
+    news =
+        news.filter(
+            x=>x.id !== id
+        );
+
+
+    saveData();
+
+    renderNews();
+
+}
+
+
+/* =========================
+LOCAL STORAGE
+========================= */
+
+function saveData(){
+
+    localStorage.setItem(
+        "rongkhem_news",
+        JSON.stringify(news)
+    );
+
+}
+
+
+function loadData(){
+
+    const saved =
+        localStorage.getItem(
+            "rongkhem_news"
+        );
+
+
+    if(saved){
+
+        news =
+            JSON.parse(saved);
+
+    }
+
+}
+
+
+/* =========================
+DATE
+========================= */
+
+function formatDate(date){
+
+    if(!date){
+        return "-";
+    }
+
+    const parts =
+        date.split("-");
+
+    if(parts.length !== 3){
+        return date;
+    }
+
+    return `${parts[2]}/${parts[1]}/${parts[0]}`;
+
+}
+
+
+/* =========================
+SECURITY
+========================= */
+
+function escapeHTML(value){
+
+    return String(value ?? "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+/* MOBILE */
+
+function toggleSidebar(){
+
+    document
+        .getElementById("sidebar")
+        .classList.toggle("open");
+
+}
+
+
+/* START */
+
+loadData();
+
+renderNews();
+
+</script>
+
 </body>
 </html>
