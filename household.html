@@ -1,106 +1,1711 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ทะเบียนครัวเรือน | บ้านร่องเข็ม Smart Village</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <style> body { font-family: 'Sarabun', sans-serif; } </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ข้อมูลครัวเรือน | ร่องเข็ม Smart Village</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:"Segoe UI","Noto Sans Thai",Tahoma,sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+    color:#172033;
+}
+
+/* TOPBAR */
+.topbar{
+    height:68px;
+    background:#031d38;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 25px;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:1000;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:#f4c52d;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+}
+
+.brand h2{
+    font-size:17px;
+}
+
+.brand small{
+    color:#aebdcb;
+    font-size:10px;
+}
+
+.top-icons{
+    font-size:19px;
+}
+
+.mobile-toggle{
+    display:none;
+    font-size:24px;
+    cursor:pointer;
+}
+
+/* SIDEBAR */
+.sidebar{
+    position:fixed;
+    top:68px;
+    left:0;
+    bottom:0;
+    width:250px;
+    background:#061f39;
+    color:white;
+    padding:20px 14px;
+    overflow-y:auto;
+    z-index:900;
+}
+
+.profile{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:8px 8px 22px;
+    border-bottom:1px solid rgba(255,255,255,.1);
+    margin-bottom:15px;
+}
+
+.avatar{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:23px;
+}
+
+.profile strong{
+    font-size:14px;
+}
+
+.profile small{
+    display:block;
+    color:#9eafbf;
+    margin-top:4px;
+}
+
+.menu{
+    list-style:none;
+}
+
+.menu li{
+    margin-bottom:4px;
+}
+
+.menu a{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:12px 14px;
+    border-radius:8px;
+    color:#c8d3df;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.menu a:hover,
+.menu a.active{
+    background:#087be9;
+    color:white;
+}
+
+/* MAIN */
+.main{
+    margin-left:250px;
+    padding:95px 30px 40px;
+}
+
+.page-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.page-header h1{
+    color:#092b4d;
+    font-size:29px;
+}
+
+.page-header p{
+    color:#7c8793;
+    margin-top:5px;
+    font-size:14px;
+}
+
+.add-btn{
+    border:0;
+    background:#087be9;
+    color:white;
+    padding:12px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* SUMMARY */
+.summary{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+    margin-bottom:22px;
+}
+
+.summary-card{
+    background:white;
+    padding:20px;
+    border-radius:13px;
+    border:1px solid #e8edf2;
+    box-shadow:0 4px 15px rgba(20,45,70,.05);
+}
+
+.summary-card .icon{
+    font-size:23px;
+}
+
+.summary-card small{
+    color:#7b8793;
+    display:block;
+    margin-top:8px;
+}
+
+.summary-card strong{
+    display:block;
+    font-size:28px;
+    color:#0875d9;
+    margin-top:4px;
+}
+
+/* SEARCH */
+.table-card{
+    background:white;
+    border-radius:14px;
+    border:1px solid #e7ebf0;
+    box-shadow:0 4px 18px rgba(20,45,70,.06);
+    overflow:hidden;
+}
+
+.table-header{
+    padding:22px;
+    border-bottom:1px solid #edf0f4;
+}
+
+.search-row{
+    display:flex;
+    gap:10px;
+}
+
+.search-box{
+    flex:1;
+    position:relative;
+}
+
+.search-box input{
+    width:100%;
+    padding:12px 15px 12px 42px;
+    border:1px solid #dce2e8;
+    border-radius:8px;
+    outline:none;
+    font-size:14px;
+}
+
+.search-icon{
+    position:absolute;
+    left:14px;
+    top:11px;
+}
+
+.filter{
+    padding:12px 15px;
+    border:1px solid #dce2e8;
+    border-radius:8px;
+    background:white;
+}
+
+.export-btn{
+    border:0;
+    background:#15965b;
+    color:white;
+    padding:0 18px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+/* HOUSEHOLD GRID */
+.households{
+    padding:22px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.house-card{
+    border:1px solid #e4e9ef;
+    border-radius:12px;
+    overflow:hidden;
+    transition:.2s;
+    background:white;
+}
+
+.house-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 25px rgba(20,45,70,.1);
+}
+
+.house-top{
+    background:linear-gradient(135deg,#07345d,#087be9);
+    color:white;
+    padding:18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.house-number{
+    font-size:27px;
+    font-weight:bold;
+}
+
+.house-label{
+    font-size:11px;
+    opacity:.8;
+}
+
+.house-body{
+    padding:18px;
+}
+
+.house-head{
+    font-weight:bold;
+    color:#173452;
+    margin-bottom:15px;
+}
+
+.info{
+    display:flex;
+    justify-content:space-between;
+    padding:8px 0;
+    border-bottom:1px solid #eef1f4;
+    font-size:13px;
+}
+
+.info:last-child{
+    border-bottom:0;
+}
+
+.info span:first-child{
+    color:#7b8793;
+}
+
+.info span:last-child{
+    font-weight:bold;
+    color:#243c55;
+}
+
+.member-count{
+    color:#0875d9 !important;
+}
+
+.house-footer{
+    padding:13px 18px;
+    background:#fafbfd;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.status{
+    padding:5px 10px;
+    border-radius:20px;
+    background:#eaf8ef;
+    color:#159052;
+    font-size:11px;
+}
+
+.actions{
+    display:flex;
+    gap:5px;
+}
+
+.action-btn{
+    width:31px;
+    height:31px;
+    border:0;
+    border-radius:6px;
+    cursor:pointer;
+    color:white;
+}
+
+.view{
+    background:#087be9;
+}
+
+.edit{
+    background:#f2a514;
+}
+
+.delete{
+    background:#e84b4b;
+}
+
+/* EMPTY */
+.empty{
+    text-align:center;
+    padding:60px 20px;
+    color:#82909e;
+    display:none;
+}
+
+.empty-icon{
+    font-size:50px;
+    margin-bottom:15px;
+}
+
+/* MODAL */
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:2000;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-box{
+    width:100%;
+    max-width:650px;
+    max-height:90vh;
+    overflow-y:auto;
+    background:white;
+    border-radius:15px;
+}
+
+.modal-header{
+    padding:20px 24px;
+    border-bottom:1px solid #edf0f4;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.modal-header h2{
+    color:#123452;
+    font-size:20px;
+}
+
+.close{
+    border:0;
+    background:none;
+    font-size:25px;
+    cursor:pointer;
+}
+
+.form{
+    padding:24px;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:17px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+}
+
+.form-group.full{
+    grid-column:1/-1;
+}
+
+.form-group label{
+    font-size:13px;
+    font-weight:bold;
+    color:#475565;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    padding:11px 12px;
+    border:1px solid #dce2e8;
+    border-radius:7px;
+    outline:none;
+}
+
+.form-group textarea{
+    min-height:80px;
+    resize:vertical;
+}
+
+.modal-footer{
+    display:flex;
+    justify-content:flex-end;
+    gap:10px;
+    margin-top:25px;
+}
+
+.cancel{
+    border:1px solid #dce2e8;
+    background:white;
+    padding:11px 20px;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+.save{
+    border:0;
+    background:#087be9;
+    color:white;
+    padding:11px 22px;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+/* MOBILE */
+@media(max-width:1100px){
+    .households{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .summary{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:750px){
+
+    .mobile-toggle{
+        display:block;
+    }
+
+    .sidebar{
+        transform:translateX(-100%);
+        transition:.3s;
+    }
+
+    .sidebar.open{
+        transform:translateX(0);
+    }
+
+    .main{
+        margin-left:0;
+        padding:88px 15px 30px;
+    }
+
+    .page-header{
+        display:block;
+    }
+
+    .add-btn{
+        margin-top:15px;
+    }
+
+    .summary{
+        grid-template-columns:1fr;
+    }
+
+    .search-row{
+        flex-wrap:wrap;
+    }
+
+    .search-box{
+        flex-basis:100%;
+    }
+
+    .filter{
+        flex:1;
+    }
+
+    .export-btn{
+        padding:12px 18px;
+    }
+
+    .households{
+        grid-template-columns:1fr;
+        padding:15px;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .form-group.full{
+        grid-column:auto;
+    }
+
+    .brand h2{
+        font-size:14px;
+    }
+}
+</style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
 
-    <!-- TOP HEADER -->
-    <div id="header-container"></div>
+<body>
 
-    <!-- MAIN CONTAINER -->
-    <div class="flex flex-1 max-w-7xl w-full mx-auto">
-        <!-- SIDEBAR -->
-        <div id="sidebar-container" class="hidden md:block"></div>
+<header class="topbar">
 
-        <!-- MAIN CONTENT -->
-        <main class="flex-1 p-4 sm:p-6 lg:p-8 space-y-6">
-            
-            <!-- Page Header -->
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between bg-slate-900/80 p-5 rounded-2xl border border-slate-800 shadow-xl gap-4 backdrop-blur-md">
-                <div>
-                    <h1 class="text-xl sm:text-2xl font-bold text-amber-400 flex items-center gap-2">
-                        <span>🏠</span> สถิติและข้อมูลทะเบียนครัวเรือน
-                    </h1>
-                    <p class="text-xs text-gray-400">ฐานข้อมูลหลังคาเรือนและการตั้งถิ่นฐาน บ้านร่องเข็ม หมู่ที่ 6</p>
-                </div>
-                <div class="relative w-full sm:w-64">
-                    <input type="text" id="searchHousehold" onkeyup="filterHousehold()" placeholder="🔍 ค้นหาบ้านเลขที่/ชื่อเจ้าบ้าน..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2 text-xs text-white focus:outline-none focus:border-amber-500 transition">
-                </div>
-            </div>
+    <div class="brand">
 
-            <!-- Dashboard Overview Cards -->
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-800 text-center space-y-1 shadow-lg">
-                    <span class="text-xs text-gray-400">จำนวนหลังคาเรือนรวม</span>
-                    <div class="text-2xl font-bold text-amber-400">185</div>
-                    <span class="text-[10px] text-gray-500">หลังคาเรือน (หมู่ 6)</span>
-                </div>
-                <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-800 text-center space-y-1 shadow-lg">
-                    <span class="text-xs text-gray-400">ประชากรอาศัยจริง</span>
-                    <div class="text-2xl font-bold text-emerald-400">542</div>
-                    <span class="text-[10px] text-gray-500">คน</span>
-                </div>
-                <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-800 text-center space-y-1 shadow-lg">
-                    <span class="text-xs text-gray-400">กลุ่มอาชีพหลัก</span>
-                    <div class="text-xl font-bold text-cyan-400">เกษตรกรรม</div>
-                    <span class="text-[10px] text-gray-500">68% ของครัวเรือน</span>
-                </div>
-                <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-800 text-center space-y-1 shadow-lg">
-                    <span class="text-xs text-gray-400">เข้าร่วมกลุ่มข้าวสาร</span>
-                    <div class="text-2xl font-bold text-amber-400">142</div>
-                    <span class="text-[10px] text-gray-500">ครัวเรือน</span>
-                </div>
-            </div>
+        <div class="mobile-toggle"
+             onclick="toggleSidebar()">
+            ☰
+        </div>
 
-            <!-- Household Table List -->
-            <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 shadow-xl space-y-4">
-                <h2 class="text-base font-bold text-white flex items-center gap-2 border-b border-slate-800 pb-3">
-                    <span>📋</span> รายชื่อครัวเรือนตัวอย่างในหมู่บ้าน
-                </h2>
+        <div class="logo">🏡</div>
 
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left text-xs text-gray-300">
-                        <thead class="bg-slate-950 text-amber-400 uppercase text-[11px] font-bold">
-                            <tr>
-                                <th class="p-3 rounded-l-xl">บ้านเลขที่</th>
-                                <th class="p-3">เจ้าบ้าน / หัวหน้าครัวเรือน</th>
-                                <th class="p-3">จำนวนสมาชิก</th>
-                                <th class="p-3">หมวดหมู่สมาชิก</th>
-                                <th class="p-3 rounded-r-xl">สถานะกลุ่มข้าวสาร</th>
-                            </tr>
-                        </thead>
-                        <tbody id="householdTable" class="divide-y divide-slate-800">
-                            <tr class="hover:bg-slate-800/50 transition">
-                                <td class="p-3 font-mono font-bold text-amber-400">12/1</td>
-                                <td class="p-3 font-medium text-white">นายสมชาย ใจดี</td>
-                                <td class="p-3">4 คน</td>
-                                <td class="p-3"><span class="px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20">ทั่วไป / ผู้สูงอายุ 1</span></td>
-                                <td class="p-3"><span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">🟢 สมาชิกปกติ</span></td>
-                            </tr>
-                            <tr class="hover:bg-slate-800/50 transition">
-                                <td class="p-3 font-mono font-bold text-amber-400">25/3</td>
-                                <td class="p-3 font-medium text-white">นางจันทร์ดี มีสุข</td>
-                                <td class="p-3">2 คน</td>
-                                <td class="p-3"><span class="px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20">ผู้สูงอายุทั้งหมด</span></td>
-                                <td class="p-3"><span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">🟢 สมาชิกปกติ</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+        <div>
+            <h2>ร่องเข็ม Smart Village</h2>
+            <small>ระบบบริหารจัดการหมู่บ้านอัจฉริยะ</small>
+        </div>
 
-        </main>
     </div>
 
-    <!-- FOOTER -->
-    <div id="footer-container"></div>
-    <script src="js/main.js"></script>
+    <div class="top-icons">
+        🔔 &nbsp; 👤
+    </div>
+
+</header>
+
+
+<aside class="sidebar" id="sidebar">
+
+    <div class="profile">
+
+        <div class="avatar">👨🏻‍💼</div>
+
+        <div>
+            <strong>ผู้ใหญ่บ้านร่องเข็ม</strong>
+            <small>ผู้ดูแลระบบ</small>
+        </div>
+
+    </div>
+
+    <ul class="menu">
+
+        <li>
+            <a href="dashboard.html">
+                📊 Dashboard
+            </a>
+        </li>
+
+        <li>
+            <a href="citizen.html">
+                👥 ข้อมูลประชาชน
+            </a>
+        </li>
+
+        <li>
+            <a href="household.html" class="active">
+                🏠 ข้อมูลครัวเรือน
+            </a>
+        </li>
+
+        <li>
+            <a href="elderly.html">
+                👴 ผู้สูงอายุ
+            </a>
+        </li>
+
+        <li>
+            <a href="vulnerable.html">
+                🤝 กลุ่มเปราะบาง
+            </a>
+        </li>
+
+        <li>
+            <a href="health.html">
+                ❤️ ข้อมูลสุขภาพ
+            </a>
+        </li>
+
+        <li>
+            <a href="leader.html">
+                👨‍💼 ผู้นำชุมชน
+            </a>
+        </li>
+
+        <li>
+            <a href="projects.html">
+                📋 โครงการ / กิจกรรม
+            </a>
+        </li>
+
+        <li>
+            <a href="news.html">
+                📰 ข่าวสาร / ประกาศ
+            </a>
+        </li>
+
+        <li>
+            <a href="reports.html">
+                📈 รายงาน
+            </a>
+        </li>
+
+        <li>
+            <a href="settings.html">
+                ⚙️ ตั้งค่า
+            </a>
+        </li>
+
+        <li style="margin-top:20px;">
+            <a href="index.html">
+                🏡 กลับหน้าเว็บไซต์
+            </a>
+        </li>
+
+    </ul>
+
+</aside>
+
+
+<main class="main">
+
+    <div class="page-header">
+
+        <div>
+            <h1>ข้อมูลครัวเรือน</h1>
+            <p>
+                ทะเบียนครัวเรือน บ้านร่องเข็ม หมู่ที่ 6
+            </p>
+        </div>
+
+        <button class="add-btn"
+                onclick="openModal()">
+            ＋ เพิ่มครัวเรือน
+        </button>
+
+    </div>
+
+
+    <!-- SUMMARY -->
+
+    <section class="summary">
+
+        <div class="summary-card">
+
+            <div class="icon">🏠</div>
+
+            <small>ครัวเรือนทั้งหมด</small>
+
+            <strong id="totalHouseholds">
+                350
+            </strong>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="icon">👨‍👩‍👧‍👦</div>
+
+            <small>สมาชิกทั้งหมด</small>
+
+            <strong id="totalMembers">
+                1,248
+            </strong>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="icon">👴</div>
+
+            <small>ครัวเรือนที่มีผู้สูงอายุ</small>
+
+            <strong id="elderlyHouseholds">
+                142
+            </strong>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="icon">🤝</div>
+
+            <small>ครัวเรือนกลุ่มเปราะบาง</small>
+
+            <strong id="vulnerableHouseholds">
+                32
+            </strong>
+
+        </div>
+
+    </section>
+
+
+    <!-- TABLE CARD -->
+
+    <section class="table-card">
+
+        <div class="table-header">
+
+            <div class="search-row">
+
+                <div class="search-box">
+
+                    <span class="search-icon">
+                        🔍
+                    </span>
+
+                    <input
+                        id="searchInput"
+                        type="text"
+                        placeholder="ค้นหาบ้านเลขที่ ชื่อหัวหน้าครัวเรือน หรือโทรศัพท์..."
+                        oninput="searchHouseholds()"
+                    >
+
+                </div>
+
+
+                <select
+                    class="filter"
+                    id="statusFilter"
+                    onchange="searchHouseholds()">
+
+                    <option value="">
+                        ทุกสถานะ
+                    </option>
+
+                    <option value="ปกติ">
+                        ปกติ
+                    </option>
+
+                    <option value="กลุ่มเปราะบาง">
+                        กลุ่มเปราะบาง
+                    </option>
+
+                </select>
+
+
+                <button class="export-btn"
+                        onclick="exportCSV()">
+                    ↓ Excel
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="households"
+             id="householdsContainer">
+        </div>
+
+
+        <div class="empty" id="empty">
+
+            <div class="empty-icon">
+                🏠
+            </div>
+
+            <h3>
+                ไม่พบข้อมูลครัวเรือน
+            </h3>
+
+            <p>
+                ลองเปลี่ยนคำค้นหาใหม่
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- MODAL -->
+
+<div class="modal" id="householdModal">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <h2 id="modalTitle">
+                เพิ่มข้อมูลครัวเรือน
+            </h2>
+
+            <button class="close"
+                    onclick="closeModal()">
+                ×
+            </button>
+
+        </div>
+
+
+        <form class="form"
+              onsubmit="saveHousehold(event)">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label>
+                        บ้านเลขที่
+                    </label>
+
+                    <input
+                        id="houseNo"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        จำนวนสมาชิก
+                    </label>
+
+                    <input
+                        id="members"
+                        type="number"
+                        min="1"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        ชื่อหัวหน้าครัวเรือน
+                    </label>
+
+                    <input
+                        id="headName"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        เบอร์โทรศัพท์
+                    </label>
+
+                    <input
+                        id="phone"
+                        type="tel"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        สถานะ
+                    </label>
+
+                    <select id="status">
+
+                        <option value="ปกติ">
+                            ปกติ
+                        </option>
+
+                        <option value="กลุ่มเปราะบาง">
+                            กลุ่มเปราะบาง
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        ผู้สูงอายุ
+                    </label>
+
+                    <select id="elderly">
+
+                        <option value="ไม่มี">
+                            ไม่มี
+                        </option>
+
+                        <option value="มี">
+                            มี
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group full">
+
+                    <label>
+                        ที่อยู่ / หมายเหตุ
+                    </label>
+
+                    <textarea
+                        id="address"
+                        placeholder="รายละเอียดเพิ่มเติม">
+                    </textarea>
+
+                </div>
+
+            </div>
+
+
+            <div class="modal-footer">
+
+                <button type="button"
+                        class="cancel"
+                        onclick="closeModal()">
+                    ยกเลิก
+                </button>
+
+                <button type="submit"
+                        class="save">
+                    บันทึกข้อมูล
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   DATA
+========================= */
+
+let households = [
+
+{
+    id:1,
+    houseNo:"1",
+    headName:"นายสมชาย ใจดี",
+    members:4,
+    phone:"0812345678",
+    status:"ปกติ",
+    elderly:"ไม่มี",
+    address:"บ้านร่องเข็ม หมู่ 6"
+},
+
+{
+    id:2,
+    houseNo:"5",
+    headName:"นางสมหญิง รักชุมชน",
+    members:5,
+    phone:"0932456789",
+    status:"ปกติ",
+    elderly:"มี",
+    address:"บ้านร่องเข็ม หมู่ 6"
+},
+
+{
+    id:3,
+    houseNo:"12",
+    headName:"นายเกษม ใจบุญ",
+    members:3,
+    phone:"0824567890",
+    status:"กลุ่มเปราะบาง",
+    elderly:"มี",
+    address:"บ้านร่องเข็ม หมู่ 6"
+},
+
+{
+    id:4,
+    houseNo:"18",
+    headName:"นางดวงใจ อินต๊ะ",
+    members:4,
+    phone:"0834567890",
+    status:"ปกติ",
+    elderly:"มี",
+    address:"บ้านร่องเข็ม หมู่ 6"
+},
+
+{
+    id:5,
+    houseNo:"25",
+    headName:"นายประเสริฐ คำดี",
+    members:2,
+    phone:"0845678901",
+    status:"ปกติ",
+    elderly:"ไม่มี",
+    address:"บ้านร่องเข็ม หมู่ 6"
+},
+
+{
+    id:6,
+    houseNo:"31",
+    headName:"นายวิชัย แก้วดี",
+    members:6,
+    phone:"0856789012",
+    status:"ปกติ",
+    elderly:"ไม่มี",
+    address:"บ้านร่องเข็ม หมู่ 6"
+}
+
+];
+
+let editId = null;
+
+
+/* =========================
+   RENDER
+========================= */
+
+function renderHouseholds(list = households){
+
+    const container =
+        document.getElementById(
+            "householdsContainer"
+        );
+
+    const empty =
+        document.getElementById("empty");
+
+    container.innerHTML = "";
+
+    if(list.length === 0){
+
+        empty.style.display = "block";
+
+        updateSummary([]);
+
+        return;
+
+    }
+
+    empty.style.display = "none";
+
+
+    list.forEach(house=>{
+
+        const card =
+            document.createElement("div");
+
+        card.className = "house-card";
+
+        card.innerHTML = `
+
+            <div class="house-top">
+
+                <div>
+                    <div class="house-label">
+                        บ้านเลขที่
+                    </div>
+
+                    <div class="house-number">
+                        ${house.houseNo}
+                    </div>
+                </div>
+
+                <div style="font-size:30px;">
+                    🏠
+                </div>
+
+            </div>
+
+
+            <div class="house-body">
+
+                <div class="house-head">
+                    👤 ${house.headName}
+                </div>
+
+                <div class="info">
+
+                    <span>
+                        สมาชิกในบ้าน
+                    </span>
+
+                    <span class="member-count">
+                        ${house.members} คน
+                    </span>
+
+                </div>
+
+
+                <div class="info">
+
+                    <span>
+                        โทรศัพท์
+                    </span>
+
+                    <span>
+                        ${house.phone || "-"}
+                    </span>
+
+                </div>
+
+
+                <div class="info">
+
+                    <span>
+                        ผู้สูงอายุ
+                    </span>
+
+                    <span>
+                        ${house.elderly}
+                    </span>
+
+                </div>
+
+
+                <div class="info">
+
+                    <span>
+                        ที่อยู่
+                    </span>
+
+                    <span>
+                        ${house.address || "-"}
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="house-footer">
+
+                <span class="status">
+                    ${house.status}
+                </span>
+
+                <div class="actions">
+
+                    <button
+                        class="action-btn view"
+                        onclick="viewHousehold(${house.id})">
+                        👁
+                    </button>
+
+                    <button
+                        class="action-btn edit"
+                        onclick="editHousehold(${house.id})">
+                        ✎
+                    </button>
+
+                    <button
+                        class="action-btn delete"
+                        onclick="deleteHousehold(${house.id})">
+                        🗑
+                    </button>
+
+                </div>
+
+            </div>
+        `;
+
+        container.appendChild(card);
+
+    });
+
+
+    updateSummary(list);
+
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+function searchHouseholds(){
+
+    const keyword =
+        document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+    const status =
+        document
+        .getElementById("statusFilter")
+        .value;
+
+
+    const result =
+        households.filter(house=>{
+
+            const text = `
+                ${house.houseNo}
+                ${house.headName}
+                ${house.phone}
+                ${house.address}
+            `.toLowerCase();
+
+            return (
+                text.includes(keyword) &&
+                (!status ||
+                 house.status === status)
+            );
+
+        });
+
+
+    renderHouseholds(result);
+
+}
+
+
+/* =========================
+   SUMMARY
+========================= */
+
+function updateSummary(list){
+
+    document
+    .getElementById("totalHouseholds")
+    .textContent =
+        list.length;
+
+
+    document
+    .getElementById("totalMembers")
+    .textContent =
+        list.reduce(
+            (sum,h)=>sum + Number(h.members),
+            0
+        );
+
+
+    document
+    .getElementById("elderlyHouseholds")
+    .textContent =
+        list.filter(
+            h=>h.elderly === "มี"
+        ).length;
+
+
+    document
+    .getElementById("vulnerableHouseholds")
+    .textContent =
+        list.filter(
+            h=>h.status === "กลุ่มเปราะบาง"
+        ).length;
+
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+function openModal(){
+
+    editId = null;
+
+    document
+    .getElementById("modalTitle")
+    .textContent =
+        "เพิ่มข้อมูลครัวเรือน";
+
+
+    document
+    .querySelector(".form")
+    .reset();
+
+
+    document
+    .getElementById("householdModal")
+    .classList.add("show");
+
+}
+
+
+function closeModal(){
+
+    document
+    .getElementById("householdModal")
+    .classList.remove("show");
+
+}
+
+
+/* =========================
+   SAVE
+========================= */
+
+function saveHousehold(event){
+
+    event.preventDefault();
+
+
+    const household = {
+
+        id:
+            editId ||
+            Date.now(),
+
+        houseNo:
+            document
+            .getElementById("houseNo")
+            .value,
+
+        headName:
+            document
+            .getElementById("headName")
+            .value,
+
+        members:
+            Number(
+                document
+                .getElementById("members")
+                .value
+            ),
+
+        phone:
+            document
+            .getElementById("phone")
+            .value,
+
+        status:
+            document
+            .getElementById("status")
+            .value,
+
+        elderly:
+            document
+            .getElementById("elderly")
+            .value,
+
+        address:
+            document
+            .getElementById("address")
+            .value
+
+    };
+
+
+    if(editId){
+
+        const index =
+            households.findIndex(
+                h=>h.id===editId
+            );
+
+        households[index] =
+            household;
+
+    }else{
+
+        households.push(household);
+
+    }
+
+
+    saveData();
+
+    renderHouseholds();
+
+    closeModal();
+
+}
+
+
+/* =========================
+   EDIT
+========================= */
+
+function editHousehold(id){
+
+    const house =
+        households.find(
+            h=>h.id===id
+        );
+
+    if(!house) return;
+
+
+    editId = id;
+
+
+    document
+    .getElementById("modalTitle")
+    .textContent =
+        "แก้ไขข้อมูลครัวเรือน";
+
+
+    document
+    .getElementById("houseNo")
+    .value =
+        house.houseNo;
+
+
+    document
+    .getElementById("headName")
+    .value =
+        house.headName;
+
+
+    document
+    .getElementById("members")
+    .value =
+        house.members;
+
+
+    document
+    .getElementById("phone")
+    .value =
+        house.phone;
+
+
+    document
+    .getElementById("status")
+    .value =
+        house.status;
+
+
+    document
+    .getElementById("elderly")
+    .value =
+        house.elderly;
+
+
+    document
+    .getElementById("address")
+    .value =
+        house.address;
+
+
+    document
+    .getElementById("householdModal")
+    .classList.add("show");
+
+}
+
+
+/* =========================
+   VIEW
+========================= */
+
+function viewHousehold(id){
+
+    const h =
+        households.find(
+            x=>x.id===id
+        );
+
+    if(!h) return;
+
+
+    alert(
+`
+ข้อมูลครัวเรือน
+
+บ้านเลขที่: ${h.houseNo}
+
+หัวหน้าครัวเรือน:
+${h.headName}
+
+สมาชิก:
+${h.members} คน
+
+โทรศัพท์:
+${h.phone || "-"}
+
+ผู้สูงอายุ:
+${h.elderly}
+
+สถานะ:
+${h.status}
+
+ที่อยู่:
+${h.address || "-"}
+`
+    );
+
+}
+
+
+/* =========================
+   DELETE
+========================= */
+
+function deleteHousehold(id){
+
+    const h =
+        households.find(
+            x=>x.id===id
+        );
+
+    if(!h) return;
+
+
+    if(!confirm(
+        `ต้องการลบบ้านเลขที่ ${h.houseNo} หรือไม่?`
+    )){
+        return;
+    }
+
+
+    households =
+        households.filter(
+            x=>x.id!==id
+        );
+
+
+    saveData();
+
+    renderHouseholds();
+
+}
+
+
+/* =========================
+   LOCAL STORAGE
+========================= */
+
+function saveData(){
+
+    localStorage.setItem(
+        "rongkhem_households",
+        JSON.stringify(households)
+    );
+
+}
+
+
+function loadData(){
+
+    const saved =
+        localStorage.getItem(
+            "rongkhem_households"
+        );
+
+    if(saved){
+
+        households =
+            JSON.parse(saved);
+
+    }
+
+}
+
+
+/* =========================
+   EXPORT CSV
+========================= */
+
+function exportCSV(){
+
+    let csv =
+        "\uFEFFบ้านเลขที่,หัวหน้าครัวเรือน,สมาชิก,โทรศัพท์,สถานะ,ผู้สูงอายุ,ที่อยู่\n";
+
+
+    households.forEach(h=>{
+
+        csv +=
+        `"${h.houseNo}",` +
+        `"${h.headName}",` +
+        `${h.members},` +
+        `"${h.phone || ""}",` +
+        `"${h.status}",` +
+        `"${h.elderly}",` +
+        `"${h.address || ""}"\n`;
+
+    });
+
+
+    const blob =
+        new Blob(
+            [csv],
+            {
+                type:
+                "text/csv;charset=utf-8;"
+            }
+        );
+
+
+    const url =
+        URL.createObjectURL(blob);
+
+
+    const a =
+        document.createElement("a");
+
+
+    a.href = url;
+
+    a.download =
+        "ข้อมูลครัวเรือน_บ้านร่องเข็ม.csv";
+
+    a.click();
+
+
+    URL.revokeObjectURL(url);
+
+}
+
+
+/* MOBILE SIDEBAR */
+
+function toggleSidebar(){
+
+    document
+    .getElementById("sidebar")
+    .classList.toggle("open");
+
+}
+
+
+/* START */
+
+loadData();
+
+renderHouseholds();
+
+</script>
+
 </body>
 </html>
