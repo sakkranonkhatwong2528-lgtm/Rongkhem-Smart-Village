@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ที่ทำการผู้ใหญ่บ้าน บ้านร่องเข็ม หมู่ 6 ต.จำป่าหวาย</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
+<style>body{font-family:'Sarabun',sans-serif}</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+<header class="bg-gradient-to-r from-amber-700 to-amber-500 text-white">
+  <div class="max-w-5xl mx-auto px-4 py-6">
+    <p class="text-amber-100 text-sm">ที่ทำการผู้ใหญ่บ้านออนไลน์</p>
+    <h1 class="text-2xl md:text-3xl font-bold">บ้านร่องเข็ม หมู่ที่ 6</h1>
+    <p class="text-amber-100">ต.จำป่าหวาย อ.เมืองพะเยา จ.พะเยา 56000</p>
+  </div>
+  <nav class="bg-amber-800/40">
+    <div class="max-w-5xl mx-auto px-4 flex gap-1 overflow-x-auto text-sm">
+      <button onclick="go('home')" class="tabbtn px-4 py-3 whitespace-nowrap">หน้าแรก</button>
+      <button onclick="go('news')" class="tabbtn px-4 py-3 whitespace-nowrap">ข่าว/ประกาศ</button>
+      <button onclick="go('complaint')" class="tabbtn px-4 py-3 whitespace-nowrap">แจ้งเรื่องร้องเรียน</button>
+      <button onclick="go('doc')" class="tabbtn px-4 py-3 whitespace-nowrap">ขอเอกสาร</button>
+      <button onclick="go('track')" class="tabbtn px-4 py-3 whitespace-nowrap">ติดตามสถานะ</button>
+      <button onclick="go('event')" class="tabbtn px-4 py-3 whitespace-nowrap">ปฏิทินกิจกรรม</button>
+      <a href="/admin.html" class="px-4 py-3 whitespace-nowrap opacity-80">เจ้าหน้าที่</a>
+    </div>
+  </nav>
+</header>
+
+<main class="max-w-5xl mx-auto px-4 py-6">
+
+<section id="home" class="page">
+  <div class="grid md:grid-cols-3 gap-4">
+    <a onclick="go('complaint')" class="cursor-pointer bg-white rounded-xl p-5 shadow hover:shadow-lg border-t-4 border-rose-500">
+      <h3 class="font-bold text-lg">📣 แจ้งเรื่องร้องเรียน</h3>
+      <p class="text-sm text-slate-600 mt-1">ไฟดับ น้ำไม่ไหล ถนนชำรุด สุนัขจรจัด ฯลฯ</p></a>
+    <a onclick="go('doc')" class="cursor-pointer bg-white rounded-xl p-5 shadow hover:shadow-lg border-t-4 border-emerald-600">
+      <h3 class="font-bold text-lg">📄 ขอหนังสือรับรอง</h3>
+      <p class="text-sm text-slate-600 mt-1">รับรองที่อยู่ รับรองบุคคล รับรองความประพฤติ</p></a>
+    <a onclick="go('track')" class="cursor-pointer bg-white rounded-xl p-5 shadow hover:shadow-lg border-t-4 border-sky-600">
+      <h3 class="font-bold text-lg">🔎 ติดตามสถานะ</h3>
+      <p class="text-sm text-slate-600 mt-1">ใช้เลขที่คำร้องตรวจสอบผลได้ตลอด 24 ชม.</p></a>
+  </div>
+
+  <div class="bg-white rounded-xl p-5 shadow mt-5">
+    <h2 class="font-bold text-xl mb-2">ข้อมูลหมู่บ้าน</h2>
+    <ul class="text-sm space-y-1 text-slate-700">
+      <li>• สังกัด องค์การบริหารส่วนตำบลจำป่าหวาย (13 หมู่บ้าน)</li>
+      <li>• ศาสนสถาน: วัดร่องเข็ม</li>
+      <li>• แหล่งท่องเที่ยว: แหล่งน้ำซับ "น้ำจำ"</li>
+      <li>• อาชีพหลัก: เกษตรกรรม — ข้าว หอมแดง กระเทียม ฟักทอง</li>
+      <li>• โทร. อบต.จำป่าหวาย 054-453081</li>
+    </ul>
+  </div>
+
+  <h2 class="font-bold text-xl mt-6 mb-3">ประกาศล่าสุด</h2>
+  <div id="homeNews" class="space-y-3"></div>
+</section>
+
+<section id="news" class="page hidden">
+  <h2 class="font-bold text-2xl mb-4">ข่าวสารและประกาศหมู่บ้าน</h2>
+  <div id="newsList" class="space-y-3"></div>
+</section>
+
+<section id="complaint" class="page hidden">
+  <h2 class="font-bold text-2xl mb-4">แจ้งเรื่องร้องเรียน / แจ้งปัญหา</h2>
+  <form id="fComplaint" class="bg-white p-5 rounded-xl shadow space-y-3">
+    <div class="grid md:grid-cols-2 gap-3">
+      <input name="name" placeholder="ชื่อ-นามสกุล" class="inp">
+      <input name="phone" placeholder="เบอร์โทรติดต่อกลับ" class="inp">
+    </div>
+    <select name="category" class="inp">
+      <option>ไฟฟ้าสาธารณะ</option><option>ประปา/น้ำอุปโภค</option>
+      <option>ถนน/ทางเดิน</option><option>ขยะ/สิ่งแวดล้อม</option>
+      <option>สัตว์จรจัด</option><option>ความปลอดภัย/ยาเสพติด</option>
+      <option>สาธารณภัย</option><option>อื่น ๆ</option>
+    </select>
+    <input name="location" placeholder="จุดเกิดเหตุ เช่น หน้าวัดร่องเข็ม / บ้านเลขที่..." class="inp">
+    <textarea name="detail" rows="4" required placeholder="รายละเอียดเรื่องที่ต้องการแจ้ง *" class="inp"></textarea>
+    <div><label class="text-sm text-slate-600">แนบรูปภาพ (ถ้ามี)</label>
+      <input type="file" name="photo" accept="image/*" class="block w-full text-sm mt-1"></div>
+    <button class="w-full bg-rose-600 hover:bg-rose-700 text-white py-3 rounded-lg font-semibold">ส่งเรื่องร้องเรียน</button>
+  </form>
+</section>
+
+<section id="doc" class="page hidden">
+  <h2 class="font-bold text-2xl mb-4">ยื่นคำร้องขอเอกสาร</h2>
+  <form id="fDoc" class="bg-white p-5 rounded-xl shadow space-y-3">
+    <select name="doc_type" class="inp" required>
+      <option value="">-- เลือกประเภทเอกสาร --</option>
+      <option>หนังสือรับรองการอาศัยอยู่จริง</option>
+      <option>หนังสือรับรองบุคคล</option>
+      <option>หนังสือรับรองความประพฤติ</option>
+      <option>หนังสือรับรองผู้มีรายได้น้อย</option>
+      <option>หนังสือรับรองการประกอบอาชีพ</option>
+      <option>ใบรับรองสถานะครัวเรือน</option>
+      <option>อื่น ๆ (ระบุในวัตถุประสงค์)</option>
+    </select>
+    <input name="full_name" placeholder="ชื่อ-นามสกุลผู้ยื่น *" required class="inp">
+    <div class="grid md:grid-cols-2 gap-3">
+      <input name="id_card" placeholder="เลขบัตรประชาชน 13 หลัก" maxlength="13" class="inp">
+      <input name="phone" placeholder="เบอร์โทรศัพท์" class="inp">
+    </div>
+    <input name="address" placeholder="บ้านเลขที่ / ที่อยู่ในหมู่บ้าน" class="inp">
+    <textarea name="purpose" rows="3" placeholder="วัตถุประสงค์การใช้เอกสาร" class="inp"></textarea>
+    <p class="text-xs text-slate-500">* เมื่อได้รับแจ้งว่า "เอกสารพร้อมรับ" กรุณานำบัตรประชาชนตัวจริงมารับที่บ้านผู้ใหญ่บ้าน</p>
+    <button class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-lg font-semibold">ยื่นคำร้อง</button>
+  </form>
+</section>
+
+<section id="track" class="page hidden">
+  <h2 class="font-bold text-2xl mb-4">ติดตามสถานะคำร้อง</h2>
+  <div class="bg-white p-5 rounded-xl shadow">
+    <div class="flex gap-2">
+      <input id="tk" placeholder="กรอกเลขที่ เช่น RK-C2569-0001" class="inp flex-1">
+      <button onclick="track()" class="bg-sky-600 hover:bg-sky-700 text-white px-6 rounded-lg">ค้นหา</button>
+    </div>
+    <div id="trackResult" class="mt-4"></div>
+  </div>
+</section>
+
+<section id="event" class="page hidden">
+  <h2 class="font-bold text-2xl mb-4">ปฏิทินกิจกรรมหมู่บ้าน</h2>
+  <div id="eventList" class="space-y-3"></div>
+</section>
+
+</main>
+
+<footer class="bg-slate-800 text-slate-300 text-center text-sm py-6 mt-10">
+  ที่ทำการผู้ใหญ่บ้าน บ้านร่องเข็ม หมู่ที่ 6 ต.จำป่าหวาย อ.เมืองพะเยา จ.พะเยา
+</footer>
+
+<style>
+.inp{width:100%;border:1px solid #cbd5e1;border-radius:.5rem;padding:.65rem .75rem}
+.inp:focus{outline:2px solid #f59e0b;border-color:transparent}
+.tabbtn:hover{background:rgba(255,255,255,.15)}
+</style>
+
+<script>
+const $ = s => document.querySelector(s);
+function go(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));
+  $('#'+id).classList.remove('hidden'); window.scrollTo(0,0);
+}
+function card(n){
+  return `<article class="bg-white rounded-xl shadow overflow-hidden">
+    ${n.image?`<img src="${n.image}" class="w-full h-52 object-cover">`:''}
+    <div class="p-4">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="text-xs bg-amber-100 text-amber-800 px-2 py-0.5 rounded">${n.category}</span>
+        ${n.pinned?'<span class="text-xs bg-rose-100 text-rose-700 px-2 py-0.5 rounded">ปักหมุด</span>':''}
+      </div>
+      <h3 class="font-bold text-lg">${n.title}</h3>
+      <p class="text-slate-600 whitespace-pre-line mt-1">${n.body}</p>
+      <p class="text-xs text-slate-400 mt-2">${n.created_at}</p>
+    </div></article>`;
+}
+async function loadNews(){
+  const d = await (await fetch('/api/news')).json();
+  $('#newsList').innerHTML = d.length? d.map(card).join('') : '<p class="text-slate-500">ยังไม่มีประกาศ</p>';
+  $('#homeNews').innerHTML = d.slice(0,3).map(card).join('') || '<p class="text-slate-500">ยังไม่มีประกาศ</p>';
+}
+async function loadEvents(){
+  const d = await (await fetch('/api/events')).json();
+  $('#eventList').innerHTML = d.length? d.map(e=>`
+    <div class="bg-white p-4 rounded-xl shadow flex gap-4">
+      <div class="bg-amber-600 text-white rounded-lg px-4 py-2 text-center shrink-0">
+        <div class="text-xs">${e.event_date||''}</div></div>
+      <div><h3 class="font-bold">${e.title}</h3>
+      <p class="text-sm text-slate-600">📍 ${e.place||'-'}</p>
+      <p class="text-sm text-slate-600">${e.detail||''}</p></div>
+    </div>`).join('') : '<p class="text-slate-500">ยังไม่มีกิจกรรม</p>';
+}
+$('#fComplaint').onsubmit = async e => {
+  e.preventDefault();
+  const r = await fetch('/api/complaints',{method:'POST',body:new FormData(e.target)});
+  const j = await r.json();
+  if(j.ticket){ alert('ส่งเรื่องเรียบร้อย ✅\nเลขที่ติดตาม: '+j.ticket+'\nกรุณาบันทึกเลขนี้ไว้'); e.target.reset(); }
+  else alert(j.error);
+};
+$('#fDoc').onsubmit = async e => {
+  e.preventDefault();
+  const body = Object.fromEntries(new FormData(e.target));
+  const r = await fetch('/api/requests',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+  const j = await r.json();
+  if(j.ticket){ alert('ยื่นคำร้องเรียบร้อย ✅\nเลขที่ติดตาม: '+j.ticket); e.target.reset(); }
+  else alert(j.error);
+};
+async function track(){
+  const t = $('#tk').value.trim();
+  if(!t) return;
+  const r = await fetch('/api/track/'+encodeURIComponent(t));
+  const j = await r.json();
+  $('#trackResult').innerHTML = r.ok ? `
+    <div class="border rounded-lg p-4 bg-sky-50">
+      <p class="text-sm text-slate-500">${j.type}</p>
+      <p class="font-bold text-lg">${j.ticket}</p>
+      <p class="mt-2">สถานะ: <span class="font-semibold text-sky-700">${j.status}</span></p>
+      <p class="text-sm mt-1">${j.detail||j.doc_type||''}</p>
+      ${j.reply||j.note?`<p class="mt-2 text-sm bg-white p-3 rounded">💬 ${j.reply||j.note}</p>`:''}
+      <p class="text-xs text-slate-400 mt-2">ยื่นเมื่อ ${j.created_at} ${j.updated_at?'| อัปเดต '+j.updated_at:''}</p>
+    </div>` : `<p class="text-rose-600">${j.error}</p>`;
+}
+loadNews(); loadEvents();
+</script>
+</body>
+</html>
